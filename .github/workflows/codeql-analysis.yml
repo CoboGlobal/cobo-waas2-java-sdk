@@ -22,7 +22,7 @@ jobs:
         # Build the project using your build tool, e.g., Maven or Gradle
         # For Maven:
         # mvn --no-transfer-progress clean install
-    	# For Gradle:
+        # For Gradle:
         ./gradlew build
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
