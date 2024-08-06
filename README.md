@@ -1,4 +1,4 @@
-# cobo-waas2-java-sdk
+# cobo-waas2-java-sdk （Test）
 
 Cobo Wallet as a Service 2.0
 - API version: 1.0.0
