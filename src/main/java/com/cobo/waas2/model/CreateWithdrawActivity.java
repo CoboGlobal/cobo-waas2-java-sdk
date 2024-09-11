@@ -101,7 +101,7 @@ public class CreateWithdrawActivity {
   }
 
    /**
-   * The id of the related staking.
+   * The ID of the corresponding staking position.
    * @return stakingId
   **/
   @javax.annotation.Nonnull
@@ -120,7 +120,7 @@ public class CreateWithdrawActivity {
   }
 
    /**
-   * The amount to stake
+   * The amount to withdraw.
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class CreateWithdrawActivity {
   }
 
    /**
-   * The withdraw to address.
+   * The withdrawal address.
    * @return address
   **/
   @javax.annotation.Nullable

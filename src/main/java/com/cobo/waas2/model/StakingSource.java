@@ -12,10 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.CoboSafeDelegate;
-import com.cobo.waas2.model.ContractCallSourceType;
-import com.cobo.waas2.model.MpcContractCallSource;
-import com.cobo.waas2.model.SafeContractCallSource;
+import com.cobo.waas2.model.MpcStakeSource;
+import com.cobo.waas2.model.StakeSourceType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -75,8 +73,7 @@ public class StakingSource extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'StakingSource' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MpcContractCallSource> adapterMpcContractCallSource = gson.getDelegateAdapter(this, TypeToken.get(MpcContractCallSource.class));
-            final TypeAdapter<SafeContractCallSource> adapterSafeContractCallSource = gson.getDelegateAdapter(this, TypeToken.get(SafeContractCallSource.class));
+            final TypeAdapter<MpcStakeSource> adapterMpcStakeSource = gson.getDelegateAdapter(this, TypeToken.get(MpcStakeSource.class));
 
             return (TypeAdapter<T>) new TypeAdapter<StakingSource>() {
                 @Override
@@ -86,19 +83,13 @@ public class StakingSource extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `MpcContractCallSource`
-                    if (value.getActualInstance() instanceof MpcContractCallSource) {
-                        JsonElement element = adapterMpcContractCallSource.toJsonTree((MpcContractCallSource)value.getActualInstance());
+                    // check if the actual instance is of the type `MpcStakeSource`
+                    if (value.getActualInstance() instanceof MpcStakeSource) {
+                        JsonElement element = adapterMpcStakeSource.toJsonTree((MpcStakeSource)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `SafeContractCallSource`
-                    if (value.getActualInstance() instanceof SafeContractCallSource) {
-                        JsonElement element = adapterSafeContractCallSource.toJsonTree((SafeContractCallSource)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: MpcContractCallSource, SafeContractCallSource");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: MpcStakeSource");
                 }
 
                 @Override
@@ -116,27 +107,15 @@ public class StakingSource extends AbstractOpenApiSchema {
                         // look up the discriminator value in the field `source_type`
                         switch (jsonObject.get("source_type").getAsString()) {
                             case "Org-Controlled":
-                                deserialized = adapterMpcContractCallSource.fromJsonTree(jsonObject);
+                                deserialized = adapterMpcStakeSource.fromJsonTree(jsonObject);
                                 newStakingSource.setActualInstance(deserialized);
                                 return newStakingSource;
-                            case "Safe{Wallet}":
-                                deserialized = adapterSafeContractCallSource.fromJsonTree(jsonObject);
-                                newStakingSource.setActualInstance(deserialized);
-                                return newStakingSource;
-                            case "User-Controlled":
-                                deserialized = adapterMpcContractCallSource.fromJsonTree(jsonObject);
-                                newStakingSource.setActualInstance(deserialized);
-                                return newStakingSource;
-                            case "MpcContractCallSource":
-                                deserialized = adapterMpcContractCallSource.fromJsonTree(jsonObject);
-                                newStakingSource.setActualInstance(deserialized);
-                                return newStakingSource;
-                            case "SafeContractCallSource":
-                                deserialized = adapterSafeContractCallSource.fromJsonTree(jsonObject);
+                            case "MpcStakeSource":
+                                deserialized = adapterMpcStakeSource.fromJsonTree(jsonObject);
                                 newStakingSource.setActualInstance(deserialized);
                                 return newStakingSource;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for StakingSource. Possible values: Org-Controlled Safe{Wallet} User-Controlled MpcContractCallSource SafeContractCallSource", jsonObject.get("source_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for StakingSource. Possible values: Org-Controlled MpcStakeSource", jsonObject.get("source_type").getAsString()));
                         }
                     }
 
@@ -144,29 +123,17 @@ public class StakingSource extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize MpcContractCallSource
+                    // deserialize MpcStakeSource
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        MpcContractCallSource.validateJsonElement(jsonElement);
-                        actualAdapter = adapterMpcContractCallSource;
+                        MpcStakeSource.validateJsonElement(jsonElement);
+                        actualAdapter = adapterMpcStakeSource;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'MpcContractCallSource'");
+                        log.log(Level.FINER, "Input data matches schema 'MpcStakeSource'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for MpcContractCallSource failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'MpcContractCallSource'", e);
-                    }
-                    // deserialize SafeContractCallSource
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        SafeContractCallSource.validateJsonElement(jsonElement);
-                        actualAdapter = adapterSafeContractCallSource;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'SafeContractCallSource'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for SafeContractCallSource failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'SafeContractCallSource'", e);
+                        errorMessages.add(String.format("Deserialization for MpcStakeSource failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'MpcStakeSource'", e);
                     }
 
                     if (match == 1) {
@@ -188,19 +155,13 @@ public class StakingSource extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
-    public StakingSource(MpcContractCallSource o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public StakingSource(SafeContractCallSource o) {
+    public StakingSource(MpcStakeSource o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("MpcContractCallSource", MpcContractCallSource.class);
-        schemas.put("SafeContractCallSource", SafeContractCallSource.class);
+        schemas.put("MpcStakeSource", MpcStakeSource.class);
     }
 
     @Override
@@ -211,30 +172,25 @@ public class StakingSource extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * MpcContractCallSource, SafeContractCallSource
+     * MpcStakeSource
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof MpcContractCallSource) {
+        if (instance instanceof MpcStakeSource) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof SafeContractCallSource) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be MpcContractCallSource, SafeContractCallSource");
+        throw new RuntimeException("Invalid instance type. Must be MpcStakeSource");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * MpcContractCallSource, SafeContractCallSource
+     * MpcStakeSource
      *
-     * @return The actual instance (MpcContractCallSource, SafeContractCallSource)
+     * @return The actual instance (MpcStakeSource)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -243,24 +199,14 @@ public class StakingSource extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `MpcContractCallSource`. If the actual instance is not `MpcContractCallSource`,
+     * Get the actual instance of `MpcStakeSource`. If the actual instance is not `MpcStakeSource`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `MpcContractCallSource`
-     * @throws ClassCastException if the instance is not `MpcContractCallSource`
+     * @return The actual instance of `MpcStakeSource`
+     * @throws ClassCastException if the instance is not `MpcStakeSource`
      */
-    public MpcContractCallSource getMpcContractCallSource() throws ClassCastException {
-        return (MpcContractCallSource)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `SafeContractCallSource`. If the actual instance is not `SafeContractCallSource`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `SafeContractCallSource`
-     * @throws ClassCastException if the instance is not `SafeContractCallSource`
-     */
-    public SafeContractCallSource getSafeContractCallSource() throws ClassCastException {
-        return (SafeContractCallSource)super.getActualInstance();
+    public MpcStakeSource getMpcStakeSource() throws ClassCastException {
+        return (MpcStakeSource)super.getActualInstance();
     }
 
     /**
@@ -273,24 +219,16 @@ public class StakingSource extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with MpcContractCallSource
+        // validate the json string with MpcStakeSource
         try {
-            MpcContractCallSource.validateJsonElement(jsonElement);
+            MpcStakeSource.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for MpcContractCallSource failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with SafeContractCallSource
-        try {
-            SafeContractCallSource.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for SafeContractCallSource failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for MpcStakeSource failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for StakingSource with oneOf schemas: MpcContractCallSource, SafeContractCallSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for StakingSource with oneOf schemas: MpcStakeSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

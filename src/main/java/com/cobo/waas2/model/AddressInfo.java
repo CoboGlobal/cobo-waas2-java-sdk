@@ -77,6 +77,18 @@ public class AddressInfo {
   @SerializedName(SERIALIZED_NAME_PUBKEY)
   private String pubkey;
 
+  public static final String SERIALIZED_NAME_X_ONLY_PUBKEY = "x_only_pubkey";
+  @SerializedName(SERIALIZED_NAME_X_ONLY_PUBKEY)
+  private String xOnlyPubkey;
+
+  public static final String SERIALIZED_NAME_TAPROOT_SCRIPT_TREE_HASH = "taproot_script_tree_hash";
+  @SerializedName(SERIALIZED_NAME_TAPROOT_SCRIPT_TREE_HASH)
+  private String taprootScriptTreeHash;
+
+  public static final String SERIALIZED_NAME_TAPROOT_INTERNAL_ADDRESS = "taproot_internal_address";
+  @SerializedName(SERIALIZED_NAME_TAPROOT_INTERNAL_ADDRESS)
+  private String taprootInternalAddress;
+
   public AddressInfo() {
   }
 
@@ -193,6 +205,63 @@ public class AddressInfo {
     this.pubkey = pubkey;
   }
 
+
+  public AddressInfo xOnlyPubkey(String xOnlyPubkey) {
+    this.xOnlyPubkey = xOnlyPubkey;
+    return this;
+  }
+
+   /**
+   * The 32-byte x-only public key in hexadecimal format after tweaking.
+   * @return xOnlyPubkey
+  **/
+  @javax.annotation.Nullable
+  public String getxOnlyPubkey() {
+    return xOnlyPubkey;
+  }
+
+  public void setxOnlyPubkey(String xOnlyPubkey) {
+    this.xOnlyPubkey = xOnlyPubkey;
+  }
+
+
+  public AddressInfo taprootScriptTreeHash(String taprootScriptTreeHash) {
+    this.taprootScriptTreeHash = taprootScriptTreeHash;
+    return this;
+  }
+
+   /**
+   * The information about a tweaked address.
+   * @return taprootScriptTreeHash
+  **/
+  @javax.annotation.Nullable
+  public String getTaprootScriptTreeHash() {
+    return taprootScriptTreeHash;
+  }
+
+  public void setTaprootScriptTreeHash(String taprootScriptTreeHash) {
+    this.taprootScriptTreeHash = taprootScriptTreeHash;
+  }
+
+
+  public AddressInfo taprootInternalAddress(String taprootInternalAddress) {
+    this.taprootInternalAddress = taprootInternalAddress;
+    return this;
+  }
+
+   /**
+   * The original address that to be tweaked.
+   * @return taprootInternalAddress
+  **/
+  @javax.annotation.Nullable
+  public String getTaprootInternalAddress() {
+    return taprootInternalAddress;
+  }
+
+  public void setTaprootInternalAddress(String taprootInternalAddress) {
+    this.taprootInternalAddress = taprootInternalAddress;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -253,13 +322,16 @@ public class AddressInfo {
         Objects.equals(this.memo, addressInfo.memo) &&
         Objects.equals(this.path, addressInfo.path) &&
         Objects.equals(this.encoding, addressInfo.encoding) &&
-        Objects.equals(this.pubkey, addressInfo.pubkey)&&
+        Objects.equals(this.pubkey, addressInfo.pubkey) &&
+        Objects.equals(this.xOnlyPubkey, addressInfo.xOnlyPubkey) &&
+        Objects.equals(this.taprootScriptTreeHash, addressInfo.taprootScriptTreeHash) &&
+        Objects.equals(this.taprootInternalAddress, addressInfo.taprootInternalAddress)&&
         Objects.equals(this.additionalProperties, addressInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, chainId, memo, path, encoding, pubkey, additionalProperties);
+    return Objects.hash(address, chainId, memo, path, encoding, pubkey, xOnlyPubkey, taprootScriptTreeHash, taprootInternalAddress, additionalProperties);
   }
 
   @Override
@@ -272,6 +344,9 @@ public class AddressInfo {
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    pubkey: ").append(toIndentedString(pubkey)).append("\n");
+    sb.append("    xOnlyPubkey: ").append(toIndentedString(xOnlyPubkey)).append("\n");
+    sb.append("    taprootScriptTreeHash: ").append(toIndentedString(taprootScriptTreeHash)).append("\n");
+    sb.append("    taprootInternalAddress: ").append(toIndentedString(taprootInternalAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -301,6 +376,9 @@ public class AddressInfo {
     openapiFields.add("path");
     openapiFields.add("encoding");
     openapiFields.add("pubkey");
+    openapiFields.add("x_only_pubkey");
+    openapiFields.add("taproot_script_tree_hash");
+    openapiFields.add("taproot_internal_address");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -346,6 +424,15 @@ public class AddressInfo {
       }
       if ((jsonObj.get("pubkey") != null && !jsonObj.get("pubkey").isJsonNull()) && !jsonObj.get("pubkey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pubkey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pubkey").toString()));
+      }
+      if ((jsonObj.get("x_only_pubkey") != null && !jsonObj.get("x_only_pubkey").isJsonNull()) && !jsonObj.get("x_only_pubkey").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `x_only_pubkey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("x_only_pubkey").toString()));
+      }
+      if ((jsonObj.get("taproot_script_tree_hash") != null && !jsonObj.get("taproot_script_tree_hash").isJsonNull()) && !jsonObj.get("taproot_script_tree_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `taproot_script_tree_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taproot_script_tree_hash").toString()));
+      }
+      if ((jsonObj.get("taproot_internal_address") != null && !jsonObj.get("taproot_internal_address").isJsonNull()) && !jsonObj.get("taproot_internal_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `taproot_internal_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taproot_internal_address").toString()));
       }
   }
 

@@ -111,7 +111,7 @@ public class AddressTransferDestinationAccountOutput {
   }
 
    /**
-   * The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;. 
+   * The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;. 
    * @return amount
   **/
   @javax.annotation.Nonnull

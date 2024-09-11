@@ -2,7 +2,7 @@
 
 # TransactionMessageSignEIP712Destination
 
-Information about the transaction destination type `EVM_EIP_712_Signature`. 
+Information about the transaction destination type `EVM_EIP_712_Signature`. Switch between the tabs to display the properties for different transaction destinations. 
 
 ## Properties
 

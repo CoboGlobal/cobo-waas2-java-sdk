@@ -4,7 +4,9 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**broadcastSignedTransactions**](TransactionsApi.md#broadcastSignedTransactions) | **POST** /transactions/broadcast | Broadcast signed transactions |
 | [**cancelTransactionById**](TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction |
+| [**checkLoopTransfers**](TransactionsApi.md#checkLoopTransfers) | **GET** /transactions/check_loop_transfers | Check Loop transfers |
 | [**createContractCallTransaction**](TransactionsApi.md#createContractCallTransaction) | **POST** /transactions/contract_call | Call smart contract |
 | [**createMessageSignTransaction**](TransactionsApi.md#createMessageSignTransaction) | **POST** /transactions/message_sign | Sign message |
 | [**createTransferTransaction**](TransactionsApi.md#createTransferTransaction) | **POST** /transactions/transfer | Transfer token |
@@ -15,6 +17,74 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**resendTransactionById**](TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction |
 | [**speedupTransactionById**](TransactionsApi.md#speedupTransactionById) | **POST** /transactions/{transaction_id}/speedup | Speed up transaction |
 
+
+<a id="broadcastSignedTransactions"></a>
+# **broadcastSignedTransactions**
+> List&lt;BroadcastSignedTransactions201ResponseInner&gt; broadcastSignedTransactions(broadcastSignedTransactionsRequest)
+
+Broadcast signed transactions
+
+&lt;Note&gt;This operation is only applicable to the staking scenarios.&lt;/Note&gt; This operation broadcasts a list of signed transactions.   If you set &#x60;auto_broadcast&#x60; to &#x60;false&#x60; when [creating a staking activity](/v2/api-references/staking/create-stake-activity), the transaction will not be submitted to the blockchain automatically after being signed. In such cases, you can call this operation to broadcast the transaction to the blockchain.  A transaction can only be broadcast if its status is &#x60;Broadcasting&#x60;. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.TransactionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    TransactionsApi apiInstance = new TransactionsApi();
+    BroadcastSignedTransactionsRequest broadcastSignedTransactionsRequest = new BroadcastSignedTransactionsRequest();
+    try {
+      List<BroadcastSignedTransactions201ResponseInner> result = apiInstance.broadcastSignedTransactions(broadcastSignedTransactionsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TransactionsApi#broadcastSignedTransactions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **broadcastSignedTransactionsRequest** | [**BroadcastSignedTransactionsRequest**](BroadcastSignedTransactionsRequest.md)| The request body to broadcast a list of signed transactions. | [optional] |
+
+### Return type
+
+[**List&lt;BroadcastSignedTransactions201ResponseInner&gt;**](BroadcastSignedTransactions201ResponseInner.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
 
 <a id="cancelTransactionById"></a>
 # **cancelTransactionById**
@@ -31,6 +101,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.TransactionsApi;
 
 public class Example {
@@ -83,6 +154,78 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
+<a id="checkLoopTransfers"></a>
+# **checkLoopTransfers**
+> List&lt;CheckLoopTransfers200ResponseInner&gt; checkLoopTransfers(tokenId, sourceWalletId, destinationAddresses)
+
+Check Loop transfers
+
+This operation verifies if the transactions from a given source wallet to a list of given destinations can be executed as Loop transfers.   For more information about Loop, see [Loop&#39;s website](https://loop.top/). 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.TransactionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    TransactionsApi apiInstance = new TransactionsApi();
+    String tokenId = "ETH_USDT";
+    UUID sourceWalletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
+    String destinationAddresses = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045,0x4838B106FCe9647Bdf1E7877BF73cE8B0BAD5f97";
+    try {
+      List<CheckLoopTransfers200ResponseInner> result = apiInstance.checkLoopTransfers(tokenId, sourceWalletId, destinationAddresses);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TransactionsApi#checkLoopTransfers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tokenId** | **String**| The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens). | |
+| **sourceWalletId** | **UUID**| The wallet ID of the transaction source. | |
+| **destinationAddresses** | **String**| A list of destination addresses, separated by comma. | |
+
+### Return type
+
+[**List&lt;CheckLoopTransfers200ResponseInner&gt;**](CheckLoopTransfers200ResponseInner.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
 <a id="createContractCallTransaction"></a>
 # **createContractCallTransaction**
 > CreateTransferTransaction201Response createContractCallTransaction(contractCallParams)
@@ -98,6 +241,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.TransactionsApi;
 
 public class Example {
@@ -165,6 +309,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.TransactionsApi;
 
 public class Example {
@@ -232,6 +377,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.TransactionsApi;
 
 public class Example {
@@ -290,7 +436,7 @@ public class Example {
 
 Drop transaction
 
-This operation drops a specified transaction.   Dropping a transaction will trigger an Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It has a higher transaction fee to incentivize miners to prioritize its confirmation over the original one. A transaction can be dropped if its status is &#x60;Broadcasting&#x60;.  &lt;ul&gt; &lt;li&gt;For EVM chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the sending address is the same as the receiving address.&lt;/li&gt; &lt;li&gt;For UTXO chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the destination address is the same as the change address in the original transaction.&lt;/li&gt; &lt;/ul&gt;  A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you drop a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
+This operation drops a specified transaction.   Dropping a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It has a higher transaction fee to incentivize miners to prioritize its confirmation over the original one. A transaction can be dropped if its status is &#x60;Broadcasting&#x60;.  &lt;ul&gt; &lt;li&gt;For EVM chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the sending address is the same as the receiving address.&lt;/li&gt; &lt;li&gt;For UTXO chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the destination address is the same as the change address in the original transaction.&lt;/li&gt; &lt;/ul&gt;  A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you drop a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
 
 ### Example
 ```java
@@ -299,6 +445,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.TransactionsApi;
 
 public class Example {
@@ -368,6 +515,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.TransactionsApi;
 
 public class Example {
@@ -435,6 +583,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.TransactionsApi;
 
 public class Example {
@@ -502,6 +651,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.TransactionsApi;
 
 public class Example {
@@ -601,6 +751,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.TransactionsApi;
 
 public class Example {
@@ -661,7 +812,7 @@ public class Example {
 
 Speed up transaction
 
-This operation accelerates a specified transaction.   Speeding up a transaction will trigger an Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It shares the same inputs but has a higher transaction fee to incentivize miners to prioritize its confirmation over the previous one. A transaction can be accelerated if its status is &#x60;Broadcasting&#x60;.  A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
+This operation accelerates a specified transaction.   Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It shares the same inputs but has a higher transaction fee to incentivize miners to prioritize its confirmation over the previous one. A transaction can be accelerated if its status is &#x60;Broadcasting&#x60;.  A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
 
 ### Example
 ```java
@@ -670,6 +821,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.TransactionsApi;
 
 public class Example {

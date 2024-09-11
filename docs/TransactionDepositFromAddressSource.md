@@ -2,7 +2,7 @@
 
 # TransactionDepositFromAddressSource
 
-Information about the transaction source type `DepositFromAddress`. 
+Information about the transaction source type `DepositFromAddress`. Switch between the tabs to display the properties for different transaction sources. 
 
 ## Properties
 

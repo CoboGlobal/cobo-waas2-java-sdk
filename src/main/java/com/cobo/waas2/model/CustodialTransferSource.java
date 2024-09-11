@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the transaction source types &#x60;Asset&#x60; and &#x60;Web3&#x60;.
+ * The information about the transaction source types &#x60;Asset&#x60; and &#x60;Web3&#x60;. Switch between the tabs to display the properties for different transaction sources.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

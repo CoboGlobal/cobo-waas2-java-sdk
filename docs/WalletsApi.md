@@ -6,7 +6,6 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 |------------- | ------------- | -------------|
 | [**checkAddressValidity**](WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity |
 | [**checkAddressesValidity**](WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity |
-| [**checkLoopTransfers**](WalletsApi.md#checkLoopTransfers) | **GET** /wallets/check_loop_transfers | Check Loop transfers |
 | [**createAddress**](WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet |
 | [**createWallet**](WalletsApi.md#createWallet) | **POST** /wallets | Create wallet |
 | [**deleteWalletById**](WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet |
@@ -44,6 +43,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -113,6 +113,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -167,77 +168,6 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
-<a id="checkLoopTransfers"></a>
-# **checkLoopTransfers**
-> List&lt;CheckLoopTransfers200ResponseInner&gt; checkLoopTransfers(tokenId, sourceWalletId, destinationAddresses)
-
-Check Loop transfers
-
-This operation verifies if the transactions from a given source wallet to a list of destination addresses can be executed as Loop transfers.   For more information about Loop, see [Loop&#39;s website](https://loop.top/). 
-
-### Example
-```java
-// Import classes:
-import com.cobo.waas2.ApiClient;
-import com.cobo.waas2.ApiException;
-import com.cobo.waas2.Configuration;
-import com.cobo.waas2.model.*;
-import com.cobo.waas2.api.WalletsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
-    defaultClient.setEnv(Env.DEV);
-
-    // Replace `<YOUR_PRIVATE_KEY>` with your private key
-    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
-    WalletsApi apiInstance = new WalletsApi();
-    String tokenId = "ETH_USDT";
-    UUID sourceWalletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
-    String destinationAddresses = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045,0x4838B106FCe9647Bdf1E7877BF73cE8B0BAD5f97";
-    try {
-      List<CheckLoopTransfers200ResponseInner> result = apiInstance.checkLoopTransfers(tokenId, sourceWalletId, destinationAddresses);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WalletsApi#checkLoopTransfers");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tokenId** | **String**| The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens). | |
-| **sourceWalletId** | **UUID**| The source wallet ID. | |
-| **destinationAddresses** | **String**| A list of destination wallet addresses, separated by comma. | |
-
-### Return type
-
-[**List&lt;CheckLoopTransfers200ResponseInner&gt;**](CheckLoopTransfers200ResponseInner.md)
-
-### Authorization
-
-[CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | The request was successful. |  -  |
-| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
-| **5XX** | Internal server error. |  -  |
-
 <a id="createAddress"></a>
 # **createAddress**
 > List&lt;AddressInfo&gt; createAddress(walletId, createAddressRequest)
@@ -253,6 +183,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -322,6 +253,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -389,6 +321,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -456,6 +389,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -525,6 +459,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -592,6 +527,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -667,6 +603,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -734,6 +671,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -801,6 +739,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -878,6 +817,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -953,6 +893,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1030,6 +971,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1107,6 +1049,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1186,6 +1129,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1263,6 +1207,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1338,6 +1283,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1415,6 +1361,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1494,6 +1441,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1563,6 +1511,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1632,6 +1581,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {

@@ -2,7 +2,7 @@
 
 # TransactionUtxoFee
 
-The transaction fee actually charged by the chain that uses the UTXO fee model, such as Bitcoin. The transaction fee is calculated by multiplying the fee rate by the transaction size. This can be expressed as: Transaction fee = fee rate * transaction size. 
+The transaction fee actually charged by the chain that uses the UTXO fee model, such as Bitcoin.  The transaction fee is calculated by multiplying the fee rate by the transaction size. This can be expressed as: Transaction fee = fee rate * transaction size.  Switch between the tabs to display the properties for different transaction fee models. 
 
 ## Properties
 

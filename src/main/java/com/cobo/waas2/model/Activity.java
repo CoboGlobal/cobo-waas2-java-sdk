@@ -15,6 +15,7 @@ import java.util.Objects;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityTimeline;
 import com.cobo.waas2.model.ActivityType;
+import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -65,6 +66,10 @@ public class Activity {
   public static final String SERIALIZED_NAME_INITIATOR = "initiator";
   @SerializedName(SERIALIZED_NAME_INITIATOR)
   private String initiator;
+
+  public static final String SERIALIZED_NAME_INITIATOR_TYPE = "initiator_type";
+  @SerializedName(SERIALIZED_NAME_INITIATOR_TYPE)
+  private TransactionInitiatorType initiatorType;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -127,7 +132,7 @@ public class Activity {
   }
 
    /**
-   * The unique id of the activity.
+   * The activity ID.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -159,6 +164,25 @@ public class Activity {
   }
 
 
+  public Activity initiatorType(TransactionInitiatorType initiatorType) {
+    this.initiatorType = initiatorType;
+    return this;
+  }
+
+   /**
+   * Get initiatorType
+   * @return initiatorType
+  **/
+  @javax.annotation.Nullable
+  public TransactionInitiatorType getInitiatorType() {
+    return initiatorType;
+  }
+
+  public void setInitiatorType(TransactionInitiatorType initiatorType) {
+    this.initiatorType = initiatorType;
+  }
+
+
   public Activity type(ActivityType type) {
     this.type = type;
     return this;
@@ -184,7 +208,7 @@ public class Activity {
   }
 
    /**
-   * The id of the wallet to stake.
+   * The staker&#39;s wallet ID.
    * @return walletId
   **/
   @javax.annotation.Nullable
@@ -203,7 +227,7 @@ public class Activity {
   }
 
    /**
-   * The staker wallet address.
+   * The staker&#39;s wallet address.
    * @return address
   **/
   @javax.annotation.Nullable
@@ -222,7 +246,7 @@ public class Activity {
   }
 
    /**
-   * The id of the staking pool.
+   * The ID of the staking pool.
    * @return poolId
   **/
   @javax.annotation.Nonnull
@@ -241,7 +265,7 @@ public class Activity {
   }
 
    /**
-   * The id of the token.
+   * The token ID.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -260,7 +284,7 @@ public class Activity {
   }
 
    /**
-   * The id of the related staking.
+   * The ID of the corresponding staking position.
    * @return stakingId
   **/
   @javax.annotation.Nullable
@@ -279,7 +303,7 @@ public class Activity {
   }
 
    /**
-   * The amount of the activity.
+   * The staking amount.
    * @return amount
   **/
   @javax.annotation.Nonnull
@@ -306,7 +330,7 @@ public class Activity {
   }
 
    /**
-   * The related txs of the activity.
+   * The IDs of the corresponding transactions of the activity.
    * @return transactionIds
   **/
   @javax.annotation.Nullable
@@ -478,6 +502,7 @@ public class Activity {
     Activity activity = (Activity) o;
     return Objects.equals(this.id, activity.id) &&
         Objects.equals(this.initiator, activity.initiator) &&
+        Objects.equals(this.initiatorType, activity.initiatorType) &&
         Objects.equals(this.type, activity.type) &&
         Objects.equals(this.walletId, activity.walletId) &&
         Objects.equals(this.address, activity.address) &&
@@ -496,7 +521,7 @@ public class Activity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, initiator, type, walletId, address, poolId, tokenId, stakingId, amount, transactionIds, timeline, fee, status, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(id, initiator, initiatorType, type, walletId, address, poolId, tokenId, stakingId, amount, transactionIds, timeline, fee, status, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -505,6 +530,7 @@ public class Activity {
     sb.append("class Activity {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
+    sb.append("    initiatorType: ").append(toIndentedString(initiatorType)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
@@ -543,6 +569,7 @@ public class Activity {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("initiator");
+    openapiFields.add("initiator_type");
     openapiFields.add("type");
     openapiFields.add("wallet_id");
     openapiFields.add("address");
@@ -590,6 +617,10 @@ public class Activity {
       }
       if ((jsonObj.get("initiator") != null && !jsonObj.get("initiator").isJsonNull()) && !jsonObj.get("initiator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiator").toString()));
+      }
+      // validate the optional field `initiator_type`
+      if (jsonObj.get("initiator_type") != null && !jsonObj.get("initiator_type").isJsonNull()) {
+        TransactionInitiatorType.validateJsonElement(jsonObj.get("initiator_type"));
       }
       // validate the optional field `type`
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {

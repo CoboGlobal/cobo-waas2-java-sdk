@@ -2,7 +2,7 @@
 
 # TransactionMessageSignEIP191Destination
 
-Information about the transaction destination type `EVM_EIP_191_Signature`. 
+Information about the transaction destination type `EVM_EIP_191_Signature`. Switch between the tabs to display the properties for different transaction destinations. 
 
 ## Properties
 

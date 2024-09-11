@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The transaction fee actually charged by the chain that uses the EIP-1559 fee model.  The transaction fee is calculated by multiplying the gas price by the used gas units. This can be expressed as: Transaction fee &#x3D; gas price * used gas units. 
+ * The transaction fee actually charged by the chain that uses the EIP-1559 fee model.   The transaction fee is calculated by multiplying the gas price by the used gas units. This can be expressed as: Transaction fee &#x3D; gas price * used gas units.  Switch between the tabs to display the properties for different transaction fee models. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

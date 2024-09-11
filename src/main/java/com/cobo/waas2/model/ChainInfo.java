@@ -76,6 +76,10 @@ public class ChainInfo {
   @SerializedName(SERIALIZED_NAME_REQUIRE_MEMO)
   private Boolean requireMemo;
 
+  public static final String SERIALIZED_NAME_CONFIRMING_THRESHOLD = "confirming_threshold";
+  @SerializedName(SERIALIZED_NAME_CONFIRMING_THRESHOLD)
+  private Integer confirmingThreshold;
+
   public ChainInfo() {
   }
 
@@ -192,6 +196,25 @@ public class ChainInfo {
     this.requireMemo = requireMemo;
   }
 
+
+  public ChainInfo confirmingThreshold(Integer confirmingThreshold) {
+    this.confirmingThreshold = confirmingThreshold;
+    return this;
+  }
+
+   /**
+   * Number of confirmations required for a transaction, such as 64 for ETH chain.
+   * @return confirmingThreshold
+  **/
+  @javax.annotation.Nullable
+  public Integer getConfirmingThreshold() {
+    return confirmingThreshold;
+  }
+
+  public void setConfirmingThreshold(Integer confirmingThreshold) {
+    this.confirmingThreshold = confirmingThreshold;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -252,13 +275,14 @@ public class ChainInfo {
         Objects.equals(this.iconUrl, chainInfo.iconUrl) &&
         Objects.equals(this.explorerTxUrl, chainInfo.explorerTxUrl) &&
         Objects.equals(this.explorerAddressUrl, chainInfo.explorerAddressUrl) &&
-        Objects.equals(this.requireMemo, chainInfo.requireMemo)&&
+        Objects.equals(this.requireMemo, chainInfo.requireMemo) &&
+        Objects.equals(this.confirmingThreshold, chainInfo.confirmingThreshold)&&
         Objects.equals(this.additionalProperties, chainInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chainId, symbol, iconUrl, explorerTxUrl, explorerAddressUrl, requireMemo, additionalProperties);
+    return Objects.hash(chainId, symbol, iconUrl, explorerTxUrl, explorerAddressUrl, requireMemo, confirmingThreshold, additionalProperties);
   }
 
   @Override
@@ -271,6 +295,7 @@ public class ChainInfo {
     sb.append("    explorerTxUrl: ").append(toIndentedString(explorerTxUrl)).append("\n");
     sb.append("    explorerAddressUrl: ").append(toIndentedString(explorerAddressUrl)).append("\n");
     sb.append("    requireMemo: ").append(toIndentedString(requireMemo)).append("\n");
+    sb.append("    confirmingThreshold: ").append(toIndentedString(confirmingThreshold)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -300,6 +325,7 @@ public class ChainInfo {
     openapiFields.add("explorer_tx_url");
     openapiFields.add("explorer_address_url");
     openapiFields.add("require_memo");
+    openapiFields.add("confirming_threshold");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

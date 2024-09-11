@@ -2,7 +2,7 @@
 
 # TransactionMPCWalletSource
 
-Information about the transaction source type `Org-Controlled` and `User-Controlled`. 
+Information about the transaction source type `Org-Controlled` and `User-Controlled`. Switch between the tabs to display the properties for different transaction sources. 
 
 ## Properties
 

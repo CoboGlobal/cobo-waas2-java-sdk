@@ -14,6 +14,7 @@ The chain information.
 |**explorerTxUrl** | **String** | The transaction URL pattern on the blockchain explorer. You can use it to concatenate the transaction URLs. |  [optional] |
 |**explorerAddressUrl** | **String** | The address URL pattern on the blockchain explorer. You can use it to concatenate the address URLs. |  [optional] |
 |**requireMemo** | **Boolean** | Whether the chain requires a memo. |  [optional] |
+|**confirmingThreshold** | **Integer** | Number of confirmations required for a transaction, such as 64 for ETH chain. |  [optional] |
 
 
 

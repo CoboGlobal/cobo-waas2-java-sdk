@@ -48,7 +48,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;. 
+ * Information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;. Switch between the tabs to display the properties for different transaction sources. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

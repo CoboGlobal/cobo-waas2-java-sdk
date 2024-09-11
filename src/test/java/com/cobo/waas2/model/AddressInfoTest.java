@@ -84,4 +84,28 @@ public class AddressInfoTest {
         // TODO: test pubkey
     }
 
+    /**
+     * Test the property 'xOnlyPubkey'
+     */
+    @Test
+    public void xOnlyPubkeyTest() {
+        // TODO: test xOnlyPubkey
+    }
+
+    /**
+     * Test the property 'taprootScriptTreeHash'
+     */
+    @Test
+    public void taprootScriptTreeHashTest() {
+        // TODO: test taprootScriptTreeHash
+    }
+
+    /**
+     * Test the property 'taprootInternalAddress'
+     */
+    @Test
+    public void taprootInternalAddressTest() {
+        // TODO: test taprootInternalAddress
+    }
+
 }

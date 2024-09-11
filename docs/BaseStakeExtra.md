@@ -2,7 +2,7 @@
 
 # BaseStakeExtra
 
-Base stake extra.
+The base information about a staking protocol.
 
 ## Properties
 

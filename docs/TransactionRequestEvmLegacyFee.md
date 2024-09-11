@@ -2,7 +2,7 @@
 
 # TransactionRequestEvmLegacyFee
 
-In the legacy fee model, the transaction fee is calculated by multiplying the gas price by the gas units used by the transaction. This can be expressed as: Transaction fee =  (gas price * gas units used).   You can specify the gas limit to limit the gas units used in the transaction. 
+The preset properties to limit transaction fee.  In the legacy fee model, the transaction fee is calculated by multiplying the gas price by the gas units used by the transaction. This can be expressed as: Transaction fee =  (gas price * gas units used).   You can specify the gas limit to limit the gas units used in the transaction.  Switch between the tabs to display the properties for different transaction fee models. 
 
 ## Properties
 

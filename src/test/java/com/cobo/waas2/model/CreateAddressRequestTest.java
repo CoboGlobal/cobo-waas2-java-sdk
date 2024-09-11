@@ -53,6 +53,22 @@ public class CreateAddressRequestTest {
     }
 
     /**
+     * Test the property 'taprootScriptTreeHash'
+     */
+    @Test
+    public void taprootScriptTreeHashTest() {
+        // TODO: test taprootScriptTreeHash
+    }
+
+    /**
+     * Test the property 'taprootInternalAddress'
+     */
+    @Test
+    public void taprootInternalAddressTest() {
+        // TODO: test taprootInternalAddress
+    }
+
+    /**
      * Test the property 'encoding'
      */
     @Test

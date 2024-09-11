@@ -22,17 +22,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets StakingPoolType
+ * The type of the staking pool.
  */
 @JsonAdapter(StakingPoolType.Adapter.class)
 public enum StakingPoolType {
   UNKNOWN(null),
   
-  BABYLON("Babylon"),
-  
-  EIGENLAYERNATIVEETH("EigenLayerNativeETH"),
-  
-  EIGENLAYERLST("EigenLayerLst");
+  BABYLON("Babylon");
 
   private String value;
 

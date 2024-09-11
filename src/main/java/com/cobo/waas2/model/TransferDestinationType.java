@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The transaction destination type. Possible values include: - &#x60;Address&#x60;: An address, including an address of Custodial Wallets, MPC Wallets, or Smart Contract Wallets (Safe{Wallet}) and an external address. - &#x60;ExchangeWallet&#x60;: An Exchange Wallet. 
+ * The transaction destination type. Refer to [Transaction sources and destinations](/v2/guides/sources-and-destinations) for details. 
  */
 @JsonAdapter(TransferDestinationType.Adapter.class)
 public enum TransferDestinationType {

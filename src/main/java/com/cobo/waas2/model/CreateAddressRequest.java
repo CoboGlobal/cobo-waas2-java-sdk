@@ -61,6 +61,14 @@ public class CreateAddressRequest {
   @SerializedName(SERIALIZED_NAME_COUNT)
   private Integer count = 1;
 
+  public static final String SERIALIZED_NAME_TAPROOT_SCRIPT_TREE_HASH = "taproot_script_tree_hash";
+  @SerializedName(SERIALIZED_NAME_TAPROOT_SCRIPT_TREE_HASH)
+  private String taprootScriptTreeHash;
+
+  public static final String SERIALIZED_NAME_TAPROOT_INTERNAL_ADDRESS = "taproot_internal_address";
+  @SerializedName(SERIALIZED_NAME_TAPROOT_INTERNAL_ADDRESS)
+  private String taprootInternalAddress;
+
   public static final String SERIALIZED_NAME_ENCODING = "encoding";
   @SerializedName(SERIALIZED_NAME_ENCODING)
   private AddressEncoding encoding;
@@ -93,7 +101,7 @@ public class CreateAddressRequest {
   }
 
    /**
-   * The number of addresses to create.
+   * The number of addresses to create. If you want to generate a tweaked address, &#x60;count&#x60; can only be &#x60;1&#x60;.
    * minimum: 1
    * maximum: 50
    * @return count
@@ -105,6 +113,44 @@ public class CreateAddressRequest {
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+
+  public CreateAddressRequest taprootScriptTreeHash(String taprootScriptTreeHash) {
+    this.taprootScriptTreeHash = taprootScriptTreeHash;
+    return this;
+  }
+
+   /**
+   * The information about the new address. This parameter is required only if you want to generate a tweaked address.
+   * @return taprootScriptTreeHash
+  **/
+  @javax.annotation.Nullable
+  public String getTaprootScriptTreeHash() {
+    return taprootScriptTreeHash;
+  }
+
+  public void setTaprootScriptTreeHash(String taprootScriptTreeHash) {
+    this.taprootScriptTreeHash = taprootScriptTreeHash;
+  }
+
+
+  public CreateAddressRequest taprootInternalAddress(String taprootInternalAddress) {
+    this.taprootInternalAddress = taprootInternalAddress;
+    return this;
+  }
+
+   /**
+   * The address you want to tweak. This parameter is required only if you want to generate a tweaked address.
+   * @return taprootInternalAddress
+  **/
+  @javax.annotation.Nullable
+  public String getTaprootInternalAddress() {
+    return taprootInternalAddress;
+  }
+
+  public void setTaprootInternalAddress(String taprootInternalAddress) {
+    this.taprootInternalAddress = taprootInternalAddress;
   }
 
 
@@ -183,13 +229,15 @@ public class CreateAddressRequest {
     CreateAddressRequest createAddressRequest = (CreateAddressRequest) o;
     return Objects.equals(this.chainId, createAddressRequest.chainId) &&
         Objects.equals(this.count, createAddressRequest.count) &&
+        Objects.equals(this.taprootScriptTreeHash, createAddressRequest.taprootScriptTreeHash) &&
+        Objects.equals(this.taprootInternalAddress, createAddressRequest.taprootInternalAddress) &&
         Objects.equals(this.encoding, createAddressRequest.encoding)&&
         Objects.equals(this.additionalProperties, createAddressRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chainId, count, encoding, additionalProperties);
+    return Objects.hash(chainId, count, taprootScriptTreeHash, taprootInternalAddress, encoding, additionalProperties);
   }
 
   @Override
@@ -198,6 +246,8 @@ public class CreateAddressRequest {
     sb.append("class CreateAddressRequest {\n");
     sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    taprootScriptTreeHash: ").append(toIndentedString(taprootScriptTreeHash)).append("\n");
+    sb.append("    taprootInternalAddress: ").append(toIndentedString(taprootInternalAddress)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -224,6 +274,8 @@ public class CreateAddressRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("chain_id");
     openapiFields.add("count");
+    openapiFields.add("taproot_script_tree_hash");
+    openapiFields.add("taproot_internal_address");
     openapiFields.add("encoding");
 
     // a set of required properties/fields (JSON key names)
@@ -254,6 +306,12 @@ public class CreateAddressRequest {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("chain_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `chain_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chain_id").toString()));
+      }
+      if ((jsonObj.get("taproot_script_tree_hash") != null && !jsonObj.get("taproot_script_tree_hash").isJsonNull()) && !jsonObj.get("taproot_script_tree_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `taproot_script_tree_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taproot_script_tree_hash").toString()));
+      }
+      if ((jsonObj.get("taproot_internal_address") != null && !jsonObj.get("taproot_internal_address").isJsonNull()) && !jsonObj.get("taproot_internal_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `taproot_internal_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taproot_internal_address").toString()));
       }
       // validate the optional field `encoding`
       if (jsonObj.get("encoding") != null && !jsonObj.get("encoding").isJsonNull()) {

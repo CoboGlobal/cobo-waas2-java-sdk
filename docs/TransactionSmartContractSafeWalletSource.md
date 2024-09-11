@@ -2,7 +2,7 @@
 
 # TransactionSmartContractSafeWalletSource
 
-Information about the transaction source type `Safe{Wallet}`. 
+Information about the transaction source type `Safe{Wallet}`. Switch between the tabs to display the properties for different transaction sources. 
 
 ## Properties
 

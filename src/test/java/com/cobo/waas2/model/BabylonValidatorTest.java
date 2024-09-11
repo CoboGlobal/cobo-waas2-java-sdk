@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -35,6 +36,14 @@ public class BabylonValidatorTest {
     @Test
     public void testBabylonValidator() {
         // TODO: test BabylonValidator
+    }
+
+    /**
+     * Test the property 'poolType'
+     */
+    @Test
+    public void poolTypeTest() {
+        // TODO: test poolType
     }
 
     /**

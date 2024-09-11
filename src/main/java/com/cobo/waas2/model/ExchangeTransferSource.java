@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;.   Assets in an Exchange Wallet (Sub Account) can only be transferred to another Exchange Wallet. 
+ * The information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;.   Assets in an Exchange Wallet (Sub Account) can only be transferred to another Exchange Wallet.  Switch between the tabs to display the properties for different transaction sources. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

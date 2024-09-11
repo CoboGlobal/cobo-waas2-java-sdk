@@ -65,9 +65,9 @@ public class BabylonStakeExtra {
   @SerializedName(SERIALIZED_NAME_STAKE_BLOCK_TIME)
   private Long stakeBlockTime;
 
-  public static final String SERIALIZED_NAME_ONLY_SIGN = "only_sign";
-  @SerializedName(SERIALIZED_NAME_ONLY_SIGN)
-  private Boolean onlySign;
+  public static final String SERIALIZED_NAME_AUTO_BROADCAST = "auto_broadcast";
+  @SerializedName(SERIALIZED_NAME_AUTO_BROADCAST)
+  private Boolean autoBroadcast;
 
   public BabylonStakeExtra() {
   }
@@ -97,7 +97,7 @@ public class BabylonStakeExtra {
   }
 
    /**
-   * The public key of finality provider.
+   * The public key of the finality provider.
    * @return finalityProviderPublicKey
   **/
   @javax.annotation.Nonnull
@@ -116,7 +116,7 @@ public class BabylonStakeExtra {
   }
 
    /**
-   * The stake block time.
+   * The number of blocks that need to be processed before the locked tokens are unlocked and become accessible.
    * @return stakeBlockTime
   **/
   @javax.annotation.Nonnull
@@ -129,22 +129,22 @@ public class BabylonStakeExtra {
   }
 
 
-  public BabylonStakeExtra onlySign(Boolean onlySign) {
-    this.onlySign = onlySign;
+  public BabylonStakeExtra autoBroadcast(Boolean autoBroadcast) {
+    this.autoBroadcast = autoBroadcast;
     return this;
   }
 
    /**
-   * Whether to only sign transactions. Default is &#x60;false&#x60;, if set to &#x60;true&#x60;,  the transaction will not be submitted to the blockchain automatically. You can call &#x60;Broadcast transactions&#x60; to submit the transaction to the blockchain,  Or you can find the signed raw_tx by &#x60;Get transaction information&#x60; and broadcast it yourself. 
-   * @return onlySign
+   * Whether to automatically broadcast the transaction. The default value is &#x60;true&#x60;.  - &#x60;true&#x60;: Automatically broadcast the transaction. - &#x60;false&#x60;: The transaction will not be submitted to the blockchain automatically. You can call &#x60;Broadcast transactions&#x60; to broadcast the transaction to the blockchain, or retrieve the signed raw transaction data &#x60;raw_tx&#x60; by calling [Get transaction information](/v2/api-references/transactions/get-transaction-information) and broadcast it yourself. 
+   * @return autoBroadcast
   **/
   @javax.annotation.Nullable
-  public Boolean getOnlySign() {
-    return onlySign;
+  public Boolean getAutoBroadcast() {
+    return autoBroadcast;
   }
 
-  public void setOnlySign(Boolean onlySign) {
-    this.onlySign = onlySign;
+  public void setAutoBroadcast(Boolean autoBroadcast) {
+    this.autoBroadcast = autoBroadcast;
   }
 
   /**
@@ -205,13 +205,13 @@ public class BabylonStakeExtra {
     return Objects.equals(this.poolType, babylonStakeExtra.poolType) &&
         Objects.equals(this.finalityProviderPublicKey, babylonStakeExtra.finalityProviderPublicKey) &&
         Objects.equals(this.stakeBlockTime, babylonStakeExtra.stakeBlockTime) &&
-        Objects.equals(this.onlySign, babylonStakeExtra.onlySign)&&
+        Objects.equals(this.autoBroadcast, babylonStakeExtra.autoBroadcast)&&
         Objects.equals(this.additionalProperties, babylonStakeExtra.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, onlySign, additionalProperties);
+    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, autoBroadcast, additionalProperties);
   }
 
   @Override
@@ -221,7 +221,7 @@ public class BabylonStakeExtra {
     sb.append("    poolType: ").append(toIndentedString(poolType)).append("\n");
     sb.append("    finalityProviderPublicKey: ").append(toIndentedString(finalityProviderPublicKey)).append("\n");
     sb.append("    stakeBlockTime: ").append(toIndentedString(stakeBlockTime)).append("\n");
-    sb.append("    onlySign: ").append(toIndentedString(onlySign)).append("\n");
+    sb.append("    autoBroadcast: ").append(toIndentedString(autoBroadcast)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -248,7 +248,7 @@ public class BabylonStakeExtra {
     openapiFields.add("pool_type");
     openapiFields.add("finality_provider_public_key");
     openapiFields.add("stake_block_time");
-    openapiFields.add("only_sign");
+    openapiFields.add("auto_broadcast");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Information about the transaction destination type &#x60;EVM_Contract&#x60;. 
+ * Information about the transaction destination type &#x60;EVM_Contract&#x60;. Switch between the tabs to display the properties for different transaction destinations. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

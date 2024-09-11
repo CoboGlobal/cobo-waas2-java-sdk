@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The status of activity.
+ * The specific action taken within an activity. Possible values include: - &#x60;Submitted&#x60;: Submit the staking, unstaking, or withdrawal request. - &#x60;BTCConfirmation&#x60;: The Bitcoin chain confirms the request. - &#x60;BabylonConfirmation&#x60;: The Babylon protocol confirms the request. 
  */
 @JsonAdapter(ActivityAction.Adapter.class)
 public enum ActivityAction {

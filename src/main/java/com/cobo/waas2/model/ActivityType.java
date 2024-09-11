@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of activity.
+ * The type of the staking activity. Possible values include: - &#x60;Stake&#x60;: Stake tokens. - &#x60;Unstake&#x60;: Unstake tokens. Unstaked tokens are still in the staking protocol. - &#x60;Withdraw&#x60;: Withdraw tokens from the staking protocol to your wallet. 
  */
 @JsonAdapter(ActivityType.Adapter.class)
 public enum ActivityType {
@@ -32,13 +32,7 @@ public enum ActivityType {
   
   UNSTAKE("Unstake"),
   
-  WITHDRAW("Withdraw"),
-  
-  CLAIM("Claim"),
-  
-  DELEGATE("Delegate"),
-  
-  UNDELEGATE("Undelegate");
+  WITHDRAW("Withdraw");
 
   private String value;
 

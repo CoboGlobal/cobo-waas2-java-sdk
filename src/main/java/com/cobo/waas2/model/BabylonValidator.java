@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,13 +48,17 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The babylon validator information.
+ * BabylonValidator
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
 public class BabylonValidator {
+  public static final String SERIALIZED_NAME_POOL_TYPE = "pool_type";
+  @SerializedName(SERIALIZED_NAME_POOL_TYPE)
+  private StakingPoolType poolType;
+
   public static final String SERIALIZED_NAME_ICON_URL = "icon_url";
   @SerializedName(SERIALIZED_NAME_ICON_URL)
   private String iconUrl;
@@ -133,6 +138,25 @@ public class BabylonValidator {
   public BabylonValidator() {
   }
 
+  public BabylonValidator poolType(StakingPoolType poolType) {
+    this.poolType = poolType;
+    return this;
+  }
+
+   /**
+   * Get poolType
+   * @return poolType
+  **/
+  @javax.annotation.Nonnull
+  public StakingPoolType getPoolType() {
+    return poolType;
+  }
+
+  public void setPoolType(StakingPoolType poolType) {
+    this.poolType = poolType;
+  }
+
+
   public BabylonValidator iconUrl(String iconUrl) {
     this.iconUrl = iconUrl;
     return this;
@@ -158,7 +182,7 @@ public class BabylonValidator {
   }
 
    /**
-   * The name of validator.
+   * The validator&#39;s name.
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -177,7 +201,7 @@ public class BabylonValidator {
   }
 
    /**
-   * The priority of validator.
+   * This property can be ignored.
    * @return priority
   **/
   @javax.annotation.Nullable
@@ -196,7 +220,7 @@ public class BabylonValidator {
   }
 
    /**
-   * The public key of validator.
+   * The public key of the validator.
    * @return publicKey
   **/
   @javax.annotation.Nonnull
@@ -215,7 +239,7 @@ public class BabylonValidator {
   }
 
    /**
-   * The commission rate of validator.
+   * The commission rate of the validator.
    * @return commissionRate
   **/
   @javax.annotation.Nonnull
@@ -242,7 +266,7 @@ public class BabylonValidator {
   }
 
    /**
-   * The list of supported pos chains.
+   * A list of supported Proof-of-Stake (PoS) chains.
    * @return supportedPosChains
   **/
   @javax.annotation.Nonnull
@@ -309,7 +333,8 @@ public class BabylonValidator {
       return false;
     }
     BabylonValidator babylonValidator = (BabylonValidator) o;
-    return Objects.equals(this.iconUrl, babylonValidator.iconUrl) &&
+    return Objects.equals(this.poolType, babylonValidator.poolType) &&
+        Objects.equals(this.iconUrl, babylonValidator.iconUrl) &&
         Objects.equals(this.name, babylonValidator.name) &&
         Objects.equals(this.priority, babylonValidator.priority) &&
         Objects.equals(this.publicKey, babylonValidator.publicKey) &&
@@ -320,13 +345,14 @@ public class BabylonValidator {
 
   @Override
   public int hashCode() {
-    return Objects.hash(iconUrl, name, priority, publicKey, commissionRate, supportedPosChains, additionalProperties);
+    return Objects.hash(poolType, iconUrl, name, priority, publicKey, commissionRate, supportedPosChains, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BabylonValidator {\n");
+    sb.append("    poolType: ").append(toIndentedString(poolType)).append("\n");
     sb.append("    iconUrl: ").append(toIndentedString(iconUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
@@ -356,6 +382,7 @@ public class BabylonValidator {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("pool_type");
     openapiFields.add("icon_url");
     openapiFields.add("name");
     openapiFields.add("priority");
@@ -365,6 +392,7 @@ public class BabylonValidator {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("pool_type");
     openapiRequiredFields.add("icon_url");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("public_key");
@@ -392,6 +420,8 @@ public class BabylonValidator {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `pool_type`
+      StakingPoolType.validateJsonElement(jsonObj.get("pool_type"));
       if (!jsonObj.get("icon_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `icon_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("icon_url").toString()));
       }

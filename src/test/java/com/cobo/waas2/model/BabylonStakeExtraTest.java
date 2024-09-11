@@ -61,11 +61,11 @@ public class BabylonStakeExtraTest {
     }
 
     /**
-     * Test the property 'onlySign'
+     * Test the property 'autoBroadcast'
      */
     @Test
-    public void onlySignTest() {
-        // TODO: test onlySign
+    public void autoBroadcastTest() {
+        // TODO: test autoBroadcast
     }
 
 }

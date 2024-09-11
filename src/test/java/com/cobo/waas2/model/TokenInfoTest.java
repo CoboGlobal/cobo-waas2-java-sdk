@@ -123,4 +123,20 @@ public class TokenInfoTest {
         // TODO: test canWithdraw
     }
 
+    /**
+     * Test the property 'dustThreshold'
+     */
+    @Test
+    public void dustThresholdTest() {
+        // TODO: test dustThreshold
+    }
+
+    /**
+     * Test the property 'custodialMinimumDepositThreshold'
+     */
+    @Test
+    public void custodialMinimumDepositThresholdTest() {
+        // TODO: test custodialMinimumDepositThreshold
+    }
+
 }

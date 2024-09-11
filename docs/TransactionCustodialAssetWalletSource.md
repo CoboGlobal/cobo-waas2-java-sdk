@@ -2,7 +2,7 @@
 
 # TransactionCustodialAssetWalletSource
 
-Information about the transaction source type `Asset`. 
+Information about the transaction source type `Asset`. Switch between the tabs to display the properties for different transaction sources. 
 
 ## Properties
 

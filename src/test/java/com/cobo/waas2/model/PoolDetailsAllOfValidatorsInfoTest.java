@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.BabylonValidator;
-import com.cobo.waas2.model.EigenlayerValidator;
+import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -37,6 +37,14 @@ public class PoolDetailsAllOfValidatorsInfoTest {
     @Test
     public void testPoolDetailsAllOfValidatorsInfo() {
         // TODO: test PoolDetailsAllOfValidatorsInfo
+    }
+
+    /**
+     * Test the property 'poolType'
+     */
+    @Test
+    public void poolTypeTest() {
+        // TODO: test poolType
     }
 
     /**
@@ -85,14 +93,6 @@ public class PoolDetailsAllOfValidatorsInfoTest {
     @Test
     public void supportedPosChainsTest() {
         // TODO: test supportedPosChains
-    }
-
-    /**
-     * Test the property 'address'
-     */
-    @Test
-    public void addressTest() {
-        // TODO: test address
     }
 
 }

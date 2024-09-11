@@ -48,7 +48,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Information about the transaction destination type &#x60;ExchangeWallet&#x60;. 
+ * Information about the transaction destination type &#x60;ExchangeWallet&#x60;. Switch between the tabs to display the properties for different transaction destinations. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -160,7 +160,7 @@ public class TransactionTransferToWalletDestination {
   }
 
    /**
-   * The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;. 
+   * The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;. 
    * @return amount
   **/
   @javax.annotation.Nonnull

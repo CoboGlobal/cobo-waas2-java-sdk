@@ -22,15 +22,17 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the signature format. Possible values include: - &#x60;EVM_EIP_191&#x60;: [EIP-191: Signed Data Standard](https://eips.ethereum.org/EIPS/eip-191). - &#x60;EVM_EIP_712&#x60;: [EIP-712: Typed structured data hashing and signing](https://eips.ethereum.org/EIPS/eip-712). 
+ * The type of the signature format. Refer to [Transaction sources and destinations](/v2/guides/sources-and-destinations) for details. 
  */
 @JsonAdapter(MessageSignDestinationType.Adapter.class)
 public enum MessageSignDestinationType {
   UNKNOWN(null),
   
-  _191_SIGNATURE("EVM_EIP_191_Signature"),
+  EVM_EIP_191_SIGNATURE("EVM_EIP_191_Signature"),
   
-  _712_SIGNATURE("EVM_EIP_712_Signature");
+  EVM_EIP_712_SIGNATURE("EVM_EIP_712_Signature"),
+  
+  RAW_MESSAGE_SIGNATURE("Raw_Message_Signature");
 
   private String value;
 

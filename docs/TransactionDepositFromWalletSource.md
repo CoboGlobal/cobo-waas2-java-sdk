@@ -2,7 +2,7 @@
 
 # TransactionDepositFromWalletSource
 
-Information about the transaction source type `DepositFromWallet`. 
+Information about the transaction source type `DepositFromWallet`. Switch between the tabs to display the properties for different transaction sources. 
 
 ## Properties
 

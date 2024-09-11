@@ -2,7 +2,7 @@
 
 # TransactionEvmLegacyFee
 
-The transaction fee actually charged by the chain that uses the legacy fee model.  The transaction fee is calculated by multiplying the gas price by the used gas. This can be expressed as: Transaction fee = gas price * used gas units. 
+The transaction fee actually charged by the chain that uses the legacy fee model.   The transaction fee is calculated by multiplying the gas price by the used gas. This can be expressed as: Transaction fee = gas price * used gas units.  Switch between the tabs to display the properties for different transaction fee models. 
 
 ## Properties
 

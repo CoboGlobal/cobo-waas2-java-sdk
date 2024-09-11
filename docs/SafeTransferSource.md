@@ -2,7 +2,7 @@
 
 # SafeTransferSource
 
-The information about the transaction source type `Safe{Wallet}`.
+The information about the transaction source type `Safe{Wallet}`. Switch between the tabs to display the properties for different transaction sources.
 
 ## Properties
 

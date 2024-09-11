@@ -19,6 +19,8 @@ The token information, including whether the token can be deposited or withdrawn
 |**feeTokenId** | **String** | The fee token ID. A fee token is the token with which you pay transaction fees. |  [optional] |
 |**canDeposit** | **Boolean** | Whether the token can be deposited.  - &#x60;true&#x60;: The token can be deposited.  - &#x60;false&#x60;: The token cannot be deposited.  |  [optional] |
 |**canWithdraw** | **Boolean** | Whether the token can be withdrawn.  - &#x60;true&#x60;: The token can be withdrawn.  - &#x60;false&#x60;: The token cannot be withdrawn.  |  [optional] |
+|**dustThreshold** | **String** | Minimum amount of token that can be transacted, such as 0.00000546 for BTC. |  [optional] |
+|**custodialMinimumDepositThreshold** | **String** | Minimum amount of token that can be deposit, such as 0.0001 for BTC. |  [optional] |
 
 
 

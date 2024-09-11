@@ -50,7 +50,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the transaction destination type &#x60;Address&#x60;.   Specify either the &#x60;account_output&#x60; property or the &#x60;utxo_outputs&#x60; property. You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the &#x60;utxo_outputs&#x60; property to specify the destination addresses. 
+ * The information about the transaction destination type &#x60;Address&#x60;.   Specify either the &#x60;account_output&#x60; property or the &#x60;utxo_outputs&#x60; property. You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the &#x60;utxo_outputs&#x60; property to specify the destination addresses.  Switch between the tabs to display the properties for different transaction destinations. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

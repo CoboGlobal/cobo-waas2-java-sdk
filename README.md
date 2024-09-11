@@ -1,7 +1,7 @@
 # cobo-waas2-java-sdk
 
 Cobo Wallet as a Service 2.0
-- API version: 1.2.0
+- API version: 1.0.0
   - Generator version: 7.6.0
 
 The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s WaaS API offering. It enables you to access Cobo’s full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:
@@ -9,7 +9,7 @@ The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s Wa
 - A unified API for Cobo’s [all four wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform)
 - Support for 80+ chains and 3000+ tokens
 - A comprehensive selection of webhook events
-- Flexible usage models for MPC wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction)
+- Flexible usage models for MPC Wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction)
 - Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls
 - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more
 
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.2.1</version>
+  <version>1.3.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.2.1"
+     implementation "com.cobo.waas2:cobo-waas2:1.3.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.2.1.jar`
+* `target/cobo-waas2-1.3.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -156,7 +156,19 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
 *OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get access token
 *OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh access token
+*StakingsApi* | [**createStakeActivity**](docs/StakingsApi.md#createStakeActivity) | **POST** /stakings/activities/stake | Create stake activity
+*StakingsApi* | [**createUnstakeActivity**](docs/StakingsApi.md#createUnstakeActivity) | **POST** /stakings/activities/unstake | Create unstake activity
+*StakingsApi* | [**createWithdrawActivity**](docs/StakingsApi.md#createWithdrawActivity) | **POST** /stakings/activities/withdraw | Create withdraw activity
+*StakingsApi* | [**getStakingActivityById**](docs/StakingsApi.md#getStakingActivityById) | **GET** /stakings/activities/{activity_id} | Get staking activity details
+*StakingsApi* | [**getStakingById**](docs/StakingsApi.md#getStakingById) | **GET** /stakings/{staking_id} | Get staking position details
+*StakingsApi* | [**getStakingEstimationFee**](docs/StakingsApi.md#getStakingEstimationFee) | **POST** /stakings/estimate_fee | Estimate staking fees
+*StakingsApi* | [**getStakingPoolById**](docs/StakingsApi.md#getStakingPoolById) | **GET** /stakings/pools/{pool_id} | Get staking pool details
+*StakingsApi* | [**listStakingActivities**](docs/StakingsApi.md#listStakingActivities) | **GET** /stakings/activities | List staking activities
+*StakingsApi* | [**listStakingPools**](docs/StakingsApi.md#listStakingPools) | **GET** /stakings/pools | List staking pools
+*StakingsApi* | [**listStakings**](docs/StakingsApi.md#listStakings) | **GET** /stakings | List staking positions
+*TransactionsApi* | [**broadcastSignedTransactions**](docs/TransactionsApi.md#broadcastSignedTransactions) | **POST** /transactions/broadcast | Broadcast signed transactions
 *TransactionsApi* | [**cancelTransactionById**](docs/TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction
+*TransactionsApi* | [**checkLoopTransfers**](docs/TransactionsApi.md#checkLoopTransfers) | **GET** /transactions/check_loop_transfers | Check Loop transfers
 *TransactionsApi* | [**createContractCallTransaction**](docs/TransactionsApi.md#createContractCallTransaction) | **POST** /transactions/contract_call | Call smart contract
 *TransactionsApi* | [**createMessageSignTransaction**](docs/TransactionsApi.md#createMessageSignTransaction) | **POST** /transactions/message_sign | Sign message
 *TransactionsApi* | [**createTransferTransaction**](docs/TransactionsApi.md#createTransferTransaction) | **POST** /transactions/transfer | Transfer token
@@ -168,7 +180,6 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**speedupTransactionById**](docs/TransactionsApi.md#speedupTransactionById) | **POST** /transactions/{transaction_id}/speedup | Speed up transaction
 *WalletsApi* | [**checkAddressValidity**](docs/WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
 *WalletsApi* | [**checkAddressesValidity**](docs/WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity
-*WalletsApi* | [**checkLoopTransfers**](docs/WalletsApi.md#checkLoopTransfers) | **GET** /wallets/check_loop_transfers | Check Loop transfers
 *WalletsApi* | [**createAddress**](docs/WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet
 *WalletsApi* | [**createWallet**](docs/WalletsApi.md#createWallet) | **POST** /wallets | Create wallet
 *WalletsApi* | [**deleteWalletById**](docs/WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet
@@ -231,10 +242,16 @@ Class | Method | HTTP request | Description
  - [AssetBalance](docs/AssetBalance.md)
  - [AssetInfo](docs/AssetInfo.md)
  - [BabylonStakeExtra](docs/BabylonStakeExtra.md)
+ - [BabylonStakingExtra](docs/BabylonStakingExtra.md)
  - [BabylonValidator](docs/BabylonValidator.md)
  - [BaseContractCallSource](docs/BaseContractCallSource.md)
  - [BaseEstimateStakingFee](docs/BaseEstimateStakingFee.md)
  - [BaseStakeExtra](docs/BaseStakeExtra.md)
+ - [BaseStakeSource](docs/BaseStakeSource.md)
+ - [BookkeepingRecord](docs/BookkeepingRecord.md)
+ - [BookkeepingSummary](docs/BookkeepingSummary.md)
+ - [BroadcastSignedTransactions201ResponseInner](docs/BroadcastSignedTransactions201ResponseInner.md)
+ - [BroadcastSignedTransactionsRequest](docs/BroadcastSignedTransactionsRequest.md)
  - [ChainInfo](docs/ChainInfo.md)
  - [CheckAddressValidity200Response](docs/CheckAddressValidity200Response.md)
  - [CheckAddressesValidity200ResponseInner](docs/CheckAddressesValidity200ResponseInner.md)
@@ -257,13 +274,17 @@ Class | Method | HTTP request | Description
  - [CreateSafeWalletParams](docs/CreateSafeWalletParams.md)
  - [CreateSmartContractWalletParams](docs/CreateSmartContractWalletParams.md)
  - [CreateStakeActivity](docs/CreateStakeActivity.md)
+ - [CreateStakeActivity201Response](docs/CreateStakeActivity201Response.md)
  - [CreateStakeActivityExtra](docs/CreateStakeActivityExtra.md)
+ - [CreateStakeActivityRequest](docs/CreateStakeActivityRequest.md)
  - [CreateTransferTransaction201Response](docs/CreateTransferTransaction201Response.md)
  - [CreateTssRequestRequest](docs/CreateTssRequestRequest.md)
  - [CreateUnstakeActivity](docs/CreateUnstakeActivity.md)
+ - [CreateUnstakeActivityRequest](docs/CreateUnstakeActivityRequest.md)
  - [CreateWalletParams](docs/CreateWalletParams.md)
  - [CreateWebhookEndpointRequest](docs/CreateWebhookEndpointRequest.md)
  - [CreateWithdrawActivity](docs/CreateWithdrawActivity.md)
+ - [CreateWithdrawActivityRequest](docs/CreateWithdrawActivityRequest.md)
  - [CreatedWalletInfo](docs/CreatedWalletInfo.md)
  - [CurveType](docs/CurveType.md)
  - [CustodialTransferSource](docs/CustodialTransferSource.md)
@@ -306,6 +327,8 @@ Class | Method | HTTP request | Description
  - [FeeRate](docs/FeeRate.md)
  - [FeeType](docs/FeeType.md)
  - [FixedFeeRate](docs/FixedFeeRate.md)
+ - [GetStakingEstimationFee201Response](docs/GetStakingEstimationFee201Response.md)
+ - [GetStakingEstimationFeeRequest](docs/GetStakingEstimationFeeRequest.md)
  - [GetToken200Response](docs/GetToken200Response.md)
  - [GetToken4XXResponse](docs/GetToken4XXResponse.md)
  - [KeyShareHolder](docs/KeyShareHolder.md)
@@ -320,6 +343,9 @@ Class | Method | HTTP request | Description
  - [ListKeyShareHolderGroups200Response](docs/ListKeyShareHolderGroups200Response.md)
  - [ListMpcProjects200Response](docs/ListMpcProjects200Response.md)
  - [ListMpcVaults200Response](docs/ListMpcVaults200Response.md)
+ - [ListStakingActivities200Response](docs/ListStakingActivities200Response.md)
+ - [ListStakingPools200Response](docs/ListStakingPools200Response.md)
+ - [ListStakings200Response](docs/ListStakings200Response.md)
  - [ListSupportedAssetsForExchange200Response](docs/ListSupportedAssetsForExchange200Response.md)
  - [ListSupportedChains200Response](docs/ListSupportedChains200Response.md)
  - [ListSupportedTokens200Response](docs/ListSupportedTokens200Response.md)
@@ -350,11 +376,13 @@ Class | Method | HTTP request | Description
  - [MpcContractCallSource](docs/MpcContractCallSource.md)
  - [MpcMessageSignSource](docs/MpcMessageSignSource.md)
  - [MpcSigningGroup](docs/MpcSigningGroup.md)
+ - [MpcStakeSource](docs/MpcStakeSource.md)
  - [MpcTransferSource](docs/MpcTransferSource.md)
  - [Pagination](docs/Pagination.md)
  - [PoolDetails](docs/PoolDetails.md)
  - [PoolDetailsAllOfValidatorsInfo](docs/PoolDetailsAllOfValidatorsInfo.md)
  - [PoolSummary](docs/PoolSummary.md)
+ - [RawMessageSignDestination](docs/RawMessageSignDestination.md)
  - [RefreshToken200Response](docs/RefreshToken200Response.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [ReplaceType](docs/ReplaceType.md)
@@ -368,9 +396,11 @@ Class | Method | HTTP request | Description
  - [SmartContractWalletOperationType](docs/SmartContractWalletOperationType.md)
  - [SmartContractWalletType](docs/SmartContractWalletType.md)
  - [SourceGroup](docs/SourceGroup.md)
+ - [StakeSourceType](docs/StakeSourceType.md)
  - [StakingPoolType](docs/StakingPoolType.md)
  - [StakingSource](docs/StakingSource.md)
  - [Stakings](docs/Stakings.md)
+ - [StakingsExtra](docs/StakingsExtra.md)
  - [StakingsValidatorInfo](docs/StakingsValidatorInfo.md)
  - [SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
  - [TSSGroups](docs/TSSGroups.md)
@@ -452,6 +482,8 @@ Class | Method | HTTP request | Description
  - [UpdateWebhookEndpointByIdRequest](docs/UpdateWebhookEndpointByIdRequest.md)
  - [UtxoFeeBasePrice](docs/UtxoFeeBasePrice.md)
  - [UtxoFeeRate](docs/UtxoFeeRate.md)
+ - [WalletBalanceSnapshot](docs/WalletBalanceSnapshot.md)
+ - [WalletBalanceSnapshotRecord](docs/WalletBalanceSnapshotRecord.md)
  - [WalletInfo](docs/WalletInfo.md)
  - [WalletSubtype](docs/WalletSubtype.md)
  - [WalletType](docs/WalletType.md)

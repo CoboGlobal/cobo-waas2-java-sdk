@@ -61,10 +61,6 @@ public class AmountDetailsInner {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
 
-  public static final String SERIALIZED_NAME_ACTIVITY_ID = "activity_id";
-  @SerializedName(SERIALIZED_NAME_ACTIVITY_ID)
-  private String activityId;
-
   public AmountDetailsInner() {
   }
 
@@ -103,25 +99,6 @@ public class AmountDetailsInner {
 
   public void setAmount(String amount) {
     this.amount = amount;
-  }
-
-
-  public AmountDetailsInner activityId(String activityId) {
-    this.activityId = activityId;
-    return this;
-  }
-
-   /**
-   * The related staking activity ID.
-   * @return activityId
-  **/
-  @javax.annotation.Nullable
-  public String getActivityId() {
-    return activityId;
-  }
-
-  public void setActivityId(String activityId) {
-    this.activityId = activityId;
   }
 
   /**
@@ -180,14 +157,13 @@ public class AmountDetailsInner {
     }
     AmountDetailsInner amountDetailsInner = (AmountDetailsInner) o;
     return Objects.equals(this.status, amountDetailsInner.status) &&
-        Objects.equals(this.amount, amountDetailsInner.amount) &&
-        Objects.equals(this.activityId, amountDetailsInner.activityId)&&
+        Objects.equals(this.amount, amountDetailsInner.amount)&&
         Objects.equals(this.additionalProperties, amountDetailsInner.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, amount, activityId, additionalProperties);
+    return Objects.hash(status, amount, additionalProperties);
   }
 
   @Override
@@ -196,7 +172,6 @@ public class AmountDetailsInner {
     sb.append("class AmountDetailsInner {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -222,7 +197,6 @@ public class AmountDetailsInner {
     openapiFields = new HashSet<String>();
     openapiFields.add("status");
     openapiFields.add("amount");
-    openapiFields.add("activity_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -254,9 +228,6 @@ public class AmountDetailsInner {
       AmountStatus.validateJsonElement(jsonObj.get("status"));
       if (!jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
-      }
-      if ((jsonObj.get("activity_id") != null && !jsonObj.get("activity_id").isJsonNull()) && !jsonObj.get("activity_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `activity_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("activity_id").toString()));
       }
   }
 

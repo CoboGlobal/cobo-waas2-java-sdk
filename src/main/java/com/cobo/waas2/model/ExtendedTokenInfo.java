@@ -96,6 +96,14 @@ public class ExtendedTokenInfo {
   @SerializedName(SERIALIZED_NAME_CAN_WITHDRAW)
   private Boolean canWithdraw = false;
 
+  public static final String SERIALIZED_NAME_DUST_THRESHOLD = "dust_threshold";
+  @SerializedName(SERIALIZED_NAME_DUST_THRESHOLD)
+  private String dustThreshold;
+
+  public static final String SERIALIZED_NAME_CUSTODIAL_MINIMUM_DEPOSIT_THRESHOLD = "custodial_minimum_deposit_threshold";
+  @SerializedName(SERIALIZED_NAME_CUSTODIAL_MINIMUM_DEPOSIT_THRESHOLD)
+  private String custodialMinimumDepositThreshold;
+
   public ExtendedTokenInfo() {
   }
 
@@ -307,6 +315,44 @@ public class ExtendedTokenInfo {
     this.canWithdraw = canWithdraw;
   }
 
+
+  public ExtendedTokenInfo dustThreshold(String dustThreshold) {
+    this.dustThreshold = dustThreshold;
+    return this;
+  }
+
+   /**
+   * Minimum amount of token that can be transacted, such as 0.00000546 for BTC.
+   * @return dustThreshold
+  **/
+  @javax.annotation.Nullable
+  public String getDustThreshold() {
+    return dustThreshold;
+  }
+
+  public void setDustThreshold(String dustThreshold) {
+    this.dustThreshold = dustThreshold;
+  }
+
+
+  public ExtendedTokenInfo custodialMinimumDepositThreshold(String custodialMinimumDepositThreshold) {
+    this.custodialMinimumDepositThreshold = custodialMinimumDepositThreshold;
+    return this;
+  }
+
+   /**
+   * Minimum amount of token that can be deposit, such as 0.0001 for BTC.
+   * @return custodialMinimumDepositThreshold
+  **/
+  @javax.annotation.Nullable
+  public String getCustodialMinimumDepositThreshold() {
+    return custodialMinimumDepositThreshold;
+  }
+
+  public void setCustodialMinimumDepositThreshold(String custodialMinimumDepositThreshold) {
+    this.custodialMinimumDepositThreshold = custodialMinimumDepositThreshold;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -372,13 +418,15 @@ public class ExtendedTokenInfo {
         Objects.equals(this.tokenAddress, extendedTokenInfo.tokenAddress) &&
         Objects.equals(this.feeTokenId, extendedTokenInfo.feeTokenId) &&
         Objects.equals(this.canDeposit, extendedTokenInfo.canDeposit) &&
-        Objects.equals(this.canWithdraw, extendedTokenInfo.canWithdraw)&&
+        Objects.equals(this.canWithdraw, extendedTokenInfo.canWithdraw) &&
+        Objects.equals(this.dustThreshold, extendedTokenInfo.dustThreshold) &&
+        Objects.equals(this.custodialMinimumDepositThreshold, extendedTokenInfo.custodialMinimumDepositThreshold)&&
         Objects.equals(this.additionalProperties, extendedTokenInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokenId, chainId, assetId, symbol, name, decimal, iconUrl, tokenAddress, feeTokenId, canDeposit, canWithdraw, additionalProperties);
+    return Objects.hash(tokenId, chainId, assetId, symbol, name, decimal, iconUrl, tokenAddress, feeTokenId, canDeposit, canWithdraw, dustThreshold, custodialMinimumDepositThreshold, additionalProperties);
   }
 
   @Override
@@ -396,6 +444,8 @@ public class ExtendedTokenInfo {
     sb.append("    feeTokenId: ").append(toIndentedString(feeTokenId)).append("\n");
     sb.append("    canDeposit: ").append(toIndentedString(canDeposit)).append("\n");
     sb.append("    canWithdraw: ").append(toIndentedString(canWithdraw)).append("\n");
+    sb.append("    dustThreshold: ").append(toIndentedString(dustThreshold)).append("\n");
+    sb.append("    custodialMinimumDepositThreshold: ").append(toIndentedString(custodialMinimumDepositThreshold)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -430,6 +480,8 @@ public class ExtendedTokenInfo {
     openapiFields.add("fee_token_id");
     openapiFields.add("can_deposit");
     openapiFields.add("can_withdraw");
+    openapiFields.add("dust_threshold");
+    openapiFields.add("custodial_minimum_deposit_threshold");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -480,6 +532,12 @@ public class ExtendedTokenInfo {
       }
       if ((jsonObj.get("fee_token_id") != null && !jsonObj.get("fee_token_id").isJsonNull()) && !jsonObj.get("fee_token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_token_id").toString()));
+      }
+      if ((jsonObj.get("dust_threshold") != null && !jsonObj.get("dust_threshold").isJsonNull()) && !jsonObj.get("dust_threshold").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dust_threshold` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dust_threshold").toString()));
+      }
+      if ((jsonObj.get("custodial_minimum_deposit_threshold") != null && !jsonObj.get("custodial_minimum_deposit_threshold").isJsonNull()) && !jsonObj.get("custodial_minimum_deposit_threshold").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custodial_minimum_deposit_threshold` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custodial_minimum_deposit_threshold").toString()));
       }
   }
 

@@ -18,6 +18,8 @@
 |**feeTokenId** | **String** | The fee token ID. A fee token is the token with which you pay transaction fees. |  [optional] |
 |**canDeposit** | **Boolean** | Whether deposits are enabled for this token. |  [optional] |
 |**canWithdraw** | **Boolean** | Whether withdrawals are enabled for this token. |  [optional] |
+|**dustThreshold** | **String** | Minimum amount of token that can be transacted, such as 0.00000546 for BTC. |  [optional] |
+|**custodialMinimumDepositThreshold** | **String** | Minimum amount of token that can be deposit, such as 0.0001 for BTC. |  [optional] |
 |**amount** | **Float** | Transaction value (Note that this is an absolute value. If you trade 1.5 BTC, then the value is 1.5)  |  [optional] |
 |**spender** | **String** | Spender address |  [optional] |
 

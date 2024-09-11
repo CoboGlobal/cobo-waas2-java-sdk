@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The validator info of the stake.
+ * The information about the validator.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -81,7 +81,7 @@ public class StakingsValidatorInfo {
   }
 
    /**
-   * Get iconUrl
+   * The URL of the validator&#39;s icon.
    * @return iconUrl
   **/
   @javax.annotation.Nullable
@@ -100,7 +100,7 @@ public class StakingsValidatorInfo {
   }
 
    /**
-   * Get publicKey
+   * The validator&#39;s public key.
    * @return publicKey
   **/
   @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class StakingsValidatorInfo {
   }
 
    /**
-   * Get name
+   * The validator&#39;s name.
    * @return name
   **/
   @javax.annotation.Nullable
@@ -138,7 +138,7 @@ public class StakingsValidatorInfo {
   }
 
    /**
-   * Get address
+   * The wallet address of the validator.
    * @return address
   **/
   @javax.annotation.Nullable
@@ -157,7 +157,7 @@ public class StakingsValidatorInfo {
   }
 
    /**
-   * Get commissionRate
+   * The commission rate of the validator.
    * @return commissionRate
   **/
   @javax.annotation.Nullable

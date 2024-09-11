@@ -52,29 +52,29 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class ActivityInitiator {
-  public static final String SERIALIZED_NAME_INITIATOR = "initiator";
-  @SerializedName(SERIALIZED_NAME_INITIATOR)
-  private String initiator;
+  public static final String SERIALIZED_NAME_APP_INITIATOR = "app_initiator";
+  @SerializedName(SERIALIZED_NAME_APP_INITIATOR)
+  private String appInitiator;
 
   public ActivityInitiator() {
   }
 
-  public ActivityInitiator initiator(String initiator) {
-    this.initiator = initiator;
+  public ActivityInitiator appInitiator(String appInitiator) {
+    this.appInitiator = appInitiator;
     return this;
   }
 
    /**
-   * The initiator of the staking activity.
-   * @return initiator
+   * The initiator of the staking activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.
+   * @return appInitiator
   **/
   @javax.annotation.Nullable
-  public String getInitiator() {
-    return initiator;
+  public String getAppInitiator() {
+    return appInitiator;
   }
 
-  public void setInitiator(String initiator) {
-    this.initiator = initiator;
+  public void setAppInitiator(String appInitiator) {
+    this.appInitiator = appInitiator;
   }
 
   /**
@@ -132,20 +132,20 @@ public class ActivityInitiator {
       return false;
     }
     ActivityInitiator activityInitiator = (ActivityInitiator) o;
-    return Objects.equals(this.initiator, activityInitiator.initiator)&&
+    return Objects.equals(this.appInitiator, activityInitiator.appInitiator)&&
         Objects.equals(this.additionalProperties, activityInitiator.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(initiator, additionalProperties);
+    return Objects.hash(appInitiator, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ActivityInitiator {\n");
-    sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
+    sb.append("    appInitiator: ").append(toIndentedString(appInitiator)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -169,7 +169,7 @@ public class ActivityInitiator {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("initiator");
+    openapiFields.add("app_initiator");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -188,8 +188,8 @@ public class ActivityInitiator {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("initiator") != null && !jsonObj.get("initiator").isJsonNull()) && !jsonObj.get("initiator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiator").toString()));
+      if ((jsonObj.get("app_initiator") != null && !jsonObj.get("app_initiator").isJsonNull()) && !jsonObj.get("app_initiator").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `app_initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("app_initiator").toString()));
       }
   }
 

@@ -2,7 +2,7 @@
 
 # TransactionTransferToAddressDestination
 
-Information about the transaction destination type `Address`. 
+Information about the transaction destination type `Address`. Switch between the tabs to display the properties for different transaction destinations. 
 
 ## Properties
 

@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the transaction source type &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;.
+ * The information about the transaction source type &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;. Switch between the tabs to display the properties for different transaction sources.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

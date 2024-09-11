@@ -14,6 +14,9 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.BroadcastSignedTransactions201ResponseInner;
+import com.cobo.waas2.model.BroadcastSignedTransactionsRequest;
+import com.cobo.waas2.model.CheckLoopTransfers200ResponseInner;
 import com.cobo.waas2.model.ContractCallParams;
 import com.cobo.waas2.model.CreateTransferTransaction201Response;
 import com.cobo.waas2.model.ErrorResponse;
@@ -48,6 +51,20 @@ public class TransactionsApiTest {
     private final TransactionsApi api = new TransactionsApi();
 
     /**
+     * Broadcast signed transactions
+     *
+     * &lt;Note&gt;This operation is only applicable to the staking scenarios.&lt;/Note&gt; This operation broadcasts a list of signed transactions.   If you set &#x60;auto_broadcast&#x60; to &#x60;false&#x60; when [creating a staking activity](/v2/api-references/staking/create-stake-activity), the transaction will not be submitted to the blockchain automatically after being signed. In such cases, you can call this operation to broadcast the transaction to the blockchain.  A transaction can only be broadcast if its status is &#x60;Broadcasting&#x60;. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void broadcastSignedTransactionsTest() throws ApiException {
+        BroadcastSignedTransactionsRequest broadcastSignedTransactionsRequest = null;
+        List<BroadcastSignedTransactions201ResponseInner> response = api.broadcastSignedTransactions(broadcastSignedTransactionsRequest);
+        // TODO: test validations
+    }
+
+    /**
      * Cancel transaction
      *
      * This operation cancels a specified transaction. A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60;   A transaction request for tracking is returned upon successful operation. &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt; 
@@ -58,6 +75,22 @@ public class TransactionsApiTest {
     public void cancelTransactionByIdTest() throws ApiException {
         UUID transactionId = null;
         CreateTransferTransaction201Response response = api.cancelTransactionById(transactionId);
+        // TODO: test validations
+    }
+
+    /**
+     * Check Loop transfers
+     *
+     * This operation verifies if the transactions from a given source wallet to a list of given destinations can be executed as Loop transfers.   For more information about Loop, see [Loop&#39;s website](https://loop.top/). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void checkLoopTransfersTest() throws ApiException {
+        String tokenId = null;
+        UUID sourceWalletId = null;
+        String destinationAddresses = null;
+        List<CheckLoopTransfers200ResponseInner> response = api.checkLoopTransfers(tokenId, sourceWalletId, destinationAddresses);
         // TODO: test validations
     }
 
@@ -106,7 +139,7 @@ public class TransactionsApiTest {
     /**
      * Drop transaction
      *
-     * This operation drops a specified transaction.   Dropping a transaction will trigger an Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It has a higher transaction fee to incentivize miners to prioritize its confirmation over the original one. A transaction can be dropped if its status is &#x60;Broadcasting&#x60;.  &lt;ul&gt; &lt;li&gt;For EVM chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the sending address is the same as the receiving address.&lt;/li&gt; &lt;li&gt;For UTXO chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the destination address is the same as the change address in the original transaction.&lt;/li&gt; &lt;/ul&gt;  A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you drop a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
+     * This operation drops a specified transaction.   Dropping a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It has a higher transaction fee to incentivize miners to prioritize its confirmation over the original one. A transaction can be dropped if its status is &#x60;Broadcasting&#x60;.  &lt;ul&gt; &lt;li&gt;For EVM chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the sending address is the same as the receiving address.&lt;/li&gt; &lt;li&gt;For UTXO chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the destination address is the same as the change address in the original transaction.&lt;/li&gt; &lt;/ul&gt;  A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you drop a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -194,7 +227,7 @@ public class TransactionsApiTest {
     /**
      * Speed up transaction
      *
-     * This operation accelerates a specified transaction.   Speeding up a transaction will trigger an Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It shares the same inputs but has a higher transaction fee to incentivize miners to prioritize its confirmation over the previous one. A transaction can be accelerated if its status is &#x60;Broadcasting&#x60;.  A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
+     * This operation accelerates a specified transaction.   Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It shares the same inputs but has a higher transaction fee to incentivize miners to prioritize its confirmation over the previous one. A transaction can be accelerated if its status is &#x60;Broadcasting&#x60;.  A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */

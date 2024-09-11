@@ -14,6 +14,9 @@ The address information.
 |**path** | **String** | The derivation path of the address. This property applies to MPC Wallets only. To learn the meaning of each level in the path, see [Path levels](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#path-levels). |  [optional] |
 |**encoding** | **AddressEncoding** |  |  [optional] |
 |**pubkey** | **String** | The public key of the address. This property applies to MPC Wallets only. |  [optional] |
+|**xOnlyPubkey** | **String** | The 32-byte x-only public key in hexadecimal format after tweaking. |  [optional] |
+|**taprootScriptTreeHash** | **String** | The information about a tweaked address. |  [optional] |
+|**taprootInternalAddress** | **String** | The original address that to be tweaked. |  [optional] |
 
 
 

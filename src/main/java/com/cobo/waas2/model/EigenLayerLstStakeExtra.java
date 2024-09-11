@@ -89,7 +89,7 @@ public class EigenLayerLstStakeExtra {
   }
 
    /**
-   * The operator address.
+   * The operator&#39;s address.
    * @return operator
   **/
   @javax.annotation.Nullable

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The status of activity.
+ * The status of the staking activity. Possible values include: - &#x60;Success&#x60;: The activity is successfully completed. - &#x60;Processing&#x60;: The activity is being processed. - &#x60;Failed&#x60;: The activity has failed. 
  */
 @JsonAdapter(ActivityStatus.Adapter.class)
 public enum ActivityStatus {

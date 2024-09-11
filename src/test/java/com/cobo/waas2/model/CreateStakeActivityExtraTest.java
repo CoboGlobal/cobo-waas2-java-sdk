@@ -12,8 +12,6 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.BabylonStakeExtra;
-import com.cobo.waas2.model.EigenLayerLstStakeExtra;
-import com.cobo.waas2.model.EigenLayerNativeStakeExtra;
 import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -21,7 +19,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -65,27 +62,11 @@ public class CreateStakeActivityExtraTest {
     }
 
     /**
-     * Test the property 'onlySign'
+     * Test the property 'autoBroadcast'
      */
     @Test
-    public void onlySignTest() {
-        // TODO: test onlySign
-    }
-
-    /**
-     * Test the property 'operator'
-     */
-    @Test
-    public void operatorTest() {
-        // TODO: test operator
-    }
-
-    /**
-     * Test the property 'feeRecipient'
-     */
-    @Test
-    public void feeRecipientTest() {
-        // TODO: test feeRecipient
+    public void autoBroadcastTest() {
+        // TODO: test autoBroadcast
     }
 
 }

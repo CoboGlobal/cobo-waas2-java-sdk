@@ -2,7 +2,7 @@
 
 # TransactionEvmContractDestination
 
-Information about the transaction destination type `EVM_Contract`. 
+Information about the transaction destination type `EVM_Contract`. Switch between the tabs to display the properties for different transaction destinations. 
 
 ## Properties
 

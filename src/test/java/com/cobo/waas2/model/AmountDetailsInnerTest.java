@@ -52,12 +52,4 @@ public class AmountDetailsInnerTest {
         // TODO: test amount
     }
 
-    /**
-     * Test the property 'activityId'
-     */
-    @Test
-    public void activityIdTest() {
-        // TODO: test activityId
-    }
-
 }

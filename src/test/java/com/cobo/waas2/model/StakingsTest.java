@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.AmountDetailsInner;
+import com.cobo.waas2.model.StakingsExtra;
 import com.cobo.waas2.model.StakingsValidatorInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -72,30 +73,6 @@ public class StakingsTest {
     }
 
     /**
-     * Test the property 'initiator'
-     */
-    @Test
-    public void initiatorTest() {
-        // TODO: test initiator
-    }
-
-    /**
-     * Test the property 'unlockTimestamp'
-     */
-    @Test
-    public void unlockTimestampTest() {
-        // TODO: test unlockTimestamp
-    }
-
-    /**
-     * Test the property 'unlockBlockHeight'
-     */
-    @Test
-    public void unlockBlockHeightTest() {
-        // TODO: test unlockBlockHeight
-    }
-
-    /**
      * Test the property 'poolId'
      */
     @Test
@@ -109,14 +86,6 @@ public class StakingsTest {
     @Test
     public void tokenIdTest() {
         // TODO: test tokenId
-    }
-
-    /**
-     * Test the property 'posChain'
-     */
-    @Test
-    public void posChainTest() {
-        // TODO: test posChain
     }
 
     /**
@@ -149,6 +118,14 @@ public class StakingsTest {
     @Test
     public void validatorInfoTest() {
         // TODO: test validatorInfo
+    }
+
+    /**
+     * Test the property 'extra'
+     */
+    @Test
+    public void extraTest() {
+        // TODO: test extra
     }
 
 }

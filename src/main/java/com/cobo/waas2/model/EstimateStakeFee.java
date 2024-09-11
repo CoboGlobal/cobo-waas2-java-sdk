@@ -150,7 +150,7 @@ public class EstimateStakeFee {
   }
 
    /**
-   * The id of the staking pool
+   * The ID of the staking pool.
    * @return poolId
   **/
   @javax.annotation.Nonnull
@@ -169,7 +169,7 @@ public class EstimateStakeFee {
   }
 
    /**
-   * The amount to stake
+   * The amount to stake.
    * @return amount
   **/
   @javax.annotation.Nonnull

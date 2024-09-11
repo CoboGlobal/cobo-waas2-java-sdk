@@ -36,11 +36,11 @@ public class ActivityInitiatorTest {
     }
 
     /**
-     * Test the property 'initiator'
+     * Test the property 'appInitiator'
      */
     @Test
-    public void initiatorTest() {
-        // TODO: test initiator
+    public void appInitiatorTest() {
+        // TODO: test appInitiator
     }
 
 }

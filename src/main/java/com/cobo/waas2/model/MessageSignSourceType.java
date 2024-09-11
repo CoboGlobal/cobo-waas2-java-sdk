@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The wallet subtype. Possible values include: - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled). - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled). 
+ * The wallet subtype of the transaction source. Refer to [Transaction sources and destinations](/v2/guides/sources-and-destinations) for details. 
  */
 @JsonAdapter(MessageSignSourceType.Adapter.class)
 public enum MessageSignSourceType {

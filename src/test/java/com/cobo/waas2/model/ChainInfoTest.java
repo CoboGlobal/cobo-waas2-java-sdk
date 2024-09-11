@@ -83,4 +83,12 @@ public class ChainInfoTest {
         // TODO: test requireMemo
     }
 
+    /**
+     * Test the property 'confirmingThreshold'
+     */
+    @Test
+    public void confirmingThresholdTest() {
+        // TODO: test confirmingThreshold
+    }
+
 }

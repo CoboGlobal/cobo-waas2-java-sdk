@@ -15,5 +15,9 @@
 
 * `EXTERNALSAFETX` (value: `"ExternalSafeTx"`)
 
+* `STAKE` (value: `"Stake"`)
+
+* `UNSTAKE` (value: `"Unstake"`)
+
 
 

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the wallet. Possible values include: - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled). - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled). - &#x60;Safe{Wallet}&#x60;: Smart Contract Wallets (Safe{Wallet}). 
+ * The type of the source. Refer to [Transaction sources and destinations](/v2/guides/sources-and-destinations) for details. 
  */
 @JsonAdapter(ContractCallSourceType.Adapter.class)
 public enum ContractCallSourceType {

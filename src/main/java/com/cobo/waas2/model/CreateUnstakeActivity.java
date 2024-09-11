@@ -97,7 +97,7 @@ public class CreateUnstakeActivity {
   }
 
    /**
-   * The id of the related staking.
+   * The ID of the corresponding staking position.
    * @return stakingId
   **/
   @javax.annotation.Nonnull
@@ -116,7 +116,7 @@ public class CreateUnstakeActivity {
   }
 
    /**
-   * The amount to stake
+   * The amount to unstake. For the Babylon protocol, this property is ignored.
    * @return amount
   **/
   @javax.annotation.Nullable

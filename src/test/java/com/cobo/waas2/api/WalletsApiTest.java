@@ -18,7 +18,6 @@ import com.cobo.waas2.model.AddressInfo;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.CheckAddressValidity200Response;
 import com.cobo.waas2.model.CheckAddressesValidity200ResponseInner;
-import com.cobo.waas2.model.CheckLoopTransfers200ResponseInner;
 import com.cobo.waas2.model.CreateAddressRequest;
 import com.cobo.waas2.model.CreateWalletParams;
 import com.cobo.waas2.model.CreatedWalletInfo;
@@ -87,22 +86,6 @@ public class WalletsApiTest {
         String chainId = null;
         String addresses = null;
         List<CheckAddressesValidity200ResponseInner> response = api.checkAddressesValidity(chainId, addresses);
-        // TODO: test validations
-    }
-
-    /**
-     * Check Loop transfers
-     *
-     * This operation verifies if the transactions from a given source wallet to a list of destination addresses can be executed as Loop transfers.   For more information about Loop, see [Loop&#39;s website](https://loop.top/). 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void checkLoopTransfersTest() throws ApiException {
-        String tokenId = null;
-        UUID sourceWalletId = null;
-        String destinationAddresses = null;
-        List<CheckLoopTransfers200ResponseInner> response = api.checkLoopTransfers(tokenId, sourceWalletId, destinationAddresses);
         // TODO: test validations
     }
 

@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityTimeline;
 import com.cobo.waas2.model.ActivityType;
+import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -55,6 +56,14 @@ public class ActivityTest {
     @Test
     public void initiatorTest() {
         // TODO: test initiator
+    }
+
+    /**
+     * Test the property 'initiatorType'
+     */
+    @Test
+    public void initiatorTypeTest() {
+        // TODO: test initiatorType
     }
 
     /**

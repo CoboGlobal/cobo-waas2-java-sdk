@@ -126,7 +126,7 @@ public class CreateStakeActivity {
   }
 
    /**
-   * The id of the staking pool
+   * The ID of the staking pool.
    * @return poolId
   **/
   @javax.annotation.Nonnull
@@ -145,7 +145,7 @@ public class CreateStakeActivity {
   }
 
    /**
-   * The amount to stake
+   * The amount to stake.
    * @return amount
   **/
   @javax.annotation.Nonnull

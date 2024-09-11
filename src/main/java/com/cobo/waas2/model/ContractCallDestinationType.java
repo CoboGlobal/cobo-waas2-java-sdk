@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the contract format. Possible values include: - &#x60;EVM_Contract&#x60;: EVM compatible contracts. 
+ * The type of the contract format. Refer to [Transaction sources and destinations](/v2/guides/sources-and-destinations) for details. 
  */
 @JsonAdapter(ContractCallDestinationType.Adapter.class)
 public enum ContractCallDestinationType {

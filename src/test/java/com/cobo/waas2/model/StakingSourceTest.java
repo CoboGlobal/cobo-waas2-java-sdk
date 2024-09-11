@@ -11,10 +11,8 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.CoboSafeDelegate;
-import com.cobo.waas2.model.ContractCallSourceType;
-import com.cobo.waas2.model.MpcContractCallSource;
-import com.cobo.waas2.model.SafeContractCallSource;
+import com.cobo.waas2.model.MpcStakeSource;
+import com.cobo.waas2.model.StakeSourceType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -62,22 +60,6 @@ public class StakingSourceTest {
     @Test
     public void addressTest() {
         // TODO: test address
-    }
-
-    /**
-     * Test the property 'nonce'
-     */
-    @Test
-    public void nonceTest() {
-        // TODO: test nonce
-    }
-
-    /**
-     * Test the property 'delegate'
-     */
-    @Test
-    public void delegateTest() {
-        // TODO: test delegate
     }
 
 }

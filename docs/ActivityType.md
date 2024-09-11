@@ -11,11 +11,5 @@
 
 * `WITHDRAW` (value: `"Withdraw"`)
 
-* `CLAIM` (value: `"Claim"`)
-
-* `DELEGATE` (value: `"Delegate"`)
-
-* `UNDELEGATE` (value: `"Undelegate"`)
-
 
 

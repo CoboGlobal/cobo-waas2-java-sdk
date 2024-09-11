@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.AmountDetailsInner;
+import com.cobo.waas2.model.StakingsExtra;
 import com.cobo.waas2.model.StakingsValidatorInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -49,7 +50,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The staking info.
+ * The information about a staking position.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -72,18 +73,6 @@ public class Stakings {
   @SerializedName(SERIALIZED_NAME_AMOUNTS)
   private List<AmountDetailsInner> amounts = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_INITIATOR = "initiator";
-  @SerializedName(SERIALIZED_NAME_INITIATOR)
-  private String initiator;
-
-  public static final String SERIALIZED_NAME_UNLOCK_TIMESTAMP = "unlock_timestamp";
-  @SerializedName(SERIALIZED_NAME_UNLOCK_TIMESTAMP)
-  private Long unlockTimestamp;
-
-  public static final String SERIALIZED_NAME_UNLOCK_BLOCK_HEIGHT = "unlock_block_height";
-  @SerializedName(SERIALIZED_NAME_UNLOCK_BLOCK_HEIGHT)
-  private Long unlockBlockHeight;
-
   public static final String SERIALIZED_NAME_POOL_ID = "pool_id";
   @SerializedName(SERIALIZED_NAME_POOL_ID)
   private String poolId;
@@ -91,10 +80,6 @@ public class Stakings {
   public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
   private String tokenId;
-
-  public static final String SERIALIZED_NAME_POS_CHAIN = "pos_chain";
-  @SerializedName(SERIALIZED_NAME_POS_CHAIN)
-  private String posChain;
 
   public static final String SERIALIZED_NAME_REWARDS_INFO = "rewards_info";
   @SerializedName(SERIALIZED_NAME_REWARDS_INFO)
@@ -112,6 +97,10 @@ public class Stakings {
   @SerializedName(SERIALIZED_NAME_VALIDATOR_INFO)
   private StakingsValidatorInfo validatorInfo;
 
+  public static final String SERIALIZED_NAME_EXTRA = "extra";
+  @SerializedName(SERIALIZED_NAME_EXTRA)
+  private StakingsExtra extra;
+
   public Stakings() {
   }
 
@@ -121,7 +110,7 @@ public class Stakings {
   }
 
    /**
-   * The unique id of the stake.
+   * The ID of the staking position.
    * @return id
   **/
   @javax.annotation.Nonnull
@@ -140,7 +129,7 @@ public class Stakings {
   }
 
    /**
-   * The unique wallet id.
+   * The staker&#39;s wallet ID.
    * @return walletId
   **/
   @javax.annotation.Nonnull
@@ -159,7 +148,7 @@ public class Stakings {
   }
 
    /**
-   * The staker wallet address.
+   * The staker&#39;s wallet address.
    * @return address
   **/
   @javax.annotation.Nonnull
@@ -186,7 +175,7 @@ public class Stakings {
   }
 
    /**
-   * The staking amount details.
+   * The details about the staking amount.
    * @return amounts
   **/
   @javax.annotation.Nonnull
@@ -199,70 +188,13 @@ public class Stakings {
   }
 
 
-  public Stakings initiator(String initiator) {
-    this.initiator = initiator;
-    return this;
-  }
-
-   /**
-   * The initiator of the stake.
-   * @return initiator
-  **/
-  @javax.annotation.Nullable
-  public String getInitiator() {
-    return initiator;
-  }
-
-  public void setInitiator(String initiator) {
-    this.initiator = initiator;
-  }
-
-
-  public Stakings unlockTimestamp(Long unlockTimestamp) {
-    this.unlockTimestamp = unlockTimestamp;
-    return this;
-  }
-
-   /**
-   * The unlock time.
-   * @return unlockTimestamp
-  **/
-  @javax.annotation.Nullable
-  public Long getUnlockTimestamp() {
-    return unlockTimestamp;
-  }
-
-  public void setUnlockTimestamp(Long unlockTimestamp) {
-    this.unlockTimestamp = unlockTimestamp;
-  }
-
-
-  public Stakings unlockBlockHeight(Long unlockBlockHeight) {
-    this.unlockBlockHeight = unlockBlockHeight;
-    return this;
-  }
-
-   /**
-   * The unlock block height.
-   * @return unlockBlockHeight
-  **/
-  @javax.annotation.Nullable
-  public Long getUnlockBlockHeight() {
-    return unlockBlockHeight;
-  }
-
-  public void setUnlockBlockHeight(Long unlockBlockHeight) {
-    this.unlockBlockHeight = unlockBlockHeight;
-  }
-
-
   public Stakings poolId(String poolId) {
     this.poolId = poolId;
     return this;
   }
 
    /**
-   * The unique pool id.
+   * The ID of the staking pool.
    * @return poolId
   **/
   @javax.annotation.Nonnull
@@ -281,7 +213,7 @@ public class Stakings {
   }
 
    /**
-   * The token id.
+   * The token ID.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -294,32 +226,13 @@ public class Stakings {
   }
 
 
-  public Stakings posChain(String posChain) {
-    this.posChain = posChain;
-    return this;
-  }
-
-   /**
-   * The pos chain of the stake.
-   * @return posChain
-  **/
-  @javax.annotation.Nullable
-  public String getPosChain() {
-    return posChain;
-  }
-
-  public void setPosChain(String posChain) {
-    this.posChain = posChain;
-  }
-
-
   public Stakings rewardsInfo(Object rewardsInfo) {
     this.rewardsInfo = rewardsInfo;
     return this;
   }
 
    /**
-   * The rewards info of the stake.
+   * The information about the staking rewards.
    * @return rewardsInfo
   **/
   @javax.annotation.Nullable
@@ -338,7 +251,7 @@ public class Stakings {
   }
 
    /**
-   * The time when the stake was created.
+   * The time when the staking position was created.
    * @return createdTimestamp
   **/
   @javax.annotation.Nonnull
@@ -357,7 +270,7 @@ public class Stakings {
   }
 
    /**
-   * The time when the stake was last updated.
+   * The time when the staking position was last updated.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nonnull
@@ -386,6 +299,25 @@ public class Stakings {
 
   public void setValidatorInfo(StakingsValidatorInfo validatorInfo) {
     this.validatorInfo = validatorInfo;
+  }
+
+
+  public Stakings extra(StakingsExtra extra) {
+    this.extra = extra;
+    return this;
+  }
+
+   /**
+   * Get extra
+   * @return extra
+  **/
+  @javax.annotation.Nullable
+  public StakingsExtra getExtra() {
+    return extra;
+  }
+
+  public void setExtra(StakingsExtra extra) {
+    this.extra = extra;
   }
 
   /**
@@ -447,22 +379,19 @@ public class Stakings {
         Objects.equals(this.walletId, stakings.walletId) &&
         Objects.equals(this.address, stakings.address) &&
         Objects.equals(this.amounts, stakings.amounts) &&
-        Objects.equals(this.initiator, stakings.initiator) &&
-        Objects.equals(this.unlockTimestamp, stakings.unlockTimestamp) &&
-        Objects.equals(this.unlockBlockHeight, stakings.unlockBlockHeight) &&
         Objects.equals(this.poolId, stakings.poolId) &&
         Objects.equals(this.tokenId, stakings.tokenId) &&
-        Objects.equals(this.posChain, stakings.posChain) &&
         Objects.equals(this.rewardsInfo, stakings.rewardsInfo) &&
         Objects.equals(this.createdTimestamp, stakings.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, stakings.updatedTimestamp) &&
-        Objects.equals(this.validatorInfo, stakings.validatorInfo)&&
+        Objects.equals(this.validatorInfo, stakings.validatorInfo) &&
+        Objects.equals(this.extra, stakings.extra)&&
         Objects.equals(this.additionalProperties, stakings.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, walletId, address, amounts, initiator, unlockTimestamp, unlockBlockHeight, poolId, tokenId, posChain, rewardsInfo, createdTimestamp, updatedTimestamp, validatorInfo, additionalProperties);
+    return Objects.hash(id, walletId, address, amounts, poolId, tokenId, rewardsInfo, createdTimestamp, updatedTimestamp, validatorInfo, extra, additionalProperties);
   }
 
   @Override
@@ -473,16 +402,13 @@ public class Stakings {
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    amounts: ").append(toIndentedString(amounts)).append("\n");
-    sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
-    sb.append("    unlockTimestamp: ").append(toIndentedString(unlockTimestamp)).append("\n");
-    sb.append("    unlockBlockHeight: ").append(toIndentedString(unlockBlockHeight)).append("\n");
     sb.append("    poolId: ").append(toIndentedString(poolId)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    posChain: ").append(toIndentedString(posChain)).append("\n");
     sb.append("    rewardsInfo: ").append(toIndentedString(rewardsInfo)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    validatorInfo: ").append(toIndentedString(validatorInfo)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -510,16 +436,13 @@ public class Stakings {
     openapiFields.add("wallet_id");
     openapiFields.add("address");
     openapiFields.add("amounts");
-    openapiFields.add("initiator");
-    openapiFields.add("unlock_timestamp");
-    openapiFields.add("unlock_block_height");
     openapiFields.add("pool_id");
     openapiFields.add("token_id");
-    openapiFields.add("pos_chain");
     openapiFields.add("rewards_info");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("validator_info");
+    openapiFields.add("extra");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -573,20 +496,18 @@ public class Stakings {
       for (int i = 0; i < jsonArrayamounts.size(); i++) {
         AmountDetailsInner.validateJsonElement(jsonArrayamounts.get(i));
       };
-      if ((jsonObj.get("initiator") != null && !jsonObj.get("initiator").isJsonNull()) && !jsonObj.get("initiator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiator").toString()));
-      }
       if (!jsonObj.get("pool_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pool_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pool_id").toString()));
       }
       if (!jsonObj.get("token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
       }
-      if ((jsonObj.get("pos_chain") != null && !jsonObj.get("pos_chain").isJsonNull()) && !jsonObj.get("pos_chain").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pos_chain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pos_chain").toString()));
-      }
       // validate the required field `validator_info`
       StakingsValidatorInfo.validateJsonElement(jsonObj.get("validator_info"));
+      // validate the optional field `extra`
+      if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull()) {
+        StakingsExtra.validateJsonElement(jsonObj.get("extra"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
