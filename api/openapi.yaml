@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   contact:
-    email: help@cobo.com
+    email: support@cobo.com
     name: Cobo WaaS
     url: https://www.cobo.com/waas
   description: |

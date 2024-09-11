@@ -44,6 +44,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -113,6 +114,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -182,6 +184,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -253,6 +256,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -322,6 +326,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -389,6 +394,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -456,6 +462,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -525,6 +532,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -592,6 +600,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -667,6 +676,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -734,6 +744,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -801,6 +812,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -878,6 +890,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -953,6 +966,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1030,6 +1044,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1107,6 +1122,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1186,6 +1202,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1263,6 +1280,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1338,6 +1356,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1415,6 +1434,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1494,6 +1514,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1563,6 +1584,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {
@@ -1632,6 +1654,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
 import com.cobo.waas2.api.WalletsApi;
 
 public class Example {

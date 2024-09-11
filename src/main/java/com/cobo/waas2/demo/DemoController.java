@@ -23,8 +23,8 @@ public class DemoController {
     @PostMapping("/webhook")
     public void handleWebhookEvent(
             @RequestBody String rawBody,
-            @RequestHeader(value = "BIZ_TIMESTAMP") String bizTimestamp,
-            @RequestHeader(value = "BIZ_RESP_SIGNATURE") String bizSignature
+            @RequestHeader(value = "BIZ-TIMESTAMP") String bizTimestamp,
+            @RequestHeader(value = "BIZ-RESP-SIGNATURE") String bizSignature
     ) throws IOException {
         boolean verified = this.verifySignature(rawBody, bizTimestamp, bizSignature);
         if (!verified) {
@@ -37,8 +37,8 @@ public class DemoController {
     @PostMapping("/callback")
     public String handleDoubleConfirm(
             @RequestBody String rawBody,
-            @RequestHeader(value = "BIZ_TIMESTAMP") String bizTimestamp,
-            @RequestHeader(value = "BIZ_RESP_SIGNATURE") String bizSignature
+            @RequestHeader(value = "BIZ-TIMESTAMP") String bizTimestamp,
+            @RequestHeader(value = "BIZ-RESP-SIGNATURE") String bizSignature
     ) throws IOException {
         boolean verified = this.verifySignature(rawBody, bizTimestamp, bizSignature);
         if (!verified) {
