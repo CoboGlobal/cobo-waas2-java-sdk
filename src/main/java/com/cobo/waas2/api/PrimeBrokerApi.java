@@ -60,14 +60,14 @@ public class PrimeBrokerApi {
 
     /**
      * Build call for changeGuardPubkey
-     * @param userId user id. (required)
+     * @param userId The user ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -117,15 +117,15 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * change a user guard pubkey
-     * This operation change a user guard pubkey. 
-     * @param userId user id. (required)
+     * Change Guard pubkey binding
+     * This operation updates an existing binding to associate a broker user ID with a new Cobo Guard public key. 
+     * @param userId The user ID. (required)
      * @return ChangeGuardPubkey200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -137,15 +137,15 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * change a user guard pubkey
-     * This operation change a user guard pubkey. 
-     * @param userId user id. (required)
+     * Change Guard pubkey binding
+     * This operation updates an existing binding to associate a broker user ID with a new Cobo Guard public key. 
+     * @param userId The user ID. (required)
      * @return ApiResponse&lt;ChangeGuardPubkey200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -158,16 +158,16 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * change a user guard pubkey (asynchronously)
-     * This operation change a user guard pubkey. 
-     * @param userId user id. (required)
+     * Change Guard pubkey binding (asynchronously)
+     * This operation updates an existing binding to associate a broker user ID with a new Cobo Guard public key. 
+     * @param userId The user ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -182,14 +182,14 @@ public class PrimeBrokerApi {
     }
     /**
      * Build call for createGuardPubkey
-     * @param userId user id. (required)
+     * @param userId The user ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -239,15 +239,15 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * create a guard pubkey binding
-     * This operation create a guard pubkey binding. 
-     * @param userId user id. (required)
+     * Create Guard pubkey binding
+     * This operation creates a binding between a broker user ID and a Cobo Guard public key.  
+     * @param userId The user ID. (required)
      * @return ChangeGuardPubkey200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -259,15 +259,15 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * create a guard pubkey binding
-     * This operation create a guard pubkey binding. 
-     * @param userId user id. (required)
+     * Create Guard pubkey binding
+     * This operation creates a binding between a broker user ID and a Cobo Guard public key.  
+     * @param userId The user ID. (required)
      * @return ApiResponse&lt;ChangeGuardPubkey200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -280,16 +280,16 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * create a guard pubkey binding (asynchronously)
-     * This operation create a guard pubkey binding. 
-     * @param userId user id. (required)
+     * Create Guard pubkey binding (asynchronously)
+     * This operation creates a binding between a broker user ID and a Cobo Guard public key.  
+     * @param userId The user ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -304,15 +304,15 @@ public class PrimeBrokerApi {
     }
     /**
      * Build call for createPrimeBrokerAddress
-     * @param userId user id. (required)
-     * @param createPrimeBrokerAddressRequest The request body to binding addresses to a broker user. (optional)
+     * @param userId The user ID. (required)
+     * @param createPrimeBrokerAddressRequest The request body to bind addresses to a broker user. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a address binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -363,16 +363,16 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * bind addresses to a broker user
-     * This operation bind addresses to a broker user. 
-     * @param userId user id. (required)
-     * @param createPrimeBrokerAddressRequest The request body to binding addresses to a broker user. (optional)
+     * Bind addresses to a broker user
+     * This operation binds addresses to a broker user. 
+     * @param userId The user ID. (required)
+     * @param createPrimeBrokerAddressRequest The request body to bind addresses to a broker user. (optional)
      * @return CreatePrimeBrokerAddress201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a address binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -384,16 +384,16 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * bind addresses to a broker user
-     * This operation bind addresses to a broker user. 
-     * @param userId user id. (required)
-     * @param createPrimeBrokerAddressRequest The request body to binding addresses to a broker user. (optional)
+     * Bind addresses to a broker user
+     * This operation binds addresses to a broker user. 
+     * @param userId The user ID. (required)
+     * @param createPrimeBrokerAddressRequest The request body to bind addresses to a broker user. (optional)
      * @return ApiResponse&lt;CreatePrimeBrokerAddress201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a address binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -406,17 +406,17 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * bind addresses to a broker user (asynchronously)
-     * This operation bind addresses to a broker user. 
-     * @param userId user id. (required)
-     * @param createPrimeBrokerAddressRequest The request body to binding addresses to a broker user. (optional)
+     * Bind addresses to a broker user (asynchronously)
+     * This operation binds addresses to a broker user. 
+     * @param userId The user ID. (required)
+     * @param createPrimeBrokerAddressRequest The request body to bind addresses to a broker user. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a address binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -431,14 +431,14 @@ public class PrimeBrokerApi {
     }
     /**
      * Build call for deleteGuardPubkey
-     * @param userId user id. (required)
+     * @param userId The user ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -488,15 +488,15 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * delete a user guard pubkey
-     * This operation delete a user guard pubkey. 
-     * @param userId user id. (required)
+     * Delete Guard pubkey binding
+     * This operation deletes a binding between a broker user ID and a Cobo Guard public key. 
+     * @param userId The user ID. (required)
      * @return DeleteGuardPubkey201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -508,15 +508,15 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * delete a user guard pubkey
-     * This operation delete a user guard pubkey. 
-     * @param userId user id. (required)
+     * Delete Guard pubkey binding
+     * This operation deletes a binding between a broker user ID and a Cobo Guard public key. 
+     * @param userId The user ID. (required)
      * @return ApiResponse&lt;DeleteGuardPubkey201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -529,16 +529,16 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * delete a user guard pubkey (asynchronously)
-     * This operation delete a user guard pubkey. 
-     * @param userId user id. (required)
+     * Delete Guard pubkey binding (asynchronously)
+     * This operation deletes a binding between a broker user ID and a Cobo Guard public key. 
+     * @param userId The user ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a guard binding. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -553,14 +553,14 @@ public class PrimeBrokerApi {
     }
     /**
      * Build call for queryApprovalStatement
-     * @param statementId approval statement id. (required)
+     * @param statementId The approval statement ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about a approval statement. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -610,15 +610,15 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * query a approval statement
-     * This operation query a approval statement. 
-     * @param statementId approval statement id. (required)
+     * Query approval statement
+     * This operation queries an approval statement. 
+     * @param statementId The approval statement ID. (required)
      * @return QueryApprovalStatement200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about a approval statement. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -630,15 +630,15 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * query a approval statement
-     * This operation query a approval statement. 
-     * @param statementId approval statement id. (required)
+     * Query approval statement
+     * This operation queries an approval statement. 
+     * @param statementId The approval statement ID. (required)
      * @return ApiResponse&lt;QueryApprovalStatement200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about a approval statement. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -651,16 +651,16 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * query a approval statement (asynchronously)
-     * This operation query a approval statement. 
-     * @param statementId approval statement id. (required)
+     * Query approval statement (asynchronously)
+     * This operation queries an approval statement. 
+     * @param statementId The approval statement ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about a approval statement. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -675,14 +675,14 @@ public class PrimeBrokerApi {
     }
     /**
      * Build call for queryGuardPubkey
-     * @param userId user id. (required)
+     * @param userId The user ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an user guard pubkey. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -732,15 +732,15 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * query a user guard pubkey
-     * This operation query a user guard pubkey 
-     * @param userId user id. (required)
+     * Query a Guard pubkey
+     * This operation retrieves the current Cobo Guard public key binding details for a broker user. 
+     * @param userId The user ID. (required)
      * @return QueryGuardPubkey200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an user guard pubkey. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -752,15 +752,15 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * query a user guard pubkey
-     * This operation query a user guard pubkey 
-     * @param userId user id. (required)
+     * Query a Guard pubkey
+     * This operation retrieves the current Cobo Guard public key binding details for a broker user. 
+     * @param userId The user ID. (required)
      * @return ApiResponse&lt;QueryGuardPubkey200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an user guard pubkey. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
@@ -773,16 +773,16 @@ public class PrimeBrokerApi {
     }
 
     /**
-     * query a user guard pubkey (asynchronously)
-     * This operation query a user guard pubkey 
-     * @param userId user id. (required)
+     * Query a Guard pubkey (asynchronously)
+     * This operation retrieves the current Cobo Guard public key binding details for a broker user. 
+     * @param userId The user ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an user guard pubkey. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>

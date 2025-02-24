@@ -10,7 +10,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**createMpcVault**](WalletsMpcWalletsApi.md#createMpcVault) | **POST** /wallets/mpc/vaults | Create vault |
 | [**createTssRequest**](WalletsMpcWalletsApi.md#createTssRequest) | **POST** /wallets/mpc/vaults/{vault_id}/tss_requests | Create TSS request |
 | [**deleteKeyShareHolderGroupById**](WalletsMpcWalletsApi.md#deleteKeyShareHolderGroupById) | **POST** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups/{key_share_holder_group_id}/delete | Delete key share holder group |
-| [**getKeyShareHolderByTssNodeId**](WalletsMpcWalletsApi.md#getKeyShareHolderByTssNodeId) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holders/{tss_node_id} | Get key share holder by tss node id |
+| [**getKeyShareHolderByTssNodeId**](WalletsMpcWalletsApi.md#getKeyShareHolderByTssNodeId) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holders/{tss_node_id} | Get key share holder information |
 | [**getKeyShareHolderGroupById**](WalletsMpcWalletsApi.md#getKeyShareHolderGroupById) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups/{key_share_holder_group_id} | Get key share holder group information |
 | [**getMpcProjectById**](WalletsMpcWalletsApi.md#getMpcProjectById) | **GET** /wallets/mpc/projects/{project_id} | Get project information |
 | [**getMpcVaultById**](WalletsMpcWalletsApi.md#getMpcVaultById) | **GET** /wallets/mpc/vaults/{vault_id} | Get vault information |
@@ -446,9 +446,9 @@ public class Example {
 # **getKeyShareHolderByTssNodeId**
 > KeyShareHolder getKeyShareHolderByTssNodeId(vaultId, tssNodeId)
 
-Get key share holder by tss node id
+Get key share holder information
 
-This operation retrieves detailed information about a specified key holder. 
+This operation retrieves detailed information about a specified key share holder. 
 
 ### Example
 ```java
@@ -508,7 +508,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully get key share holder |  -  |
+| **200** | Successfully retrieved key share holder information |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -934,7 +934,7 @@ public class Example {
 
 List all key share holders
 
-This operation retrieves all key share holders under a specified vault. You can filter the result by key share holder group id. 
+This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
 
 ### Example
 ```java
@@ -979,7 +979,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **vaultId** | **UUID**| The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). | |
-| **keyShareHolderGroupIds** | **String**| A list of key_share_holder_group_ids, separated by comma. | [optional] |
+| **keyShareHolderGroupIds** | **String**| A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). | [optional] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
 | **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
 | **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
@@ -1000,7 +1000,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully listed key share holders. |  -  |
+| **200** | Successfully retrieved key share holder list |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 

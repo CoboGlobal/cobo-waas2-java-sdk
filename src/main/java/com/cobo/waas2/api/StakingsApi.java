@@ -28,12 +28,6 @@ import java.io.IOException;
 import com.cobo.waas2.model.Activity;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityType;
-import com.cobo.waas2.model.BabylonAirdropRegistration;
-import com.cobo.waas2.model.BabylonStakingRegistration;
-import com.cobo.waas2.model.CreateBabylonAirdropRegistration201Response;
-import com.cobo.waas2.model.CreateBabylonAirdropRegistrationRequest;
-import com.cobo.waas2.model.CreateBabylonStakingRegistration201Response;
-import com.cobo.waas2.model.CreateBabylonStakingRegistrationRequest;
 import com.cobo.waas2.model.CreateClaimActivityRequest;
 import com.cobo.waas2.model.CreateStakeActivity201Response;
 import com.cobo.waas2.model.CreateStakeActivityRequest;
@@ -43,10 +37,6 @@ import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.EthStakeEstimatedFee;
 import com.cobo.waas2.model.GetStakingEstimationFee201Response;
 import com.cobo.waas2.model.GetStakingEstimationFeeRequest;
-import com.cobo.waas2.model.ListBabylonAirdropRegistrations200Response;
-import com.cobo.waas2.model.ListBabylonEligibleAirdrops200Response;
-import com.cobo.waas2.model.ListBabylonEligibleStakings200Response;
-import com.cobo.waas2.model.ListBabylonStakingRegistrations200Response;
 import com.cobo.waas2.model.ListStakingActivities200Response;
 import com.cobo.waas2.model.ListStakingPools200Response;
 import com.cobo.waas2.model.ListStakings200Response;
@@ -80,232 +70,6 @@ public class StakingsApi {
     }
 
     /**
-     * Build call for createBabylonAirdropRegistration
-     * @param createBabylonAirdropRegistrationRequest The request body to register for the Babylon airdrop. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Airdrop registration created successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createBabylonAirdropRegistrationCall(CreateBabylonAirdropRegistrationRequest createBabylonAirdropRegistrationRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = createBabylonAirdropRegistrationRequest;
-
-        // create path and map variables
-        String localVarPath = "/stakings/protocols/babylon/airdrops/registrations";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createBabylonAirdropRegistrationValidateBeforeCall(CreateBabylonAirdropRegistrationRequest createBabylonAirdropRegistrationRequest, final ApiCallback _callback) throws ApiException {
-        return createBabylonAirdropRegistrationCall(createBabylonAirdropRegistrationRequest, _callback);
-
-    }
-
-    /**
-     * Create Babylon airdrop registration
-     * Creates a new airdrop registration request.  The registration process involves: 1. Validating the address eligibility 2. Creating a registration record with unique ID 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress - Each address can only register once 
-     * @param createBabylonAirdropRegistrationRequest The request body to register for the Babylon airdrop. (optional)
-     * @return CreateBabylonAirdropRegistration201Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Airdrop registration created successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateBabylonAirdropRegistration201Response createBabylonAirdropRegistration(CreateBabylonAirdropRegistrationRequest createBabylonAirdropRegistrationRequest) throws ApiException {
-        ApiResponse<CreateBabylonAirdropRegistration201Response> localVarResp = createBabylonAirdropRegistrationWithHttpInfo(createBabylonAirdropRegistrationRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create Babylon airdrop registration
-     * Creates a new airdrop registration request.  The registration process involves: 1. Validating the address eligibility 2. Creating a registration record with unique ID 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress - Each address can only register once 
-     * @param createBabylonAirdropRegistrationRequest The request body to register for the Babylon airdrop. (optional)
-     * @return ApiResponse&lt;CreateBabylonAirdropRegistration201Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Airdrop registration created successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateBabylonAirdropRegistration201Response> createBabylonAirdropRegistrationWithHttpInfo(CreateBabylonAirdropRegistrationRequest createBabylonAirdropRegistrationRequest) throws ApiException {
-        okhttp3.Call localVarCall = createBabylonAirdropRegistrationValidateBeforeCall(createBabylonAirdropRegistrationRequest, null);
-        Type localVarReturnType = new TypeToken<CreateBabylonAirdropRegistration201Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Create Babylon airdrop registration (asynchronously)
-     * Creates a new airdrop registration request.  The registration process involves: 1. Validating the address eligibility 2. Creating a registration record with unique ID 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress - Each address can only register once 
-     * @param createBabylonAirdropRegistrationRequest The request body to register for the Babylon airdrop. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Airdrop registration created successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createBabylonAirdropRegistrationAsync(CreateBabylonAirdropRegistrationRequest createBabylonAirdropRegistrationRequest, final ApiCallback<CreateBabylonAirdropRegistration201Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createBabylonAirdropRegistrationValidateBeforeCall(createBabylonAirdropRegistrationRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateBabylonAirdropRegistration201Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createBabylonStakingRegistration
-     * @param createBabylonStakingRegistrationRequest The request body to transit Babylon BTC staking to phase 2 (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Register Babylon BTC staking for phase 2 successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createBabylonStakingRegistrationCall(CreateBabylonStakingRegistrationRequest createBabylonStakingRegistrationRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = createBabylonStakingRegistrationRequest;
-
-        // create path and map variables
-        String localVarPath = "/stakings/protocols/babylon/stakings/registrations";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createBabylonStakingRegistrationValidateBeforeCall(CreateBabylonStakingRegistrationRequest createBabylonStakingRegistrationRequest, final ApiCallback _callback) throws ApiException {
-        return createBabylonStakingRegistrationCall(createBabylonStakingRegistrationRequest, _callback);
-
-    }
-
-    /**
-     * Create Babylon staking registration request
-     * Creates a new request to register BTC staking for babylon phase 2.  The registration process involves: 1. Validating the staking eligibility 2. Creating a registration record 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress 
-     * @param createBabylonStakingRegistrationRequest The request body to transit Babylon BTC staking to phase 2 (optional)
-     * @return CreateBabylonStakingRegistration201Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Register Babylon BTC staking for phase 2 successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateBabylonStakingRegistration201Response createBabylonStakingRegistration(CreateBabylonStakingRegistrationRequest createBabylonStakingRegistrationRequest) throws ApiException {
-        ApiResponse<CreateBabylonStakingRegistration201Response> localVarResp = createBabylonStakingRegistrationWithHttpInfo(createBabylonStakingRegistrationRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create Babylon staking registration request
-     * Creates a new request to register BTC staking for babylon phase 2.  The registration process involves: 1. Validating the staking eligibility 2. Creating a registration record 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress 
-     * @param createBabylonStakingRegistrationRequest The request body to transit Babylon BTC staking to phase 2 (optional)
-     * @return ApiResponse&lt;CreateBabylonStakingRegistration201Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Register Babylon BTC staking for phase 2 successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateBabylonStakingRegistration201Response> createBabylonStakingRegistrationWithHttpInfo(CreateBabylonStakingRegistrationRequest createBabylonStakingRegistrationRequest) throws ApiException {
-        okhttp3.Call localVarCall = createBabylonStakingRegistrationValidateBeforeCall(createBabylonStakingRegistrationRequest, null);
-        Type localVarReturnType = new TypeToken<CreateBabylonStakingRegistration201Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Create Babylon staking registration request (asynchronously)
-     * Creates a new request to register BTC staking for babylon phase 2.  The registration process involves: 1. Validating the staking eligibility 2. Creating a registration record 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress 
-     * @param createBabylonStakingRegistrationRequest The request body to transit Babylon BTC staking to phase 2 (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Register Babylon BTC staking for phase 2 successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createBabylonStakingRegistrationAsync(CreateBabylonStakingRegistrationRequest createBabylonStakingRegistrationRequest, final ApiCallback<CreateBabylonStakingRegistration201Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createBabylonStakingRegistrationValidateBeforeCall(createBabylonStakingRegistrationRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateBabylonStakingRegistration201Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for createClaimActivity
      * @param createClaimActivityRequest The request body to create a staking request. (optional)
      * @param _callback Callback for upload/download progress
@@ -315,8 +79,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createClaimActivityCall(CreateClaimActivityRequest createClaimActivityRequest, final ApiCallback _callback) throws ApiException {
@@ -367,8 +132,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public CreateStakeActivity201Response createClaimActivity(CreateClaimActivityRequest createClaimActivityRequest) throws ApiException {
@@ -386,8 +152,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateStakeActivity201Response> createClaimActivityWithHttpInfo(CreateClaimActivityRequest createClaimActivityRequest) throws ApiException {
@@ -407,8 +174,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createClaimActivityAsync(CreateClaimActivityRequest createClaimActivityRequest, final ApiCallback<CreateStakeActivity201Response> _callback) throws ApiException {
@@ -428,8 +196,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createStakeActivityCall(CreateStakeActivityRequest createStakeActivityRequest, final ApiCallback _callback) throws ApiException {
@@ -480,8 +249,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public CreateStakeActivity201Response createStakeActivity(CreateStakeActivityRequest createStakeActivityRequest) throws ApiException {
@@ -499,8 +269,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateStakeActivity201Response> createStakeActivityWithHttpInfo(CreateStakeActivityRequest createStakeActivityRequest) throws ApiException {
@@ -520,8 +291,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createStakeActivityAsync(CreateStakeActivityRequest createStakeActivityRequest, final ApiCallback<CreateStakeActivity201Response> _callback) throws ApiException {
@@ -541,8 +313,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createUnstakeActivityCall(CreateUnstakeActivityRequest createUnstakeActivityRequest, final ApiCallback _callback) throws ApiException {
@@ -593,8 +366,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public CreateStakeActivity201Response createUnstakeActivity(CreateUnstakeActivityRequest createUnstakeActivityRequest) throws ApiException {
@@ -612,8 +386,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateStakeActivity201Response> createUnstakeActivityWithHttpInfo(CreateUnstakeActivityRequest createUnstakeActivityRequest) throws ApiException {
@@ -633,8 +408,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createUnstakeActivityAsync(CreateUnstakeActivityRequest createUnstakeActivityRequest, final ApiCallback<CreateStakeActivity201Response> _callback) throws ApiException {
@@ -654,8 +430,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createWithdrawActivityCall(CreateWithdrawActivityRequest createWithdrawActivityRequest, final ApiCallback _callback) throws ApiException {
@@ -706,8 +483,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public CreateStakeActivity201Response createWithdrawActivity(CreateWithdrawActivityRequest createWithdrawActivityRequest) throws ApiException {
@@ -725,8 +503,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateStakeActivity201Response> createWithdrawActivityWithHttpInfo(CreateWithdrawActivityRequest createWithdrawActivityRequest) throws ApiException {
@@ -746,250 +525,15 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createWithdrawActivityAsync(CreateWithdrawActivityRequest createWithdrawActivityRequest, final ApiCallback<CreateStakeActivity201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createWithdrawActivityValidateBeforeCall(createWithdrawActivityRequest, _callback);
         Type localVarReturnType = new TypeToken<CreateStakeActivity201Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getBabylonAirdropRegistrationById
-     * @param registrationId ID of the post staking registration request (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Get airdrop registration details successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getBabylonAirdropRegistrationByIdCall(String registrationId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/stakings/protocols/babylon/airdrops/registrations/{registration_id}"
-            .replace("{" + "registration_id" + "}", localVarApiClient.escapeString(registrationId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBabylonAirdropRegistrationByIdValidateBeforeCall(String registrationId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'registrationId' is set
-        if (registrationId == null) {
-            throw new ApiException("Missing the required parameter 'registrationId' when calling getBabylonAirdropRegistrationById(Async)");
-        }
-
-        return getBabylonAirdropRegistrationByIdCall(registrationId, _callback);
-
-    }
-
-    /**
-     * Get Babylon airdrop registration details
-     * Returns the current status and details of a specific airdrop registration.  The response includes: - Registration status (processing/completed/failed) - Source and destination addresses - Error message if failed 
-     * @param registrationId ID of the post staking registration request (required)
-     * @return BabylonAirdropRegistration
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Get airdrop registration details successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public BabylonAirdropRegistration getBabylonAirdropRegistrationById(String registrationId) throws ApiException {
-        ApiResponse<BabylonAirdropRegistration> localVarResp = getBabylonAirdropRegistrationByIdWithHttpInfo(registrationId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get Babylon airdrop registration details
-     * Returns the current status and details of a specific airdrop registration.  The response includes: - Registration status (processing/completed/failed) - Source and destination addresses - Error message if failed 
-     * @param registrationId ID of the post staking registration request (required)
-     * @return ApiResponse&lt;BabylonAirdropRegistration&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Get airdrop registration details successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<BabylonAirdropRegistration> getBabylonAirdropRegistrationByIdWithHttpInfo(String registrationId) throws ApiException {
-        okhttp3.Call localVarCall = getBabylonAirdropRegistrationByIdValidateBeforeCall(registrationId, null);
-        Type localVarReturnType = new TypeToken<BabylonAirdropRegistration>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get Babylon airdrop registration details (asynchronously)
-     * Returns the current status and details of a specific airdrop registration.  The response includes: - Registration status (processing/completed/failed) - Source and destination addresses - Error message if failed 
-     * @param registrationId ID of the post staking registration request (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Get airdrop registration details successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getBabylonAirdropRegistrationByIdAsync(String registrationId, final ApiCallback<BabylonAirdropRegistration> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getBabylonAirdropRegistrationByIdValidateBeforeCall(registrationId, _callback);
-        Type localVarReturnType = new TypeToken<BabylonAirdropRegistration>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getBabylonStakingRegistrationById
-     * @param registrationId ID of the post staking registration request (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Get babylon staking registration details successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getBabylonStakingRegistrationByIdCall(String registrationId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/stakings/protocols/babylon/stakings/registrations/{registration_id}"
-            .replace("{" + "registration_id" + "}", localVarApiClient.escapeString(registrationId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBabylonStakingRegistrationByIdValidateBeforeCall(String registrationId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'registrationId' is set
-        if (registrationId == null) {
-            throw new ApiException("Missing the required parameter 'registrationId' when calling getBabylonStakingRegistrationById(Async)");
-        }
-
-        return getBabylonStakingRegistrationByIdCall(registrationId, _callback);
-
-    }
-
-    /**
-     * Get post staking registration operation status
-     * Gets the current status of a post staking registration operation.  The status can be: - Processing: Registration transaction is being processed on-chain - Completed: Registration successfully completed - Failed: Registration failed (check error message for details)  Important notes: - Registration may take several minutes to complete - Status should be polled periodically - Once completed, the staking will be registered for post staking 
-     * @param registrationId ID of the post staking registration request (required)
-     * @return BabylonStakingRegistration
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Get babylon staking registration details successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public BabylonStakingRegistration getBabylonStakingRegistrationById(String registrationId) throws ApiException {
-        ApiResponse<BabylonStakingRegistration> localVarResp = getBabylonStakingRegistrationByIdWithHttpInfo(registrationId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get post staking registration operation status
-     * Gets the current status of a post staking registration operation.  The status can be: - Processing: Registration transaction is being processed on-chain - Completed: Registration successfully completed - Failed: Registration failed (check error message for details)  Important notes: - Registration may take several minutes to complete - Status should be polled periodically - Once completed, the staking will be registered for post staking 
-     * @param registrationId ID of the post staking registration request (required)
-     * @return ApiResponse&lt;BabylonStakingRegistration&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Get babylon staking registration details successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<BabylonStakingRegistration> getBabylonStakingRegistrationByIdWithHttpInfo(String registrationId) throws ApiException {
-        okhttp3.Call localVarCall = getBabylonStakingRegistrationByIdValidateBeforeCall(registrationId, null);
-        Type localVarReturnType = new TypeToken<BabylonStakingRegistration>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get post staking registration operation status (asynchronously)
-     * Gets the current status of a post staking registration operation.  The status can be: - Processing: Registration transaction is being processed on-chain - Completed: Registration successfully completed - Failed: Registration failed (check error message for details)  Important notes: - Registration may take several minutes to complete - Status should be polled periodically - Once completed, the staking will be registered for post staking 
-     * @param registrationId ID of the post staking registration request (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Get babylon staking registration details successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getBabylonStakingRegistrationByIdAsync(String registrationId, final ApiCallback<BabylonStakingRegistration> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getBabylonStakingRegistrationByIdValidateBeforeCall(registrationId, _callback);
-        Type localVarReturnType = new TypeToken<BabylonStakingRegistration>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1003,8 +547,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking activity has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getStakingActivityByIdCall(String activityId, final ApiCallback _callback) throws ApiException {
@@ -1060,8 +606,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking activity has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public Activity getStakingActivityById(String activityId) throws ApiException {
@@ -1079,8 +627,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking activity has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Activity> getStakingActivityByIdWithHttpInfo(String activityId) throws ApiException {
@@ -1100,8 +650,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking activity has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getStakingActivityByIdAsync(String activityId, final ApiCallback<Activity> _callback) throws ApiException {
@@ -1121,8 +673,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking position has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getStakingByIdCall(String stakingId, final ApiCallback _callback) throws ApiException {
@@ -1178,8 +732,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking position has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public Stakings getStakingById(String stakingId) throws ApiException {
@@ -1197,8 +753,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking position has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Stakings> getStakingByIdWithHttpInfo(String stakingId) throws ApiException {
@@ -1218,8 +776,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking position has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getStakingByIdAsync(String stakingId, final ApiCallback<Stakings> _callback) throws ApiException {
@@ -1239,8 +799,7 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getStakingEstimationFeeCall(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest, final ApiCallback _callback) throws ApiException {
@@ -1291,8 +850,7 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
      </table>
      */
     public GetStakingEstimationFee201Response getStakingEstimationFee(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest) throws ApiException {
@@ -1310,8 +868,7 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<GetStakingEstimationFee201Response> getStakingEstimationFeeWithHttpInfo(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest) throws ApiException {
@@ -1331,8 +888,7 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getStakingEstimationFeeAsync(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest, final ApiCallback<GetStakingEstimationFee201Response> _callback) throws ApiException {
@@ -1352,8 +908,7 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getStakingEstimationFeeV2Call(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest, final ApiCallback _callback) throws ApiException {
@@ -1404,8 +959,7 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
      </table>
      */
     public EthStakeEstimatedFee getStakingEstimationFeeV2(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest) throws ApiException {
@@ -1423,8 +977,7 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<EthStakeEstimatedFee> getStakingEstimationFeeV2WithHttpInfo(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest) throws ApiException {
@@ -1444,8 +997,7 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getStakingEstimationFeeV2Async(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest, final ApiCallback<EthStakeEstimatedFee> _callback) throws ApiException {
@@ -1465,8 +1017,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking pool has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getStakingPoolByIdCall(String poolId, final ApiCallback _callback) throws ApiException {
@@ -1522,8 +1076,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking pool has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public PoolDetails getStakingPoolById(String poolId) throws ApiException {
@@ -1541,8 +1097,10 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking pool has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<PoolDetails> getStakingPoolByIdWithHttpInfo(String poolId) throws ApiException {
@@ -1562,590 +1120,16 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A staking pool has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Requested resources not found. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getStakingPoolByIdAsync(String poolId, final ApiCallback<PoolDetails> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getStakingPoolByIdValidateBeforeCall(poolId, _callback);
         Type localVarReturnType = new TypeToken<PoolDetails>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listBabylonAirdropRegistrations
-     * @param status Filter by registration request status (optional)
-     * @param btcAddress The BTC address. (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of babylon airdrop registrations retrieved successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listBabylonAirdropRegistrationsCall(String status, String btcAddress, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/stakings/protocols/babylon/airdrops/registrations";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        if (status != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
-        }
-
-        if (btcAddress != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("btc_address", btcAddress));
-        }
-
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
-        }
-
-        if (before != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
-        }
-
-        if (after != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listBabylonAirdropRegistrationsValidateBeforeCall(String status, String btcAddress, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        return listBabylonAirdropRegistrationsCall(status, btcAddress, limit, before, after, _callback);
-
-    }
-
-    /**
-     * List Babylon airdrop registrations
-     * Returns a list of airdrop registration records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
-     * @param status Filter by registration request status (optional)
-     * @param btcAddress The BTC address. (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ListBabylonAirdropRegistrations200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of babylon airdrop registrations retrieved successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListBabylonAirdropRegistrations200Response listBabylonAirdropRegistrations(String status, String btcAddress, Integer limit, String before, String after) throws ApiException {
-        ApiResponse<ListBabylonAirdropRegistrations200Response> localVarResp = listBabylonAirdropRegistrationsWithHttpInfo(status, btcAddress, limit, before, after);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List Babylon airdrop registrations
-     * Returns a list of airdrop registration records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
-     * @param status Filter by registration request status (optional)
-     * @param btcAddress The BTC address. (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ApiResponse&lt;ListBabylonAirdropRegistrations200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of babylon airdrop registrations retrieved successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListBabylonAirdropRegistrations200Response> listBabylonAirdropRegistrationsWithHttpInfo(String status, String btcAddress, Integer limit, String before, String after) throws ApiException {
-        okhttp3.Call localVarCall = listBabylonAirdropRegistrationsValidateBeforeCall(status, btcAddress, limit, before, after, null);
-        Type localVarReturnType = new TypeToken<ListBabylonAirdropRegistrations200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List Babylon airdrop registrations (asynchronously)
-     * Returns a list of airdrop registration records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
-     * @param status Filter by registration request status (optional)
-     * @param btcAddress The BTC address. (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of babylon airdrop registrations retrieved successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listBabylonAirdropRegistrationsAsync(String status, String btcAddress, Integer limit, String before, String after, final ApiCallback<ListBabylonAirdropRegistrations200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listBabylonAirdropRegistrationsValidateBeforeCall(status, btcAddress, limit, before, after, _callback);
-        Type localVarReturnType = new TypeToken<ListBabylonAirdropRegistrations200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listBabylonEligibleAirdrops
-     * @param status Filter by registration status (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of wallets eligible for Babylon airdrop registration </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listBabylonEligibleAirdropsCall(String status, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/stakings/protocols/babylon/airdrops/eligibles";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        if (status != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
-        }
-
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
-        }
-
-        if (before != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
-        }
-
-        if (after != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listBabylonEligibleAirdropsValidateBeforeCall(String status, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        return listBabylonEligibleAirdropsCall(status, limit, before, after, _callback);
-
-    }
-
-    /**
-     * List wallets eligible for Babylon airdrop
-     * Returns a list of wallets that are eligible for the Babylon airdrop.  Use this API to: 1. Check which wallets can post airdrop registration 2. Get estimated airdrop amounts before claiming 3. Monitor available airdrops  The response includes: - Eligibility status and criteria - Estimated airdrop amounts - Claim status and history 
-     * @param status Filter by registration status (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ListBabylonEligibleAirdrops200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of wallets eligible for Babylon airdrop registration </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListBabylonEligibleAirdrops200Response listBabylonEligibleAirdrops(String status, Integer limit, String before, String after) throws ApiException {
-        ApiResponse<ListBabylonEligibleAirdrops200Response> localVarResp = listBabylonEligibleAirdropsWithHttpInfo(status, limit, before, after);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List wallets eligible for Babylon airdrop
-     * Returns a list of wallets that are eligible for the Babylon airdrop.  Use this API to: 1. Check which wallets can post airdrop registration 2. Get estimated airdrop amounts before claiming 3. Monitor available airdrops  The response includes: - Eligibility status and criteria - Estimated airdrop amounts - Claim status and history 
-     * @param status Filter by registration status (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ApiResponse&lt;ListBabylonEligibleAirdrops200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of wallets eligible for Babylon airdrop registration </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListBabylonEligibleAirdrops200Response> listBabylonEligibleAirdropsWithHttpInfo(String status, Integer limit, String before, String after) throws ApiException {
-        okhttp3.Call localVarCall = listBabylonEligibleAirdropsValidateBeforeCall(status, limit, before, after, null);
-        Type localVarReturnType = new TypeToken<ListBabylonEligibleAirdrops200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List wallets eligible for Babylon airdrop (asynchronously)
-     * Returns a list of wallets that are eligible for the Babylon airdrop.  Use this API to: 1. Check which wallets can post airdrop registration 2. Get estimated airdrop amounts before claiming 3. Monitor available airdrops  The response includes: - Eligibility status and criteria - Estimated airdrop amounts - Claim status and history 
-     * @param status Filter by registration status (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of wallets eligible for Babylon airdrop registration </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listBabylonEligibleAirdropsAsync(String status, Integer limit, String before, String after, final ApiCallback<ListBabylonEligibleAirdrops200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listBabylonEligibleAirdropsValidateBeforeCall(status, limit, before, after, _callback);
-        Type localVarReturnType = new TypeToken<ListBabylonEligibleAirdrops200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listBabylonEligibleStakings
-     * @param status Filter by registration status (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of stakings eligible for Babylon staking registration </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listBabylonEligibleStakingsCall(String status, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/stakings/protocols/babylon/stakings/eligibles";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        if (status != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
-        }
-
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
-        }
-
-        if (before != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
-        }
-
-        if (after != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listBabylonEligibleStakingsValidateBeforeCall(String status, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        return listBabylonEligibleStakingsCall(status, limit, before, after, _callback);
-
-    }
-
-    /**
-     * List stakings eligible for post staking registration
-     * Returns a list of staking positions that are eligible for Babylon staking registration.  The response includes: - Staking details and current status - Babylon staking registration eligibility information  Use this API to: 1. Check which staking positions can be registered 2. Get staking details before initiating registration 3. Monitor available positions for post staking registration 
-     * @param status Filter by registration status (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ListBabylonEligibleStakings200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of stakings eligible for Babylon staking registration </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListBabylonEligibleStakings200Response listBabylonEligibleStakings(String status, Integer limit, String before, String after) throws ApiException {
-        ApiResponse<ListBabylonEligibleStakings200Response> localVarResp = listBabylonEligibleStakingsWithHttpInfo(status, limit, before, after);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List stakings eligible for post staking registration
-     * Returns a list of staking positions that are eligible for Babylon staking registration.  The response includes: - Staking details and current status - Babylon staking registration eligibility information  Use this API to: 1. Check which staking positions can be registered 2. Get staking details before initiating registration 3. Monitor available positions for post staking registration 
-     * @param status Filter by registration status (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ApiResponse&lt;ListBabylonEligibleStakings200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of stakings eligible for Babylon staking registration </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListBabylonEligibleStakings200Response> listBabylonEligibleStakingsWithHttpInfo(String status, Integer limit, String before, String after) throws ApiException {
-        okhttp3.Call localVarCall = listBabylonEligibleStakingsValidateBeforeCall(status, limit, before, after, null);
-        Type localVarReturnType = new TypeToken<ListBabylonEligibleStakings200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List stakings eligible for post staking registration (asynchronously)
-     * Returns a list of staking positions that are eligible for Babylon staking registration.  The response includes: - Staking details and current status - Babylon staking registration eligibility information  Use this API to: 1. Check which staking positions can be registered 2. Get staking details before initiating registration 3. Monitor available positions for post staking registration 
-     * @param status Filter by registration status (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of stakings eligible for Babylon staking registration </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listBabylonEligibleStakingsAsync(String status, Integer limit, String before, String after, final ApiCallback<ListBabylonEligibleStakings200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listBabylonEligibleStakingsValidateBeforeCall(status, limit, before, after, _callback);
-        Type localVarReturnType = new TypeToken<ListBabylonEligibleStakings200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for listBabylonStakingRegistrations
-     * @param status Filter by registration request status (optional)
-     * @param stakingId The position ID. (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of babylon staking registrations retrieved successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listBabylonStakingRegistrationsCall(String status, String stakingId, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/stakings/protocols/babylon/stakings/registrations";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        if (status != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
-        }
-
-        if (stakingId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("staking_id", stakingId));
-        }
-
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
-        }
-
-        if (before != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
-        }
-
-        if (after != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listBabylonStakingRegistrationsValidateBeforeCall(String status, String stakingId, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        return listBabylonStakingRegistrationsCall(status, stakingId, limit, before, after, _callback);
-
-    }
-
-    /**
-     * List Babylon phase 2 staking registration requests
-     * Returns a list of babylon phase 2 staking registration request records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
-     * @param status Filter by registration request status (optional)
-     * @param stakingId The position ID. (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ListBabylonStakingRegistrations200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of babylon staking registrations retrieved successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListBabylonStakingRegistrations200Response listBabylonStakingRegistrations(String status, String stakingId, Integer limit, String before, String after) throws ApiException {
-        ApiResponse<ListBabylonStakingRegistrations200Response> localVarResp = listBabylonStakingRegistrationsWithHttpInfo(status, stakingId, limit, before, after);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List Babylon phase 2 staking registration requests
-     * Returns a list of babylon phase 2 staking registration request records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
-     * @param status Filter by registration request status (optional)
-     * @param stakingId The position ID. (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ApiResponse&lt;ListBabylonStakingRegistrations200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of babylon staking registrations retrieved successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListBabylonStakingRegistrations200Response> listBabylonStakingRegistrationsWithHttpInfo(String status, String stakingId, Integer limit, String before, String after) throws ApiException {
-        okhttp3.Call localVarCall = listBabylonStakingRegistrationsValidateBeforeCall(status, stakingId, limit, before, after, null);
-        Type localVarReturnType = new TypeToken<ListBabylonStakingRegistrations200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List Babylon phase 2 staking registration requests (asynchronously)
-     * Returns a list of babylon phase 2 staking registration request records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
-     * @param status Filter by registration request status (optional)
-     * @param stakingId The position ID. (optional)
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of babylon staking registrations retrieved successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listBabylonStakingRegistrationsAsync(String status, String stakingId, Integer limit, String before, String after, final ApiCallback<ListBabylonStakingRegistrations200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listBabylonStakingRegistrationsValidateBeforeCall(status, stakingId, limit, before, after, _callback);
-        Type localVarReturnType = new TypeToken<ListBabylonStakingRegistrations200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2169,8 +1153,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking activities have been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listStakingActivitiesCall(String poolId, String stakingId, ActivityType activityType, ActivityStatus activityStatus, Long minModifiedTimestamp, Long maxModifiedTimestamp, String initiator, String requestId, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
@@ -2274,8 +1259,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking activities have been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public ListStakingActivities200Response listStakingActivities(String poolId, String stakingId, ActivityType activityType, ActivityStatus activityStatus, Long minModifiedTimestamp, Long maxModifiedTimestamp, String initiator, String requestId, Integer limit, String before, String after) throws ApiException {
@@ -2303,8 +1289,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking activities have been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ListStakingActivities200Response> listStakingActivitiesWithHttpInfo(String poolId, String stakingId, ActivityType activityType, ActivityStatus activityStatus, Long minModifiedTimestamp, Long maxModifiedTimestamp, String initiator, String requestId, Integer limit, String before, String after) throws ApiException {
@@ -2334,8 +1321,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking activities have been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listStakingActivitiesAsync(String poolId, String stakingId, ActivityType activityType, ActivityStatus activityStatus, Long minModifiedTimestamp, Long maxModifiedTimestamp, String initiator, String requestId, Integer limit, String before, String after, final ApiCallback<ListStakingActivities200Response> _callback) throws ApiException {
@@ -2359,8 +1347,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking pools has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listStakingPoolsCall(String chainId, String tokenId, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
@@ -2434,8 +1423,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking pools has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public ListStakingPools200Response listStakingPools(String chainId, String tokenId, Integer limit, String before, String after) throws ApiException {
@@ -2457,8 +1447,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking pools has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ListStakingPools200Response> listStakingPoolsWithHttpInfo(String chainId, String tokenId, Integer limit, String before, String after) throws ApiException {
@@ -2482,8 +1473,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking pools has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listStakingPoolsAsync(String chainId, String tokenId, Integer limit, String before, String after, final ApiCallback<ListStakingPools200Response> _callback) throws ApiException {
@@ -2509,8 +1501,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking positions has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listStakingsCall(String poolId, String statuses, UUID walletId, String tokenId, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
@@ -2594,8 +1587,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking positions has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public ListStakings200Response listStakings(String poolId, String statuses, UUID walletId, String tokenId, Integer limit, String before, String after) throws ApiException {
@@ -2619,8 +1613,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking positions has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ListStakings200Response> listStakingsWithHttpInfo(String poolId, String statuses, UUID walletId, String tokenId, Integer limit, String before, String after) throws ApiException {
@@ -2646,8 +1641,9 @@ public class StakingsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> A list of staking positions has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listStakingsAsync(String poolId, String statuses, UUID walletId, String tokenId, Integer limit, String before, String after, final ApiCallback<ListStakings200Response> _callback) throws ApiException {

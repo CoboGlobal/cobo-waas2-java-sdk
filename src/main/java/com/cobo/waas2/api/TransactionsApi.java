@@ -1078,7 +1078,7 @@ public class TransactionsApi {
     }
 
     /**
-     * Get transaction approval information
+     * Get transaction approval details
      * This operation retrieves approval detailed information about a specified transaction. 
      * @param transactionId The transaction ID. (required)
      * @return TransactionApprovalDetail
@@ -1097,7 +1097,7 @@ public class TransactionsApi {
     }
 
     /**
-     * Get transaction approval information
+     * Get transaction approval details
      * This operation retrieves approval detailed information about a specified transaction. 
      * @param transactionId The transaction ID. (required)
      * @return ApiResponse&lt;TransactionApprovalDetail&gt;
@@ -1117,7 +1117,7 @@ public class TransactionsApi {
     }
 
     /**
-     * Get transaction approval information (asynchronously)
+     * Get transaction approval details (asynchronously)
      * This operation retrieves approval detailed information about a specified transaction. 
      * @param transactionId The transaction ID. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1682,7 +1682,7 @@ public class TransactionsApi {
 
     /**
      * Sign and broadcast transaction
-     * This operation sign and broadcast a specified transaction. 
+     * This operation signs and broadcasts a specified transaction.  To call this operation, the following conditions must be met: - The &#x60;transaction_process_type&#x60; of the transaction must be set to &#x60;BuildOnly&#x60; when you call the [Transfer token](https://www.cobo.com/developers/v2/api-references/transactions/transfer-token) or [Call smart contract](https://www.cobo.com/developers/v2/api-references/transactions/call-smart-contract) operation.   - The transaction status must be &#x60;Built&#x60;. 
      * @param transactionId The transaction ID. (required)
      * @return CreateTransferTransaction201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1701,7 +1701,7 @@ public class TransactionsApi {
 
     /**
      * Sign and broadcast transaction
-     * This operation sign and broadcast a specified transaction. 
+     * This operation signs and broadcasts a specified transaction.  To call this operation, the following conditions must be met: - The &#x60;transaction_process_type&#x60; of the transaction must be set to &#x60;BuildOnly&#x60; when you call the [Transfer token](https://www.cobo.com/developers/v2/api-references/transactions/transfer-token) or [Call smart contract](https://www.cobo.com/developers/v2/api-references/transactions/call-smart-contract) operation.   - The transaction status must be &#x60;Built&#x60;. 
      * @param transactionId The transaction ID. (required)
      * @return ApiResponse&lt;CreateTransferTransaction201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1721,7 +1721,7 @@ public class TransactionsApi {
 
     /**
      * Sign and broadcast transaction (asynchronously)
-     * This operation sign and broadcast a specified transaction. 
+     * This operation signs and broadcasts a specified transaction.  To call this operation, the following conditions must be met: - The &#x60;transaction_process_type&#x60; of the transaction must be set to &#x60;BuildOnly&#x60; when you call the [Transfer token](https://www.cobo.com/developers/v2/api-references/transactions/transfer-token) or [Call smart contract](https://www.cobo.com/developers/v2/api-references/transactions/call-smart-contract) operation.   - The transaction status must be &#x60;Built&#x60;. 
      * @param transactionId The transaction ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

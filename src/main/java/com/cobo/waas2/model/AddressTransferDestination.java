@@ -74,7 +74,7 @@ public class AddressTransferDestination {
   private String changeAddress;
 
   /**
-   * The type of change output: **Last** means the change output is located at the end of the transaction&#39;s outputs, **Last** is the default value. while **First** means it is located at the beginning of the transaction&#39;s outputs. 
+   * The position of the change output in the transaction&#39;s outputs. Possible values are: - &#x60;Last&#x60;: The change output is placed at the end of the transaction&#39;s outputs.   - &#x60;First&#x60;: The change output is placed at the beginning of the transaction&#39;s outputs. 
    */
   @JsonAdapter(ChangeOutputTypeEnum.Adapter.class)
   public enum ChangeOutputTypeEnum {
@@ -230,7 +230,7 @@ public class AddressTransferDestination {
   }
 
    /**
-   * The type of change output: **Last** means the change output is located at the end of the transaction&#39;s outputs, **Last** is the default value. while **First** means it is located at the beginning of the transaction&#39;s outputs. 
+   * The position of the change output in the transaction&#39;s outputs. Possible values are: - &#x60;Last&#x60;: The change output is placed at the end of the transaction&#39;s outputs.   - &#x60;First&#x60;: The change output is placed at the beginning of the transaction&#39;s outputs. 
    * @return changeOutputType
   **/
   @javax.annotation.Nullable

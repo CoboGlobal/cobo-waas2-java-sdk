@@ -12,8 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.AddressInfo;
 import com.cobo.waas2.model.AddressesEventData;
+import com.cobo.waas2.model.AddressesEventDataAllOfAddresses;
 import com.cobo.waas2.model.MPCVaultEventData;
 import com.cobo.waas2.model.MPCVaultType;
 import com.cobo.waas2.model.RootPubkey;

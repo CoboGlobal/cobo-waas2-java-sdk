@@ -811,7 +811,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully get key share holder </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder information </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -866,8 +866,8 @@ public class WalletsMpcWalletsApi {
     }
 
     /**
-     * Get key share holder by tss node id
-     * This operation retrieves detailed information about a specified key holder. 
+     * Get key share holder information
+     * This operation retrieves detailed information about a specified key share holder. 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssNodeId The TSS Node ID. (required)
      * @return KeyShareHolder
@@ -875,7 +875,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully get key share holder </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder information </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -886,8 +886,8 @@ public class WalletsMpcWalletsApi {
     }
 
     /**
-     * Get key share holder by tss node id
-     * This operation retrieves detailed information about a specified key holder. 
+     * Get key share holder information
+     * This operation retrieves detailed information about a specified key share holder. 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssNodeId The TSS Node ID. (required)
      * @return ApiResponse&lt;KeyShareHolder&gt;
@@ -895,7 +895,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully get key share holder </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder information </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -907,8 +907,8 @@ public class WalletsMpcWalletsApi {
     }
 
     /**
-     * Get key share holder by tss node id (asynchronously)
-     * This operation retrieves detailed information about a specified key holder. 
+     * Get key share holder information (asynchronously)
+     * This operation retrieves detailed information about a specified key share holder. 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssNodeId The TSS Node ID. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -917,7 +917,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully get key share holder </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder information </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1682,7 +1682,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Build call for listKeyShareHolders
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
-     * @param keyShareHolderGroupIds A list of key_share_holder_group_ids, separated by comma. (optional)
+     * @param keyShareHolderGroupIds A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -1692,7 +1692,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed key share holders. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder list </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1758,9 +1758,9 @@ public class WalletsMpcWalletsApi {
 
     /**
      * List all key share holders
-     * This operation retrieves all key share holders under a specified vault. You can filter the result by key share holder group id. 
+     * This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
-     * @param keyShareHolderGroupIds A list of key_share_holder_group_ids, separated by comma. (optional)
+     * @param keyShareHolderGroupIds A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -1769,7 +1769,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed key share holders. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder list </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1781,9 +1781,9 @@ public class WalletsMpcWalletsApi {
 
     /**
      * List all key share holders
-     * This operation retrieves all key share holders under a specified vault. You can filter the result by key share holder group id. 
+     * This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
-     * @param keyShareHolderGroupIds A list of key_share_holder_group_ids, separated by comma. (optional)
+     * @param keyShareHolderGroupIds A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -1792,7 +1792,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed key share holders. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder list </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1805,9 +1805,9 @@ public class WalletsMpcWalletsApi {
 
     /**
      * List all key share holders (asynchronously)
-     * This operation retrieves all key share holders under a specified vault. You can filter the result by key share holder group id. 
+     * This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
-     * @param keyShareHolderGroupIds A list of key_share_holder_group_ids, separated by comma. (optional)
+     * @param keyShareHolderGroupIds A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -1817,7 +1817,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed key share holders. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder list </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>

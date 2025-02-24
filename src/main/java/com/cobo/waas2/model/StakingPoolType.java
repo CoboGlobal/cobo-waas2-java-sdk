@@ -34,13 +34,7 @@ public enum StakingPoolType {
   
   COREBTC("CoreBTC"),
   
-  SKYFARM("SkyFarm"),
-  
-  BITHIVE("BitHive"),
-  
-  BERABEACON("BERABeacon"),
-  
-  BERACHAINBGT("BeraChainBGT");
+  SKYFARM("SkyFarm");
 
   private String value;
 

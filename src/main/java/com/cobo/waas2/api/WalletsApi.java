@@ -1438,7 +1438,7 @@ public class WalletsApi {
 
     /**
      * List address balances by token
-     * The operation retrieves a list of address balances for a specified token within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
@@ -1462,7 +1462,7 @@ public class WalletsApi {
 
     /**
      * List address balances by token
-     * The operation retrieves a list of address balances for a specified token within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
@@ -1487,7 +1487,7 @@ public class WalletsApi {
 
     /**
      * List address balances by token (asynchronously)
-     * The operation retrieves a list of address balances for a specified token within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)

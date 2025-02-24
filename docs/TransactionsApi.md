@@ -12,7 +12,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**createTransferTransaction**](TransactionsApi.md#createTransferTransaction) | **POST** /transactions/transfer | Transfer token |
 | [**dropTransactionById**](TransactionsApi.md#dropTransactionById) | **POST** /transactions/{transaction_id}/drop | Drop transaction |
 | [**estimateFee**](TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee |
-| [**getTransactionApprovalDetail**](TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval information |
+| [**getTransactionApprovalDetail**](TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval details |
 | [**getTransactionById**](TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information |
 | [**listTransactions**](TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions |
 | [**resendTransactionById**](TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction |
@@ -574,7 +574,7 @@ public class Example {
 # **getTransactionApprovalDetail**
 > TransactionApprovalDetail getTransactionApprovalDetail(transactionId)
 
-Get transaction approval information
+Get transaction approval details
 
 This operation retrieves approval detailed information about a specified transaction. 
 
@@ -882,7 +882,7 @@ public class Example {
 
 Sign and broadcast transaction
 
-This operation sign and broadcast a specified transaction. 
+This operation signs and broadcasts a specified transaction.  To call this operation, the following conditions must be met: - The &#x60;transaction_process_type&#x60; of the transaction must be set to &#x60;BuildOnly&#x60; when you call the [Transfer token](https://www.cobo.com/developers/v2/api-references/transactions/transfer-token) or [Call smart contract](https://www.cobo.com/developers/v2/api-references/transactions/call-smart-contract) operation.   - The transaction status must be &#x60;Built&#x60;. 
 
 ### Example
 ```java

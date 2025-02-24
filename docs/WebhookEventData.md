@@ -39,7 +39,7 @@
 |**tssRequestId** | **String** | The TSS request ID. |  [optional] |
 |**sourceKeyShareHolderGroup** | [**SourceGroup**](SourceGroup.md) |  |  [optional] |
 |**targetKeyShareHolderGroupId** | **String** | The target key share holder group ID. |  [optional] |
-|**addresses** | [**List&lt;AddressInfo&gt;**](AddressInfo.md) | A list of addresses. |  [optional] |
+|**addresses** | [**List&lt;AddressesEventDataAllOfAddresses&gt;**](AddressesEventDataAllOfAddresses.md) | A list of addresses. |  [optional] |
 |**wallet** | [**WalletInfo**](WalletInfo.md) |  |  [optional] |
 |**vaultId** | **String** | The vault ID. |  [optional] |
 |**projectId** | **String** | The project ID. |  [optional] |

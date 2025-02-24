@@ -103,7 +103,7 @@ public class CreateAddressRequest {
   }
 
    /**
-   * The number of addresses to create. This property will be ignored if you are tweaking Taproot address(es).
+   * The number of addresses to create. This property will be ignored if you are generating tweaked Taproot addresses.
    * minimum: 1
    * maximum: 50
    * @return count
@@ -132,7 +132,7 @@ public class CreateAddressRequest {
   }
 
    /**
-   * The information about the new address. This parameter is required only if you want to generate a tweaked address.
+   * A list of script tree hashes used to generate a tweaked Taproot address. This property is required only if you want to generate tweaked Taproot addresses.
    * @return taprootScriptTreeHashes
   **/
   @javax.annotation.Nullable
@@ -151,7 +151,7 @@ public class CreateAddressRequest {
   }
 
    /**
-   * The address you want to tweak. This parameter is required only if you want to generate a tweaked address.
+   * The original Taproot address to be tweaked. This property is required only if you want to generate tweaked Taproot addresses.
    * @return taprootInternalAddress
   **/
   @javax.annotation.Nullable

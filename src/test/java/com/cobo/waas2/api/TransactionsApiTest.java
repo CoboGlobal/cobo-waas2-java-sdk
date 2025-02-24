@@ -167,7 +167,7 @@ public class TransactionsApiTest {
     }
 
     /**
-     * Get transaction approval information
+     * Get transaction approval details
      *
      * This operation retrieves approval detailed information about a specified transaction. 
      *
@@ -242,7 +242,7 @@ public class TransactionsApiTest {
     /**
      * Sign and broadcast transaction
      *
-     * This operation sign and broadcast a specified transaction. 
+     * This operation signs and broadcasts a specified transaction.  To call this operation, the following conditions must be met: - The &#x60;transaction_process_type&#x60; of the transaction must be set to &#x60;BuildOnly&#x60; when you call the [Transfer token](https://www.cobo.com/developers/v2/api-references/transactions/transfer-token) or [Call smart contract](https://www.cobo.com/developers/v2/api-references/transactions/call-smart-contract) operation.   - The transaction status must be &#x60;Built&#x60;. 
      *
      * @throws ApiException if the Api call fails
      */

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The approval statement status. Possible values include:    - &#x60;UnSend&#x60;: The request has not send.   - &#x60;Wait&#x60;: The request sent to broker user ,waiting audit.    - &#x60;Approve&#x60;: The user approved.   - &#x60;Reject&#x60;: The user rejected.   - &#x60;Invalid&#x60;: The request invalid.   - &#x60;Timeout&#x60;: The request timeout. 
+ * The status of the approval statement. Possible values include:    - &#x60;UnSend&#x60;: The request has been created but not yet sent to the broker user.   - &#x60;Wait&#x60;: The request is sent to broker user and is pending review by the broker user.   - &#x60;Approve&#x60;: The user has approved the request.   - &#x60;Reject&#x60;: The user has rejected the request.   - &#x60;Invalid&#x60;: The request is invalid.   - &#x60;Timeout&#x60;: The request has expired. 
  */
 @JsonAdapter(ApprovalStatementStatus.Adapter.class)
 public enum ApprovalStatementStatus {

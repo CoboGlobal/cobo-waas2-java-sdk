@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The guard binding status. Possible values include:    - &#x60;New&#x60;: The guard binding created.   - &#x60;ChangeNew&#x60;: A new guard binding created    - &#x60;WaitSelfConfirm&#x60;: The guard binding waiting user confirm on old guard.   - &#x60;WaitConfirm&#x60;: The guard binding waiting admin confirm on guard.   - &#x60;WaitActive&#x60;: The guard binding waiting active   - &#x60;Active&#x60;: The guard binding active.   - &#x60;Freeze&#x60;: The guard binding was frozen.   - &#x60;Invalid&#x60;: The guard binding was invalid. 
+ * The status of a Cobo Guard public key binding. Possible values include:    - &#x60;New&#x60;: The binding is created.   - &#x60;ChangeNew&#x60;: A new binding is created    - &#x60;WaitSelfConfirm&#x60;: The binding is waiting for user confirmation on the old Cobo Guard.   - &#x60;WaitConfirm&#x60;: The binding is waiting for admin confirmation.   - &#x60;WaitActive&#x60;: The binding is waiting to become active.   - &#x60;Active&#x60;: The binding has come into effect.   - &#x60;Freeze&#x60;: The binding is frozen.   - &#x60;Invalid&#x60;: The binding is invalid. 
  */
 @JsonAdapter(GuardPubkeyStatus.Adapter.class)
 public enum GuardPubkeyStatus {

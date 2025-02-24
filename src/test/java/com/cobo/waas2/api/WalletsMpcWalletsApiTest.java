@@ -146,9 +146,9 @@ public class WalletsMpcWalletsApiTest {
     }
 
     /**
-     * Get key share holder by tss node id
+     * Get key share holder information
      *
-     * This operation retrieves detailed information about a specified key holder. 
+     * This operation retrieves detailed information about a specified key share holder. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -252,7 +252,7 @@ public class WalletsMpcWalletsApiTest {
     /**
      * List all key share holders
      *
-     * This operation retrieves all key share holders under a specified vault. You can filter the result by key share holder group id. 
+     * This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
      *
      * @throws ApiException if the Api call fails
      */

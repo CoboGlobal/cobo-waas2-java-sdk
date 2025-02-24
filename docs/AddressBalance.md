@@ -2,7 +2,7 @@
 
 # AddressBalance
 
-The balances of a specific token under address.
+The token balance for a specific wallet address.
 
 ## Properties
 

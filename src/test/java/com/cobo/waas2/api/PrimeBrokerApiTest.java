@@ -43,9 +43,9 @@ public class PrimeBrokerApiTest {
     private final PrimeBrokerApi api = new PrimeBrokerApi();
 
     /**
-     * change a user guard pubkey
+     * Change Guard pubkey binding
      *
-     * This operation change a user guard pubkey. 
+     * This operation updates an existing binding to associate a broker user ID with a new Cobo Guard public key. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -57,9 +57,9 @@ public class PrimeBrokerApiTest {
     }
 
     /**
-     * create a guard pubkey binding
+     * Create Guard pubkey binding
      *
-     * This operation create a guard pubkey binding. 
+     * This operation creates a binding between a broker user ID and a Cobo Guard public key.  
      *
      * @throws ApiException if the Api call fails
      */
@@ -71,9 +71,9 @@ public class PrimeBrokerApiTest {
     }
 
     /**
-     * bind addresses to a broker user
+     * Bind addresses to a broker user
      *
-     * This operation bind addresses to a broker user. 
+     * This operation binds addresses to a broker user. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -86,9 +86,9 @@ public class PrimeBrokerApiTest {
     }
 
     /**
-     * delete a user guard pubkey
+     * Delete Guard pubkey binding
      *
-     * This operation delete a user guard pubkey. 
+     * This operation deletes a binding between a broker user ID and a Cobo Guard public key. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -100,9 +100,9 @@ public class PrimeBrokerApiTest {
     }
 
     /**
-     * query a approval statement
+     * Query approval statement
      *
-     * This operation query a approval statement. 
+     * This operation queries an approval statement. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -114,9 +114,9 @@ public class PrimeBrokerApiTest {
     }
 
     /**
-     * query a user guard pubkey
+     * Query a Guard pubkey
      *
-     * This operation query a user guard pubkey 
+     * This operation retrieves the current Cobo Guard public key binding details for a broker user. 
      *
      * @throws ApiException if the Api call fails
      */

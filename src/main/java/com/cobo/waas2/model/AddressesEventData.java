@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.AddressInfo;
+import com.cobo.waas2.model.AddressesEventDataAllOfAddresses;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -119,7 +119,7 @@ public class AddressesEventData {
 
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
-  private List<AddressInfo> addresses = new ArrayList<>();
+  private List<AddressesEventDataAllOfAddresses> addresses = new ArrayList<>();
 
   public AddressesEventData() {
   }
@@ -143,12 +143,12 @@ public class AddressesEventData {
   }
 
 
-  public AddressesEventData addresses(List<AddressInfo> addresses) {
+  public AddressesEventData addresses(List<AddressesEventDataAllOfAddresses> addresses) {
     this.addresses = addresses;
     return this;
   }
 
-  public AddressesEventData addAddressesItem(AddressInfo addressesItem) {
+  public AddressesEventData addAddressesItem(AddressesEventDataAllOfAddresses addressesItem) {
     if (this.addresses == null) {
       this.addresses = new ArrayList<>();
     }
@@ -161,11 +161,11 @@ public class AddressesEventData {
    * @return addresses
   **/
   @javax.annotation.Nullable
-  public List<AddressInfo> getAddresses() {
+  public List<AddressesEventDataAllOfAddresses> getAddresses() {
     return addresses;
   }
 
-  public void setAddresses(List<AddressInfo> addresses) {
+  public void setAddresses(List<AddressesEventDataAllOfAddresses> addresses) {
     this.addresses = addresses;
   }
 
@@ -306,7 +306,7 @@ public class AddressesEventData {
 
           // validate the optional field `addresses` (array)
           for (int i = 0; i < jsonArrayaddresses.size(); i++) {
-            AddressInfo.validateJsonElement(jsonArrayaddresses.get(i));
+            AddressesEventDataAllOfAddresses.validateJsonElement(jsonArrayaddresses.get(i));
           };
         }
       }

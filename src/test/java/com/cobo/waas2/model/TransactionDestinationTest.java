@@ -21,8 +21,6 @@ import com.cobo.waas2.model.TransactionEvmContractDestination;
 import com.cobo.waas2.model.TransactionMessageSignEIP191Destination;
 import com.cobo.waas2.model.TransactionMessageSignEIP712Destination;
 import com.cobo.waas2.model.TransactionRawMessageSignDestination;
-import com.cobo.waas2.model.TransactionSolContractDestination;
-import com.cobo.waas2.model.TransactionSolContractInstruction;
 import com.cobo.waas2.model.TransactionTransferToAddressDestination;
 import com.cobo.waas2.model.TransactionTransferToAddressDestinationAccountOutput;
 import com.cobo.waas2.model.TransactionTransferToAddressDestinationUtxoOutputsInner;
@@ -168,14 +166,6 @@ public class TransactionDestinationTest {
     @Test
     public void calldataInfoTest() {
         // TODO: test calldataInfo
-    }
-
-    /**
-     * Test the property 'instructions'
-     */
-    @Test
-    public void instructionsTest() {
-        // TODO: test instructions
     }
 
     /**
