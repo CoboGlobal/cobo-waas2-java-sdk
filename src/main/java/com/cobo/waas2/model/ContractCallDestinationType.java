@@ -28,7 +28,9 @@ import com.google.gson.stream.JsonWriter;
 public enum ContractCallDestinationType {
   UNKNOWN(null),
   
-  EVM_CONTRACT("EVM_Contract");
+  EVM_CONTRACT("EVM_Contract"),
+  
+  SOL_CONTRACT("SOL_Contract");
 
   private String value;
 

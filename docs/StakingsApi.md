@@ -100,7 +100,7 @@ public class Example {
 
 Register for Babylon Phase-2
 
-This operation initiates a Babylon Phase-2 registration request.   Before calling this operation, please ensure the following: - The staking position is eligible for the Babylon Phase-2 and has not been registered. You can call the [List staking positions eligible for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/list-eligible-staking-positions-for-babylon-phase-2) operation to check the registration status. - The Babylon address has enough asset to pay for the registration fee. - The Babylon address must be a Babylon address in an MPC Wallet in your organization.  The system first checks whether the provided address is eligible for Phase-2. If eligible, it creates a unique registration ID, which can be used to track the status.   The registration is processed asynchronously and may take some time to complete. It is recommended that you regularly call the [Get Babylon Phase-2 registration details](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-phase-2-registration-details) operation to check the status and handle registration accordingly.  For more information, refer to [Babylon&#39;s official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+This operation initiates a Babylon Phase-2 registration request.   Before calling this operation, please ensure the following: - The staking position is eligible for the Babylon Phase-2 and has not been registered. You can call the [List staking positions eligible for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions-eligible-for-babylon-phase-2) operation to check the registration status. - The Babylon address has enough asset to pay for the registration fee. - The Babylon address must be a Babylon address in an MPC Wallet in your organization.  The system first checks whether the provided address is eligible for Phase-2. If eligible, it creates a unique registration ID, which can be used to track the status.   The registration is processed asynchronously and may take some time to complete. It is recommended that you regularly call the [Get Babylon Phase-2 registration details](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-phase-2-registration-details) operation to check the status and handle registration accordingly.  For more information, refer to [Babylon&#39;s official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
 
 ### Example
 ```java
@@ -216,7 +216,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -284,7 +284,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -352,7 +352,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -420,7 +420,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -624,7 +624,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -692,7 +692,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -760,7 +760,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -828,7 +828,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -896,7 +896,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -1284,7 +1284,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -1360,7 +1360,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
@@ -1440,7 +1440,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
 
 ### HTTP request headers
 
