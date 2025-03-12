@@ -11,52 +11,39 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.TransactionApprovalDetail;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SolContractCallAccount
+ * Model tests for ListTransactionApprovalDetails200Response
  */
-public class SolContractCallAccountTest {
-    private final SolContractCallAccount model = new SolContractCallAccount();
+public class ListTransactionApprovalDetails200ResponseTest {
+    private final ListTransactionApprovalDetails200Response model = new ListTransactionApprovalDetails200Response();
 
     /**
-     * Model tests for SolContractCallAccount
+     * Model tests for ListTransactionApprovalDetails200Response
      */
     @Test
-    public void testSolContractCallAccount() {
-        // TODO: test SolContractCallAccount
+    public void testListTransactionApprovalDetails200Response() {
+        // TODO: test ListTransactionApprovalDetails200Response
     }
 
     /**
-     * Test the property 'pubkey'
+     * Test the property 'data'
      */
     @Test
-    public void pubkeyTest() {
-        // TODO: test pubkey
-    }
-
-    /**
-     * Test the property 'isSigner'
-     */
-    @Test
-    public void isSignerTest() {
-        // TODO: test isSigner
-    }
-
-    /**
-     * Test the property 'isWritable'
-     */
-    @Test
-    public void isWritableTest() {
-        // TODO: test isWritable
+    public void dataTest() {
+        // TODO: test data
     }
 
 }

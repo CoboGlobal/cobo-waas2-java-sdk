@@ -59,12 +59,4 @@ public class EstimatedEvmEip1559FeeSlowTest {
         // TODO: test gasLimit
     }
 
-    /**
-     * Test the property 'reservedFee'
-     */
-    @Test
-    public void reservedFeeTest() {
-        // TODO: test reservedFee
-    }
-
 }
