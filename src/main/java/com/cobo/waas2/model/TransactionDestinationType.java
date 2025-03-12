@@ -34,6 +34,8 @@ public enum TransactionDestinationType {
   
   EVM_CONTRACT("EVM_Contract"),
   
+  SOL_CONTRACT("SOL_Contract"),
+  
   EVM_EIP_191_SIGNATURE("EVM_EIP_191_Signature"),
   
   EVM_EIP_712_SIGNATURE("EVM_EIP_712_Signature"),

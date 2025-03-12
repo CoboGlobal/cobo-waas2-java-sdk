@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.10.0</version>
+  <version>1.11.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.10.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.11.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.10.0.jar`
+* `target/cobo-waas2-1.11.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -461,6 +461,7 @@ Class | Method | HTTP request | Description
  - [FeeAmount](docs/FeeAmount.md)
  - [FeeGasLimit](docs/FeeGasLimit.md)
  - [FeeRate](docs/FeeRate.md)
+ - [FeeReserved](docs/FeeReserved.md)
  - [FeeType](docs/FeeType.md)
  - [FixedFeeRate](docs/FixedFeeRate.md)
  - [GetApiKeyInfo200Response](docs/GetApiKeyInfo200Response.md)
@@ -559,6 +560,9 @@ Class | Method | HTTP request | Description
  - [SmartContractWalletInfo](docs/SmartContractWalletInfo.md)
  - [SmartContractWalletOperationType](docs/SmartContractWalletOperationType.md)
  - [SmartContractWalletType](docs/SmartContractWalletType.md)
+ - [SolContractCallAccount](docs/SolContractCallAccount.md)
+ - [SolContractCallDestination](docs/SolContractCallDestination.md)
+ - [SolContractCallInstruction](docs/SolContractCallInstruction.md)
  - [SourceGroup](docs/SourceGroup.md)
  - [StakeSourceType](docs/StakeSourceType.md)
  - [StakingPoolId](docs/StakingPoolId.md)
@@ -626,6 +630,9 @@ Class | Method | HTTP request | Description
  - [TransactionSignatureResult](docs/TransactionSignatureResult.md)
  - [TransactionSigner](docs/TransactionSigner.md)
  - [TransactionSmartContractSafeWalletSource](docs/TransactionSmartContractSafeWalletSource.md)
+ - [TransactionSolContractAccount](docs/TransactionSolContractAccount.md)
+ - [TransactionSolContractDestination](docs/TransactionSolContractDestination.md)
+ - [TransactionSolContractInstruction](docs/TransactionSolContractInstruction.md)
  - [TransactionSource](docs/TransactionSource.md)
  - [TransactionSourceType](docs/TransactionSourceType.md)
  - [TransactionStatus](docs/TransactionStatus.md)

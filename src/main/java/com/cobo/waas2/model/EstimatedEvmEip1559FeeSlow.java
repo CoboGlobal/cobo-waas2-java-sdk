@@ -64,6 +64,10 @@ public class EstimatedEvmEip1559FeeSlow {
   @SerializedName(SERIALIZED_NAME_GAS_LIMIT)
   private String gasLimit;
 
+  public static final String SERIALIZED_NAME_RESERVED_FEE = "reserved_fee";
+  @SerializedName(SERIALIZED_NAME_RESERVED_FEE)
+  private String reservedFee;
+
   public EstimatedEvmEip1559FeeSlow() {
   }
 
@@ -123,6 +127,25 @@ public class EstimatedEvmEip1559FeeSlow {
     this.gasLimit = gasLimit;
   }
 
+
+  public EstimatedEvmEip1559FeeSlow reservedFee(String reservedFee) {
+    this.reservedFee = reservedFee;
+    return this;
+  }
+
+   /**
+   * The estimated fee required for submitting the transaction data to L1 (Layer 1), measured in wei.
+   * @return reservedFee
+  **/
+  @javax.annotation.Nullable
+  public String getReservedFee() {
+    return reservedFee;
+  }
+
+  public void setReservedFee(String reservedFee) {
+    this.reservedFee = reservedFee;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -180,13 +203,14 @@ public class EstimatedEvmEip1559FeeSlow {
     EstimatedEvmEip1559FeeSlow estimatedEvmEip1559FeeSlow = (EstimatedEvmEip1559FeeSlow) o;
     return Objects.equals(this.maxFeePerGas, estimatedEvmEip1559FeeSlow.maxFeePerGas) &&
         Objects.equals(this.maxPriorityFeePerGas, estimatedEvmEip1559FeeSlow.maxPriorityFeePerGas) &&
-        Objects.equals(this.gasLimit, estimatedEvmEip1559FeeSlow.gasLimit)&&
+        Objects.equals(this.gasLimit, estimatedEvmEip1559FeeSlow.gasLimit) &&
+        Objects.equals(this.reservedFee, estimatedEvmEip1559FeeSlow.reservedFee)&&
         Objects.equals(this.additionalProperties, estimatedEvmEip1559FeeSlow.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxFeePerGas, maxPriorityFeePerGas, gasLimit, additionalProperties);
+    return Objects.hash(maxFeePerGas, maxPriorityFeePerGas, gasLimit, reservedFee, additionalProperties);
   }
 
   @Override
@@ -196,6 +220,7 @@ public class EstimatedEvmEip1559FeeSlow {
     sb.append("    maxFeePerGas: ").append(toIndentedString(maxFeePerGas)).append("\n");
     sb.append("    maxPriorityFeePerGas: ").append(toIndentedString(maxPriorityFeePerGas)).append("\n");
     sb.append("    gasLimit: ").append(toIndentedString(gasLimit)).append("\n");
+    sb.append("    reservedFee: ").append(toIndentedString(reservedFee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -222,6 +247,7 @@ public class EstimatedEvmEip1559FeeSlow {
     openapiFields.add("max_fee_per_gas");
     openapiFields.add("max_priority_fee_per_gas");
     openapiFields.add("gas_limit");
+    openapiFields.add("reserved_fee");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -258,6 +284,9 @@ public class EstimatedEvmEip1559FeeSlow {
       }
       if (!jsonObj.get("gas_limit").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gas_limit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gas_limit").toString()));
+      }
+      if ((jsonObj.get("reserved_fee") != null && !jsonObj.get("reserved_fee").isJsonNull()) && !jsonObj.get("reserved_fee").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reserved_fee` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reserved_fee").toString()));
       }
   }
 
