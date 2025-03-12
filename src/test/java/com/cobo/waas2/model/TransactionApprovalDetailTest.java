@@ -19,6 +19,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +35,30 @@ public class TransactionApprovalDetailTest {
     @Test
     public void testTransactionApprovalDetail() {
         // TODO: test TransactionApprovalDetail
+    }
+
+    /**
+     * Test the property 'transactionId'
+     */
+    @Test
+    public void transactionIdTest() {
+        // TODO: test transactionId
+    }
+
+    /**
+     * Test the property 'coboId'
+     */
+    @Test
+    public void coboIdTest() {
+        // TODO: test coboId
+    }
+
+    /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
     }
 
     /**

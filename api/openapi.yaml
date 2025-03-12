@@ -194,7 +194,9 @@ paths:
         This operation retrieves the detailed information about a specified chain.
       operationId: get_chain_by_id
       parameters:
-      - description: "The chain ID, which is the unique identifier of a blockchain."
+      - description: "The chain ID, which is the unique identifier of a blockchain.\
+          \ You can retrieve the IDs of all the chains you can use by calling [List\
+          \ enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains)."
         example: ETH
         explode: false
         in: path
@@ -380,7 +382,9 @@ paths:
         This operation retrieves the detailed information about a specified token.
       operationId: get_token_by_id
       parameters:
-      - description: "The token ID, which is the unique identifier of a token."
+      - description: "The token ID, which is the unique identifier of a token. You\
+          \ can retrieve the IDs of all the tokens you can use by calling [List enabled\
+          \ tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens)."
         example: ETH_USDT
         explode: false
         in: path
@@ -790,7 +794,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List all wallets
@@ -827,7 +830,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.create
       summary: Create wallet
@@ -873,7 +875,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: Get wallet information
@@ -968,7 +969,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.delete
       summary: Delete wallet
@@ -1088,7 +1088,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List UTXOs
@@ -1137,7 +1136,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.manage_utxo
       summary: Lock UTXOs
@@ -1187,7 +1185,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.manage_utxo
       summary: Unlock UTXOs
@@ -1276,7 +1273,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: Get maximum transferable value
@@ -1387,7 +1383,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List wallet addresses
@@ -1437,7 +1432,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.create_address
       summary: Create addresses in wallet
@@ -1549,7 +1543,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List token balances by address
@@ -1651,7 +1644,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List token balances by wallet
@@ -1677,7 +1669,9 @@ paths:
           format: uuid
           type: string
         style: simple
-      - description: "The token ID, which is the unique identifier of a token."
+      - description: "The token ID, which is the unique identifier of a token. You\
+          \ can retrieve the IDs of all the tokens you can use by calling [List enabled\
+          \ tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens)."
         example: ETH_USDT
         explode: false
         in: path
@@ -1761,7 +1755,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List address balances by token
@@ -2035,7 +2028,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_project.read
       summary: List all projects
@@ -2072,7 +2064,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_project.create
       summary: Create project
@@ -2120,7 +2111,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_project.read
       summary: Get project information
@@ -2169,7 +2159,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_project.update
       summary: Update project name
@@ -2277,7 +2266,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_vault.read
       summary: List all vaults
@@ -2314,7 +2302,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_vault.create
       summary: Create vault
@@ -2362,7 +2349,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_vault.read
       summary: Get vault information
@@ -2410,7 +2396,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_vault.update
       summary: Update vault name
@@ -2515,7 +2500,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_key_group.read
       summary: List all key share holder groups
@@ -2561,7 +2545,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_key_group.create
       summary: Create key share holder group
@@ -2616,7 +2599,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_key_group.read
       summary: Get key share holder group information
@@ -2671,7 +2653,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_key_group.update
       summary: Update key share holder group
@@ -2725,7 +2706,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_key_group.delete
       summary: Delete key share holder group
@@ -2823,7 +2803,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_key_group.read
       summary: List TSS requests
@@ -2869,7 +2848,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_key_group.create
       summary: Create TSS request
@@ -2925,7 +2903,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_key_group.read
       summary: Get TSS request
@@ -2980,7 +2957,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - mpc_key_group.delete
       summary: Cancel TSS request
@@ -3080,8 +3056,6 @@ paths:
           description: Internal server error.
       security:
       - CoboAuth: []
-      - OAuth2:
-        - mpc_key_group.read
       summary: List all key share holders
       tags:
       - Wallets - MPC Wallets
@@ -3134,8 +3108,6 @@ paths:
           description: Internal server error.
       security:
       - CoboAuth: []
-      - OAuth2:
-        - mpc_key_group.read
       summary: Get key share holder information
       tags:
       - Wallets - MPC Wallets
@@ -3431,7 +3403,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List asset balances
@@ -3480,7 +3451,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List Delegates
@@ -3549,7 +3519,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.estimate_fee
       summary: Check Cobo Loop transfers
@@ -3589,7 +3558,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.estimate_fee
       summary: Estimate transaction fee
@@ -3634,7 +3602,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.withdraw
       summary: Transfer token
@@ -3677,7 +3644,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.contract_call
       summary: Call smart contract
@@ -3720,7 +3686,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.message_sign
       summary: Sign message
@@ -3964,7 +3929,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.read
       summary: List all transactions
@@ -4009,7 +3973,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.read
       summary: Get transaction information
@@ -4060,7 +4023,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.manage
       summary: Resend transaction
@@ -4111,7 +4073,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.manage
       summary: Cancel transaction
@@ -4154,7 +4115,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.manage
       summary: Broadcast signed transactions
@@ -4208,7 +4168,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.manage
       summary: Drop transaction
@@ -4264,7 +4223,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.manage
       summary: Speed up transaction
@@ -4315,8 +4273,6 @@ paths:
           description: Internal server error.
       security:
       - CoboAuth: []
-      - OAuth2:
-        - transaction.manage
       summary: Sign and broadcast transaction
       tags:
       - Transactions
@@ -4360,9 +4316,61 @@ paths:
           description: Internal server error.
       security:
       - CoboAuth: []
+      summary: Get transaction approval details
+      tags:
+      - Transactions
+      x-accepts:
+      - application/json
+  /transactions/approval_details:
+    get:
+      description: |
+        This operation retrieves approval detailed information about multi specified transaction.
+      operationId: list_transaction_approval_details
+      parameters:
+      - description: "A list of transaction IDs, separated by comma."
+        example: "f47ac10b-58cc-4372-a567-0e02b2c3d479,557918d2-632a-4fe1-932f-315711f05fe3"
+        explode: true
+        in: query
+        name: transaction_ids
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "A list of Cobo IDs, separated by comma. A Cobo ID can be used\
+          \ to track a transaction."
+        example: "20231213122855000000000000000000,20231213122955000000000000000000"
+        explode: true
+        in: query
+        name: cobo_ids
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_transaction_approval_details_200_response'
+          description: The information about transaction approval detail.
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request. Your request contains malformed syntax or invalid
+            parameters.
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal server error.
+      security:
+      - CoboAuth: []
       - OAuth2:
         - transaction.read
-      summary: Get transaction approval details
+      summary: List transaction approval details
       tags:
       - Transactions
       x-accepts:
@@ -4559,7 +4567,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - webhook.read
       summary: List webhook endpoints
@@ -4593,7 +4600,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - webhook.edit
       summary: Register webhook endpoint
@@ -4640,7 +4646,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - webhook.read
       summary: Get webhook endpoint information
@@ -4686,7 +4691,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - webhook.edit
       summary: Update webhook endpoint
@@ -4860,7 +4864,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - webhook.read
       summary: List all webhook events
@@ -4917,7 +4920,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - webhook.read
       summary: Retrieve event information
@@ -5017,7 +5019,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - webhook.read
       summary: List webhook event logs
@@ -5074,7 +5075,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - webhook.resend
       summary: Retry event
@@ -5174,7 +5174,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List staking pools
@@ -5221,7 +5220,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: Get staking pool details
@@ -5262,7 +5260,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.estimate_fee
       summary: Estimate staking fees
@@ -5301,7 +5298,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.estimate_fee
       summary: Estimate staking fees v2
@@ -5341,7 +5337,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.stake
       summary: Create stake activity
@@ -5472,7 +5467,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List staking positions
@@ -5517,7 +5511,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: Get staking position details
@@ -5558,7 +5551,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.unstake
       summary: Create unstake activity
@@ -5598,7 +5590,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.unstake_withdraw
       summary: Create withdraw activity
@@ -5638,7 +5629,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.stake
       summary: Create claim activity
@@ -5798,7 +5788,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: List staking activities
@@ -5842,7 +5831,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - wallet.read
       summary: Get staking activity details
@@ -6474,7 +6462,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - api_key.read
       summary: Get API key information
@@ -6605,7 +6592,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - callback.read
       summary: List all callback messages
@@ -6651,7 +6637,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - callback.resend
       summary: Retry callback message
@@ -6760,7 +6745,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - address_book.read
       summary: List address book entries
@@ -7089,7 +7073,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - travel_rule.read
       summary: List supported countries
@@ -7149,7 +7132,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - travel_rule.read
       summary: Retrieve transaction limitations
@@ -7188,7 +7170,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - travel_rule.edit
       summary: Submit Travel Rule information for deposits
@@ -7228,7 +7209,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - travel_rule.edit
       summary: Submit Travel Rule information for withdrawals
@@ -7608,7 +7588,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.withdraw
       summary: Create Swap Quote
@@ -7645,7 +7624,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal server error.
       security:
-      - CoboAuth: []
       - OAuth2:
         - transaction.withdraw
       summary: Create Swap Activity
@@ -7768,7 +7746,9 @@ components:
         type: string
       style: form
     chainIdParam:
-      description: "The chain ID, which is the unique identifier of a blockchain."
+      description: "The chain ID, which is the unique identifier of a blockchain.\
+        \ You can retrieve the IDs of all the chains you can use by calling [List\
+        \ enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains)."
       example: ETH
       explode: false
       in: path
@@ -7828,7 +7808,9 @@ components:
         type: string
       style: form
     tokenIdParam:
-      description: "The token ID, which is the unique identifier of a token."
+      description: "The token ID, which is the unique identifier of a token. You can\
+        \ retrieve the IDs of all the tokens you can use by calling [List enabled\
+        \ tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens)."
       example: ETH_USDT
       explode: false
       in: path
@@ -8364,6 +8346,16 @@ components:
       explode: true
       in: query
       name: cobo_ids
+      required: false
+      schema:
+        type: string
+      style: form
+    optionalTransactionIdParam:
+      description: "A list of transaction IDs, separated by comma."
+      example: "f47ac10b-58cc-4372-a567-0e02b2c3d479,557918d2-632a-4fe1-932f-315711f05fe3"
+      explode: true
+      in: query
+      name: transaction_ids
       required: false
       schema:
         type: string
@@ -9701,6 +9693,12 @@ components:
           schema:
             $ref: '#/components/schemas/TransactionApprovalDetail'
       description: The information about a transaction approval detail.
+    batchGetTransactionApprovalDetailResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/list_transaction_approval_details_200_response'
+      description: The information about transaction approval detail.
     createWebhookEndpointResponse:
       content:
         application/json:
@@ -10105,7 +10103,9 @@ components:
       description: The token information.
       properties:
         token_id:
-          description: "The token ID, which is the unique identifier of a token."
+          description: "The token ID, which is the unique identifier of a token. You\
+            \ can retrieve the IDs of all the tokens you can use by calling [List\
+            \ enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens)."
           example: ETH_USDT
           type: string
         chain_id:
@@ -10226,7 +10226,9 @@ components:
         explorer_address_url: "https://etherscan.io/address/{address}"
       properties:
         chain_id:
-          description: "The chain ID, which is the unique identifier of a blockchain."
+          description: "The chain ID, which is the unique identifier of a blockchain.\
+            \ You can retrieve the IDs of all the chains you can use by calling [List\
+            \ enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains)."
           example: ETH
           type: string
         symbol:
@@ -11555,8 +11557,7 @@ components:
       properties:
         max_fee_amount:
           description: The maximum fee that you are willing to pay for the transaction.
-            Provide the value without applying precision. The transaction will fail
-            if the transaction fee exceeds the maximum fee.
+            The transaction will fail if the transaction fee exceeds the maximum fee.
           example: "0.1"
           type: string
       type: object
@@ -11727,14 +11728,6 @@ components:
       - $ref: '#/components/schemas/EvmEip1559FeeRate'
       - $ref: '#/components/schemas/EvmLegacyFeeRate'
       - $ref: '#/components/schemas/UtxoFeeRate'
-    FeeReserved:
-      properties:
-        reserved_fee:
-          description: "The estimated fee required for submitting the transaction\
-            \ data to L1 (Layer 1), measured in wei."
-          example: "1000000000000"
-          type: string
-      type: object
     EstimatedFixedFee:
       allOf:
       - properties:
@@ -11946,8 +11939,8 @@ components:
             type: string
           max_fee_amount:
             description: The maximum fee that you are willing to pay for the transaction.
-              Provide the value without applying precision. The transaction will fail
-              if the transaction fee exceeds the maximum fee.
+              The transaction will fail if the transaction fee exceeds the maximum
+              fee.
             example: "0.1"
             type: string
         type: object
@@ -11961,7 +11954,6 @@ components:
 
         Switch between the tabs to display the properties for different transaction fee models.
       required:
-      - fee_rate
       - fee_type
       - token_id
       title: UTXO (Preset)
@@ -12764,7 +12756,6 @@ components:
       - Address
       - ExchangeWallet
       - EVM_Contract
-      - SOL_Contract
       - EVM_EIP_191_Signature
       - EVM_EIP_712_Signature
       - Raw_Message_Signature
@@ -12961,61 +12952,6 @@ components:
       - calldata
       - destination_type
       title: EVM Contract
-      type: object
-    TransactionSolContractDestination:
-      description: "The information about the transaction destination. Refer to [Transaction\
-        \ sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations)\
-        \ for a detailed introduction about the supported sources and destinations\
-        \ for each transaction type."
-      properties:
-        destination_type:
-          $ref: '#/components/schemas/TransactionDestinationType'
-        instructions:
-          items:
-            $ref: '#/components/schemas/TransactionSolContractInstruction'
-          type: array
-      required:
-      - destination_type
-      title: SOL Contract
-      type: object
-    TransactionSolContractAccount:
-      description: sol contract instruction account
-      properties:
-        pubkey:
-          description: |
-            account address. If the account is signer, pubkey needs to match the from_address parameter.
-          example: E4MhQWiqCLER3fFZNf8LyQFpLWW3BRxtsR5eps3c3vNS
-          type: string
-        is_signer:
-          description: |
-            boolean value indicating whether the account can sign transactions.
-          example: true
-          type: boolean
-        is_writable:
-          description: |
-            boolean value indicating whether the account can be modified.
-          example: true
-          type: boolean
-      title: SOL Instruction Account
-      type: object
-    TransactionSolContractInstruction:
-      description: sol contract instruction
-      properties:
-        accounts:
-          items:
-            $ref: '#/components/schemas/TransactionSolContractAccount'
-          type: array
-        data:
-          description: |
-            data used for calling Solana contract..
-          example: "Canary TX 4, slot: 219858117"
-          type: string
-        program_id:
-          description: |
-            contract address. when calling a Solana contract, the to_address parameter needs to match the program_id parameter. If multiple contracts are being called, then the to_address parameter should match the program_id parameter of the first instruction.
-          example: MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr
-          type: string
-      title: SOL Instruction
       type: object
     TransactionMessageSignEIP191Destination:
       description: |
@@ -13537,6 +13473,7 @@ components:
     TransactionApprovalDetail:
       description: The approval detail data for transaction.
       example:
+        transaction_id: aff0e1cb-15b2-4e1f-9b9d-a9133715986f
         approver:
           result: Approved
           review_threshold: 1
@@ -13597,7 +13534,23 @@ components:
             message_version: 1.0.1
             pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
           initiator: tom@gmail.com
+        cobo_id: "20231213122855000000000000000000"
+        request_id: web_send_by_user_327_1610444045047
       properties:
+        transaction_id:
+          description: The transaction ID.
+          example: aff0e1cb-15b2-4e1f-9b9d-a9133715986f
+          format: uuid
+          type: string
+        cobo_id:
+          description: "The Cobo ID, which can be used to track a transaction."
+          example: "20231213122855000000000000000000"
+          type: string
+        request_id:
+          description: The request ID that is used to track a transaction request.
+            The request ID is provided by you and must be unique within your organization.
+          example: web_send_by_user_327_1610444045047
+          type: string
         spender:
           $ref: '#/components/schemas/TransactionRoleApprovalDetail'
         approver:
@@ -14265,7 +14218,6 @@ components:
         The type of the contract format. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
       enum:
       - EVM_Contract
-      - SOL_Contract
       example: EVM_Contract
       type: string
     EvmContractCallDestination:
@@ -14301,82 +14253,13 @@ components:
       - destination_type
       title: EVM Contract
       type: object
-    SolContractCallDestination:
-      description: "The information about the transaction destination. Refer to [Transaction\
-        \ sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations)\
-        \ for a detailed introduction about the supported sources and destinations\
-        \ for each transaction type."
-      properties:
-        destination_type:
-          $ref: '#/components/schemas/ContractCallDestinationType'
-        instructions:
-          items:
-            $ref: '#/components/schemas/SolContractCallInstruction'
-          type: array
-      required:
-      - destination_type
-      - instructions
-      title: SOL Contract
-      type: object
-    SolContractCallAccount:
-      description: The information about the account involved in a Solana instruction.
-      properties:
-        pubkey:
-          description: |
-            The public key of the account. If the account is a signer of this transaction, this property must be the same as the value of the `source.address` property.
-          example: E4MhQWiqCLER3fFZNf8LyQFpLWW3BRxtsR5eps3c3vNS
-          type: string
-        is_signer:
-          description: |
-            Whether the account is the signer of this transaction:
-            - `true`: The account is a signer.
-            - `false`: The account is not a signer.
-          example: true
-          type: boolean
-        is_writable:
-          description: |
-            Whether the account can be modified by the instruction:
-            - `true`: The account can be modified by the instruction.
-            - `false`: The account cannot be modified by the instruction.
-          example: true
-          type: boolean
-      required:
-      - is_signer
-      - is_writable
-      - pubkey
-      title: SOL Instruction Account
-      type: object
-    SolContractCallInstruction:
-      description: The information about the Solana instruction.
-      properties:
-        accounts:
-          items:
-            $ref: '#/components/schemas/SolContractCallAccount'
-          type: array
-        data:
-          description: |
-            The Base64-encoded instruction data used for interacting with a Solana program.
-          example: 37u9WtQpcm6ULa3WRQHmj49EPs4if7o9f1jSRVZpm2dvihR9C8jY4NqEwXUbLwx15HBSNcP1
-          type: string
-        program_id:
-          description: "The address of the Solana program (smart contract). \n"
-          example: MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr
-          type: string
-      required:
-      - accounts
-      - data
-      - program_id
-      title: SOL Instruction
-      type: object
     ContractCallDestination:
       discriminator:
         mapping:
           EVM_Contract: '#/components/schemas/EvmContractCallDestination'
-          SOL_Contract: '#/components/schemas/SolContractCallDestination'
         propertyName: destination_type
       oneOf:
       - $ref: '#/components/schemas/EvmContractCallDestination'
-      - $ref: '#/components/schemas/SolContractCallDestination'
     ContractCallParams:
       description: The information about a transaction that interacts with a smart
         contract
@@ -18420,6 +18303,141 @@ components:
       - request_id
       - transaction_id
       type: object
+    list_transaction_approval_details_200_response:
+      example:
+        data:
+        - transaction_id: aff0e1cb-15b2-4e1f-9b9d-a9133715986f
+          approver:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          address_owner:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          spender:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          cobo_id: "20231213122855000000000000000000"
+          request_id: web_send_by_user_327_1610444045047
+        - transaction_id: aff0e1cb-15b2-4e1f-9b9d-a9133715986f
+          approver:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          address_owner:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          spender:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          cobo_id: "20231213122855000000000000000000"
+          request_id: web_send_by_user_327_1610444045047
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/TransactionApprovalDetail'
+          type: array
+      type: object
     get_token_2XX_response:
       example:
         access_token: AnCEPEp5Q8qjAOA1Lb6kVd2OlkCyJnMTeMPdLbPOM8cz176Eb5y7EJoUjJJ0vkzz
@@ -19359,8 +19377,8 @@ components:
       properties:
         registration_id:
           description: "The registration ID, a unique identifier for tracking the\
-            \ Babylon Phase-2 registration request. You can use it with the [Get Babylon\
-            \ Phase-2 registration details operation](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-phase-2-registration-details)\
+            \ Babylon staking registration request. You can use it with the [Get Babylon\
+            \ staking registration details operation](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-staking-registration-details)\
             \ to check the registration status."
           example: 0011039d-27fb-49ba-b172-6e0aa80e37ec
           type: string
@@ -20221,7 +20239,6 @@ components:
       allOf:
       - $ref: '#/components/schemas/EvmEip1559FeeBasePrice'
       - $ref: '#/components/schemas/FeeGasLimit'
-      - $ref: '#/components/schemas/FeeReserved'
       required:
       - gas_limit
       - max_fee_per_gas
@@ -20230,7 +20247,6 @@ components:
       allOf:
       - $ref: '#/components/schemas/EvmLegacyFeeBasePrice'
       - $ref: '#/components/schemas/FeeGasLimit'
-      - $ref: '#/components/schemas/FeeReserved'
       required:
       - gas_limit
       - gas_price
@@ -20268,7 +20284,6 @@ components:
           Address: '#/components/schemas/TransactionTransferToAddressDestination'
           ExchangeWallet: '#/components/schemas/TransactionTransferToWalletDestination'
           EVM_Contract: '#/components/schemas/TransactionEvmContractDestination'
-          SOL_Contract: '#/components/schemas/TransactionSolContractDestination'
           EVM_EIP_191_Signature: '#/components/schemas/TransactionMessageSignEIP191Destination'
           EVM_EIP_712_Signature: '#/components/schemas/TransactionMessageSignEIP712Destination'
           Raw_Message_Signature: '#/components/schemas/TransactionRawMessageSignDestination'
@@ -20279,7 +20294,6 @@ components:
       - $ref: '#/components/schemas/TransactionTransferToAddressDestination'
       - $ref: '#/components/schemas/TransactionTransferToWalletDestination'
       - $ref: '#/components/schemas/TransactionEvmContractDestination'
-      - $ref: '#/components/schemas/TransactionSolContractDestination'
       - $ref: '#/components/schemas/TransactionMessageSignEIP191Destination'
       - $ref: '#/components/schemas/TransactionMessageSignEIP712Destination'
       - $ref: '#/components/schemas/TransactionRawMessageSignDestination'
@@ -20575,9 +20589,6 @@ components:
       name: BIZ-API-NONCE
       type: apiKey
     OAuth2:
-      description: "The [Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens).\
-        \ Use this authorization method only if you are developing Cobo Portal Apps\
-        \ for installation and use across different organizations."
       flows:
         authorizationCode:
           authorizationUrl: https://auth.cobo.com/authorize
