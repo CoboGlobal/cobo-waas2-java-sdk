@@ -255,7 +255,7 @@ public class DevelopersApi {
 
     /**
      * List all callback messages
-     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
      * @param callbackMessageIds A list of callback message IDs, separated by commas. (optional)
      * @param requestIds A list of request IDs, separated by commas. The request ID is provided by you and must be unique within your organization. (optional)
      * @param transactionIds A list of transaction IDs, separated by commas. (optional)
@@ -281,7 +281,7 @@ public class DevelopersApi {
 
     /**
      * List all callback messages
-     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
      * @param callbackMessageIds A list of callback message IDs, separated by commas. (optional)
      * @param requestIds A list of request IDs, separated by commas. The request ID is provided by you and must be unique within your organization. (optional)
      * @param transactionIds A list of transaction IDs, separated by commas. (optional)
@@ -308,7 +308,7 @@ public class DevelopersApi {
 
     /**
      * List all callback messages (asynchronously)
-     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
      * @param callbackMessageIds A list of callback message IDs, separated by commas. (optional)
      * @param requestIds A list of request IDs, separated by commas. The request ID is provided by you and must be unique within your organization. (optional)
      * @param transactionIds A list of transaction IDs, separated by commas. (optional)
@@ -394,7 +394,7 @@ public class DevelopersApi {
 
     /**
      * Retry callback message
-     * This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
      * @param messageId The callback message ID. (required)
      * @return RetryCallbackMessage201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -413,7 +413,7 @@ public class DevelopersApi {
 
     /**
      * Retry callback message
-     * This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
      * @param messageId The callback message ID. (required)
      * @return ApiResponse&lt;RetryCallbackMessage201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -433,7 +433,7 @@ public class DevelopersApi {
 
     /**
      * Retry callback message (asynchronously)
-     * This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
      * @param messageId The callback message ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

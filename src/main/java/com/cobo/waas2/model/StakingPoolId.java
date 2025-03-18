@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. Currently, &#x60;berachain_bgt&#x60; and &#x60;erachain_bgt_testnet&#x60; are not supported.
+ * The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. Currently, only &#x60;babylon_btc_signet&#x60; and &#x60;babylon_btc&#x60; are supported.
  */
 @JsonAdapter(StakingPoolId.Adapter.class)
 public enum StakingPoolId {
@@ -40,19 +40,7 @@ public enum StakingPoolId {
   
   CORE_XTN("core_xtn"),
   
-  SKY_FARM_ETH_USDC("sky_farm_eth_usdc"),
-  
-  BITHIVE_SIGNET("bithive_signet"),
-  
-  BITHIVE("bithive"),
-  
-  BEACON_BERA("beacon_bera"),
-  
-  BEACON_BERA_TESTNET("beacon_bera_testnet"),
-  
-  BERACHAIN_BGT("berachain_bgt"),
-  
-  BERACHAIN_BGT_TESTNET("berachain_bgt_testnet");
+  SKY_FARM_ETH_USDC("sky_farm_eth_usdc");
 
   private String value;
 

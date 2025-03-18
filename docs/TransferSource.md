@@ -12,7 +12,6 @@
 |**address** | **String** | The wallet address. |  |
 |**includedUtxos** | [**List&lt;TransactionUtxo&gt;**](TransactionUtxo.md) |  |  [optional] |
 |**excludedUtxos** | [**List&lt;TransactionUtxo&gt;**](TransactionUtxo.md) |  |  [optional] |
-|**mpcUsedKeyShareHolderGroup** | [**MpcSigningGroup**](MpcSigningGroup.md) |  |  [optional] |
 |**delegate** | [**CoboSafeDelegate**](CoboSafeDelegate.md) |  |  |
 |**tradingAccountType** | **String** | The trading account type. |  |
 

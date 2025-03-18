@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the staking pool. Possible values are: - &#x60;Babylon&#x60;: Babylon staking pool - &#x60;ETHBeacon&#x60;: Ethereum Beacon Chain staking pool - &#x60;CoreBTC&#x60;: Core BTC staking pool - &#x60;SkyFarm&#x60;: SKY farm staking pool - &#x60;BitHive&#x60;: BitHive staking pool - &#x60;BERABeacon&#x60;: BERA Beacon Chain staking pool - &#x60;BeraChainBGT&#x60;: Bera Chain BGT staking pool 
+ * The type of the staking pool.
  */
 @JsonAdapter(StakingPoolType.Adapter.class)
 public enum StakingPoolType {
@@ -34,13 +34,7 @@ public enum StakingPoolType {
   
   COREBTC("CoreBTC"),
   
-  SKYFARM("SkyFarm"),
-  
-  BITHIVE("BitHive"),
-  
-  BERABEACON("BERABeacon"),
-  
-  BERACHAINBGT("BeraChainBGT");
+  SKYFARM("SkyFarm");
 
   private String value;
 

@@ -13,7 +13,6 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.TransactionSelectedUtxo;
-import com.cobo.waas2.model.TransactionUtxoChange;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -71,10 +70,6 @@ public class TransactionRawTxInfo {
   public static final String SERIALIZED_NAME_UNSIGNED_RAW_TX = "unsigned_raw_tx";
   @SerializedName(SERIALIZED_NAME_UNSIGNED_RAW_TX)
   private String unsignedRawTx;
-
-  public static final String SERIALIZED_NAME_UTXO_CHANGE = "utxo_change";
-  @SerializedName(SERIALIZED_NAME_UTXO_CHANGE)
-  private TransactionUtxoChange utxoChange;
 
   public TransactionRawTxInfo() {
   }
@@ -162,25 +157,6 @@ public class TransactionRawTxInfo {
     this.unsignedRawTx = unsignedRawTx;
   }
 
-
-  public TransactionRawTxInfo utxoChange(TransactionUtxoChange utxoChange) {
-    this.utxoChange = utxoChange;
-    return this;
-  }
-
-   /**
-   * Get utxoChange
-   * @return utxoChange
-  **/
-  @javax.annotation.Nullable
-  public TransactionUtxoChange getUtxoChange() {
-    return utxoChange;
-  }
-
-  public void setUtxoChange(TransactionUtxoChange utxoChange) {
-    this.utxoChange = utxoChange;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -239,14 +215,13 @@ public class TransactionRawTxInfo {
     return Objects.equals(this.usedNonce, transactionRawTxInfo.usedNonce) &&
         Objects.equals(this.selectedUtxos, transactionRawTxInfo.selectedUtxos) &&
         Objects.equals(this.rawTx, transactionRawTxInfo.rawTx) &&
-        Objects.equals(this.unsignedRawTx, transactionRawTxInfo.unsignedRawTx) &&
-        Objects.equals(this.utxoChange, transactionRawTxInfo.utxoChange)&&
+        Objects.equals(this.unsignedRawTx, transactionRawTxInfo.unsignedRawTx)&&
         Objects.equals(this.additionalProperties, transactionRawTxInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(usedNonce, selectedUtxos, rawTx, unsignedRawTx, utxoChange, additionalProperties);
+    return Objects.hash(usedNonce, selectedUtxos, rawTx, unsignedRawTx, additionalProperties);
   }
 
   @Override
@@ -257,7 +232,6 @@ public class TransactionRawTxInfo {
     sb.append("    selectedUtxos: ").append(toIndentedString(selectedUtxos)).append("\n");
     sb.append("    rawTx: ").append(toIndentedString(rawTx)).append("\n");
     sb.append("    unsignedRawTx: ").append(toIndentedString(unsignedRawTx)).append("\n");
-    sb.append("    utxoChange: ").append(toIndentedString(utxoChange)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -285,7 +259,6 @@ public class TransactionRawTxInfo {
     openapiFields.add("selected_utxos");
     openapiFields.add("raw_tx");
     openapiFields.add("unsigned_raw_tx");
-    openapiFields.add("utxo_change");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -323,10 +296,6 @@ public class TransactionRawTxInfo {
       }
       if ((jsonObj.get("unsigned_raw_tx") != null && !jsonObj.get("unsigned_raw_tx").isJsonNull()) && !jsonObj.get("unsigned_raw_tx").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unsigned_raw_tx` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unsigned_raw_tx").toString()));
-      }
-      // validate the optional field `utxo_change`
-      if (jsonObj.get("utxo_change") != null && !jsonObj.get("utxo_change").isJsonNull()) {
-        TransactionUtxoChange.validateJsonElement(jsonObj.get("utxo_change"));
       }
   }
 

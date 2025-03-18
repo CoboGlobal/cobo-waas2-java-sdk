@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.TransactionSelectedUtxo;
-import com.cobo.waas2.model.TransactionUtxoChange;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -69,14 +68,6 @@ public class TransactionRawTxInfoTest {
     @Test
     public void unsignedRawTxTest() {
         // TODO: test unsignedRawTx
-    }
-
-    /**
-     * Test the property 'utxoChange'
-     */
-    @Test
-    public void utxoChangeTest() {
-        // TODO: test utxoChange
     }
 
 }
