@@ -835,7 +835,7 @@ public class WalletsApi {
     }
     /**
      * Build call for getChainById
-     * @param chainId The chain ID, which is the unique identifier of a blockchain. (required)
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -893,7 +893,7 @@ public class WalletsApi {
     /**
      * Get chain information
      * This operation retrieves the detailed information about a specified chain. 
-     * @param chainId The chain ID, which is the unique identifier of a blockchain. (required)
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
      * @return ChainInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -912,7 +912,7 @@ public class WalletsApi {
     /**
      * Get chain information
      * This operation retrieves the detailed information about a specified chain. 
-     * @param chainId The chain ID, which is the unique identifier of a blockchain. (required)
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
      * @return ApiResponse&lt;ChainInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -932,7 +932,7 @@ public class WalletsApi {
     /**
      * Get chain information (asynchronously)
      * This operation retrieves the detailed information about a specified chain. 
-     * @param chainId The chain ID, which is the unique identifier of a blockchain. (required)
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1118,7 +1118,7 @@ public class WalletsApi {
     }
     /**
      * Build call for getTokenById
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1176,7 +1176,7 @@ public class WalletsApi {
     /**
      * Get token information
      * This operation retrieves the detailed information about a specified token. 
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @return ExtendedTokenInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1195,7 +1195,7 @@ public class WalletsApi {
     /**
      * Get token information
      * This operation retrieves the detailed information about a specified token. 
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @return ApiResponse&lt;ExtendedTokenInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1215,7 +1215,7 @@ public class WalletsApi {
     /**
      * Get token information (asynchronously)
      * This operation retrieves the detailed information about a specified token. 
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1355,7 +1355,7 @@ public class WalletsApi {
     /**
      * Build call for listAddressBalancesByToken
      * @param walletId The wallet ID. (required)
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1440,7 +1440,7 @@ public class WalletsApi {
      * List address balances by token
      * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1464,7 +1464,7 @@ public class WalletsApi {
      * List address balances by token
      * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1489,7 +1489,7 @@ public class WalletsApi {
      * List address balances by token (asynchronously)
      * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)

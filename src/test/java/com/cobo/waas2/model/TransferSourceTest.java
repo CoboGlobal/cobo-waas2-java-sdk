@@ -14,7 +14,6 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.CustodialTransferSource;
 import com.cobo.waas2.model.ExchangeTransferSource;
-import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.MpcTransferSource;
 import com.cobo.waas2.model.SafeTransferSource;
 import com.cobo.waas2.model.TransactionUtxo;
@@ -84,14 +83,6 @@ public class TransferSourceTest {
     @Test
     public void excludedUtxosTest() {
         // TODO: test excludedUtxos
-    }
-
-    /**
-     * Test the property 'mpcUsedKeyShareHolderGroup'
-     */
-    @Test
-    public void mpcUsedKeyShareHolderGroupTest() {
-        // TODO: test mpcUsedKeyShareHolderGroup
     }
 
     /**

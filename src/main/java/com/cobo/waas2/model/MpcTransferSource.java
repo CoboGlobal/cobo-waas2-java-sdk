@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.TransactionUtxo;
 import com.cobo.waas2.model.WalletSubtype;
 import com.google.gson.TypeAdapter;
@@ -77,10 +76,6 @@ public class MpcTransferSource {
   public static final String SERIALIZED_NAME_EXCLUDED_UTXOS = "excluded_utxos";
   @SerializedName(SERIALIZED_NAME_EXCLUDED_UTXOS)
   private List<TransactionUtxo> excludedUtxos = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_MPC_USED_KEY_SHARE_HOLDER_GROUP = "mpc_used_key_share_holder_group";
-  @SerializedName(SERIALIZED_NAME_MPC_USED_KEY_SHARE_HOLDER_GROUP)
-  private MpcSigningGroup mpcUsedKeyShareHolderGroup;
 
   public MpcTransferSource() {
   }
@@ -195,25 +190,6 @@ public class MpcTransferSource {
     this.excludedUtxos = excludedUtxos;
   }
 
-
-  public MpcTransferSource mpcUsedKeyShareHolderGroup(MpcSigningGroup mpcUsedKeyShareHolderGroup) {
-    this.mpcUsedKeyShareHolderGroup = mpcUsedKeyShareHolderGroup;
-    return this;
-  }
-
-   /**
-   * Get mpcUsedKeyShareHolderGroup
-   * @return mpcUsedKeyShareHolderGroup
-  **/
-  @javax.annotation.Nullable
-  public MpcSigningGroup getMpcUsedKeyShareHolderGroup() {
-    return mpcUsedKeyShareHolderGroup;
-  }
-
-  public void setMpcUsedKeyShareHolderGroup(MpcSigningGroup mpcUsedKeyShareHolderGroup) {
-    this.mpcUsedKeyShareHolderGroup = mpcUsedKeyShareHolderGroup;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -273,14 +249,13 @@ public class MpcTransferSource {
         Objects.equals(this.walletId, mpcTransferSource.walletId) &&
         Objects.equals(this.address, mpcTransferSource.address) &&
         Objects.equals(this.includedUtxos, mpcTransferSource.includedUtxos) &&
-        Objects.equals(this.excludedUtxos, mpcTransferSource.excludedUtxos) &&
-        Objects.equals(this.mpcUsedKeyShareHolderGroup, mpcTransferSource.mpcUsedKeyShareHolderGroup)&&
+        Objects.equals(this.excludedUtxos, mpcTransferSource.excludedUtxos)&&
         Objects.equals(this.additionalProperties, mpcTransferSource.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceType, walletId, address, includedUtxos, excludedUtxos, mpcUsedKeyShareHolderGroup, additionalProperties);
+    return Objects.hash(sourceType, walletId, address, includedUtxos, excludedUtxos, additionalProperties);
   }
 
   @Override
@@ -292,7 +267,6 @@ public class MpcTransferSource {
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    includedUtxos: ").append(toIndentedString(includedUtxos)).append("\n");
     sb.append("    excludedUtxos: ").append(toIndentedString(excludedUtxos)).append("\n");
-    sb.append("    mpcUsedKeyShareHolderGroup: ").append(toIndentedString(mpcUsedKeyShareHolderGroup)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -321,7 +295,6 @@ public class MpcTransferSource {
     openapiFields.add("address");
     openapiFields.add("included_utxos");
     openapiFields.add("excluded_utxos");
-    openapiFields.add("mpc_used_key_share_holder_group");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -384,10 +357,6 @@ public class MpcTransferSource {
             TransactionUtxo.validateJsonElement(jsonArrayexcludedUtxos.get(i));
           };
         }
-      }
-      // validate the optional field `mpc_used_key_share_holder_group`
-      if (jsonObj.get("mpc_used_key_share_holder_group") != null && !jsonObj.get("mpc_used_key_share_holder_group").isJsonNull()) {
-        MpcSigningGroup.validateJsonElement(jsonObj.get("mpc_used_key_share_holder_group"));
       }
   }
 

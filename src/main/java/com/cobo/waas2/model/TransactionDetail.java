@@ -15,6 +15,7 @@ import java.util.Objects;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
+import com.cobo.waas2.model.TransactionFuelingInfo;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
@@ -170,6 +171,14 @@ public class TransactionDetail {
   public static final String SERIALIZED_NAME_IS_LOOP = "is_loop";
   @SerializedName(SERIALIZED_NAME_IS_LOOP)
   private Boolean isLoop;
+
+  public static final String SERIALIZED_NAME_COBO_CATEGORY = "cobo_category";
+  @SerializedName(SERIALIZED_NAME_COBO_CATEGORY)
+  private List<String> coboCategory = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_FUELING_INFO = "fueling_info";
+  @SerializedName(SERIALIZED_NAME_FUELING_INFO)
+  private TransactionFuelingInfo fuelingInfo;
 
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
@@ -688,6 +697,52 @@ public class TransactionDetail {
   }
 
 
+  public TransactionDetail coboCategory(List<String> coboCategory) {
+    this.coboCategory = coboCategory;
+    return this;
+  }
+
+  public TransactionDetail addCoboCategoryItem(String coboCategoryItem) {
+    if (this.coboCategory == null) {
+      this.coboCategory = new ArrayList<>();
+    }
+    this.coboCategory.add(coboCategoryItem);
+    return this;
+  }
+
+   /**
+   * A transaction category for cobo to identify your transactions.
+   * @return coboCategory
+  **/
+  @javax.annotation.Nullable
+  public List<String> getCoboCategory() {
+    return coboCategory;
+  }
+
+  public void setCoboCategory(List<String> coboCategory) {
+    this.coboCategory = coboCategory;
+  }
+
+
+  public TransactionDetail fuelingInfo(TransactionFuelingInfo fuelingInfo) {
+    this.fuelingInfo = fuelingInfo;
+    return this;
+  }
+
+   /**
+   * Get fuelingInfo
+   * @return fuelingInfo
+  **/
+  @javax.annotation.Nullable
+  public TransactionFuelingInfo getFuelingInfo() {
+    return fuelingInfo;
+  }
+
+  public void setFuelingInfo(TransactionFuelingInfo fuelingInfo) {
+    this.fuelingInfo = fuelingInfo;
+  }
+
+
   public TransactionDetail createdTimestamp(Long createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -833,6 +888,8 @@ public class TransactionDetail {
         Objects.equals(this.category, transactionDetail.category) &&
         Objects.equals(this.description, transactionDetail.description) &&
         Objects.equals(this.isLoop, transactionDetail.isLoop) &&
+        Objects.equals(this.coboCategory, transactionDetail.coboCategory) &&
+        Objects.equals(this.fuelingInfo, transactionDetail.fuelingInfo) &&
         Objects.equals(this.createdTimestamp, transactionDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, transactionDetail.updatedTimestamp) &&
         Objects.equals(this.timeline, transactionDetail.timeline)&&
@@ -841,7 +898,7 @@ public class TransactionDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, createdTimestamp, updatedTimestamp, timeline, additionalProperties);
+    return Objects.hash(transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, coboCategory, fuelingInfo, createdTimestamp, updatedTimestamp, timeline, additionalProperties);
   }
 
   @Override
@@ -874,6 +931,8 @@ public class TransactionDetail {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isLoop: ").append(toIndentedString(isLoop)).append("\n");
+    sb.append("    coboCategory: ").append(toIndentedString(coboCategory)).append("\n");
+    sb.append("    fuelingInfo: ").append(toIndentedString(fuelingInfo)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    timeline: ").append(toIndentedString(timeline)).append("\n");
@@ -926,6 +985,8 @@ public class TransactionDetail {
     openapiFields.add("category");
     openapiFields.add("description");
     openapiFields.add("is_loop");
+    openapiFields.add("cobo_category");
+    openapiFields.add("fueling_info");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("timeline");
@@ -1032,6 +1093,14 @@ public class TransactionDetail {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("cobo_category") != null && !jsonObj.get("cobo_category").isJsonNull() && !jsonObj.get("cobo_category").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cobo_category` to be an array in the JSON string but got `%s`", jsonObj.get("cobo_category").toString()));
+      }
+      // validate the optional field `fueling_info`
+      if (jsonObj.get("fueling_info") != null && !jsonObj.get("fueling_info").isJsonNull()) {
+        TransactionFuelingInfo.validateJsonElement(jsonObj.get("fueling_info"));
       }
       if (jsonObj.get("timeline") != null && !jsonObj.get("timeline").isJsonNull()) {
         JsonArray jsonArraytimeline = jsonObj.getAsJsonArray("timeline");

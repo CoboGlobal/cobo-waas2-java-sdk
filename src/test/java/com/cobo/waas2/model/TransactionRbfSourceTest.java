@@ -11,7 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.MpcTransferSource;
 import com.cobo.waas2.model.TransactionUtxo;
 import com.cobo.waas2.model.WalletSubtype;
@@ -80,14 +79,6 @@ public class TransactionRbfSourceTest {
     @Test
     public void excludedUtxosTest() {
         // TODO: test excludedUtxos
-    }
-
-    /**
-     * Test the property 'mpcUsedKeyShareHolderGroup'
-     */
-    @Test
-    public void mpcUsedKeyShareHolderGroupTest() {
-        // TODO: test mpcUsedKeyShareHolderGroup
     }
 
 }

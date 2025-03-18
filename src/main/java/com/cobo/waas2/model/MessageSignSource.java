@@ -14,7 +14,6 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.MessageSignSourceType;
 import com.cobo.waas2.model.MpcMessageSignSource;
-import com.cobo.waas2.model.MpcSigningGroup;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

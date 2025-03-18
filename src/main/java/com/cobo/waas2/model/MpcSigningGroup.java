@@ -74,7 +74,7 @@ public class MpcSigningGroup {
    * The ID of the Signing Group.
    * @return usedKeyShareHolderGroupId
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getUsedKeyShareHolderGroupId() {
     return usedKeyShareHolderGroupId;
   }
@@ -209,7 +209,6 @@ public class MpcSigningGroup {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("used_key_share_holder_group_id");
   }
 
  /**
@@ -224,15 +223,8 @@ public class MpcSigningGroup {
           throw new IllegalArgumentException(String.format("The required field(s) %s in MpcSigningGroup is not found in the empty JSON string", MpcSigningGroup.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : MpcSigningGroup.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("used_key_share_holder_group_id").isJsonPrimitive()) {
+      if ((jsonObj.get("used_key_share_holder_group_id") != null && !jsonObj.get("used_key_share_holder_group_id").isJsonNull()) && !jsonObj.get("used_key_share_holder_group_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `used_key_share_holder_group_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("used_key_share_holder_group_id").toString()));
       }
       // ensure the optional json data is an array if present

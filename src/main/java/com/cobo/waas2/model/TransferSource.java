@@ -15,7 +15,6 @@ import java.util.Objects;
 import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.CustodialTransferSource;
 import com.cobo.waas2.model.ExchangeTransferSource;
-import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.MpcTransferSource;
 import com.cobo.waas2.model.SafeTransferSource;
 import com.cobo.waas2.model.TransactionUtxo;
