@@ -240,7 +240,7 @@ public class PrimeBrokerApi {
 
     /**
      * Create Guard pubkey binding
-     * This operation creates a binding between a broker user ID and a Cobo Guard public key.  
+     * This operation creates a binding between a broker user ID and a Cobo Guard public key. 
      * @param userId The user ID. (required)
      * @return ChangeGuardPubkey200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -260,7 +260,7 @@ public class PrimeBrokerApi {
 
     /**
      * Create Guard pubkey binding
-     * This operation creates a binding between a broker user ID and a Cobo Guard public key.  
+     * This operation creates a binding between a broker user ID and a Cobo Guard public key. 
      * @param userId The user ID. (required)
      * @return ApiResponse&lt;ChangeGuardPubkey200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -281,7 +281,7 @@ public class PrimeBrokerApi {
 
     /**
      * Create Guard pubkey binding (asynchronously)
-     * This operation creates a binding between a broker user ID and a Cobo Guard public key.  
+     * This operation creates a binding between a broker user ID and a Cobo Guard public key. 
      * @param userId The user ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

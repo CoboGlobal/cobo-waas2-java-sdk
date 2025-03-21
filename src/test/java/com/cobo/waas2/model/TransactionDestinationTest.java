@@ -12,6 +12,9 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ExchangeId;
+import com.cobo.waas2.model.SafeTxExtraData;
+import com.cobo.waas2.model.TransactionBIP322Destination;
+import com.cobo.waas2.model.TransactionCosmosAdr36Destination;
 import com.cobo.waas2.model.TransactionDepositToAddressDestination;
 import com.cobo.waas2.model.TransactionDepositToAddressDestinationTxInfo;
 import com.cobo.waas2.model.TransactionDepositToWalletDestination;
@@ -187,11 +190,27 @@ public class TransactionDestinationTest {
     }
 
     /**
+     * Test the property 'rawStructuredData'
+     */
+    @Test
+    public void rawStructuredDataTest() {
+        // TODO: test rawStructuredData
+    }
+
+    /**
      * Test the property 'structuredData'
      */
     @Test
     public void structuredDataTest() {
         // TODO: test structuredData
+    }
+
+    /**
+     * Test the property 'safeTxExtraData'
+     */
+    @Test
+    public void safeTxExtraDataTest() {
+        // TODO: test safeTxExtraData
     }
 
     /**
@@ -232,6 +251,22 @@ public class TransactionDestinationTest {
     @Test
     public void txInfoTest() {
         // TODO: test txInfo
+    }
+
+    /**
+     * Test the property 'messageBip322'
+     */
+    @Test
+    public void messageBip322Test() {
+        // TODO: test messageBip322
+    }
+
+    /**
+     * Test the property 'messageCosmosAdr36'
+     */
+    @Test
+    public void messageCosmosAdr36Test() {
+        // TODO: test messageCosmosAdr36
     }
 
 }

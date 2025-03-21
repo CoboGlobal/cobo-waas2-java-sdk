@@ -31,6 +31,8 @@ import com.cobo.waas2.model.CheckAddressChainsValidity200ResponseInner;
 import com.cobo.waas2.model.CheckAddressValidity200Response;
 import com.cobo.waas2.model.CheckAddressesValidity200ResponseInner;
 import com.cobo.waas2.model.CreateAddressRequest;
+import com.cobo.waas2.model.CreateTokenListingRequest201Response;
+import com.cobo.waas2.model.CreateTokenListingRequestRequest;
 import com.cobo.waas2.model.CreateWalletParams;
 import com.cobo.waas2.model.CreatedWalletInfo;
 import com.cobo.waas2.model.DeleteWalletById201Response;
@@ -41,11 +43,16 @@ import com.cobo.waas2.model.ListAddresses200Response;
 import com.cobo.waas2.model.ListSupportedChains200Response;
 import com.cobo.waas2.model.ListSupportedTokens200Response;
 import com.cobo.waas2.model.ListTokenBalancesForAddress200Response;
+import com.cobo.waas2.model.ListTokenListingRequests200Response;
 import com.cobo.waas2.model.ListUtxos200Response;
 import com.cobo.waas2.model.ListWallets200Response;
 import com.cobo.waas2.model.LockUtxos201Response;
 import com.cobo.waas2.model.LockUtxosRequest;
 import com.cobo.waas2.model.MaxTransferableValue;
+import com.cobo.waas2.model.RefreshAddressBalancesByToken200Response;
+import com.cobo.waas2.model.RefreshAddressBalancesByTokenRequest;
+import com.cobo.waas2.model.TokenListing;
+import com.cobo.waas2.model.TokenListingRequestStatus;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateWalletParams;
 import com.cobo.waas2.model.WalletInfo;
@@ -599,6 +606,124 @@ public class WalletsApi {
 
         okhttp3.Call localVarCall = createAddressValidateBeforeCall(walletId, createAddressRequest, _callback);
         Type localVarReturnType = new TypeToken<List<AddressInfo>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createTokenListingRequest
+     * @param createTokenListingRequestRequest Request body for submitting a token listing request. &lt;note&gt;   wallet_type only supports &#x60;Custodial&#x60; and &#x60;MPC&#x60;.   wallet_subtype only supports &#x60;Asset&#x60;, &#x60;Web3&#x60;, and &#x60;Org-Controlled&#x60;. &lt;/note&gt;  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful token listing request submission </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createTokenListingRequestCall(CreateTokenListingRequestRequest createTokenListingRequestRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createTokenListingRequestRequest;
+
+        // create path and map variables
+        String localVarPath = "/wallets/tokens/listing_requests";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createTokenListingRequestValidateBeforeCall(CreateTokenListingRequestRequest createTokenListingRequestRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createTokenListingRequestRequest' is set
+        if (createTokenListingRequestRequest == null) {
+            throw new ApiException("Missing the required parameter 'createTokenListingRequestRequest' when calling createTokenListingRequest(Async)");
+        }
+
+        return createTokenListingRequestCall(createTokenListingRequestRequest, _callback);
+
+    }
+
+    /**
+     * Submit token listing request
+     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
+     * @param createTokenListingRequestRequest Request body for submitting a token listing request. &lt;note&gt;   wallet_type only supports &#x60;Custodial&#x60; and &#x60;MPC&#x60;.   wallet_subtype only supports &#x60;Asset&#x60;, &#x60;Web3&#x60;, and &#x60;Org-Controlled&#x60;. &lt;/note&gt;  (required)
+     * @return CreateTokenListingRequest201Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful token listing request submission </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateTokenListingRequest201Response createTokenListingRequest(CreateTokenListingRequestRequest createTokenListingRequestRequest) throws ApiException {
+        ApiResponse<CreateTokenListingRequest201Response> localVarResp = createTokenListingRequestWithHttpInfo(createTokenListingRequestRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Submit token listing request
+     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
+     * @param createTokenListingRequestRequest Request body for submitting a token listing request. &lt;note&gt;   wallet_type only supports &#x60;Custodial&#x60; and &#x60;MPC&#x60;.   wallet_subtype only supports &#x60;Asset&#x60;, &#x60;Web3&#x60;, and &#x60;Org-Controlled&#x60;. &lt;/note&gt;  (required)
+     * @return ApiResponse&lt;CreateTokenListingRequest201Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful token listing request submission </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateTokenListingRequest201Response> createTokenListingRequestWithHttpInfo(CreateTokenListingRequestRequest createTokenListingRequestRequest) throws ApiException {
+        okhttp3.Call localVarCall = createTokenListingRequestValidateBeforeCall(createTokenListingRequestRequest, null);
+        Type localVarReturnType = new TypeToken<CreateTokenListingRequest201Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Submit token listing request (asynchronously)
+     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
+     * @param createTokenListingRequestRequest Request body for submitting a token listing request. &lt;note&gt;   wallet_type only supports &#x60;Custodial&#x60; and &#x60;MPC&#x60;.   wallet_subtype only supports &#x60;Asset&#x60;, &#x60;Web3&#x60;, and &#x60;Org-Controlled&#x60;. &lt;/note&gt;  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful token listing request submission </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createTokenListingRequestAsync(CreateTokenListingRequestRequest createTokenListingRequestRequest, final ApiCallback<CreateTokenListingRequest201Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createTokenListingRequestValidateBeforeCall(createTokenListingRequestRequest, _callback);
+        Type localVarReturnType = new TypeToken<CreateTokenListingRequest201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1231,6 +1356,124 @@ public class WalletsApi {
 
         okhttp3.Call localVarCall = getTokenByIdValidateBeforeCall(tokenId, _callback);
         Type localVarReturnType = new TypeToken<ExtendedTokenInfo>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getTokenListingRequestByRequestId
+     * @param requestId The unique identifier of the token listing request (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Detailed information about a token listing request </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTokenListingRequestByRequestIdCall(String requestId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallets/tokens/listing_requests/{request_id}"
+            .replace("{" + "request_id" + "}", localVarApiClient.escapeString(requestId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getTokenListingRequestByRequestIdValidateBeforeCall(String requestId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'requestId' is set
+        if (requestId == null) {
+            throw new ApiException("Missing the required parameter 'requestId' when calling getTokenListingRequestByRequestId(Async)");
+        }
+
+        return getTokenListingRequestByRequestIdCall(requestId, _callback);
+
+    }
+
+    /**
+     * Get token listing request details
+     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
+     * @param requestId The unique identifier of the token listing request (required)
+     * @return TokenListing
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Detailed information about a token listing request </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TokenListing getTokenListingRequestByRequestId(String requestId) throws ApiException {
+        ApiResponse<TokenListing> localVarResp = getTokenListingRequestByRequestIdWithHttpInfo(requestId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get token listing request details
+     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
+     * @param requestId The unique identifier of the token listing request (required)
+     * @return ApiResponse&lt;TokenListing&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Detailed information about a token listing request </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TokenListing> getTokenListingRequestByRequestIdWithHttpInfo(String requestId) throws ApiException {
+        okhttp3.Call localVarCall = getTokenListingRequestByRequestIdValidateBeforeCall(requestId, null);
+        Type localVarReturnType = new TypeToken<TokenListing>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get token listing request details (asynchronously)
+     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
+     * @param requestId The unique identifier of the token listing request (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Detailed information about a token listing request </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTokenListingRequestByRequestIdAsync(String requestId, final ApiCallback<TokenListing> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getTokenListingRequestByRequestIdValidateBeforeCall(requestId, _callback);
+        Type localVarReturnType = new TypeToken<TokenListing>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2605,6 +2848,146 @@ public class WalletsApi {
         return localVarCall;
     }
     /**
+     * Build call for listTokenListingRequests
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param status Filter by request status (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of token listing requests </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTokenListingRequestsCall(Integer limit, String before, String after, TokenListingRequestStatus status, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallets/tokens/listing_requests";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listTokenListingRequestsValidateBeforeCall(Integer limit, String before, String after, TokenListingRequestStatus status, final ApiCallback _callback) throws ApiException {
+        return listTokenListingRequestsCall(limit, before, after, status, _callback);
+
+    }
+
+    /**
+     * Get all token listing requests
+     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param status Filter by request status (optional)
+     * @return ListTokenListingRequests200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of token listing requests </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListTokenListingRequests200Response listTokenListingRequests(Integer limit, String before, String after, TokenListingRequestStatus status) throws ApiException {
+        ApiResponse<ListTokenListingRequests200Response> localVarResp = listTokenListingRequestsWithHttpInfo(limit, before, after, status);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get all token listing requests
+     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param status Filter by request status (optional)
+     * @return ApiResponse&lt;ListTokenListingRequests200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of token listing requests </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListTokenListingRequests200Response> listTokenListingRequestsWithHttpInfo(Integer limit, String before, String after, TokenListingRequestStatus status) throws ApiException {
+        okhttp3.Call localVarCall = listTokenListingRequestsValidateBeforeCall(limit, before, after, status, null);
+        Type localVarReturnType = new TypeToken<ListTokenListingRequests200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get all token listing requests (asynchronously)
+     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param status Filter by request status (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List of token listing requests </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTokenListingRequestsAsync(Integer limit, String before, String after, TokenListingRequestStatus status, final ApiCallback<ListTokenListingRequests200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listTokenListingRequestsValidateBeforeCall(limit, before, after, status, _callback);
+        Type localVarReturnType = new TypeToken<ListTokenListingRequests200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listUtxos
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
@@ -3059,6 +3442,139 @@ public class WalletsApi {
 
         okhttp3.Call localVarCall = lockUtxosValidateBeforeCall(walletId, lockUtxosRequest, _callback);
         Type localVarReturnType = new TypeToken<LockUtxos201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for refreshAddressBalancesByToken
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call refreshAddressBalancesByTokenCall(UUID walletId, String tokenId, RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = refreshAddressBalancesByTokenRequest;
+
+        // create path and map variables
+        String localVarPath = "/wallets/{wallet_id}/tokens/{token_id}/refresh_address_balances"
+            .replace("{" + "wallet_id" + "}", localVarApiClient.escapeString(walletId.toString()))
+            .replace("{" + "token_id" + "}", localVarApiClient.escapeString(tokenId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call refreshAddressBalancesByTokenValidateBeforeCall(UUID walletId, String tokenId, RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling refreshAddressBalancesByToken(Async)");
+        }
+
+        // verify the required parameter 'tokenId' is set
+        if (tokenId == null) {
+            throw new ApiException("Missing the required parameter 'tokenId' when calling refreshAddressBalancesByToken(Async)");
+        }
+
+        return refreshAddressBalancesByTokenCall(walletId, tokenId, refreshAddressBalancesByTokenRequest, _callback);
+
+    }
+
+    /**
+     * refresh address balances by token
+     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @return RefreshAddressBalancesByToken200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public RefreshAddressBalancesByToken200Response refreshAddressBalancesByToken(UUID walletId, String tokenId, RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest) throws ApiException {
+        ApiResponse<RefreshAddressBalancesByToken200Response> localVarResp = refreshAddressBalancesByTokenWithHttpInfo(walletId, tokenId, refreshAddressBalancesByTokenRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * refresh address balances by token
+     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @return ApiResponse&lt;RefreshAddressBalancesByToken200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RefreshAddressBalancesByToken200Response> refreshAddressBalancesByTokenWithHttpInfo(UUID walletId, String tokenId, RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest) throws ApiException {
+        okhttp3.Call localVarCall = refreshAddressBalancesByTokenValidateBeforeCall(walletId, tokenId, refreshAddressBalancesByTokenRequest, null);
+        Type localVarReturnType = new TypeToken<RefreshAddressBalancesByToken200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * refresh address balances by token (asynchronously)
+     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call refreshAddressBalancesByTokenAsync(UUID walletId, String tokenId, RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest, final ApiCallback<RefreshAddressBalancesByToken200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = refreshAddressBalancesByTokenValidateBeforeCall(walletId, tokenId, refreshAddressBalancesByTokenRequest, _callback);
+        Type localVarReturnType = new TypeToken<RefreshAddressBalancesByToken200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

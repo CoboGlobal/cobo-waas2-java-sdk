@@ -17,6 +17,10 @@
 
 * `EVM_EIP_712_SIGNATURE` (value: `"EVM_EIP_712_Signature"`)
 
+* `BTC_BIP_322_SIGNATURE` (value: `"BTC_BIP_322_Signature"`)
+
+* `COSMOS_ADR_36_SIGNATURE` (value: `"COSMOS_ADR_36_Signature"`)
+
 * `RAW_MESSAGE_SIGNATURE` (value: `"Raw_Message_Signature"`)
 
 * `DEPOSITTOADDRESS` (value: `"DepositToAddress"`)

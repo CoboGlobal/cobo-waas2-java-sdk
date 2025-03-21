@@ -10,7 +10,7 @@ The information about the Solana instruction.
 |------------ | ------------- | ------------- | -------------|
 |**accounts** | [**List&lt;SolContractCallAccount&gt;**](SolContractCallAccount.md) |  |  |
 |**data** | **String** | The Base64-encoded instruction data used for interacting with a Solana program.  |  |
-|**programId** | **String** | The address of the Solana program (smart contract).   |  |
+|**programId** | **String** | The address of the Solana program (smart contract).  |  |
 
 
 

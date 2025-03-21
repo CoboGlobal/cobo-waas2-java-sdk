@@ -67,4 +67,20 @@ public class TransactionSelectedUtxoTest {
         // TODO: test value
     }
 
+    /**
+     * Test the property 'redeemScript'
+     */
+    @Test
+    public void redeemScriptTest() {
+        // TODO: test redeemScript
+    }
+
+    /**
+     * Test the property 'revealedScript'
+     */
+    @Test
+    public void revealedScriptTest() {
+        // TODO: test revealedScript
+    }
+
 }

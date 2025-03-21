@@ -239,7 +239,7 @@ public class TransactionsApi {
 
     /**
      * Cancel transaction
-     * This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt;  A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60;  
+     * This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt;  A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60; 
      * @param transactionId The transaction ID. (required)
      * @return CreateTransferTransaction201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -258,7 +258,7 @@ public class TransactionsApi {
 
     /**
      * Cancel transaction
-     * This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt;  A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60;  
+     * This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt;  A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60; 
      * @param transactionId The transaction ID. (required)
      * @return ApiResponse&lt;CreateTransferTransaction201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -278,7 +278,7 @@ public class TransactionsApi {
 
     /**
      * Cancel transaction (asynchronously)
-     * This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt;  A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60;  
+     * This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt;  A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60; 
      * @param transactionId The transaction ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1275,6 +1275,7 @@ public class TransactionsApi {
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to )
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1286,7 +1287,7 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTransactionsCall(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listTransactionsCall(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, String direction, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1366,6 +1367,10 @@ public class TransactionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
         }
 
+        if (direction != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("direction", direction));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1386,8 +1391,8 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listTransactionsValidateBeforeCall(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        return listTransactionsCall(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, _callback);
+    private okhttp3.Call listTransactionsValidateBeforeCall(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, String direction, final ApiCallback _callback) throws ApiException {
+        return listTransactionsCall(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction, _callback);
 
     }
 
@@ -1411,6 +1416,7 @@ public class TransactionsApi {
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to )
      * @return ListTransactions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1421,8 +1427,8 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListTransactions200Response listTransactions(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after) throws ApiException {
-        ApiResponse<ListTransactions200Response> localVarResp = listTransactionsWithHttpInfo(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after);
+    public ListTransactions200Response listTransactions(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, String direction) throws ApiException {
+        ApiResponse<ListTransactions200Response> localVarResp = listTransactionsWithHttpInfo(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction);
         return localVarResp.getData();
     }
 
@@ -1446,6 +1452,7 @@ public class TransactionsApi {
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to )
      * @return ApiResponse&lt;ListTransactions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1456,8 +1463,8 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListTransactions200Response> listTransactionsWithHttpInfo(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after) throws ApiException {
-        okhttp3.Call localVarCall = listTransactionsValidateBeforeCall(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, null);
+    public ApiResponse<ListTransactions200Response> listTransactionsWithHttpInfo(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, String direction) throws ApiException {
+        okhttp3.Call localVarCall = listTransactionsValidateBeforeCall(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction, null);
         Type localVarReturnType = new TypeToken<ListTransactions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1482,6 +1489,7 @@ public class TransactionsApi {
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to )
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1493,9 +1501,9 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTransactionsAsync(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, final ApiCallback<ListTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call listTransactionsAsync(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, String direction, final ApiCallback<ListTransactions200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listTransactionsValidateBeforeCall(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, _callback);
+        okhttp3.Call localVarCall = listTransactionsValidateBeforeCall(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction, _callback);
         Type localVarReturnType = new TypeToken<ListTransactions200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
