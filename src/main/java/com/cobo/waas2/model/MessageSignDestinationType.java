@@ -34,6 +34,10 @@ public enum MessageSignDestinationType {
   
   BTC_EIP_191_SIGNATURE("BTC_EIP_191_Signature"),
   
+  BTC_BIP_322_SIGNATURE("BTC_BIP_322_Signature"),
+  
+  COSMOS_ADR_36_SIGNATURE("COSMOS_ADR_36_Signature"),
+  
   RAW_MESSAGE_SIGNATURE("Raw_Message_Signature");
 
   private String value;

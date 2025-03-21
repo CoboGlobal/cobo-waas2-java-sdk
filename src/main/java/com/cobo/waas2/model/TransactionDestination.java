@@ -13,6 +13,9 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.ExchangeId;
+import com.cobo.waas2.model.SafeTxExtraData;
+import com.cobo.waas2.model.TransactionBIP322Destination;
+import com.cobo.waas2.model.TransactionCosmosAdr36Destination;
 import com.cobo.waas2.model.TransactionDepositToAddressDestination;
 import com.cobo.waas2.model.TransactionDepositToAddressDestinationTxInfo;
 import com.cobo.waas2.model.TransactionDepositToWalletDestination;
@@ -102,6 +105,8 @@ public class TransactionDestination extends AbstractOpenApiSchema {
             final TypeAdapter<TransactionRawMessageSignDestination> adapterTransactionRawMessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(TransactionRawMessageSignDestination.class));
             final TypeAdapter<TransactionDepositToAddressDestination> adapterTransactionDepositToAddressDestination = gson.getDelegateAdapter(this, TypeToken.get(TransactionDepositToAddressDestination.class));
             final TypeAdapter<TransactionDepositToWalletDestination> adapterTransactionDepositToWalletDestination = gson.getDelegateAdapter(this, TypeToken.get(TransactionDepositToWalletDestination.class));
+            final TypeAdapter<TransactionBIP322Destination> adapterTransactionBIP322Destination = gson.getDelegateAdapter(this, TypeToken.get(TransactionBIP322Destination.class));
+            final TypeAdapter<TransactionCosmosAdr36Destination> adapterTransactionCosmosAdr36Destination = gson.getDelegateAdapter(this, TypeToken.get(TransactionCosmosAdr36Destination.class));
 
             return (TypeAdapter<T>) new TypeAdapter<TransactionDestination>() {
                 @Override
@@ -165,7 +170,19 @@ public class TransactionDestination extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination");
+                    // check if the actual instance is of the type `TransactionBIP322Destination`
+                    if (value.getActualInstance() instanceof TransactionBIP322Destination) {
+                        JsonElement element = adapterTransactionBIP322Destination.toJsonTree((TransactionBIP322Destination)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `TransactionCosmosAdr36Destination`
+                    if (value.getActualInstance() instanceof TransactionCosmosAdr36Destination) {
+                        JsonElement element = adapterTransactionCosmosAdr36Destination.toJsonTree((TransactionCosmosAdr36Destination)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TransactionBIP322Destination, TransactionCosmosAdr36Destination, TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination");
                 }
 
                 @Override
@@ -184,6 +201,14 @@ public class TransactionDestination extends AbstractOpenApiSchema {
                         switch (jsonObject.get("destination_type").getAsString()) {
                             case "Address":
                                 deserialized = adapterTransactionTransferToAddressDestination.fromJsonTree(jsonObject);
+                                newTransactionDestination.setActualInstance(deserialized);
+                                return newTransactionDestination;
+                            case "BTC_BIP_322_Signature":
+                                deserialized = adapterTransactionBIP322Destination.fromJsonTree(jsonObject);
+                                newTransactionDestination.setActualInstance(deserialized);
+                                return newTransactionDestination;
+                            case "COSMOS_ADR_36_Signature":
+                                deserialized = adapterTransactionCosmosAdr36Destination.fromJsonTree(jsonObject);
                                 newTransactionDestination.setActualInstance(deserialized);
                                 return newTransactionDestination;
                             case "DepositToAddress":
@@ -216,6 +241,14 @@ public class TransactionDestination extends AbstractOpenApiSchema {
                                 return newTransactionDestination;
                             case "SOL_Contract":
                                 deserialized = adapterTransactionSolContractDestination.fromJsonTree(jsonObject);
+                                newTransactionDestination.setActualInstance(deserialized);
+                                return newTransactionDestination;
+                            case "TransactionBIP322Destination":
+                                deserialized = adapterTransactionBIP322Destination.fromJsonTree(jsonObject);
+                                newTransactionDestination.setActualInstance(deserialized);
+                                return newTransactionDestination;
+                            case "TransactionCosmosAdr36Destination":
+                                deserialized = adapterTransactionCosmosAdr36Destination.fromJsonTree(jsonObject);
                                 newTransactionDestination.setActualInstance(deserialized);
                                 return newTransactionDestination;
                             case "TransactionDepositToAddressDestination":
@@ -255,7 +288,7 @@ public class TransactionDestination extends AbstractOpenApiSchema {
                                 newTransactionDestination.setActualInstance(deserialized);
                                 return newTransactionDestination;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionDestination. Possible values: Address DepositToAddress DepositToWallet EVM_Contract EVM_EIP_191_Signature EVM_EIP_712_Signature ExchangeWallet Raw_Message_Signature SOL_Contract TransactionDepositToAddressDestination TransactionDepositToWalletDestination TransactionEvmContractDestination TransactionMessageSignEIP191Destination TransactionMessageSignEIP712Destination TransactionRawMessageSignDestination TransactionSolContractDestination TransactionTransferToAddressDestination TransactionTransferToWalletDestination", jsonObject.get("destination_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionDestination. Possible values: Address BTC_BIP_322_Signature COSMOS_ADR_36_Signature DepositToAddress DepositToWallet EVM_Contract EVM_EIP_191_Signature EVM_EIP_712_Signature ExchangeWallet Raw_Message_Signature SOL_Contract TransactionBIP322Destination TransactionCosmosAdr36Destination TransactionDepositToAddressDestination TransactionDepositToWalletDestination TransactionEvmContractDestination TransactionMessageSignEIP191Destination TransactionMessageSignEIP712Destination TransactionRawMessageSignDestination TransactionSolContractDestination TransactionTransferToAddressDestination TransactionTransferToWalletDestination", jsonObject.get("destination_type").getAsString()));
                         }
                     }
 
@@ -371,6 +404,30 @@ public class TransactionDestination extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for TransactionDepositToWalletDestination failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'TransactionDepositToWalletDestination'", e);
                     }
+                    // deserialize TransactionBIP322Destination
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        TransactionBIP322Destination.validateJsonElement(jsonElement);
+                        actualAdapter = adapterTransactionBIP322Destination;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'TransactionBIP322Destination'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for TransactionBIP322Destination failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'TransactionBIP322Destination'", e);
+                    }
+                    // deserialize TransactionCosmosAdr36Destination
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        TransactionCosmosAdr36Destination.validateJsonElement(jsonElement);
+                        actualAdapter = adapterTransactionCosmosAdr36Destination;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'TransactionCosmosAdr36Destination'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for TransactionCosmosAdr36Destination failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'TransactionCosmosAdr36Destination'", e);
+                    }
 
                     if (match == 1) {
                         TransactionDestination ret = new TransactionDestination();
@@ -389,6 +446,16 @@ public class TransactionDestination extends AbstractOpenApiSchema {
 
     public TransactionDestination() {
         super("oneOf", Boolean.FALSE);
+    }
+
+    public TransactionDestination(TransactionBIP322Destination o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public TransactionDestination(TransactionCosmosAdr36Destination o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
     }
 
     public TransactionDestination(TransactionDepositToAddressDestination o) {
@@ -446,6 +513,8 @@ public class TransactionDestination extends AbstractOpenApiSchema {
         schemas.put("TransactionRawMessageSignDestination", TransactionRawMessageSignDestination.class);
         schemas.put("TransactionDepositToAddressDestination", TransactionDepositToAddressDestination.class);
         schemas.put("TransactionDepositToWalletDestination", TransactionDepositToWalletDestination.class);
+        schemas.put("TransactionBIP322Destination", TransactionBIP322Destination.class);
+        schemas.put("TransactionCosmosAdr36Destination", TransactionCosmosAdr36Destination.class);
     }
 
     @Override
@@ -456,7 +525,7 @@ public class TransactionDestination extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination
+     * TransactionBIP322Destination, TransactionCosmosAdr36Destination, TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -507,14 +576,24 @@ public class TransactionDestination extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination");
+        if (instance instanceof TransactionBIP322Destination) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof TransactionCosmosAdr36Destination) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be TransactionBIP322Destination, TransactionCosmosAdr36Destination, TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination
+     * TransactionBIP322Destination, TransactionCosmosAdr36Destination, TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination
      *
-     * @return The actual instance (TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination)
+     * @return The actual instance (TransactionBIP322Destination, TransactionCosmosAdr36Destination, TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -612,6 +691,26 @@ public class TransactionDestination extends AbstractOpenApiSchema {
     public TransactionDepositToWalletDestination getTransactionDepositToWalletDestination() throws ClassCastException {
         return (TransactionDepositToWalletDestination)super.getActualInstance();
     }
+    /**
+     * Get the actual instance of `TransactionBIP322Destination`. If the actual instance is not `TransactionBIP322Destination`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TransactionBIP322Destination`
+     * @throws ClassCastException if the instance is not `TransactionBIP322Destination`
+     */
+    public TransactionBIP322Destination getTransactionBIP322Destination() throws ClassCastException {
+        return (TransactionBIP322Destination)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `TransactionCosmosAdr36Destination`. If the actual instance is not `TransactionCosmosAdr36Destination`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TransactionCosmosAdr36Destination`
+     * @throws ClassCastException if the instance is not `TransactionCosmosAdr36Destination`
+     */
+    public TransactionCosmosAdr36Destination getTransactionCosmosAdr36Destination() throws ClassCastException {
+        return (TransactionCosmosAdr36Destination)super.getActualInstance();
+    }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
@@ -695,8 +794,24 @@ public class TransactionDestination extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for TransactionDepositToWalletDestination failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with TransactionBIP322Destination
+        try {
+            TransactionBIP322Destination.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for TransactionBIP322Destination failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with TransactionCosmosAdr36Destination
+        try {
+            TransactionCosmosAdr36Destination.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for TransactionCosmosAdr36Destination failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for TransactionDestination with oneOf schemas: TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for TransactionDestination with oneOf schemas: TransactionBIP322Destination, TransactionCosmosAdr36Destination, TransactionDepositToAddressDestination, TransactionDepositToWalletDestination, TransactionEvmContractDestination, TransactionMessageSignEIP191Destination, TransactionMessageSignEIP712Destination, TransactionRawMessageSignDestination, TransactionSolContractDestination, TransactionTransferToAddressDestination, TransactionTransferToWalletDestination. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 
