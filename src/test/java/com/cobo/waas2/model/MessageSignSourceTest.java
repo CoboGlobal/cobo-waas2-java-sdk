@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.CustodialWeb3MessageSignSource;
 import com.cobo.waas2.model.MessageSignSourceType;
 import com.cobo.waas2.model.MpcMessageSignSource;
 import com.cobo.waas2.model.MpcSigningGroup;

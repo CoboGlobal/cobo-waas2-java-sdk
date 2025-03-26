@@ -81,7 +81,7 @@ public class TransactionRequestUtxoFee {
    * The fee rate in sat/vByte. The fee rate represents the satoshis you are willing to pay for each byte of data that your transaction will consume on the blockchain.
    * @return feeRate
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getFeeRate() {
     return feeRate;
   }
@@ -252,7 +252,6 @@ public class TransactionRequestUtxoFee {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("fee_rate");
     openapiRequiredFields.add("fee_type");
     openapiRequiredFields.add("token_id");
   }
@@ -277,7 +276,7 @@ public class TransactionRequestUtxoFee {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("fee_rate").isJsonPrimitive()) {
+      if ((jsonObj.get("fee_rate") != null && !jsonObj.get("fee_rate").isJsonNull()) && !jsonObj.get("fee_rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_rate").toString()));
       }
       // validate the required field `fee_type`

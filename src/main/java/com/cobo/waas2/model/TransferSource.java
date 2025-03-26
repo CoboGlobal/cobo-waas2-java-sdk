@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.CustodialTransferSource;
+import com.cobo.waas2.model.CustodialWeb3TransferSource;
 import com.cobo.waas2.model.ExchangeTransferSource;
 import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.MpcTransferSource;
@@ -82,6 +83,7 @@ public class TransferSource extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<CustodialTransferSource> adapterCustodialTransferSource = gson.getDelegateAdapter(this, TypeToken.get(CustodialTransferSource.class));
+            final TypeAdapter<CustodialWeb3TransferSource> adapterCustodialWeb3TransferSource = gson.getDelegateAdapter(this, TypeToken.get(CustodialWeb3TransferSource.class));
             final TypeAdapter<MpcTransferSource> adapterMpcTransferSource = gson.getDelegateAdapter(this, TypeToken.get(MpcTransferSource.class));
             final TypeAdapter<SafeTransferSource> adapterSafeTransferSource = gson.getDelegateAdapter(this, TypeToken.get(SafeTransferSource.class));
             final TypeAdapter<ExchangeTransferSource> adapterExchangeTransferSource = gson.getDelegateAdapter(this, TypeToken.get(ExchangeTransferSource.class));
@@ -97,6 +99,12 @@ public class TransferSource extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `CustodialTransferSource`
                     if (value.getActualInstance() instanceof CustodialTransferSource) {
                         JsonElement element = adapterCustodialTransferSource.toJsonTree((CustodialTransferSource)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CustodialWeb3TransferSource`
+                    if (value.getActualInstance() instanceof CustodialWeb3TransferSource) {
+                        JsonElement element = adapterCustodialWeb3TransferSource.toJsonTree((CustodialWeb3TransferSource)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -118,7 +126,7 @@ public class TransferSource extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CustodialTransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource");
                 }
 
                 @Override
@@ -159,8 +167,16 @@ public class TransferSource extends AbstractOpenApiSchema {
                                 deserialized = adapterMpcTransferSource.fromJsonTree(jsonObject);
                                 newTransferSource.setActualInstance(deserialized);
                                 return newTransferSource;
+                            case "Web3":
+                                deserialized = adapterCustodialWeb3TransferSource.fromJsonTree(jsonObject);
+                                newTransferSource.setActualInstance(deserialized);
+                                return newTransferSource;
                             case "CustodialTransferSource":
                                 deserialized = adapterCustodialTransferSource.fromJsonTree(jsonObject);
+                                newTransferSource.setActualInstance(deserialized);
+                                return newTransferSource;
+                            case "CustodialWeb3TransferSource":
+                                deserialized = adapterCustodialWeb3TransferSource.fromJsonTree(jsonObject);
                                 newTransferSource.setActualInstance(deserialized);
                                 return newTransferSource;
                             case "ExchangeTransferSource":
@@ -176,7 +192,7 @@ public class TransferSource extends AbstractOpenApiSchema {
                                 newTransferSource.setActualInstance(deserialized);
                                 return newTransferSource;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransferSource. Possible values: Asset Main Org-Controlled Safe{Wallet} Sub User-Controlled CustodialTransferSource ExchangeTransferSource MpcTransferSource SafeTransferSource", jsonObject.get("source_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransferSource. Possible values: Asset Main Org-Controlled Safe{Wallet} Sub User-Controlled Web3 CustodialTransferSource CustodialWeb3TransferSource ExchangeTransferSource MpcTransferSource SafeTransferSource", jsonObject.get("source_type").getAsString()));
                         }
                     }
 
@@ -195,6 +211,18 @@ public class TransferSource extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for CustodialTransferSource failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'CustodialTransferSource'", e);
+                    }
+                    // deserialize CustodialWeb3TransferSource
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CustodialWeb3TransferSource.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCustodialWeb3TransferSource;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CustodialWeb3TransferSource'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for CustodialWeb3TransferSource failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CustodialWeb3TransferSource'", e);
                     }
                     // deserialize MpcTransferSource
                     try {
@@ -257,6 +285,11 @@ public class TransferSource extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public TransferSource(CustodialWeb3TransferSource o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public TransferSource(ExchangeTransferSource o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -274,6 +307,7 @@ public class TransferSource extends AbstractOpenApiSchema {
 
     static {
         schemas.put("CustodialTransferSource", CustodialTransferSource.class);
+        schemas.put("CustodialWeb3TransferSource", CustodialWeb3TransferSource.class);
         schemas.put("MpcTransferSource", MpcTransferSource.class);
         schemas.put("SafeTransferSource", SafeTransferSource.class);
         schemas.put("ExchangeTransferSource", ExchangeTransferSource.class);
@@ -287,13 +321,18 @@ public class TransferSource extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CustodialTransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource
+     * CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
         if (instance instanceof CustodialTransferSource) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof CustodialWeb3TransferSource) {
             super.setActualInstance(instance);
             return;
         }
@@ -313,14 +352,14 @@ public class TransferSource extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CustodialTransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource");
+        throw new RuntimeException("Invalid instance type. Must be CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CustodialTransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource
+     * CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource
      *
-     * @return The actual instance (CustodialTransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource)
+     * @return The actual instance (CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -337,6 +376,16 @@ public class TransferSource extends AbstractOpenApiSchema {
      */
     public CustodialTransferSource getCustodialTransferSource() throws ClassCastException {
         return (CustodialTransferSource)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `CustodialWeb3TransferSource`. If the actual instance is not `CustodialWeb3TransferSource`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CustodialWeb3TransferSource`
+     * @throws ClassCastException if the instance is not `CustodialWeb3TransferSource`
+     */
+    public CustodialWeb3TransferSource getCustodialWeb3TransferSource() throws ClassCastException {
+        return (CustodialWeb3TransferSource)super.getActualInstance();
     }
     /**
      * Get the actual instance of `MpcTransferSource`. If the actual instance is not `MpcTransferSource`,
@@ -387,6 +436,14 @@ public class TransferSource extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for CustodialTransferSource failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with CustodialWeb3TransferSource
+        try {
+            CustodialWeb3TransferSource.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for CustodialWeb3TransferSource failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with MpcTransferSource
         try {
             MpcTransferSource.validateJsonElement(jsonElement);
@@ -412,7 +469,7 @@ public class TransferSource extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for TransferSource with oneOf schemas: CustodialTransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for TransferSource with oneOf schemas: CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

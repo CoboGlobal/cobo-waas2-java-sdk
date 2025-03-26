@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.AutoFuelType;
+import com.cobo.waas2.model.TransactionProcessType;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.cobo.waas2.model.TransferDestination;
 import com.cobo.waas2.model.TransferSource;

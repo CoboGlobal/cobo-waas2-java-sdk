@@ -91,6 +91,22 @@ public class ActivityExtraTest {
     }
 
     /**
+     * Test the property 'slashFromType'
+     */
+    @Test
+    public void slashFromTypeTest() {
+        // TODO: test slashFromType
+    }
+
+    /**
+     * Test the property 'stakeAmount'
+     */
+    @Test
+    public void stakeAmountTest() {
+        // TODO: test stakeAmount
+    }
+
+    /**
      * Test the property 'providerName'
      */
     @Test

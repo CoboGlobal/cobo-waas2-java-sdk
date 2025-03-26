@@ -28,6 +28,8 @@ import com.google.gson.stream.JsonWriter;
 public enum ContractCallSourceType {
   UNKNOWN(null),
   
+  WEB3("Web3"),
+  
   ORG_CONTROLLED("Org-Controlled"),
   
   USER_CONTROLLED("User-Controlled"),

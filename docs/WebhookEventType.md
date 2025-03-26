@@ -27,5 +27,17 @@
 
 * `MPC_VAULTS_CREATED` (value: `"mpc_vaults.created"`)
 
+* `FEE_STATION_TRANSACTION_CREATED` (value: `"fee_station.transaction.created"`)
+
+* `FEE_STATION_TRANSACTION_UPDATED` (value: `"fee_station.transaction.updated"`)
+
+* `FEE_STATION_TRANSACTION_FAILED` (value: `"fee_station.transaction.failed"`)
+
+* `FEE_STATION_TRANSACTION_SUCCEEDED` (value: `"fee_station.transaction.succeeded"`)
+
+* `WALLET_TOKEN_ENABLED` (value: `"wallet.token.enabled"`)
+
+* `WALLET_CHAIN_ENABLED` (value: `"wallet.chain.enabled"`)
+
 
 

@@ -15,6 +15,7 @@ import java.util.Objects;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
+import com.cobo.waas2.model.TransactionFuelingInfo;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
@@ -67,7 +68,7 @@ import com.cobo.waas2.JSON;
 )
 public class TransactionWebhookEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The Chain enabled event data. - &#x60;Tokens&#x60;: The Token enabled event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -79,7 +80,11 @@ public class TransactionWebhookEventData {
     
     WALLETINFO("WalletInfo"),
     
-    MPCVAULT("MPCVault");
+    MPCVAULT("MPCVault"),
+    
+    CHAINS("Chains"),
+    
+    TOKENS("Tokens");
 
     private String value;
 
@@ -232,6 +237,14 @@ public class TransactionWebhookEventData {
   @SerializedName(SERIALIZED_NAME_IS_LOOP)
   private Boolean isLoop;
 
+  public static final String SERIALIZED_NAME_COBO_CATEGORY = "cobo_category";
+  @SerializedName(SERIALIZED_NAME_COBO_CATEGORY)
+  private List<String> coboCategory = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_FUELING_INFO = "fueling_info";
+  @SerializedName(SERIALIZED_NAME_FUELING_INFO)
+  private TransactionFuelingInfo fuelingInfo;
+
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
   private Long createdTimestamp;
@@ -249,7 +262,7 @@ public class TransactionWebhookEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The Chain enabled event data. - &#x60;Tokens&#x60;: The Token enabled event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -764,6 +777,52 @@ public class TransactionWebhookEventData {
   }
 
 
+  public TransactionWebhookEventData coboCategory(List<String> coboCategory) {
+    this.coboCategory = coboCategory;
+    return this;
+  }
+
+  public TransactionWebhookEventData addCoboCategoryItem(String coboCategoryItem) {
+    if (this.coboCategory == null) {
+      this.coboCategory = new ArrayList<>();
+    }
+    this.coboCategory.add(coboCategoryItem);
+    return this;
+  }
+
+   /**
+   * A transaction category for cobo to identify your transactions.
+   * @return coboCategory
+  **/
+  @javax.annotation.Nullable
+  public List<String> getCoboCategory() {
+    return coboCategory;
+  }
+
+  public void setCoboCategory(List<String> coboCategory) {
+    this.coboCategory = coboCategory;
+  }
+
+
+  public TransactionWebhookEventData fuelingInfo(TransactionFuelingInfo fuelingInfo) {
+    this.fuelingInfo = fuelingInfo;
+    return this;
+  }
+
+   /**
+   * Get fuelingInfo
+   * @return fuelingInfo
+  **/
+  @javax.annotation.Nullable
+  public TransactionFuelingInfo getFuelingInfo() {
+    return fuelingInfo;
+  }
+
+  public void setFuelingInfo(TransactionFuelingInfo fuelingInfo) {
+    this.fuelingInfo = fuelingInfo;
+  }
+
+
   public TransactionWebhookEventData createdTimestamp(Long createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -883,6 +942,8 @@ public class TransactionWebhookEventData {
         Objects.equals(this.category, transactionWebhookEventData.category) &&
         Objects.equals(this.description, transactionWebhookEventData.description) &&
         Objects.equals(this.isLoop, transactionWebhookEventData.isLoop) &&
+        Objects.equals(this.coboCategory, transactionWebhookEventData.coboCategory) &&
+        Objects.equals(this.fuelingInfo, transactionWebhookEventData.fuelingInfo) &&
         Objects.equals(this.createdTimestamp, transactionWebhookEventData.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, transactionWebhookEventData.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, transactionWebhookEventData.additionalProperties);
@@ -890,7 +951,7 @@ public class TransactionWebhookEventData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(dataType, transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, coboCategory, fuelingInfo, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -924,6 +985,8 @@ public class TransactionWebhookEventData {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isLoop: ").append(toIndentedString(isLoop)).append("\n");
+    sb.append("    coboCategory: ").append(toIndentedString(coboCategory)).append("\n");
+    sb.append("    fuelingInfo: ").append(toIndentedString(fuelingInfo)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -976,6 +1039,8 @@ public class TransactionWebhookEventData {
     openapiFields.add("category");
     openapiFields.add("description");
     openapiFields.add("is_loop");
+    openapiFields.add("cobo_category");
+    openapiFields.add("fueling_info");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -1087,6 +1152,14 @@ public class TransactionWebhookEventData {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("cobo_category") != null && !jsonObj.get("cobo_category").isJsonNull() && !jsonObj.get("cobo_category").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cobo_category` to be an array in the JSON string but got `%s`", jsonObj.get("cobo_category").toString()));
+      }
+      // validate the optional field `fueling_info`
+      if (jsonObj.get("fueling_info") != null && !jsonObj.get("fueling_info").isJsonNull()) {
+        TransactionFuelingInfo.validateJsonElement(jsonObj.get("fueling_info"));
       }
   }
 

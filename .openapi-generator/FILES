@@ -54,6 +54,7 @@ docs/BroadcastSignedTransactions201ResponseInner.md
 docs/BroadcastSignedTransactionsRequest.md
 docs/CallbackMessage.md
 docs/ChainInfo.md
+docs/ChainsEventData.md
 docs/ChangeGuardPubkey200Response.md
 docs/CheckAddressChainsValidity200ResponseInner.md
 docs/CheckAddressValidity200Response.md
@@ -107,6 +108,9 @@ docs/CreatedWalletInfo.md
 docs/CurveType.md
 docs/CustodialTransferSource.md
 docs/CustodialWalletInfo.md
+docs/CustodialWeb3ContractCallSource.md
+docs/CustodialWeb3MessageSignSource.md
+docs/CustodialWeb3TransferSource.md
 docs/DeleteGuardPubkey201Response.md
 docs/DeleteKeyShareHolderGroupById201Response.md
 docs/DeleteWalletById201Response.md
@@ -155,6 +159,8 @@ docs/FeeAmount.md
 docs/FeeGasLimit.md
 docs/FeeRate.md
 docs/FeeReserved.md
+docs/FeeStationApi.md
+docs/FeeStationTransactionType.md
 docs/FeeType.md
 docs/FixedFeeRate.md
 docs/GetApiKeyInfo200Response.md
@@ -195,6 +201,7 @@ docs/ListSupportedCountries200ResponseInner.md
 docs/ListSupportedTokens200Response.md
 docs/ListSwapActivities200Response.md
 docs/ListTokenBalancesForAddress200Response.md
+docs/ListTransactionApprovalDetails200Response.md
 docs/ListTransactions200Response.md
 docs/ListTssRequests200Response.md
 docs/ListUtxos200Response.md
@@ -244,6 +251,10 @@ docs/RoleScopes.md
 docs/RootPubkey.md
 docs/SafeContractCallSource.md
 docs/SafeTransferSource.md
+docs/SafeTxDecodedData.md
+docs/SafeTxDecodedDataParameters.md
+docs/SafeTxExtraData.md
+docs/SafeTxSubTransaction.md
 docs/SafeWallet.md
 docs/SafeWalletDelegates.md
 docs/SafeWalletDelegatesContractCall.md
@@ -280,12 +291,15 @@ docs/TSSRequestWebhookEventData.md
 docs/TokenAssetModelType.md
 docs/TokenBalance.md
 docs/TokenInfo.md
+docs/TokensEventData.md
 docs/Transaction.md
 docs/TransactionApprovalDetail.md
 docs/TransactionApprovalResult.md
 docs/TransactionApprover.md
 docs/TransactionBlockInfo.md
+docs/TransactionCoboCategory.md
 docs/TransactionCustodialAssetWalletSource.md
+docs/TransactionCustodialWeb3WalletSource.md
 docs/TransactionDepositFromAddressSource.md
 docs/TransactionDepositFromLoopSource.md
 docs/TransactionDepositFromWalletSource.md
@@ -305,10 +319,12 @@ docs/TransactionExchangeWalletSource.md
 docs/TransactionFee.md
 docs/TransactionFeeStationWalletSource.md
 docs/TransactionFixedFee.md
+docs/TransactionFuelingInfo.md
 docs/TransactionInitiatorType.md
 docs/TransactionMPCWalletSource.md
 docs/TransactionMessageSignEIP191Destination.md
 docs/TransactionMessageSignEIP712Destination.md
+docs/TransactionProcessType.md
 docs/TransactionRawMessageSignDestination.md
 docs/TransactionRawTxInfo.md
 docs/TransactionRbf.md
@@ -425,6 +441,7 @@ src/main/java/com/cobo/waas2/StringUtil.java
 src/main/java/com/cobo/waas2/api/AddressBooksApi.java
 src/main/java/com/cobo/waas2/api/DevelopersApi.java
 src/main/java/com/cobo/waas2/api/DevelopersWebhooksApi.java
+src/main/java/com/cobo/waas2/api/FeeStationApi.java
 src/main/java/com/cobo/waas2/api/OAuthApi.java
 src/main/java/com/cobo/waas2/api/PrimeBrokerApi.java
 src/main/java/com/cobo/waas2/api/StakingsApi.java
@@ -495,6 +512,7 @@ src/main/java/com/cobo/waas2/model/BroadcastSignedTransactions201ResponseInner.j
 src/main/java/com/cobo/waas2/model/BroadcastSignedTransactionsRequest.java
 src/main/java/com/cobo/waas2/model/CallbackMessage.java
 src/main/java/com/cobo/waas2/model/ChainInfo.java
+src/main/java/com/cobo/waas2/model/ChainsEventData.java
 src/main/java/com/cobo/waas2/model/ChangeGuardPubkey200Response.java
 src/main/java/com/cobo/waas2/model/CheckAddressChainsValidity200ResponseInner.java
 src/main/java/com/cobo/waas2/model/CheckAddressValidity200Response.java
@@ -548,6 +566,9 @@ src/main/java/com/cobo/waas2/model/CreatedWalletInfo.java
 src/main/java/com/cobo/waas2/model/CurveType.java
 src/main/java/com/cobo/waas2/model/CustodialTransferSource.java
 src/main/java/com/cobo/waas2/model/CustodialWalletInfo.java
+src/main/java/com/cobo/waas2/model/CustodialWeb3ContractCallSource.java
+src/main/java/com/cobo/waas2/model/CustodialWeb3MessageSignSource.java
+src/main/java/com/cobo/waas2/model/CustodialWeb3TransferSource.java
 src/main/java/com/cobo/waas2/model/DeleteGuardPubkey201Response.java
 src/main/java/com/cobo/waas2/model/DeleteKeyShareHolderGroupById201Response.java
 src/main/java/com/cobo/waas2/model/DeleteWalletById201Response.java
@@ -594,6 +615,7 @@ src/main/java/com/cobo/waas2/model/FeeAmount.java
 src/main/java/com/cobo/waas2/model/FeeGasLimit.java
 src/main/java/com/cobo/waas2/model/FeeRate.java
 src/main/java/com/cobo/waas2/model/FeeReserved.java
+src/main/java/com/cobo/waas2/model/FeeStationTransactionType.java
 src/main/java/com/cobo/waas2/model/FeeType.java
 src/main/java/com/cobo/waas2/model/FixedFeeRate.java
 src/main/java/com/cobo/waas2/model/GetApiKeyInfo200Response.java
@@ -634,6 +656,7 @@ src/main/java/com/cobo/waas2/model/ListSupportedCountries200ResponseInner.java
 src/main/java/com/cobo/waas2/model/ListSupportedTokens200Response.java
 src/main/java/com/cobo/waas2/model/ListSwapActivities200Response.java
 src/main/java/com/cobo/waas2/model/ListTokenBalancesForAddress200Response.java
+src/main/java/com/cobo/waas2/model/ListTransactionApprovalDetails200Response.java
 src/main/java/com/cobo/waas2/model/ListTransactions200Response.java
 src/main/java/com/cobo/waas2/model/ListTssRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListUtxos200Response.java
@@ -681,6 +704,10 @@ src/main/java/com/cobo/waas2/model/RoleScopes.java
 src/main/java/com/cobo/waas2/model/RootPubkey.java
 src/main/java/com/cobo/waas2/model/SafeContractCallSource.java
 src/main/java/com/cobo/waas2/model/SafeTransferSource.java
+src/main/java/com/cobo/waas2/model/SafeTxDecodedData.java
+src/main/java/com/cobo/waas2/model/SafeTxDecodedDataParameters.java
+src/main/java/com/cobo/waas2/model/SafeTxExtraData.java
+src/main/java/com/cobo/waas2/model/SafeTxSubTransaction.java
 src/main/java/com/cobo/waas2/model/SafeWallet.java
 src/main/java/com/cobo/waas2/model/SafeWalletDelegates.java
 src/main/java/com/cobo/waas2/model/SafeWalletDelegatesContractCall.java
@@ -715,12 +742,15 @@ src/main/java/com/cobo/waas2/model/TSSRequestWebhookEventData.java
 src/main/java/com/cobo/waas2/model/TokenAssetModelType.java
 src/main/java/com/cobo/waas2/model/TokenBalance.java
 src/main/java/com/cobo/waas2/model/TokenInfo.java
+src/main/java/com/cobo/waas2/model/TokensEventData.java
 src/main/java/com/cobo/waas2/model/Transaction.java
 src/main/java/com/cobo/waas2/model/TransactionApprovalDetail.java
 src/main/java/com/cobo/waas2/model/TransactionApprovalResult.java
 src/main/java/com/cobo/waas2/model/TransactionApprover.java
 src/main/java/com/cobo/waas2/model/TransactionBlockInfo.java
+src/main/java/com/cobo/waas2/model/TransactionCoboCategory.java
 src/main/java/com/cobo/waas2/model/TransactionCustodialAssetWalletSource.java
+src/main/java/com/cobo/waas2/model/TransactionCustodialWeb3WalletSource.java
 src/main/java/com/cobo/waas2/model/TransactionDepositFromAddressSource.java
 src/main/java/com/cobo/waas2/model/TransactionDepositFromLoopSource.java
 src/main/java/com/cobo/waas2/model/TransactionDepositFromWalletSource.java
@@ -740,10 +770,12 @@ src/main/java/com/cobo/waas2/model/TransactionExchangeWalletSource.java
 src/main/java/com/cobo/waas2/model/TransactionFee.java
 src/main/java/com/cobo/waas2/model/TransactionFeeStationWalletSource.java
 src/main/java/com/cobo/waas2/model/TransactionFixedFee.java
+src/main/java/com/cobo/waas2/model/TransactionFuelingInfo.java
 src/main/java/com/cobo/waas2/model/TransactionInitiatorType.java
 src/main/java/com/cobo/waas2/model/TransactionMPCWalletSource.java
 src/main/java/com/cobo/waas2/model/TransactionMessageSignEIP191Destination.java
 src/main/java/com/cobo/waas2/model/TransactionMessageSignEIP712Destination.java
+src/main/java/com/cobo/waas2/model/TransactionProcessType.java
 src/main/java/com/cobo/waas2/model/TransactionRawMessageSignDestination.java
 src/main/java/com/cobo/waas2/model/TransactionRawTxInfo.java
 src/main/java/com/cobo/waas2/model/TransactionRbf.java
@@ -829,6 +861,7 @@ src/main/java/com/cobo/waas2/model/WebhookEventType.java
 src/test/java/com/cobo/waas2/api/AddressBooksApiTest.java
 src/test/java/com/cobo/waas2/api/DevelopersApiTest.java
 src/test/java/com/cobo/waas2/api/DevelopersWebhooksApiTest.java
+src/test/java/com/cobo/waas2/api/FeeStationApiTest.java
 src/test/java/com/cobo/waas2/api/OAuthApiTest.java
 src/test/java/com/cobo/waas2/api/PrimeBrokerApiTest.java
 src/test/java/com/cobo/waas2/api/StakingsApiTest.java
@@ -884,6 +917,7 @@ src/test/java/com/cobo/waas2/model/BroadcastSignedTransactions201ResponseInnerTe
 src/test/java/com/cobo/waas2/model/BroadcastSignedTransactionsRequestTest.java
 src/test/java/com/cobo/waas2/model/CallbackMessageTest.java
 src/test/java/com/cobo/waas2/model/ChainInfoTest.java
+src/test/java/com/cobo/waas2/model/ChainsEventDataTest.java
 src/test/java/com/cobo/waas2/model/ChangeGuardPubkey200ResponseTest.java
 src/test/java/com/cobo/waas2/model/CheckAddressChainsValidity200ResponseInnerTest.java
 src/test/java/com/cobo/waas2/model/CheckAddressValidity200ResponseTest.java
@@ -937,6 +971,9 @@ src/test/java/com/cobo/waas2/model/CreatedWalletInfoTest.java
 src/test/java/com/cobo/waas2/model/CurveTypeTest.java
 src/test/java/com/cobo/waas2/model/CustodialTransferSourceTest.java
 src/test/java/com/cobo/waas2/model/CustodialWalletInfoTest.java
+src/test/java/com/cobo/waas2/model/CustodialWeb3ContractCallSourceTest.java
+src/test/java/com/cobo/waas2/model/CustodialWeb3MessageSignSourceTest.java
+src/test/java/com/cobo/waas2/model/CustodialWeb3TransferSourceTest.java
 src/test/java/com/cobo/waas2/model/DeleteGuardPubkey201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteKeyShareHolderGroupById201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteWalletById201ResponseTest.java
@@ -983,6 +1020,7 @@ src/test/java/com/cobo/waas2/model/FeeAmountTest.java
 src/test/java/com/cobo/waas2/model/FeeGasLimitTest.java
 src/test/java/com/cobo/waas2/model/FeeRateTest.java
 src/test/java/com/cobo/waas2/model/FeeReservedTest.java
+src/test/java/com/cobo/waas2/model/FeeStationTransactionTypeTest.java
 src/test/java/com/cobo/waas2/model/FeeTypeTest.java
 src/test/java/com/cobo/waas2/model/FixedFeeRateTest.java
 src/test/java/com/cobo/waas2/model/GetApiKeyInfo200ResponseTest.java
@@ -1023,6 +1061,7 @@ src/test/java/com/cobo/waas2/model/ListSupportedCountries200ResponseInnerTest.ja
 src/test/java/com/cobo/waas2/model/ListSupportedTokens200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListSwapActivities200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTokenBalancesForAddress200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListTransactionApprovalDetails200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTransactions200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTssRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListUtxos200ResponseTest.java
@@ -1070,6 +1109,10 @@ src/test/java/com/cobo/waas2/model/RoleScopesTest.java
 src/test/java/com/cobo/waas2/model/RootPubkeyTest.java
 src/test/java/com/cobo/waas2/model/SafeContractCallSourceTest.java
 src/test/java/com/cobo/waas2/model/SafeTransferSourceTest.java
+src/test/java/com/cobo/waas2/model/SafeTxDecodedDataParametersTest.java
+src/test/java/com/cobo/waas2/model/SafeTxDecodedDataTest.java
+src/test/java/com/cobo/waas2/model/SafeTxExtraDataTest.java
+src/test/java/com/cobo/waas2/model/SafeTxSubTransactionTest.java
 src/test/java/com/cobo/waas2/model/SafeWalletDelegatesContractCallTest.java
 src/test/java/com/cobo/waas2/model/SafeWalletDelegatesTest.java
 src/test/java/com/cobo/waas2/model/SafeWalletDelegatesTransferTest.java
@@ -1104,11 +1147,14 @@ src/test/java/com/cobo/waas2/model/TSSRequestWebhookEventDataTest.java
 src/test/java/com/cobo/waas2/model/TokenAssetModelTypeTest.java
 src/test/java/com/cobo/waas2/model/TokenBalanceTest.java
 src/test/java/com/cobo/waas2/model/TokenInfoTest.java
+src/test/java/com/cobo/waas2/model/TokensEventDataTest.java
 src/test/java/com/cobo/waas2/model/TransactionApprovalDetailTest.java
 src/test/java/com/cobo/waas2/model/TransactionApprovalResultTest.java
 src/test/java/com/cobo/waas2/model/TransactionApproverTest.java
 src/test/java/com/cobo/waas2/model/TransactionBlockInfoTest.java
+src/test/java/com/cobo/waas2/model/TransactionCoboCategoryTest.java
 src/test/java/com/cobo/waas2/model/TransactionCustodialAssetWalletSourceTest.java
+src/test/java/com/cobo/waas2/model/TransactionCustodialWeb3WalletSourceTest.java
 src/test/java/com/cobo/waas2/model/TransactionDepositFromAddressSourceTest.java
 src/test/java/com/cobo/waas2/model/TransactionDepositFromLoopSourceTest.java
 src/test/java/com/cobo/waas2/model/TransactionDepositFromWalletSourceTest.java
@@ -1128,10 +1174,12 @@ src/test/java/com/cobo/waas2/model/TransactionExchangeWalletSourceTest.java
 src/test/java/com/cobo/waas2/model/TransactionFeeStationWalletSourceTest.java
 src/test/java/com/cobo/waas2/model/TransactionFeeTest.java
 src/test/java/com/cobo/waas2/model/TransactionFixedFeeTest.java
+src/test/java/com/cobo/waas2/model/TransactionFuelingInfoTest.java
 src/test/java/com/cobo/waas2/model/TransactionInitiatorTypeTest.java
 src/test/java/com/cobo/waas2/model/TransactionMPCWalletSourceTest.java
 src/test/java/com/cobo/waas2/model/TransactionMessageSignEIP191DestinationTest.java
 src/test/java/com/cobo/waas2/model/TransactionMessageSignEIP712DestinationTest.java
+src/test/java/com/cobo/waas2/model/TransactionProcessTypeTest.java
 src/test/java/com/cobo/waas2/model/TransactionRawMessageSignDestinationTest.java
 src/test/java/com/cobo/waas2/model/TransactionRawTxInfoTest.java
 src/test/java/com/cobo/waas2/model/TransactionRbfSourceTest.java

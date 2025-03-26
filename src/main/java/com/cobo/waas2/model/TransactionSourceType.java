@@ -30,6 +30,8 @@ public enum TransactionSourceType {
   
   ASSET("Asset"),
   
+  WEB3("Web3"),
+  
   ORG_CONTROLLED("Org-Controlled"),
   
   USER_CONTROLLED("User-Controlled"),
