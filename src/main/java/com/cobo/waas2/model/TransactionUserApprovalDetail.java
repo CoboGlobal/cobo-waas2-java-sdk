@@ -53,6 +53,14 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class TransactionUserApprovalDetail {
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
+
   public static final String SERIALIZED_NAME_PUBKEY = "pubkey";
   @SerializedName(SERIALIZED_NAME_PUBKEY)
   private String pubkey;
@@ -83,6 +91,44 @@ public class TransactionUserApprovalDetail {
 
   public TransactionUserApprovalDetail() {
   }
+
+  public TransactionUserApprovalDetail name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The name the user who audited this message.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public TransactionUserApprovalDetail email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * The email the user who audited this message.
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
 
   public TransactionUserApprovalDetail pubkey(String pubkey) {
     this.pubkey = pubkey;
@@ -271,7 +317,9 @@ public class TransactionUserApprovalDetail {
       return false;
     }
     TransactionUserApprovalDetail transactionUserApprovalDetail = (TransactionUserApprovalDetail) o;
-    return Objects.equals(this.pubkey, transactionUserApprovalDetail.pubkey) &&
+    return Objects.equals(this.name, transactionUserApprovalDetail.name) &&
+        Objects.equals(this.email, transactionUserApprovalDetail.email) &&
+        Objects.equals(this.pubkey, transactionUserApprovalDetail.pubkey) &&
         Objects.equals(this.result, transactionUserApprovalDetail.result) &&
         Objects.equals(this.signature, transactionUserApprovalDetail.signature) &&
         Objects.equals(this.language, transactionUserApprovalDetail.language) &&
@@ -283,13 +331,15 @@ public class TransactionUserApprovalDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pubkey, result, signature, language, messageVersion, message, extraMessage, additionalProperties);
+    return Objects.hash(name, email, pubkey, result, signature, language, messageVersion, message, extraMessage, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionUserApprovalDetail {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    pubkey: ").append(toIndentedString(pubkey)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
@@ -320,6 +370,8 @@ public class TransactionUserApprovalDetail {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("name");
+    openapiFields.add("email");
     openapiFields.add("pubkey");
     openapiFields.add("result");
     openapiFields.add("signature");
@@ -345,6 +397,12 @@ public class TransactionUserApprovalDetail {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
       if ((jsonObj.get("pubkey") != null && !jsonObj.get("pubkey").isJsonNull()) && !jsonObj.get("pubkey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pubkey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pubkey").toString()));
       }

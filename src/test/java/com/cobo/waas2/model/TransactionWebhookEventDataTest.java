@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
+import com.cobo.waas2.model.TransactionFuelingInfo;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
@@ -263,6 +264,22 @@ public class TransactionWebhookEventDataTest {
     @Test
     public void isLoopTest() {
         // TODO: test isLoop
+    }
+
+    /**
+     * Test the property 'coboCategory'
+     */
+    @Test
+    public void coboCategoryTest() {
+        // TODO: test coboCategory
+    }
+
+    /**
+     * Test the property 'fuelingInfo'
+     */
+    @Test
+    public void fuelingInfoTest() {
+        // TODO: test fuelingInfo
     }
 
     /**

@@ -8,6 +8,8 @@ The user approval data for transaction.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**name** | **String** | The name the user who audited this message. |  [optional] |
+|**email** | **String** | The email the user who audited this message. |  [optional] |
 |**pubkey** | **String** | The Cobo Guard public key of the user who audited this message. |  [optional] |
 |**result** | **TransactionApprovalResult** |  |  [optional] |
 |**signature** | **String** | The signature of the audited message. |  [optional] |

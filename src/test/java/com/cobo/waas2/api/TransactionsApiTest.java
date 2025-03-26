@@ -22,6 +22,7 @@ import com.cobo.waas2.model.CreateTransferTransaction201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.EstimateFeeParams;
 import com.cobo.waas2.model.EstimatedFee;
+import com.cobo.waas2.model.ListTransactionApprovalDetails200Response;
 import com.cobo.waas2.model.ListTransactions200Response;
 import com.cobo.waas2.model.MessageSignParams;
 import com.cobo.waas2.model.TransactionApprovalDetail;
@@ -126,7 +127,7 @@ public class TransactionsApiTest {
     /**
      * Transfer token
      *
-     * The operation transfers your assets from a wallet created on Cobo Portal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;If you make transfers from Custodial Wallets (Asset Wallets) and Exchange Wallets, do not set the fee-related properties, as they will not take effects.&lt;/Note&gt;  &lt;Note&gt;You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the &lt;code&gt;utxo_outputs&lt;/code&gt; property to specify the destination addresses.&lt;/Note&gt;  &lt;Info&gt;If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe&#39;s address of the Smart Contract Wallet, with a transfer amount of &lt;code&gt;0&lt;/code&gt;.&lt;/Info&gt; 
+     * The operation transfers your assets from a wallet created on Cobo Portal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;If you make transfers from Custodial Wallets (Asset Wallets) and Exchange Wallets, do not set the fee-related properties, as they will not take effects.&lt;/Note&gt;  &lt;Note&gt;You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. To do this, you should use the &lt;code&gt;utxo_outputs&lt;/code&gt; property to specify the destination addresses.&lt;/Note&gt;  &lt;Info&gt;If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe&#39;s address of the Smart Contract Wallet, with a transfer amount of &lt;code&gt;0&lt;/code&gt;.&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -195,6 +196,21 @@ public class TransactionsApiTest {
     }
 
     /**
+     * List transaction approval details
+     *
+     * This operation retrieves approval detailed information about multi specified transaction. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listTransactionApprovalDetailsTest() throws ApiException {
+        String transactionIds = null;
+        String coboIds = null;
+        ListTransactionApprovalDetails200Response response = api.listTransactionApprovalDetails(transactionIds, coboIds);
+        // TODO: test validations
+    }
+
+    /**
      * List all transactions
      *
      * This operation retrieves all the transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamps. You can also paginate and sort your query results. 
@@ -220,7 +236,8 @@ public class TransactionsApiTest {
         Integer limit = null;
         String before = null;
         String after = null;
-        ListTransactions200Response response = api.listTransactions(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after);
+        String direction = null;
+        ListTransactions200Response response = api.listTransactions(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction);
         // TODO: test validations
     }
 

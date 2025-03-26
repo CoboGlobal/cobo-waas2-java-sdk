@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.ExchangeId;
 import com.cobo.waas2.model.TransactionCustodialAssetWalletSource;
+import com.cobo.waas2.model.TransactionCustodialWeb3WalletSource;
 import com.cobo.waas2.model.TransactionDepositFromAddressSource;
 import com.cobo.waas2.model.TransactionDepositFromLoopSource;
 import com.cobo.waas2.model.TransactionDepositFromWalletSource;

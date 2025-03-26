@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.CustodialTransferSource;
+import com.cobo.waas2.model.CustodialWeb3TransferSource;
 import com.cobo.waas2.model.ExchangeTransferSource;
 import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.MpcTransferSource;

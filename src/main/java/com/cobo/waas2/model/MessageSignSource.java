@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.CustodialWeb3MessageSignSource;
 import com.cobo.waas2.model.MessageSignSourceType;
 import com.cobo.waas2.model.MpcMessageSignSource;
 import com.cobo.waas2.model.MpcSigningGroup;
@@ -75,6 +76,7 @@ public class MessageSignSource extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<MpcMessageSignSource> adapterMpcMessageSignSource = gson.getDelegateAdapter(this, TypeToken.get(MpcMessageSignSource.class));
+            final TypeAdapter<CustodialWeb3MessageSignSource> adapterCustodialWeb3MessageSignSource = gson.getDelegateAdapter(this, TypeToken.get(CustodialWeb3MessageSignSource.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MessageSignSource>() {
                 @Override
@@ -90,7 +92,13 @@ public class MessageSignSource extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: MpcMessageSignSource");
+                    // check if the actual instance is of the type `CustodialWeb3MessageSignSource`
+                    if (value.getActualInstance() instanceof CustodialWeb3MessageSignSource) {
+                        JsonElement element = adapterCustodialWeb3MessageSignSource.toJsonTree((CustodialWeb3MessageSignSource)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CustodialWeb3MessageSignSource, MpcMessageSignSource");
                 }
 
                 @Override
@@ -115,12 +123,20 @@ public class MessageSignSource extends AbstractOpenApiSchema {
                                 deserialized = adapterMpcMessageSignSource.fromJsonTree(jsonObject);
                                 newMessageSignSource.setActualInstance(deserialized);
                                 return newMessageSignSource;
+                            case "Web3":
+                                deserialized = adapterCustodialWeb3MessageSignSource.fromJsonTree(jsonObject);
+                                newMessageSignSource.setActualInstance(deserialized);
+                                return newMessageSignSource;
+                            case "CustodialWeb3MessageSignSource":
+                                deserialized = adapterCustodialWeb3MessageSignSource.fromJsonTree(jsonObject);
+                                newMessageSignSource.setActualInstance(deserialized);
+                                return newMessageSignSource;
                             case "MpcMessageSignSource":
                                 deserialized = adapterMpcMessageSignSource.fromJsonTree(jsonObject);
                                 newMessageSignSource.setActualInstance(deserialized);
                                 return newMessageSignSource;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for MessageSignSource. Possible values: Org-Controlled User-Controlled MpcMessageSignSource", jsonObject.get("source_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for MessageSignSource. Possible values: Org-Controlled User-Controlled Web3 CustodialWeb3MessageSignSource MpcMessageSignSource", jsonObject.get("source_type").getAsString()));
                         }
                     }
 
@@ -139,6 +155,18 @@ public class MessageSignSource extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for MpcMessageSignSource failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'MpcMessageSignSource'", e);
+                    }
+                    // deserialize CustodialWeb3MessageSignSource
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CustodialWeb3MessageSignSource.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCustodialWeb3MessageSignSource;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CustodialWeb3MessageSignSource'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for CustodialWeb3MessageSignSource failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CustodialWeb3MessageSignSource'", e);
                     }
 
                     if (match == 1) {
@@ -160,6 +188,11 @@ public class MessageSignSource extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
+    public MessageSignSource(CustodialWeb3MessageSignSource o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public MessageSignSource(MpcMessageSignSource o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -167,6 +200,7 @@ public class MessageSignSource extends AbstractOpenApiSchema {
 
     static {
         schemas.put("MpcMessageSignSource", MpcMessageSignSource.class);
+        schemas.put("CustodialWeb3MessageSignSource", CustodialWeb3MessageSignSource.class);
     }
 
     @Override
@@ -177,7 +211,7 @@ public class MessageSignSource extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * MpcMessageSignSource
+     * CustodialWeb3MessageSignSource, MpcMessageSignSource
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -188,14 +222,19 @@ public class MessageSignSource extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be MpcMessageSignSource");
+        if (instance instanceof CustodialWeb3MessageSignSource) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be CustodialWeb3MessageSignSource, MpcMessageSignSource");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * MpcMessageSignSource
+     * CustodialWeb3MessageSignSource, MpcMessageSignSource
      *
-     * @return The actual instance (MpcMessageSignSource)
+     * @return The actual instance (CustodialWeb3MessageSignSource, MpcMessageSignSource)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -212,6 +251,16 @@ public class MessageSignSource extends AbstractOpenApiSchema {
      */
     public MpcMessageSignSource getMpcMessageSignSource() throws ClassCastException {
         return (MpcMessageSignSource)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `CustodialWeb3MessageSignSource`. If the actual instance is not `CustodialWeb3MessageSignSource`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CustodialWeb3MessageSignSource`
+     * @throws ClassCastException if the instance is not `CustodialWeb3MessageSignSource`
+     */
+    public CustodialWeb3MessageSignSource getCustodialWeb3MessageSignSource() throws ClassCastException {
+        return (CustodialWeb3MessageSignSource)super.getActualInstance();
     }
 
     /**
@@ -232,8 +281,16 @@ public class MessageSignSource extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for MpcMessageSignSource failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with CustodialWeb3MessageSignSource
+        try {
+            CustodialWeb3MessageSignSource.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for CustodialWeb3MessageSignSource failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for MessageSignSource with oneOf schemas: MpcMessageSignSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for MessageSignSource with oneOf schemas: CustodialWeb3MessageSignSource, MpcMessageSignSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

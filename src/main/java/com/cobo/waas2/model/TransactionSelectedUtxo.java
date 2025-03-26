@@ -68,6 +68,14 @@ public class TransactionSelectedUtxo {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+  public static final String SERIALIZED_NAME_REDEEM_SCRIPT = "redeem_script";
+  @SerializedName(SERIALIZED_NAME_REDEEM_SCRIPT)
+  private String redeemScript;
+
+  public static final String SERIALIZED_NAME_REVEALED_SCRIPT = "revealed_script";
+  @SerializedName(SERIALIZED_NAME_REVEALED_SCRIPT)
+  private String revealedScript;
+
   public TransactionSelectedUtxo() {
   }
 
@@ -146,6 +154,44 @@ public class TransactionSelectedUtxo {
     this.value = value;
   }
 
+
+  public TransactionSelectedUtxo redeemScript(String redeemScript) {
+    this.redeemScript = redeemScript;
+    return this;
+  }
+
+   /**
+   * Redeem script is used in P2SH and P2WSH transactions.
+   * @return redeemScript
+  **/
+  @javax.annotation.Nullable
+  public String getRedeemScript() {
+    return redeemScript;
+  }
+
+  public void setRedeemScript(String redeemScript) {
+    this.redeemScript = redeemScript;
+  }
+
+
+  public TransactionSelectedUtxo revealedScript(String revealedScript) {
+    this.revealedScript = revealedScript;
+    return this;
+  }
+
+   /**
+   * Revealed script is used for script path spending in Taproot transactions.
+   * @return revealedScript
+  **/
+  @javax.annotation.Nullable
+  public String getRevealedScript() {
+    return revealedScript;
+  }
+
+  public void setRevealedScript(String revealedScript) {
+    this.revealedScript = revealedScript;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -204,13 +250,15 @@ public class TransactionSelectedUtxo {
     return Objects.equals(this.txHash, transactionSelectedUtxo.txHash) &&
         Objects.equals(this.voutN, transactionSelectedUtxo.voutN) &&
         Objects.equals(this.address, transactionSelectedUtxo.address) &&
-        Objects.equals(this.value, transactionSelectedUtxo.value)&&
+        Objects.equals(this.value, transactionSelectedUtxo.value) &&
+        Objects.equals(this.redeemScript, transactionSelectedUtxo.redeemScript) &&
+        Objects.equals(this.revealedScript, transactionSelectedUtxo.revealedScript)&&
         Objects.equals(this.additionalProperties, transactionSelectedUtxo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(txHash, voutN, address, value, additionalProperties);
+    return Objects.hash(txHash, voutN, address, value, redeemScript, revealedScript, additionalProperties);
   }
 
   @Override
@@ -221,6 +269,8 @@ public class TransactionSelectedUtxo {
     sb.append("    voutN: ").append(toIndentedString(voutN)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    redeemScript: ").append(toIndentedString(redeemScript)).append("\n");
+    sb.append("    revealedScript: ").append(toIndentedString(revealedScript)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -248,6 +298,8 @@ public class TransactionSelectedUtxo {
     openapiFields.add("vout_n");
     openapiFields.add("address");
     openapiFields.add("value");
+    openapiFields.add("redeem_script");
+    openapiFields.add("revealed_script");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -274,6 +326,12 @@ public class TransactionSelectedUtxo {
       }
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      }
+      if ((jsonObj.get("redeem_script") != null && !jsonObj.get("redeem_script").isJsonNull()) && !jsonObj.get("redeem_script").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `redeem_script` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redeem_script").toString()));
+      }
+      if ((jsonObj.get("revealed_script") != null && !jsonObj.get("revealed_script").isJsonNull()) && !jsonObj.get("revealed_script").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `revealed_script` to be a primitive type in the JSON string but got `%s`", jsonObj.get("revealed_script").toString()));
       }
   }
 

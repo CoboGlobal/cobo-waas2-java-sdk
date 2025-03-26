@@ -78,6 +78,14 @@ public class BabylonStakingActivityDetailExtra {
   @SerializedName(SERIALIZED_NAME_WITHDRAW_FROM_TYPE)
   private ActivityType withdrawFromType;
 
+  public static final String SERIALIZED_NAME_SLASH_FROM_TYPE = "slash_from_type";
+  @SerializedName(SERIALIZED_NAME_SLASH_FROM_TYPE)
+  private ActivityType slashFromType;
+
+  public static final String SERIALIZED_NAME_STAKE_AMOUNT = "stake_amount";
+  @SerializedName(SERIALIZED_NAME_STAKE_AMOUNT)
+  private String stakeAmount;
+
   public BabylonStakingActivityDetailExtra() {
   }
 
@@ -194,6 +202,44 @@ public class BabylonStakingActivityDetailExtra {
     this.withdrawFromType = withdrawFromType;
   }
 
+
+  public BabylonStakingActivityDetailExtra slashFromType(ActivityType slashFromType) {
+    this.slashFromType = slashFromType;
+    return this;
+  }
+
+   /**
+   * Get slashFromType
+   * @return slashFromType
+  **/
+  @javax.annotation.Nullable
+  public ActivityType getSlashFromType() {
+    return slashFromType;
+  }
+
+  public void setSlashFromType(ActivityType slashFromType) {
+    this.slashFromType = slashFromType;
+  }
+
+
+  public BabylonStakingActivityDetailExtra stakeAmount(String stakeAmount) {
+    this.stakeAmount = stakeAmount;
+    return this;
+  }
+
+   /**
+   * The origin staking amount.
+   * @return stakeAmount
+  **/
+  @javax.annotation.Nullable
+  public String getStakeAmount() {
+    return stakeAmount;
+  }
+
+  public void setStakeAmount(String stakeAmount) {
+    this.stakeAmount = stakeAmount;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -254,13 +300,15 @@ public class BabylonStakingActivityDetailExtra {
         Objects.equals(this.stakeBlockTime, babylonStakingActivityDetailExtra.stakeBlockTime) &&
         Objects.equals(this.autoBroadcast, babylonStakingActivityDetailExtra.autoBroadcast) &&
         Objects.equals(this.paramVersion, babylonStakingActivityDetailExtra.paramVersion) &&
-        Objects.equals(this.withdrawFromType, babylonStakingActivityDetailExtra.withdrawFromType)&&
+        Objects.equals(this.withdrawFromType, babylonStakingActivityDetailExtra.withdrawFromType) &&
+        Objects.equals(this.slashFromType, babylonStakingActivityDetailExtra.slashFromType) &&
+        Objects.equals(this.stakeAmount, babylonStakingActivityDetailExtra.stakeAmount)&&
         Objects.equals(this.additionalProperties, babylonStakingActivityDetailExtra.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, autoBroadcast, paramVersion, withdrawFromType, additionalProperties);
+    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, autoBroadcast, paramVersion, withdrawFromType, slashFromType, stakeAmount, additionalProperties);
   }
 
   @Override
@@ -273,6 +321,8 @@ public class BabylonStakingActivityDetailExtra {
     sb.append("    autoBroadcast: ").append(toIndentedString(autoBroadcast)).append("\n");
     sb.append("    paramVersion: ").append(toIndentedString(paramVersion)).append("\n");
     sb.append("    withdrawFromType: ").append(toIndentedString(withdrawFromType)).append("\n");
+    sb.append("    slashFromType: ").append(toIndentedString(slashFromType)).append("\n");
+    sb.append("    stakeAmount: ").append(toIndentedString(stakeAmount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -302,6 +352,8 @@ public class BabylonStakingActivityDetailExtra {
     openapiFields.add("auto_broadcast");
     openapiFields.add("param_version");
     openapiFields.add("withdraw_from_type");
+    openapiFields.add("slash_from_type");
+    openapiFields.add("stake_amount");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -336,6 +388,13 @@ public class BabylonStakingActivityDetailExtra {
       // validate the optional field `withdraw_from_type`
       if (jsonObj.get("withdraw_from_type") != null && !jsonObj.get("withdraw_from_type").isJsonNull()) {
         ActivityType.validateJsonElement(jsonObj.get("withdraw_from_type"));
+      }
+      // validate the optional field `slash_from_type`
+      if (jsonObj.get("slash_from_type") != null && !jsonObj.get("slash_from_type").isJsonNull()) {
+        ActivityType.validateJsonElement(jsonObj.get("slash_from_type"));
+      }
+      if ((jsonObj.get("stake_amount") != null && !jsonObj.get("stake_amount").isJsonNull()) && !jsonObj.get("stake_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `stake_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stake_amount").toString()));
       }
   }
 

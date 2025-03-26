@@ -13,15 +13,20 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.AddressesEventData;
 import com.cobo.waas2.model.AddressesEventDataAllOfAddresses;
+import com.cobo.waas2.model.ChainInfo;
+import com.cobo.waas2.model.ChainsEventData;
 import com.cobo.waas2.model.MPCVaultEventData;
 import com.cobo.waas2.model.MPCVaultType;
 import com.cobo.waas2.model.RootPubkey;
 import com.cobo.waas2.model.SourceGroup;
 import com.cobo.waas2.model.TSSRequestStatus;
 import com.cobo.waas2.model.TSSRequestWebhookEventData;
+import com.cobo.waas2.model.TokenInfo;
+import com.cobo.waas2.model.TokensEventData;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
+import com.cobo.waas2.model.TransactionFuelingInfo;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
@@ -275,6 +280,22 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'coboCategory'
+     */
+    @Test
+    public void coboCategoryTest() {
+        // TODO: test coboCategory
+    }
+
+    /**
+     * Test the property 'fuelingInfo'
+     */
+    @Test
+    public void fuelingInfoTest() {
+        // TODO: test fuelingInfo
+    }
+
+    /**
      * Test the property 'createdTimestamp'
      */
     @Test
@@ -360,6 +381,22 @@ public class WebhookEventDataTest {
     @Test
     public void rootPubkeysTest() {
         // TODO: test rootPubkeys
+    }
+
+    /**
+     * Test the property 'chains'
+     */
+    @Test
+    public void chainsTest() {
+        // TODO: test chains
+    }
+
+    /**
+     * Test the property 'tokens'
+     */
+    @Test
+    public void tokensTest() {
+        // TODO: test tokens
     }
 
 }

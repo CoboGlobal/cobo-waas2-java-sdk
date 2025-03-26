@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.ContractCallSourceType;
+import com.cobo.waas2.model.CustodialWeb3ContractCallSource;
 import com.cobo.waas2.model.MpcContractCallSource;
 import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.SafeContractCallSource;

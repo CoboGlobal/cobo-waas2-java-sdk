@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,6 +54,18 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class TransactionApprovalDetail {
+  public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
+  private UUID transactionId;
+
+  public static final String SERIALIZED_NAME_COBO_ID = "cobo_id";
+  @SerializedName(SERIALIZED_NAME_COBO_ID)
+  private String coboId;
+
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public static final String SERIALIZED_NAME_SPENDER = "spender";
   @SerializedName(SERIALIZED_NAME_SPENDER)
   private TransactionRoleApprovalDetail spender;
@@ -67,6 +80,63 @@ public class TransactionApprovalDetail {
 
   public TransactionApprovalDetail() {
   }
+
+  public TransactionApprovalDetail transactionId(UUID transactionId) {
+    this.transactionId = transactionId;
+    return this;
+  }
+
+   /**
+   * The transaction ID.
+   * @return transactionId
+  **/
+  @javax.annotation.Nullable
+  public UUID getTransactionId() {
+    return transactionId;
+  }
+
+  public void setTransactionId(UUID transactionId) {
+    this.transactionId = transactionId;
+  }
+
+
+  public TransactionApprovalDetail coboId(String coboId) {
+    this.coboId = coboId;
+    return this;
+  }
+
+   /**
+   * The Cobo ID, which can be used to track a transaction.
+   * @return coboId
+  **/
+  @javax.annotation.Nullable
+  public String getCoboId() {
+    return coboId;
+  }
+
+  public void setCoboId(String coboId) {
+    this.coboId = coboId;
+  }
+
+
+  public TransactionApprovalDetail requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
 
   public TransactionApprovalDetail spender(TransactionRoleApprovalDetail spender) {
     this.spender = spender;
@@ -179,7 +249,10 @@ public class TransactionApprovalDetail {
       return false;
     }
     TransactionApprovalDetail transactionApprovalDetail = (TransactionApprovalDetail) o;
-    return Objects.equals(this.spender, transactionApprovalDetail.spender) &&
+    return Objects.equals(this.transactionId, transactionApprovalDetail.transactionId) &&
+        Objects.equals(this.coboId, transactionApprovalDetail.coboId) &&
+        Objects.equals(this.requestId, transactionApprovalDetail.requestId) &&
+        Objects.equals(this.spender, transactionApprovalDetail.spender) &&
         Objects.equals(this.approver, transactionApprovalDetail.approver) &&
         Objects.equals(this.addressOwner, transactionApprovalDetail.addressOwner)&&
         Objects.equals(this.additionalProperties, transactionApprovalDetail.additionalProperties);
@@ -187,13 +260,16 @@ public class TransactionApprovalDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(spender, approver, addressOwner, additionalProperties);
+    return Objects.hash(transactionId, coboId, requestId, spender, approver, addressOwner, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionApprovalDetail {\n");
+    sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
+    sb.append("    coboId: ").append(toIndentedString(coboId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    spender: ").append(toIndentedString(spender)).append("\n");
     sb.append("    approver: ").append(toIndentedString(approver)).append("\n");
     sb.append("    addressOwner: ").append(toIndentedString(addressOwner)).append("\n");
@@ -220,6 +296,9 @@ public class TransactionApprovalDetail {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("transaction_id");
+    openapiFields.add("cobo_id");
+    openapiFields.add("request_id");
     openapiFields.add("spender");
     openapiFields.add("approver");
     openapiFields.add("address_owner");
@@ -241,6 +320,15 @@ public class TransactionApprovalDetail {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("transaction_id") != null && !jsonObj.get("transaction_id").isJsonNull()) && !jsonObj.get("transaction_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transaction_id").toString()));
+      }
+      if ((jsonObj.get("cobo_id") != null && !jsonObj.get("cobo_id").isJsonNull()) && !jsonObj.get("cobo_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cobo_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cobo_id").toString()));
+      }
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
       // validate the optional field `spender`
       if (jsonObj.get("spender") != null && !jsonObj.get("spender").isJsonNull()) {
         TransactionRoleApprovalDetail.validateJsonElement(jsonObj.get("spender"));

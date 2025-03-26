@@ -85,4 +85,20 @@ public class BabylonStakingActivityDetailExtraTest {
         // TODO: test withdrawFromType
     }
 
+    /**
+     * Test the property 'slashFromType'
+     */
+    @Test
+    public void slashFromTypeTest() {
+        // TODO: test slashFromType
+    }
+
+    /**
+     * Test the property 'stakeAmount'
+     */
+    @Test
+    public void stakeAmountTest() {
+        // TODO: test stakeAmount
+    }
+
 }

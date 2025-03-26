@@ -15,6 +15,7 @@ import java.util.Objects;
 import com.cobo.waas2.model.AutoFuelType;
 import com.cobo.waas2.model.ContractCallDestination;
 import com.cobo.waas2.model.ContractCallSource;
+import com.cobo.waas2.model.TransactionProcessType;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -86,61 +87,9 @@ public class ContractCallParams {
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
 
-  /**
-   * Transaction processing type. Possible values are: - &#x60;AutoProcess&#x60; (default): After the transaction is constructed, it will be automatically signed and broadcast.   - &#x60;BuildOnly&#x60;: Set to this value if you want to build the transaction first without automatically signing and broadcasting it. You can manually call the [Sign and broadcast transaction](https://www.cobo.com/developers/v2/api-references/transactions/sign-and-broadcast-transaction) operation to complete the signing and broadcasting process. 
-   */
-  @JsonAdapter(TransactionProcessTypeEnum.Adapter.class)
-  public enum TransactionProcessTypeEnum {
-    AUTOPROCESS("AutoProcess"),
-    
-    BUILDONLY("BuildOnly");
-
-    private String value;
-
-    TransactionProcessTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TransactionProcessTypeEnum fromValue(String value) {
-      for (TransactionProcessTypeEnum b : TransactionProcessTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<TransactionProcessTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TransactionProcessTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TransactionProcessTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TransactionProcessTypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      TransactionProcessTypeEnum.fromValue(value);
-    }
-  }
-
   public static final String SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE = "transaction_process_type";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE)
-  private TransactionProcessTypeEnum transactionProcessType;
+  private TransactionProcessType transactionProcessType;
 
   public static final String SERIALIZED_NAME_AUTO_FUEL = "auto_fuel";
   @SerializedName(SERIALIZED_NAME_AUTO_FUEL)
@@ -290,21 +239,21 @@ public class ContractCallParams {
   }
 
 
-  public ContractCallParams transactionProcessType(TransactionProcessTypeEnum transactionProcessType) {
+  public ContractCallParams transactionProcessType(TransactionProcessType transactionProcessType) {
     this.transactionProcessType = transactionProcessType;
     return this;
   }
 
    /**
-   * Transaction processing type. Possible values are: - &#x60;AutoProcess&#x60; (default): After the transaction is constructed, it will be automatically signed and broadcast.   - &#x60;BuildOnly&#x60;: Set to this value if you want to build the transaction first without automatically signing and broadcasting it. You can manually call the [Sign and broadcast transaction](https://www.cobo.com/developers/v2/api-references/transactions/sign-and-broadcast-transaction) operation to complete the signing and broadcasting process. 
+   * Get transactionProcessType
    * @return transactionProcessType
   **/
   @javax.annotation.Nullable
-  public TransactionProcessTypeEnum getTransactionProcessType() {
+  public TransactionProcessType getTransactionProcessType() {
     return transactionProcessType;
   }
 
-  public void setTransactionProcessType(TransactionProcessTypeEnum transactionProcessType) {
+  public void setTransactionProcessType(TransactionProcessType transactionProcessType) {
     this.transactionProcessType = transactionProcessType;
   }
 
@@ -494,12 +443,9 @@ public class ContractCallParams {
       if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
         TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
       }
-      if ((jsonObj.get("transaction_process_type") != null && !jsonObj.get("transaction_process_type").isJsonNull()) && !jsonObj.get("transaction_process_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `transaction_process_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transaction_process_type").toString()));
-      }
       // validate the optional field `transaction_process_type`
       if (jsonObj.get("transaction_process_type") != null && !jsonObj.get("transaction_process_type").isJsonNull()) {
-        TransactionProcessTypeEnum.validateJsonElement(jsonObj.get("transaction_process_type"));
+        TransactionProcessType.validateJsonElement(jsonObj.get("transaction_process_type"));
       }
       // validate the optional field `auto_fuel`
       if (jsonObj.get("auto_fuel") != null && !jsonObj.get("auto_fuel").isJsonNull()) {

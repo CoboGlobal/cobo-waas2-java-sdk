@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.11.0</version>
+  <version>1.12.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.11.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.12.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.11.0.jar`
+* `target/cobo-waas2-1.12.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -214,6 +214,10 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *DevelopersWebhooksApi* | [**triggerTestWebhookEvent**](docs/DevelopersWebhooksApi.md#triggerTestWebhookEvent) | **POST** /webhooks/events/trigger | Trigger test event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
+*FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get fee station transaction information
+*FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List fee station addresses
+*FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all fee station transactions
+*FeeStationApi* | [**listTokenBalancesForFeeStation**](docs/FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List token balances by fee station
 *OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
 *OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
 *PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
@@ -258,6 +262,7 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**estimateFee**](docs/TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee
 *TransactionsApi* | [**getTransactionApprovalDetail**](docs/TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval details
 *TransactionsApi* | [**getTransactionById**](docs/TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
+*TransactionsApi* | [**listTransactionApprovalDetails**](docs/TransactionsApi.md#listTransactionApprovalDetails) | **GET** /transactions/approval_details | List transaction approval details
 *TransactionsApi* | [**listTransactions**](docs/TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 *TransactionsApi* | [**resendTransactionById**](docs/TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
 *TransactionsApi* | [**signAndBroadcastTransactionById**](docs/TransactionsApi.md#signAndBroadcastTransactionById) | **POST** /transactions/{transaction_id}/sign_and_broadcast | Sign and broadcast transaction
@@ -363,6 +368,7 @@ Class | Method | HTTP request | Description
  - [BroadcastSignedTransactionsRequest](docs/BroadcastSignedTransactionsRequest.md)
  - [CallbackMessage](docs/CallbackMessage.md)
  - [ChainInfo](docs/ChainInfo.md)
+ - [ChainsEventData](docs/ChainsEventData.md)
  - [ChangeGuardPubkey200Response](docs/ChangeGuardPubkey200Response.md)
  - [CheckAddressChainsValidity200ResponseInner](docs/CheckAddressChainsValidity200ResponseInner.md)
  - [CheckAddressValidity200Response](docs/CheckAddressValidity200Response.md)
@@ -416,6 +422,9 @@ Class | Method | HTTP request | Description
  - [CurveType](docs/CurveType.md)
  - [CustodialTransferSource](docs/CustodialTransferSource.md)
  - [CustodialWalletInfo](docs/CustodialWalletInfo.md)
+ - [CustodialWeb3ContractCallSource](docs/CustodialWeb3ContractCallSource.md)
+ - [CustodialWeb3MessageSignSource](docs/CustodialWeb3MessageSignSource.md)
+ - [CustodialWeb3TransferSource](docs/CustodialWeb3TransferSource.md)
  - [DeleteGuardPubkey201Response](docs/DeleteGuardPubkey201Response.md)
  - [DeleteKeyShareHolderGroupById201Response](docs/DeleteKeyShareHolderGroupById201Response.md)
  - [DeleteWalletById201Response](docs/DeleteWalletById201Response.md)
@@ -462,6 +471,7 @@ Class | Method | HTTP request | Description
  - [FeeGasLimit](docs/FeeGasLimit.md)
  - [FeeRate](docs/FeeRate.md)
  - [FeeReserved](docs/FeeReserved.md)
+ - [FeeStationTransactionType](docs/FeeStationTransactionType.md)
  - [FeeType](docs/FeeType.md)
  - [FixedFeeRate](docs/FixedFeeRate.md)
  - [GetApiKeyInfo200Response](docs/GetApiKeyInfo200Response.md)
@@ -502,6 +512,7 @@ Class | Method | HTTP request | Description
  - [ListSupportedTokens200Response](docs/ListSupportedTokens200Response.md)
  - [ListSwapActivities200Response](docs/ListSwapActivities200Response.md)
  - [ListTokenBalancesForAddress200Response](docs/ListTokenBalancesForAddress200Response.md)
+ - [ListTransactionApprovalDetails200Response](docs/ListTransactionApprovalDetails200Response.md)
  - [ListTransactions200Response](docs/ListTransactions200Response.md)
  - [ListTssRequests200Response](docs/ListTssRequests200Response.md)
  - [ListUtxos200Response](docs/ListUtxos200Response.md)
@@ -549,6 +560,10 @@ Class | Method | HTTP request | Description
  - [RootPubkey](docs/RootPubkey.md)
  - [SafeContractCallSource](docs/SafeContractCallSource.md)
  - [SafeTransferSource](docs/SafeTransferSource.md)
+ - [SafeTxDecodedData](docs/SafeTxDecodedData.md)
+ - [SafeTxDecodedDataParameters](docs/SafeTxDecodedDataParameters.md)
+ - [SafeTxExtraData](docs/SafeTxExtraData.md)
+ - [SafeTxSubTransaction](docs/SafeTxSubTransaction.md)
  - [SafeWallet](docs/SafeWallet.md)
  - [SafeWalletDelegates](docs/SafeWalletDelegates.md)
  - [SafeWalletDelegatesContractCall](docs/SafeWalletDelegatesContractCall.md)
@@ -583,12 +598,15 @@ Class | Method | HTTP request | Description
  - [TokenAssetModelType](docs/TokenAssetModelType.md)
  - [TokenBalance](docs/TokenBalance.md)
  - [TokenInfo](docs/TokenInfo.md)
+ - [TokensEventData](docs/TokensEventData.md)
  - [Transaction](docs/Transaction.md)
  - [TransactionApprovalDetail](docs/TransactionApprovalDetail.md)
  - [TransactionApprovalResult](docs/TransactionApprovalResult.md)
  - [TransactionApprover](docs/TransactionApprover.md)
  - [TransactionBlockInfo](docs/TransactionBlockInfo.md)
+ - [TransactionCoboCategory](docs/TransactionCoboCategory.md)
  - [TransactionCustodialAssetWalletSource](docs/TransactionCustodialAssetWalletSource.md)
+ - [TransactionCustodialWeb3WalletSource](docs/TransactionCustodialWeb3WalletSource.md)
  - [TransactionDepositFromAddressSource](docs/TransactionDepositFromAddressSource.md)
  - [TransactionDepositFromLoopSource](docs/TransactionDepositFromLoopSource.md)
  - [TransactionDepositFromWalletSource](docs/TransactionDepositFromWalletSource.md)
@@ -608,10 +626,12 @@ Class | Method | HTTP request | Description
  - [TransactionFee](docs/TransactionFee.md)
  - [TransactionFeeStationWalletSource](docs/TransactionFeeStationWalletSource.md)
  - [TransactionFixedFee](docs/TransactionFixedFee.md)
+ - [TransactionFuelingInfo](docs/TransactionFuelingInfo.md)
  - [TransactionInitiatorType](docs/TransactionInitiatorType.md)
  - [TransactionMPCWalletSource](docs/TransactionMPCWalletSource.md)
  - [TransactionMessageSignEIP191Destination](docs/TransactionMessageSignEIP191Destination.md)
  - [TransactionMessageSignEIP712Destination](docs/TransactionMessageSignEIP712Destination.md)
+ - [TransactionProcessType](docs/TransactionProcessType.md)
  - [TransactionRawMessageSignDestination](docs/TransactionRawMessageSignDestination.md)
  - [TransactionRawTxInfo](docs/TransactionRawTxInfo.md)
  - [TransactionRbf](docs/TransactionRbf.md)
