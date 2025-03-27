@@ -91,7 +91,7 @@ public class SafeTxSubTransaction {
   }
 
    /**
-   * Type of operation in the sub-transaction
+   * The type of operation in the sub-transaction.
    * @return operation
   **/
   @javax.annotation.Nullable
@@ -110,7 +110,7 @@ public class SafeTxSubTransaction {
   }
 
    /**
-   * Address the transaction is sent to
+   * The destination address of the sub-transaction.
    * @return to
   **/
   @javax.annotation.Nullable
@@ -129,7 +129,7 @@ public class SafeTxSubTransaction {
   }
 
    /**
-   * Readable transaction value (e.g., 1 ETH)
+   * The human-readable transaction value, for example, &#x60;1 ETH&#x60;.
    * @return value
   **/
   @javax.annotation.Nullable
@@ -148,7 +148,7 @@ public class SafeTxSubTransaction {
   }
 
    /**
-   * Transaction amount in Wei
+   * The transaction amount in Wei
    * @return wei
   **/
   @javax.annotation.Nullable
@@ -205,7 +205,7 @@ public class SafeTxSubTransaction {
   }
 
    /**
-   * Name of the recipient contract (if available)
+   * The name of the recipient contract (if available).
    * @return toContractName
   **/
   @javax.annotation.Nullable

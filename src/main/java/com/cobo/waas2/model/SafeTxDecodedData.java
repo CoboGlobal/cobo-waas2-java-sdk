@@ -72,7 +72,7 @@ public class SafeTxDecodedData {
   }
 
    /**
-   * Name of the decoded method
+   * The name of the method decoded from the transaction data.
    * @return method
   **/
   @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class SafeTxDecodedData {
   }
 
    /**
-   * List of method parameters
+   * The list of parameters decoded from the transaction data.
    * @return parameters
   **/
   @javax.annotation.Nullable

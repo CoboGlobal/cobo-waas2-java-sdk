@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.SafeTxSubTransaction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,113 +47,44 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the decoded parameters of the transaction.
+ * The request body to refresh the addresses balance by  specified token within a specified wallet.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class SafeTxDecodedDataParameters {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+public class RefreshAddressBalancesByTokenRequest {
+  public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
+  @SerializedName(SERIALIZED_NAME_ADDRESSES)
+  private List<String> addresses = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
-
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  private String value;
-
-  public static final String SERIALIZED_NAME_VALUE_DECODED = "value_decoded";
-  @SerializedName(SERIALIZED_NAME_VALUE_DECODED)
-  private List<SafeTxSubTransaction> valueDecoded = new ArrayList<>();
-
-  public SafeTxDecodedDataParameters() {
+  public RefreshAddressBalancesByTokenRequest() {
   }
 
-  public SafeTxDecodedDataParameters name(String name) {
-    this.name = name;
+  public RefreshAddressBalancesByTokenRequest addresses(List<String> addresses) {
+    this.addresses = addresses;
     return this;
   }
 
-   /**
-   * The name of the parameter.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public SafeTxDecodedDataParameters type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The data type of the parameter.
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public SafeTxDecodedDataParameters value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * The value of the parameter.
-   * @return value
-  **/
-  @javax.annotation.Nullable
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-
-  public SafeTxDecodedDataParameters valueDecoded(List<SafeTxSubTransaction> valueDecoded) {
-    this.valueDecoded = valueDecoded;
-    return this;
-  }
-
-  public SafeTxDecodedDataParameters addValueDecodedItem(SafeTxSubTransaction valueDecodedItem) {
-    if (this.valueDecoded == null) {
-      this.valueDecoded = new ArrayList<>();
+  public RefreshAddressBalancesByTokenRequest addAddressesItem(String addressesItem) {
+    if (this.addresses == null) {
+      this.addresses = new ArrayList<>();
     }
-    this.valueDecoded.add(valueDecodedItem);
+    this.addresses.add(addressesItem);
     return this;
   }
 
    /**
-   * The decoded value of the parameter (if applicable).
-   * @return valueDecoded
+   * A list of  address.
+   * @return addresses
   **/
-  @javax.annotation.Nullable
-  public List<SafeTxSubTransaction> getValueDecoded() {
-    return valueDecoded;
+  @javax.annotation.Nonnull
+  public List<String> getAddresses() {
+    return addresses;
   }
 
-  public void setValueDecoded(List<SafeTxSubTransaction> valueDecoded) {
-    this.valueDecoded = valueDecoded;
+  public void setAddresses(List<String> addresses) {
+    this.addresses = addresses;
   }
 
   /**
@@ -170,9 +100,9 @@ public class SafeTxDecodedDataParameters {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the SafeTxDecodedDataParameters instance itself
+   * @return the RefreshAddressBalancesByTokenRequest instance itself
    */
-  public SafeTxDecodedDataParameters putAdditionalProperty(String key, Object value) {
+  public RefreshAddressBalancesByTokenRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -211,27 +141,21 @@ public class SafeTxDecodedDataParameters {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SafeTxDecodedDataParameters safeTxDecodedDataParameters = (SafeTxDecodedDataParameters) o;
-    return Objects.equals(this.name, safeTxDecodedDataParameters.name) &&
-        Objects.equals(this.type, safeTxDecodedDataParameters.type) &&
-        Objects.equals(this.value, safeTxDecodedDataParameters.value) &&
-        Objects.equals(this.valueDecoded, safeTxDecodedDataParameters.valueDecoded)&&
-        Objects.equals(this.additionalProperties, safeTxDecodedDataParameters.additionalProperties);
+    RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest = (RefreshAddressBalancesByTokenRequest) o;
+    return Objects.equals(this.addresses, refreshAddressBalancesByTokenRequest.addresses)&&
+        Objects.equals(this.additionalProperties, refreshAddressBalancesByTokenRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, value, valueDecoded, additionalProperties);
+    return Objects.hash(addresses, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SafeTxDecodedDataParameters {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    valueDecoded: ").append(toIndentedString(valueDecoded)).append("\n");
+    sb.append("class RefreshAddressBalancesByTokenRequest {\n");
+    sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -255,50 +179,38 @@ public class SafeTxDecodedDataParameters {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("type");
-    openapiFields.add("value");
-    openapiFields.add("value_decoded");
+    openapiFields.add("addresses");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("addresses");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SafeTxDecodedDataParameters
+  * @throws IOException if the JSON Element is invalid with respect to RefreshAddressBalancesByTokenRequest
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SafeTxDecodedDataParameters.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SafeTxDecodedDataParameters is not found in the empty JSON string", SafeTxDecodedDataParameters.openapiRequiredFields.toString()));
+        if (!RefreshAddressBalancesByTokenRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RefreshAddressBalancesByTokenRequest is not found in the empty JSON string", RefreshAddressBalancesByTokenRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : RefreshAddressBalancesByTokenRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
-      }
-      if (jsonObj.get("value_decoded") != null && !jsonObj.get("value_decoded").isJsonNull()) {
-        JsonArray jsonArrayvalueDecoded = jsonObj.getAsJsonArray("value_decoded");
-        if (jsonArrayvalueDecoded != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("value_decoded").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `value_decoded` to be an array in the JSON string but got `%s`", jsonObj.get("value_decoded").toString()));
-          }
-
-          // validate the optional field `value_decoded` (array)
-          for (int i = 0; i < jsonArrayvalueDecoded.size(); i++) {
-            SafeTxSubTransaction.validateJsonElement(jsonArrayvalueDecoded.get(i));
-          };
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("addresses") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("addresses").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `addresses` to be an array in the JSON string but got `%s`", jsonObj.get("addresses").toString()));
       }
   }
 
@@ -306,16 +218,16 @@ public class SafeTxDecodedDataParameters {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SafeTxDecodedDataParameters.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SafeTxDecodedDataParameters' and its subtypes
+       if (!RefreshAddressBalancesByTokenRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RefreshAddressBalancesByTokenRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SafeTxDecodedDataParameters> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SafeTxDecodedDataParameters.class));
+       final TypeAdapter<RefreshAddressBalancesByTokenRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RefreshAddressBalancesByTokenRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SafeTxDecodedDataParameters>() {
+       return (TypeAdapter<T>) new TypeAdapter<RefreshAddressBalancesByTokenRequest>() {
            @Override
-           public void write(JsonWriter out, SafeTxDecodedDataParameters value) throws IOException {
+           public void write(JsonWriter out, RefreshAddressBalancesByTokenRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -345,12 +257,12 @@ public class SafeTxDecodedDataParameters {
            }
 
            @Override
-           public SafeTxDecodedDataParameters read(JsonReader in) throws IOException {
+           public RefreshAddressBalancesByTokenRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             SafeTxDecodedDataParameters instance = thisAdapter.fromJsonTree(jsonObj);
+             RefreshAddressBalancesByTokenRequest instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -377,18 +289,18 @@ public class SafeTxDecodedDataParameters {
   }
 
  /**
-  * Create an instance of SafeTxDecodedDataParameters given an JSON string
+  * Create an instance of RefreshAddressBalancesByTokenRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of SafeTxDecodedDataParameters
-  * @throws IOException if the JSON string is invalid with respect to SafeTxDecodedDataParameters
+  * @return An instance of RefreshAddressBalancesByTokenRequest
+  * @throws IOException if the JSON string is invalid with respect to RefreshAddressBalancesByTokenRequest
   */
-  public static SafeTxDecodedDataParameters fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SafeTxDecodedDataParameters.class);
+  public static RefreshAddressBalancesByTokenRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RefreshAddressBalancesByTokenRequest.class);
   }
 
  /**
-  * Convert an instance of SafeTxDecodedDataParameters to an JSON string
+  * Convert an instance of RefreshAddressBalancesByTokenRequest to an JSON string
   *
   * @return JSON string
   */

@@ -98,7 +98,7 @@ public class TransactionUserApprovalDetail {
   }
 
    /**
-   * The name the user who audited this message.
+   * The name of the user who audited this message.
    * @return name
   **/
   @javax.annotation.Nullable
@@ -117,7 +117,7 @@ public class TransactionUserApprovalDetail {
   }
 
    /**
-   * The email the user who audited this message.
+   * The email of the user who audited this message.
    * @return email
   **/
   @javax.annotation.Nullable

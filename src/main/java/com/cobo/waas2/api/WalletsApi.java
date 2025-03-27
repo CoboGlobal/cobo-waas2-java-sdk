@@ -46,6 +46,8 @@ import com.cobo.waas2.model.ListWallets200Response;
 import com.cobo.waas2.model.LockUtxos201Response;
 import com.cobo.waas2.model.LockUtxosRequest;
 import com.cobo.waas2.model.MaxTransferableValue;
+import com.cobo.waas2.model.RefreshAddressBalancesByToken200Response;
+import com.cobo.waas2.model.RefreshAddressBalancesByTokenRequest;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateWalletParams;
 import com.cobo.waas2.model.WalletInfo;
@@ -3059,6 +3061,139 @@ public class WalletsApi {
 
         okhttp3.Call localVarCall = lockUtxosValidateBeforeCall(walletId, lockUtxosRequest, _callback);
         Type localVarReturnType = new TypeToken<LockUtxos201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for refreshAddressBalancesByToken
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call refreshAddressBalancesByTokenCall(UUID walletId, String tokenId, RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = refreshAddressBalancesByTokenRequest;
+
+        // create path and map variables
+        String localVarPath = "/wallets/{wallet_id}/tokens/{token_id}/refresh_address_balances"
+            .replace("{" + "wallet_id" + "}", localVarApiClient.escapeString(walletId.toString()))
+            .replace("{" + "token_id" + "}", localVarApiClient.escapeString(tokenId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call refreshAddressBalancesByTokenValidateBeforeCall(UUID walletId, String tokenId, RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling refreshAddressBalancesByToken(Async)");
+        }
+
+        // verify the required parameter 'tokenId' is set
+        if (tokenId == null) {
+            throw new ApiException("Missing the required parameter 'tokenId' when calling refreshAddressBalancesByToken(Async)");
+        }
+
+        return refreshAddressBalancesByTokenCall(walletId, tokenId, refreshAddressBalancesByTokenRequest, _callback);
+
+    }
+
+    /**
+     * refresh address balances by token
+     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @return RefreshAddressBalancesByToken200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public RefreshAddressBalancesByToken200Response refreshAddressBalancesByToken(UUID walletId, String tokenId, RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest) throws ApiException {
+        ApiResponse<RefreshAddressBalancesByToken200Response> localVarResp = refreshAddressBalancesByTokenWithHttpInfo(walletId, tokenId, refreshAddressBalancesByTokenRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * refresh address balances by token
+     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @return ApiResponse&lt;RefreshAddressBalancesByToken200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RefreshAddressBalancesByToken200Response> refreshAddressBalancesByTokenWithHttpInfo(UUID walletId, String tokenId, RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest) throws ApiException {
+        okhttp3.Call localVarCall = refreshAddressBalancesByTokenValidateBeforeCall(walletId, tokenId, refreshAddressBalancesByTokenRequest, null);
+        Type localVarReturnType = new TypeToken<RefreshAddressBalancesByToken200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * refresh address balances by token (asynchronously)
+     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call refreshAddressBalancesByTokenAsync(UUID walletId, String tokenId, RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest, final ApiCallback<RefreshAddressBalancesByToken200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = refreshAddressBalancesByTokenValidateBeforeCall(walletId, tokenId, refreshAddressBalancesByTokenRequest, _callback);
+        Type localVarReturnType = new TypeToken<RefreshAddressBalancesByToken200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
