@@ -35,6 +35,8 @@ import com.cobo.waas2.model.ListWallets200Response;
 import com.cobo.waas2.model.LockUtxos201Response;
 import com.cobo.waas2.model.LockUtxosRequest;
 import com.cobo.waas2.model.MaxTransferableValue;
+import com.cobo.waas2.model.RefreshAddressBalancesByToken200Response;
+import com.cobo.waas2.model.RefreshAddressBalancesByTokenRequest;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateWalletParams;
 import com.cobo.waas2.model.WalletInfo;
@@ -412,6 +414,22 @@ public class WalletsApiTest {
         UUID walletId = null;
         LockUtxosRequest lockUtxosRequest = null;
         LockUtxos201Response response = api.lockUtxos(walletId, lockUtxosRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * refresh address balances by token
+     *
+     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void refreshAddressBalancesByTokenTest() throws ApiException {
+        UUID walletId = null;
+        String tokenId = null;
+        RefreshAddressBalancesByTokenRequest refreshAddressBalancesByTokenRequest = null;
+        RefreshAddressBalancesByToken200Response response = api.refreshAddressBalancesByToken(walletId, tokenId, refreshAddressBalancesByTokenRequest);
         // TODO: test validations
     }
 

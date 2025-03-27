@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. Currently, &#x60;berachain_bgt&#x60; and &#x60;erachain_bgt_testnet&#x60; are not supported.
+ * The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token. Currently, &#x60;berachain_bgt&#x60; and &#x60;berachain_bgt_testnet&#x60; are not supported.
  */
 @JsonAdapter(StakingPoolId.Adapter.class)
 public enum StakingPoolId {

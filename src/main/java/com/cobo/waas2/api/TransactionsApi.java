@@ -1080,7 +1080,7 @@ public class TransactionsApi {
 
     /**
      * Get transaction approval details
-     * This operation retrieves approval detailed information about a specified transaction. 
+     * This operation retrieves detailed approval information about a specified transaction. 
      * @param transactionId The transaction ID. (required)
      * @return TransactionApprovalDetail
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1099,7 +1099,7 @@ public class TransactionsApi {
 
     /**
      * Get transaction approval details
-     * This operation retrieves approval detailed information about a specified transaction. 
+     * This operation retrieves detailed approval information about a specified transaction. 
      * @param transactionId The transaction ID. (required)
      * @return ApiResponse&lt;TransactionApprovalDetail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1119,7 +1119,7 @@ public class TransactionsApi {
 
     /**
      * Get transaction approval details (asynchronously)
-     * This operation retrieves approval detailed information about a specified transaction. 
+     * This operation retrieves detailed approval information about a specified transaction. 
      * @param transactionId The transaction ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1319,7 +1319,7 @@ public class TransactionsApi {
 
     /**
      * List transaction approval details
-     * This operation retrieves approval detailed information about multi specified transaction. 
+     * This operation retrieves detailed approval information for all transactions. 
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
      * @return ListTransactionApprovalDetails200Response
@@ -1339,7 +1339,7 @@ public class TransactionsApi {
 
     /**
      * List transaction approval details
-     * This operation retrieves approval detailed information about multi specified transaction. 
+     * This operation retrieves detailed approval information for all transactions. 
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
      * @return ApiResponse&lt;ListTransactionApprovalDetails200Response&gt;
@@ -1360,7 +1360,7 @@ public class TransactionsApi {
 
     /**
      * List transaction approval details (asynchronously)
-     * This operation retrieves approval detailed information about multi specified transaction. 
+     * This operation retrieves detailed approval information for all transactions. 
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
      * @param _callback The callback to be executed when the API call finishes

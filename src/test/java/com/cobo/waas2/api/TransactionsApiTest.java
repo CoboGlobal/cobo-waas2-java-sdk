@@ -170,7 +170,7 @@ public class TransactionsApiTest {
     /**
      * Get transaction approval details
      *
-     * This operation retrieves approval detailed information about a specified transaction. 
+     * This operation retrieves detailed approval information about a specified transaction. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -198,7 +198,7 @@ public class TransactionsApiTest {
     /**
      * List transaction approval details
      *
-     * This operation retrieves approval detailed information about multi specified transaction. 
+     * This operation retrieves detailed approval information for all transactions. 
      *
      * @throws ApiException if the Api call fails
      */

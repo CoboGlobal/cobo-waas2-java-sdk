@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the extra data of the Safe{Wallet} tx message transaction.
+ * The information used to construct and sign Safe{Wallet} transactions using the EIP-712 standard.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -135,7 +135,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * The recipient address of the transaction
+   * The recipient address of the transaction.
    * @return to
   **/
   @javax.annotation.Nonnull
@@ -154,7 +154,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Readable transaction value (e.g., 1 ETH)
+   * The human-readable transaction value, for example, &#x60;1 ETH&#x60;.
    * @return value
   **/
   @javax.annotation.Nonnull
@@ -173,7 +173,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * The transaction data
+   * The transaction call data.
    * @return data
   **/
   @javax.annotation.Nonnull
@@ -192,7 +192,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * EIP712 structured data domain hash
+   * The EIP-712 domain separator hash.
    * @return domainHash
   **/
   @javax.annotation.Nonnull
@@ -211,7 +211,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Hash of the structured message
+   * The hash of the structured message to be signed.
    * @return messageHash
   **/
   @javax.annotation.Nonnull
@@ -230,7 +230,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Address of the Safe contract
+   * The address of the Safe contract.
    * @return safeAddress
   **/
   @javax.annotation.Nonnull
@@ -249,7 +249,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Hash of the Safe transaction
+   * The hash of the transaction.
    * @return safeTxHash
   **/
   @javax.annotation.Nonnull
@@ -268,7 +268,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Safe transaction nonce
+   * The nonce of the transaction.
    * @return safeNonce
   **/
   @javax.annotation.Nonnull
@@ -287,7 +287,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Type of operation performed in the transaction
+   * The operation type for the transaction.
    * @return operation
   **/
   @javax.annotation.Nonnull
@@ -306,7 +306,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Address of the gas token
+   * The address of the token used to pay gas.
    * @return gasTokenAddr
   **/
   @javax.annotation.Nullable
@@ -325,7 +325,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Gas used for the Safe transaction
+   * The gas limit used for the transaction.
    * @return safeTxGas
   **/
   @javax.annotation.Nullable
@@ -344,7 +344,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Base gas for the transaction
+   * The base gas for the transaction.
    * @return baseGas
   **/
   @javax.annotation.Nullable
@@ -363,7 +363,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Gas price used in the transaction
+   * The gas price used in the transaction.
    * @return gasPrice
   **/
   @javax.annotation.Nullable
@@ -382,7 +382,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Address to receive the gas refund
+   * The address used to receive the gas refund.
    * @return refundReceiver
   **/
   @javax.annotation.Nullable
@@ -401,7 +401,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Name of the recipient contract (if available)
+   * The name of the recipient contract (if available).
    * @return toContractName
   **/
   @javax.annotation.Nullable
@@ -439,7 +439,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Signature of the transaction (if signed by Cobo Signer)
+   * The signature of the transaction (if signed by Cobo Signer).
    * @return signature
   **/
   @javax.annotation.Nullable
@@ -458,7 +458,7 @@ public class SafeTxExtraData {
   }
 
    /**
-   * Transaction amount in Wei
+   * The transaction amount in Wei.
    * @return wei
   **/
   @javax.annotation.Nullable

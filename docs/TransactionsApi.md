@@ -577,7 +577,7 @@ public class Example {
 
 Get transaction approval details
 
-This operation retrieves approval detailed information about a specified transaction. 
+This operation retrieves detailed approval information about a specified transaction. 
 
 ### Example
 ```java
@@ -713,7 +713,7 @@ public class Example {
 
 List transaction approval details
 
-This operation retrieves approval detailed information about multi specified transaction. 
+This operation retrieves detailed approval information for all transactions. 
 
 ### Example
 ```java

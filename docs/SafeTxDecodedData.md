@@ -8,8 +8,8 @@ The information about the decoded data of the transaction.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**method** | **String** | Name of the decoded method |  [optional] |
-|**parameters** | [**List&lt;SafeTxDecodedDataParameters&gt;**](SafeTxDecodedDataParameters.md) | List of method parameters |  [optional] |
+|**method** | **String** | The name of the method decoded from the transaction data. |  [optional] |
+|**parameters** | [**List&lt;SafeTxDecodedDataParameters&gt;**](SafeTxDecodedDataParameters.md) | The list of parameters decoded from the transaction data. |  [optional] |
 
 
 
