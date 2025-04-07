@@ -4,19 +4,19 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getFeeStationTransactionById**](FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get fee station transaction information |
-| [**listFeeStationAddresses**](FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List fee station addresses |
-| [**listFeeStationTransactions**](FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all fee station transactions |
-| [**listTokenBalancesForFeeStation**](FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List token balances by fee station |
+| [**getFeeStationTransactionById**](FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information |
+| [**listFeeStationAddresses**](FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses |
+| [**listFeeStationTransactions**](FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions |
+| [**listTokenBalancesForFeeStation**](FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances |
 
 
 <a id="getFeeStationTransactionById"></a>
 # **getFeeStationTransactionById**
 > TransactionDetail getFeeStationTransactionById(transactionId)
 
-Get fee station transaction information
+Get Fee Station transaction information
 
-This operation retrieves detailed information about a specified transaction, such as the transaction status, source address, destination address, and timestamp. 
+This operation retrieves detailed information about a specified Fee Station transaction, such as the transaction status, source address, destination address, and timestamp. 
 
 ### Example
 ```java
@@ -82,9 +82,9 @@ public class Example {
 # **listFeeStationAddresses**
 > ListAddresses200Response listFeeStationAddresses(chainIds, addresses, limit, before, after)
 
-List fee station addresses
+List Fee Station addresses
 
-This operation retrieves a list of addresses within a specified wallet. 
+This operation retrieves a list of addresses within your Fee Station. 
 
 ### Example
 ```java
@@ -158,9 +158,9 @@ public class Example {
 # **listFeeStationTransactions**
 > ListTransactions200Response listFeeStationTransactions(requestId, coboIds, transactionIds, transactionHashes, types, statuses, chainIds, tokenIds, assetIds, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction)
 
-List all fee station transactions
+List all Fee Station transactions
 
-This operation retrieves all the transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamps. You can also paginate and sort your query results. 
+This operation retrieves all Fee Station transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamp. You can also paginate and sort your query results. 
 
 ### Example
 ```java
@@ -218,7 +218,7 @@ public class Example {
 | **coboIds** | **String**| A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. | [optional] |
 | **transactionIds** | **String**| A list of transaction IDs, separated by comma. | [optional] |
 | **transactionHashes** | **String**| A list of transaction hashes, separated by comma. | [optional] |
-| **types** | **String**| A list of transaction types, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  | [optional] |
+| **types** | **String**| A list of transaction types for Fee Station, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  | [optional] |
 | **statuses** | **String**| A list of transaction statuses, separated by comma. Possible values include:    - &#x60;Submitted&#x60;: The transaction is submitted.   - &#x60;PendingScreening&#x60;: The transaction is pending screening by Risk Control.    - &#x60;PendingAuthorization&#x60;: The transaction is pending approvals.   - &#x60;PendingSignature&#x60;: The transaction is pending signature.    - &#x60;Broadcasting&#x60;: The transaction is being broadcast.   - &#x60;Confirming&#x60;: The transaction is waiting for the required number of confirmations.   - &#x60;Completed&#x60;: The transaction is completed.   - &#x60;Failed&#x60;: The transaction failed.   - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is waiting to be included in the next block of the blockchain.  | [optional] |
 | **chainIds** | **String**| A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). | [optional] |
 | **tokenIds** | **String**| A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). | [optional] |
@@ -254,9 +254,9 @@ public class Example {
 # **listTokenBalancesForFeeStation**
 > ListTokenBalancesForAddress200Response listTokenBalancesForFeeStation(tokenIds, limit, before, after)
 
-List token balances by fee station
+List Fee Station token balances
 
-The operation retrieves a list of token balances within a specified wallet.  &lt;Note&gt;This operation is not applicable to Exchange Wallets.&lt;/Note&gt; 
+The operation retrieves a list of token balances within your Fee Station. 
 
 ### Example
 ```java

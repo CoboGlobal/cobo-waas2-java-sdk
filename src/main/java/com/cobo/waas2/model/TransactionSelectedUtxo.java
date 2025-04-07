@@ -161,7 +161,7 @@ public class TransactionSelectedUtxo {
   }
 
    /**
-   * Redeem script is used in P2SH and P2WSH transactions.
+   * The redeem script used in P2SH and P2WSH transactions.
    * @return redeemScript
   **/
   @javax.annotation.Nullable
@@ -180,7 +180,7 @@ public class TransactionSelectedUtxo {
   }
 
    /**
-   * Revealed script is used for script path spending in Taproot transactions.
+   * The revealed script used for Taproot script-path spend transaction.
    * @return revealedScript
   **/
   @javax.annotation.Nullable

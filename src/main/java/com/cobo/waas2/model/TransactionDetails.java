@@ -179,6 +179,10 @@ public class TransactionDetails {
   @SerializedName(SERIALIZED_NAME_COBO_CATEGORY)
   private List<String> coboCategory = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_EXTRA = "extra";
+  @SerializedName(SERIALIZED_NAME_EXTRA)
+  private List<String> extra = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_FUELING_INFO = "fueling_info";
   @SerializedName(SERIALIZED_NAME_FUELING_INFO)
   private TransactionFuelingInfo fuelingInfo;
@@ -746,7 +750,7 @@ public class TransactionDetails {
   }
 
    /**
-   * A transaction category for cobo to identify your transactions.
+   * The transaction category defined by Cobo. Possible values include:  - &#x60;AutoSweep&#x60;: An auto-sweep transaction. - &#x60;AutoFueling&#x60;: A transaction where Fee Station pays transaction fees to an address within your wallet. - &#x60;AutoFuelingRefund&#x60;: A refund for an auto-fueling transaction. - &#x60;SafeTxMessage&#x60;: A message signing transaction to authorize a Smart Contract Wallet (Safe\\{Wallet\\}) transaction. - &#x60;BillPayment&#x60;: A transaction to pay Cobo bills through Fee Station. - &#x60;BillRefund&#x60;: A refund for a previously made bill payment. - &#x60;CommissionFeeCharge&#x60;: A transaction to charge commission fees via Fee Station. - &#x60;CommissionFeeRefund&#x60;: A refund of previously charged commission fees. 
    * @return coboCategory
   **/
   @javax.annotation.Nullable
@@ -756,6 +760,33 @@ public class TransactionDetails {
 
   public void setCoboCategory(List<String> coboCategory) {
     this.coboCategory = coboCategory;
+  }
+
+
+  public TransactionDetails extra(List<String> extra) {
+    this.extra = extra;
+    return this;
+  }
+
+  public TransactionDetails addExtraItem(String extraItem) {
+    if (this.extra == null) {
+      this.extra = new ArrayList<>();
+    }
+    this.extra.add(extraItem);
+    return this;
+  }
+
+   /**
+   * The transaction extra information.
+   * @return extra
+  **/
+  @javax.annotation.Nullable
+  public List<String> getExtra() {
+    return extra;
+  }
+
+  public void setExtra(List<String> extra) {
+    this.extra = extra;
   }
 
 
@@ -787,7 +818,7 @@ public class TransactionDetails {
    * The time when the transaction was created, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -806,7 +837,7 @@ public class TransactionDetails {
    * The time when the transaction was updated, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -1092,6 +1123,7 @@ public class TransactionDetails {
         Objects.equals(this.description, transactionDetails.description) &&
         Objects.equals(this.isLoop, transactionDetails.isLoop) &&
         Objects.equals(this.coboCategory, transactionDetails.coboCategory) &&
+        Objects.equals(this.extra, transactionDetails.extra) &&
         Objects.equals(this.fuelingInfo, transactionDetails.fuelingInfo) &&
         Objects.equals(this.createdTimestamp, transactionDetails.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, transactionDetails.updatedTimestamp) &&
@@ -1109,7 +1141,7 @@ public class TransactionDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, coboCategory, fuelingInfo, createdTimestamp, updatedTimestamp, approvers, signers, nonce, replacedBy, fueledBy, tokenApproval, message, algorithm, timeline, additionalProperties);
+    return Objects.hash(transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, coboCategory, extra, fuelingInfo, createdTimestamp, updatedTimestamp, approvers, signers, nonce, replacedBy, fueledBy, tokenApproval, message, algorithm, timeline, additionalProperties);
   }
 
   @Override
@@ -1143,6 +1175,7 @@ public class TransactionDetails {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isLoop: ").append(toIndentedString(isLoop)).append("\n");
     sb.append("    coboCategory: ").append(toIndentedString(coboCategory)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    fuelingInfo: ").append(toIndentedString(fuelingInfo)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
@@ -1205,6 +1238,7 @@ public class TransactionDetails {
     openapiFields.add("description");
     openapiFields.add("is_loop");
     openapiFields.add("cobo_category");
+    openapiFields.add("extra");
     openapiFields.add("fueling_info");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
@@ -1226,6 +1260,8 @@ public class TransactionDetails {
     openapiRequiredFields.add("source");
     openapiRequiredFields.add("destination");
     openapiRequiredFields.add("initiator_type");
+    openapiRequiredFields.add("created_timestamp");
+    openapiRequiredFields.add("updated_timestamp");
   }
 
  /**
@@ -1324,6 +1360,10 @@ public class TransactionDetails {
       // ensure the optional json data is an array if present
       if (jsonObj.get("cobo_category") != null && !jsonObj.get("cobo_category").isJsonNull() && !jsonObj.get("cobo_category").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `cobo_category` to be an array in the JSON string but got `%s`", jsonObj.get("cobo_category").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull() && !jsonObj.get("extra").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `extra` to be an array in the JSON string but got `%s`", jsonObj.get("extra").toString()));
       }
       // validate the optional field `fueling_info`
       if (jsonObj.get("fueling_info") != null && !jsonObj.get("fueling_info").isJsonNull()) {
