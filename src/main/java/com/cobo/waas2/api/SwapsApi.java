@@ -26,12 +26,12 @@ import java.io.IOException;
 
 
 import com.cobo.waas2.model.CreateSwapActivityRequest;
-import com.cobo.waas2.model.CreateSwapQuote201Response;
-import com.cobo.waas2.model.CreateSwapQuoteRequest;
 import com.cobo.waas2.model.ErrorResponse;
-import com.cobo.waas2.model.ListEnableTokenPairs200Response;
 import com.cobo.waas2.model.ListSwapActivities200Response;
+import com.cobo.waas2.model.ListSwapEnabledTokens200Response;
 import com.cobo.waas2.model.SwapActivity;
+import com.cobo.waas2.model.SwapActivityStatus;
+import com.cobo.waas2.model.SwapActivityType;
 import com.cobo.waas2.model.SwapQuote;
 import java.util.UUID;
 
@@ -175,124 +175,6 @@ public class SwapsApi {
 
         okhttp3.Call localVarCall = createSwapActivityValidateBeforeCall(createSwapActivityRequest, _callback);
         Type localVarReturnType = new TypeToken<SwapActivity>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createSwapQuote
-     * @param createSwapQuoteRequest The request body for creating a swap activity. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The swap quote has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createSwapQuoteCall(CreateSwapQuoteRequest createSwapQuoteRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = createSwapQuoteRequest;
-
-        // create path and map variables
-        String localVarPath = "/swaps/quote";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSwapQuoteValidateBeforeCall(CreateSwapQuoteRequest createSwapQuoteRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'createSwapQuoteRequest' is set
-        if (createSwapQuoteRequest == null) {
-            throw new ApiException("Missing the required parameter 'createSwapQuoteRequest' when calling createSwapQuote(Async)");
-        }
-
-        return createSwapQuoteCall(createSwapQuoteRequest, _callback);
-
-    }
-
-    /**
-     * Create Swap Quote
-     * This operation retrieves a quote for swapping between two tokens. Either pay_amount or receive_amount must be provided. 
-     * @param createSwapQuoteRequest The request body for creating a swap activity. (required)
-     * @return CreateSwapQuote201Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The swap quote has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateSwapQuote201Response createSwapQuote(CreateSwapQuoteRequest createSwapQuoteRequest) throws ApiException {
-        ApiResponse<CreateSwapQuote201Response> localVarResp = createSwapQuoteWithHttpInfo(createSwapQuoteRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create Swap Quote
-     * This operation retrieves a quote for swapping between two tokens. Either pay_amount or receive_amount must be provided. 
-     * @param createSwapQuoteRequest The request body for creating a swap activity. (required)
-     * @return ApiResponse&lt;CreateSwapQuote201Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The swap quote has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateSwapQuote201Response> createSwapQuoteWithHttpInfo(CreateSwapQuoteRequest createSwapQuoteRequest) throws ApiException {
-        okhttp3.Call localVarCall = createSwapQuoteValidateBeforeCall(createSwapQuoteRequest, null);
-        Type localVarReturnType = new TypeToken<CreateSwapQuote201Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Create Swap Quote (asynchronously)
-     * This operation retrieves a quote for swapping between two tokens. Either pay_amount or receive_amount must be provided. 
-     * @param createSwapQuoteRequest The request body for creating a swap activity. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The swap quote has been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createSwapQuoteAsync(CreateSwapQuoteRequest createSwapQuoteRequest, final ApiCallback<CreateSwapQuote201Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createSwapQuoteValidateBeforeCall(createSwapQuoteRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateSwapQuote201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -578,139 +460,8 @@ public class SwapsApi {
         return localVarCall;
     }
     /**
-     * Build call for listEnableTokenPairs
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The supported token pairs have been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listEnableTokenPairsCall(Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/swaps/enabled_pairs";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
-        }
-
-        if (before != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
-        }
-
-        if (after != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listEnableTokenPairsValidateBeforeCall(Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        return listEnableTokenPairsCall(limit, before, after, _callback);
-
-    }
-
-    /**
-     * List Supported Token Pairs
-     * This operation retrieves all supported token pairs for swaps in a specified wallet. 
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ListEnableTokenPairs200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The supported token pairs have been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListEnableTokenPairs200Response listEnableTokenPairs(Integer limit, String before, String after) throws ApiException {
-        ApiResponse<ListEnableTokenPairs200Response> localVarResp = listEnableTokenPairsWithHttpInfo(limit, before, after);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List Supported Token Pairs
-     * This operation retrieves all supported token pairs for swaps in a specified wallet. 
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ApiResponse&lt;ListEnableTokenPairs200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The supported token pairs have been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListEnableTokenPairs200Response> listEnableTokenPairsWithHttpInfo(Integer limit, String before, String after) throws ApiException {
-        okhttp3.Call localVarCall = listEnableTokenPairsValidateBeforeCall(limit, before, after, null);
-        Type localVarReturnType = new TypeToken<ListEnableTokenPairs200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List Supported Token Pairs (asynchronously)
-     * This operation retrieves all supported token pairs for swaps in a specified wallet. 
-     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The supported token pairs have been successfully retrieved. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listEnableTokenPairsAsync(Integer limit, String before, String after, final ApiCallback<ListEnableTokenPairs200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listEnableTokenPairsValidateBeforeCall(limit, before, after, _callback);
-        Type localVarReturnType = new TypeToken<ListEnableTokenPairs200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for listSwapActivities
+     * @param type  (optional)
      * @param status  (optional)
      * @param minUpdatedTimestamp The start time of the query. All staking activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. (optional)
      * @param maxUpdatedTimestamp The end time of the query. All staking activities updated before the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. (optional)
@@ -731,7 +482,7 @@ public class SwapsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listSwapActivitiesCall(String status, Long minUpdatedTimestamp, Long maxUpdatedTimestamp, String initiator, Integer limit, String before, String after, String sortBy, String direction, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listSwapActivitiesCall(SwapActivityType type, SwapActivityStatus status, Long minUpdatedTimestamp, Long maxUpdatedTimestamp, String initiator, Integer limit, String before, String after, String sortBy, String direction, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -742,6 +493,10 @@ public class SwapsApi {
         Map<String, String> localVarHeaderParams = new HashMap<>();
         Map<String, String> localVarCookieParams = new HashMap<>();
         Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
 
         if (status != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
@@ -799,14 +554,15 @@ public class SwapsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSwapActivitiesValidateBeforeCall(String status, Long minUpdatedTimestamp, Long maxUpdatedTimestamp, String initiator, Integer limit, String before, String after, String sortBy, String direction, final ApiCallback _callback) throws ApiException {
-        return listSwapActivitiesCall(status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction, _callback);
+    private okhttp3.Call listSwapActivitiesValidateBeforeCall(SwapActivityType type, SwapActivityStatus status, Long minUpdatedTimestamp, Long maxUpdatedTimestamp, String initiator, Integer limit, String before, String after, String sortBy, String direction, final ApiCallback _callback) throws ApiException {
+        return listSwapActivitiesCall(type, status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction, _callback);
 
     }
 
     /**
      * List Swap Activities
      * This operation retrieves a list of swap activities. 
+     * @param type  (optional)
      * @param status  (optional)
      * @param minUpdatedTimestamp The start time of the query. All staking activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. (optional)
      * @param maxUpdatedTimestamp The end time of the query. All staking activities updated before the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. (optional)
@@ -826,14 +582,15 @@ public class SwapsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListSwapActivities200Response listSwapActivities(String status, Long minUpdatedTimestamp, Long maxUpdatedTimestamp, String initiator, Integer limit, String before, String after, String sortBy, String direction) throws ApiException {
-        ApiResponse<ListSwapActivities200Response> localVarResp = listSwapActivitiesWithHttpInfo(status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction);
+    public ListSwapActivities200Response listSwapActivities(SwapActivityType type, SwapActivityStatus status, Long minUpdatedTimestamp, Long maxUpdatedTimestamp, String initiator, Integer limit, String before, String after, String sortBy, String direction) throws ApiException {
+        ApiResponse<ListSwapActivities200Response> localVarResp = listSwapActivitiesWithHttpInfo(type, status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction);
         return localVarResp.getData();
     }
 
     /**
      * List Swap Activities
      * This operation retrieves a list of swap activities. 
+     * @param type  (optional)
      * @param status  (optional)
      * @param minUpdatedTimestamp The start time of the query. All staking activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. (optional)
      * @param maxUpdatedTimestamp The end time of the query. All staking activities updated before the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. (optional)
@@ -853,8 +610,8 @@ public class SwapsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListSwapActivities200Response> listSwapActivitiesWithHttpInfo(String status, Long minUpdatedTimestamp, Long maxUpdatedTimestamp, String initiator, Integer limit, String before, String after, String sortBy, String direction) throws ApiException {
-        okhttp3.Call localVarCall = listSwapActivitiesValidateBeforeCall(status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction, null);
+    public ApiResponse<ListSwapActivities200Response> listSwapActivitiesWithHttpInfo(SwapActivityType type, SwapActivityStatus status, Long minUpdatedTimestamp, Long maxUpdatedTimestamp, String initiator, Integer limit, String before, String after, String sortBy, String direction) throws ApiException {
+        okhttp3.Call localVarCall = listSwapActivitiesValidateBeforeCall(type, status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction, null);
         Type localVarReturnType = new TypeToken<ListSwapActivities200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -862,6 +619,7 @@ public class SwapsApi {
     /**
      * List Swap Activities (asynchronously)
      * This operation retrieves a list of swap activities. 
+     * @param type  (optional)
      * @param status  (optional)
      * @param minUpdatedTimestamp The start time of the query. All staking activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. (optional)
      * @param maxUpdatedTimestamp The end time of the query. All staking activities updated before the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. (optional)
@@ -882,10 +640,158 @@ public class SwapsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listSwapActivitiesAsync(String status, Long minUpdatedTimestamp, Long maxUpdatedTimestamp, String initiator, Integer limit, String before, String after, String sortBy, String direction, final ApiCallback<ListSwapActivities200Response> _callback) throws ApiException {
+    public okhttp3.Call listSwapActivitiesAsync(SwapActivityType type, SwapActivityStatus status, Long minUpdatedTimestamp, Long maxUpdatedTimestamp, String initiator, Integer limit, String before, String after, String sortBy, String direction, final ApiCallback<ListSwapActivities200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listSwapActivitiesValidateBeforeCall(status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction, _callback);
+        okhttp3.Call localVarCall = listSwapActivitiesValidateBeforeCall(type, status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction, _callback);
         Type localVarReturnType = new TypeToken<ListSwapActivities200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSwapEnabledTokens
+     * @param assetId (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account. (optional)
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A list of enabled tokens have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSwapEnabledTokensCall(String assetId, String chainId, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/swaps/enabled_tokens";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (assetId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("asset_id", assetId));
+        }
+
+        if (chainId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("chain_id", chainId));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSwapEnabledTokensValidateBeforeCall(String assetId, String chainId, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+        return listSwapEnabledTokensCall(assetId, chainId, limit, before, after, _callback);
+
+    }
+
+    /**
+     * List Enabled Tokens
+     * This operation retrieves all enabled tokens for swaps.   
+     * @param assetId (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account. (optional)
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @return ListSwapEnabledTokens200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A list of enabled tokens have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListSwapEnabledTokens200Response listSwapEnabledTokens(String assetId, String chainId, Integer limit, String before, String after) throws ApiException {
+        ApiResponse<ListSwapEnabledTokens200Response> localVarResp = listSwapEnabledTokensWithHttpInfo(assetId, chainId, limit, before, after);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Enabled Tokens
+     * This operation retrieves all enabled tokens for swaps.   
+     * @param assetId (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account. (optional)
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @return ApiResponse&lt;ListSwapEnabledTokens200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A list of enabled tokens have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListSwapEnabledTokens200Response> listSwapEnabledTokensWithHttpInfo(String assetId, String chainId, Integer limit, String before, String after) throws ApiException {
+        okhttp3.Call localVarCall = listSwapEnabledTokensValidateBeforeCall(assetId, chainId, limit, before, after, null);
+        Type localVarReturnType = new TypeToken<ListSwapEnabledTokens200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Enabled Tokens (asynchronously)
+     * This operation retrieves all enabled tokens for swaps.   
+     * @param assetId (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account. (optional)
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A list of enabled tokens have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSwapEnabledTokensAsync(String assetId, String chainId, Integer limit, String before, String after, final ApiCallback<ListSwapEnabledTokens200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSwapEnabledTokensValidateBeforeCall(assetId, chainId, limit, before, after, _callback);
+        Type localVarReturnType = new TypeToken<ListSwapEnabledTokens200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
