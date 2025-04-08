@@ -61,13 +61,13 @@ public class CreateSwapActivityRequest {
   @SerializedName(SERIALIZED_NAME_QUOTE_ID)
   private UUID quoteId;
 
-  public static final String SERIALIZED_NAME_SLIPPAGE_TOLERANCE = "slippage_tolerance";
-  @SerializedName(SERIALIZED_NAME_SLIPPAGE_TOLERANCE)
-  private String slippageTolerance;
-
   public static final String SERIALIZED_NAME_APP_INITIATOR = "app_initiator";
   @SerializedName(SERIALIZED_NAME_APP_INITIATOR)
   private String appInitiator;
+
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
 
   public CreateSwapActivityRequest() {
   }
@@ -78,7 +78,7 @@ public class CreateSwapActivityRequest {
   }
 
    /**
-   * The unique identifier of the wallet.
+   * The unique identifier of the wallet to pay.
    * @return walletId
   **/
   @javax.annotation.Nonnull
@@ -110,25 +110,6 @@ public class CreateSwapActivityRequest {
   }
 
 
-  public CreateSwapActivityRequest slippageTolerance(String slippageTolerance) {
-    this.slippageTolerance = slippageTolerance;
-    return this;
-  }
-
-   /**
-   * The slippage tolerance for the swap.
-   * @return slippageTolerance
-  **/
-  @javax.annotation.Nonnull
-  public String getSlippageTolerance() {
-    return slippageTolerance;
-  }
-
-  public void setSlippageTolerance(String slippageTolerance) {
-    this.slippageTolerance = slippageTolerance;
-  }
-
-
   public CreateSwapActivityRequest appInitiator(String appInitiator) {
     this.appInitiator = appInitiator;
     return this;
@@ -145,6 +126,25 @@ public class CreateSwapActivityRequest {
 
   public void setAppInitiator(String appInitiator) {
     this.appInitiator = appInitiator;
+  }
+
+
+  public CreateSwapActivityRequest requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request id of the swap activity.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
   /**
@@ -204,14 +204,14 @@ public class CreateSwapActivityRequest {
     CreateSwapActivityRequest createSwapActivityRequest = (CreateSwapActivityRequest) o;
     return Objects.equals(this.walletId, createSwapActivityRequest.walletId) &&
         Objects.equals(this.quoteId, createSwapActivityRequest.quoteId) &&
-        Objects.equals(this.slippageTolerance, createSwapActivityRequest.slippageTolerance) &&
-        Objects.equals(this.appInitiator, createSwapActivityRequest.appInitiator)&&
+        Objects.equals(this.appInitiator, createSwapActivityRequest.appInitiator) &&
+        Objects.equals(this.requestId, createSwapActivityRequest.requestId)&&
         Objects.equals(this.additionalProperties, createSwapActivityRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, quoteId, slippageTolerance, appInitiator, additionalProperties);
+    return Objects.hash(walletId, quoteId, appInitiator, requestId, additionalProperties);
   }
 
   @Override
@@ -220,8 +220,8 @@ public class CreateSwapActivityRequest {
     sb.append("class CreateSwapActivityRequest {\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    quoteId: ").append(toIndentedString(quoteId)).append("\n");
-    sb.append("    slippageTolerance: ").append(toIndentedString(slippageTolerance)).append("\n");
     sb.append("    appInitiator: ").append(toIndentedString(appInitiator)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -247,14 +247,13 @@ public class CreateSwapActivityRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("wallet_id");
     openapiFields.add("quote_id");
-    openapiFields.add("slippage_tolerance");
     openapiFields.add("app_initiator");
+    openapiFields.add("request_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("wallet_id");
     openapiRequiredFields.add("quote_id");
-    openapiRequiredFields.add("slippage_tolerance");
   }
 
  /**
@@ -283,11 +282,11 @@ public class CreateSwapActivityRequest {
       if (!jsonObj.get("quote_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `quote_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quote_id").toString()));
       }
-      if (!jsonObj.get("slippage_tolerance").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `slippage_tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slippage_tolerance").toString()));
-      }
       if ((jsonObj.get("app_initiator") != null && !jsonObj.get("app_initiator").isJsonNull()) && !jsonObj.get("app_initiator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `app_initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("app_initiator").toString()));
+      }
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
   }
 

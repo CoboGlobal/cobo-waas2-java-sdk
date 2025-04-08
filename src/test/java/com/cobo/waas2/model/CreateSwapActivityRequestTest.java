@@ -53,19 +53,19 @@ public class CreateSwapActivityRequestTest {
     }
 
     /**
-     * Test the property 'slippageTolerance'
-     */
-    @Test
-    public void slippageToleranceTest() {
-        // TODO: test slippageTolerance
-    }
-
-    /**
      * Test the property 'appInitiator'
      */
     @Test
     public void appInitiatorTest() {
         // TODO: test appInitiator
+    }
+
+    /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
     }
 
 }

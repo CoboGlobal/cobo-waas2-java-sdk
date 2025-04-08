@@ -40,7 +40,13 @@ public enum AddressEncoding {
   
   P2SH_P2WSH_P2MS("ENCODING_P2SH_P2WSH_P2MS"),
   
-  P2TR("ENCODING_P2TR");
+  P2TR("ENCODING_P2TR"),
+  
+  ADA_BYRON("ENCODING_ADA_BYRON"),
+  
+  ADA_SHELLEY("ENCODING_ADA_SHELLEY"),
+  
+  DEFAULT("ENCODING_DEFAULT");
 
   private String value;
 

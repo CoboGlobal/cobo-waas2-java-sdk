@@ -19,9 +19,11 @@ import com.cobo.waas2.model.MPCVaultEventData;
 import com.cobo.waas2.model.MPCVaultType;
 import com.cobo.waas2.model.RootPubkey;
 import com.cobo.waas2.model.SourceGroup;
-import com.cobo.waas2.model.TSSRequestStatus;
 import com.cobo.waas2.model.TSSRequestWebhookEventData;
 import com.cobo.waas2.model.TokenInfo;
+import com.cobo.waas2.model.TokenListingEventData;
+import com.cobo.waas2.model.TokenListingRequestSource;
+import com.cobo.waas2.model.TokenListingRequestStatus;
 import com.cobo.waas2.model.TokensEventData;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
@@ -31,11 +33,12 @@ import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
 import com.cobo.waas2.model.TransactionResult;
-import com.cobo.waas2.model.TransactionSource;
 import com.cobo.waas2.model.TransactionSubStatus;
 import com.cobo.waas2.model.TransactionWebhookEventData;
 import com.cobo.waas2.model.WalletInfo;
 import com.cobo.waas2.model.WalletInfoEventData;
+import com.cobo.waas2.model.WalletSubtype;
+import com.cobo.waas2.model.WalletType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -288,6 +291,14 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'extra'
+     */
+    @Test
+    public void extraTest() {
+        // TODO: test extra
+    }
+
+    /**
      * Test the property 'fuelingInfo'
      */
     @Test
@@ -397,6 +408,46 @@ public class WebhookEventDataTest {
     @Test
     public void tokensTest() {
         // TODO: test tokens
+    }
+
+    /**
+     * Test the property 'contractAddress'
+     */
+    @Test
+    public void contractAddressTest() {
+        // TODO: test contractAddress
+    }
+
+    /**
+     * Test the property 'walletType'
+     */
+    @Test
+    public void walletTypeTest() {
+        // TODO: test walletType
+    }
+
+    /**
+     * Test the property 'walletSubtype'
+     */
+    @Test
+    public void walletSubtypeTest() {
+        // TODO: test walletSubtype
+    }
+
+    /**
+     * Test the property 'token'
+     */
+    @Test
+    public void tokenTest() {
+        // TODO: test token
+    }
+
+    /**
+     * Test the property 'feedback'
+     */
+    @Test
+    public void feedbackTest() {
+        // TODO: test feedback
     }
 
 }

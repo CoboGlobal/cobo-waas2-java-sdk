@@ -58,7 +58,15 @@ public enum TransactionSubStatus {
   
   PENDINGAPPROVALSTART("PendingApprovalStart"),
   
+  PENDINGSIGNERAPPROVAL("PendingSignerApproval"),
+  
+  PENDINGSIGNERPROCESSING("PendingSignerProcessing"),
+  
+  REJECTEDBYSIGNER("RejectedBySigner"),
+  
   FAILEDBYSIGNER("FailedBySigner"),
+  
+  FAILEDSIGNERTIMEOUT("FailedSignerTimeout"),
   
   FAILEDBROADCASTING("FailedBroadcasting"),
   
@@ -68,7 +76,17 @@ public enum TransactionSubStatus {
   
   QUEUE("Queue"),
   
+  INSUFFICIENTBALANCE("InsufficientBalance"),
+  
+  INSUFFICIENTBALANCEFUNDLOCKED("InsufficientBalanceFundLocked"),
+  
+  PENDINGSYSTEMPROCESSING("PendingSystemProcessing"),
+  
+  SYSTEMPROCESSINGONGOING("SystemProcessingOngoing"),
+  
   PENDINGBLOCKCONFIRMATIONS("PendingBlockConfirmations"),
+  
+  REORGED("ReOrged"),
   
   REPLACEDBYNEWTRANSACTION("ReplacedByNewTransaction"),
   

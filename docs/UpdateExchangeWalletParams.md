@@ -9,7 +9,7 @@ The information of Exchange Wallets.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**walletType** | **WalletType** |  |  |
-|**name** | **String** | The wallet name. |  [optional] |
+|**name** | **String** | The wallet name. |  |
 
 
 

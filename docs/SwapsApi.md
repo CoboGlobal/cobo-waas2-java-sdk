@@ -5,11 +5,10 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createSwapActivity**](SwapsApi.md#createSwapActivity) | **POST** /swaps/swap | Create Swap Activity |
-| [**createSwapQuote**](SwapsApi.md#createSwapQuote) | **POST** /swaps/quote | Create Swap Quote |
 | [**getSwapActivity**](SwapsApi.md#getSwapActivity) | **GET** /swaps/activities/{activity_id} | Get Swap Activity Details |
 | [**getSwapQuote**](SwapsApi.md#getSwapQuote) | **GET** /swaps/quote | Get Current Swap Rate |
-| [**listEnableTokenPairs**](SwapsApi.md#listEnableTokenPairs) | **GET** /swaps/enabled_pairs | List Supported Token Pairs |
 | [**listSwapActivities**](SwapsApi.md#listSwapActivities) | **GET** /swaps/activities | List Swap Activities |
+| [**listSwapEnabledTokens**](SwapsApi.md#listSwapEnabledTokens) | **GET** /swaps/enabled_tokens | List Enabled Tokens |
 
 
 <a id="createSwapActivity"></a>
@@ -77,74 +76,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | The swap activity details have been successfully retrieved. |  -  |
-| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
-| **5XX** | Internal server error. |  -  |
-
-<a id="createSwapQuote"></a>
-# **createSwapQuote**
-> CreateSwapQuote201Response createSwapQuote(createSwapQuoteRequest)
-
-Create Swap Quote
-
-This operation retrieves a quote for swapping between two tokens. Either pay_amount or receive_amount must be provided. 
-
-### Example
-```java
-// Import classes:
-import com.cobo.waas2.ApiClient;
-import com.cobo.waas2.ApiException;
-import com.cobo.waas2.Configuration;
-import com.cobo.waas2.model.*;
-import com.cobo.waas2.Env;
-import com.cobo.waas2.api.SwapsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
-    defaultClient.setEnv(Env.DEV);
-
-    // Replace `<YOUR_PRIVATE_KEY>` with your private key
-    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
-    SwapsApi apiInstance = new SwapsApi();
-    CreateSwapQuoteRequest createSwapQuoteRequest = new CreateSwapQuoteRequest();
-    try {
-      CreateSwapQuote201Response result = apiInstance.createSwapQuote(createSwapQuoteRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SwapsApi#createSwapQuote");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createSwapQuoteRequest** | [**CreateSwapQuoteRequest**](CreateSwapQuoteRequest.md)| The request body for creating a swap activity. | |
-
-### Return type
-
-[**CreateSwapQuote201Response**](CreateSwapQuote201Response.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | The swap quote has been successfully retrieved. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -292,81 +223,9 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
-<a id="listEnableTokenPairs"></a>
-# **listEnableTokenPairs**
-> ListEnableTokenPairs200Response listEnableTokenPairs(limit, before, after)
-
-List Supported Token Pairs
-
-This operation retrieves all supported token pairs for swaps in a specified wallet. 
-
-### Example
-```java
-// Import classes:
-import com.cobo.waas2.ApiClient;
-import com.cobo.waas2.ApiException;
-import com.cobo.waas2.Configuration;
-import com.cobo.waas2.model.*;
-import com.cobo.waas2.Env;
-import com.cobo.waas2.api.SwapsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
-    defaultClient.setEnv(Env.DEV);
-
-    // Replace `<YOUR_PRIVATE_KEY>` with your private key
-    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
-    SwapsApi apiInstance = new SwapsApi();
-    Integer limit = 10;
-    String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
-    String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
-    try {
-      ListEnableTokenPairs200Response result = apiInstance.listEnableTokenPairs(limit, before, after);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SwapsApi#listEnableTokenPairs");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
-| **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
-| **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
-
-### Return type
-
-[**ListEnableTokenPairs200Response**](ListEnableTokenPairs200Response.md)
-
-### Authorization
-
-[CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | The supported token pairs have been successfully retrieved. |  -  |
-| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
-| **5XX** | Internal server error. |  -  |
-
 <a id="listSwapActivities"></a>
 # **listSwapActivities**
-> ListSwapActivities200Response listSwapActivities(status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction)
+> ListSwapActivities200Response listSwapActivities(type, status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction)
 
 List Swap Activities
 
@@ -391,7 +250,8 @@ public class Example {
     // Replace `<YOUR_PRIVATE_KEY>` with your private key
     defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     SwapsApi apiInstance = new SwapsApi();
-    String status = "Success";
+    SwapActivityType type = SwapActivityType.fromValue("Bridge");
+    SwapActivityStatus status = SwapActivityStatus.fromValue("Success");
     Long minUpdatedTimestamp = 1635744000000L;
     Long maxUpdatedTimestamp = 1635744000000L;
     String initiator = "steve@example.com";
@@ -401,7 +261,7 @@ public class Example {
     String sortBy = "";
     String direction = "ASC";
     try {
-      ListSwapActivities200Response result = apiInstance.listSwapActivities(status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction);
+      ListSwapActivities200Response result = apiInstance.listSwapActivities(type, status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SwapsApi#listSwapActivities");
@@ -418,7 +278,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **status** | **String**|  | [optional] [enum: Success, Processing, Failed] |
+| **type** | [**SwapActivityType**](.md)|  | [optional] [enum: Bridge, Exchange] |
+| **status** | [**SwapActivityStatus**](.md)|  | [optional] [enum: Success, Processing, Failed] |
 | **minUpdatedTimestamp** | **Long**| The start time of the query. All staking activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. | [optional] |
 | **maxUpdatedTimestamp** | **Long**| The end time of the query. All staking activities updated before the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. | [optional] |
 | **initiator** | **String**| The activity initiator, which is your API key by default. You can also specify the initiator when creating the activity. | [optional] |
@@ -445,6 +306,82 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A list of staking activities have been successfully retrieved. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="listSwapEnabledTokens"></a>
+# **listSwapEnabledTokens**
+> ListSwapEnabledTokens200Response listSwapEnabledTokens(assetId, chainId, limit, before, after)
+
+List Enabled Tokens
+
+This operation retrieves all enabled tokens for swaps.   
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.SwapsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    SwapsApi apiInstance = new SwapsApi();
+    String assetId = "USDT";
+    String chainId = "ETH";
+    Integer limit = 10;
+    String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
+    String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
+    try {
+      ListSwapEnabledTokens200Response result = apiInstance.listSwapEnabledTokens(assetId, chainId, limit, before, after);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SwapsApi#listSwapEnabledTokens");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **assetId** | **String**| (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account. | [optional] |
+| **chainId** | **String**| The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). | [optional] |
+| **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
+| **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
+| **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
+
+### Return type
+
+[**ListSwapEnabledTokens200Response**](ListSwapEnabledTokens200Response.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A list of enabled tokens have been successfully retrieved. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 

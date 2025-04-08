@@ -268,6 +268,14 @@ public class TransactionDetailTest {
     }
 
     /**
+     * Test the property 'extra'
+     */
+    @Test
+    public void extraTest() {
+        // TODO: test extra
+    }
+
+    /**
      * Test the property 'fuelingInfo'
      */
     @Test

@@ -12,6 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.SwapActivityStatus;
+import com.cobo.waas2.model.SwapActivityType;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -59,9 +61,17 @@ public class SwapActivity {
   @SerializedName(SERIALIZED_NAME_ACTIVITY_ID)
   private UUID activityId;
 
+  public static final String SERIALIZED_NAME_ACTIVITY_TYPE = "activity_type";
+  @SerializedName(SERIALIZED_NAME_ACTIVITY_TYPE)
+  private SwapActivityType activityType;
+
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private String status;
+  private SwapActivityStatus status;
+
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
 
   public static final String SERIALIZED_NAME_WALLET_ID = "wallet_id";
   @SerializedName(SERIALIZED_NAME_WALLET_ID)
@@ -95,6 +105,10 @@ public class SwapActivity {
   @SerializedName(SERIALIZED_NAME_INITIATOR_TYPE)
   private TransactionInitiatorType initiatorType;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
   private Integer createdTimestamp;
@@ -125,22 +139,60 @@ public class SwapActivity {
   }
 
 
-  public SwapActivity status(String status) {
+  public SwapActivity activityType(SwapActivityType activityType) {
+    this.activityType = activityType;
+    return this;
+  }
+
+   /**
+   * Get activityType
+   * @return activityType
+  **/
+  @javax.annotation.Nullable
+  public SwapActivityType getActivityType() {
+    return activityType;
+  }
+
+  public void setActivityType(SwapActivityType activityType) {
+    this.activityType = activityType;
+  }
+
+
+  public SwapActivity status(SwapActivityStatus status) {
     this.status = status;
     return this;
   }
 
    /**
-   * The status of the swap activity.
+   * Get status
    * @return status
   **/
   @javax.annotation.Nullable
-  public String getStatus() {
+  public SwapActivityStatus getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(SwapActivityStatus status) {
     this.status = status;
+  }
+
+
+  public SwapActivity requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request id of the swap activity.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
 
@@ -296,6 +348,25 @@ public class SwapActivity {
   }
 
 
+  public SwapActivity description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * The description of the swap activity.
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public SwapActivity createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -389,7 +460,9 @@ public class SwapActivity {
     }
     SwapActivity swapActivity = (SwapActivity) o;
     return Objects.equals(this.activityId, swapActivity.activityId) &&
+        Objects.equals(this.activityType, swapActivity.activityType) &&
         Objects.equals(this.status, swapActivity.status) &&
+        Objects.equals(this.requestId, swapActivity.requestId) &&
         Objects.equals(this.walletId, swapActivity.walletId) &&
         Objects.equals(this.payTokenId, swapActivity.payTokenId) &&
         Objects.equals(this.receiveTokenId, swapActivity.receiveTokenId) &&
@@ -398,6 +471,7 @@ public class SwapActivity {
         Objects.equals(this.feeAmount, swapActivity.feeAmount) &&
         Objects.equals(this.initiator, swapActivity.initiator) &&
         Objects.equals(this.initiatorType, swapActivity.initiatorType) &&
+        Objects.equals(this.description, swapActivity.description) &&
         Objects.equals(this.createdTimestamp, swapActivity.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, swapActivity.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, swapActivity.additionalProperties);
@@ -409,7 +483,7 @@ public class SwapActivity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activityId, status, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeAmount, initiator, initiatorType, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(activityId, activityType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -424,7 +498,9 @@ public class SwapActivity {
     StringBuilder sb = new StringBuilder();
     sb.append("class SwapActivity {\n");
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
+    sb.append("    activityType: ").append(toIndentedString(activityType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    payTokenId: ").append(toIndentedString(payTokenId)).append("\n");
     sb.append("    receiveTokenId: ").append(toIndentedString(receiveTokenId)).append("\n");
@@ -433,6 +509,7 @@ public class SwapActivity {
     sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
     sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
     sb.append("    initiatorType: ").append(toIndentedString(initiatorType)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -459,7 +536,9 @@ public class SwapActivity {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("activity_id");
+    openapiFields.add("activity_type");
     openapiFields.add("status");
+    openapiFields.add("request_id");
     openapiFields.add("wallet_id");
     openapiFields.add("pay_token_id");
     openapiFields.add("receive_token_id");
@@ -468,6 +547,7 @@ public class SwapActivity {
     openapiFields.add("fee_amount");
     openapiFields.add("initiator");
     openapiFields.add("initiator_type");
+    openapiFields.add("description");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -491,8 +571,16 @@ public class SwapActivity {
       if ((jsonObj.get("activity_id") != null && !jsonObj.get("activity_id").isJsonNull()) && !jsonObj.get("activity_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `activity_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("activity_id").toString()));
       }
-      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      // validate the optional field `activity_type`
+      if (jsonObj.get("activity_type") != null && !jsonObj.get("activity_type").isJsonNull()) {
+        SwapActivityType.validateJsonElement(jsonObj.get("activity_type"));
+      }
+      // validate the optional field `status`
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+        SwapActivityStatus.validateJsonElement(jsonObj.get("status"));
+      }
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
       if ((jsonObj.get("wallet_id") != null && !jsonObj.get("wallet_id").isJsonNull()) && !jsonObj.get("wallet_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
@@ -518,6 +606,9 @@ public class SwapActivity {
       // validate the optional field `initiator_type`
       if (jsonObj.get("initiator_type") != null && !jsonObj.get("initiator_type").isJsonNull()) {
         TransactionInitiatorType.validateJsonElement(jsonObj.get("initiator_type"));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
   }
 
