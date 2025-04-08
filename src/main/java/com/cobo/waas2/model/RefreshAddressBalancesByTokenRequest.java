@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The request body to refresh the addresses balance by  specified token within a specified wallet.
+ * RefreshAddressBalancesByTokenRequest
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -75,7 +75,7 @@ public class RefreshAddressBalancesByTokenRequest {
   }
 
    /**
-   * A list of  address.
+   * A list of addresses.
    * @return addresses
   **/
   @javax.annotation.Nonnull

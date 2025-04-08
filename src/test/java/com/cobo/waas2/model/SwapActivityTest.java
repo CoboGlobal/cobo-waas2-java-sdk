@@ -11,6 +11,8 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.SwapActivityStatus;
+import com.cobo.waas2.model.SwapActivityType;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -47,11 +49,27 @@ public class SwapActivityTest {
     }
 
     /**
+     * Test the property 'activityType'
+     */
+    @Test
+    public void activityTypeTest() {
+        // TODO: test activityType
+    }
+
+    /**
      * Test the property 'status'
      */
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
     }
 
     /**
@@ -116,6 +134,14 @@ public class SwapActivityTest {
     @Test
     public void initiatorTypeTest() {
         // TODO: test initiatorType
+    }
+
+    /**
+     * Test the property 'description'
+     */
+    @Test
+    public void descriptionTest() {
+        // TODO: test description
     }
 
     /**

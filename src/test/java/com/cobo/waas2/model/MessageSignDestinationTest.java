@@ -11,7 +11,10 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.BTCBIP137MessageSignDestination;
+import com.cobo.waas2.model.BTCBIP322MessageSignDestination;
 import com.cobo.waas2.model.BTCEIP191MessageSignDestination;
+import com.cobo.waas2.model.CosmosAdr36MessageSignDestination;
 import com.cobo.waas2.model.EvmEIP191MessageSignDestination;
 import com.cobo.waas2.model.EvmEIP712MessageSignDestination;
 import com.cobo.waas2.model.MessageSignDestinationType;
@@ -72,6 +75,30 @@ public class MessageSignDestinationTest {
     @Test
     public void msgHashTest() {
         // TODO: test msgHash
+    }
+
+    /**
+     * Test the property 'messageBip137'
+     */
+    @Test
+    public void messageBip137Test() {
+        // TODO: test messageBip137
+    }
+
+    /**
+     * Test the property 'messageBip322'
+     */
+    @Test
+    public void messageBip322Test() {
+        // TODO: test messageBip322
+    }
+
+    /**
+     * Test the property 'messageCosmosAdr36'
+     */
+    @Test
+    public void messageCosmosAdr36Test() {
+        // TODO: test messageCosmosAdr36
     }
 
 }

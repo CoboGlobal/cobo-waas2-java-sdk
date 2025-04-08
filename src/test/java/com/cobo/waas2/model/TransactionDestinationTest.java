@@ -13,12 +13,18 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ExchangeId;
 import com.cobo.waas2.model.SafeTxExtraData;
+import com.cobo.waas2.model.TransactionBIP137Destination;
+import com.cobo.waas2.model.TransactionBIP322Destination;
+import com.cobo.waas2.model.TransactionCosmosAdr36Destination;
+import com.cobo.waas2.model.TransactionCosmosContractDestination;
+import com.cobo.waas2.model.TransactionCosmosMessage;
 import com.cobo.waas2.model.TransactionDepositToAddressDestination;
 import com.cobo.waas2.model.TransactionDepositToAddressDestinationTxInfo;
 import com.cobo.waas2.model.TransactionDepositToWalletDestination;
 import com.cobo.waas2.model.TransactionDestinationType;
 import com.cobo.waas2.model.TransactionEvmCalldataInfo;
 import com.cobo.waas2.model.TransactionEvmContractDestination;
+import com.cobo.waas2.model.TransactionMessageSignBTCEIP191Destination;
 import com.cobo.waas2.model.TransactionMessageSignEIP191Destination;
 import com.cobo.waas2.model.TransactionMessageSignEIP712Destination;
 import com.cobo.waas2.model.TransactionRawMessageSignDestination;
@@ -180,6 +186,14 @@ public class TransactionDestinationTest {
     }
 
     /**
+     * Test the property 'cosmosMessages'
+     */
+    @Test
+    public void cosmosMessagesTest() {
+        // TODO: test cosmosMessages
+    }
+
+    /**
      * Test the property 'message'
      */
     @Test
@@ -249,6 +263,30 @@ public class TransactionDestinationTest {
     @Test
     public void txInfoTest() {
         // TODO: test txInfo
+    }
+
+    /**
+     * Test the property 'messageBip137'
+     */
+    @Test
+    public void messageBip137Test() {
+        // TODO: test messageBip137
+    }
+
+    /**
+     * Test the property 'messageBip322'
+     */
+    @Test
+    public void messageBip322Test() {
+        // TODO: test messageBip322
+    }
+
+    /**
+     * Test the property 'messageCosmosAdr36'
+     */
+    @Test
+    public void messageCosmosAdr36Test() {
+        // TODO: test messageCosmosAdr36
     }
 
 }

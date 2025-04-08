@@ -52,6 +52,10 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class SwapQuote {
+  public static final String SERIALIZED_NAME_QUOTE_ID = "quote_id";
+  @SerializedName(SERIALIZED_NAME_QUOTE_ID)
+  private String quoteId;
+
   public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
   @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
   private String payAmount;
@@ -64,21 +68,13 @@ public class SwapQuote {
   @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
   private String feeAmount;
 
-  public static final String SERIALIZED_NAME_MIN_PAY_AMOUNT = "min_pay_amount";
-  @SerializedName(SERIALIZED_NAME_MIN_PAY_AMOUNT)
-  private String minPayAmount;
-
-  public static final String SERIALIZED_NAME_MAX_PAY_AMOUNT = "max_pay_amount";
-  @SerializedName(SERIALIZED_NAME_MAX_PAY_AMOUNT)
-  private String maxPayAmount;
-
   public static final String SERIALIZED_NAME_MIN_RECEIVE_AMOUNT = "min_receive_amount";
   @SerializedName(SERIALIZED_NAME_MIN_RECEIVE_AMOUNT)
   private String minReceiveAmount;
 
-  public static final String SERIALIZED_NAME_MAX_RECEIVE_AMOUNT = "max_receive_amount";
-  @SerializedName(SERIALIZED_NAME_MAX_RECEIVE_AMOUNT)
-  private String maxReceiveAmount;
+  public static final String SERIALIZED_NAME_MAX_PAY_AMOUNT = "max_pay_amount";
+  @SerializedName(SERIALIZED_NAME_MAX_PAY_AMOUNT)
+  private String maxPayAmount;
 
   public static final String SERIALIZED_NAME_QUOTE_EXPIRED_TIMESTAMP = "quote_expired_timestamp";
   @SerializedName(SERIALIZED_NAME_QUOTE_EXPIRED_TIMESTAMP)
@@ -86,6 +82,25 @@ public class SwapQuote {
 
   public SwapQuote() {
   }
+
+  public SwapQuote quoteId(String quoteId) {
+    this.quoteId = quoteId;
+    return this;
+  }
+
+   /**
+   * The unique id of quote.
+   * @return quoteId
+  **/
+  @javax.annotation.Nullable
+  public String getQuoteId() {
+    return quoteId;
+  }
+
+  public void setQuoteId(String quoteId) {
+    this.quoteId = quoteId;
+  }
+
 
   public SwapQuote payAmount(String payAmount) {
     this.payAmount = payAmount;
@@ -144,51 +159,13 @@ public class SwapQuote {
   }
 
 
-  public SwapQuote minPayAmount(String minPayAmount) {
-    this.minPayAmount = minPayAmount;
-    return this;
-  }
-
-   /**
-   * The minimum amount of tokens to pay.
-   * @return minPayAmount
-  **/
-  @javax.annotation.Nullable
-  public String getMinPayAmount() {
-    return minPayAmount;
-  }
-
-  public void setMinPayAmount(String minPayAmount) {
-    this.minPayAmount = minPayAmount;
-  }
-
-
-  public SwapQuote maxPayAmount(String maxPayAmount) {
-    this.maxPayAmount = maxPayAmount;
-    return this;
-  }
-
-   /**
-   * The maximum amount of tokens to pay.
-   * @return maxPayAmount
-  **/
-  @javax.annotation.Nullable
-  public String getMaxPayAmount() {
-    return maxPayAmount;
-  }
-
-  public void setMaxPayAmount(String maxPayAmount) {
-    this.maxPayAmount = maxPayAmount;
-  }
-
-
   public SwapQuote minReceiveAmount(String minReceiveAmount) {
     this.minReceiveAmount = minReceiveAmount;
     return this;
   }
 
    /**
-   * The minimum amount of tokens to receive.
+   * The minimum amount of tokens to receive if the pay amount is specified.
    * @return minReceiveAmount
   **/
   @javax.annotation.Nullable
@@ -201,22 +178,22 @@ public class SwapQuote {
   }
 
 
-  public SwapQuote maxReceiveAmount(String maxReceiveAmount) {
-    this.maxReceiveAmount = maxReceiveAmount;
+  public SwapQuote maxPayAmount(String maxPayAmount) {
+    this.maxPayAmount = maxPayAmount;
     return this;
   }
 
    /**
-   * The maximum amount of tokens to receive.
-   * @return maxReceiveAmount
+   * The maximum amount of tokens to pay if the receive amount is specified.
+   * @return maxPayAmount
   **/
   @javax.annotation.Nullable
-  public String getMaxReceiveAmount() {
-    return maxReceiveAmount;
+  public String getMaxPayAmount() {
+    return maxPayAmount;
   }
 
-  public void setMaxReceiveAmount(String maxReceiveAmount) {
-    this.maxReceiveAmount = maxReceiveAmount;
+  public void setMaxPayAmount(String maxPayAmount) {
+    this.maxPayAmount = maxPayAmount;
   }
 
 
@@ -293,33 +270,31 @@ public class SwapQuote {
       return false;
     }
     SwapQuote swapQuote = (SwapQuote) o;
-    return Objects.equals(this.payAmount, swapQuote.payAmount) &&
+    return Objects.equals(this.quoteId, swapQuote.quoteId) &&
+        Objects.equals(this.payAmount, swapQuote.payAmount) &&
         Objects.equals(this.receiveAmount, swapQuote.receiveAmount) &&
         Objects.equals(this.feeAmount, swapQuote.feeAmount) &&
-        Objects.equals(this.minPayAmount, swapQuote.minPayAmount) &&
-        Objects.equals(this.maxPayAmount, swapQuote.maxPayAmount) &&
         Objects.equals(this.minReceiveAmount, swapQuote.minReceiveAmount) &&
-        Objects.equals(this.maxReceiveAmount, swapQuote.maxReceiveAmount) &&
+        Objects.equals(this.maxPayAmount, swapQuote.maxPayAmount) &&
         Objects.equals(this.quoteExpiredTimestamp, swapQuote.quoteExpiredTimestamp)&&
         Objects.equals(this.additionalProperties, swapQuote.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(payAmount, receiveAmount, feeAmount, minPayAmount, maxPayAmount, minReceiveAmount, maxReceiveAmount, quoteExpiredTimestamp, additionalProperties);
+    return Objects.hash(quoteId, payAmount, receiveAmount, feeAmount, minReceiveAmount, maxPayAmount, quoteExpiredTimestamp, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SwapQuote {\n");
+    sb.append("    quoteId: ").append(toIndentedString(quoteId)).append("\n");
     sb.append("    payAmount: ").append(toIndentedString(payAmount)).append("\n");
     sb.append("    receiveAmount: ").append(toIndentedString(receiveAmount)).append("\n");
     sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
-    sb.append("    minPayAmount: ").append(toIndentedString(minPayAmount)).append("\n");
-    sb.append("    maxPayAmount: ").append(toIndentedString(maxPayAmount)).append("\n");
     sb.append("    minReceiveAmount: ").append(toIndentedString(minReceiveAmount)).append("\n");
-    sb.append("    maxReceiveAmount: ").append(toIndentedString(maxReceiveAmount)).append("\n");
+    sb.append("    maxPayAmount: ").append(toIndentedString(maxPayAmount)).append("\n");
     sb.append("    quoteExpiredTimestamp: ").append(toIndentedString(quoteExpiredTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -344,13 +319,12 @@ public class SwapQuote {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("quote_id");
     openapiFields.add("pay_amount");
     openapiFields.add("receive_amount");
     openapiFields.add("fee_amount");
-    openapiFields.add("min_pay_amount");
-    openapiFields.add("max_pay_amount");
     openapiFields.add("min_receive_amount");
-    openapiFields.add("max_receive_amount");
+    openapiFields.add("max_pay_amount");
     openapiFields.add("quote_expired_timestamp");
 
     // a set of required properties/fields (JSON key names)
@@ -381,6 +355,9 @@ public class SwapQuote {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("quote_id") != null && !jsonObj.get("quote_id").isJsonNull()) && !jsonObj.get("quote_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `quote_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quote_id").toString()));
+      }
       if (!jsonObj.get("pay_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pay_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pay_amount").toString()));
       }
@@ -390,17 +367,11 @@ public class SwapQuote {
       if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
       }
-      if ((jsonObj.get("min_pay_amount") != null && !jsonObj.get("min_pay_amount").isJsonNull()) && !jsonObj.get("min_pay_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `min_pay_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("min_pay_amount").toString()));
-      }
-      if ((jsonObj.get("max_pay_amount") != null && !jsonObj.get("max_pay_amount").isJsonNull()) && !jsonObj.get("max_pay_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `max_pay_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max_pay_amount").toString()));
-      }
       if ((jsonObj.get("min_receive_amount") != null && !jsonObj.get("min_receive_amount").isJsonNull()) && !jsonObj.get("min_receive_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `min_receive_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("min_receive_amount").toString()));
       }
-      if ((jsonObj.get("max_receive_amount") != null && !jsonObj.get("max_receive_amount").isJsonNull()) && !jsonObj.get("max_receive_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `max_receive_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max_receive_amount").toString()));
+      if ((jsonObj.get("max_pay_amount") != null && !jsonObj.get("max_pay_amount").isJsonNull()) && !jsonObj.get("max_pay_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `max_pay_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max_pay_amount").toString()));
       }
   }
 

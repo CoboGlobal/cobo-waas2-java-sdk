@@ -15,12 +15,12 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.CreateSwapActivityRequest;
-import com.cobo.waas2.model.CreateSwapQuote201Response;
-import com.cobo.waas2.model.CreateSwapQuoteRequest;
 import com.cobo.waas2.model.ErrorResponse;
-import com.cobo.waas2.model.ListEnableTokenPairs200Response;
 import com.cobo.waas2.model.ListSwapActivities200Response;
+import com.cobo.waas2.model.ListSwapEnabledTokens200Response;
 import com.cobo.waas2.model.SwapActivity;
+import com.cobo.waas2.model.SwapActivityStatus;
+import com.cobo.waas2.model.SwapActivityType;
 import com.cobo.waas2.model.SwapQuote;
 import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
@@ -59,20 +59,6 @@ public class SwapsApiTest {
     }
 
     /**
-     * Create Swap Quote
-     *
-     * This operation retrieves a quote for swapping between two tokens. Either pay_amount or receive_amount must be provided. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createSwapQuoteTest() throws ApiException {
-        CreateSwapQuoteRequest createSwapQuoteRequest = null;
-        CreateSwapQuote201Response response = api.createSwapQuote(createSwapQuoteRequest);
-        // TODO: test validations
-    }
-
-    /**
      * Get Swap Activity Details
      *
      * This operation retrieves the details of a swap activity. 
@@ -105,22 +91,6 @@ public class SwapsApiTest {
     }
 
     /**
-     * List Supported Token Pairs
-     *
-     * This operation retrieves all supported token pairs for swaps in a specified wallet. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listEnableTokenPairsTest() throws ApiException {
-        Integer limit = null;
-        String before = null;
-        String after = null;
-        ListEnableTokenPairs200Response response = api.listEnableTokenPairs(limit, before, after);
-        // TODO: test validations
-    }
-
-    /**
      * List Swap Activities
      *
      * This operation retrieves a list of swap activities. 
@@ -129,7 +99,8 @@ public class SwapsApiTest {
      */
     @Test
     public void listSwapActivitiesTest() throws ApiException {
-        String status = null;
+        SwapActivityType type = null;
+        SwapActivityStatus status = null;
         Long minUpdatedTimestamp = null;
         Long maxUpdatedTimestamp = null;
         String initiator = null;
@@ -138,7 +109,25 @@ public class SwapsApiTest {
         String after = null;
         String sortBy = null;
         String direction = null;
-        ListSwapActivities200Response response = api.listSwapActivities(status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction);
+        ListSwapActivities200Response response = api.listSwapActivities(type, status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction);
+        // TODO: test validations
+    }
+
+    /**
+     * List Enabled Tokens
+     *
+     * This operation retrieves all enabled tokens for swaps.   
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listSwapEnabledTokensTest() throws ApiException {
+        String assetId = null;
+        String chainId = null;
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        ListSwapEnabledTokens200Response response = api.listSwapEnabledTokens(assetId, chainId, limit, before, after);
         // TODO: test validations
     }
 

@@ -92,7 +92,7 @@ public class UpdateSmartContractWalletParams {
    * The wallet name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -201,6 +201,7 @@ public class UpdateSmartContractWalletParams {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("wallet_type");
+    openapiRequiredFields.add("name");
   }
 
  /**
@@ -225,7 +226,7 @@ public class UpdateSmartContractWalletParams {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `wallet_type`
       WalletType.validateJsonElement(jsonObj.get("wallet_type"));
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }

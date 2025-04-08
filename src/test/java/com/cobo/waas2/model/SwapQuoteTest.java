@@ -36,6 +36,14 @@ public class SwapQuoteTest {
     }
 
     /**
+     * Test the property 'quoteId'
+     */
+    @Test
+    public void quoteIdTest() {
+        // TODO: test quoteId
+    }
+
+    /**
      * Test the property 'payAmount'
      */
     @Test
@@ -60,22 +68,6 @@ public class SwapQuoteTest {
     }
 
     /**
-     * Test the property 'minPayAmount'
-     */
-    @Test
-    public void minPayAmountTest() {
-        // TODO: test minPayAmount
-    }
-
-    /**
-     * Test the property 'maxPayAmount'
-     */
-    @Test
-    public void maxPayAmountTest() {
-        // TODO: test maxPayAmount
-    }
-
-    /**
      * Test the property 'minReceiveAmount'
      */
     @Test
@@ -84,11 +76,11 @@ public class SwapQuoteTest {
     }
 
     /**
-     * Test the property 'maxReceiveAmount'
+     * Test the property 'maxPayAmount'
      */
     @Test
-    public void maxReceiveAmountTest() {
-        // TODO: test maxReceiveAmount
+    public void maxPayAmountTest() {
+        // TODO: test maxPayAmount
     }
 
     /**

@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.ActivityType;
 import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -69,22 +68,6 @@ public class BabylonStakingActivityDetailExtra {
   public static final String SERIALIZED_NAME_AUTO_BROADCAST = "auto_broadcast";
   @SerializedName(SERIALIZED_NAME_AUTO_BROADCAST)
   private Boolean autoBroadcast;
-
-  public static final String SERIALIZED_NAME_PARAM_VERSION = "param_version";
-  @SerializedName(SERIALIZED_NAME_PARAM_VERSION)
-  private Long paramVersion;
-
-  public static final String SERIALIZED_NAME_WITHDRAW_FROM_TYPE = "withdraw_from_type";
-  @SerializedName(SERIALIZED_NAME_WITHDRAW_FROM_TYPE)
-  private ActivityType withdrawFromType;
-
-  public static final String SERIALIZED_NAME_SLASH_FROM_TYPE = "slash_from_type";
-  @SerializedName(SERIALIZED_NAME_SLASH_FROM_TYPE)
-  private ActivityType slashFromType;
-
-  public static final String SERIALIZED_NAME_STAKE_AMOUNT = "stake_amount";
-  @SerializedName(SERIALIZED_NAME_STAKE_AMOUNT)
-  private String stakeAmount;
 
   public BabylonStakingActivityDetailExtra() {
   }
@@ -164,82 +147,6 @@ public class BabylonStakingActivityDetailExtra {
     this.autoBroadcast = autoBroadcast;
   }
 
-
-  public BabylonStakingActivityDetailExtra paramVersion(Long paramVersion) {
-    this.paramVersion = paramVersion;
-    return this;
-  }
-
-   /**
-   * The version of babylon global parameters.
-   * @return paramVersion
-  **/
-  @javax.annotation.Nullable
-  public Long getParamVersion() {
-    return paramVersion;
-  }
-
-  public void setParamVersion(Long paramVersion) {
-    this.paramVersion = paramVersion;
-  }
-
-
-  public BabylonStakingActivityDetailExtra withdrawFromType(ActivityType withdrawFromType) {
-    this.withdrawFromType = withdrawFromType;
-    return this;
-  }
-
-   /**
-   * Get withdrawFromType
-   * @return withdrawFromType
-  **/
-  @javax.annotation.Nullable
-  public ActivityType getWithdrawFromType() {
-    return withdrawFromType;
-  }
-
-  public void setWithdrawFromType(ActivityType withdrawFromType) {
-    this.withdrawFromType = withdrawFromType;
-  }
-
-
-  public BabylonStakingActivityDetailExtra slashFromType(ActivityType slashFromType) {
-    this.slashFromType = slashFromType;
-    return this;
-  }
-
-   /**
-   * Get slashFromType
-   * @return slashFromType
-  **/
-  @javax.annotation.Nullable
-  public ActivityType getSlashFromType() {
-    return slashFromType;
-  }
-
-  public void setSlashFromType(ActivityType slashFromType) {
-    this.slashFromType = slashFromType;
-  }
-
-
-  public BabylonStakingActivityDetailExtra stakeAmount(String stakeAmount) {
-    this.stakeAmount = stakeAmount;
-    return this;
-  }
-
-   /**
-   * The origin staking amount.
-   * @return stakeAmount
-  **/
-  @javax.annotation.Nullable
-  public String getStakeAmount() {
-    return stakeAmount;
-  }
-
-  public void setStakeAmount(String stakeAmount) {
-    this.stakeAmount = stakeAmount;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -298,17 +205,13 @@ public class BabylonStakingActivityDetailExtra {
     return Objects.equals(this.poolType, babylonStakingActivityDetailExtra.poolType) &&
         Objects.equals(this.finalityProviderPublicKey, babylonStakingActivityDetailExtra.finalityProviderPublicKey) &&
         Objects.equals(this.stakeBlockTime, babylonStakingActivityDetailExtra.stakeBlockTime) &&
-        Objects.equals(this.autoBroadcast, babylonStakingActivityDetailExtra.autoBroadcast) &&
-        Objects.equals(this.paramVersion, babylonStakingActivityDetailExtra.paramVersion) &&
-        Objects.equals(this.withdrawFromType, babylonStakingActivityDetailExtra.withdrawFromType) &&
-        Objects.equals(this.slashFromType, babylonStakingActivityDetailExtra.slashFromType) &&
-        Objects.equals(this.stakeAmount, babylonStakingActivityDetailExtra.stakeAmount)&&
+        Objects.equals(this.autoBroadcast, babylonStakingActivityDetailExtra.autoBroadcast)&&
         Objects.equals(this.additionalProperties, babylonStakingActivityDetailExtra.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, autoBroadcast, paramVersion, withdrawFromType, slashFromType, stakeAmount, additionalProperties);
+    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, autoBroadcast, additionalProperties);
   }
 
   @Override
@@ -319,10 +222,6 @@ public class BabylonStakingActivityDetailExtra {
     sb.append("    finalityProviderPublicKey: ").append(toIndentedString(finalityProviderPublicKey)).append("\n");
     sb.append("    stakeBlockTime: ").append(toIndentedString(stakeBlockTime)).append("\n");
     sb.append("    autoBroadcast: ").append(toIndentedString(autoBroadcast)).append("\n");
-    sb.append("    paramVersion: ").append(toIndentedString(paramVersion)).append("\n");
-    sb.append("    withdrawFromType: ").append(toIndentedString(withdrawFromType)).append("\n");
-    sb.append("    slashFromType: ").append(toIndentedString(slashFromType)).append("\n");
-    sb.append("    stakeAmount: ").append(toIndentedString(stakeAmount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -350,10 +249,6 @@ public class BabylonStakingActivityDetailExtra {
     openapiFields.add("finality_provider_public_key");
     openapiFields.add("stake_block_time");
     openapiFields.add("auto_broadcast");
-    openapiFields.add("param_version");
-    openapiFields.add("withdraw_from_type");
-    openapiFields.add("slash_from_type");
-    openapiFields.add("stake_amount");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -384,17 +279,6 @@ public class BabylonStakingActivityDetailExtra {
       StakingPoolType.validateJsonElement(jsonObj.get("pool_type"));
       if ((jsonObj.get("finality_provider_public_key") != null && !jsonObj.get("finality_provider_public_key").isJsonNull()) && !jsonObj.get("finality_provider_public_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `finality_provider_public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("finality_provider_public_key").toString()));
-      }
-      // validate the optional field `withdraw_from_type`
-      if (jsonObj.get("withdraw_from_type") != null && !jsonObj.get("withdraw_from_type").isJsonNull()) {
-        ActivityType.validateJsonElement(jsonObj.get("withdraw_from_type"));
-      }
-      // validate the optional field `slash_from_type`
-      if (jsonObj.get("slash_from_type") != null && !jsonObj.get("slash_from_type").isJsonNull()) {
-        ActivityType.validateJsonElement(jsonObj.get("slash_from_type"));
-      }
-      if ((jsonObj.get("stake_amount") != null && !jsonObj.get("stake_amount").isJsonNull()) && !jsonObj.get("stake_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stake_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stake_amount").toString()));
       }
   }
 

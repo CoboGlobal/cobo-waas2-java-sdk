@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.CustodialWeb3TransferSource;
 import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.MpcTransferSource;
 import com.cobo.waas2.model.TransactionUtxo;
@@ -78,6 +79,7 @@ public class TransactionRbfSource extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<MpcTransferSource> adapterMpcTransferSource = gson.getDelegateAdapter(this, TypeToken.get(MpcTransferSource.class));
+            final TypeAdapter<CustodialWeb3TransferSource> adapterCustodialWeb3TransferSource = gson.getDelegateAdapter(this, TypeToken.get(CustodialWeb3TransferSource.class));
 
             return (TypeAdapter<T>) new TypeAdapter<TransactionRbfSource>() {
                 @Override
@@ -93,7 +95,13 @@ public class TransactionRbfSource extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: MpcTransferSource");
+                    // check if the actual instance is of the type `CustodialWeb3TransferSource`
+                    if (value.getActualInstance() instanceof CustodialWeb3TransferSource) {
+                        JsonElement element = adapterCustodialWeb3TransferSource.toJsonTree((CustodialWeb3TransferSource)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CustodialWeb3TransferSource, MpcTransferSource");
                 }
 
                 @Override
@@ -118,12 +126,20 @@ public class TransactionRbfSource extends AbstractOpenApiSchema {
                                 deserialized = adapterMpcTransferSource.fromJsonTree(jsonObject);
                                 newTransactionRbfSource.setActualInstance(deserialized);
                                 return newTransactionRbfSource;
+                            case "Web3":
+                                deserialized = adapterCustodialWeb3TransferSource.fromJsonTree(jsonObject);
+                                newTransactionRbfSource.setActualInstance(deserialized);
+                                return newTransactionRbfSource;
+                            case "CustodialWeb3TransferSource":
+                                deserialized = adapterCustodialWeb3TransferSource.fromJsonTree(jsonObject);
+                                newTransactionRbfSource.setActualInstance(deserialized);
+                                return newTransactionRbfSource;
                             case "MpcTransferSource":
                                 deserialized = adapterMpcTransferSource.fromJsonTree(jsonObject);
                                 newTransactionRbfSource.setActualInstance(deserialized);
                                 return newTransactionRbfSource;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionRbfSource. Possible values: Org-Controlled User-Controlled MpcTransferSource", jsonObject.get("source_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionRbfSource. Possible values: Org-Controlled User-Controlled Web3 CustodialWeb3TransferSource MpcTransferSource", jsonObject.get("source_type").getAsString()));
                         }
                     }
 
@@ -142,6 +158,18 @@ public class TransactionRbfSource extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for MpcTransferSource failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'MpcTransferSource'", e);
+                    }
+                    // deserialize CustodialWeb3TransferSource
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CustodialWeb3TransferSource.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCustodialWeb3TransferSource;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CustodialWeb3TransferSource'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for CustodialWeb3TransferSource failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CustodialWeb3TransferSource'", e);
                     }
 
                     if (match == 1) {
@@ -163,6 +191,11 @@ public class TransactionRbfSource extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
+    public TransactionRbfSource(CustodialWeb3TransferSource o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public TransactionRbfSource(MpcTransferSource o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -170,6 +203,7 @@ public class TransactionRbfSource extends AbstractOpenApiSchema {
 
     static {
         schemas.put("MpcTransferSource", MpcTransferSource.class);
+        schemas.put("CustodialWeb3TransferSource", CustodialWeb3TransferSource.class);
     }
 
     @Override
@@ -180,7 +214,7 @@ public class TransactionRbfSource extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * MpcTransferSource
+     * CustodialWeb3TransferSource, MpcTransferSource
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -191,14 +225,19 @@ public class TransactionRbfSource extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be MpcTransferSource");
+        if (instance instanceof CustodialWeb3TransferSource) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be CustodialWeb3TransferSource, MpcTransferSource");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * MpcTransferSource
+     * CustodialWeb3TransferSource, MpcTransferSource
      *
-     * @return The actual instance (MpcTransferSource)
+     * @return The actual instance (CustodialWeb3TransferSource, MpcTransferSource)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -215,6 +254,16 @@ public class TransactionRbfSource extends AbstractOpenApiSchema {
      */
     public MpcTransferSource getMpcTransferSource() throws ClassCastException {
         return (MpcTransferSource)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `CustodialWeb3TransferSource`. If the actual instance is not `CustodialWeb3TransferSource`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CustodialWeb3TransferSource`
+     * @throws ClassCastException if the instance is not `CustodialWeb3TransferSource`
+     */
+    public CustodialWeb3TransferSource getCustodialWeb3TransferSource() throws ClassCastException {
+        return (CustodialWeb3TransferSource)super.getActualInstance();
     }
 
     /**
@@ -235,8 +284,16 @@ public class TransactionRbfSource extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for MpcTransferSource failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with CustodialWeb3TransferSource
+        try {
+            CustodialWeb3TransferSource.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for CustodialWeb3TransferSource failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for TransactionRbfSource with oneOf schemas: MpcTransferSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for TransactionRbfSource with oneOf schemas: CustodialWeb3TransferSource, MpcTransferSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

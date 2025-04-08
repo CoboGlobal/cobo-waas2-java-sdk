@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.ActivityType;
 import com.cobo.waas2.model.BabylonStakingActivityDetailExtra;
 import com.cobo.waas2.model.CoreStakingActivityDetailExtra;
 import com.cobo.waas2.model.EthStakingActivityDetailExtra;
