@@ -214,6 +214,7 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *DevelopersWebhooksApi* | [**triggerTestWebhookEvent**](docs/DevelopersWebhooksApi.md#triggerTestWebhookEvent) | **POST** /webhooks/events/trigger | Trigger test event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
+*FeeStationApi* | [**estimateFeeStationFee**](docs/FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate transaction fee
 *FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information
 *FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses
 *FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions
@@ -504,7 +505,9 @@ Class | Method | HTTP request | Description
  - [FeeGasLimit](docs/FeeGasLimit.md)
  - [FeeRate](docs/FeeRate.md)
  - [FeeReserved](docs/FeeReserved.md)
+ - [FeeStationDestination](docs/FeeStationDestination.md)
  - [FeeStationTransactionType](docs/FeeStationTransactionType.md)
+ - [FeeStationTransfer](docs/FeeStationTransfer.md)
  - [FeeType](docs/FeeType.md)
  - [FixedFeeRate](docs/FixedFeeRate.md)
  - [GetApiKeyInfo200Response](docs/GetApiKeyInfo200Response.md)
@@ -551,6 +554,8 @@ Class | Method | HTTP request | Description
  - [ListSwapActivities200Response](docs/ListSwapActivities200Response.md)
  - [ListSwapEnabledTokens200Response](docs/ListSwapEnabledTokens200Response.md)
  - [ListTokenBalancesForAddress200Response](docs/ListTokenBalancesForAddress200Response.md)
+ - [ListTokenBalancesForFeeStation200Response](docs/ListTokenBalancesForFeeStation200Response.md)
+ - [ListTokenBalancesForFeeStation200ResponseDataInner](docs/ListTokenBalancesForFeeStation200ResponseDataInner.md)
  - [ListTokenListingRequests200Response](docs/ListTokenListingRequests200Response.md)
  - [ListTransactionApprovalDetails200Response](docs/ListTransactionApprovalDetails200Response.md)
  - [ListTransactions200Response](docs/ListTransactions200Response.md)
@@ -670,7 +675,6 @@ Class | Method | HTTP request | Description
  - [TransactionBabylonTxParameters](docs/TransactionBabylonTxParameters.md)
  - [TransactionBlockInfo](docs/TransactionBlockInfo.md)
  - [TransactionCoboCategory](docs/TransactionCoboCategory.md)
- - [TransactionCoreStakeInfo](docs/TransactionCoreStakeInfo.md)
  - [TransactionCosmosAdr36Destination](docs/TransactionCosmosAdr36Destination.md)
  - [TransactionCosmosContractDestination](docs/TransactionCosmosContractDestination.md)
  - [TransactionCosmosMessage](docs/TransactionCosmosMessage.md)

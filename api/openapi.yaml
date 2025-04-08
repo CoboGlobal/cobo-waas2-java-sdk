@@ -7706,7 +7706,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/list_token_balances_for_address_200_response'
+                $ref: '#/components/schemas/list_token_balances_for_fee_station_200_response'
           description: The request was successful.
         "4XX":
           content:
@@ -7996,6 +7996,47 @@ paths:
       summary: Get Fee Station transaction information
       tags:
       - FeeStation
+      x-accepts:
+      - application/json
+  /fee_station/transactions/estimate_fee:
+    post:
+      description: |
+        This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.
+
+        You need to specify the transaction information, including destination address, token ID.
+
+        The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees).
+      operationId: estimate_fee_station_fee
+      requestBody:
+        $ref: '#/components/requestBodies/estimateFeeStationFeeBody'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EstimatedFixedFee'
+          description: The request was successful.
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request. Your request contains malformed syntax or invalid
+            parameters.
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal server error.
+      security:
+      - CoboAuth: []
+      - OAuth2:
+        - transaction.estimate_fee
+      summary: Estimate transaction fee
+      tags:
+      - FeeStation
+      x-content-type: application/json
       x-accepts:
       - application/json
   /swaps/activities:
@@ -11279,6 +11320,12 @@ components:
           schema:
             $ref: '#/components/schemas/create_settlement_request_request'
       description: The request body to create a settlement request.
+    estimateFeeStationFeeBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FeeStationTransfer'
+      description: The information about a token transfer.
   responses:
     badRequestError:
       content:
@@ -12064,6 +12111,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Settlement'
+      description: The request was successful.
+    getFeeStationTokenBalancesResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/list_token_balances_for_fee_station_200_response'
+      description: The request was successful.
+    getFeeStationEstimationFeeResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EstimatedFixedFee'
       description: The request was successful.
   schemas:
     Pagination:
@@ -16253,22 +16312,18 @@ components:
         mapping:
           BabylonBusinessInfo: '#/components/schemas/TransactionBabylonBusinessInfo'
           BabylonTxParameters: '#/components/schemas/TransactionBabylonTxParameters'
-          CoreStakeInfo: '#/components/schemas/TransactionCoreStakeInfo'
         propertyName: extra_type
       oneOf:
       - $ref: '#/components/schemas/TransactionBabylonBusinessInfo'
       - $ref: '#/components/schemas/TransactionBabylonTxParameters'
-      - $ref: '#/components/schemas/TransactionCoreStakeInfo'
     TransactionExtraType:
       description: |
         The transaction extra information type. Possible values include:
           - `BabylonBusinessInfo`: The extra information of Babylon business.
           - `BabylonTxParameters`: The extra information of Babylon transaction parameters.
-          - `CoreStakeInfo`: The extra information of core stake.
       enum:
       - BabylonBusinessInfo
       - BabylonTxParameters
-      - CoreStakeInfo
       example: BabylonBusinessInfo
       type: string
     TransactionBabylonBusinessInfo:
@@ -16316,33 +16371,6 @@ components:
       required:
       - extra_type
       title: Babylon Transaction Parameters
-      type: object
-    TransactionCoreStakeInfo:
-      description: The core stake information.
-      properties:
-        extra_type:
-          $ref: '#/components/schemas/TransactionExtraType'
-        stake_amount:
-          description: The origin staking amount.
-          example: "100.00"
-          type: string
-        timelock:
-          description: The Unix timestamp (in seconds) when the staking position will
-            be unlocked and available for withdrawal.
-          type: integer
-        change_address:
-          description: "The change address on the Bitcoin chain. If not provided,\
-            \ the source wallet's address will be used as the change address."
-          type: string
-        validator_address:
-          description: The validator's EVM address.
-          type: string
-        reward_address:
-          description: The EVM address to receive staking rewards.
-          type: string
-      required:
-      - extra_type
-      title: Core Stake Information
       type: object
     CustodialTransferSource:
       description: |
@@ -20460,6 +20488,51 @@ components:
       - Withdrawal
       example: Deposit
       type: string
+    FeeStationTransfer:
+      description: The information about a token transfer.
+      example:
+        token_id: ETH_USDT
+        destination:
+          amount: "1.5"
+          address: 19AR6YWEGbSoY8UT9Ksy9WrmrZPD5sL4Ku
+          memo: "82840924"
+      properties:
+        token_id:
+          description: "The token ID of the transferred token. You can retrieve the\
+            \ IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens)."
+          example: ETH_USDT
+          type: string
+        destination:
+          $ref: '#/components/schemas/FeeStationDestination'
+      required:
+      - token_id
+      type: object
+    FeeStationDestination:
+      example:
+        amount: "1.5"
+        address: 19AR6YWEGbSoY8UT9Ksy9WrmrZPD5sL4Ku
+        memo: "82840924"
+      properties:
+        address:
+          description: The destination address.
+          example: 19AR6YWEGbSoY8UT9Ksy9WrmrZPD5sL4Ku
+          type: string
+        memo:
+          description: "The memo that identifies a transaction in order to credit\
+            \ the correct account. For transfers out of Cobo Portal, it is highly\
+            \ recommended to include a memo for the chains such as XRP, EOS, XLM,\
+            \ IOST, BNB_BNB, ATOM, LUNA, and TON."
+          example: "82840924"
+          type: string
+        amount:
+          description: |
+            The transfer amount. For example, if you trade 1.5 BTC, then the value is `1.5`.
+          example: "1.5"
+          type: string
+      required:
+      - address
+      - amount
+      type: object
     BankAccount:
       example:
         bank_account_id: 123e4567-e89b-12d3-a456-426614174003
@@ -24134,6 +24207,64 @@ components:
             - `false`: The information has not been submitted.
           example: true
           type: boolean
+      type: object
+    list_token_balances_for_fee_station_200_response_data_inner:
+      description: The balance information.
+      example:
+        token_id: ETH
+        chain_id: ETH
+        balance:
+          total: "100.0"
+          pending: "10.5"
+          available: "80.5"
+          locked: "3.0"
+      properties:
+        token_id:
+          description: "The token ID, which is the unique identifier of a token. You\
+            \ can retrieve the IDs of all the tokens you can use by calling [List\
+            \ enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens)."
+          example: ETH
+          type: string
+        chain_id:
+          description: "The chain ID, which is the unique identifier of a blockchain.\
+            \ You can retrieve the IDs of all the chains you can use by calling [List\
+            \ enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains)."
+          example: ETH
+          type: string
+        balance:
+          $ref: '#/components/schemas/Balance'
+      required:
+      - balance
+      - token_id
+      type: object
+    list_token_balances_for_fee_station_200_response:
+      example:
+        pagination:
+          before: RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1
+          total_count: 10000
+          after: RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk
+        data:
+        - token_id: ETH
+          chain_id: ETH
+          balance:
+            total: "100.0"
+            pending: "10.5"
+            available: "80.5"
+            locked: "3.0"
+        - token_id: ETH
+          chain_id: ETH
+          balance:
+            total: "100.0"
+            pending: "10.5"
+            available: "80.5"
+            locked: "3.0"
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/list_token_balances_for_fee_station_200_response_data_inner'
+          type: array
+        pagination:
+          $ref: '#/components/schemas/Pagination'
       type: object
     list_swap_activities_200_response:
       example:

@@ -16,7 +16,6 @@ import com.cobo.waas2.model.ActivityType;
 import com.cobo.waas2.model.AddressInfo;
 import com.cobo.waas2.model.TransactionBabylonBusinessInfo;
 import com.cobo.waas2.model.TransactionBabylonTxParameters;
-import com.cobo.waas2.model.TransactionCoreStakeInfo;
 import com.cobo.waas2.model.TransactionExtraType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -78,7 +77,6 @@ public class TransactionExtra extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<TransactionBabylonBusinessInfo> adapterTransactionBabylonBusinessInfo = gson.getDelegateAdapter(this, TypeToken.get(TransactionBabylonBusinessInfo.class));
             final TypeAdapter<TransactionBabylonTxParameters> adapterTransactionBabylonTxParameters = gson.getDelegateAdapter(this, TypeToken.get(TransactionBabylonTxParameters.class));
-            final TypeAdapter<TransactionCoreStakeInfo> adapterTransactionCoreStakeInfo = gson.getDelegateAdapter(this, TypeToken.get(TransactionCoreStakeInfo.class));
 
             return (TypeAdapter<T>) new TypeAdapter<TransactionExtra>() {
                 @Override
@@ -100,13 +98,7 @@ public class TransactionExtra extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `TransactionCoreStakeInfo`
-                    if (value.getActualInstance() instanceof TransactionCoreStakeInfo) {
-                        JsonElement element = adapterTransactionCoreStakeInfo.toJsonTree((TransactionCoreStakeInfo)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TransactionBabylonBusinessInfo, TransactionBabylonTxParameters, TransactionCoreStakeInfo");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TransactionBabylonBusinessInfo, TransactionBabylonTxParameters");
                 }
 
                 @Override
@@ -131,10 +123,6 @@ public class TransactionExtra extends AbstractOpenApiSchema {
                                 deserialized = adapterTransactionBabylonTxParameters.fromJsonTree(jsonObject);
                                 newTransactionExtra.setActualInstance(deserialized);
                                 return newTransactionExtra;
-                            case "CoreStakeInfo":
-                                deserialized = adapterTransactionCoreStakeInfo.fromJsonTree(jsonObject);
-                                newTransactionExtra.setActualInstance(deserialized);
-                                return newTransactionExtra;
                             case "TransactionBabylonBusinessInfo":
                                 deserialized = adapterTransactionBabylonBusinessInfo.fromJsonTree(jsonObject);
                                 newTransactionExtra.setActualInstance(deserialized);
@@ -143,12 +131,8 @@ public class TransactionExtra extends AbstractOpenApiSchema {
                                 deserialized = adapterTransactionBabylonTxParameters.fromJsonTree(jsonObject);
                                 newTransactionExtra.setActualInstance(deserialized);
                                 return newTransactionExtra;
-                            case "TransactionCoreStakeInfo":
-                                deserialized = adapterTransactionCoreStakeInfo.fromJsonTree(jsonObject);
-                                newTransactionExtra.setActualInstance(deserialized);
-                                return newTransactionExtra;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionExtra. Possible values: BabylonBusinessInfo BabylonTxParameters CoreStakeInfo TransactionBabylonBusinessInfo TransactionBabylonTxParameters TransactionCoreStakeInfo", jsonObject.get("extra_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionExtra. Possible values: BabylonBusinessInfo BabylonTxParameters TransactionBabylonBusinessInfo TransactionBabylonTxParameters", jsonObject.get("extra_type").getAsString()));
                         }
                     }
 
@@ -180,18 +164,6 @@ public class TransactionExtra extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for TransactionBabylonTxParameters failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'TransactionBabylonTxParameters'", e);
                     }
-                    // deserialize TransactionCoreStakeInfo
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        TransactionCoreStakeInfo.validateJsonElement(jsonElement);
-                        actualAdapter = adapterTransactionCoreStakeInfo;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'TransactionCoreStakeInfo'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for TransactionCoreStakeInfo failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'TransactionCoreStakeInfo'", e);
-                    }
 
                     if (match == 1) {
                         TransactionExtra ret = new TransactionExtra();
@@ -222,15 +194,9 @@ public class TransactionExtra extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
-    public TransactionExtra(TransactionCoreStakeInfo o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     static {
         schemas.put("TransactionBabylonBusinessInfo", TransactionBabylonBusinessInfo.class);
         schemas.put("TransactionBabylonTxParameters", TransactionBabylonTxParameters.class);
-        schemas.put("TransactionCoreStakeInfo", TransactionCoreStakeInfo.class);
     }
 
     @Override
@@ -241,7 +207,7 @@ public class TransactionExtra extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * TransactionBabylonBusinessInfo, TransactionBabylonTxParameters, TransactionCoreStakeInfo
+     * TransactionBabylonBusinessInfo, TransactionBabylonTxParameters
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -257,19 +223,14 @@ public class TransactionExtra extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof TransactionCoreStakeInfo) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be TransactionBabylonBusinessInfo, TransactionBabylonTxParameters, TransactionCoreStakeInfo");
+        throw new RuntimeException("Invalid instance type. Must be TransactionBabylonBusinessInfo, TransactionBabylonTxParameters");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * TransactionBabylonBusinessInfo, TransactionBabylonTxParameters, TransactionCoreStakeInfo
+     * TransactionBabylonBusinessInfo, TransactionBabylonTxParameters
      *
-     * @return The actual instance (TransactionBabylonBusinessInfo, TransactionBabylonTxParameters, TransactionCoreStakeInfo)
+     * @return The actual instance (TransactionBabylonBusinessInfo, TransactionBabylonTxParameters)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -296,16 +257,6 @@ public class TransactionExtra extends AbstractOpenApiSchema {
      */
     public TransactionBabylonTxParameters getTransactionBabylonTxParameters() throws ClassCastException {
         return (TransactionBabylonTxParameters)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `TransactionCoreStakeInfo`. If the actual instance is not `TransactionCoreStakeInfo`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `TransactionCoreStakeInfo`
-     * @throws ClassCastException if the instance is not `TransactionCoreStakeInfo`
-     */
-    public TransactionCoreStakeInfo getTransactionCoreStakeInfo() throws ClassCastException {
-        return (TransactionCoreStakeInfo)super.getActualInstance();
     }
 
     /**
@@ -334,16 +285,8 @@ public class TransactionExtra extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for TransactionBabylonTxParameters failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with TransactionCoreStakeInfo
-        try {
-            TransactionCoreStakeInfo.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for TransactionCoreStakeInfo failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for TransactionExtra with oneOf schemas: TransactionBabylonBusinessInfo, TransactionBabylonTxParameters, TransactionCoreStakeInfo. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for TransactionExtra with oneOf schemas: TransactionBabylonBusinessInfo, TransactionBabylonTxParameters. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

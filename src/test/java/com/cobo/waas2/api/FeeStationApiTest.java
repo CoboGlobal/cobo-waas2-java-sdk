@@ -15,8 +15,10 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.EstimatedFixedFee;
+import com.cobo.waas2.model.FeeStationTransfer;
 import com.cobo.waas2.model.ListAddresses200Response;
-import com.cobo.waas2.model.ListTokenBalancesForAddress200Response;
+import com.cobo.waas2.model.ListTokenBalancesForFeeStation200Response;
 import com.cobo.waas2.model.ListTransactions200Response;
 import com.cobo.waas2.model.TransactionDetail;
 import java.util.UUID;
@@ -40,6 +42,20 @@ public class FeeStationApiTest {
         defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     }
     private final FeeStationApi api = new FeeStationApi();
+
+    /**
+     * Estimate transaction fee
+     *
+     * This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void estimateFeeStationFeeTest() throws ApiException {
+        FeeStationTransfer feeStationTransfer = null;
+        EstimatedFixedFee response = api.estimateFeeStationFee(feeStationTransfer);
+        // TODO: test validations
+    }
 
     /**
      * Get Fee Station transaction information
@@ -114,7 +130,7 @@ public class FeeStationApiTest {
         Integer limit = null;
         String before = null;
         String after = null;
-        ListTokenBalancesForAddress200Response response = api.listTokenBalancesForFeeStation(tokenIds, limit, before, after);
+        ListTokenBalancesForFeeStation200Response response = api.listTokenBalancesForFeeStation(tokenIds, limit, before, after);
         // TODO: test validations
     }
 

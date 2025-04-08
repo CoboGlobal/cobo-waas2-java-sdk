@@ -172,7 +172,9 @@ docs/FeeGasLimit.md
 docs/FeeRate.md
 docs/FeeReserved.md
 docs/FeeStationApi.md
+docs/FeeStationDestination.md
 docs/FeeStationTransactionType.md
+docs/FeeStationTransfer.md
 docs/FeeType.md
 docs/FixedFeeRate.md
 docs/GetApiKeyInfo200Response.md
@@ -219,6 +221,8 @@ docs/ListSupportedTokens200Response.md
 docs/ListSwapActivities200Response.md
 docs/ListSwapEnabledTokens200Response.md
 docs/ListTokenBalancesForAddress200Response.md
+docs/ListTokenBalancesForFeeStation200Response.md
+docs/ListTokenBalancesForFeeStation200ResponseDataInner.md
 docs/ListTokenListingRequests200Response.md
 docs/ListTransactionApprovalDetails200Response.md
 docs/ListTransactions200Response.md
@@ -343,7 +347,6 @@ docs/TransactionBabylonBusinessInfo.md
 docs/TransactionBabylonTxParameters.md
 docs/TransactionBlockInfo.md
 docs/TransactionCoboCategory.md
-docs/TransactionCoreStakeInfo.md
 docs/TransactionCosmosAdr36Destination.md
 docs/TransactionCosmosContractDestination.md
 docs/TransactionCosmosMessage.md
@@ -682,7 +685,9 @@ src/main/java/com/cobo/waas2/model/FeeAmount.java
 src/main/java/com/cobo/waas2/model/FeeGasLimit.java
 src/main/java/com/cobo/waas2/model/FeeRate.java
 src/main/java/com/cobo/waas2/model/FeeReserved.java
+src/main/java/com/cobo/waas2/model/FeeStationDestination.java
 src/main/java/com/cobo/waas2/model/FeeStationTransactionType.java
+src/main/java/com/cobo/waas2/model/FeeStationTransfer.java
 src/main/java/com/cobo/waas2/model/FeeType.java
 src/main/java/com/cobo/waas2/model/FixedFeeRate.java
 src/main/java/com/cobo/waas2/model/GetApiKeyInfo200Response.java
@@ -729,6 +734,8 @@ src/main/java/com/cobo/waas2/model/ListSupportedTokens200Response.java
 src/main/java/com/cobo/waas2/model/ListSwapActivities200Response.java
 src/main/java/com/cobo/waas2/model/ListSwapEnabledTokens200Response.java
 src/main/java/com/cobo/waas2/model/ListTokenBalancesForAddress200Response.java
+src/main/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200Response.java
+src/main/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseDataInner.java
 src/main/java/com/cobo/waas2/model/ListTokenListingRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListTransactionApprovalDetails200Response.java
 src/main/java/com/cobo/waas2/model/ListTransactions200Response.java
@@ -848,7 +855,6 @@ src/main/java/com/cobo/waas2/model/TransactionBabylonBusinessInfo.java
 src/main/java/com/cobo/waas2/model/TransactionBabylonTxParameters.java
 src/main/java/com/cobo/waas2/model/TransactionBlockInfo.java
 src/main/java/com/cobo/waas2/model/TransactionCoboCategory.java
-src/main/java/com/cobo/waas2/model/TransactionCoreStakeInfo.java
 src/main/java/com/cobo/waas2/model/TransactionCosmosAdr36Destination.java
 src/main/java/com/cobo/waas2/model/TransactionCosmosContractDestination.java
 src/main/java/com/cobo/waas2/model/TransactionCosmosMessage.java
@@ -1141,7 +1147,9 @@ src/test/java/com/cobo/waas2/model/FeeAmountTest.java
 src/test/java/com/cobo/waas2/model/FeeGasLimitTest.java
 src/test/java/com/cobo/waas2/model/FeeRateTest.java
 src/test/java/com/cobo/waas2/model/FeeReservedTest.java
+src/test/java/com/cobo/waas2/model/FeeStationDestinationTest.java
 src/test/java/com/cobo/waas2/model/FeeStationTransactionTypeTest.java
+src/test/java/com/cobo/waas2/model/FeeStationTransferTest.java
 src/test/java/com/cobo/waas2/model/FeeTypeTest.java
 src/test/java/com/cobo/waas2/model/FixedFeeRateTest.java
 src/test/java/com/cobo/waas2/model/GetApiKeyInfo200ResponseTest.java
@@ -1188,6 +1196,8 @@ src/test/java/com/cobo/waas2/model/ListSupportedTokens200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListSwapActivities200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListSwapEnabledTokens200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTokenBalancesForAddress200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseDataInnerTest.java
+src/test/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTokenListingRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTransactionApprovalDetails200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTransactions200ResponseTest.java
@@ -1306,7 +1316,6 @@ src/test/java/com/cobo/waas2/model/TransactionBabylonBusinessInfoTest.java
 src/test/java/com/cobo/waas2/model/TransactionBabylonTxParametersTest.java
 src/test/java/com/cobo/waas2/model/TransactionBlockInfoTest.java
 src/test/java/com/cobo/waas2/model/TransactionCoboCategoryTest.java
-src/test/java/com/cobo/waas2/model/TransactionCoreStakeInfoTest.java
 src/test/java/com/cobo/waas2/model/TransactionCosmosAdr36DestinationTest.java
 src/test/java/com/cobo/waas2/model/TransactionCosmosContractDestinationTest.java
 src/test/java/com/cobo/waas2/model/TransactionCosmosMessageTest.java

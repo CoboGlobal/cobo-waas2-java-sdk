@@ -9,7 +9,5 @@
 
 * `BABYLONTXPARAMETERS` (value: `"BabylonTxParameters"`)
 
-* `CORESTAKEINFO` (value: `"CoreStakeInfo"`)
-
 
 

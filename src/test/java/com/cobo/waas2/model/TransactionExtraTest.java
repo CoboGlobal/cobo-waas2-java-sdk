@@ -15,7 +15,6 @@ import com.cobo.waas2.model.ActivityType;
 import com.cobo.waas2.model.AddressInfo;
 import com.cobo.waas2.model.TransactionBabylonBusinessInfo;
 import com.cobo.waas2.model.TransactionBabylonTxParameters;
-import com.cobo.waas2.model.TransactionCoreStakeInfo;
 import com.cobo.waas2.model.TransactionExtraType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -111,38 +110,6 @@ public class TransactionExtraTest {
     @Test
     public void slashFromTypeTest() {
         // TODO: test slashFromType
-    }
-
-    /**
-     * Test the property 'timelock'
-     */
-    @Test
-    public void timelockTest() {
-        // TODO: test timelock
-    }
-
-    /**
-     * Test the property 'changeAddress'
-     */
-    @Test
-    public void changeAddressTest() {
-        // TODO: test changeAddress
-    }
-
-    /**
-     * Test the property 'validatorAddress'
-     */
-    @Test
-    public void validatorAddressTest() {
-        // TODO: test validatorAddress
-    }
-
-    /**
-     * Test the property 'rewardAddress'
-     */
-    @Test
-    public void rewardAddressTest() {
-        // TODO: test rewardAddress
     }
 
 }

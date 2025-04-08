@@ -26,8 +26,10 @@ import java.io.IOException;
 
 
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.EstimatedFixedFee;
+import com.cobo.waas2.model.FeeStationTransfer;
 import com.cobo.waas2.model.ListAddresses200Response;
-import com.cobo.waas2.model.ListTokenBalancesForAddress200Response;
+import com.cobo.waas2.model.ListTokenBalancesForFeeStation200Response;
 import com.cobo.waas2.model.ListTransactions200Response;
 import com.cobo.waas2.model.TransactionDetail;
 import java.util.UUID;
@@ -57,6 +59,119 @@ public class FeeStationApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for estimateFeeStationFee
+     * @param feeStationTransfer The information about a token transfer. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call estimateFeeStationFeeCall(FeeStationTransfer feeStationTransfer, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = feeStationTransfer;
+
+        // create path and map variables
+        String localVarPath = "/fee_station/transactions/estimate_fee";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call estimateFeeStationFeeValidateBeforeCall(FeeStationTransfer feeStationTransfer, final ApiCallback _callback) throws ApiException {
+        return estimateFeeStationFeeCall(feeStationTransfer, _callback);
+
+    }
+
+    /**
+     * Estimate transaction fee
+     * This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * @param feeStationTransfer The information about a token transfer. (optional)
+     * @return EstimatedFixedFee
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public EstimatedFixedFee estimateFeeStationFee(FeeStationTransfer feeStationTransfer) throws ApiException {
+        ApiResponse<EstimatedFixedFee> localVarResp = estimateFeeStationFeeWithHttpInfo(feeStationTransfer);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Estimate transaction fee
+     * This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * @param feeStationTransfer The information about a token transfer. (optional)
+     * @return ApiResponse&lt;EstimatedFixedFee&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EstimatedFixedFee> estimateFeeStationFeeWithHttpInfo(FeeStationTransfer feeStationTransfer) throws ApiException {
+        okhttp3.Call localVarCall = estimateFeeStationFeeValidateBeforeCall(feeStationTransfer, null);
+        Type localVarReturnType = new TypeToken<EstimatedFixedFee>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Estimate transaction fee (asynchronously)
+     * This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * @param feeStationTransfer The information about a token transfer. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call estimateFeeStationFeeAsync(FeeStationTransfer feeStationTransfer, final ApiCallback<EstimatedFixedFee> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = estimateFeeStationFeeValidateBeforeCall(feeStationTransfer, _callback);
+        Type localVarReturnType = new TypeToken<EstimatedFixedFee>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for getFeeStationTransactionById
      * @param transactionId The transaction ID. (required)
@@ -628,7 +743,7 @@ public class FeeStationApi {
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ListTokenBalancesForAddress200Response
+     * @return ListTokenBalancesForFeeStation200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -638,8 +753,8 @@ public class FeeStationApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListTokenBalancesForAddress200Response listTokenBalancesForFeeStation(String tokenIds, Integer limit, String before, String after) throws ApiException {
-        ApiResponse<ListTokenBalancesForAddress200Response> localVarResp = listTokenBalancesForFeeStationWithHttpInfo(tokenIds, limit, before, after);
+    public ListTokenBalancesForFeeStation200Response listTokenBalancesForFeeStation(String tokenIds, Integer limit, String before, String after) throws ApiException {
+        ApiResponse<ListTokenBalancesForFeeStation200Response> localVarResp = listTokenBalancesForFeeStationWithHttpInfo(tokenIds, limit, before, after);
         return localVarResp.getData();
     }
 
@@ -650,7 +765,7 @@ public class FeeStationApi {
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ApiResponse&lt;ListTokenBalancesForAddress200Response&gt;
+     * @return ApiResponse&lt;ListTokenBalancesForFeeStation200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -660,9 +775,9 @@ public class FeeStationApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListTokenBalancesForAddress200Response> listTokenBalancesForFeeStationWithHttpInfo(String tokenIds, Integer limit, String before, String after) throws ApiException {
+    public ApiResponse<ListTokenBalancesForFeeStation200Response> listTokenBalancesForFeeStationWithHttpInfo(String tokenIds, Integer limit, String before, String after) throws ApiException {
         okhttp3.Call localVarCall = listTokenBalancesForFeeStationValidateBeforeCall(tokenIds, limit, before, after, null);
-        Type localVarReturnType = new TypeToken<ListTokenBalancesForAddress200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListTokenBalancesForFeeStation200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -684,10 +799,10 @@ public class FeeStationApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTokenBalancesForFeeStationAsync(String tokenIds, Integer limit, String before, String after, final ApiCallback<ListTokenBalancesForAddress200Response> _callback) throws ApiException {
+    public okhttp3.Call listTokenBalancesForFeeStationAsync(String tokenIds, Integer limit, String before, String after, final ApiCallback<ListTokenBalancesForFeeStation200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listTokenBalancesForFeeStationValidateBeforeCall(tokenIds, limit, before, after, _callback);
-        Type localVarReturnType = new TypeToken<ListTokenBalancesForAddress200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListTokenBalancesForFeeStation200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
