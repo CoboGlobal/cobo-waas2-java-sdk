@@ -42,9 +42,9 @@ public class FeeStationApiTest {
     private final FeeStationApi api = new FeeStationApi();
 
     /**
-     * Get fee station transaction information
+     * Get Fee Station transaction information
      *
-     * This operation retrieves detailed information about a specified transaction, such as the transaction status, source address, destination address, and timestamp. 
+     * This operation retrieves detailed information about a specified Fee Station transaction, such as the transaction status, source address, destination address, and timestamp. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -56,9 +56,9 @@ public class FeeStationApiTest {
     }
 
     /**
-     * List fee station addresses
+     * List Fee Station addresses
      *
-     * This operation retrieves a list of addresses within a specified wallet. 
+     * This operation retrieves a list of addresses within your Fee Station. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -74,9 +74,9 @@ public class FeeStationApiTest {
     }
 
     /**
-     * List all fee station transactions
+     * List all Fee Station transactions
      *
-     * This operation retrieves all the transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamps. You can also paginate and sort your query results. 
+     * This operation retrieves all Fee Station transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamp. You can also paginate and sort your query results. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -102,9 +102,9 @@ public class FeeStationApiTest {
     }
 
     /**
-     * List token balances by fee station
+     * List Fee Station token balances
      *
-     * The operation retrieves a list of token balances within a specified wallet.  &lt;Note&gt;This operation is not applicable to Exchange Wallets.&lt;/Note&gt; 
+     * The operation retrieves a list of token balances within your Fee Station. 
      *
      * @throws ApiException if the Api call fails
      */

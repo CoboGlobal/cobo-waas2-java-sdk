@@ -12,7 +12,10 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.BTCBIP137MessageSignDestination;
+import com.cobo.waas2.model.BTCBIP322MessageSignDestination;
 import com.cobo.waas2.model.BTCEIP191MessageSignDestination;
+import com.cobo.waas2.model.CosmosAdr36MessageSignDestination;
 import com.cobo.waas2.model.EvmEIP191MessageSignDestination;
 import com.cobo.waas2.model.EvmEIP712MessageSignDestination;
 import com.cobo.waas2.model.MessageSignDestinationType;
@@ -81,6 +84,9 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
             final TypeAdapter<EvmEIP712MessageSignDestination> adapterEvmEIP712MessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(EvmEIP712MessageSignDestination.class));
             final TypeAdapter<RawMessageSignDestination> adapterRawMessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(RawMessageSignDestination.class));
             final TypeAdapter<BTCEIP191MessageSignDestination> adapterBTCEIP191MessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(BTCEIP191MessageSignDestination.class));
+            final TypeAdapter<BTCBIP137MessageSignDestination> adapterBTCBIP137MessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(BTCBIP137MessageSignDestination.class));
+            final TypeAdapter<BTCBIP322MessageSignDestination> adapterBTCBIP322MessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(BTCBIP322MessageSignDestination.class));
+            final TypeAdapter<CosmosAdr36MessageSignDestination> adapterCosmosAdr36MessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(CosmosAdr36MessageSignDestination.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MessageSignDestination>() {
                 @Override
@@ -114,7 +120,25 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BTCEIP191MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination");
+                    // check if the actual instance is of the type `BTCBIP137MessageSignDestination`
+                    if (value.getActualInstance() instanceof BTCBIP137MessageSignDestination) {
+                        JsonElement element = adapterBTCBIP137MessageSignDestination.toJsonTree((BTCBIP137MessageSignDestination)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `BTCBIP322MessageSignDestination`
+                    if (value.getActualInstance() instanceof BTCBIP322MessageSignDestination) {
+                        JsonElement element = adapterBTCBIP322MessageSignDestination.toJsonTree((BTCBIP322MessageSignDestination)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `CosmosAdr36MessageSignDestination`
+                    if (value.getActualInstance() instanceof CosmosAdr36MessageSignDestination) {
+                        JsonElement element = adapterCosmosAdr36MessageSignDestination.toJsonTree((CosmosAdr36MessageSignDestination)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, BTCEIP191MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination");
                 }
 
                 @Override
@@ -131,8 +155,20 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                     } else  {
                         // look up the discriminator value in the field `destination_type`
                         switch (jsonObject.get("destination_type").getAsString()) {
+                            case "BTC_BIP_137_Signature":
+                                deserialized = adapterBTCBIP137MessageSignDestination.fromJsonTree(jsonObject);
+                                newMessageSignDestination.setActualInstance(deserialized);
+                                return newMessageSignDestination;
+                            case "BTC_BIP_322_Signature":
+                                deserialized = adapterBTCBIP322MessageSignDestination.fromJsonTree(jsonObject);
+                                newMessageSignDestination.setActualInstance(deserialized);
+                                return newMessageSignDestination;
                             case "BTC_EIP_191_Signature":
                                 deserialized = adapterBTCEIP191MessageSignDestination.fromJsonTree(jsonObject);
+                                newMessageSignDestination.setActualInstance(deserialized);
+                                return newMessageSignDestination;
+                            case "COSMOS_ADR_36_Signature":
+                                deserialized = adapterCosmosAdr36MessageSignDestination.fromJsonTree(jsonObject);
                                 newMessageSignDestination.setActualInstance(deserialized);
                                 return newMessageSignDestination;
                             case "EVM_EIP_191_Signature":
@@ -143,12 +179,24 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                                 deserialized = adapterEvmEIP712MessageSignDestination.fromJsonTree(jsonObject);
                                 newMessageSignDestination.setActualInstance(deserialized);
                                 return newMessageSignDestination;
-                            case "RAW_MESSAGE":
+                            case "Raw_Message_Signature":
                                 deserialized = adapterRawMessageSignDestination.fromJsonTree(jsonObject);
+                                newMessageSignDestination.setActualInstance(deserialized);
+                                return newMessageSignDestination;
+                            case "BTCBIP137MessageSignDestination":
+                                deserialized = adapterBTCBIP137MessageSignDestination.fromJsonTree(jsonObject);
+                                newMessageSignDestination.setActualInstance(deserialized);
+                                return newMessageSignDestination;
+                            case "BTCBIP322MessageSignDestination":
+                                deserialized = adapterBTCBIP322MessageSignDestination.fromJsonTree(jsonObject);
                                 newMessageSignDestination.setActualInstance(deserialized);
                                 return newMessageSignDestination;
                             case "BTCEIP191MessageSignDestination":
                                 deserialized = adapterBTCEIP191MessageSignDestination.fromJsonTree(jsonObject);
+                                newMessageSignDestination.setActualInstance(deserialized);
+                                return newMessageSignDestination;
+                            case "CosmosAdr36MessageSignDestination":
+                                deserialized = adapterCosmosAdr36MessageSignDestination.fromJsonTree(jsonObject);
                                 newMessageSignDestination.setActualInstance(deserialized);
                                 return newMessageSignDestination;
                             case "EvmEIP191MessageSignDestination":
@@ -164,7 +212,7 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                                 newMessageSignDestination.setActualInstance(deserialized);
                                 return newMessageSignDestination;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for MessageSignDestination. Possible values: BTC_EIP_191_Signature EVM_EIP_191_Signature EVM_EIP_712_Signature RAW_MESSAGE BTCEIP191MessageSignDestination EvmEIP191MessageSignDestination EvmEIP712MessageSignDestination RawMessageSignDestination", jsonObject.get("destination_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for MessageSignDestination. Possible values: BTC_BIP_137_Signature BTC_BIP_322_Signature BTC_EIP_191_Signature COSMOS_ADR_36_Signature EVM_EIP_191_Signature EVM_EIP_712_Signature Raw_Message_Signature BTCBIP137MessageSignDestination BTCBIP322MessageSignDestination BTCEIP191MessageSignDestination CosmosAdr36MessageSignDestination EvmEIP191MessageSignDestination EvmEIP712MessageSignDestination RawMessageSignDestination", jsonObject.get("destination_type").getAsString()));
                         }
                     }
 
@@ -220,6 +268,42 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for BTCEIP191MessageSignDestination failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'BTCEIP191MessageSignDestination'", e);
                     }
+                    // deserialize BTCBIP137MessageSignDestination
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        BTCBIP137MessageSignDestination.validateJsonElement(jsonElement);
+                        actualAdapter = adapterBTCBIP137MessageSignDestination;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'BTCBIP137MessageSignDestination'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for BTCBIP137MessageSignDestination failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'BTCBIP137MessageSignDestination'", e);
+                    }
+                    // deserialize BTCBIP322MessageSignDestination
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        BTCBIP322MessageSignDestination.validateJsonElement(jsonElement);
+                        actualAdapter = adapterBTCBIP322MessageSignDestination;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'BTCBIP322MessageSignDestination'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for BTCBIP322MessageSignDestination failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'BTCBIP322MessageSignDestination'", e);
+                    }
+                    // deserialize CosmosAdr36MessageSignDestination
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CosmosAdr36MessageSignDestination.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCosmosAdr36MessageSignDestination;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CosmosAdr36MessageSignDestination'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for CosmosAdr36MessageSignDestination failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CosmosAdr36MessageSignDestination'", e);
+                    }
 
                     if (match == 1) {
                         MessageSignDestination ret = new MessageSignDestination();
@@ -240,7 +324,22 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
+    public MessageSignDestination(BTCBIP137MessageSignDestination o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public MessageSignDestination(BTCBIP322MessageSignDestination o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public MessageSignDestination(BTCEIP191MessageSignDestination o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public MessageSignDestination(CosmosAdr36MessageSignDestination o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -265,6 +364,9 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
         schemas.put("EvmEIP712MessageSignDestination", EvmEIP712MessageSignDestination.class);
         schemas.put("RawMessageSignDestination", RawMessageSignDestination.class);
         schemas.put("BTCEIP191MessageSignDestination", BTCEIP191MessageSignDestination.class);
+        schemas.put("BTCBIP137MessageSignDestination", BTCBIP137MessageSignDestination.class);
+        schemas.put("BTCBIP322MessageSignDestination", BTCBIP322MessageSignDestination.class);
+        schemas.put("CosmosAdr36MessageSignDestination", CosmosAdr36MessageSignDestination.class);
     }
 
     @Override
@@ -275,7 +377,7 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * BTCEIP191MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination
+     * BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, BTCEIP191MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -301,14 +403,29 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be BTCEIP191MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination");
+        if (instance instanceof BTCBIP137MessageSignDestination) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BTCBIP322MessageSignDestination) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof CosmosAdr36MessageSignDestination) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, BTCEIP191MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * BTCEIP191MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination
+     * BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, BTCEIP191MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination
      *
-     * @return The actual instance (BTCEIP191MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination)
+     * @return The actual instance (BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, BTCEIP191MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -356,6 +473,36 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
     public BTCEIP191MessageSignDestination getBTCEIP191MessageSignDestination() throws ClassCastException {
         return (BTCEIP191MessageSignDestination)super.getActualInstance();
     }
+    /**
+     * Get the actual instance of `BTCBIP137MessageSignDestination`. If the actual instance is not `BTCBIP137MessageSignDestination`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BTCBIP137MessageSignDestination`
+     * @throws ClassCastException if the instance is not `BTCBIP137MessageSignDestination`
+     */
+    public BTCBIP137MessageSignDestination getBTCBIP137MessageSignDestination() throws ClassCastException {
+        return (BTCBIP137MessageSignDestination)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `BTCBIP322MessageSignDestination`. If the actual instance is not `BTCBIP322MessageSignDestination`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BTCBIP322MessageSignDestination`
+     * @throws ClassCastException if the instance is not `BTCBIP322MessageSignDestination`
+     */
+    public BTCBIP322MessageSignDestination getBTCBIP322MessageSignDestination() throws ClassCastException {
+        return (BTCBIP322MessageSignDestination)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `CosmosAdr36MessageSignDestination`. If the actual instance is not `CosmosAdr36MessageSignDestination`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CosmosAdr36MessageSignDestination`
+     * @throws ClassCastException if the instance is not `CosmosAdr36MessageSignDestination`
+     */
+    public CosmosAdr36MessageSignDestination getCosmosAdr36MessageSignDestination() throws ClassCastException {
+        return (CosmosAdr36MessageSignDestination)super.getActualInstance();
+    }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
@@ -399,8 +546,32 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for BTCEIP191MessageSignDestination failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with BTCBIP137MessageSignDestination
+        try {
+            BTCBIP137MessageSignDestination.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for BTCBIP137MessageSignDestination failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BTCBIP322MessageSignDestination
+        try {
+            BTCBIP322MessageSignDestination.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for BTCBIP322MessageSignDestination failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with CosmosAdr36MessageSignDestination
+        try {
+            CosmosAdr36MessageSignDestination.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for CosmosAdr36MessageSignDestination failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for MessageSignDestination with oneOf schemas: BTCEIP191MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for MessageSignDestination with oneOf schemas: BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, BTCEIP191MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

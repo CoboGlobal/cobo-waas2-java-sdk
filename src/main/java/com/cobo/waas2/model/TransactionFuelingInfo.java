@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The fuel transaction data.
+ * Details of the auto-fueling transaction that provides gas for the current transaction.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -70,7 +70,7 @@ public class TransactionFuelingInfo {
   }
 
    /**
-   * The fuel transaction request ID.
+   * The request ID of the transaction.
    * @return requestId
   **/
   @javax.annotation.Nullable
@@ -89,7 +89,7 @@ public class TransactionFuelingInfo {
   }
 
    /**
-   * The fuel transaction ID.
+   * The transaction ID.
    * @return transactionId
   **/
   @javax.annotation.Nullable

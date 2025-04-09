@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.12.0</version>
+  <version>1.13.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.12.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.13.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.12.0.jar`
+* `target/cobo-waas2-1.13.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -214,10 +214,10 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *DevelopersWebhooksApi* | [**triggerTestWebhookEvent**](docs/DevelopersWebhooksApi.md#triggerTestWebhookEvent) | **POST** /webhooks/events/trigger | Trigger test event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
-*FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get fee station transaction information
-*FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List fee station addresses
-*FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all fee station transactions
-*FeeStationApi* | [**listTokenBalancesForFeeStation**](docs/FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List token balances by fee station
+*FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information
+*FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses
+*FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions
+*FeeStationApi* | [**listTokenBalancesForFeeStation**](docs/FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances
 *OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
 *OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
 *PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
@@ -246,12 +246,6 @@ Class | Method | HTTP request | Description
 *StakingsApi* | [**listStakingActivities**](docs/StakingsApi.md#listStakingActivities) | **GET** /stakings/activities | List staking activities
 *StakingsApi* | [**listStakingPools**](docs/StakingsApi.md#listStakingPools) | **GET** /stakings/pools | List staking pools
 *StakingsApi* | [**listStakings**](docs/StakingsApi.md#listStakings) | **GET** /stakings | List staking positions
-*SwapsApi* | [**createSwapActivity**](docs/SwapsApi.md#createSwapActivity) | **POST** /swaps/swap | Create Swap Activity
-*SwapsApi* | [**createSwapQuote**](docs/SwapsApi.md#createSwapQuote) | **POST** /swaps/quote | Create Swap Quote
-*SwapsApi* | [**getSwapActivity**](docs/SwapsApi.md#getSwapActivity) | **GET** /swaps/activities/{activity_id} | Get Swap Activity Details
-*SwapsApi* | [**getSwapQuote**](docs/SwapsApi.md#getSwapQuote) | **GET** /swaps/quote | Get Current Swap Rate
-*SwapsApi* | [**listEnableTokenPairs**](docs/SwapsApi.md#listEnableTokenPairs) | **GET** /swaps/enabled_pairs | List Supported Token Pairs
-*SwapsApi* | [**listSwapActivities**](docs/SwapsApi.md#listSwapActivities) | **GET** /swaps/activities | List Swap Activities
 *TransactionsApi* | [**broadcastSignedTransactions**](docs/TransactionsApi.md#broadcastSignedTransactions) | **POST** /transactions/broadcast | Broadcast signed transactions
 *TransactionsApi* | [**cancelTransactionById**](docs/TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction
 *TransactionsApi* | [**checkLoopTransfers**](docs/TransactionsApi.md#checkLoopTransfers) | **GET** /transactions/check_loop_transfers | Check Cobo Loop transfers
@@ -292,7 +286,7 @@ Class | Method | HTTP request | Description
 *WalletsApi* | [**listUtxos**](docs/WalletsApi.md#listUtxos) | **GET** /wallets/{wallet_id}/utxos | List UTXOs
 *WalletsApi* | [**listWallets**](docs/WalletsApi.md#listWallets) | **GET** /wallets | List all wallets
 *WalletsApi* | [**lockUtxos**](docs/WalletsApi.md#lockUtxos) | **POST** /wallets/{wallet_id}/utxos/lock | Lock UTXOs
-*WalletsApi* | [**refreshAddressBalancesByToken**](docs/WalletsApi.md#refreshAddressBalancesByToken) | **PUT** /wallets/{wallet_id}/tokens/{token_id}/refresh_address_balances | refresh address balances by token
+*WalletsApi* | [**refreshAddressBalancesByToken**](docs/WalletsApi.md#refreshAddressBalancesByToken) | **PUT** /wallets/{wallet_id}/tokens/{token_id}/refresh_address_balances | Refresh address balances by token
 *WalletsApi* | [**unlockUtxos**](docs/WalletsApi.md#unlockUtxos) | **POST** /wallets/{wallet_id}/utxos/unlock | Unlock UTXOs
 *WalletsApi* | [**updateWalletById**](docs/WalletsApi.md#updateWalletById) | **PUT** /wallets/{wallet_id} | Update wallet
 *WalletsExchangeWalletApi* | [**listAssetBalancesForExchangeWallet**](docs/WalletsExchangeWalletApi.md#listAssetBalancesForExchangeWallet) | **GET** /wallets/{wallet_id}/exchanges/assets | List asset balances
@@ -348,6 +342,8 @@ Class | Method | HTTP request | Description
  - [AssetBalance](docs/AssetBalance.md)
  - [AssetInfo](docs/AssetInfo.md)
  - [AutoFuelType](docs/AutoFuelType.md)
+ - [BTCBIP137MessageSignDestination](docs/BTCBIP137MessageSignDestination.md)
+ - [BTCBIP322MessageSignDestination](docs/BTCBIP322MessageSignDestination.md)
  - [BTCEIP191MessageSignDestination](docs/BTCEIP191MessageSignDestination.md)
  - [BabylonAirdropPop](docs/BabylonAirdropPop.md)
  - [BabylonAirdropRegistration](docs/BabylonAirdropRegistration.md)
@@ -361,6 +357,7 @@ Class | Method | HTTP request | Description
  - [BabylonStakingRegistration](docs/BabylonStakingRegistration.md)
  - [BabylonValidator](docs/BabylonValidator.md)
  - [Balance](docs/Balance.md)
+ - [BankAccount](docs/BankAccount.md)
  - [BaseContractCallSource](docs/BaseContractCallSource.md)
  - [BaseEstimateStakingFee](docs/BaseEstimateStakingFee.md)
  - [BaseStakeExtra](docs/BaseStakeExtra.md)
@@ -385,6 +382,9 @@ Class | Method | HTTP request | Description
  - [CoreStakeExtra](docs/CoreStakeExtra.md)
  - [CoreStakingActivityDetailExtra](docs/CoreStakingActivityDetailExtra.md)
  - [CoreStakingExtra](docs/CoreStakingExtra.md)
+ - [CosmosAdr36MessageSignDestination](docs/CosmosAdr36MessageSignDestination.md)
+ - [CosmosContractCallDestination](docs/CosmosContractCallDestination.md)
+ - [CosmosContractCallMessage](docs/CosmosContractCallMessage.md)
  - [CreateAddressRequest](docs/CreateAddressRequest.md)
  - [CreateBabylonAirdropRegistration201Response](docs/CreateBabylonAirdropRegistration201Response.md)
  - [CreateBabylonAirdropRegistrationRequest](docs/CreateBabylonAirdropRegistrationRequest.md)
@@ -402,14 +402,12 @@ Class | Method | HTTP request | Description
  - [CreatePrimeBrokerAddress201Response](docs/CreatePrimeBrokerAddress201Response.md)
  - [CreatePrimeBrokerAddressRequest](docs/CreatePrimeBrokerAddressRequest.md)
  - [CreateSafeWalletParams](docs/CreateSafeWalletParams.md)
+ - [CreateSettlement](docs/CreateSettlement.md)
  - [CreateSmartContractWalletParams](docs/CreateSmartContractWalletParams.md)
  - [CreateStakeActivity](docs/CreateStakeActivity.md)
  - [CreateStakeActivity201Response](docs/CreateStakeActivity201Response.md)
  - [CreateStakeActivityExtra](docs/CreateStakeActivityExtra.md)
  - [CreateStakeActivityRequest](docs/CreateStakeActivityRequest.md)
- - [CreateSwapActivityRequest](docs/CreateSwapActivityRequest.md)
- - [CreateSwapQuote201Response](docs/CreateSwapQuote201Response.md)
- - [CreateSwapQuoteRequest](docs/CreateSwapQuoteRequest.md)
  - [CreateTransferTransaction201Response](docs/CreateTransferTransaction201Response.md)
  - [CreateTssRequestRequest](docs/CreateTssRequestRequest.md)
  - [CreateUnstakeActivity](docs/CreateUnstakeActivity.md)
@@ -498,7 +496,6 @@ Class | Method | HTTP request | Description
  - [ListBabylonEligibleStakings200ResponseDataInner](docs/ListBabylonEligibleStakings200ResponseDataInner.md)
  - [ListBabylonStakingRegistrations200Response](docs/ListBabylonStakingRegistrations200Response.md)
  - [ListCallbackMessages200Response](docs/ListCallbackMessages200Response.md)
- - [ListEnableTokenPairs200Response](docs/ListEnableTokenPairs200Response.md)
  - [ListExchanges200ResponseInner](docs/ListExchanges200ResponseInner.md)
  - [ListKeyShareHolderGroups200Response](docs/ListKeyShareHolderGroups200Response.md)
  - [ListKeyShareHolders200Response](docs/ListKeyShareHolders200Response.md)
@@ -511,7 +508,6 @@ Class | Method | HTTP request | Description
  - [ListSupportedChains200Response](docs/ListSupportedChains200Response.md)
  - [ListSupportedCountries200ResponseInner](docs/ListSupportedCountries200ResponseInner.md)
  - [ListSupportedTokens200Response](docs/ListSupportedTokens200Response.md)
- - [ListSwapActivities200Response](docs/ListSwapActivities200Response.md)
  - [ListTokenBalancesForAddress200Response](docs/ListTokenBalancesForAddress200Response.md)
  - [ListTransactionApprovalDetails200Response](docs/ListTransactionApprovalDetails200Response.md)
  - [ListTransactions200Response](docs/ListTransactions200Response.md)
@@ -533,6 +529,7 @@ Class | Method | HTTP request | Description
  - [MPCWalletInfo](docs/MPCWalletInfo.md)
  - [MaxFeeAmount](docs/MaxFeeAmount.md)
  - [MaxTransferableValue](docs/MaxTransferableValue.md)
+ - [Merchant](docs/Merchant.md)
  - [MessageSignDestination](docs/MessageSignDestination.md)
  - [MessageSignDestinationType](docs/MessageSignDestinationType.md)
  - [MessageSignParams](docs/MessageSignParams.md)
@@ -543,8 +540,11 @@ Class | Method | HTTP request | Description
  - [MpcSigningGroup](docs/MpcSigningGroup.md)
  - [MpcStakeSource](docs/MpcStakeSource.md)
  - [MpcTransferSource](docs/MpcTransferSource.md)
+ - [Order](docs/Order.md)
+ - [OrderStatus](docs/OrderStatus.md)
  - [OrgInfo](docs/OrgInfo.md)
  - [Pagination](docs/Pagination.md)
+ - [PaymentTransaction](docs/PaymentTransaction.md)
  - [PoolDetails](docs/PoolDetails.md)
  - [PoolDetailsAllOfValidatorsInfo](docs/PoolDetailsAllOfValidatorsInfo.md)
  - [PoolSummary](docs/PoolSummary.md)
@@ -556,6 +556,9 @@ Class | Method | HTTP request | Description
  - [RefreshAddressBalancesByTokenRequest](docs/RefreshAddressBalancesByTokenRequest.md)
  - [RefreshToken2XXResponse](docs/RefreshToken2XXResponse.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
+ - [Refund](docs/Refund.md)
+ - [RefundStatus](docs/RefundStatus.md)
+ - [RefundType](docs/RefundType.md)
  - [ReplaceType](docs/ReplaceType.md)
  - [RetryCallbackMessage201Response](docs/RetryCallbackMessage201Response.md)
  - [RetryWebhookEventById201Response](docs/RetryWebhookEventById201Response.md)
@@ -574,6 +577,12 @@ Class | Method | HTTP request | Description
  - [Scopes](docs/Scopes.md)
  - [SelectedEntityType](docs/SelectedEntityType.md)
  - [SelfCustodyWallet](docs/SelfCustodyWallet.md)
+ - [SettleRequestStatus](docs/SettleRequestStatus.md)
+ - [SettleStatus](docs/SettleStatus.md)
+ - [Settlement](docs/Settlement.md)
+ - [SettlementDetail](docs/SettlementDetail.md)
+ - [SettlementInfo](docs/SettlementInfo.md)
+ - [SettlementType](docs/SettlementType.md)
  - [SmartContractInitiator](docs/SmartContractInitiator.md)
  - [SmartContractWalletInfo](docs/SmartContractWalletInfo.md)
  - [SmartContractWalletOperationType](docs/SmartContractWalletOperationType.md)
@@ -591,8 +600,10 @@ Class | Method | HTTP request | Description
  - [SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
  - [SubmitDepositTravelRuleInfo201Response](docs/SubmitDepositTravelRuleInfo201Response.md)
  - [SwapActivity](docs/SwapActivity.md)
+ - [SwapActivityStatus](docs/SwapActivityStatus.md)
+ - [SwapActivityType](docs/SwapActivityType.md)
  - [SwapQuote](docs/SwapQuote.md)
- - [SwapTokenPair](docs/SwapTokenPair.md)
+ - [SwapToken](docs/SwapToken.md)
  - [TSSGroups](docs/TSSGroups.md)
  - [TSSRequest](docs/TSSRequest.md)
  - [TSSRequestStatus](docs/TSSRequestStatus.md)
@@ -601,13 +612,25 @@ Class | Method | HTTP request | Description
  - [TokenAssetModelType](docs/TokenAssetModelType.md)
  - [TokenBalance](docs/TokenBalance.md)
  - [TokenInfo](docs/TokenInfo.md)
+ - [TokenListing](docs/TokenListing.md)
+ - [TokenListingEventData](docs/TokenListingEventData.md)
+ - [TokenListingRequestSource](docs/TokenListingRequestSource.md)
+ - [TokenListingRequestStatus](docs/TokenListingRequestStatus.md)
  - [TokensEventData](docs/TokensEventData.md)
  - [Transaction](docs/Transaction.md)
  - [TransactionApprovalDetail](docs/TransactionApprovalDetail.md)
  - [TransactionApprovalResult](docs/TransactionApprovalResult.md)
  - [TransactionApprover](docs/TransactionApprover.md)
+ - [TransactionBIP137Destination](docs/TransactionBIP137Destination.md)
+ - [TransactionBIP322Destination](docs/TransactionBIP322Destination.md)
+ - [TransactionBabylonBusinessInfo](docs/TransactionBabylonBusinessInfo.md)
+ - [TransactionBabylonTxParameters](docs/TransactionBabylonTxParameters.md)
  - [TransactionBlockInfo](docs/TransactionBlockInfo.md)
  - [TransactionCoboCategory](docs/TransactionCoboCategory.md)
+ - [TransactionCoreStakeInfo](docs/TransactionCoreStakeInfo.md)
+ - [TransactionCosmosAdr36Destination](docs/TransactionCosmosAdr36Destination.md)
+ - [TransactionCosmosContractDestination](docs/TransactionCosmosContractDestination.md)
+ - [TransactionCosmosMessage](docs/TransactionCosmosMessage.md)
  - [TransactionCustodialAssetWalletSource](docs/TransactionCustodialAssetWalletSource.md)
  - [TransactionCustodialWeb3WalletSource](docs/TransactionCustodialWeb3WalletSource.md)
  - [TransactionDepositFromAddressSource](docs/TransactionDepositFromAddressSource.md)
@@ -626,12 +649,15 @@ Class | Method | HTTP request | Description
  - [TransactionEvmEip1559Fee](docs/TransactionEvmEip1559Fee.md)
  - [TransactionEvmLegacyFee](docs/TransactionEvmLegacyFee.md)
  - [TransactionExchangeWalletSource](docs/TransactionExchangeWalletSource.md)
+ - [TransactionExtra](docs/TransactionExtra.md)
+ - [TransactionExtraType](docs/TransactionExtraType.md)
  - [TransactionFee](docs/TransactionFee.md)
  - [TransactionFeeStationWalletSource](docs/TransactionFeeStationWalletSource.md)
  - [TransactionFixedFee](docs/TransactionFixedFee.md)
  - [TransactionFuelingInfo](docs/TransactionFuelingInfo.md)
  - [TransactionInitiatorType](docs/TransactionInitiatorType.md)
  - [TransactionMPCWalletSource](docs/TransactionMPCWalletSource.md)
+ - [TransactionMessageSignBTCEIP191Destination](docs/TransactionMessageSignBTCEIP191Destination.md)
  - [TransactionMessageSignEIP191Destination](docs/TransactionMessageSignEIP191Destination.md)
  - [TransactionMessageSignEIP712Destination](docs/TransactionMessageSignEIP712Destination.md)
  - [TransactionProcessType](docs/TransactionProcessType.md)
@@ -787,6 +813,16 @@ Authentication schemes defined for the API:
   - webhook.read: Read webhook URLs/events
   - webhook.edit: Edit webhook URLs
   - webhook.resend: Resend webhook events
+  - payment_orders_payin.create: Create payment order
+  - payment_orders_payin.read: Read payment order information
+  - payment_orders_payin.update: Update payment order
+  - payment_orders_refund.create: Create payment refund order
+  - payment_orders_refund.read: Read payment refund order information
+  - payment_settlement.create: Create payment settlement request
+  - payment_settlement.read: Read payment settlement request information
+  - payment_merchant.create: Create payment merchant
+  - payment_merchant.read: Read payment merchant information
+  - payment_merchant.update: Update payment merchant
 
 
 ## Recommendation

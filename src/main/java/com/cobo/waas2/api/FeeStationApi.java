@@ -115,8 +115,8 @@ public class FeeStationApi {
     }
 
     /**
-     * Get fee station transaction information
-     * This operation retrieves detailed information about a specified transaction, such as the transaction status, source address, destination address, and timestamp. 
+     * Get Fee Station transaction information
+     * This operation retrieves detailed information about a specified Fee Station transaction, such as the transaction status, source address, destination address, and timestamp. 
      * @param transactionId The transaction ID. (required)
      * @return TransactionDetail
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -134,8 +134,8 @@ public class FeeStationApi {
     }
 
     /**
-     * Get fee station transaction information
-     * This operation retrieves detailed information about a specified transaction, such as the transaction status, source address, destination address, and timestamp. 
+     * Get Fee Station transaction information
+     * This operation retrieves detailed information about a specified Fee Station transaction, such as the transaction status, source address, destination address, and timestamp. 
      * @param transactionId The transaction ID. (required)
      * @return ApiResponse&lt;TransactionDetail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -154,8 +154,8 @@ public class FeeStationApi {
     }
 
     /**
-     * Get fee station transaction information (asynchronously)
-     * This operation retrieves detailed information about a specified transaction, such as the transaction status, source address, destination address, and timestamp. 
+     * Get Fee Station transaction information (asynchronously)
+     * This operation retrieves detailed information about a specified Fee Station transaction, such as the transaction status, source address, destination address, and timestamp. 
      * @param transactionId The transaction ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -251,8 +251,8 @@ public class FeeStationApi {
     }
 
     /**
-     * List fee station addresses
-     * This operation retrieves a list of addresses within a specified wallet. 
+     * List Fee Station addresses
+     * This operation retrieves a list of addresses within your Fee Station. 
      * @param chainIds A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -274,8 +274,8 @@ public class FeeStationApi {
     }
 
     /**
-     * List fee station addresses
-     * This operation retrieves a list of addresses within a specified wallet. 
+     * List Fee Station addresses
+     * This operation retrieves a list of addresses within your Fee Station. 
      * @param chainIds A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -298,8 +298,8 @@ public class FeeStationApi {
     }
 
     /**
-     * List fee station addresses (asynchronously)
-     * This operation retrieves a list of addresses within a specified wallet. 
+     * List Fee Station addresses (asynchronously)
+     * This operation retrieves a list of addresses within your Fee Station. 
      * @param chainIds A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -329,7 +329,7 @@ public class FeeStationApi {
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param transactionHashes A list of transaction hashes, separated by comma. (optional)
-     * @param types A list of transaction types, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  (optional)
+     * @param types A list of transaction types for Fee Station, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  (optional)
      * @param statuses A list of transaction statuses, separated by comma. Possible values include:    - &#x60;Submitted&#x60;: The transaction is submitted.   - &#x60;PendingScreening&#x60;: The transaction is pending screening by Risk Control.    - &#x60;PendingAuthorization&#x60;: The transaction is pending approvals.   - &#x60;PendingSignature&#x60;: The transaction is pending signature.    - &#x60;Broadcasting&#x60;: The transaction is being broadcast.   - &#x60;Confirming&#x60;: The transaction is waiting for the required number of confirmations.   - &#x60;Completed&#x60;: The transaction is completed.   - &#x60;Failed&#x60;: The transaction failed.   - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is waiting to be included in the next block of the blockchain.  (optional)
      * @param chainIds A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param tokenIds A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
@@ -449,13 +449,13 @@ public class FeeStationApi {
     }
 
     /**
-     * List all fee station transactions
-     * This operation retrieves all the transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamps. You can also paginate and sort your query results. 
+     * List all Fee Station transactions
+     * This operation retrieves all Fee Station transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamp. You can also paginate and sort your query results. 
      * @param requestId The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. (optional)
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param transactionHashes A list of transaction hashes, separated by comma. (optional)
-     * @param types A list of transaction types, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  (optional)
+     * @param types A list of transaction types for Fee Station, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  (optional)
      * @param statuses A list of transaction statuses, separated by comma. Possible values include:    - &#x60;Submitted&#x60;: The transaction is submitted.   - &#x60;PendingScreening&#x60;: The transaction is pending screening by Risk Control.    - &#x60;PendingAuthorization&#x60;: The transaction is pending approvals.   - &#x60;PendingSignature&#x60;: The transaction is pending signature.    - &#x60;Broadcasting&#x60;: The transaction is being broadcast.   - &#x60;Confirming&#x60;: The transaction is waiting for the required number of confirmations.   - &#x60;Completed&#x60;: The transaction is completed.   - &#x60;Failed&#x60;: The transaction failed.   - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is waiting to be included in the next block of the blockchain.  (optional)
      * @param chainIds A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param tokenIds A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
@@ -482,13 +482,13 @@ public class FeeStationApi {
     }
 
     /**
-     * List all fee station transactions
-     * This operation retrieves all the transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamps. You can also paginate and sort your query results. 
+     * List all Fee Station transactions
+     * This operation retrieves all Fee Station transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamp. You can also paginate and sort your query results. 
      * @param requestId The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. (optional)
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param transactionHashes A list of transaction hashes, separated by comma. (optional)
-     * @param types A list of transaction types, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  (optional)
+     * @param types A list of transaction types for Fee Station, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  (optional)
      * @param statuses A list of transaction statuses, separated by comma. Possible values include:    - &#x60;Submitted&#x60;: The transaction is submitted.   - &#x60;PendingScreening&#x60;: The transaction is pending screening by Risk Control.    - &#x60;PendingAuthorization&#x60;: The transaction is pending approvals.   - &#x60;PendingSignature&#x60;: The transaction is pending signature.    - &#x60;Broadcasting&#x60;: The transaction is being broadcast.   - &#x60;Confirming&#x60;: The transaction is waiting for the required number of confirmations.   - &#x60;Completed&#x60;: The transaction is completed.   - &#x60;Failed&#x60;: The transaction failed.   - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is waiting to be included in the next block of the blockchain.  (optional)
      * @param chainIds A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param tokenIds A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
@@ -516,13 +516,13 @@ public class FeeStationApi {
     }
 
     /**
-     * List all fee station transactions (asynchronously)
-     * This operation retrieves all the transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamps. You can also paginate and sort your query results. 
+     * List all Fee Station transactions (asynchronously)
+     * This operation retrieves all Fee Station transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamp. You can also paginate and sort your query results. 
      * @param requestId The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. (optional)
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param transactionHashes A list of transaction hashes, separated by comma. (optional)
-     * @param types A list of transaction types, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  (optional)
+     * @param types A list of transaction types for Fee Station, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  (optional)
      * @param statuses A list of transaction statuses, separated by comma. Possible values include:    - &#x60;Submitted&#x60;: The transaction is submitted.   - &#x60;PendingScreening&#x60;: The transaction is pending screening by Risk Control.    - &#x60;PendingAuthorization&#x60;: The transaction is pending approvals.   - &#x60;PendingSignature&#x60;: The transaction is pending signature.    - &#x60;Broadcasting&#x60;: The transaction is being broadcast.   - &#x60;Confirming&#x60;: The transaction is waiting for the required number of confirmations.   - &#x60;Completed&#x60;: The transaction is completed.   - &#x60;Failed&#x60;: The transaction failed.   - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is waiting to be included in the next block of the blockchain.  (optional)
      * @param chainIds A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param tokenIds A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
@@ -622,8 +622,8 @@ public class FeeStationApi {
     }
 
     /**
-     * List token balances by fee station
-     * The operation retrieves a list of token balances within a specified wallet.  &lt;Note&gt;This operation is not applicable to Exchange Wallets.&lt;/Note&gt; 
+     * List Fee Station token balances
+     * The operation retrieves a list of token balances within your Fee Station. 
      * @param tokenIds A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -644,8 +644,8 @@ public class FeeStationApi {
     }
 
     /**
-     * List token balances by fee station
-     * The operation retrieves a list of token balances within a specified wallet.  &lt;Note&gt;This operation is not applicable to Exchange Wallets.&lt;/Note&gt; 
+     * List Fee Station token balances
+     * The operation retrieves a list of token balances within your Fee Station. 
      * @param tokenIds A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -667,8 +667,8 @@ public class FeeStationApi {
     }
 
     /**
-     * List token balances by fee station (asynchronously)
-     * The operation retrieves a list of token balances within a specified wallet.  &lt;Note&gt;This operation is not applicable to Exchange Wallets.&lt;/Note&gt; 
+     * List Fee Station token balances (asynchronously)
+     * The operation retrieves a list of token balances within your Fee Station. 
      * @param tokenIds A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)

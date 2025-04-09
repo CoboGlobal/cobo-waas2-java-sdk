@@ -3068,7 +3068,7 @@ public class WalletsApi {
      * Build call for refreshAddressBalancesByToken
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh addresses balances. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3131,11 +3131,11 @@ public class WalletsApi {
     }
 
     /**
-     * refresh address balances by token
-     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * Refresh address balances by token
+     * This operation refreshes the balances of specified addresses for a given token within a wallet.  The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh addresses balances. (optional)
      * @return RefreshAddressBalancesByToken200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3152,11 +3152,11 @@ public class WalletsApi {
     }
 
     /**
-     * refresh address balances by token
-     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * Refresh address balances by token
+     * This operation refreshes the balances of specified addresses for a given token within a wallet.  The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh addresses balances. (optional)
      * @return ApiResponse&lt;RefreshAddressBalancesByToken200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3174,11 +3174,11 @@ public class WalletsApi {
     }
 
     /**
-     * refresh address balances by token (asynchronously)
-     * The operation refresh the balance of the given address list for a specified token within a wallet. The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * Refresh address balances by token (asynchronously)
+     * This operation refreshes the balances of specified addresses for a given token within a wallet.  The successful return of the request only means that the refresh request has been submitted.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param refreshAddressBalancesByTokenRequest The request body to refresh the addresses balance by  specified token within a specified wallet (optional)
+     * @param refreshAddressBalancesByTokenRequest The request body to refresh addresses balances. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3381,7 +3381,7 @@ public class WalletsApi {
 
     /**
      * Update wallet
-     * This operation updates the information of a specified wallet.  For Exchange Wallets, you can update the API key, API secret, and other information about your exchange accounts with this operation. For other wallet types, you can only update the wallet name. 
+     * This operation updates the information of a specified wallet. 
      * @param walletId The wallet ID. (required)
      * @param updateWalletParams The request body. (optional)
      * @return WalletInfo
@@ -3401,7 +3401,7 @@ public class WalletsApi {
 
     /**
      * Update wallet
-     * This operation updates the information of a specified wallet.  For Exchange Wallets, you can update the API key, API secret, and other information about your exchange accounts with this operation. For other wallet types, you can only update the wallet name. 
+     * This operation updates the information of a specified wallet. 
      * @param walletId The wallet ID. (required)
      * @param updateWalletParams The request body. (optional)
      * @return ApiResponse&lt;WalletInfo&gt;
@@ -3422,7 +3422,7 @@ public class WalletsApi {
 
     /**
      * Update wallet (asynchronously)
-     * This operation updates the information of a specified wallet.  For Exchange Wallets, you can update the API key, API secret, and other information about your exchange accounts with this operation. For other wallet types, you can only update the wallet name. 
+     * This operation updates the information of a specified wallet. 
      * @param walletId The wallet ID. (required)
      * @param updateWalletParams The request body. (optional)
      * @param _callback The callback to be executed when the API call finishes

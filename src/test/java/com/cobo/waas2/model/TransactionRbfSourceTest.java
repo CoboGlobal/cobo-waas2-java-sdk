@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.CustodialWeb3TransferSource;
 import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.MpcTransferSource;
 import com.cobo.waas2.model.TransactionUtxo;
