@@ -19,5 +19,11 @@
 
 * `P2TR` (value: `"ENCODING_P2TR"`)
 
+* `ADA_BYRON` (value: `"ENCODING_ADA_BYRON"`)
+
+* `ADA_SHELLEY` (value: `"ENCODING_ADA_SHELLEY"`)
+
+* `DEFAULT` (value: `"ENCODING_DEFAULT"`)
+
 
 

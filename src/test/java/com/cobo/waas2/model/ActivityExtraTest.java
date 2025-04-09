@@ -11,7 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.ActivityType;
 import com.cobo.waas2.model.BabylonStakingActivityDetailExtra;
 import com.cobo.waas2.model.CoreStakingActivityDetailExtra;
 import com.cobo.waas2.model.EthStakingActivityDetailExtra;
@@ -72,38 +71,6 @@ public class ActivityExtraTest {
     @Test
     public void autoBroadcastTest() {
         // TODO: test autoBroadcast
-    }
-
-    /**
-     * Test the property 'paramVersion'
-     */
-    @Test
-    public void paramVersionTest() {
-        // TODO: test paramVersion
-    }
-
-    /**
-     * Test the property 'withdrawFromType'
-     */
-    @Test
-    public void withdrawFromTypeTest() {
-        // TODO: test withdrawFromType
-    }
-
-    /**
-     * Test the property 'slashFromType'
-     */
-    @Test
-    public void slashFromTypeTest() {
-        // TODO: test slashFromType
-    }
-
-    /**
-     * Test the property 'stakeAmount'
-     */
-    @Test
-    public void stakeAmountTest() {
-        // TODO: test stakeAmount
     }
 
     /**
