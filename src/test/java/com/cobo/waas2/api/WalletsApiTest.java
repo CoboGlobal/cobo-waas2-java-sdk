@@ -20,6 +20,8 @@ import com.cobo.waas2.model.CheckAddressChainsValidity200ResponseInner;
 import com.cobo.waas2.model.CheckAddressValidity200Response;
 import com.cobo.waas2.model.CheckAddressesValidity200ResponseInner;
 import com.cobo.waas2.model.CreateAddressRequest;
+import com.cobo.waas2.model.CreateTokenListingRequest201Response;
+import com.cobo.waas2.model.CreateTokenListingRequestRequest;
 import com.cobo.waas2.model.CreateWalletParams;
 import com.cobo.waas2.model.CreatedWalletInfo;
 import com.cobo.waas2.model.DeleteWalletById201Response;
@@ -30,6 +32,7 @@ import com.cobo.waas2.model.ListAddresses200Response;
 import com.cobo.waas2.model.ListSupportedChains200Response;
 import com.cobo.waas2.model.ListSupportedTokens200Response;
 import com.cobo.waas2.model.ListTokenBalancesForAddress200Response;
+import com.cobo.waas2.model.ListTokenListingRequests200Response;
 import com.cobo.waas2.model.ListUtxos200Response;
 import com.cobo.waas2.model.ListWallets200Response;
 import com.cobo.waas2.model.LockUtxos201Response;
@@ -37,6 +40,8 @@ import com.cobo.waas2.model.LockUtxosRequest;
 import com.cobo.waas2.model.MaxTransferableValue;
 import com.cobo.waas2.model.RefreshAddressBalancesByToken200Response;
 import com.cobo.waas2.model.RefreshAddressBalancesByTokenRequest;
+import com.cobo.waas2.model.TokenListing;
+import com.cobo.waas2.model.TokenListingRequestStatus;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateWalletParams;
 import com.cobo.waas2.model.WalletInfo;
@@ -124,6 +129,20 @@ public class WalletsApiTest {
     }
 
     /**
+     * Submit token listing request
+     *
+     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createTokenListingRequestTest() throws ApiException {
+        CreateTokenListingRequestRequest createTokenListingRequestRequest = null;
+        CreateTokenListingRequest201Response response = api.createTokenListingRequest(createTokenListingRequestRequest);
+        // TODO: test validations
+    }
+
+    /**
      * Create wallet
      *
      * This operation creates a wallet with the provided information.  &lt;Note&gt;This operation is not applicable to Smart Contract Wallets.&lt;/Note&gt; 
@@ -194,6 +213,20 @@ public class WalletsApiTest {
     public void getTokenByIdTest() throws ApiException {
         String tokenId = null;
         ExtendedTokenInfo response = api.getTokenById(tokenId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get token listing request details
+     *
+     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTokenListingRequestByRequestIdTest() throws ApiException {
+        String requestId = null;
+        TokenListing response = api.getTokenListingRequestByRequestId(requestId);
         // TODO: test validations
     }
 
@@ -359,6 +392,23 @@ public class WalletsApiTest {
         String before = null;
         String after = null;
         ListTokenBalancesForAddress200Response response = api.listTokenBalancesForWallet(walletId, tokenIds, limit, before, after);
+        // TODO: test validations
+    }
+
+    /**
+     * Get all token listing requests
+     *
+     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listTokenListingRequestsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        TokenListingRequestStatus status = null;
+        ListTokenListingRequests200Response response = api.listTokenListingRequests(limit, before, after, status);
         // TODO: test validations
     }
 

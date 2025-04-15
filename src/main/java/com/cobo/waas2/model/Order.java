@@ -160,7 +160,7 @@ public class Order {
   }
 
    /**
-   * The ID of the cryptocurrency token used for payment.
+   * The ID of the cryptocurrency used for payment.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -236,7 +236,7 @@ public class Order {
   }
 
    /**
-   * The currency of the order.
+   * The fiat currency of the order.
    * @return currency
   **/
   @javax.annotation.Nonnull
@@ -255,7 +255,7 @@ public class Order {
   }
 
    /**
-   * The base amount in currency to be charged for the payment order, excluding the payment gateway fee (specified in &#x60;fee_amount&#x60;).
+   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;).
    * @return orderAmount
   **/
   @javax.annotation.Nonnull
@@ -274,7 +274,7 @@ public class Order {
   }
 
    /**
-   * The payment gateway fee in currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge.
+   * The developer fee for the order in fiat currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge.
    * @return feeAmount
   **/
   @javax.annotation.Nonnull
@@ -293,7 +293,7 @@ public class Order {
   }
 
    /**
-   * The exchange rate used to convert between currency and cryptocurrency token. Expressed as the amount of currency per one unit of cryptocurrency. For example, if the token is USDT and the currency is USD, a rate of \&quot;0.99\&quot; means 1 USDT &#x3D; 0.99 USD.
+   * The exchange rate between a currency pair. Expressed as the amount of fiat currency per one unit of cryptocurrency. For example, if the cryptocurrency is USDT and the fiat currency is USD, a rate of \&quot;0.99\&quot; means 1 USDT &#x3D; 0.99 USD.
    * @return exchangeRate
   **/
   @javax.annotation.Nonnull
@@ -312,7 +312,7 @@ public class Order {
   }
 
    /**
-   * The expiration time of the payment order, represented as a UNIX timestamp in seconds.
+   * The expiration time of the pay-in order, represented as a UNIX timestamp in seconds.
    * @return expiredAt
   **/
   @javax.annotation.Nullable
@@ -350,7 +350,7 @@ public class Order {
   }
 
    /**
-   * A unique reference code assigned by the payment gateway to identify this order in their system.
+   * A unique reference code assigned by the developer to identify this order in their system.
    * @return pspOrderCode
   **/
   @javax.annotation.Nonnull
@@ -388,7 +388,7 @@ public class Order {
   }
 
    /**
-   * The total cryptocurrency amount received for this order. Updates until order expires. Precision matches the token standard (e.g., 6 decimals for USDT).
+   * The total cryptocurrency amount received for this order. Updates until the expiration time. Precision matches the token standard (e.g., 6 decimals for USDT).
    * @return receivedTokenAmount
   **/
   @javax.annotation.Nonnull

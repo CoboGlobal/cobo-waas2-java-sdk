@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**merchantId** | **String** | The merchant ID. |  |
 |**name** | **String** | The merchant name. |  |
-|**walletId** | **UUID** | The ID of the associated wallet. |  |
+|**walletId** | **UUID** | The ID of the linked wallet. |  |
 
 
 

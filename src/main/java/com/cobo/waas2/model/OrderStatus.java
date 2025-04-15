@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The current status of the payment order: - &#x60;Pending&#x60;: The order has been created and is awaiting payment. No incoming transaction has been detected. - &#x60;Processing&#x60;: An incoming transaction has been detected at the recipient address. - &#x60;Completed&#x60;: The payment has been fully received and is now complete. - &#x60;Expired&#x60;: The order has reached its expiration time without receiving any payment, or the order has been cancelled by the [Update payment order](https://www.cobo.com/developers/v2/api-references/payment/update-payment-order) operation. - &#x60;Underpaid&#x60;: The order has reached its expiration time. A payment was received but the amount is less than the order&#39;s required amount. 
+ * The current status of the pay-in order: - &#x60;Pending&#x60;: The order has been created and is awaiting payment. No incoming transaction has been detected. - &#x60;Processing&#x60;: An incoming transaction has been detected at the recipient address. - &#x60;Completed&#x60;: The payment has been fully received and is now complete. - &#x60;Expired&#x60;: The order has reached its expiration time without receiving any payment, or the order has been cancelled by the [Update pay-in order](https://www.cobo.com/developers/v2/api-references/payment/update-pay-in-order) operation. - &#x60;Underpaid&#x60;: The order has reached its expiration time. A payment was received but the amount is less than the order&#39;s required amount. 
  */
 @JsonAdapter(OrderStatus.Adapter.class)
 public enum OrderStatus {

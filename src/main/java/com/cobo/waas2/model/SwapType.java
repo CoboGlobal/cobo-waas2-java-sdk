@@ -24,8 +24,8 @@ import com.google.gson.stream.JsonWriter;
 /**
  * The type of the swap activity. Possible values include: - &#x60;Bridge&#x60;: The activity is a bridge activity. - &#x60;Exchange&#x60;: The activity is an exchange activity. 
  */
-@JsonAdapter(SwapActivityType.Adapter.class)
-public enum SwapActivityType {
+@JsonAdapter(SwapType.Adapter.class)
+public enum SwapType {
   UNKNOWN(null),
   
   BRIDGE("Bridge"),
@@ -34,7 +34,7 @@ public enum SwapActivityType {
 
   private String value;
 
-  SwapActivityType(String value) {
+  SwapType(String value) {
     this.value = value;
   }
 
@@ -47,8 +47,8 @@ public enum SwapActivityType {
     return String.valueOf(value);
   }
 
-  public static SwapActivityType fromValue(String value) {
-    for (SwapActivityType b : SwapActivityType.values()) {
+  public static SwapType fromValue(String value) {
+    for (SwapType b : SwapType.values()) {
       if (b == UNKNOWN) continue;
       if (b.value.equals(value)) {
         return b;
@@ -58,22 +58,22 @@ public enum SwapActivityType {
     // throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<SwapActivityType> {
+  public static class Adapter extends TypeAdapter<SwapType> {
     @Override
-    public void write(final JsonWriter jsonWriter, final SwapActivityType enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final SwapType enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public SwapActivityType read(final JsonReader jsonReader) throws IOException {
+    public SwapType read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return SwapActivityType.fromValue(value);
+      return SwapType.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     String value = jsonElement.getAsString();
-    SwapActivityType.fromValue(value);
+    SwapType.fromValue(value);
   }
 }
 

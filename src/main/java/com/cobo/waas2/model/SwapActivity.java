@@ -13,7 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.SwapActivityStatus;
-import com.cobo.waas2.model.SwapActivityType;
+import com.cobo.waas2.model.SwapType;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -61,9 +61,9 @@ public class SwapActivity {
   @SerializedName(SERIALIZED_NAME_ACTIVITY_ID)
   private UUID activityId;
 
-  public static final String SERIALIZED_NAME_ACTIVITY_TYPE = "activity_type";
-  @SerializedName(SERIALIZED_NAME_ACTIVITY_TYPE)
-  private SwapActivityType activityType;
+  public static final String SERIALIZED_NAME_SWAP_TYPE = "swap_type";
+  @SerializedName(SERIALIZED_NAME_SWAP_TYPE)
+  private SwapType swapType;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -139,22 +139,22 @@ public class SwapActivity {
   }
 
 
-  public SwapActivity activityType(SwapActivityType activityType) {
-    this.activityType = activityType;
+  public SwapActivity swapType(SwapType swapType) {
+    this.swapType = swapType;
     return this;
   }
 
    /**
-   * Get activityType
-   * @return activityType
+   * Get swapType
+   * @return swapType
   **/
   @javax.annotation.Nullable
-  public SwapActivityType getActivityType() {
-    return activityType;
+  public SwapType getSwapType() {
+    return swapType;
   }
 
-  public void setActivityType(SwapActivityType activityType) {
-    this.activityType = activityType;
+  public void setSwapType(SwapType swapType) {
+    this.swapType = swapType;
   }
 
 
@@ -460,7 +460,7 @@ public class SwapActivity {
     }
     SwapActivity swapActivity = (SwapActivity) o;
     return Objects.equals(this.activityId, swapActivity.activityId) &&
-        Objects.equals(this.activityType, swapActivity.activityType) &&
+        Objects.equals(this.swapType, swapActivity.swapType) &&
         Objects.equals(this.status, swapActivity.status) &&
         Objects.equals(this.requestId, swapActivity.requestId) &&
         Objects.equals(this.walletId, swapActivity.walletId) &&
@@ -483,7 +483,7 @@ public class SwapActivity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activityId, activityType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(activityId, swapType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -498,7 +498,7 @@ public class SwapActivity {
     StringBuilder sb = new StringBuilder();
     sb.append("class SwapActivity {\n");
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
-    sb.append("    activityType: ").append(toIndentedString(activityType)).append("\n");
+    sb.append("    swapType: ").append(toIndentedString(swapType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
@@ -536,7 +536,7 @@ public class SwapActivity {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("activity_id");
-    openapiFields.add("activity_type");
+    openapiFields.add("swap_type");
     openapiFields.add("status");
     openapiFields.add("request_id");
     openapiFields.add("wallet_id");
@@ -571,9 +571,9 @@ public class SwapActivity {
       if ((jsonObj.get("activity_id") != null && !jsonObj.get("activity_id").isJsonNull()) && !jsonObj.get("activity_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `activity_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("activity_id").toString()));
       }
-      // validate the optional field `activity_type`
-      if (jsonObj.get("activity_type") != null && !jsonObj.get("activity_type").isJsonNull()) {
-        SwapActivityType.validateJsonElement(jsonObj.get("activity_type"));
+      // validate the optional field `swap_type`
+      if (jsonObj.get("swap_type") != null && !jsonObj.get("swap_type").isJsonNull()) {
+        SwapType.validateJsonElement(jsonObj.get("swap_type"));
       }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {

@@ -85,7 +85,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The merchant ID. For payment gateway balance, this field will be empty.
+   * The merchant ID. For developer balance, this field will be empty.
    * @return merchantId
   **/
   @javax.annotation.Nullable
@@ -104,7 +104,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The ID of the cryptocurrency token.
+   * The ID of the cryptocurrency.
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -123,7 +123,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The amount available for settlement in the specified cryptocurrency token.
+   * The amount available for settlement or refund, in the specified cryptocurrency.
    * @return availableAmount
   **/
   @javax.annotation.Nonnull
@@ -142,7 +142,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The available currency balance.
+   * The amount available for settlement or refund, in the specified fiat currency.
    * @return availableCurrencyBalance
   **/
   @javax.annotation.Nullable
@@ -161,7 +161,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The pending amount.
+   * The amount unavailable for settlement or refund, in the specified cryptocurrency.
    * @return pendingAmount
   **/
   @javax.annotation.Nullable
@@ -180,7 +180,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The pending currency balance.
+   * The amount unavailable for settlement or refund, in the specified fiat currency.
    * @return pendingCurrencyBalance
   **/
   @javax.annotation.Nullable

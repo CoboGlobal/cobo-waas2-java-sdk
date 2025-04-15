@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**merchantId** | **String** | The merchant ID. For payment gateway balance, this field will be empty. |  [optional] |
-|**tokenId** | **String** | The ID of the cryptocurrency token. |  [optional] |
-|**availableAmount** | **String** | The amount available for settlement in the specified cryptocurrency token. |  |
-|**availableCurrencyBalance** | **String** | The available currency balance. |  [optional] |
-|**pendingAmount** | **String** | The pending amount. |  [optional] |
-|**pendingCurrencyBalance** | **String** | The pending currency balance. |  [optional] |
+|**merchantId** | **String** | The merchant ID. For developer balance, this field will be empty. |  [optional] |
+|**tokenId** | **String** | The ID of the cryptocurrency. |  [optional] |
+|**availableAmount** | **String** | The amount available for settlement or refund, in the specified cryptocurrency. |  |
+|**availableCurrencyBalance** | **String** | The amount available for settlement or refund, in the specified fiat currency. |  [optional] |
+|**pendingAmount** | **String** | The amount unavailable for settlement or refund, in the specified cryptocurrency. |  [optional] |
+|**pendingCurrencyBalance** | **String** | The amount unavailable for settlement or refund, in the specified fiat currency. |  [optional] |
 
 
 

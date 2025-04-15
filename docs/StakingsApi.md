@@ -168,7 +168,7 @@ public class Example {
 
 Create claim activity
 
-This operation creates a claim request.  &lt;Note&gt;Currently, only the Ethereum Beacon protocol supports this operation.&lt;/Note&gt;  For some protocols, you can use the &#x60;fee&#x60; property in the request body to specify the maximum fee you are willing to pay. The transaction will fail if the actual fee exceeds the specified maximum fee.  
+This operation creates a claim request.  &lt;Note&gt;Currently, only the Ethereum Beacon protocol supports this operation.&lt;/Note&gt;  For some protocols, you can use the &#x60;fee&#x60; property in the request body to specify the maximum fee you are willing to pay. The transaction will fail if the actual fee exceeds the specified maximum fee. 
 
 ### Example
 ```java
@@ -1380,7 +1380,7 @@ public class Example {
 
 List staking positions
 
-This operation retrieves a list of staking positions.  
+This operation retrieves a list of staking positions. 
 
 ### Example
 ```java

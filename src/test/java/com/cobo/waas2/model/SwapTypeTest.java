@@ -16,15 +16,15 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SwapActivityType
+ * Model tests for SwapType
  */
-public class SwapActivityTypeTest {
+public class SwapTypeTest {
     /**
-     * Model tests for SwapActivityType
+     * Model tests for SwapType
      */
     @Test
-    public void testSwapActivityType() {
-        // TODO: test SwapActivityType
+    public void testSwapType() {
+        // TODO: test SwapType
     }
 
 }

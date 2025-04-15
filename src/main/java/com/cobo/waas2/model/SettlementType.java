@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Specifies the source of funds for the settlement: - &#x60;Merchant&#x60;: The settlement amount will be deducted from the merchant balance. - &#x60;Psp&#x60;: The settlement amount will be deducted from the payment gateway balance. 
+ * Specifies the source of funds for the settlement: - &#x60;Merchant&#x60;: The settlement amount will be deducted from the merchant balance. - &#x60;Psp&#x60;: The settlement amount will be deducted from the developer balance. 
  */
 @JsonAdapter(SettlementType.Adapter.class)
 public enum SettlementType {
