@@ -93,6 +93,14 @@ public class TransactionEvmEip1559FeeTest {
     }
 
     /**
+     * Test the property 'estimatedFeeUsed'
+     */
+    @Test
+    public void estimatedFeeUsedTest() {
+        // TODO: test estimatedFeeUsed
+    }
+
+    /**
      * Test the property 'gasUsed'
      */
     @Test

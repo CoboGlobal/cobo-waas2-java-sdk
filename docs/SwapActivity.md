@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**activityId** | **UUID** | The unique identifier of the swap activity. |  [optional] |
-|**activityType** | **SwapActivityType** |  |  [optional] |
+|**swapType** | **SwapType** |  |  [optional] |
 |**status** | **SwapActivityStatus** |  |  [optional] |
 |**requestId** | **String** | The request id of the swap activity. |  [optional] |
 |**walletId** | **UUID** | The unique identifier of the wallet. |  [optional] |

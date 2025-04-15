@@ -59,7 +59,7 @@ public class PrimeBrokerApiTest {
     /**
      * Create Guard pubkey binding
      *
-     * This operation creates a binding between a broker user ID and a Cobo Guard public key.  
+     * This operation creates a binding between a broker user ID and a Cobo Guard public key. 
      *
      * @throws ApiException if the Api call fails
      */

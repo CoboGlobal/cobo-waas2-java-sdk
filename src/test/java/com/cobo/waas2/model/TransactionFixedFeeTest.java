@@ -68,4 +68,12 @@ public class TransactionFixedFeeTest {
         // TODO: test feeUsed
     }
 
+    /**
+     * Test the property 'estimatedFeeUsed'
+     */
+    @Test
+    public void estimatedFeeUsedTest() {
+        // TODO: test estimatedFeeUsed
+    }
+
 }

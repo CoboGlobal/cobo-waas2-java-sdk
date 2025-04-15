@@ -94,7 +94,7 @@ public class PaymentTransaction {
   }
 
    /**
-   * Unique identifier for the transaction.
+   * The transaction ID.
    * @return txId
   **/
   @javax.annotation.Nonnull
@@ -113,7 +113,7 @@ public class PaymentTransaction {
   }
 
    /**
-   * The blockchain transaction hash, may be initially null and populated after submission.
+   * The transaction hash.
    * @return txHash
   **/
   @javax.annotation.Nullable
@@ -132,7 +132,7 @@ public class PaymentTransaction {
   }
 
    /**
-   * Source cryptocurrency address for the transaction.
+   * The source address of the transaction.
    * @return fromAddress
   **/
   @javax.annotation.Nonnull
@@ -151,7 +151,7 @@ public class PaymentTransaction {
   }
 
    /**
-   * Destination cryptocurrency address for the transaction.
+   * The destination address of the transaction.
    * @return toAddress
   **/
   @javax.annotation.Nonnull

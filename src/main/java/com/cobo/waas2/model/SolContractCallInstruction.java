@@ -122,7 +122,7 @@ public class SolContractCallInstruction {
   }
 
    /**
-   * The address of the Solana program (smart contract).  
+   * The address of the Solana program (smart contract). 
    * @return programId
   **/
   @javax.annotation.Nonnull
