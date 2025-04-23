@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Specifies the source of funds for the refund: - &#x60;Merchant&#x60;: The refund amount will be deducted from the merchant balance. - &#x60;Psp&#x60;: The refund amount will be deducted from the payment gateway balance. 
+ * Specifies the source of funds for the refund: - &#x60;Merchant&#x60;: The refund amount will be deducted from the merchant balance. - &#x60;Psp&#x60;: The refund amount will be deducted from the developer balance. 
  */
 @JsonAdapter(RefundType.Adapter.class)
 public enum RefundType {

@@ -1,6 +1,6 @@
 
 
-# SwapActivityType
+# SwapType
 
 ## Enum
 

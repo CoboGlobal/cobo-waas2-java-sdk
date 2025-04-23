@@ -69,6 +69,10 @@ public class TransactionUtxoFee {
   @SerializedName(SERIALIZED_NAME_FEE_USED)
   private String feeUsed;
 
+  public static final String SERIALIZED_NAME_ESTIMATED_FEE_USED = "estimated_fee_used";
+  @SerializedName(SERIALIZED_NAME_ESTIMATED_FEE_USED)
+  private String estimatedFeeUsed;
+
   public static final String SERIALIZED_NAME_MAX_FEE_AMOUNT = "max_fee_amount";
   @SerializedName(SERIALIZED_NAME_MAX_FEE_AMOUNT)
   private String maxFeeAmount;
@@ -152,6 +156,25 @@ public class TransactionUtxoFee {
   }
 
 
+  public TransactionUtxoFee estimatedFeeUsed(String estimatedFeeUsed) {
+    this.estimatedFeeUsed = estimatedFeeUsed;
+    return this;
+  }
+
+   /**
+   * The estimated transaction fee.
+   * @return estimatedFeeUsed
+  **/
+  @javax.annotation.Nullable
+  public String getEstimatedFeeUsed() {
+    return estimatedFeeUsed;
+  }
+
+  public void setEstimatedFeeUsed(String estimatedFeeUsed) {
+    this.estimatedFeeUsed = estimatedFeeUsed;
+  }
+
+
   public TransactionUtxoFee maxFeeAmount(String maxFeeAmount) {
     this.maxFeeAmount = maxFeeAmount;
     return this;
@@ -229,13 +252,14 @@ public class TransactionUtxoFee {
         Objects.equals(this.feeType, transactionUtxoFee.feeType) &&
         Objects.equals(this.tokenId, transactionUtxoFee.tokenId) &&
         Objects.equals(this.feeUsed, transactionUtxoFee.feeUsed) &&
+        Objects.equals(this.estimatedFeeUsed, transactionUtxoFee.estimatedFeeUsed) &&
         Objects.equals(this.maxFeeAmount, transactionUtxoFee.maxFeeAmount)&&
         Objects.equals(this.additionalProperties, transactionUtxoFee.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(feeRate, feeType, tokenId, feeUsed, maxFeeAmount, additionalProperties);
+    return Objects.hash(feeRate, feeType, tokenId, feeUsed, estimatedFeeUsed, maxFeeAmount, additionalProperties);
   }
 
   @Override
@@ -246,6 +270,7 @@ public class TransactionUtxoFee {
     sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    feeUsed: ").append(toIndentedString(feeUsed)).append("\n");
+    sb.append("    estimatedFeeUsed: ").append(toIndentedString(estimatedFeeUsed)).append("\n");
     sb.append("    maxFeeAmount: ").append(toIndentedString(maxFeeAmount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -274,6 +299,7 @@ public class TransactionUtxoFee {
     openapiFields.add("fee_type");
     openapiFields.add("token_id");
     openapiFields.add("fee_used");
+    openapiFields.add("estimated_fee_used");
     openapiFields.add("max_fee_amount");
 
     // a set of required properties/fields (JSON key names)
@@ -311,6 +337,9 @@ public class TransactionUtxoFee {
       }
       if ((jsonObj.get("fee_used") != null && !jsonObj.get("fee_used").isJsonNull()) && !jsonObj.get("fee_used").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_used` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_used").toString()));
+      }
+      if ((jsonObj.get("estimated_fee_used") != null && !jsonObj.get("estimated_fee_used").isJsonNull()) && !jsonObj.get("estimated_fee_used").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `estimated_fee_used` to be a primitive type in the JSON string but got `%s`", jsonObj.get("estimated_fee_used").toString()));
       }
       if ((jsonObj.get("max_fee_amount") != null && !jsonObj.get("max_fee_amount").isJsonNull()) && !jsonObj.get("max_fee_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `max_fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max_fee_amount").toString()));

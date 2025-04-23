@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**activityId** | **UUID** | The unique identifier of the swap activity. |  [optional] |
-|**activityType** | **SwapActivityType** |  |  [optional] |
+|**swapType** | **SwapType** |  |  [optional] |
 |**status** | **SwapActivityStatus** |  |  [optional] |
 |**requestId** | **String** | The request id of the swap activity. |  [optional] |
 |**walletId** | **UUID** | The unique identifier of the wallet. |  [optional] |
@@ -16,6 +16,7 @@
 |**receiveTokenId** | **String** | The token symbol to swap to. |  [optional] |
 |**payAmount** | **String** | The amount of tokens to bridge. |  [optional] |
 |**receiveAmount** | **String** | The amount of tokens to receive. |  [optional] |
+|**feeTokenId** | **String** | The fee token symbol. |  [optional] |
 |**feeAmount** | **String** | The amount of fee. |  [optional] |
 |**initiator** | **String** | The initiator of the swap activity. |  [optional] |
 |**initiatorType** | **TransactionInitiatorType** |  |  [optional] |

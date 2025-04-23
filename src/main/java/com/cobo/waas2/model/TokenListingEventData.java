@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,7 +58,7 @@ import com.cobo.waas2.JSON;
 )
 public class TokenListingEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -77,7 +76,13 @@ public class TokenListingEventData {
     
     TOKENS("Tokens"),
     
-    TOKENLISTING("TokenListing");
+    TOKENLISTING("TokenListing"),
+    
+    PAYMENTORDER("PaymentOrder"),
+    
+    PAYMENTREFUND("PaymentRefund"),
+    
+    PAYMENTSETTLEMENT("PaymentSettlement");
 
     private String value;
 
@@ -128,7 +133,7 @@ public class TokenListingEventData {
 
   public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  private UUID requestId;
+  private String requestId;
 
   public static final String SERIALIZED_NAME_CHAIN_ID = "chain_id";
   @SerializedName(SERIALIZED_NAME_CHAIN_ID)
@@ -179,7 +184,7 @@ public class TokenListingEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -192,7 +197,7 @@ public class TokenListingEventData {
   }
 
 
-  public TokenListingEventData requestId(UUID requestId) {
+  public TokenListingEventData requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -202,11 +207,11 @@ public class TokenListingEventData {
    * @return requestId
   **/
   @javax.annotation.Nonnull
-  public UUID getRequestId() {
+  public String getRequestId() {
     return requestId;
   }
 
-  public void setRequestId(UUID requestId) {
+  public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
 

@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -60,7 +59,7 @@ import com.cobo.waas2.JSON;
 public class TokenListing {
   public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  private UUID requestId;
+  private String requestId;
 
   public static final String SERIALIZED_NAME_CHAIN_ID = "chain_id";
   @SerializedName(SERIALIZED_NAME_CHAIN_ID)
@@ -105,7 +104,7 @@ public class TokenListing {
   public TokenListing() {
   }
 
-  public TokenListing requestId(UUID requestId) {
+  public TokenListing requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -115,11 +114,11 @@ public class TokenListing {
    * @return requestId
   **/
   @javax.annotation.Nonnull
-  public UUID getRequestId() {
+  public String getRequestId() {
     return requestId;
   }
 
-  public void setRequestId(UUID requestId) {
+  public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
 

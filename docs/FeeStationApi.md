@@ -4,11 +4,80 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**estimateFeeStationFee**](FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate transaction fee |
 | [**getFeeStationTransactionById**](FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information |
 | [**listFeeStationAddresses**](FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses |
 | [**listFeeStationTransactions**](FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions |
 | [**listTokenBalancesForFeeStation**](FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances |
 
+
+<a id="estimateFeeStationFee"></a>
+# **estimateFeeStationFee**
+> EstimatedFixedFee estimateFeeStationFee(feeStationTransfer)
+
+Estimate transaction fee
+
+This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.FeeStationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    FeeStationApi apiInstance = new FeeStationApi();
+    FeeStationTransfer feeStationTransfer = new FeeStationTransfer();
+    try {
+      EstimatedFixedFee result = apiInstance.estimateFeeStationFee(feeStationTransfer);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FeeStationApi#estimateFeeStationFee");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **feeStationTransfer** | [**FeeStationTransfer**](FeeStationTransfer.md)| The information about a token transfer. | [optional] |
+
+### Return type
+
+[**EstimatedFixedFee**](EstimatedFixedFee.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
 
 <a id="getFeeStationTransactionById"></a>
 # **getFeeStationTransactionById**
@@ -252,7 +321,7 @@ public class Example {
 
 <a id="listTokenBalancesForFeeStation"></a>
 # **listTokenBalancesForFeeStation**
-> ListTokenBalancesForAddress200Response listTokenBalancesForFeeStation(tokenIds, limit, before, after)
+> ListTokenBalancesForFeeStation200Response listTokenBalancesForFeeStation(tokenIds, limit, before, after)
 
 List Fee Station token balances
 
@@ -282,7 +351,7 @@ public class Example {
     String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
     String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
     try {
-      ListTokenBalancesForAddress200Response result = apiInstance.listTokenBalancesForFeeStation(tokenIds, limit, before, after);
+      ListTokenBalancesForFeeStation200Response result = apiInstance.listTokenBalancesForFeeStation(tokenIds, limit, before, after);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FeeStationApi#listTokenBalancesForFeeStation");
@@ -306,7 +375,7 @@ public class Example {
 
 ### Return type
 
-[**ListTokenBalancesForAddress200Response**](ListTokenBalancesForAddress200Response.md)
+[**ListTokenBalancesForFeeStation200Response**](ListTokenBalancesForFeeStation200Response.md)
 
 ### Authorization
 

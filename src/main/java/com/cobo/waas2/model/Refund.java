@@ -101,7 +101,7 @@ public class Refund {
   }
 
    /**
-   * The request id.
+   * The request ID provided by you when creating the refund request.
    * @return requestId
   **/
   @javax.annotation.Nullable
@@ -158,7 +158,7 @@ public class Refund {
   }
 
    /**
-   * The ID of the cryptocurrency token used for refund.
+   * The ID of the cryptocurrency used for refund.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -261,7 +261,7 @@ public class Refund {
   }
 
    /**
-   * Get transactions
+   * An array of transactions associated with this refund order. Each transaction represents a separate blockchain operation related to the refund process.
    * @return transactions
   **/
   @javax.annotation.Nullable

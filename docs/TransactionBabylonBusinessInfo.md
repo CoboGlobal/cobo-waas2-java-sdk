@@ -2,7 +2,7 @@
 
 # TransactionBabylonBusinessInfo
 
-The Babylon business information.
+The extra information related to Babylon business logic.
 
 ## Properties
 
