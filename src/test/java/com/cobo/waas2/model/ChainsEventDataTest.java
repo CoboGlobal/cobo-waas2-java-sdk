@@ -12,6 +12,8 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ChainInfo;
+import com.cobo.waas2.model.WalletSubtype;
+import com.cobo.waas2.model.WalletType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,6 +54,22 @@ public class ChainsEventDataTest {
     @Test
     public void chainsTest() {
         // TODO: test chains
+    }
+
+    /**
+     * Test the property 'walletType'
+     */
+    @Test
+    public void walletTypeTest() {
+        // TODO: test walletType
+    }
+
+    /**
+     * Test the property 'walletSubtypes'
+     */
+    @Test
+    public void walletSubtypesTest() {
+        // TODO: test walletSubtypes
     }
 
 }

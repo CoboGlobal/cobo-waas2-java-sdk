@@ -12,6 +12,7 @@ The transaction fee actually charged by the chain that uses the UTXO fee model, 
 |**feeType** | **FeeType** |  |  |
 |**tokenId** | **String** | The token ID of the transaction fee. |  [optional] |
 |**feeUsed** | **String** | The transaction fee. |  [optional] |
+|**estimatedFeeUsed** | **String** | The estimated transaction fee. |  [optional] |
 |**maxFeeAmount** | **String** | The maximum fee that you are willing to pay for the transaction. The transaction will fail if the transaction fee exceeds the maximum fee. |  [optional] |
 
 

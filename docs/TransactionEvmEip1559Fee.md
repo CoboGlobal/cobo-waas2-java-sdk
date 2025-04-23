@@ -15,6 +15,7 @@ The transaction fee actually charged by the chain that uses the EIP-1559 fee mod
 |**tokenId** | **String** | The token ID of the transaction fee. |  [optional] |
 |**effectiveGasPrice** | **String** | The gas price (gas fee per gas unit) on the chain, in wei. The gas price represents the amount of ETH that must be paid to validators for processing transactions. |  [optional] |
 |**feeUsed** | **String** | The transaction fee. |  [optional] |
+|**estimatedFeeUsed** | **String** | The estimated transaction fee. |  [optional] |
 |**gasUsed** | **String** | The number of gas units used in the transaction. |  [optional] |
 
 

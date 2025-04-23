@@ -13,6 +13,8 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.ChainInfo;
+import com.cobo.waas2.model.WalletSubtype;
+import com.cobo.waas2.model.WalletType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -56,7 +58,7 @@ import com.cobo.waas2.JSON;
 )
 public class ChainsEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -74,7 +76,13 @@ public class ChainsEventData {
     
     TOKENS("Tokens"),
     
-    TOKENLISTING("TokenListing");
+    TOKENLISTING("TokenListing"),
+    
+    PAYMENTORDER("PaymentOrder"),
+    
+    PAYMENTREFUND("PaymentRefund"),
+    
+    PAYMENTSETTLEMENT("PaymentSettlement");
 
     private String value;
 
@@ -127,6 +135,14 @@ public class ChainsEventData {
   @SerializedName(SERIALIZED_NAME_CHAINS)
   private List<ChainInfo> chains = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_WALLET_TYPE = "wallet_type";
+  @SerializedName(SERIALIZED_NAME_WALLET_TYPE)
+  private WalletType walletType;
+
+  public static final String SERIALIZED_NAME_WALLET_SUBTYPES = "wallet_subtypes";
+  @SerializedName(SERIALIZED_NAME_WALLET_SUBTYPES)
+  private List<WalletSubtype> walletSubtypes = new ArrayList<>();
+
   public ChainsEventData() {
   }
 
@@ -136,7 +152,7 @@ public class ChainsEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -173,6 +189,52 @@ public class ChainsEventData {
 
   public void setChains(List<ChainInfo> chains) {
     this.chains = chains;
+  }
+
+
+  public ChainsEventData walletType(WalletType walletType) {
+    this.walletType = walletType;
+    return this;
+  }
+
+   /**
+   * Get walletType
+   * @return walletType
+  **/
+  @javax.annotation.Nullable
+  public WalletType getWalletType() {
+    return walletType;
+  }
+
+  public void setWalletType(WalletType walletType) {
+    this.walletType = walletType;
+  }
+
+
+  public ChainsEventData walletSubtypes(List<WalletSubtype> walletSubtypes) {
+    this.walletSubtypes = walletSubtypes;
+    return this;
+  }
+
+  public ChainsEventData addWalletSubtypesItem(WalletSubtype walletSubtypesItem) {
+    if (this.walletSubtypes == null) {
+      this.walletSubtypes = new ArrayList<>();
+    }
+    this.walletSubtypes.add(walletSubtypesItem);
+    return this;
+  }
+
+   /**
+   * Get walletSubtypes
+   * @return walletSubtypes
+  **/
+  @javax.annotation.Nullable
+  public List<WalletSubtype> getWalletSubtypes() {
+    return walletSubtypes;
+  }
+
+  public void setWalletSubtypes(List<WalletSubtype> walletSubtypes) {
+    this.walletSubtypes = walletSubtypes;
   }
 
   /**
@@ -231,13 +293,15 @@ public class ChainsEventData {
     }
     ChainsEventData chainsEventData = (ChainsEventData) o;
     return Objects.equals(this.dataType, chainsEventData.dataType) &&
-        Objects.equals(this.chains, chainsEventData.chains)&&
+        Objects.equals(this.chains, chainsEventData.chains) &&
+        Objects.equals(this.walletType, chainsEventData.walletType) &&
+        Objects.equals(this.walletSubtypes, chainsEventData.walletSubtypes)&&
         Objects.equals(this.additionalProperties, chainsEventData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, chains, additionalProperties);
+    return Objects.hash(dataType, chains, walletType, walletSubtypes, additionalProperties);
   }
 
   @Override
@@ -246,6 +310,8 @@ public class ChainsEventData {
     sb.append("class ChainsEventData {\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    chains: ").append(toIndentedString(chains)).append("\n");
+    sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
+    sb.append("    walletSubtypes: ").append(toIndentedString(walletSubtypes)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -271,6 +337,8 @@ public class ChainsEventData {
     openapiFields = new HashSet<String>();
     openapiFields.add("data_type");
     openapiFields.add("chains");
+    openapiFields.add("wallet_type");
+    openapiFields.add("wallet_subtypes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -313,6 +381,14 @@ public class ChainsEventData {
       for (int i = 0; i < jsonArraychains.size(); i++) {
         ChainInfo.validateJsonElement(jsonArraychains.get(i));
       };
+      // validate the optional field `wallet_type`
+      if (jsonObj.get("wallet_type") != null && !jsonObj.get("wallet_type").isJsonNull()) {
+        WalletType.validateJsonElement(jsonObj.get("wallet_type"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("wallet_subtypes") != null && !jsonObj.get("wallet_subtypes").isJsonNull() && !jsonObj.get("wallet_subtypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wallet_subtypes` to be an array in the JSON string but got `%s`", jsonObj.get("wallet_subtypes").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

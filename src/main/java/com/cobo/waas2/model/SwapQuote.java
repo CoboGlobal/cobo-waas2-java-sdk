@@ -92,7 +92,7 @@ public class SwapQuote {
    * The unique id of quote.
    * @return quoteId
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getQuoteId() {
     return quoteId;
   }
@@ -329,6 +329,7 @@ public class SwapQuote {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("quote_id");
     openapiRequiredFields.add("pay_amount");
     openapiRequiredFields.add("receive_amount");
     openapiRequiredFields.add("fee_amount");
@@ -355,7 +356,7 @@ public class SwapQuote {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("quote_id") != null && !jsonObj.get("quote_id").isJsonNull()) && !jsonObj.get("quote_id").isJsonPrimitive()) {
+      if (!jsonObj.get("quote_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `quote_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quote_id").toString()));
       }
       if (!jsonObj.get("pay_amount").isJsonPrimitive()) {

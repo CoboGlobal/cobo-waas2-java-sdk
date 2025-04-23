@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The core stake information.
+ * The extra information related to core staking operations.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -105,7 +105,7 @@ public class TransactionCoreStakeInfo {
   }
 
    /**
-   * The origin staking amount.
+   * The original staking amount.
    * @return stakeAmount
   **/
   @javax.annotation.Nullable
@@ -181,7 +181,7 @@ public class TransactionCoreStakeInfo {
   }
 
    /**
-   * The EVM address to receive staking rewards.
+   * The EVM address used to receive staking rewards.
    * @return rewardAddress
   **/
   @javax.annotation.Nullable

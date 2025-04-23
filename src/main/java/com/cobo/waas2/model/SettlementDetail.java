@@ -94,7 +94,7 @@ public class SettlementDetail {
   }
 
    /**
-   * The currency for the settlement.
+   * The fiat currency for the settlement.
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -113,7 +113,7 @@ public class SettlementDetail {
   }
 
    /**
-   * The ID of the cryptocurrency token settled.
+   * The ID of the cryptocurrency settled.
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -151,7 +151,7 @@ public class SettlementDetail {
   }
 
    /**
-   * The settled amount. - If &#x60;token_id&#x60; is specified, this represents the settlement amount in the specified cryptocurrency token. - If &#x60;token_id&#x60; is not specified, this represents the settlement amount in the specified currency. 
+   * The settlement amount.  - If &#x60;token_id&#x60; is specified, this represents the settlement amount in the specified cryptocurrency.  - If &#x60;token_id&#x60; is not specified, this represents the settlement amount in the specified fiat currency. 
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -216,7 +216,7 @@ public class SettlementDetail {
   }
 
    /**
-   * Get transactions
+   * An array of transactions associated with this settlement request. Each transaction represents a separate blockchain operation related to the settlement process.
    * @return transactions
   **/
   @javax.annotation.Nullable

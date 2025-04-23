@@ -11,6 +11,7 @@
 |**tokenId** | **String** | The token ID of the transaction fee. |  [optional] |
 |**effectiveGasPrice** | **String** | The gas price (gas fee per gas unit) on the chain, in wei. The gas price represents the amount of ETH that must be paid to validators for processing transactions. |  [optional] |
 |**feeUsed** | **String** | The transaction fee. |  [optional] |
+|**estimatedFeeUsed** | **String** | The estimated transaction fee. |  [optional] |
 |**gasUsed** | **String** | The gas units used in the transaction. |  [optional] |
 |**maxFeePerGas** | **String** | The maximum gas fee per gas unit used on the chain, in wei. |  [optional] |
 |**maxPriorityFeePerGas** | **String** | The maximum priority fee per gas unit used, in wei. The maximum priority fee represents the highest amount of miner tips that you are willing to pay for your transaction. |  [optional] |

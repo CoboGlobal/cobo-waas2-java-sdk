@@ -8,7 +8,7 @@ Detailed information about a token listing request
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**requestId** | **UUID** | Unique identifier of the token listing request |  |
+|**requestId** | **String** | Unique identifier of the token listing request |  |
 |**chainId** | **String** | chain_id of the blockchain where the token exists |  |
 |**contractAddress** | **String** | Contract address of the token |  |
 |**walletType** | **WalletType** |  |  |

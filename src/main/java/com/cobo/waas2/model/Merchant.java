@@ -112,7 +112,7 @@ public class Merchant {
   }
 
    /**
-   * The ID of the associated wallet.
+   * The ID of the linked wallet.
    * @return walletId
   **/
   @javax.annotation.Nonnull
