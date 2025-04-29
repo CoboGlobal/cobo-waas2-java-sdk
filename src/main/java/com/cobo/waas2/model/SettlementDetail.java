@@ -69,9 +69,17 @@ public class SettlementDetail {
   @SerializedName(SERIALIZED_NAME_CHAIN_ID)
   private String chainId;
 
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
+
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
+
+  public static final String SERIALIZED_NAME_SETTLED_AMOUNT = "settled_amount";
+  @SerializedName(SERIALIZED_NAME_SETTLED_AMOUNT)
+  private String settledAmount;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -84,6 +92,14 @@ public class SettlementDetail {
   public static final String SERIALIZED_NAME_TRANSACTIONS = "transactions";
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
   private List<PaymentTransaction> transactions = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Integer createdTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Integer updatedTimestamp;
 
   public SettlementDetail() {
   }
@@ -145,6 +161,25 @@ public class SettlementDetail {
   }
 
 
+  public SettlementDetail merchantId(String merchantId) {
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * The Merchant ID associated with this settlement.
+   * @return merchantId
+  **/
+  @javax.annotation.Nullable
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
+  }
+
+
   public SettlementDetail amount(String amount) {
     this.amount = amount;
     return this;
@@ -161,6 +196,25 @@ public class SettlementDetail {
 
   public void setAmount(String amount) {
     this.amount = amount;
+  }
+
+
+  public SettlementDetail settledAmount(String settledAmount) {
+    this.settledAmount = settledAmount;
+    return this;
+  }
+
+   /**
+   * The settled amount of this settlement detail.  - If &#x60;token_id&#x60; is specified, this represents the actual settled amount in the specified cryptocurrency.  - If &#x60;token_id&#x60; is not specified, this represents the actual settled amount in the specified fiat currency. 
+   * @return settledAmount
+  **/
+  @javax.annotation.Nullable
+  public String getSettledAmount() {
+    return settledAmount;
+  }
+
+  public void setSettledAmount(String settledAmount) {
+    this.settledAmount = settledAmount;
   }
 
 
@@ -228,6 +282,44 @@ public class SettlementDetail {
     this.transactions = transactions;
   }
 
+
+  public SettlementDetail createdTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The created time of the settlement, represented as a UNIX timestamp in seconds.
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
+
+  public SettlementDetail updatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The updated time of the settlement, represented as a UNIX timestamp in seconds.
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+  public void setUpdatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -286,16 +378,20 @@ public class SettlementDetail {
     return Objects.equals(this.currency, settlementDetail.currency) &&
         Objects.equals(this.tokenId, settlementDetail.tokenId) &&
         Objects.equals(this.chainId, settlementDetail.chainId) &&
+        Objects.equals(this.merchantId, settlementDetail.merchantId) &&
         Objects.equals(this.amount, settlementDetail.amount) &&
+        Objects.equals(this.settledAmount, settlementDetail.settledAmount) &&
         Objects.equals(this.status, settlementDetail.status) &&
         Objects.equals(this.bankAccount, settlementDetail.bankAccount) &&
-        Objects.equals(this.transactions, settlementDetail.transactions)&&
+        Objects.equals(this.transactions, settlementDetail.transactions) &&
+        Objects.equals(this.createdTimestamp, settlementDetail.createdTimestamp) &&
+        Objects.equals(this.updatedTimestamp, settlementDetail.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, settlementDetail.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, tokenId, chainId, amount, status, bankAccount, transactions, additionalProperties);
+    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -305,10 +401,14 @@ public class SettlementDetail {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    settledAmount: ").append(toIndentedString(settledAmount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -335,10 +435,14 @@ public class SettlementDetail {
     openapiFields.add("currency");
     openapiFields.add("token_id");
     openapiFields.add("chain_id");
+    openapiFields.add("merchant_id");
     openapiFields.add("amount");
+    openapiFields.add("settled_amount");
     openapiFields.add("status");
     openapiFields.add("bank_account");
     openapiFields.add("transactions");
+    openapiFields.add("created_timestamp");
+    openapiFields.add("updated_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -366,8 +470,14 @@ public class SettlementDetail {
       if ((jsonObj.get("chain_id") != null && !jsonObj.get("chain_id").isJsonNull()) && !jsonObj.get("chain_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `chain_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chain_id").toString()));
       }
+      if ((jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()) && !jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
       if ((jsonObj.get("amount") != null && !jsonObj.get("amount").isJsonNull()) && !jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
+      }
+      if ((jsonObj.get("settled_amount") != null && !jsonObj.get("settled_amount").isJsonNull()) && !jsonObj.get("settled_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `settled_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("settled_amount").toString()));
       }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {

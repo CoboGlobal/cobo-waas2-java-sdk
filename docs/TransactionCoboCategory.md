@@ -5,13 +5,11 @@
 ## Enum
 
 
-* `AUTOSWEEP` (value: `"AutoSweep"`)
-
 * `AUTOFUELING` (value: `"AutoFueling"`)
 
 * `AUTOFUELINGREFUND` (value: `"AutoFuelingRefund"`)
 
-* `SAFETXMESSAGE` (value: `"SafeTxMessage"`)
+* `AUTOSWEEP` (value: `"AutoSweep"`)
 
 * `BILLPAYMENT` (value: `"BillPayment"`)
 
@@ -20,6 +18,46 @@
 * `COMMISSIONFEECHARGE` (value: `"CommissionFeeCharge"`)
 
 * `COMMISSIONFEEREFUND` (value: `"CommissionFeeRefund"`)
+
+* `SAFETXMESSAGE` (value: `"SafeTxMessage"`)
+
+* `STAKINGBABYLONBTCDELEGATION` (value: `"StakingBabylonBtcDelegation"`)
+
+* `STAKINGBABYLONBTCSIGNBABYLON` (value: `"StakingBabylonBtcSignBabylon"`)
+
+* `STAKINGBABYLONCLAIM` (value: `"StakingBabylonClaim"`)
+
+* `STAKINGBABYLONSLASHING` (value: `"StakingBabylonSlashing"`)
+
+* `STAKINGBABYLONSTAKE` (value: `"StakingBabylonStake"`)
+
+* `STAKINGBABYLONUNSTAKE` (value: `"StakingBabylonUnstake"`)
+
+* `STAKINGBABYLONWITHDRAW` (value: `"StakingBabylonWithdraw"`)
+
+* `STAKINGBITHIVECLAIM` (value: `"StakingBithiveClaim"`)
+
+* `STAKINGBITHIVESTAKE` (value: `"StakingBithiveStake"`)
+
+* `STAKINGBITHIVEUNSTAKE` (value: `"StakingBithiveUnstake"`)
+
+* `STAKINGBITHIVEWITHDRAW` (value: `"StakingBithiveWithdraw"`)
+
+* `STAKINGCORESTAKE` (value: `"StakingCoreStake"`)
+
+* `STAKINGCOREWITHDRAW` (value: `"StakingCoreWithdraw"`)
+
+* `STAKINGETHCLAIM` (value: `"StakingEthClaim"`)
+
+* `STAKINGETHSTAKE` (value: `"StakingEthStake"`)
+
+* `STAKINGETHUNSTAKE` (value: `"StakingEthUnstake"`)
+
+* `STAKINGSKYFARMCLAIM` (value: `"StakingSkyfarmClaim"`)
+
+* `STAKINGSKYFARMSTAKE` (value: `"StakingSkyfarmStake"`)
+
+* `STAKINGSKYFARMUNSTAKE` (value: `"StakingSkyfarmUnstake"`)
 
 
 

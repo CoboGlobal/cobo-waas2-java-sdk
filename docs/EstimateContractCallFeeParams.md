@@ -14,6 +14,7 @@ The information about a transaction that interacts with a smart contract
 |**source** | [**ContractCallSource**](ContractCallSource.md) |  |  |
 |**destination** | [**ContractCallDestination**](ContractCallDestination.md) |  |  |
 |**feeType** | **FeeType** |  |  [optional] |
+|**replacedTransactionId** | **UUID** | The ID of the transaction that this transaction replaced. |  [optional] |
 
 
 

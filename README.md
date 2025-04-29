@@ -227,6 +227,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
 *PaymentApi* | [**createSettlementRequest**](docs/PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
+*PaymentApi* | [**getPaymentOrderAddressInfo**](docs/PaymentApi.md#getPaymentOrderAddressInfo) | **GET** /payments/orders/address_info | Get pay-in order&#39;s receiving address info
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
 *PaymentApi* | [**getRefundDetailById**](docs/PaymentApi.md#getRefundDetailById) | **GET** /payments/refunds/{refund_id} | Get refund order information
 *PaymentApi* | [**getRefunds**](docs/PaymentApi.md#getRefunds) | **GET** /payments/refunds | List all refund orders
@@ -265,6 +266,11 @@ Class | Method | HTTP request | Description
 *StakingsApi* | [**listStakingActivities**](docs/StakingsApi.md#listStakingActivities) | **GET** /stakings/activities | List staking activities
 *StakingsApi* | [**listStakingPools**](docs/StakingsApi.md#listStakingPools) | **GET** /stakings/pools | List staking pools
 *StakingsApi* | [**listStakings**](docs/StakingsApi.md#listStakings) | **GET** /stakings | List staking positions
+*SwapsApi* | [**createSwapActivity**](docs/SwapsApi.md#createSwapActivity) | **POST** /swaps/swap | Create Swap Activity
+*SwapsApi* | [**getSwapActivity**](docs/SwapsApi.md#getSwapActivity) | **GET** /swaps/activities/{activity_id} | Get Swap Activity Details
+*SwapsApi* | [**getSwapQuote**](docs/SwapsApi.md#getSwapQuote) | **GET** /swaps/quote | Get Current Swap Rate
+*SwapsApi* | [**listSwapActivities**](docs/SwapsApi.md#listSwapActivities) | **GET** /swaps/activities | List Swap Activities
+*SwapsApi* | [**listSwapEnabledTokens**](docs/SwapsApi.md#listSwapEnabledTokens) | **GET** /swaps/enabled_tokens | List Enabled Tokens
 *TransactionsApi* | [**broadcastSignedTransactions**](docs/TransactionsApi.md#broadcastSignedTransactions) | **POST** /transactions/broadcast | Broadcast signed transactions
 *TransactionsApi* | [**cancelTransactionById**](docs/TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction
 *TransactionsApi* | [**checkLoopTransfers**](docs/TransactionsApi.md#checkLoopTransfers) | **GET** /transactions/check_loop_transfers | Check Cobo Loop transfers
@@ -435,6 +441,7 @@ Class | Method | HTTP request | Description
  - [CreateStakeActivity201Response](docs/CreateStakeActivity201Response.md)
  - [CreateStakeActivityExtra](docs/CreateStakeActivityExtra.md)
  - [CreateStakeActivityRequest](docs/CreateStakeActivityRequest.md)
+ - [CreateSwapActivityRequest](docs/CreateSwapActivityRequest.md)
  - [CreateTokenListingRequest201Response](docs/CreateTokenListingRequest201Response.md)
  - [CreateTokenListingRequestRequest](docs/CreateTokenListingRequestRequest.md)
  - [CreateTransferTransaction201Response](docs/CreateTransferTransaction201Response.md)
@@ -545,6 +552,8 @@ Class | Method | HTTP request | Description
  - [ListSupportedChains200Response](docs/ListSupportedChains200Response.md)
  - [ListSupportedCountries200ResponseInner](docs/ListSupportedCountries200ResponseInner.md)
  - [ListSupportedTokens200Response](docs/ListSupportedTokens200Response.md)
+ - [ListSwapActivities200Response](docs/ListSwapActivities200Response.md)
+ - [ListSwapEnabledTokens200Response](docs/ListSwapEnabledTokens200Response.md)
  - [ListTokenBalancesForAddress200Response](docs/ListTokenBalancesForAddress200Response.md)
  - [ListTokenBalancesForFeeStation200Response](docs/ListTokenBalancesForFeeStation200Response.md)
  - [ListTokenBalancesForFeeStation200ResponseDataInner](docs/ListTokenBalancesForFeeStation200ResponseDataInner.md)
@@ -581,12 +590,10 @@ Class | Method | HTTP request | Description
  - [MpcStakeSource](docs/MpcStakeSource.md)
  - [MpcTransferSource](docs/MpcTransferSource.md)
  - [Order](docs/Order.md)
+ - [OrderAddressInfo](docs/OrderAddressInfo.md)
  - [OrderStatus](docs/OrderStatus.md)
  - [OrgInfo](docs/OrgInfo.md)
  - [Pagination](docs/Pagination.md)
- - [PaymentOrderEventData](docs/PaymentOrderEventData.md)
- - [PaymentRefundEventData](docs/PaymentRefundEventData.md)
- - [PaymentSettlementEvent](docs/PaymentSettlementEvent.md)
  - [PaymentTransaction](docs/PaymentTransaction.md)
  - [PoolDetails](docs/PoolDetails.md)
  - [PoolDetailsAllOfValidatorsInfo](docs/PoolDetailsAllOfValidatorsInfo.md)

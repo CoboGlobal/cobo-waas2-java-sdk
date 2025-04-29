@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**txId** | **String** | The transaction ID. |  |
 |**txHash** | **String** | The transaction hash. |  [optional] |
+|**tokenId** | **String** | The ID of the cryptocurrency. |  [optional] |
 |**fromAddress** | **String** | The source address of the transaction. |  |
 |**toAddress** | **String** | The destination address of the transaction. |  |
 |**amount** | **String** | The amount of cryptocurrency transferred, as a decimal string. |  |
