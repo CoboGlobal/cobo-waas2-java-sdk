@@ -24,6 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -87,6 +88,14 @@ public class EstimateFeeParamsTest {
     @Test
     public void feeTypeTest() {
         // TODO: test feeType
+    }
+
+    /**
+     * Test the property 'replacedTransactionId'
+     */
+    @Test
+    public void replacedTransactionIdTest() {
+        // TODO: test replacedTransactionId
     }
 
     /**

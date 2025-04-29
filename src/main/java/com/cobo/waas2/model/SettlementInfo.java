@@ -76,6 +76,18 @@ public class SettlementInfo {
   @SerializedName(SERIALIZED_NAME_PENDING_CURRENCY_BALANCE)
   private String pendingCurrencyBalance;
 
+  public static final String SERIALIZED_NAME_SETTLED_AMOUNT = "settled_amount";
+  @SerializedName(SERIALIZED_NAME_SETTLED_AMOUNT)
+  private String settledAmount;
+
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Integer createdTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Integer updatedTimestamp;
+
   public SettlementInfo() {
   }
 
@@ -192,6 +204,63 @@ public class SettlementInfo {
     this.pendingCurrencyBalance = pendingCurrencyBalance;
   }
 
+
+  public SettlementInfo settledAmount(String settledAmount) {
+    this.settledAmount = settledAmount;
+    return this;
+  }
+
+   /**
+   * The amount already settled, in the specified cryptocurrency.
+   * @return settledAmount
+  **/
+  @javax.annotation.Nullable
+  public String getSettledAmount() {
+    return settledAmount;
+  }
+
+  public void setSettledAmount(String settledAmount) {
+    this.settledAmount = settledAmount;
+  }
+
+
+  public SettlementInfo createdTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The created time of the settlement, represented as a UNIX timestamp in seconds.
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
+
+  public SettlementInfo updatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The updated time of the settlement, represented as a UNIX timestamp in seconds.
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+  public void setUpdatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -252,13 +321,16 @@ public class SettlementInfo {
         Objects.equals(this.availableAmount, settlementInfo.availableAmount) &&
         Objects.equals(this.availableCurrencyBalance, settlementInfo.availableCurrencyBalance) &&
         Objects.equals(this.pendingAmount, settlementInfo.pendingAmount) &&
-        Objects.equals(this.pendingCurrencyBalance, settlementInfo.pendingCurrencyBalance)&&
+        Objects.equals(this.pendingCurrencyBalance, settlementInfo.pendingCurrencyBalance) &&
+        Objects.equals(this.settledAmount, settlementInfo.settledAmount) &&
+        Objects.equals(this.createdTimestamp, settlementInfo.createdTimestamp) &&
+        Objects.equals(this.updatedTimestamp, settlementInfo.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, settlementInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, availableAmount, availableCurrencyBalance, pendingAmount, pendingCurrencyBalance, additionalProperties);
+    return Objects.hash(merchantId, tokenId, availableAmount, availableCurrencyBalance, pendingAmount, pendingCurrencyBalance, settledAmount, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -271,6 +343,9 @@ public class SettlementInfo {
     sb.append("    availableCurrencyBalance: ").append(toIndentedString(availableCurrencyBalance)).append("\n");
     sb.append("    pendingAmount: ").append(toIndentedString(pendingAmount)).append("\n");
     sb.append("    pendingCurrencyBalance: ").append(toIndentedString(pendingCurrencyBalance)).append("\n");
+    sb.append("    settledAmount: ").append(toIndentedString(settledAmount)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -300,6 +375,9 @@ public class SettlementInfo {
     openapiFields.add("available_currency_balance");
     openapiFields.add("pending_amount");
     openapiFields.add("pending_currency_balance");
+    openapiFields.add("settled_amount");
+    openapiFields.add("created_timestamp");
+    openapiFields.add("updated_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -343,6 +421,9 @@ public class SettlementInfo {
       }
       if ((jsonObj.get("pending_currency_balance") != null && !jsonObj.get("pending_currency_balance").isJsonNull()) && !jsonObj.get("pending_currency_balance").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pending_currency_balance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pending_currency_balance").toString()));
+      }
+      if ((jsonObj.get("settled_amount") != null && !jsonObj.get("settled_amount").isJsonNull()) && !jsonObj.get("settled_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `settled_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("settled_amount").toString()));
       }
   }
 

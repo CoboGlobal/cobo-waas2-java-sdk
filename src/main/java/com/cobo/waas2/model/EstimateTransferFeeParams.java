@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -79,6 +80,10 @@ public class EstimateTransferFeeParams {
   public static final String SERIALIZED_NAME_FEE_TYPE = "fee_type";
   @SerializedName(SERIALIZED_NAME_FEE_TYPE)
   private FeeType feeType = FeeType.EVM_EIP_1559;
+
+  public static final String SERIALIZED_NAME_REPLACED_TRANSACTION_ID = "replaced_transaction_id";
+  @SerializedName(SERIALIZED_NAME_REPLACED_TRANSACTION_ID)
+  private UUID replacedTransactionId;
 
   public EstimateTransferFeeParams() {
   }
@@ -196,6 +201,25 @@ public class EstimateTransferFeeParams {
     this.feeType = feeType;
   }
 
+
+  public EstimateTransferFeeParams replacedTransactionId(UUID replacedTransactionId) {
+    this.replacedTransactionId = replacedTransactionId;
+    return this;
+  }
+
+   /**
+   * The ID of the transaction that this transaction replaced.
+   * @return replacedTransactionId
+  **/
+  @javax.annotation.Nullable
+  public UUID getReplacedTransactionId() {
+    return replacedTransactionId;
+  }
+
+  public void setReplacedTransactionId(UUID replacedTransactionId) {
+    this.replacedTransactionId = replacedTransactionId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -256,13 +280,14 @@ public class EstimateTransferFeeParams {
         Objects.equals(this.source, estimateTransferFeeParams.source) &&
         Objects.equals(this.tokenId, estimateTransferFeeParams.tokenId) &&
         Objects.equals(this.destination, estimateTransferFeeParams.destination) &&
-        Objects.equals(this.feeType, estimateTransferFeeParams.feeType)&&
+        Objects.equals(this.feeType, estimateTransferFeeParams.feeType) &&
+        Objects.equals(this.replacedTransactionId, estimateTransferFeeParams.replacedTransactionId)&&
         Objects.equals(this.additionalProperties, estimateTransferFeeParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, requestType, source, tokenId, destination, feeType, additionalProperties);
+    return Objects.hash(requestId, requestType, source, tokenId, destination, feeType, replacedTransactionId, additionalProperties);
   }
 
   @Override
@@ -275,6 +300,7 @@ public class EstimateTransferFeeParams {
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
+    sb.append("    replacedTransactionId: ").append(toIndentedString(replacedTransactionId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -304,6 +330,7 @@ public class EstimateTransferFeeParams {
     openapiFields.add("token_id");
     openapiFields.add("destination");
     openapiFields.add("fee_type");
+    openapiFields.add("replaced_transaction_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -349,6 +376,9 @@ public class EstimateTransferFeeParams {
       // validate the optional field `fee_type`
       if (jsonObj.get("fee_type") != null && !jsonObj.get("fee_type").isJsonNull()) {
         FeeType.validateJsonElement(jsonObj.get("fee_type"));
+      }
+      if ((jsonObj.get("replaced_transaction_id") != null && !jsonObj.get("replaced_transaction_id").isJsonNull()) && !jsonObj.get("replaced_transaction_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `replaced_transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("replaced_transaction_id").toString()));
       }
   }
 

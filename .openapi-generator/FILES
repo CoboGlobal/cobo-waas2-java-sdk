@@ -104,6 +104,7 @@ docs/CreateStakeActivity.md
 docs/CreateStakeActivity201Response.md
 docs/CreateStakeActivityExtra.md
 docs/CreateStakeActivityRequest.md
+docs/CreateSwapActivityRequest.md
 docs/CreateTokenListingRequest201Response.md
 docs/CreateTokenListingRequestRequest.md
 docs/CreateTransferTransaction201Response.md
@@ -217,6 +218,8 @@ docs/ListSupportedAssetsForExchange200Response.md
 docs/ListSupportedChains200Response.md
 docs/ListSupportedCountries200ResponseInner.md
 docs/ListSupportedTokens200Response.md
+docs/ListSwapActivities200Response.md
+docs/ListSwapEnabledTokens200Response.md
 docs/ListTokenBalancesForAddress200Response.md
 docs/ListTokenBalancesForFeeStation200Response.md
 docs/ListTokenBalancesForFeeStation200ResponseDataInner.md
@@ -254,13 +257,11 @@ docs/MpcStakeSource.md
 docs/MpcTransferSource.md
 docs/OAuthApi.md
 docs/Order.md
+docs/OrderAddressInfo.md
 docs/OrderStatus.md
 docs/OrgInfo.md
 docs/Pagination.md
 docs/PaymentApi.md
-docs/PaymentOrderEventData.md
-docs/PaymentRefundEventData.md
-docs/PaymentSettlementEvent.md
 docs/PaymentTransaction.md
 docs/PoolDetails.md
 docs/PoolDetailsAllOfValidatorsInfo.md
@@ -325,6 +326,7 @@ docs/SwapActivityTimeline.md
 docs/SwapQuote.md
 docs/SwapToken.md
 docs/SwapType.md
+docs/SwapsApi.md
 docs/TSSGroups.md
 docs/TSSRequest.md
 docs/TSSRequestStatus.md
@@ -505,6 +507,7 @@ src/main/java/com/cobo/waas2/api/OAuthApi.java
 src/main/java/com/cobo/waas2/api/PaymentApi.java
 src/main/java/com/cobo/waas2/api/PrimeBrokerApi.java
 src/main/java/com/cobo/waas2/api/StakingsApi.java
+src/main/java/com/cobo/waas2/api/SwapsApi.java
 src/main/java/com/cobo/waas2/api/TransactionsApi.java
 src/main/java/com/cobo/waas2/api/TravelRuleApi.java
 src/main/java/com/cobo/waas2/api/WalletsApi.java
@@ -621,6 +624,7 @@ src/main/java/com/cobo/waas2/model/CreateStakeActivity.java
 src/main/java/com/cobo/waas2/model/CreateStakeActivity201Response.java
 src/main/java/com/cobo/waas2/model/CreateStakeActivityExtra.java
 src/main/java/com/cobo/waas2/model/CreateStakeActivityRequest.java
+src/main/java/com/cobo/waas2/model/CreateSwapActivityRequest.java
 src/main/java/com/cobo/waas2/model/CreateTokenListingRequest201Response.java
 src/main/java/com/cobo/waas2/model/CreateTokenListingRequestRequest.java
 src/main/java/com/cobo/waas2/model/CreateTransferTransaction201Response.java
@@ -731,6 +735,8 @@ src/main/java/com/cobo/waas2/model/ListSupportedAssetsForExchange200Response.jav
 src/main/java/com/cobo/waas2/model/ListSupportedChains200Response.java
 src/main/java/com/cobo/waas2/model/ListSupportedCountries200ResponseInner.java
 src/main/java/com/cobo/waas2/model/ListSupportedTokens200Response.java
+src/main/java/com/cobo/waas2/model/ListSwapActivities200Response.java
+src/main/java/com/cobo/waas2/model/ListSwapEnabledTokens200Response.java
 src/main/java/com/cobo/waas2/model/ListTokenBalancesForAddress200Response.java
 src/main/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200Response.java
 src/main/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseDataInner.java
@@ -767,12 +773,10 @@ src/main/java/com/cobo/waas2/model/MpcSigningGroup.java
 src/main/java/com/cobo/waas2/model/MpcStakeSource.java
 src/main/java/com/cobo/waas2/model/MpcTransferSource.java
 src/main/java/com/cobo/waas2/model/Order.java
+src/main/java/com/cobo/waas2/model/OrderAddressInfo.java
 src/main/java/com/cobo/waas2/model/OrderStatus.java
 src/main/java/com/cobo/waas2/model/OrgInfo.java
 src/main/java/com/cobo/waas2/model/Pagination.java
-src/main/java/com/cobo/waas2/model/PaymentOrderEventData.java
-src/main/java/com/cobo/waas2/model/PaymentRefundEventData.java
-src/main/java/com/cobo/waas2/model/PaymentSettlementEvent.java
 src/main/java/com/cobo/waas2/model/PaymentTransaction.java
 src/main/java/com/cobo/waas2/model/PoolDetails.java
 src/main/java/com/cobo/waas2/model/PoolDetailsAllOfValidatorsInfo.java
@@ -984,6 +988,7 @@ src/test/java/com/cobo/waas2/api/OAuthApiTest.java
 src/test/java/com/cobo/waas2/api/PaymentApiTest.java
 src/test/java/com/cobo/waas2/api/PrimeBrokerApiTest.java
 src/test/java/com/cobo/waas2/api/StakingsApiTest.java
+src/test/java/com/cobo/waas2/api/SwapsApiTest.java
 src/test/java/com/cobo/waas2/api/TransactionsApiTest.java
 src/test/java/com/cobo/waas2/api/TravelRuleApiTest.java
 src/test/java/com/cobo/waas2/api/WalletsApiTest.java
@@ -1085,6 +1090,7 @@ src/test/java/com/cobo/waas2/model/CreateStakeActivity201ResponseTest.java
 src/test/java/com/cobo/waas2/model/CreateStakeActivityExtraTest.java
 src/test/java/com/cobo/waas2/model/CreateStakeActivityRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateStakeActivityTest.java
+src/test/java/com/cobo/waas2/model/CreateSwapActivityRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateTokenListingRequest201ResponseTest.java
 src/test/java/com/cobo/waas2/model/CreateTokenListingRequestRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateTransferTransaction201ResponseTest.java
@@ -1195,6 +1201,8 @@ src/test/java/com/cobo/waas2/model/ListSupportedAssetsForExchange200ResponseTest
 src/test/java/com/cobo/waas2/model/ListSupportedChains200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListSupportedCountries200ResponseInnerTest.java
 src/test/java/com/cobo/waas2/model/ListSupportedTokens200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListSwapActivities200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListSwapEnabledTokens200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTokenBalancesForAddress200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseDataInnerTest.java
 src/test/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseTest.java
@@ -1230,13 +1238,11 @@ src/test/java/com/cobo/waas2/model/MpcMessageSignSourceTest.java
 src/test/java/com/cobo/waas2/model/MpcSigningGroupTest.java
 src/test/java/com/cobo/waas2/model/MpcStakeSourceTest.java
 src/test/java/com/cobo/waas2/model/MpcTransferSourceTest.java
+src/test/java/com/cobo/waas2/model/OrderAddressInfoTest.java
 src/test/java/com/cobo/waas2/model/OrderStatusTest.java
 src/test/java/com/cobo/waas2/model/OrderTest.java
 src/test/java/com/cobo/waas2/model/OrgInfoTest.java
 src/test/java/com/cobo/waas2/model/PaginationTest.java
-src/test/java/com/cobo/waas2/model/PaymentOrderEventDataTest.java
-src/test/java/com/cobo/waas2/model/PaymentRefundEventDataTest.java
-src/test/java/com/cobo/waas2/model/PaymentSettlementEventTest.java
 src/test/java/com/cobo/waas2/model/PaymentTransactionTest.java
 src/test/java/com/cobo/waas2/model/PoolDetailsAllOfValidatorsInfoTest.java
 src/test/java/com/cobo/waas2/model/PoolDetailsTest.java
