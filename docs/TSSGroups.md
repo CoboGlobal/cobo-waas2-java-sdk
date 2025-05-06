@@ -2,7 +2,7 @@
 
 # TSSGroups
 
-The data for the TSS key share group ID.
+The data for the TSS key share group.
 
 ## Properties
 

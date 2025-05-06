@@ -64,19 +64,7 @@ public enum WebhookEventType {
   
   WALLET_TOKEN_ENABLED("wallet.token.enabled"),
   
-  WALLET_CHAIN_ENABLED("wallet.chain.enabled"),
-  
-  PAYMENT_TRANSACTION_CREATED("payment.transaction.created"),
-  
-  PAYMENT_TRANSACTION_LATE("payment.transaction.late"),
-  
-  PAYMENT_TRANSACTION_HELD("payment.transaction.held"),
-  
-  PAYMENT_STATUS_UPDATED("payment.status.updated"),
-  
-  PAYMENT_REFUND_STATUS_UPDATED("payment.refund.status.updated"),
-  
-  PAYMENT_SETTLEMENT_STATUS_UPDATED("payment.settlement.status.updated");
+  WALLET_CHAIN_ENABLED("wallet.chain.enabled");
 
   private String value;
 

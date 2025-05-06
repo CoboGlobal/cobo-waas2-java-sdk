@@ -95,7 +95,7 @@ public class Example {
 
 Cancel transaction
 
-This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt;  A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60; (Only when the sub-status is &#x60;Queue&#x60;, &#x60;InsufficientBalance&#x60;, &#x60;InsufficientBalanceFundLocked&#x60;, &#x60;PendingSignerApproval&#x60;, &#x60;PendingSystemProcessing&#x60;, or &#x60;Built&#x60;) 
+This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt;  A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60; (excluding the &#x60;SystemProcessingOngoing&#x60; and &#x60;SignatureVerificationSuccess&#x60; sub-statuses) 
 
 ### Example
 ```java
@@ -439,7 +439,7 @@ public class Example {
 
 Drop transaction
 
-This operation drops a specified transaction. Dropping a transaction leverages RBF to replace the original transaction with a version that effectively cancels it. For more details about dropping a transaction, refer to [Drop a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#drop-a-transaction).  A transaction can be sped up only if its status is &#x60;Broadcasting&#x60;.  &lt;Note&gt;This operation only applies to transactions from Custodial Wallets (Web3 Wallets), MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  You can use the &#x60;address&#x60; or &#x60;included_utxos&#x60; properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction&#39;s source. If that source&#39;s balance is insufficient, the specified address or UTXOs can be used to cover the fee. 
+This operation drops a specified transaction. Dropping a transaction leverages RBF to replace the original transaction with a version that effectively cancels it. For more details about dropping a transaction, refer to [Drop a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#drop-a-transaction).  A transaction can be sped up only if its status is &#x60;Broadcasting&#x60;.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  You can use the &#x60;address&#x60; or &#x60;included_utxos&#x60; properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction&#39;s source. If that source&#39;s balance is insufficient, the specified address or UTXOs can be used to cover the fee. 
 
 ### Example
 ```java
@@ -779,7 +779,7 @@ public class Example {
 
 <a id="listTransactions"></a>
 # **listTransactions**
-> ListTransactions200Response listTransactions(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction)
+> ListTransactions200Response listTransactions(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, walletType, walletSubtype, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction)
 
 List all transactions
 
@@ -815,6 +815,8 @@ public class Example {
     String tokenIds = "ETH_USDT,ETH_USDC";
     String assetIds = "USDT,USDC";
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
+    WalletType walletType = WalletType.fromValue("Custodial");
+    WalletSubtype walletSubtype = WalletSubtype.fromValue("Asset");
     UUID projectId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     Long minCreatedTimestamp = 1635744000000L;
     Long maxCreatedTimestamp = 1635744000000L;
@@ -823,7 +825,7 @@ public class Example {
     String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
     String direction = "ASC";
     try {
-      ListTransactions200Response result = apiInstance.listTransactions(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction);
+      ListTransactions200Response result = apiInstance.listTransactions(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, walletType, walletSubtype, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TransactionsApi#listTransactions");
@@ -851,6 +853,8 @@ public class Example {
 | **tokenIds** | **String**| A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). | [optional] |
 | **assetIds** | **String**| (This concept applies to Exchange Wallets only) A list of asset IDs, separated by comma. An asset ID is the unique identifier of the asset held within your linked exchange account. | [optional] |
 | **vaultId** | **UUID**| The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). | [optional] |
+| **walletType** | [**WalletType**](.md)| The wallet type.  - &#x60;Custodial&#x60;: [Custodial Wallets](https://manuals.cobo.com/en/portal/custodial-wallets/introduction)  - &#x60;MPC&#x60;: [MPC Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction)  - &#x60;SmartContract&#x60;: [Smart Contract Wallets](https://manuals.cobo.com/en/portal/smart-contract-wallets/introduction)  - &#x60;Exchange&#x60;: [Exchange Wallets](https://manuals.cobo.com/en/portal/exchange-wallets/introduction)  | [optional] [enum: Custodial, MPC, SmartContract, Exchange] |
+| **walletSubtype** | [**WalletSubtype**](.md)| The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  - &#x60;Safe{Wallet}&#x60;: Smart Contract Wallets (Safe{Wallet})  | [optional] [enum: Asset, Web3, Org-Controlled, User-Controlled, Safe{Wallet}, Main, Sub] |
 | **projectId** | **UUID**| The project ID, which you can retrieve by calling [List all projects](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-projects).  | [optional] |
 | **minCreatedTimestamp** | **Long**| The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time. | [optional] |
 | **maxCreatedTimestamp** | **Long**| The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time. | [optional] |
@@ -1023,7 +1027,7 @@ public class Example {
 
 Speed up transaction
 
-This operation accelerates a specified transaction. Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. For more details about speeding up a transaction, refer to [Speed up a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#speed-up-a-transaction).  You can use the &#x60;address&#x60; or &#x60;included_utxos&#x60; properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction&#39;s source. If that source&#39;s balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction can be sped up only if its status is &#x60;Broadcasting&#x60;.  &lt;Note&gt;This operation only applies to transactions from Custodial Wallets (Web3 Wallets), MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
+This operation accelerates a specified transaction. Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. For more details about speeding up a transaction, refer to [Speed up a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#speed-up-a-transaction).  You can use the &#x60;address&#x60; or &#x60;included_utxos&#x60; properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction&#39;s source. If that source&#39;s balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction can be sped up only if its status is &#x60;Broadcasting&#x60;.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
 
 ### Example
 ```java

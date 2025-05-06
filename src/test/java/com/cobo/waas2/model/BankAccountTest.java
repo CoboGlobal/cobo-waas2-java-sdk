@@ -54,4 +54,20 @@ public class BankAccountTest {
         // TODO: test info
     }
 
+    /**
+     * Test the property 'createdTimestamp'
+     */
+    @Test
+    public void createdTimestampTest() {
+        // TODO: test createdTimestamp
+    }
+
+    /**
+     * Test the property 'updatedTimestamp'
+     */
+    @Test
+    public void updatedTimestampTest() {
+        // TODO: test updatedTimestamp
+    }
+
 }
