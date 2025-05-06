@@ -83,4 +83,28 @@ public class SettlementInfoTest {
         // TODO: test pendingCurrencyBalance
     }
 
+    /**
+     * Test the property 'settledAmount'
+     */
+    @Test
+    public void settledAmountTest() {
+        // TODO: test settledAmount
+    }
+
+    /**
+     * Test the property 'createdTimestamp'
+     */
+    @Test
+    public void createdTimestampTest() {
+        // TODO: test createdTimestamp
+    }
+
+    /**
+     * Test the property 'updatedTimestamp'
+     */
+    @Test
+    public void updatedTimestampTest() {
+        // TODO: test updatedTimestamp
+    }
+
 }

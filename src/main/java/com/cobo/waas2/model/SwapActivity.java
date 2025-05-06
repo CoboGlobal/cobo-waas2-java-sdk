@@ -225,7 +225,7 @@ public class SwapActivity {
   }
 
    /**
-   * The token symbol to swap from.
+   * The token ID to pay.
    * @return payTokenId
   **/
   @javax.annotation.Nullable
@@ -244,7 +244,7 @@ public class SwapActivity {
   }
 
    /**
-   * The token symbol to swap to.
+   * The token ID to receive.
    * @return receiveTokenId
   **/
   @javax.annotation.Nullable
@@ -301,7 +301,7 @@ public class SwapActivity {
   }
 
    /**
-   * The fee token symbol.
+   * The fee token ID.
    * @return feeTokenId
   **/
   @javax.annotation.Nullable

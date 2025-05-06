@@ -56,13 +56,25 @@ public class SwapQuote {
   @SerializedName(SERIALIZED_NAME_QUOTE_ID)
   private String quoteId;
 
+  public static final String SERIALIZED_NAME_PAY_TOKEN_ID = "pay_token_id";
+  @SerializedName(SERIALIZED_NAME_PAY_TOKEN_ID)
+  private String payTokenId;
+
   public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
   @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
   private String payAmount;
 
+  public static final String SERIALIZED_NAME_RECEIVE_TOKEN_ID = "receive_token_id";
+  @SerializedName(SERIALIZED_NAME_RECEIVE_TOKEN_ID)
+  private String receiveTokenId;
+
   public static final String SERIALIZED_NAME_RECEIVE_AMOUNT = "receive_amount";
   @SerializedName(SERIALIZED_NAME_RECEIVE_AMOUNT)
   private String receiveAmount;
+
+  public static final String SERIALIZED_NAME_FEE_TOKEN_ID = "fee_token_id";
+  @SerializedName(SERIALIZED_NAME_FEE_TOKEN_ID)
+  private String feeTokenId;
 
   public static final String SERIALIZED_NAME_FEE_AMOUNT = "fee_amount";
   @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
@@ -102,6 +114,25 @@ public class SwapQuote {
   }
 
 
+  public SwapQuote payTokenId(String payTokenId) {
+    this.payTokenId = payTokenId;
+    return this;
+  }
+
+   /**
+   * The token ID to pay.
+   * @return payTokenId
+  **/
+  @javax.annotation.Nonnull
+  public String getPayTokenId() {
+    return payTokenId;
+  }
+
+  public void setPayTokenId(String payTokenId) {
+    this.payTokenId = payTokenId;
+  }
+
+
   public SwapQuote payAmount(String payAmount) {
     this.payAmount = payAmount;
     return this;
@@ -121,6 +152,25 @@ public class SwapQuote {
   }
 
 
+  public SwapQuote receiveTokenId(String receiveTokenId) {
+    this.receiveTokenId = receiveTokenId;
+    return this;
+  }
+
+   /**
+   * The token ID to receive.
+   * @return receiveTokenId
+  **/
+  @javax.annotation.Nonnull
+  public String getReceiveTokenId() {
+    return receiveTokenId;
+  }
+
+  public void setReceiveTokenId(String receiveTokenId) {
+    this.receiveTokenId = receiveTokenId;
+  }
+
+
   public SwapQuote receiveAmount(String receiveAmount) {
     this.receiveAmount = receiveAmount;
     return this;
@@ -137,6 +187,25 @@ public class SwapQuote {
 
   public void setReceiveAmount(String receiveAmount) {
     this.receiveAmount = receiveAmount;
+  }
+
+
+  public SwapQuote feeTokenId(String feeTokenId) {
+    this.feeTokenId = feeTokenId;
+    return this;
+  }
+
+   /**
+   * The fee token ID.
+   * @return feeTokenId
+  **/
+  @javax.annotation.Nonnull
+  public String getFeeTokenId() {
+    return feeTokenId;
+  }
+
+  public void setFeeTokenId(String feeTokenId) {
+    this.feeTokenId = feeTokenId;
   }
 
 
@@ -271,8 +340,11 @@ public class SwapQuote {
     }
     SwapQuote swapQuote = (SwapQuote) o;
     return Objects.equals(this.quoteId, swapQuote.quoteId) &&
+        Objects.equals(this.payTokenId, swapQuote.payTokenId) &&
         Objects.equals(this.payAmount, swapQuote.payAmount) &&
+        Objects.equals(this.receiveTokenId, swapQuote.receiveTokenId) &&
         Objects.equals(this.receiveAmount, swapQuote.receiveAmount) &&
+        Objects.equals(this.feeTokenId, swapQuote.feeTokenId) &&
         Objects.equals(this.feeAmount, swapQuote.feeAmount) &&
         Objects.equals(this.minReceiveAmount, swapQuote.minReceiveAmount) &&
         Objects.equals(this.maxPayAmount, swapQuote.maxPayAmount) &&
@@ -282,7 +354,7 @@ public class SwapQuote {
 
   @Override
   public int hashCode() {
-    return Objects.hash(quoteId, payAmount, receiveAmount, feeAmount, minReceiveAmount, maxPayAmount, quoteExpiredTimestamp, additionalProperties);
+    return Objects.hash(quoteId, payTokenId, payAmount, receiveTokenId, receiveAmount, feeTokenId, feeAmount, minReceiveAmount, maxPayAmount, quoteExpiredTimestamp, additionalProperties);
   }
 
   @Override
@@ -290,8 +362,11 @@ public class SwapQuote {
     StringBuilder sb = new StringBuilder();
     sb.append("class SwapQuote {\n");
     sb.append("    quoteId: ").append(toIndentedString(quoteId)).append("\n");
+    sb.append("    payTokenId: ").append(toIndentedString(payTokenId)).append("\n");
     sb.append("    payAmount: ").append(toIndentedString(payAmount)).append("\n");
+    sb.append("    receiveTokenId: ").append(toIndentedString(receiveTokenId)).append("\n");
     sb.append("    receiveAmount: ").append(toIndentedString(receiveAmount)).append("\n");
+    sb.append("    feeTokenId: ").append(toIndentedString(feeTokenId)).append("\n");
     sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
     sb.append("    minReceiveAmount: ").append(toIndentedString(minReceiveAmount)).append("\n");
     sb.append("    maxPayAmount: ").append(toIndentedString(maxPayAmount)).append("\n");
@@ -320,8 +395,11 @@ public class SwapQuote {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("quote_id");
+    openapiFields.add("pay_token_id");
     openapiFields.add("pay_amount");
+    openapiFields.add("receive_token_id");
     openapiFields.add("receive_amount");
+    openapiFields.add("fee_token_id");
     openapiFields.add("fee_amount");
     openapiFields.add("min_receive_amount");
     openapiFields.add("max_pay_amount");
@@ -330,8 +408,11 @@ public class SwapQuote {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("quote_id");
+    openapiRequiredFields.add("pay_token_id");
     openapiRequiredFields.add("pay_amount");
+    openapiRequiredFields.add("receive_token_id");
     openapiRequiredFields.add("receive_amount");
+    openapiRequiredFields.add("fee_token_id");
     openapiRequiredFields.add("fee_amount");
     openapiRequiredFields.add("quote_expired_timestamp");
   }
@@ -359,11 +440,20 @@ public class SwapQuote {
       if (!jsonObj.get("quote_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `quote_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quote_id").toString()));
       }
+      if (!jsonObj.get("pay_token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pay_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pay_token_id").toString()));
+      }
       if (!jsonObj.get("pay_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pay_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pay_amount").toString()));
       }
+      if (!jsonObj.get("receive_token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `receive_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receive_token_id").toString()));
+      }
       if (!jsonObj.get("receive_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `receive_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receive_amount").toString()));
+      }
+      if (!jsonObj.get("fee_token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fee_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_token_id").toString()));
       }
       if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
