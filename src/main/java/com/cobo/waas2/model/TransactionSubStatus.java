@@ -108,7 +108,17 @@ public enum TransactionSubStatus {
   
   SIGNATUREVERIFICATIONSUCCESS("SignatureVerificationSuccess"),
   
-  SIGNATUREVERIFICATIONFAILED("SignatureVerificationFailed");
+  SIGNATUREVERIFICATIONFAILED("SignatureVerificationFailed"),
+  
+  PENDINGCOBOCHECK("PendingCoboCheck"),
+  
+  REJECTEDTRANSACTIONPOLICY("RejectedTransactionPolicy"),
+  
+  REJECTEDBYSCREENINGAPP("RejectedByScreeningApp"),
+  
+  PENDINGSCREENINGAPPCHECK("PendingScreeningAppCheck"),
+  
+  PENDINGCOBOTRAVELRULECHECK("PendingCoboTravelRuleCheck");
 
   private String value;
 

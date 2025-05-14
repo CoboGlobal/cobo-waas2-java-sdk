@@ -65,11 +65,27 @@ public class SettlementDetailTest {
     }
 
     /**
+     * Test the property 'merchantId'
+     */
+    @Test
+    public void merchantIdTest() {
+        // TODO: test merchantId
+    }
+
+    /**
      * Test the property 'amount'
      */
     @Test
     public void amountTest() {
         // TODO: test amount
+    }
+
+    /**
+     * Test the property 'settledAmount'
+     */
+    @Test
+    public void settledAmountTest() {
+        // TODO: test settledAmount
     }
 
     /**
@@ -94,6 +110,22 @@ public class SettlementDetailTest {
     @Test
     public void transactionsTest() {
         // TODO: test transactions
+    }
+
+    /**
+     * Test the property 'createdTimestamp'
+     */
+    @Test
+    public void createdTimestampTest() {
+        // TODO: test createdTimestamp
+    }
+
+    /**
+     * Test the property 'updatedTimestamp'
+     */
+    @Test
+    public void updatedTimestampTest() {
+        // TODO: test updatedTimestamp
     }
 
 }

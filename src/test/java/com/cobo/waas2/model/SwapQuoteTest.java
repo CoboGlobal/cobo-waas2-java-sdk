@@ -44,6 +44,14 @@ public class SwapQuoteTest {
     }
 
     /**
+     * Test the property 'payTokenId'
+     */
+    @Test
+    public void payTokenIdTest() {
+        // TODO: test payTokenId
+    }
+
+    /**
      * Test the property 'payAmount'
      */
     @Test
@@ -52,11 +60,27 @@ public class SwapQuoteTest {
     }
 
     /**
+     * Test the property 'receiveTokenId'
+     */
+    @Test
+    public void receiveTokenIdTest() {
+        // TODO: test receiveTokenId
+    }
+
+    /**
      * Test the property 'receiveAmount'
      */
     @Test
     public void receiveAmountTest() {
         // TODO: test receiveAmount
+    }
+
+    /**
+     * Test the property 'feeTokenId'
+     */
+    @Test
+    public void feeTokenIdTest() {
+        // TODO: test feeTokenId
     }
 
     /**

@@ -72,6 +72,18 @@ public class Settlement {
   @SerializedName(SERIALIZED_NAME_SETTLEMENTS)
   private List<SettlementDetail> settlements = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Integer createdTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Integer updatedTimestamp;
+
+  public static final String SERIALIZED_NAME_INITIATOR = "initiator";
+  @SerializedName(SERIALIZED_NAME_INITIATOR)
+  private String initiator;
+
   public Settlement() {
   }
 
@@ -158,6 +170,63 @@ public class Settlement {
     this.settlements = settlements;
   }
 
+
+  public Settlement createdTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The created time of the settlement request, represented as a UNIX timestamp in seconds.
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
+
+  public Settlement updatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The updated time of the settlement request, represented as a UNIX timestamp in seconds.
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+  public void setUpdatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+  }
+
+
+  public Settlement initiator(String initiator) {
+    this.initiator = initiator;
+    return this;
+  }
+
+   /**
+   * The initiator of this settlement request, usually the user&#39;s API key.
+   * @return initiator
+  **/
+  @javax.annotation.Nullable
+  public String getInitiator() {
+    return initiator;
+  }
+
+  public void setInitiator(String initiator) {
+    this.initiator = initiator;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -216,13 +285,16 @@ public class Settlement {
     return Objects.equals(this.settlementRequestId, settlement.settlementRequestId) &&
         Objects.equals(this.requestId, settlement.requestId) &&
         Objects.equals(this.status, settlement.status) &&
-        Objects.equals(this.settlements, settlement.settlements)&&
+        Objects.equals(this.settlements, settlement.settlements) &&
+        Objects.equals(this.createdTimestamp, settlement.createdTimestamp) &&
+        Objects.equals(this.updatedTimestamp, settlement.updatedTimestamp) &&
+        Objects.equals(this.initiator, settlement.initiator)&&
         Objects.equals(this.additionalProperties, settlement.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settlementRequestId, requestId, status, settlements, additionalProperties);
+    return Objects.hash(settlementRequestId, requestId, status, settlements, createdTimestamp, updatedTimestamp, initiator, additionalProperties);
   }
 
   @Override
@@ -233,6 +305,9 @@ public class Settlement {
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    settlements: ").append(toIndentedString(settlements)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
+    sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -260,6 +335,9 @@ public class Settlement {
     openapiFields.add("request_id");
     openapiFields.add("status");
     openapiFields.add("settlements");
+    openapiFields.add("created_timestamp");
+    openapiFields.add("updated_timestamp");
+    openapiFields.add("initiator");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -307,6 +385,9 @@ public class Settlement {
       for (int i = 0; i < jsonArraysettlements.size(); i++) {
         SettlementDetail.validateJsonElement(jsonArraysettlements.get(i));
       };
+      if ((jsonObj.get("initiator") != null && !jsonObj.get("initiator").isJsonNull()) && !jsonObj.get("initiator").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiator").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

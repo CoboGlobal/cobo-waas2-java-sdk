@@ -156,7 +156,7 @@ public class WalletsApi {
 
     /**
      * Check address validity across chains
-     * This operation verifies if a given address is valid for a list of chains. 
+     * This operation verifies if a given address is valid for a list of chains.  &lt;Note&gt;You can specify up to 20 chain IDs in a single request.&lt;/Note&gt; 
      * @param address The wallet address. (required)
      * @param chainIds A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
      * @return List&lt;CheckAddressChainsValidity200ResponseInner&gt;
@@ -176,7 +176,7 @@ public class WalletsApi {
 
     /**
      * Check address validity across chains
-     * This operation verifies if a given address is valid for a list of chains. 
+     * This operation verifies if a given address is valid for a list of chains.  &lt;Note&gt;You can specify up to 20 chain IDs in a single request.&lt;/Note&gt; 
      * @param address The wallet address. (required)
      * @param chainIds A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
      * @return ApiResponse&lt;List&lt;CheckAddressChainsValidity200ResponseInner&gt;&gt;
@@ -197,7 +197,7 @@ public class WalletsApi {
 
     /**
      * Check address validity across chains (asynchronously)
-     * This operation verifies if a given address is valid for a list of chains. 
+     * This operation verifies if a given address is valid for a list of chains.  &lt;Note&gt;You can specify up to 20 chain IDs in a single request.&lt;/Note&gt; 
      * @param address The wallet address. (required)
      * @param chainIds A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -611,7 +611,7 @@ public class WalletsApi {
     }
     /**
      * Build call for createTokenListingRequest
-     * @param createTokenListingRequestRequest Request body for submitting a token listing request. &lt;note&gt;   wallet_type only supports &#x60;Custodial&#x60; and &#x60;MPC&#x60;.   wallet_subtype only supports &#x60;Asset&#x60;, &#x60;Web3&#x60;, and &#x60;Org-Controlled&#x60;. &lt;/note&gt;  (required)
+     * @param createTokenListingRequestRequest Request body for submitting a token listing request.  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -667,9 +667,9 @@ public class WalletsApi {
     }
 
     /**
-     * Submit token listing request
-     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
-     * @param createTokenListingRequestRequest Request body for submitting a token listing request. &lt;note&gt;   wallet_type only supports &#x60;Custodial&#x60; and &#x60;MPC&#x60;.   wallet_subtype only supports &#x60;Asset&#x60;, &#x60;Web3&#x60;, and &#x60;Org-Controlled&#x60;. &lt;/note&gt;  (required)
+     * Create token listing request
+     * This operation creates a token listing request. The token to be listed must already be deployed on the specified blockchain and have a valid contract address.  &lt;note&gt;Currently, tokens listed through this operation are only supported in wallets of type &#x60;Custodial&#x60; or &#x60;MPC&#x60;, and subtype &#x60;Asset&#x60;, &#x60;Web3&#x60;, or &#x60;Org-Controlled&#x60;.&lt;/note&gt; 
+     * @param createTokenListingRequestRequest Request body for submitting a token listing request.  (required)
      * @return CreateTokenListingRequest201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -686,9 +686,9 @@ public class WalletsApi {
     }
 
     /**
-     * Submit token listing request
-     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
-     * @param createTokenListingRequestRequest Request body for submitting a token listing request. &lt;note&gt;   wallet_type only supports &#x60;Custodial&#x60; and &#x60;MPC&#x60;.   wallet_subtype only supports &#x60;Asset&#x60;, &#x60;Web3&#x60;, and &#x60;Org-Controlled&#x60;. &lt;/note&gt;  (required)
+     * Create token listing request
+     * This operation creates a token listing request. The token to be listed must already be deployed on the specified blockchain and have a valid contract address.  &lt;note&gt;Currently, tokens listed through this operation are only supported in wallets of type &#x60;Custodial&#x60; or &#x60;MPC&#x60;, and subtype &#x60;Asset&#x60;, &#x60;Web3&#x60;, or &#x60;Org-Controlled&#x60;.&lt;/note&gt; 
+     * @param createTokenListingRequestRequest Request body for submitting a token listing request.  (required)
      * @return ApiResponse&lt;CreateTokenListingRequest201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -706,9 +706,9 @@ public class WalletsApi {
     }
 
     /**
-     * Submit token listing request (asynchronously)
-     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
-     * @param createTokenListingRequestRequest Request body for submitting a token listing request. &lt;note&gt;   wallet_type only supports &#x60;Custodial&#x60; and &#x60;MPC&#x60;.   wallet_subtype only supports &#x60;Asset&#x60;, &#x60;Web3&#x60;, and &#x60;Org-Controlled&#x60;. &lt;/note&gt;  (required)
+     * Create token listing request (asynchronously)
+     * This operation creates a token listing request. The token to be listed must already be deployed on the specified blockchain and have a valid contract address.  &lt;note&gt;Currently, tokens listed through this operation are only supported in wallets of type &#x60;Custodial&#x60; or &#x60;MPC&#x60;, and subtype &#x60;Asset&#x60;, &#x60;Web3&#x60;, or &#x60;Org-Controlled&#x60;.&lt;/note&gt; 
+     * @param createTokenListingRequestRequest Request body for submitting a token listing request.  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1361,7 +1361,7 @@ public class WalletsApi {
     }
     /**
      * Build call for getTokenListingRequestByRequestId
-     * @param requestId The unique identifier of the token listing request (required)
+     * @param requestId The unique identifier of the token listing request. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1417,9 +1417,9 @@ public class WalletsApi {
     }
 
     /**
-     * Get token listing request details
-     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
-     * @param requestId The unique identifier of the token listing request (required)
+     * Get token listing request
+     * This operation retrieves detailed information about a specific token listing request, including its current status. 
+     * @param requestId The unique identifier of the token listing request. (required)
      * @return TokenListing
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1436,9 +1436,9 @@ public class WalletsApi {
     }
 
     /**
-     * Get token listing request details
-     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
-     * @param requestId The unique identifier of the token listing request (required)
+     * Get token listing request
+     * This operation retrieves detailed information about a specific token listing request, including its current status. 
+     * @param requestId The unique identifier of the token listing request. (required)
      * @return ApiResponse&lt;TokenListing&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1456,9 +1456,9 @@ public class WalletsApi {
     }
 
     /**
-     * Get token listing request details (asynchronously)
-     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
-     * @param requestId The unique identifier of the token listing request (required)
+     * Get token listing request (asynchronously)
+     * This operation retrieves detailed information about a specific token listing request, including its current status. 
+     * @param requestId The unique identifier of the token listing request. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2852,7 +2852,7 @@ public class WalletsApi {
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param status Filter by request status (optional)
+     * @param status The current status of the token listing request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2918,12 +2918,12 @@ public class WalletsApi {
     }
 
     /**
-     * Get all token listing requests
-     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * List token listing requests
+     * This operation lists all token listing requests in your organization. You can filter the results by request status. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param status Filter by request status (optional)
+     * @param status The current status of the token listing request. (optional)
      * @return ListTokenListingRequests200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2940,12 +2940,12 @@ public class WalletsApi {
     }
 
     /**
-     * Get all token listing requests
-     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * List token listing requests
+     * This operation lists all token listing requests in your organization. You can filter the results by request status. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param status Filter by request status (optional)
+     * @param status The current status of the token listing request. (optional)
      * @return ApiResponse&lt;ListTokenListingRequests200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2963,12 +2963,12 @@ public class WalletsApi {
     }
 
     /**
-     * Get all token listing requests (asynchronously)
-     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * List token listing requests (asynchronously)
+     * This operation lists all token listing requests in your organization. You can filter the results by request status. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @param status Filter by request status (optional)
+     * @param status The current status of the token listing request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

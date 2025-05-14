@@ -21,6 +21,7 @@ import com.cobo.waas2.model.PaymentOrderEventData;
 import com.cobo.waas2.model.PaymentRefundEventData;
 import com.cobo.waas2.model.PaymentSettlementEvent;
 import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.RefundType;
 import com.cobo.waas2.model.RootPubkey;
 import com.cobo.waas2.model.SettleRequestStatus;
 import com.cobo.waas2.model.SettlementDetail;
@@ -560,6 +561,14 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'transactions'
+     */
+    @Test
+    public void transactionsTest() {
+        // TODO: test transactions
+    }
+
+    /**
      * Test the property 'refundId'
      */
     @Test
@@ -584,11 +593,11 @@ public class WebhookEventDataTest {
     }
 
     /**
-     * Test the property 'transactions'
+     * Test the property 'refundType'
      */
     @Test
-    public void transactionsTest() {
-        // TODO: test transactions
+    public void refundTypeTest() {
+        // TODO: test refundType
     }
 
     /**

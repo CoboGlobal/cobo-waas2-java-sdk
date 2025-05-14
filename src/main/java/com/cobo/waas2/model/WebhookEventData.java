@@ -22,6 +22,7 @@ import com.cobo.waas2.model.PaymentOrderEventData;
 import com.cobo.waas2.model.PaymentRefundEventData;
 import com.cobo.waas2.model.PaymentSettlementEvent;
 import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.RefundType;
 import com.cobo.waas2.model.RootPubkey;
 import com.cobo.waas2.model.SettleRequestStatus;
 import com.cobo.waas2.model.SettlementDetail;

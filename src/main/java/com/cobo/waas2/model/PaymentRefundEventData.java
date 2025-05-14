@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.RefundStatus;
+import com.cobo.waas2.model.RefundType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -138,6 +139,10 @@ public class PaymentRefundEventData {
   @SerializedName(SERIALIZED_NAME_REFUND_ID)
   private String refundId;
 
+  public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
+  @SerializedName(SERIALIZED_NAME_ORDER_ID)
+  private String orderId;
+
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
@@ -161,6 +166,22 @@ public class PaymentRefundEventData {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private RefundStatus status;
+
+  public static final String SERIALIZED_NAME_REFUND_TYPE = "refund_type";
+  @SerializedName(SERIALIZED_NAME_REFUND_TYPE)
+  private RefundType refundType;
+
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Integer createdTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Integer updatedTimestamp;
+
+  public static final String SERIALIZED_NAME_INITIATOR = "initiator";
+  @SerializedName(SERIALIZED_NAME_INITIATOR)
+  private String initiator;
 
   public static final String SERIALIZED_NAME_TRANSACTIONS = "transactions";
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
@@ -223,6 +244,25 @@ public class PaymentRefundEventData {
 
   public void setRefundId(String refundId) {
     this.refundId = refundId;
+  }
+
+
+  public PaymentRefundEventData orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * The order ID corresponding to this refund.
+   * @return orderId
+  **/
+  @javax.annotation.Nullable
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
   }
 
 
@@ -340,6 +380,82 @@ public class PaymentRefundEventData {
   }
 
 
+  public PaymentRefundEventData refundType(RefundType refundType) {
+    this.refundType = refundType;
+    return this;
+  }
+
+   /**
+   * Get refundType
+   * @return refundType
+  **/
+  @javax.annotation.Nullable
+  public RefundType getRefundType() {
+    return refundType;
+  }
+
+  public void setRefundType(RefundType refundType) {
+    this.refundType = refundType;
+  }
+
+
+  public PaymentRefundEventData createdTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The created time of the refund order, represented as a UNIX timestamp in seconds.
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
+
+  public PaymentRefundEventData updatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The updated time of the refund order, represented as a UNIX timestamp in seconds.
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+  public void setUpdatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+  }
+
+
+  public PaymentRefundEventData initiator(String initiator) {
+    this.initiator = initiator;
+    return this;
+  }
+
+   /**
+   * The initiator of this refund order, usually the user&#39;s API key.
+   * @return initiator
+  **/
+  @javax.annotation.Nullable
+  public String getInitiator() {
+    return initiator;
+  }
+
+  public void setInitiator(String initiator) {
+    this.initiator = initiator;
+  }
+
+
   public PaymentRefundEventData transactions(List<PaymentTransaction> transactions) {
     this.transactions = transactions;
     return this;
@@ -424,19 +540,24 @@ public class PaymentRefundEventData {
     return Objects.equals(this.dataType, paymentRefundEventData.dataType) &&
         Objects.equals(this.requestId, paymentRefundEventData.requestId) &&
         Objects.equals(this.refundId, paymentRefundEventData.refundId) &&
+        Objects.equals(this.orderId, paymentRefundEventData.orderId) &&
         Objects.equals(this.merchantId, paymentRefundEventData.merchantId) &&
         Objects.equals(this.tokenId, paymentRefundEventData.tokenId) &&
         Objects.equals(this.chainId, paymentRefundEventData.chainId) &&
         Objects.equals(this.amount, paymentRefundEventData.amount) &&
         Objects.equals(this.toAddress, paymentRefundEventData.toAddress) &&
         Objects.equals(this.status, paymentRefundEventData.status) &&
+        Objects.equals(this.refundType, paymentRefundEventData.refundType) &&
+        Objects.equals(this.createdTimestamp, paymentRefundEventData.createdTimestamp) &&
+        Objects.equals(this.updatedTimestamp, paymentRefundEventData.updatedTimestamp) &&
+        Objects.equals(this.initiator, paymentRefundEventData.initiator) &&
         Objects.equals(this.transactions, paymentRefundEventData.transactions)&&
         Objects.equals(this.additionalProperties, paymentRefundEventData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, requestId, refundId, merchantId, tokenId, chainId, amount, toAddress, status, transactions, additionalProperties);
+    return Objects.hash(dataType, requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, additionalProperties);
   }
 
   @Override
@@ -446,12 +567,17 @@ public class PaymentRefundEventData {
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    refundId: ").append(toIndentedString(refundId)).append("\n");
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    toAddress: ").append(toIndentedString(toAddress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    refundType: ").append(toIndentedString(refundType)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
+    sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -479,12 +605,17 @@ public class PaymentRefundEventData {
     openapiFields.add("data_type");
     openapiFields.add("request_id");
     openapiFields.add("refund_id");
+    openapiFields.add("order_id");
     openapiFields.add("merchant_id");
     openapiFields.add("token_id");
     openapiFields.add("chain_id");
     openapiFields.add("amount");
     openapiFields.add("to_address");
     openapiFields.add("status");
+    openapiFields.add("refund_type");
+    openapiFields.add("created_timestamp");
+    openapiFields.add("updated_timestamp");
+    openapiFields.add("initiator");
     openapiFields.add("transactions");
 
     // a set of required properties/fields (JSON key names)
@@ -529,6 +660,9 @@ public class PaymentRefundEventData {
       if (!jsonObj.get("refund_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refund_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refund_id").toString()));
       }
+      if ((jsonObj.get("order_id") != null && !jsonObj.get("order_id").isJsonNull()) && !jsonObj.get("order_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_id").toString()));
+      }
       if ((jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()) && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
@@ -546,6 +680,13 @@ public class PaymentRefundEventData {
       }
       // validate the required field `status`
       RefundStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the optional field `refund_type`
+      if (jsonObj.get("refund_type") != null && !jsonObj.get("refund_type").isJsonNull()) {
+        RefundType.validateJsonElement(jsonObj.get("refund_type"));
+      }
+      if ((jsonObj.get("initiator") != null && !jsonObj.get("initiator").isJsonNull()) && !jsonObj.get("initiator").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiator").toString()));
+      }
       if (jsonObj.get("transactions") != null && !jsonObj.get("transactions").isJsonNull()) {
         JsonArray jsonArraytransactions = jsonObj.getAsJsonArray("transactions");
         if (jsonArraytransactions != null) {

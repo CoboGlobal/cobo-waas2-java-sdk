@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.RefundStatus;
+import com.cobo.waas2.model.RefundType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -64,6 +65,14 @@ public class PaymentRefundEventDataTest {
     }
 
     /**
+     * Test the property 'orderId'
+     */
+    @Test
+    public void orderIdTest() {
+        // TODO: test orderId
+    }
+
+    /**
      * Test the property 'merchantId'
      */
     @Test
@@ -109,6 +118,38 @@ public class PaymentRefundEventDataTest {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'refundType'
+     */
+    @Test
+    public void refundTypeTest() {
+        // TODO: test refundType
+    }
+
+    /**
+     * Test the property 'createdTimestamp'
+     */
+    @Test
+    public void createdTimestampTest() {
+        // TODO: test createdTimestamp
+    }
+
+    /**
+     * Test the property 'updatedTimestamp'
+     */
+    @Test
+    public void updatedTimestampTest() {
+        // TODO: test updatedTimestamp
+    }
+
+    /**
+     * Test the property 'initiator'
+     */
+    @Test
+    public void initiatorTest() {
+        // TODO: test initiator
     }
 
     /**

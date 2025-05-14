@@ -12,6 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AddressEncoding;
+import com.cobo.waas2.model.WalletSubtype;
 import com.cobo.waas2.model.WalletType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -80,6 +82,10 @@ public class AddressBook {
   @SerializedName(SERIALIZED_NAME_WALLET_TYPE)
   private WalletType walletType;
 
+  public static final String SERIALIZED_NAME_WALLET_SUBTYPE = "wallet_subtype";
+  @SerializedName(SERIALIZED_NAME_WALLET_SUBTYPE)
+  private WalletSubtype walletSubtype;
+
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)
   private String label;
@@ -91,6 +97,10 @@ public class AddressBook {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_ENCODING = "encoding";
+  @SerializedName(SERIALIZED_NAME_ENCODING)
+  private AddressEncoding encoding;
 
   public AddressBook() {
   }
@@ -209,6 +219,25 @@ public class AddressBook {
   }
 
 
+  public AddressBook walletSubtype(WalletSubtype walletSubtype) {
+    this.walletSubtype = walletSubtype;
+    return this;
+  }
+
+   /**
+   * Get walletSubtype
+   * @return walletSubtype
+  **/
+  @javax.annotation.Nullable
+  public WalletSubtype getWalletSubtype() {
+    return walletSubtype;
+  }
+
+  public void setWalletSubtype(WalletSubtype walletSubtype) {
+    this.walletSubtype = walletSubtype;
+  }
+
+
   public AddressBook label(String label) {
     this.label = label;
     return this;
@@ -273,6 +302,25 @@ public class AddressBook {
     this.email = email;
   }
 
+
+  public AddressBook encoding(AddressEncoding encoding) {
+    this.encoding = encoding;
+    return this;
+  }
+
+   /**
+   * Get encoding
+   * @return encoding
+  **/
+  @javax.annotation.Nullable
+  public AddressEncoding getEncoding() {
+    return encoding;
+  }
+
+  public void setEncoding(AddressEncoding encoding) {
+    this.encoding = encoding;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -334,15 +382,17 @@ public class AddressBook {
         Objects.equals(this.memo, addressBook.memo) &&
         Objects.equals(this.walletName, addressBook.walletName) &&
         Objects.equals(this.walletType, addressBook.walletType) &&
+        Objects.equals(this.walletSubtype, addressBook.walletSubtype) &&
         Objects.equals(this.label, addressBook.label) &&
         Objects.equals(this.chainIds, addressBook.chainIds) &&
-        Objects.equals(this.email, addressBook.email)&&
+        Objects.equals(this.email, addressBook.email) &&
+        Objects.equals(this.encoding, addressBook.encoding)&&
         Objects.equals(this.additionalProperties, addressBook.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orgId, entryId, address, memo, walletName, walletType, label, chainIds, email, additionalProperties);
+    return Objects.hash(orgId, entryId, address, memo, walletName, walletType, walletSubtype, label, chainIds, email, encoding, additionalProperties);
   }
 
   @Override
@@ -355,9 +405,11 @@ public class AddressBook {
     sb.append("    memo: ").append(toIndentedString(memo)).append("\n");
     sb.append("    walletName: ").append(toIndentedString(walletName)).append("\n");
     sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
+    sb.append("    walletSubtype: ").append(toIndentedString(walletSubtype)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    chainIds: ").append(toIndentedString(chainIds)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -387,9 +439,11 @@ public class AddressBook {
     openapiFields.add("memo");
     openapiFields.add("wallet_name");
     openapiFields.add("wallet_type");
+    openapiFields.add("wallet_subtype");
     openapiFields.add("label");
     openapiFields.add("chain_ids");
     openapiFields.add("email");
+    openapiFields.add("encoding");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -438,6 +492,10 @@ public class AddressBook {
       if (jsonObj.get("wallet_type") != null && !jsonObj.get("wallet_type").isJsonNull()) {
         WalletType.validateJsonElement(jsonObj.get("wallet_type"));
       }
+      // validate the optional field `wallet_subtype`
+      if (jsonObj.get("wallet_subtype") != null && !jsonObj.get("wallet_subtype").isJsonNull()) {
+        WalletSubtype.validateJsonElement(jsonObj.get("wallet_subtype"));
+      }
       if (!jsonObj.get("label").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }
@@ -447,6 +505,10 @@ public class AddressBook {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      // validate the optional field `encoding`
+      if (jsonObj.get("encoding") != null && !jsonObj.get("encoding").isJsonNull()) {
+        AddressEncoding.validateJsonElement(jsonObj.get("encoding"));
       }
   }
 

@@ -23,7 +23,7 @@
 |**destination** | [**TransactionDestination**](TransactionDestination.md) |  |  |
 |**result** | [**TransactionResult**](TransactionResult.md) |  |  [optional] |
 |**fee** | [**TransactionFee**](TransactionFee.md) |  |  [optional] |
-|**initiator** | **String** | The transaction initiator. |  [optional] |
+|**initiator** | **String** | The initiator of this settlement request, usually the user&#39;s API key. |  [optional] |
 |**initiatorType** | **TransactionInitiatorType** |  |  |
 |**confirmedNum** | **Integer** | The number of confirmations this transaction has received. |  [optional] |
 |**confirmingThreshold** | **Integer** | The minimum number of confirmations required to deem a transaction secure. The common threshold is 6 for a Bitcoin transaction. |  [optional] |
@@ -37,8 +37,8 @@
 |**coboCategory** | **List&lt;String&gt;** | The transaction category defined by Cobo. Possible values include:  - &#x60;AutoSweep&#x60;: An auto-sweep transaction. - &#x60;AutoFueling&#x60;: A transaction where Fee Station pays transaction fees to an address within your wallet. - &#x60;AutoFuelingRefund&#x60;: A refund for an auto-fueling transaction. - &#x60;SafeTxMessage&#x60;: A message signing transaction to authorize a Smart Contract Wallet (Safe\\{Wallet\\}) transaction. - &#x60;BillPayment&#x60;: A transaction to pay Cobo bills through Fee Station. - &#x60;BillRefund&#x60;: A refund for a previously made bill payment. - &#x60;CommissionFeeCharge&#x60;: A transaction to charge commission fees via Fee Station. - &#x60;CommissionFeeRefund&#x60;: A refund of previously charged commission fees.  |  [optional] |
 |**extra** | **List&lt;String&gt;** | A list of JSON-encoded strings containing structured, business-specific extra information for the transaction. Each item corresponds to a specific data type, indicated by the &#x60;extra_type&#x60; field in the JSON object (for example, \&quot;BabylonBusinessInfo\&quot;, \&quot;BtcAddressInfo\&quot;).  |  [optional] |
 |**fuelingInfo** | [**TransactionFuelingInfo**](TransactionFuelingInfo.md) |  |  [optional] |
-|**createdTimestamp** | **Long** | Timestamp when the request was created (in milliseconds since Unix epoch) |  |
-|**updatedTimestamp** | **Long** | Timestamp when the request was last updated (in milliseconds since Unix epoch) |  |
+|**createdTimestamp** | **Integer** | The created time of the settlement request, represented as a UNIX timestamp in seconds. |  |
+|**updatedTimestamp** | **Integer** | The updated time of the settlement request, represented as a UNIX timestamp in seconds. |  |
 |**tssRequestId** | **String** | The TSS request ID. |  [optional] |
 |**sourceKeyShareHolderGroup** | [**SourceGroup**](SourceGroup.md) |  |  [optional] |
 |**targetKeyShareHolderGroupId** | **String** | The target key share holder group ID. |  [optional] |
@@ -52,11 +52,11 @@
 |**walletType** | **WalletType** |  |  |
 |**walletSubtypes** | **List&lt;WalletSubtype&gt;** |  |  [optional] |
 |**tokens** | [**List&lt;TokenInfo&gt;**](TokenInfo.md) | The enabled tokens. |  |
-|**contractAddress** | **String** | Contract address of the token |  |
+|**contractAddress** | **String** | The token&#39;s contract address on the specified blockchain. |  |
 |**walletSubtype** | **WalletSubtype** |  |  |
 |**token** | [**TokenInfo**](TokenInfo.md) |  |  [optional] |
-|**feedback** | **String** | Feedback provided by the admin for rejected requests |  [optional] |
-|**orderId** | **String** | The order ID. |  |
+|**feedback** | **String** | The feedback provided by Cobo when a token listing request is rejected. |  [optional] |
+|**orderId** | **String** | The order ID corresponding to this refund. |  |
 |**merchantId** | **String** | The merchant ID. |  [optional] |
 |**payableAmount** | **String** | The cryptocurrency amount to be paid for this order. |  |
 |**receiveAddress** | **String** | The recipient wallet address to be used for the payment transaction. |  |
@@ -68,10 +68,11 @@
 |**merchantOrderCode** | **String** | A unique reference code assigned by the merchant to identify this order in their system. |  [optional] |
 |**pspOrderCode** | **String** | A unique reference code assigned by the developer to identify this order in their system. |  |
 |**receivedTokenAmount** | **String** | The total cryptocurrency amount received for this order. Updates until the expiration time. Precision matches the token standard (e.g., 6 decimals for USDT). |  |
+|**transactions** | [**List&lt;PaymentTransaction&gt;**](PaymentTransaction.md) | An array of transactions associated with this refund order. Each transaction represents a separate blockchain operation related to the refund process. |  [optional] |
 |**refundId** | **String** | The refund order ID. |  |
 |**amount** | **String** | The amount in cryptocurrency to be returned for this refund order. |  |
 |**toAddress** | **String** | The recipient&#39;s wallet address where the refund will be sent. |  |
-|**transactions** | [**List&lt;PaymentTransaction&gt;**](PaymentTransaction.md) | An array of transactions associated with this refund order. Each transaction represents a separate blockchain operation related to the refund process. |  [optional] |
+|**refundType** | **RefundType** |  |  [optional] |
 |**settlementRequestId** | **String** | The settlement request ID generated by Cobo. |  |
 |**settlements** | [**List&lt;SettlementDetail&gt;**](SettlementDetail.md) |  |  |
 

@@ -79,4 +79,28 @@ public class PaymentSettlementEventTest {
         // TODO: test settlements
     }
 
+    /**
+     * Test the property 'createdTimestamp'
+     */
+    @Test
+    public void createdTimestampTest() {
+        // TODO: test createdTimestamp
+    }
+
+    /**
+     * Test the property 'updatedTimestamp'
+     */
+    @Test
+    public void updatedTimestampTest() {
+        // TODO: test updatedTimestamp
+    }
+
+    /**
+     * Test the property 'initiator'
+     */
+    @Test
+    public void initiatorTest() {
+        // TODO: test initiator
+    }
+
 }

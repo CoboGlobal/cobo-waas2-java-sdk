@@ -161,7 +161,7 @@ public class SwapToken {
   }
 
    /**
-   * The minimum amount to swap.
+   * The minimum amount.
    * @return minAmount
   **/
   @javax.annotation.Nullable
@@ -180,7 +180,7 @@ public class SwapToken {
   }
 
    /**
-   * The maximum amount to swap.
+   * The maximum amount.
    * @return maxAmount
   **/
   @javax.annotation.Nullable

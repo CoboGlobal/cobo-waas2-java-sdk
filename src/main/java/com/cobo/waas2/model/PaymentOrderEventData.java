@@ -13,13 +13,16 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.OrderStatus;
+import com.cobo.waas2.model.PaymentTransaction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -186,6 +189,18 @@ public class PaymentOrderEventData {
   public static final String SERIALIZED_NAME_RECEIVED_TOKEN_AMOUNT = "received_token_amount";
   @SerializedName(SERIALIZED_NAME_RECEIVED_TOKEN_AMOUNT)
   private String receivedTokenAmount;
+
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Integer createdTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Integer updatedTimestamp;
+
+  public static final String SERIALIZED_NAME_TRANSACTIONS = "transactions";
+  @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
+  private List<PaymentTransaction> transactions = new ArrayList<>();
 
   public PaymentOrderEventData() {
   }
@@ -493,6 +508,71 @@ public class PaymentOrderEventData {
     this.receivedTokenAmount = receivedTokenAmount;
   }
 
+
+  public PaymentOrderEventData createdTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The created time of the order, represented as a UNIX timestamp in seconds.
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
+
+  public PaymentOrderEventData updatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The updated time of the order, represented as a UNIX timestamp in seconds.
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+  public void setUpdatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+  }
+
+
+  public PaymentOrderEventData transactions(List<PaymentTransaction> transactions) {
+    this.transactions = transactions;
+    return this;
+  }
+
+  public PaymentOrderEventData addTransactionsItem(PaymentTransaction transactionsItem) {
+    if (this.transactions == null) {
+      this.transactions = new ArrayList<>();
+    }
+    this.transactions.add(transactionsItem);
+    return this;
+  }
+
+   /**
+   * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the settlement process.
+   * @return transactions
+  **/
+  @javax.annotation.Nullable
+  public List<PaymentTransaction> getTransactions() {
+    return transactions;
+  }
+
+  public void setTransactions(List<PaymentTransaction> transactions) {
+    this.transactions = transactions;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -563,13 +643,16 @@ public class PaymentOrderEventData {
         Objects.equals(this.merchantOrderCode, paymentOrderEventData.merchantOrderCode) &&
         Objects.equals(this.pspOrderCode, paymentOrderEventData.pspOrderCode) &&
         Objects.equals(this.status, paymentOrderEventData.status) &&
-        Objects.equals(this.receivedTokenAmount, paymentOrderEventData.receivedTokenAmount)&&
+        Objects.equals(this.receivedTokenAmount, paymentOrderEventData.receivedTokenAmount) &&
+        Objects.equals(this.createdTimestamp, paymentOrderEventData.createdTimestamp) &&
+        Objects.equals(this.updatedTimestamp, paymentOrderEventData.updatedTimestamp) &&
+        Objects.equals(this.transactions, paymentOrderEventData.transactions)&&
         Objects.equals(this.additionalProperties, paymentOrderEventData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, additionalProperties);
+    return Objects.hash(dataType, orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, createdTimestamp, updatedTimestamp, transactions, additionalProperties);
   }
 
   @Override
@@ -592,6 +675,9 @@ public class PaymentOrderEventData {
     sb.append("    pspOrderCode: ").append(toIndentedString(pspOrderCode)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    receivedTokenAmount: ").append(toIndentedString(receivedTokenAmount)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
+    sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -631,6 +717,9 @@ public class PaymentOrderEventData {
     openapiFields.add("psp_order_code");
     openapiFields.add("status");
     openapiFields.add("received_token_amount");
+    openapiFields.add("created_timestamp");
+    openapiFields.add("updated_timestamp");
+    openapiFields.add("transactions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -714,6 +803,20 @@ public class PaymentOrderEventData {
       OrderStatus.validateJsonElement(jsonObj.get("status"));
       if (!jsonObj.get("received_token_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `received_token_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("received_token_amount").toString()));
+      }
+      if (jsonObj.get("transactions") != null && !jsonObj.get("transactions").isJsonNull()) {
+        JsonArray jsonArraytransactions = jsonObj.getAsJsonArray("transactions");
+        if (jsonArraytransactions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("transactions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `transactions` to be an array in the JSON string but got `%s`", jsonObj.get("transactions").toString()));
+          }
+
+          // validate the optional field `transactions` (array)
+          for (int i = 0; i < jsonArraytransactions.size(); i++) {
+            PaymentTransaction.validateJsonElement(jsonArraytransactions.get(i));
+          };
+        }
       }
   }
 

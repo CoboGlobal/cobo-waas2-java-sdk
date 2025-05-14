@@ -11,6 +11,8 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.AddressEncoding;
+import com.cobo.waas2.model.WalletSubtype;
 import com.cobo.waas2.model.WalletType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -88,6 +90,14 @@ public class AddressBookTest {
     }
 
     /**
+     * Test the property 'walletSubtype'
+     */
+    @Test
+    public void walletSubtypeTest() {
+        // TODO: test walletSubtype
+    }
+
+    /**
      * Test the property 'label'
      */
     @Test
@@ -109,6 +119,14 @@ public class AddressBookTest {
     @Test
     public void emailTest() {
         // TODO: test email
+    }
+
+    /**
+     * Test the property 'encoding'
+     */
+    @Test
+    public void encodingTest() {
+        // TODO: test encoding
     }
 
 }
