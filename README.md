@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.14.0</version>
+  <version>1.15.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.14.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.15.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.14.0.jar`
+* `target/cobo-waas2-1.15.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -214,7 +214,7 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *DevelopersWebhooksApi* | [**triggerTestWebhookEvent**](docs/DevelopersWebhooksApi.md#triggerTestWebhookEvent) | **POST** /webhooks/events/trigger | Trigger test event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
-*FeeStationApi* | [**estimateFeeStationFee**](docs/FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate transaction fee
+*FeeStationApi* | [**estimateFeeStationFee**](docs/FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate fee for Fee Station transaction
 *FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information
 *FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses
 *FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions
@@ -227,6 +227,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
 *PaymentApi* | [**createSettlementRequest**](docs/PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
+*PaymentApi* | [**getPaymentOrderAddressInfo**](docs/PaymentApi.md#getPaymentOrderAddressInfo) | **GET** /payments/orders/address_info | Get pay-in order&#39;s receiving address info
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
 *PaymentApi* | [**getRefundDetailById**](docs/PaymentApi.md#getRefundDetailById) | **GET** /payments/refunds/{refund_id} | Get refund order information
 *PaymentApi* | [**getRefunds**](docs/PaymentApi.md#getRefunds) | **GET** /payments/refunds | List all refund orders
@@ -288,13 +289,13 @@ Class | Method | HTTP request | Description
 *WalletsApi* | [**checkAddressValidity**](docs/WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
 *WalletsApi* | [**checkAddressesValidity**](docs/WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity
 *WalletsApi* | [**createAddress**](docs/WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet
-*WalletsApi* | [**createTokenListingRequest**](docs/WalletsApi.md#createTokenListingRequest) | **POST** /wallets/tokens/listing_requests | Submit token listing request
+*WalletsApi* | [**createTokenListingRequest**](docs/WalletsApi.md#createTokenListingRequest) | **POST** /wallets/tokens/listing_requests | Create token listing request
 *WalletsApi* | [**createWallet**](docs/WalletsApi.md#createWallet) | **POST** /wallets | Create wallet
 *WalletsApi* | [**deleteWalletById**](docs/WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet
 *WalletsApi* | [**getChainById**](docs/WalletsApi.md#getChainById) | **GET** /wallets/chains/{chain_id} | Get chain information
 *WalletsApi* | [**getMaxTransferableValue**](docs/WalletsApi.md#getMaxTransferableValue) | **GET** /wallets/{wallet_id}/max_transferable_value | Get maximum transferable value
 *WalletsApi* | [**getTokenById**](docs/WalletsApi.md#getTokenById) | **GET** /wallets/tokens/{token_id} | Get token information
-*WalletsApi* | [**getTokenListingRequestByRequestId**](docs/WalletsApi.md#getTokenListingRequestByRequestId) | **GET** /wallets/tokens/listing_requests/{request_id} | Get token listing request details
+*WalletsApi* | [**getTokenListingRequestByRequestId**](docs/WalletsApi.md#getTokenListingRequestByRequestId) | **GET** /wallets/tokens/listing_requests/{request_id} | Get token listing request
 *WalletsApi* | [**getWalletById**](docs/WalletsApi.md#getWalletById) | **GET** /wallets/{wallet_id} | Get wallet information
 *WalletsApi* | [**listAddressBalancesByToken**](docs/WalletsApi.md#listAddressBalancesByToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances by token
 *WalletsApi* | [**listAddresses**](docs/WalletsApi.md#listAddresses) | **GET** /wallets/{wallet_id}/addresses | List wallet addresses
@@ -304,7 +305,7 @@ Class | Method | HTTP request | Description
 *WalletsApi* | [**listSupportedTokens**](docs/WalletsApi.md#listSupportedTokens) | **GET** /wallets/tokens | List supported tokens
 *WalletsApi* | [**listTokenBalancesForAddress**](docs/WalletsApi.md#listTokenBalancesForAddress) | **GET** /wallets/{wallet_id}/addresses/{address}/tokens | List token balances by address
 *WalletsApi* | [**listTokenBalancesForWallet**](docs/WalletsApi.md#listTokenBalancesForWallet) | **GET** /wallets/{wallet_id}/tokens | List token balances by wallet
-*WalletsApi* | [**listTokenListingRequests**](docs/WalletsApi.md#listTokenListingRequests) | **GET** /wallets/tokens/listing_requests | Get all token listing requests
+*WalletsApi* | [**listTokenListingRequests**](docs/WalletsApi.md#listTokenListingRequests) | **GET** /wallets/tokens/listing_requests | List token listing requests
 *WalletsApi* | [**listUtxos**](docs/WalletsApi.md#listUtxos) | **GET** /wallets/{wallet_id}/utxos | List UTXOs
 *WalletsApi* | [**listWallets**](docs/WalletsApi.md#listWallets) | **GET** /wallets | List all wallets
 *WalletsApi* | [**lockUtxos**](docs/WalletsApi.md#lockUtxos) | **POST** /wallets/{wallet_id}/utxos/lock | Lock UTXOs
@@ -581,6 +582,7 @@ Class | Method | HTTP request | Description
  - [MpcStakeSource](docs/MpcStakeSource.md)
  - [MpcTransferSource](docs/MpcTransferSource.md)
  - [Order](docs/Order.md)
+ - [OrderAddressInfo](docs/OrderAddressInfo.md)
  - [OrderStatus](docs/OrderStatus.md)
  - [OrgInfo](docs/OrgInfo.md)
  - [Pagination](docs/Pagination.md)
@@ -649,11 +651,46 @@ Class | Method | HTTP request | Description
  - [SwapQuote](docs/SwapQuote.md)
  - [SwapToken](docs/SwapToken.md)
  - [SwapType](docs/SwapType.md)
+ - [TSSBaseRequestEventData](docs/TSSBaseRequestEventData.md)
+ - [TSSCallbackActionType](docs/TSSCallbackActionType.md)
+ - [TSSCallbackRequest](docs/TSSCallbackRequest.md)
+ - [TSSCallbackRequestType](docs/TSSCallbackRequestType.md)
+ - [TSSCallbackResponse](docs/TSSCallbackResponse.md)
+ - [TSSCurve](docs/TSSCurve.md)
+ - [TSSCurveType](docs/TSSCurveType.md)
+ - [TSSEvent](docs/TSSEvent.md)
+ - [TSSEventData](docs/TSSEventData.md)
+ - [TSSEventDataType](docs/TSSEventDataType.md)
+ - [TSSEventType](docs/TSSEventType.md)
+ - [TSSGroup](docs/TSSGroup.md)
+ - [TSSGroupType](docs/TSSGroupType.md)
  - [TSSGroups](docs/TSSGroups.md)
+ - [TSSKeyGenEventData](docs/TSSKeyGenEventData.md)
+ - [TSSKeyGenExtra](docs/TSSKeyGenExtra.md)
+ - [TSSKeyGenRequest](docs/TSSKeyGenRequest.md)
+ - [TSSKeyReshareEventData](docs/TSSKeyReshareEventData.md)
+ - [TSSKeyReshareExtra](docs/TSSKeyReshareExtra.md)
+ - [TSSKeyReshareRequest](docs/TSSKeyReshareRequest.md)
+ - [TSSKeyShareSignDetail](docs/TSSKeyShareSignDetail.md)
+ - [TSSKeyShareSignEventData](docs/TSSKeyShareSignEventData.md)
+ - [TSSKeyShareSignExtra](docs/TSSKeyShareSignExtra.md)
+ - [TSSKeyShareSignRequest](docs/TSSKeyShareSignRequest.md)
+ - [TSSKeyShareSignSignature](docs/TSSKeyShareSignSignature.md)
+ - [TSSKeyShareSignSignatures](docs/TSSKeyShareSignSignatures.md)
+ - [TSSKeySignEventData](docs/TSSKeySignEventData.md)
+ - [TSSKeySignExtra](docs/TSSKeySignExtra.md)
+ - [TSSKeySignRequest](docs/TSSKeySignRequest.md)
+ - [TSSParticipant](docs/TSSParticipant.md)
+ - [TSSProtocol](docs/TSSProtocol.md)
  - [TSSRequest](docs/TSSRequest.md)
  - [TSSRequestStatus](docs/TSSRequestStatus.md)
  - [TSSRequestType](docs/TSSRequestType.md)
+ - [TSSRequestTypeEenum](docs/TSSRequestTypeEenum.md)
  - [TSSRequestWebhookEventData](docs/TSSRequestWebhookEventData.md)
+ - [TSSSignature](docs/TSSSignature.md)
+ - [TSSSignatureType](docs/TSSSignatureType.md)
+ - [TSSSignatures](docs/TSSSignatures.md)
+ - [TSSStatus](docs/TSSStatus.md)
  - [TokenAssetModelType](docs/TokenAssetModelType.md)
  - [TokenBalance](docs/TokenBalance.md)
  - [TokenInfo](docs/TokenInfo.md)

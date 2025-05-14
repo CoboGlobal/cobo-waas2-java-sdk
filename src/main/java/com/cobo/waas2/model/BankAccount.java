@@ -63,6 +63,14 @@ public class BankAccount {
   @SerializedName(SERIALIZED_NAME_INFO)
   private Map<String, Object> info = new HashMap<>();
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Integer createdTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Integer updatedTimestamp;
+
   public BankAccount() {
   }
 
@@ -109,6 +117,44 @@ public class BankAccount {
 
   public void setInfo(Map<String, Object> info) {
     this.info = info;
+  }
+
+
+  public BankAccount createdTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The created time of the bank account, represented as a UNIX timestamp in seconds.
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
+
+  public BankAccount updatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The updated time of the bank account, represented as a UNIX timestamp in seconds.
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+  public void setUpdatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
   }
 
   /**
@@ -167,13 +213,15 @@ public class BankAccount {
     }
     BankAccount bankAccount = (BankAccount) o;
     return Objects.equals(this.bankAccountId, bankAccount.bankAccountId) &&
-        Objects.equals(this.info, bankAccount.info)&&
+        Objects.equals(this.info, bankAccount.info) &&
+        Objects.equals(this.createdTimestamp, bankAccount.createdTimestamp) &&
+        Objects.equals(this.updatedTimestamp, bankAccount.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, bankAccount.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccountId, info, additionalProperties);
+    return Objects.hash(bankAccountId, info, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -182,6 +230,8 @@ public class BankAccount {
     sb.append("class BankAccount {\n");
     sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
     sb.append("    info: ").append(toIndentedString(info)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -207,6 +257,8 @@ public class BankAccount {
     openapiFields = new HashSet<String>();
     openapiFields.add("bank_account_id");
     openapiFields.add("info");
+    openapiFields.add("created_timestamp");
+    openapiFields.add("updated_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

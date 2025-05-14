@@ -14,9 +14,11 @@ The information of an address book entry.
 |**memo** | **String** | The memo. |  [optional] |
 |**walletName** | **String** | The wallet name. |  [optional] |
 |**walletType** | **WalletType** |  |  [optional] |
+|**walletSubtype** | **WalletSubtype** |  |  [optional] |
 |**label** | **String** | The address label. |  |
 |**chainIds** | **List&lt;String&gt;** | A list of chain IDs. |  [optional] |
 |**email** | **String** | The email of the address owner. |  [optional] |
+|**encoding** | **AddressEncoding** |  |  [optional] |
 
 
 

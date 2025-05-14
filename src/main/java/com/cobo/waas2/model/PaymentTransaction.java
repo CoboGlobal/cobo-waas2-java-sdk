@@ -61,6 +61,10 @@ public class PaymentTransaction {
   @SerializedName(SERIALIZED_NAME_TX_HASH)
   private String txHash;
 
+  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
+  private String tokenId;
+
   public static final String SERIALIZED_NAME_FROM_ADDRESS = "from_address";
   @SerializedName(SERIALIZED_NAME_FROM_ADDRESS)
   private String fromAddress;
@@ -123,6 +127,25 @@ public class PaymentTransaction {
 
   public void setTxHash(String txHash) {
     this.txHash = txHash;
+  }
+
+
+  public PaymentTransaction tokenId(String tokenId) {
+    this.tokenId = tokenId;
+    return this;
+  }
+
+   /**
+   * The ID of the cryptocurrency.
+   * @return tokenId
+  **/
+  @javax.annotation.Nullable
+  public String getTokenId() {
+    return tokenId;
+  }
+
+  public void setTokenId(String tokenId) {
+    this.tokenId = tokenId;
   }
 
 
@@ -296,6 +319,7 @@ public class PaymentTransaction {
     PaymentTransaction paymentTransaction = (PaymentTransaction) o;
     return Objects.equals(this.txId, paymentTransaction.txId) &&
         Objects.equals(this.txHash, paymentTransaction.txHash) &&
+        Objects.equals(this.tokenId, paymentTransaction.tokenId) &&
         Objects.equals(this.fromAddress, paymentTransaction.fromAddress) &&
         Objects.equals(this.toAddress, paymentTransaction.toAddress) &&
         Objects.equals(this.amount, paymentTransaction.amount) &&
@@ -307,7 +331,7 @@ public class PaymentTransaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(txId, txHash, fromAddress, toAddress, amount, status, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(txId, txHash, tokenId, fromAddress, toAddress, amount, status, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -316,6 +340,7 @@ public class PaymentTransaction {
     sb.append("class PaymentTransaction {\n");
     sb.append("    txId: ").append(toIndentedString(txId)).append("\n");
     sb.append("    txHash: ").append(toIndentedString(txHash)).append("\n");
+    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    fromAddress: ").append(toIndentedString(fromAddress)).append("\n");
     sb.append("    toAddress: ").append(toIndentedString(toAddress)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
@@ -347,6 +372,7 @@ public class PaymentTransaction {
     openapiFields = new HashSet<String>();
     openapiFields.add("tx_id");
     openapiFields.add("tx_hash");
+    openapiFields.add("token_id");
     openapiFields.add("from_address");
     openapiFields.add("to_address");
     openapiFields.add("amount");
@@ -390,6 +416,9 @@ public class PaymentTransaction {
       }
       if ((jsonObj.get("tx_hash") != null && !jsonObj.get("tx_hash").isJsonNull()) && !jsonObj.get("tx_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tx_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tx_hash").toString()));
+      }
+      if ((jsonObj.get("token_id") != null && !jsonObj.get("token_id").isJsonNull()) && !jsonObj.get("token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
       }
       if (!jsonObj.get("from_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `from_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("from_address").toString()));

@@ -12,13 +12,16 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.OrderStatus;
+import com.cobo.waas2.model.PaymentTransaction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -162,6 +165,30 @@ public class PaymentOrderEventDataTest {
     @Test
     public void receivedTokenAmountTest() {
         // TODO: test receivedTokenAmount
+    }
+
+    /**
+     * Test the property 'createdTimestamp'
+     */
+    @Test
+    public void createdTimestampTest() {
+        // TODO: test createdTimestamp
+    }
+
+    /**
+     * Test the property 'updatedTimestamp'
+     */
+    @Test
+    public void updatedTimestampTest() {
+        // TODO: test updatedTimestamp
+    }
+
+    /**
+     * Test the property 'transactions'
+     */
+    @Test
+    public void transactionsTest() {
+        // TODO: test transactions
     }
 
 }

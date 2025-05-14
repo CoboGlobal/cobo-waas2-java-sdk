@@ -31,6 +31,8 @@ import com.cobo.waas2.model.TransactionRbf;
 import com.cobo.waas2.model.TransactionResend;
 import com.cobo.waas2.model.TransferParams;
 import java.util.UUID;
+import com.cobo.waas2.model.WalletSubtype;
+import com.cobo.waas2.model.WalletType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -230,6 +232,8 @@ public class TransactionsApiTest {
         String tokenIds = null;
         String assetIds = null;
         UUID vaultId = null;
+        WalletType walletType = null;
+        WalletSubtype walletSubtype = null;
         UUID projectId = null;
         Long minCreatedTimestamp = null;
         Long maxCreatedTimestamp = null;
@@ -237,7 +241,7 @@ public class TransactionsApiTest {
         String before = null;
         String after = null;
         String direction = null;
-        ListTransactions200Response response = api.listTransactions(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction);
+        ListTransactions200Response response = api.listTransactions(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, walletType, walletSubtype, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction);
         // TODO: test validations
     }
 

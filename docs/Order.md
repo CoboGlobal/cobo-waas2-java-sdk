@@ -22,6 +22,9 @@
 |**pspOrderCode** | **String** | A unique reference code assigned by the developer to identify this order in their system. |  |
 |**status** | **OrderStatus** |  |  |
 |**receivedTokenAmount** | **String** | The total cryptocurrency amount received for this order. Updates until the expiration time. Precision matches the token standard (e.g., 6 decimals for USDT). |  |
+|**createdTimestamp** | **Integer** | The created time of the order, represented as a UNIX timestamp in seconds. |  [optional] |
+|**updatedTimestamp** | **Integer** | The updated time of the order, represented as a UNIX timestamp in seconds. |  [optional] |
+|**transactions** | [**List&lt;PaymentTransaction&gt;**](PaymentTransaction.md) | An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the settlement process. |  [optional] |
 
 
 

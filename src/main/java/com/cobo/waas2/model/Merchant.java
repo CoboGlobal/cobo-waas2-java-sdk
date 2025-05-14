@@ -65,6 +65,14 @@ public class Merchant {
   @SerializedName(SERIALIZED_NAME_WALLET_ID)
   private UUID walletId;
 
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Integer createdTimestamp;
+
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Integer updatedTimestamp;
+
   public Merchant() {
   }
 
@@ -124,6 +132,44 @@ public class Merchant {
     this.walletId = walletId;
   }
 
+
+  public Merchant createdTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The created time of the merchant, represented as a UNIX timestamp in seconds.
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(Integer createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
+
+  public Merchant updatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The updated time of the merchant, represented as a UNIX timestamp in seconds.
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Integer getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+  public void setUpdatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -181,13 +227,15 @@ public class Merchant {
     Merchant merchant = (Merchant) o;
     return Objects.equals(this.merchantId, merchant.merchantId) &&
         Objects.equals(this.name, merchant.name) &&
-        Objects.equals(this.walletId, merchant.walletId)&&
+        Objects.equals(this.walletId, merchant.walletId) &&
+        Objects.equals(this.createdTimestamp, merchant.createdTimestamp) &&
+        Objects.equals(this.updatedTimestamp, merchant.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, merchant.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, name, walletId, additionalProperties);
+    return Objects.hash(merchantId, name, walletId, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -197,6 +245,8 @@ public class Merchant {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -223,6 +273,8 @@ public class Merchant {
     openapiFields.add("merchant_id");
     openapiFields.add("name");
     openapiFields.add("wallet_id");
+    openapiFields.add("created_timestamp");
+    openapiFields.add("updated_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
