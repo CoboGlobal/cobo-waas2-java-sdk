@@ -18,7 +18,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,56 +53,28 @@ import com.cobo.waas2.JSON;
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class UTXO {
+public class BatchUTXOParam {
   public static final String SERIALIZED_NAME_TX_HASH = "tx_hash";
   @SerializedName(SERIALIZED_NAME_TX_HASH)
   private String txHash;
 
-  public static final String SERIALIZED_NAME_VOUT_N = "vout_n";
-  @SerializedName(SERIALIZED_NAME_VOUT_N)
-  private Integer voutN;
+  public static final String SERIALIZED_NAME_VOUT_NS = "vout_ns";
+  @SerializedName(SERIALIZED_NAME_VOUT_NS)
+  private List<Integer> voutNs = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private String address;
-
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
-
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  private String value;
-
-  public static final String SERIALIZED_NAME_IS_COINBASE = "is_coinbase";
-  @SerializedName(SERIALIZED_NAME_IS_COINBASE)
-  private Boolean isCoinbase;
-
-  public static final String SERIALIZED_NAME_IS_LOCKED = "is_locked";
-  @SerializedName(SERIALIZED_NAME_IS_LOCKED)
-  private Boolean isLocked;
-
-  public static final String SERIALIZED_NAME_CONFIRMED_NUMBER = "confirmed_number";
-  @SerializedName(SERIALIZED_NAME_CONFIRMED_NUMBER)
-  private Integer confirmedNumber;
-
-  public static final String SERIALIZED_NAME_IS_FROZEN = "is_frozen";
-  @SerializedName(SERIALIZED_NAME_IS_FROZEN)
-  private Boolean isFrozen;
-
-  public UTXO() {
+  public BatchUTXOParam() {
   }
 
-  public UTXO txHash(String txHash) {
+  public BatchUTXOParam txHash(String txHash) {
     this.txHash = txHash;
     return this;
   }
 
    /**
-   * The transaction hash of the UTXO.
+   * The transaction hash.
    * @return txHash
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTxHash() {
     return txHash;
   }
@@ -110,155 +84,30 @@ public class UTXO {
   }
 
 
-  public UTXO voutN(Integer voutN) {
-    this.voutN = voutN;
+  public BatchUTXOParam voutNs(List<Integer> voutNs) {
+    this.voutNs = voutNs;
+    return this;
+  }
+
+  public BatchUTXOParam addVoutNsItem(Integer voutNsItem) {
+    if (this.voutNs == null) {
+      this.voutNs = new ArrayList<>();
+    }
+    this.voutNs.add(voutNsItem);
     return this;
   }
 
    /**
-   * The output index of the UTXO.
-   * @return voutN
+   * Get voutNs
+   * @return voutNs
   **/
   @javax.annotation.Nullable
-  public Integer getVoutN() {
-    return voutN;
+  public List<Integer> getVoutNs() {
+    return voutNs;
   }
 
-  public void setVoutN(Integer voutN) {
-    this.voutN = voutN;
-  }
-
-
-  public UTXO address(String address) {
-    this.address = address;
-    return this;
-  }
-
-   /**
-   * The address of the UTXO.
-   * @return address
-  **/
-  @javax.annotation.Nullable
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-
-  public UTXO tokenId(String tokenId) {
-    this.tokenId = tokenId;
-    return this;
-  }
-
-   /**
-   * The token ID, which is the unique identifier of a token.
-   * @return tokenId
-  **/
-  @javax.annotation.Nullable
-  public String getTokenId() {
-    return tokenId;
-  }
-
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
-  }
-
-
-  public UTXO value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * The value of the UTXO.
-   * @return value
-  **/
-  @javax.annotation.Nullable
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-
-  public UTXO isCoinbase(Boolean isCoinbase) {
-    this.isCoinbase = isCoinbase;
-    return this;
-  }
-
-   /**
-   * Whether the UTXO comes from a coinbase transaction.
-   * @return isCoinbase
-  **/
-  @javax.annotation.Nullable
-  public Boolean getIsCoinbase() {
-    return isCoinbase;
-  }
-
-  public void setIsCoinbase(Boolean isCoinbase) {
-    this.isCoinbase = isCoinbase;
-  }
-
-
-  public UTXO isLocked(Boolean isLocked) {
-    this.isLocked = isLocked;
-    return this;
-  }
-
-   /**
-   * Whether the UTXO is locked.
-   * @return isLocked
-  **/
-  @javax.annotation.Nullable
-  public Boolean getIsLocked() {
-    return isLocked;
-  }
-
-  public void setIsLocked(Boolean isLocked) {
-    this.isLocked = isLocked;
-  }
-
-
-  public UTXO confirmedNumber(Integer confirmedNumber) {
-    this.confirmedNumber = confirmedNumber;
-    return this;
-  }
-
-   /**
-   * The number of confirmations for the UTXO.
-   * @return confirmedNumber
-  **/
-  @javax.annotation.Nullable
-  public Integer getConfirmedNumber() {
-    return confirmedNumber;
-  }
-
-  public void setConfirmedNumber(Integer confirmedNumber) {
-    this.confirmedNumber = confirmedNumber;
-  }
-
-
-  public UTXO isFrozen(Boolean isFrozen) {
-    this.isFrozen = isFrozen;
-    return this;
-  }
-
-   /**
-   * Whether the UTXO is frozen.
-   * @return isFrozen
-  **/
-  @javax.annotation.Nullable
-  public Boolean getIsFrozen() {
-    return isFrozen;
-  }
-
-  public void setIsFrozen(Boolean isFrozen) {
-    this.isFrozen = isFrozen;
+  public void setVoutNs(List<Integer> voutNs) {
+    this.voutNs = voutNs;
   }
 
   /**
@@ -274,9 +123,9 @@ public class UTXO {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the UTXO instance itself
+   * @return the BatchUTXOParam instance itself
    */
-  public UTXO putAdditionalProperty(String key, Object value) {
+  public BatchUTXOParam putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -315,37 +164,23 @@ public class UTXO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UTXO UTXO = (UTXO) o;
-    return Objects.equals(this.txHash, UTXO.txHash) &&
-        Objects.equals(this.voutN, UTXO.voutN) &&
-        Objects.equals(this.address, UTXO.address) &&
-        Objects.equals(this.tokenId, UTXO.tokenId) &&
-        Objects.equals(this.value, UTXO.value) &&
-        Objects.equals(this.isCoinbase, UTXO.isCoinbase) &&
-        Objects.equals(this.isLocked, UTXO.isLocked) &&
-        Objects.equals(this.confirmedNumber, UTXO.confirmedNumber) &&
-        Objects.equals(this.isFrozen, UTXO.isFrozen)&&
-        Objects.equals(this.additionalProperties, UTXO.additionalProperties);
+    BatchUTXOParam batchUTXOParam = (BatchUTXOParam) o;
+    return Objects.equals(this.txHash, batchUTXOParam.txHash) &&
+        Objects.equals(this.voutNs, batchUTXOParam.voutNs)&&
+        Objects.equals(this.additionalProperties, batchUTXOParam.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(txHash, voutN, address, tokenId, value, isCoinbase, isLocked, confirmedNumber, isFrozen, additionalProperties);
+    return Objects.hash(txHash, voutNs, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UTXO {\n");
+    sb.append("class BatchUTXOParam {\n");
     sb.append("    txHash: ").append(toIndentedString(txHash)).append("\n");
-    sb.append("    voutN: ").append(toIndentedString(voutN)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    isCoinbase: ").append(toIndentedString(isCoinbase)).append("\n");
-    sb.append("    isLocked: ").append(toIndentedString(isLocked)).append("\n");
-    sb.append("    confirmedNumber: ").append(toIndentedString(confirmedNumber)).append("\n");
-    sb.append("    isFrozen: ").append(toIndentedString(isFrozen)).append("\n");
+    sb.append("    voutNs: ").append(toIndentedString(voutNs)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -370,43 +205,39 @@ public class UTXO {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("tx_hash");
-    openapiFields.add("vout_n");
-    openapiFields.add("address");
-    openapiFields.add("token_id");
-    openapiFields.add("value");
-    openapiFields.add("is_coinbase");
-    openapiFields.add("is_locked");
-    openapiFields.add("confirmed_number");
-    openapiFields.add("is_frozen");
+    openapiFields.add("vout_ns");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("tx_hash");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to UTXO
+  * @throws IOException if the JSON Element is invalid with respect to BatchUTXOParam
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!UTXO.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UTXO is not found in the empty JSON string", UTXO.openapiRequiredFields.toString()));
+        if (!BatchUTXOParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BatchUTXOParam is not found in the empty JSON string", BatchUTXOParam.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : BatchUTXOParam.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("tx_hash") != null && !jsonObj.get("tx_hash").isJsonNull()) && !jsonObj.get("tx_hash").isJsonPrimitive()) {
+      if (!jsonObj.get("tx_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tx_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tx_hash").toString()));
       }
-      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
-      }
-      if ((jsonObj.get("token_id") != null && !jsonObj.get("token_id").isJsonNull()) && !jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
-      }
-      if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("vout_ns") != null && !jsonObj.get("vout_ns").isJsonNull() && !jsonObj.get("vout_ns").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `vout_ns` to be an array in the JSON string but got `%s`", jsonObj.get("vout_ns").toString()));
       }
   }
 
@@ -414,16 +245,16 @@ public class UTXO {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UTXO.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UTXO' and its subtypes
+       if (!BatchUTXOParam.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BatchUTXOParam' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UTXO> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UTXO.class));
+       final TypeAdapter<BatchUTXOParam> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BatchUTXOParam.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UTXO>() {
+       return (TypeAdapter<T>) new TypeAdapter<BatchUTXOParam>() {
            @Override
-           public void write(JsonWriter out, UTXO value) throws IOException {
+           public void write(JsonWriter out, BatchUTXOParam value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -453,12 +284,12 @@ public class UTXO {
            }
 
            @Override
-           public UTXO read(JsonReader in) throws IOException {
+           public BatchUTXOParam read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             UTXO instance = thisAdapter.fromJsonTree(jsonObj);
+             BatchUTXOParam instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -485,18 +316,18 @@ public class UTXO {
   }
 
  /**
-  * Create an instance of UTXO given an JSON string
+  * Create an instance of BatchUTXOParam given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of UTXO
-  * @throws IOException if the JSON string is invalid with respect to UTXO
+  * @return An instance of BatchUTXOParam
+  * @throws IOException if the JSON string is invalid with respect to BatchUTXOParam
   */
-  public static UTXO fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UTXO.class);
+  public static BatchUTXOParam fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BatchUTXOParam.class);
   }
 
  /**
-  * Convert an instance of UTXO to an JSON string
+  * Convert an instance of BatchUTXOParam to an JSON string
   *
   * @return JSON string
   */
