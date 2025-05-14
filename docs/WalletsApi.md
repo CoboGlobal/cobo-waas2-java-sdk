@@ -4,6 +4,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**batchCheckUtxo**](WalletsApi.md#batchCheckUtxo) | **POST** /wallets/{wallet_id}/utxos/batch_check | Batch check UTXOs |
 | [**checkAddressChainsValidity**](WalletsApi.md#checkAddressChainsValidity) | **GET** /wallets/check_address_chains_validity | Check address validity across chains |
 | [**checkAddressValidity**](WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity |
 | [**checkAddressesValidity**](WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity |
@@ -32,6 +33,76 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**unlockUtxos**](WalletsApi.md#unlockUtxos) | **POST** /wallets/{wallet_id}/utxos/unlock | Unlock UTXOs |
 | [**updateWalletById**](WalletsApi.md#updateWalletById) | **PUT** /wallets/{wallet_id} | Update wallet |
 
+
+<a id="batchCheckUtxo"></a>
+# **batchCheckUtxo**
+> BatchCheckUtxo200Response batchCheckUtxo(walletId, batchCheckUtxoRequest)
+
+Batch check UTXOs
+
+The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.WalletsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    WalletsApi apiInstance = new WalletsApi();
+    UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
+    BatchCheckUtxoRequest batchCheckUtxoRequest = new BatchCheckUtxoRequest();
+    try {
+      BatchCheckUtxo200Response result = apiInstance.batchCheckUtxo(walletId, batchCheckUtxoRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WalletsApi#batchCheckUtxo");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **walletId** | **UUID**| The wallet ID. | |
+| **batchCheckUtxoRequest** | [**BatchCheckUtxoRequest**](BatchCheckUtxoRequest.md)| The request body of the batch check UTXOs operation. | [optional] |
+
+### Return type
+
+[**BatchCheckUtxo200Response**](BatchCheckUtxo200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
 
 <a id="checkAddressChainsValidity"></a>
 # **checkAddressChainsValidity**
@@ -1567,7 +1638,7 @@ public class Example {
 
 List UTXOs
 
-The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets.&lt;/Note&gt; 
 
 ### Example
 ```java

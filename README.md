@@ -290,6 +290,7 @@ Class | Method | HTTP request | Description
 *TravelRuleApi* | [**listSupportedCountries**](docs/TravelRuleApi.md#listSupportedCountries) | **GET** /travel_rule/transaction/countries | List supported countries
 *TravelRuleApi* | [**submitDepositTravelRuleInfo**](docs/TravelRuleApi.md#submitDepositTravelRuleInfo) | **POST** /travel_rule/transaction/deposit/travel_rule_info | Submit Travel Rule information for deposits
 *TravelRuleApi* | [**submitWithdrawTravelRuleInfo**](docs/TravelRuleApi.md#submitWithdrawTravelRuleInfo) | **POST** /travel_rule/transaction/withdraw/travel_rule_info | Submit Travel Rule information for withdrawals
+*WalletsApi* | [**batchCheckUtxo**](docs/WalletsApi.md#batchCheckUtxo) | **POST** /wallets/{wallet_id}/utxos/batch_check | Batch check UTXOs
 *WalletsApi* | [**checkAddressChainsValidity**](docs/WalletsApi.md#checkAddressChainsValidity) | **GET** /wallets/check_address_chains_validity | Check address validity across chains
 *WalletsApi* | [**checkAddressValidity**](docs/WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
 *WalletsApi* | [**checkAddressesValidity**](docs/WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity
@@ -390,6 +391,9 @@ Class | Method | HTTP request | Description
  - [BaseEstimateStakingFee](docs/BaseEstimateStakingFee.md)
  - [BaseStakeExtra](docs/BaseStakeExtra.md)
  - [BaseStakeSource](docs/BaseStakeSource.md)
+ - [BatchCheckUtxo200Response](docs/BatchCheckUtxo200Response.md)
+ - [BatchCheckUtxoRequest](docs/BatchCheckUtxoRequest.md)
+ - [BatchUTXOParam](docs/BatchUTXOParam.md)
  - [BroadcastSignedTransactions201ResponseInner](docs/BroadcastSignedTransactions201ResponseInner.md)
  - [BroadcastSignedTransactionsRequest](docs/BroadcastSignedTransactionsRequest.md)
  - [CallbackMessage](docs/CallbackMessage.md)

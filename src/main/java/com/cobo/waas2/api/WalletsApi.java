@@ -26,6 +26,8 @@ import java.io.IOException;
 
 
 import com.cobo.waas2.model.AddressInfo;
+import com.cobo.waas2.model.BatchCheckUtxo200Response;
+import com.cobo.waas2.model.BatchCheckUtxoRequest;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.CheckAddressChainsValidity200ResponseInner;
 import com.cobo.waas2.model.CheckAddressValidity200Response;
@@ -84,6 +86,129 @@ public class WalletsApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for batchCheckUtxo
+     * @param walletId The wallet ID. (required)
+     * @param batchCheckUtxoRequest The request body of the batch check UTXOs operation. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call batchCheckUtxoCall(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = batchCheckUtxoRequest;
+
+        // create path and map variables
+        String localVarPath = "/wallets/{wallet_id}/utxos/batch_check"
+            .replace("{" + "wallet_id" + "}", localVarApiClient.escapeString(walletId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call batchCheckUtxoValidateBeforeCall(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling batchCheckUtxo(Async)");
+        }
+
+        return batchCheckUtxoCall(walletId, batchCheckUtxoRequest, _callback);
+
+    }
+
+    /**
+     * Batch check UTXOs
+     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param batchCheckUtxoRequest The request body of the batch check UTXOs operation. (optional)
+     * @return BatchCheckUtxo200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public BatchCheckUtxo200Response batchCheckUtxo(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest) throws ApiException {
+        ApiResponse<BatchCheckUtxo200Response> localVarResp = batchCheckUtxoWithHttpInfo(walletId, batchCheckUtxoRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Batch check UTXOs
+     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param batchCheckUtxoRequest The request body of the batch check UTXOs operation. (optional)
+     * @return ApiResponse&lt;BatchCheckUtxo200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BatchCheckUtxo200Response> batchCheckUtxoWithHttpInfo(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest) throws ApiException {
+        okhttp3.Call localVarCall = batchCheckUtxoValidateBeforeCall(walletId, batchCheckUtxoRequest, null);
+        Type localVarReturnType = new TypeToken<BatchCheckUtxo200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Batch check UTXOs (asynchronously)
+     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param batchCheckUtxoRequest The request body of the batch check UTXOs operation. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call batchCheckUtxoAsync(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest, final ApiCallback<BatchCheckUtxo200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = batchCheckUtxoValidateBeforeCall(walletId, batchCheckUtxoRequest, _callback);
+        Type localVarReturnType = new TypeToken<BatchCheckUtxo200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for checkAddressChainsValidity
      * @param address The wallet address. (required)
@@ -3081,7 +3206,7 @@ public class WalletsApi {
 
     /**
      * List UTXOs
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param address The wallet address. (optional)
@@ -3106,7 +3231,7 @@ public class WalletsApi {
 
     /**
      * List UTXOs
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param address The wallet address. (optional)
@@ -3132,7 +3257,7 @@ public class WalletsApi {
 
     /**
      * List UTXOs (asynchronously)
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param address The wallet address. (optional)

@@ -1152,7 +1152,7 @@ paths:
       description: |
         The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.
 
-        <Note>This operation is applicable to MPC Wallets only.</Note>
+        <Note>This operation is applicable to MPC and Custodial Web3 Wallets.</Note>
       operationId: list_utxos
       parameters:
       - description: The wallet ID.
@@ -1265,6 +1265,56 @@ paths:
       summary: List UTXOs
       tags:
       - Wallets
+      x-accepts:
+      - application/json
+  /wallets/{wallet_id}/utxos/batch_check:
+    post:
+      description: |
+        The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.
+
+        <Note>This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos</Note>
+      operationId: batch_check_utxo
+      parameters:
+      - description: The wallet ID.
+        example: f47ac10b-58cc-4372-a567-0e02b2c3d479
+        explode: false
+        in: path
+        name: wallet_id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/batchCheckUtxoRequestBody'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/batch_check_utxo_200_response'
+          description: The request was successful.
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request. Your request contains malformed syntax or invalid
+            parameters.
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal server error.
+      security:
+      - CoboAuth: []
+      - OAuth2:
+        - wallet.read
+      summary: Batch check UTXOs
+      tags:
+      - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
   /wallets/{wallet_id}/utxos/lock:
@@ -11242,6 +11292,12 @@ components:
           wallet_subtype only supports `Asset`, `Web3`, and `Org-Controlled`.
         </note>
       required: true
+    batchCheckUtxoRequestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/batch_check_utxo_request'
+      description: The request body of the batch check UTXOs operation.
     createKeyShareHolderGroupBody:
       content:
         application/json:
@@ -11594,6 +11650,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/lock_utxos_201_response'
+      description: The request was successful.
+    batchCheckUtxoResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/batch_check_utxo_200_response'
       description: The request was successful.
     maxTransferableValueResponse:
       content:
@@ -12905,6 +12967,7 @@ components:
         is_locked: false
         address: 2N2xFZtbCFB6Nb3Pj9Sxsx5mX2fxX3yEgkE
         token_id: BTC
+        is_frozen: false
         is_coinbase: false
         vout_n: 0
         tx_hash: dd7e1cecf6bbde1844ee1815b780711a1e306a718bcd23cd64401b48ef88eb83
@@ -12943,6 +13006,26 @@ components:
           description: The number of confirmations for the UTXO.
           example: 66716
           type: integer
+        is_frozen:
+          description: Whether the UTXO is frozen.
+          example: false
+          type: boolean
+      type: object
+    BatchUTXOParam:
+      description: The UTXO information.
+      properties:
+        tx_hash:
+          description: The transaction hash.
+          example: 9bdf8e7ae03c237e115f09543fbdb40f8efa600106e78b67ce4d5adfadda2dbb
+          type: string
+        vout_ns:
+          items:
+            description: The output index of the UTXO.
+            example: 0
+            type: integer
+          type: array
+      required:
+      - tx_hash
       type: object
     MaxTransferableValue:
       description: "The maximum amount you can transfer from the wallet or the specified\
@@ -21916,6 +21999,7 @@ components:
         - is_locked: false
           address: 2N2xFZtbCFB6Nb3Pj9Sxsx5mX2fxX3yEgkE
           token_id: BTC
+          is_frozen: false
           is_coinbase: false
           vout_n: 0
           tx_hash: dd7e1cecf6bbde1844ee1815b780711a1e306a718bcd23cd64401b48ef88eb83
@@ -21924,6 +22008,7 @@ components:
         - is_locked: false
           address: 2N2xFZtbCFB6Nb3Pj9Sxsx5mX2fxX3yEgkE
           token_id: BTC
+          is_frozen: false
           is_coinbase: false
           vout_n: 0
           tx_hash: dd7e1cecf6bbde1844ee1815b780711a1e306a718bcd23cd64401b48ef88eb83
@@ -21936,6 +22021,49 @@ components:
           type: array
         pagination:
           $ref: '#/components/schemas/Pagination'
+      type: object
+    batch_check_utxo_request:
+      properties:
+        token_id:
+          description: "The token ID, which is the unique identifier of a token. You\
+            \ can retrieve the IDs of all the tokens you can use by calling [List\
+            \ enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens)."
+          example: BTC
+          type: string
+        utxos:
+          items:
+            $ref: '#/components/schemas/BatchUTXOParam'
+          type: array
+      required:
+      - token_id
+      - utxos
+      type: object
+    batch_check_utxo_200_response:
+      example:
+        data:
+        - is_locked: false
+          address: 2N2xFZtbCFB6Nb3Pj9Sxsx5mX2fxX3yEgkE
+          token_id: BTC
+          is_frozen: false
+          is_coinbase: false
+          vout_n: 0
+          tx_hash: dd7e1cecf6bbde1844ee1815b780711a1e306a718bcd23cd64401b48ef88eb83
+          value: "0.5"
+          confirmed_number: 66716
+        - is_locked: false
+          address: 2N2xFZtbCFB6Nb3Pj9Sxsx5mX2fxX3yEgkE
+          token_id: BTC
+          is_frozen: false
+          is_coinbase: false
+          vout_n: 0
+          tx_hash: dd7e1cecf6bbde1844ee1815b780711a1e306a718bcd23cd64401b48ef88eb83
+          value: "0.5"
+          confirmed_number: 66716
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UTXO'
+          type: array
       type: object
     lock_utxos_request_utxos_inner:
       properties:
