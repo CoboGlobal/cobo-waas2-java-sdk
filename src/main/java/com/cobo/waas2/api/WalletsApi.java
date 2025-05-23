@@ -26,7 +26,7 @@ import java.io.IOException;
 
 
 import com.cobo.waas2.model.AddressInfo;
-import com.cobo.waas2.model.BatchCheckUtxo200Response;
+import com.cobo.waas2.model.BatchCheckUtxo201Response;
 import com.cobo.waas2.model.BatchCheckUtxoRequest;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.CheckAddressChainsValidity200ResponseInner;
@@ -96,7 +96,7 @@ public class WalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -150,18 +150,18 @@ public class WalletsApi {
      * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param batchCheckUtxoRequest The request body of the batch check UTXOs operation. (optional)
-     * @return BatchCheckUtxo200Response
+     * @return BatchCheckUtxo201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public BatchCheckUtxo200Response batchCheckUtxo(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest) throws ApiException {
-        ApiResponse<BatchCheckUtxo200Response> localVarResp = batchCheckUtxoWithHttpInfo(walletId, batchCheckUtxoRequest);
+    public BatchCheckUtxo201Response batchCheckUtxo(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest) throws ApiException {
+        ApiResponse<BatchCheckUtxo201Response> localVarResp = batchCheckUtxoWithHttpInfo(walletId, batchCheckUtxoRequest);
         return localVarResp.getData();
     }
 
@@ -170,19 +170,19 @@ public class WalletsApi {
      * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param batchCheckUtxoRequest The request body of the batch check UTXOs operation. (optional)
-     * @return ApiResponse&lt;BatchCheckUtxo200Response&gt;
+     * @return ApiResponse&lt;BatchCheckUtxo201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BatchCheckUtxo200Response> batchCheckUtxoWithHttpInfo(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest) throws ApiException {
+    public ApiResponse<BatchCheckUtxo201Response> batchCheckUtxoWithHttpInfo(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest) throws ApiException {
         okhttp3.Call localVarCall = batchCheckUtxoValidateBeforeCall(walletId, batchCheckUtxoRequest, null);
-        Type localVarReturnType = new TypeToken<BatchCheckUtxo200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<BatchCheckUtxo201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -197,15 +197,15 @@ public class WalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchCheckUtxoAsync(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest, final ApiCallback<BatchCheckUtxo200Response> _callback) throws ApiException {
+    public okhttp3.Call batchCheckUtxoAsync(UUID walletId, BatchCheckUtxoRequest batchCheckUtxoRequest, final ApiCallback<BatchCheckUtxo201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = batchCheckUtxoValidateBeforeCall(walletId, batchCheckUtxoRequest, _callback);
-        Type localVarReturnType = new TypeToken<BatchCheckUtxo200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<BatchCheckUtxo201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

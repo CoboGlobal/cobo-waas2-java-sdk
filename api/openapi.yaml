@@ -1288,11 +1288,11 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/batchCheckUtxoRequestBody'
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/batch_check_utxo_200_response'
+                $ref: '#/components/schemas/batch_check_utxo_201_response'
           description: The request was successful.
         "4XX":
           content:
@@ -11655,7 +11655,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/batch_check_utxo_200_response'
+            $ref: '#/components/schemas/batch_check_utxo_201_response'
       description: The request was successful.
     maxTransferableValueResponse:
       content:
@@ -22038,7 +22038,7 @@ components:
       - token_id
       - utxos
       type: object
-    batch_check_utxo_200_response:
+    batch_check_utxo_201_response:
       example:
         data:
         - is_locked: false

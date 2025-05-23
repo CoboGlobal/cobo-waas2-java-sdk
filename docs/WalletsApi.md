@@ -36,7 +36,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 <a id="batchCheckUtxo"></a>
 # **batchCheckUtxo**
-> BatchCheckUtxo200Response batchCheckUtxo(walletId, batchCheckUtxoRequest)
+> BatchCheckUtxo201Response batchCheckUtxo(walletId, batchCheckUtxoRequest)
 
 Batch check UTXOs
 
@@ -64,7 +64,7 @@ public class Example {
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     BatchCheckUtxoRequest batchCheckUtxoRequest = new BatchCheckUtxoRequest();
     try {
-      BatchCheckUtxo200Response result = apiInstance.batchCheckUtxo(walletId, batchCheckUtxoRequest);
+      BatchCheckUtxo201Response result = apiInstance.batchCheckUtxo(walletId, batchCheckUtxoRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WalletsApi#batchCheckUtxo");
@@ -86,7 +86,7 @@ public class Example {
 
 ### Return type
 
-[**BatchCheckUtxo200Response**](BatchCheckUtxo200Response.md)
+[**BatchCheckUtxo201Response**](BatchCheckUtxo201Response.md)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The request was successful. |  -  |
+| **201** | The request was successful. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
