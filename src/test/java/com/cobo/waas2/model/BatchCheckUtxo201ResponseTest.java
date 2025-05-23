@@ -25,17 +25,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for BatchCheckUtxo200Response
+ * Model tests for BatchCheckUtxo201Response
  */
-public class BatchCheckUtxo200ResponseTest {
-    private final BatchCheckUtxo200Response model = new BatchCheckUtxo200Response();
+public class BatchCheckUtxo201ResponseTest {
+    private final BatchCheckUtxo201Response model = new BatchCheckUtxo201Response();
 
     /**
-     * Model tests for BatchCheckUtxo200Response
+     * Model tests for BatchCheckUtxo201Response
      */
     @Test
-    public void testBatchCheckUtxo200Response() {
-        // TODO: test BatchCheckUtxo200Response
+    public void testBatchCheckUtxo201Response() {
+        // TODO: test BatchCheckUtxo201Response
     }
 
     /**

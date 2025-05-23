@@ -53,7 +53,7 @@ docs/BaseContractCallSource.md
 docs/BaseEstimateStakingFee.md
 docs/BaseStakeExtra.md
 docs/BaseStakeSource.md
-docs/BatchCheckUtxo200Response.md
+docs/BatchCheckUtxo201Response.md
 docs/BatchCheckUtxoRequest.md
 docs/BatchUTXOParam.md
 docs/BroadcastSignedTransactions201ResponseInner.md
@@ -576,7 +576,7 @@ src/main/java/com/cobo/waas2/model/BaseContractCallSource.java
 src/main/java/com/cobo/waas2/model/BaseEstimateStakingFee.java
 src/main/java/com/cobo/waas2/model/BaseStakeExtra.java
 src/main/java/com/cobo/waas2/model/BaseStakeSource.java
-src/main/java/com/cobo/waas2/model/BatchCheckUtxo200Response.java
+src/main/java/com/cobo/waas2/model/BatchCheckUtxo201Response.java
 src/main/java/com/cobo/waas2/model/BatchCheckUtxoRequest.java
 src/main/java/com/cobo/waas2/model/BatchUTXOParam.java
 src/main/java/com/cobo/waas2/model/BroadcastSignedTransactions201ResponseInner.java
@@ -1045,7 +1045,7 @@ src/test/java/com/cobo/waas2/model/BaseContractCallSourceTest.java
 src/test/java/com/cobo/waas2/model/BaseEstimateStakingFeeTest.java
 src/test/java/com/cobo/waas2/model/BaseStakeExtraTest.java
 src/test/java/com/cobo/waas2/model/BaseStakeSourceTest.java
-src/test/java/com/cobo/waas2/model/BatchCheckUtxo200ResponseTest.java
+src/test/java/com/cobo/waas2/model/BatchCheckUtxo201ResponseTest.java
 src/test/java/com/cobo/waas2/model/BatchCheckUtxoRequestTest.java
 src/test/java/com/cobo/waas2/model/BatchUTXOParamTest.java
 src/test/java/com/cobo/waas2/model/BroadcastSignedTransactions201ResponseInnerTest.java

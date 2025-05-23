@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.14.0</version>
+  <version>1.15.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.14.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.15.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.14.0.jar`
+* `target/cobo-waas2-1.15.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -391,7 +391,7 @@ Class | Method | HTTP request | Description
  - [BaseEstimateStakingFee](docs/BaseEstimateStakingFee.md)
  - [BaseStakeExtra](docs/BaseStakeExtra.md)
  - [BaseStakeSource](docs/BaseStakeSource.md)
- - [BatchCheckUtxo200Response](docs/BatchCheckUtxo200Response.md)
+ - [BatchCheckUtxo201Response](docs/BatchCheckUtxo201Response.md)
  - [BatchCheckUtxoRequest](docs/BatchCheckUtxoRequest.md)
  - [BatchUTXOParam](docs/BatchUTXOParam.md)
  - [BroadcastSignedTransactions201ResponseInner](docs/BroadcastSignedTransactions201ResponseInner.md)

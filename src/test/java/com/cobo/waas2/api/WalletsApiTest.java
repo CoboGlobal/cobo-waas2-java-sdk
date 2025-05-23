@@ -15,7 +15,7 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.AddressInfo;
-import com.cobo.waas2.model.BatchCheckUtxo200Response;
+import com.cobo.waas2.model.BatchCheckUtxo201Response;
 import com.cobo.waas2.model.BatchCheckUtxoRequest;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.CheckAddressChainsValidity200ResponseInner;
@@ -81,7 +81,7 @@ public class WalletsApiTest {
     public void batchCheckUtxoTest() throws ApiException {
         UUID walletId = null;
         BatchCheckUtxoRequest batchCheckUtxoRequest = null;
-        BatchCheckUtxo200Response response = api.batchCheckUtxo(walletId, batchCheckUtxoRequest);
+        BatchCheckUtxo201Response response = api.batchCheckUtxo(walletId, batchCheckUtxoRequest);
         // TODO: test validations
     }
 

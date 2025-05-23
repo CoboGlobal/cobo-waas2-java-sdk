@@ -48,26 +48,26 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * BatchCheckUtxo200Response
+ * BatchCheckUtxo201Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class BatchCheckUtxo200Response {
+public class BatchCheckUtxo201Response {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private List<UTXO> data = new ArrayList<>();
 
-  public BatchCheckUtxo200Response() {
+  public BatchCheckUtxo201Response() {
   }
 
-  public BatchCheckUtxo200Response data(List<UTXO> data) {
+  public BatchCheckUtxo201Response data(List<UTXO> data) {
     this.data = data;
     return this;
   }
 
-  public BatchCheckUtxo200Response addDataItem(UTXO dataItem) {
+  public BatchCheckUtxo201Response addDataItem(UTXO dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -101,9 +101,9 @@ public class BatchCheckUtxo200Response {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the BatchCheckUtxo200Response instance itself
+   * @return the BatchCheckUtxo201Response instance itself
    */
-  public BatchCheckUtxo200Response putAdditionalProperty(String key, Object value) {
+  public BatchCheckUtxo201Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -142,9 +142,9 @@ public class BatchCheckUtxo200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BatchCheckUtxo200Response batchCheckUtxo200Response = (BatchCheckUtxo200Response) o;
-    return Objects.equals(this.data, batchCheckUtxo200Response.data)&&
-        Objects.equals(this.additionalProperties, batchCheckUtxo200Response.additionalProperties);
+    BatchCheckUtxo201Response batchCheckUtxo201Response = (BatchCheckUtxo201Response) o;
+    return Objects.equals(this.data, batchCheckUtxo201Response.data)&&
+        Objects.equals(this.additionalProperties, batchCheckUtxo201Response.additionalProperties);
   }
 
   @Override
@@ -155,7 +155,7 @@ public class BatchCheckUtxo200Response {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BatchCheckUtxo200Response {\n");
+    sb.append("class BatchCheckUtxo201Response {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -190,12 +190,12 @@ public class BatchCheckUtxo200Response {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to BatchCheckUtxo200Response
+  * @throws IOException if the JSON Element is invalid with respect to BatchCheckUtxo201Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!BatchCheckUtxo200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BatchCheckUtxo200Response is not found in the empty JSON string", BatchCheckUtxo200Response.openapiRequiredFields.toString()));
+        if (!BatchCheckUtxo201Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BatchCheckUtxo201Response is not found in the empty JSON string", BatchCheckUtxo201Response.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -219,16 +219,16 @@ public class BatchCheckUtxo200Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BatchCheckUtxo200Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BatchCheckUtxo200Response' and its subtypes
+       if (!BatchCheckUtxo201Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BatchCheckUtxo201Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BatchCheckUtxo200Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BatchCheckUtxo200Response.class));
+       final TypeAdapter<BatchCheckUtxo201Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BatchCheckUtxo201Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BatchCheckUtxo200Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<BatchCheckUtxo201Response>() {
            @Override
-           public void write(JsonWriter out, BatchCheckUtxo200Response value) throws IOException {
+           public void write(JsonWriter out, BatchCheckUtxo201Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -258,12 +258,12 @@ public class BatchCheckUtxo200Response {
            }
 
            @Override
-           public BatchCheckUtxo200Response read(JsonReader in) throws IOException {
+           public BatchCheckUtxo201Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             BatchCheckUtxo200Response instance = thisAdapter.fromJsonTree(jsonObj);
+             BatchCheckUtxo201Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -290,18 +290,18 @@ public class BatchCheckUtxo200Response {
   }
 
  /**
-  * Create an instance of BatchCheckUtxo200Response given an JSON string
+  * Create an instance of BatchCheckUtxo201Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of BatchCheckUtxo200Response
-  * @throws IOException if the JSON string is invalid with respect to BatchCheckUtxo200Response
+  * @return An instance of BatchCheckUtxo201Response
+  * @throws IOException if the JSON string is invalid with respect to BatchCheckUtxo201Response
   */
-  public static BatchCheckUtxo200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BatchCheckUtxo200Response.class);
+  public static BatchCheckUtxo201Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BatchCheckUtxo201Response.class);
   }
 
  /**
-  * Convert an instance of BatchCheckUtxo200Response to an JSON string
+  * Convert an instance of BatchCheckUtxo201Response to an JSON string
   *
   * @return JSON string
   */

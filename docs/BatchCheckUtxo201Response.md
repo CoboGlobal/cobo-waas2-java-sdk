@@ -1,6 +1,6 @@
 
 
-# BatchCheckUtxo200Response
+# BatchCheckUtxo201Response
 
 
 ## Properties
