@@ -19,7 +19,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,105 +45,36 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * OrderAddressInfo
+ * RevokeApprovalRequestRequest
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class OrderAddressInfo {
-  public static final String SERIALIZED_NAME_WALLET_ID = "wallet_id";
-  @SerializedName(SERIALIZED_NAME_WALLET_ID)
-  private UUID walletId;
+public class RevokeApprovalRequestRequest {
+  public static final String SERIALIZED_NAME_INITIATOR_EMAIL = "initiator_email";
+  @SerializedName(SERIALIZED_NAME_INITIATOR_EMAIL)
+  private String initiatorEmail;
 
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private String amount;
-
-  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
-  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
-  private Integer createdTimestamp;
-
-  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
-  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
-  private Integer updatedTimestamp;
-
-  public OrderAddressInfo() {
+  public RevokeApprovalRequestRequest() {
   }
 
-  public OrderAddressInfo walletId(UUID walletId) {
-    this.walletId = walletId;
+  public RevokeApprovalRequestRequest initiatorEmail(String initiatorEmail) {
+    this.initiatorEmail = initiatorEmail;
     return this;
   }
 
    /**
-   * The ID of the linked wallet.
-   * @return walletId
+   * The initiator email of workflow approval request.
+   * @return initiatorEmail
   **/
   @javax.annotation.Nonnull
-  public UUID getWalletId() {
-    return walletId;
+  public String getInitiatorEmail() {
+    return initiatorEmail;
   }
 
-  public void setWalletId(UUID walletId) {
-    this.walletId = walletId;
-  }
-
-
-  public OrderAddressInfo amount(String amount) {
-    this.amount = amount;
-    return this;
-  }
-
-   /**
-   * The amount of cryptocurrency received by the order&#39;s receiving address.
-   * @return amount
-  **/
-  @javax.annotation.Nonnull
-  public String getAmount() {
-    return amount;
-  }
-
-  public void setAmount(String amount) {
-    this.amount = amount;
-  }
-
-
-  public OrderAddressInfo createdTimestamp(Integer createdTimestamp) {
-    this.createdTimestamp = createdTimestamp;
-    return this;
-  }
-
-   /**
-   * The created time of the address, represented as a UNIX timestamp in seconds.
-   * @return createdTimestamp
-  **/
-  @javax.annotation.Nonnull
-  public Integer getCreatedTimestamp() {
-    return createdTimestamp;
-  }
-
-  public void setCreatedTimestamp(Integer createdTimestamp) {
-    this.createdTimestamp = createdTimestamp;
-  }
-
-
-  public OrderAddressInfo updatedTimestamp(Integer updatedTimestamp) {
-    this.updatedTimestamp = updatedTimestamp;
-    return this;
-  }
-
-   /**
-   * The updated time of the address, represented as a UNIX timestamp in seconds.
-   * @return updatedTimestamp
-  **/
-  @javax.annotation.Nonnull
-  public Integer getUpdatedTimestamp() {
-    return updatedTimestamp;
-  }
-
-  public void setUpdatedTimestamp(Integer updatedTimestamp) {
-    this.updatedTimestamp = updatedTimestamp;
+  public void setInitiatorEmail(String initiatorEmail) {
+    this.initiatorEmail = initiatorEmail;
   }
 
   /**
@@ -160,9 +90,9 @@ public class OrderAddressInfo {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the OrderAddressInfo instance itself
+   * @return the RevokeApprovalRequestRequest instance itself
    */
-  public OrderAddressInfo putAdditionalProperty(String key, Object value) {
+  public RevokeApprovalRequestRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -201,27 +131,21 @@ public class OrderAddressInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderAddressInfo orderAddressInfo = (OrderAddressInfo) o;
-    return Objects.equals(this.walletId, orderAddressInfo.walletId) &&
-        Objects.equals(this.amount, orderAddressInfo.amount) &&
-        Objects.equals(this.createdTimestamp, orderAddressInfo.createdTimestamp) &&
-        Objects.equals(this.updatedTimestamp, orderAddressInfo.updatedTimestamp)&&
-        Objects.equals(this.additionalProperties, orderAddressInfo.additionalProperties);
+    RevokeApprovalRequestRequest revokeApprovalRequestRequest = (RevokeApprovalRequestRequest) o;
+    return Objects.equals(this.initiatorEmail, revokeApprovalRequestRequest.initiatorEmail)&&
+        Objects.equals(this.additionalProperties, revokeApprovalRequestRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, amount, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(initiatorEmail, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderAddressInfo {\n");
-    sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
-    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
+    sb.append("class RevokeApprovalRequestRequest {\n");
+    sb.append("    initiatorEmail: ").append(toIndentedString(initiatorEmail)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -245,44 +169,35 @@ public class OrderAddressInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("wallet_id");
-    openapiFields.add("amount");
-    openapiFields.add("created_timestamp");
-    openapiFields.add("updated_timestamp");
+    openapiFields.add("initiator_email");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("wallet_id");
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("created_timestamp");
-    openapiRequiredFields.add("updated_timestamp");
+    openapiRequiredFields.add("initiator_email");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to OrderAddressInfo
+  * @throws IOException if the JSON Element is invalid with respect to RevokeApprovalRequestRequest
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!OrderAddressInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in OrderAddressInfo is not found in the empty JSON string", OrderAddressInfo.openapiRequiredFields.toString()));
+        if (!RevokeApprovalRequestRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RevokeApprovalRequestRequest is not found in the empty JSON string", RevokeApprovalRequestRequest.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : OrderAddressInfo.openapiRequiredFields) {
+      for (String requiredField : RevokeApprovalRequestRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
-      }
-      if (!jsonObj.get("amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
+      if (!jsonObj.get("initiator_email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `initiator_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiator_email").toString()));
       }
   }
 
@@ -290,16 +205,16 @@ public class OrderAddressInfo {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrderAddressInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrderAddressInfo' and its subtypes
+       if (!RevokeApprovalRequestRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RevokeApprovalRequestRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrderAddressInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrderAddressInfo.class));
+       final TypeAdapter<RevokeApprovalRequestRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RevokeApprovalRequestRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrderAddressInfo>() {
+       return (TypeAdapter<T>) new TypeAdapter<RevokeApprovalRequestRequest>() {
            @Override
-           public void write(JsonWriter out, OrderAddressInfo value) throws IOException {
+           public void write(JsonWriter out, RevokeApprovalRequestRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -329,12 +244,12 @@ public class OrderAddressInfo {
            }
 
            @Override
-           public OrderAddressInfo read(JsonReader in) throws IOException {
+           public RevokeApprovalRequestRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             OrderAddressInfo instance = thisAdapter.fromJsonTree(jsonObj);
+             RevokeApprovalRequestRequest instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -361,18 +276,18 @@ public class OrderAddressInfo {
   }
 
  /**
-  * Create an instance of OrderAddressInfo given an JSON string
+  * Create an instance of RevokeApprovalRequestRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OrderAddressInfo
-  * @throws IOException if the JSON string is invalid with respect to OrderAddressInfo
+  * @return An instance of RevokeApprovalRequestRequest
+  * @throws IOException if the JSON string is invalid with respect to RevokeApprovalRequestRequest
   */
-  public static OrderAddressInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrderAddressInfo.class);
+  public static RevokeApprovalRequestRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RevokeApprovalRequestRequest.class);
   }
 
  /**
-  * Convert an instance of OrderAddressInfo to an JSON string
+  * Convert an instance of RevokeApprovalRequestRequest to an JSON string
   *
   * @return JSON string
   */

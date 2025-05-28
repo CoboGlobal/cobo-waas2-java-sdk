@@ -101,6 +101,10 @@ public class SettlementDetail {
   @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
   private Integer updatedTimestamp;
 
+  public static final String SERIALIZED_NAME_CRYPTO_ADDRESS_ID = "crypto_address_id";
+  @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS_ID)
+  private String cryptoAddressId;
+
   public SettlementDetail() {
   }
 
@@ -320,6 +324,25 @@ public class SettlementDetail {
     this.updatedTimestamp = updatedTimestamp;
   }
 
+
+  public SettlementDetail cryptoAddressId(String cryptoAddressId) {
+    this.cryptoAddressId = cryptoAddressId;
+    return this;
+  }
+
+   /**
+   * Unique identifier for the pre-approved crypto address, used to reference the address securely in requests.
+   * @return cryptoAddressId
+  **/
+  @javax.annotation.Nullable
+  public String getCryptoAddressId() {
+    return cryptoAddressId;
+  }
+
+  public void setCryptoAddressId(String cryptoAddressId) {
+    this.cryptoAddressId = cryptoAddressId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -385,13 +408,14 @@ public class SettlementDetail {
         Objects.equals(this.bankAccount, settlementDetail.bankAccount) &&
         Objects.equals(this.transactions, settlementDetail.transactions) &&
         Objects.equals(this.createdTimestamp, settlementDetail.createdTimestamp) &&
-        Objects.equals(this.updatedTimestamp, settlementDetail.updatedTimestamp)&&
+        Objects.equals(this.updatedTimestamp, settlementDetail.updatedTimestamp) &&
+        Objects.equals(this.cryptoAddressId, settlementDetail.cryptoAddressId)&&
         Objects.equals(this.additionalProperties, settlementDetail.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, additionalProperties);
   }
 
   @Override
@@ -409,6 +433,7 @@ public class SettlementDetail {
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
+    sb.append("    cryptoAddressId: ").append(toIndentedString(cryptoAddressId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -443,6 +468,7 @@ public class SettlementDetail {
     openapiFields.add("transactions");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
+    openapiFields.add("crypto_address_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -500,6 +526,9 @@ public class SettlementDetail {
             PaymentTransaction.validateJsonElement(jsonArraytransactions.get(i));
           };
         }
+      }
+      if ((jsonObj.get("crypto_address_id") != null && !jsonObj.get("crypto_address_id").isJsonNull()) && !jsonObj.get("crypto_address_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address_id").toString()));
       }
   }
 

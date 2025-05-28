@@ -118,6 +118,10 @@ public enum TransactionSubStatus {
   
   PENDINGSCREENINGAPPCHECK("PendingScreeningAppCheck"),
   
+  PENDINGCOBOKYTCHECK("PendingCoboKYTCheck"),
+  
+  REJECTEDBYCOBOKYT("RejectedByCoboKYT"),
+  
   PENDINGCOBOTRAVELRULECHECK("PendingCoboTravelRuleCheck");
 
   private String value;

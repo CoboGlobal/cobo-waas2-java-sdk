@@ -80,6 +80,10 @@ public class ChainInfo {
   @SerializedName(SERIALIZED_NAME_CONFIRMING_THRESHOLD)
   private Integer confirmingThreshold;
 
+  public static final String SERIALIZED_NAME_COINBASE_MATURITY = "coinbase_maturity";
+  @SerializedName(SERIALIZED_NAME_COINBASE_MATURITY)
+  private Integer coinbaseMaturity;
+
   public ChainInfo() {
   }
 
@@ -215,6 +219,25 @@ public class ChainInfo {
     this.confirmingThreshold = confirmingThreshold;
   }
 
+
+  public ChainInfo coinbaseMaturity(Integer coinbaseMaturity) {
+    this.coinbaseMaturity = coinbaseMaturity;
+    return this;
+  }
+
+   /**
+   * The number of confirmations required for a coinbase transaction to be mature, such as 100 for BTC.
+   * @return coinbaseMaturity
+  **/
+  @javax.annotation.Nullable
+  public Integer getCoinbaseMaturity() {
+    return coinbaseMaturity;
+  }
+
+  public void setCoinbaseMaturity(Integer coinbaseMaturity) {
+    this.coinbaseMaturity = coinbaseMaturity;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -276,13 +299,14 @@ public class ChainInfo {
         Objects.equals(this.explorerTxUrl, chainInfo.explorerTxUrl) &&
         Objects.equals(this.explorerAddressUrl, chainInfo.explorerAddressUrl) &&
         Objects.equals(this.requireMemo, chainInfo.requireMemo) &&
-        Objects.equals(this.confirmingThreshold, chainInfo.confirmingThreshold)&&
+        Objects.equals(this.confirmingThreshold, chainInfo.confirmingThreshold) &&
+        Objects.equals(this.coinbaseMaturity, chainInfo.coinbaseMaturity)&&
         Objects.equals(this.additionalProperties, chainInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chainId, symbol, iconUrl, explorerTxUrl, explorerAddressUrl, requireMemo, confirmingThreshold, additionalProperties);
+    return Objects.hash(chainId, symbol, iconUrl, explorerTxUrl, explorerAddressUrl, requireMemo, confirmingThreshold, coinbaseMaturity, additionalProperties);
   }
 
   @Override
@@ -296,6 +320,7 @@ public class ChainInfo {
     sb.append("    explorerAddressUrl: ").append(toIndentedString(explorerAddressUrl)).append("\n");
     sb.append("    requireMemo: ").append(toIndentedString(requireMemo)).append("\n");
     sb.append("    confirmingThreshold: ").append(toIndentedString(confirmingThreshold)).append("\n");
+    sb.append("    coinbaseMaturity: ").append(toIndentedString(coinbaseMaturity)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -326,6 +351,7 @@ public class ChainInfo {
     openapiFields.add("explorer_address_url");
     openapiFields.add("require_memo");
     openapiFields.add("confirming_threshold");
+    openapiFields.add("coinbase_maturity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

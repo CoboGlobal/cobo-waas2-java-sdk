@@ -15,6 +15,8 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.AddressInfo;
+import com.cobo.waas2.model.BatchCheckUtxo201Response;
+import com.cobo.waas2.model.BatchCheckUtxoRequest;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.CheckAddressChainsValidity200ResponseInner;
 import com.cobo.waas2.model.CheckAddressValidity200Response;
@@ -67,6 +69,21 @@ public class WalletsApiTest {
         defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     }
     private final WalletsApi api = new WalletsApi();
+
+    /**
+     * Batch check UTXOs
+     *
+     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void batchCheckUtxoTest() throws ApiException {
+        UUID walletId = null;
+        BatchCheckUtxoRequest batchCheckUtxoRequest = null;
+        BatchCheckUtxo201Response response = api.batchCheckUtxo(walletId, batchCheckUtxoRequest);
+        // TODO: test validations
+    }
 
     /**
      * Check address validity across chains
@@ -415,7 +432,7 @@ public class WalletsApiTest {
     /**
      * List UTXOs
      *
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

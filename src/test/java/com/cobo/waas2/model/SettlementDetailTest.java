@@ -128,4 +128,12 @@ public class SettlementDetailTest {
         // TODO: test updatedTimestamp
     }
 
+    /**
+     * Test the property 'cryptoAddressId'
+     */
+    @Test
+    public void cryptoAddressIdTest() {
+        // TODO: test cryptoAddressId
+    }
+
 }

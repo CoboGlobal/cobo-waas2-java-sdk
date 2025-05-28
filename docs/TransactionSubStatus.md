@@ -95,6 +95,10 @@
 
 * `PENDINGSCREENINGAPPCHECK` (value: `"PendingScreeningAppCheck"`)
 
+* `PENDINGCOBOKYTCHECK` (value: `"PendingCoboKYTCheck"`)
+
+* `REJECTEDBYCOBOKYT` (value: `"RejectedByCoboKYT"`)
+
 * `PENDINGCOBOTRAVELRULECHECK` (value: `"PendingCoboTravelRuleCheck"`)
 
 

@@ -91,4 +91,12 @@ public class ChainInfoTest {
         // TODO: test confirmingThreshold
     }
 
+    /**
+     * Test the property 'coinbaseMaturity'
+     */
+    @Test
+    public void coinbaseMaturityTest() {
+        // TODO: test coinbaseMaturity
+    }
+
 }

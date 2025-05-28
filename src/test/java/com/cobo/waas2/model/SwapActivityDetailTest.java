@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.SwapActivityApprovers;
 import com.cobo.waas2.model.SwapActivityStatus;
 import com.cobo.waas2.model.SwapActivityTimeline;
 import com.cobo.waas2.model.SwapType;
@@ -177,6 +178,14 @@ public class SwapActivityDetailTest {
     @Test
     public void timelineTest() {
         // TODO: test timeline
+    }
+
+    /**
+     * Test the property 'approvers'
+     */
+    @Test
+    public void approversTest() {
+        // TODO: test approvers
     }
 
 }

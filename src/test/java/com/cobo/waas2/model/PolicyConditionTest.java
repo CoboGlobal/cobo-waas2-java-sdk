@@ -11,6 +11,8 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.PolicyFieldOperator;
+import com.cobo.waas2.model.PolicyFieldValueType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -18,54 +20,53 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for OrderAddressInfo
+ * Model tests for PolicyCondition
  */
-public class OrderAddressInfoTest {
-    private final OrderAddressInfo model = new OrderAddressInfo();
+public class PolicyConditionTest {
+    private final PolicyCondition model = new PolicyCondition();
 
     /**
-     * Model tests for OrderAddressInfo
+     * Model tests for PolicyCondition
      */
     @Test
-    public void testOrderAddressInfo() {
-        // TODO: test OrderAddressInfo
+    public void testPolicyCondition() {
+        // TODO: test PolicyCondition
     }
 
     /**
-     * Test the property 'walletId'
+     * Test the property 'field'
      */
     @Test
-    public void walletIdTest() {
-        // TODO: test walletId
+    public void fieldTest() {
+        // TODO: test field
     }
 
     /**
-     * Test the property 'amount'
+     * Test the property 'valueType'
      */
     @Test
-    public void amountTest() {
-        // TODO: test amount
+    public void valueTypeTest() {
+        // TODO: test valueType
     }
 
     /**
-     * Test the property 'createdTimestamp'
+     * Test the property 'value'
      */
     @Test
-    public void createdTimestampTest() {
-        // TODO: test createdTimestamp
+    public void valueTest() {
+        // TODO: test value
     }
 
     /**
-     * Test the property 'updatedTimestamp'
+     * Test the property 'operator'
      */
     @Test
-    public void updatedTimestampTest() {
-        // TODO: test updatedTimestamp
+    public void operatorTest() {
+        // TODO: test operator
     }
 
 }
