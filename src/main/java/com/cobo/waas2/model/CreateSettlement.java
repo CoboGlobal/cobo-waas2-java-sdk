@@ -147,7 +147,7 @@ public class CreateSettlement {
    * The settlement amount. - If &#x60;token_id&#x60; is specified, this represents the settlement amount in the specified cryptocurrency. - If &#x60;token_id&#x60; is not specified, this represents the settlement amount in the specified fiat currency.
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getAmount() {
     return amount;
   }
@@ -166,7 +166,7 @@ public class CreateSettlement {
    * The ID of the bank account where the settled funds will be deposited.
    * @return bankAccountId
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public UUID getBankAccountId() {
     return bankAccountId;
   }
@@ -305,8 +305,6 @@ public class CreateSettlement {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("bank_account_id");
   }
 
  /**
@@ -321,13 +319,6 @@ public class CreateSettlement {
           throw new IllegalArgumentException(String.format("The required field(s) %s in CreateSettlement is not found in the empty JSON string", CreateSettlement.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateSettlement.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()) && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
@@ -338,10 +329,10 @@ public class CreateSettlement {
       if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
       }
-      if (!jsonObj.get("amount").isJsonPrimitive()) {
+      if ((jsonObj.get("amount") != null && !jsonObj.get("amount").isJsonNull()) && !jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
       }
-      if (!jsonObj.get("bank_account_id").isJsonPrimitive()) {
+      if ((jsonObj.get("bank_account_id") != null && !jsonObj.get("bank_account_id").isJsonNull()) && !jsonObj.get("bank_account_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bank_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_account_id").toString()));
       }
       // validate the optional field `settlement_type`

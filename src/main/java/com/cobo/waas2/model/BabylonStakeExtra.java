@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.StakingPoolType;
+import com.cobo.waas2.model.StakingSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -68,6 +69,10 @@ public class BabylonStakeExtra {
   public static final String SERIALIZED_NAME_AUTO_BROADCAST = "auto_broadcast";
   @SerializedName(SERIALIZED_NAME_AUTO_BROADCAST)
   private Boolean autoBroadcast;
+
+  public static final String SERIALIZED_NAME_BABYLON_ADDRESS = "babylon_address";
+  @SerializedName(SERIALIZED_NAME_BABYLON_ADDRESS)
+  private StakingSource babylonAddress;
 
   public BabylonStakeExtra() {
   }
@@ -147,6 +152,25 @@ public class BabylonStakeExtra {
     this.autoBroadcast = autoBroadcast;
   }
 
+
+  public BabylonStakeExtra babylonAddress(StakingSource babylonAddress) {
+    this.babylonAddress = babylonAddress;
+    return this;
+  }
+
+   /**
+   * Get babylonAddress
+   * @return babylonAddress
+  **/
+  @javax.annotation.Nullable
+  public StakingSource getBabylonAddress() {
+    return babylonAddress;
+  }
+
+  public void setBabylonAddress(StakingSource babylonAddress) {
+    this.babylonAddress = babylonAddress;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -205,13 +229,14 @@ public class BabylonStakeExtra {
     return Objects.equals(this.poolType, babylonStakeExtra.poolType) &&
         Objects.equals(this.finalityProviderPublicKey, babylonStakeExtra.finalityProviderPublicKey) &&
         Objects.equals(this.stakeBlockTime, babylonStakeExtra.stakeBlockTime) &&
-        Objects.equals(this.autoBroadcast, babylonStakeExtra.autoBroadcast)&&
+        Objects.equals(this.autoBroadcast, babylonStakeExtra.autoBroadcast) &&
+        Objects.equals(this.babylonAddress, babylonStakeExtra.babylonAddress)&&
         Objects.equals(this.additionalProperties, babylonStakeExtra.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, autoBroadcast, additionalProperties);
+    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, autoBroadcast, babylonAddress, additionalProperties);
   }
 
   @Override
@@ -222,6 +247,7 @@ public class BabylonStakeExtra {
     sb.append("    finalityProviderPublicKey: ").append(toIndentedString(finalityProviderPublicKey)).append("\n");
     sb.append("    stakeBlockTime: ").append(toIndentedString(stakeBlockTime)).append("\n");
     sb.append("    autoBroadcast: ").append(toIndentedString(autoBroadcast)).append("\n");
+    sb.append("    babylonAddress: ").append(toIndentedString(babylonAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -249,6 +275,7 @@ public class BabylonStakeExtra {
     openapiFields.add("finality_provider_public_key");
     openapiFields.add("stake_block_time");
     openapiFields.add("auto_broadcast");
+    openapiFields.add("babylon_address");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -281,6 +308,10 @@ public class BabylonStakeExtra {
       StakingPoolType.validateJsonElement(jsonObj.get("pool_type"));
       if (!jsonObj.get("finality_provider_public_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `finality_provider_public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("finality_provider_public_key").toString()));
+      }
+      // validate the optional field `babylon_address`
+      if (jsonObj.get("babylon_address") != null && !jsonObj.get("babylon_address").isJsonNull()) {
+        StakingSource.validateJsonElement(jsonObj.get("babylon_address"));
       }
   }
 

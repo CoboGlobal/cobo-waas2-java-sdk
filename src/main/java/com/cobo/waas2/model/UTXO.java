@@ -84,6 +84,10 @@ public class UTXO {
   @SerializedName(SERIALIZED_NAME_CONFIRMED_NUMBER)
   private Integer confirmedNumber;
 
+  public static final String SERIALIZED_NAME_IS_FROZEN = "is_frozen";
+  @SerializedName(SERIALIZED_NAME_IS_FROZEN)
+  private Boolean isFrozen;
+
   public UTXO() {
   }
 
@@ -238,6 +242,25 @@ public class UTXO {
     this.confirmedNumber = confirmedNumber;
   }
 
+
+  public UTXO isFrozen(Boolean isFrozen) {
+    this.isFrozen = isFrozen;
+    return this;
+  }
+
+   /**
+   * Whether the UTXO is frozen.
+   * @return isFrozen
+  **/
+  @javax.annotation.Nullable
+  public Boolean getIsFrozen() {
+    return isFrozen;
+  }
+
+  public void setIsFrozen(Boolean isFrozen) {
+    this.isFrozen = isFrozen;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -300,13 +323,14 @@ public class UTXO {
         Objects.equals(this.value, UTXO.value) &&
         Objects.equals(this.isCoinbase, UTXO.isCoinbase) &&
         Objects.equals(this.isLocked, UTXO.isLocked) &&
-        Objects.equals(this.confirmedNumber, UTXO.confirmedNumber)&&
+        Objects.equals(this.confirmedNumber, UTXO.confirmedNumber) &&
+        Objects.equals(this.isFrozen, UTXO.isFrozen)&&
         Objects.equals(this.additionalProperties, UTXO.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(txHash, voutN, address, tokenId, value, isCoinbase, isLocked, confirmedNumber, additionalProperties);
+    return Objects.hash(txHash, voutN, address, tokenId, value, isCoinbase, isLocked, confirmedNumber, isFrozen, additionalProperties);
   }
 
   @Override
@@ -321,6 +345,7 @@ public class UTXO {
     sb.append("    isCoinbase: ").append(toIndentedString(isCoinbase)).append("\n");
     sb.append("    isLocked: ").append(toIndentedString(isLocked)).append("\n");
     sb.append("    confirmedNumber: ").append(toIndentedString(confirmedNumber)).append("\n");
+    sb.append("    isFrozen: ").append(toIndentedString(isFrozen)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -352,6 +377,7 @@ public class UTXO {
     openapiFields.add("is_coinbase");
     openapiFields.add("is_locked");
     openapiFields.add("confirmed_number");
+    openapiFields.add("is_frozen");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -29,7 +29,6 @@ import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
 import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
-import com.cobo.waas2.model.OrderAddressInfo;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Settlement;
 import java.util.UUID;
@@ -138,21 +137,6 @@ public class PaymentApiTest {
         String tokenId = null;
         String currency = null;
         GetExchangeRate200Response response = api.getExchangeRate(tokenId, currency);
-        // TODO: test validations
-    }
-
-    /**
-     * Get pay-in order&#39;s receiving address info
-     *
-     * This operation retrieves the detailed information about a specific pay-in address. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getPaymentOrderAddressInfoTest() throws ApiException {
-        String tokenId = null;
-        String address = null;
-        OrderAddressInfo response = api.getPaymentOrderAddressInfo(tokenId, address);
         // TODO: test validations
     }
 

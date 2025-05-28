@@ -15,6 +15,7 @@ import com.cobo.waas2.model.BabylonStakeExtra;
 import com.cobo.waas2.model.CoreStakeExtra;
 import com.cobo.waas2.model.EthStakeExtra;
 import com.cobo.waas2.model.StakingPoolType;
+import com.cobo.waas2.model.StakingSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -69,6 +70,14 @@ public class CreateStakeActivityExtraTest {
     @Test
     public void autoBroadcastTest() {
         // TODO: test autoBroadcast
+    }
+
+    /**
+     * Test the property 'babylonAddress'
+     */
+    @Test
+    public void babylonAddressTest() {
+        // TODO: test babylonAddress
     }
 
     /**

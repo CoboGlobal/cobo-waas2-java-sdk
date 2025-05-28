@@ -99,4 +99,12 @@ public class UTXOTest {
         // TODO: test confirmedNumber
     }
 
+    /**
+     * Test the property 'isFrozen'
+     */
+    @Test
+    public void isFrozenTest() {
+        // TODO: test isFrozen
+    }
+
 }

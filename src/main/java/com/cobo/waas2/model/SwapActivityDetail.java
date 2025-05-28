@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.SwapActivityApprovers;
 import com.cobo.waas2.model.SwapActivityStatus;
 import com.cobo.waas2.model.SwapActivityTimeline;
 import com.cobo.waas2.model.SwapType;
@@ -127,6 +128,10 @@ public class SwapActivityDetail {
   public static final String SERIALIZED_NAME_TIMELINE = "timeline";
   @SerializedName(SERIALIZED_NAME_TIMELINE)
   private List<SwapActivityTimeline> timeline = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_APPROVERS = "approvers";
+  @SerializedName(SERIALIZED_NAME_APPROVERS)
+  private List<SwapActivityApprovers> approvers = new ArrayList<>();
 
   public SwapActivityDetail() {
   }
@@ -461,6 +466,33 @@ public class SwapActivityDetail {
     this.timeline = timeline;
   }
 
+
+  public SwapActivityDetail approvers(List<SwapActivityApprovers> approvers) {
+    this.approvers = approvers;
+    return this;
+  }
+
+  public SwapActivityDetail addApproversItem(SwapActivityApprovers approversItem) {
+    if (this.approvers == null) {
+      this.approvers = new ArrayList<>();
+    }
+    this.approvers.add(approversItem);
+    return this;
+  }
+
+   /**
+   * Get approvers
+   * @return approvers
+  **/
+  @javax.annotation.Nullable
+  public List<SwapActivityApprovers> getApprovers() {
+    return approvers;
+  }
+
+  public void setApprovers(List<SwapActivityApprovers> approvers) {
+    this.approvers = approvers;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -532,7 +564,8 @@ public class SwapActivityDetail {
         Objects.equals(this.description, swapActivityDetail.description) &&
         Objects.equals(this.createdTimestamp, swapActivityDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, swapActivityDetail.updatedTimestamp) &&
-        Objects.equals(this.timeline, swapActivityDetail.timeline)&&
+        Objects.equals(this.timeline, swapActivityDetail.timeline) &&
+        Objects.equals(this.approvers, swapActivityDetail.approvers)&&
         Objects.equals(this.additionalProperties, swapActivityDetail.additionalProperties);
   }
 
@@ -542,7 +575,7 @@ public class SwapActivityDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activityId, swapType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeTokenId, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, timeline, additionalProperties);
+    return Objects.hash(activityId, swapType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeTokenId, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, timeline, approvers, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -573,6 +606,7 @@ public class SwapActivityDetail {
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    timeline: ").append(toIndentedString(timeline)).append("\n");
+    sb.append("    approvers: ").append(toIndentedString(approvers)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -613,6 +647,7 @@ public class SwapActivityDetail {
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("timeline");
+    openapiFields.add("approvers");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -687,6 +722,20 @@ public class SwapActivityDetail {
           // validate the optional field `timeline` (array)
           for (int i = 0; i < jsonArraytimeline.size(); i++) {
             SwapActivityTimeline.validateJsonElement(jsonArraytimeline.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("approvers") != null && !jsonObj.get("approvers").isJsonNull()) {
+        JsonArray jsonArrayapprovers = jsonObj.getAsJsonArray("approvers");
+        if (jsonArrayapprovers != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("approvers").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `approvers` to be an array in the JSON string but got `%s`", jsonObj.get("approvers").toString()));
+          }
+
+          // validate the optional field `approvers` (array)
+          for (int i = 0; i < jsonArrayapprovers.size(); i++) {
+            SwapActivityApprovers.validateJsonElement(jsonArrayapprovers.get(i));
           };
         }
       }
