@@ -45,7 +45,7 @@ public class AppWorkflowsApiTest {
     private final AppWorkflowsApi api = new AppWorkflowsApi();
 
     /**
-     * Request workflow approval
+     * Request app workflow approval
      *
      * This operation is request approval from app workflow with idempotency checks. 
      *
@@ -59,7 +59,7 @@ public class AppWorkflowsApiTest {
     }
 
     /**
-     * Get approval request details
+     * Get app workflow approval request by approval id
      *
      * This operation is retrieves approval request from app workflow. 
      *
@@ -86,7 +86,7 @@ public class AppWorkflowsApiTest {
     }
 
     /**
-     * List approval requests
+     * List app workflow approval requests by operation_id
      *
      * This operation is retrieves list approval requests from app workflow. 
      *
@@ -103,7 +103,7 @@ public class AppWorkflowsApiTest {
     }
 
     /**
-     * Revoke approval request
+     * Revoke an app workflow approval request by request initiator.
      *
      * This operation is revoke approval request from app workflow. 
      *

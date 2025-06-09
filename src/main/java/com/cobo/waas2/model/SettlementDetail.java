@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.SettleStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -104,6 +105,10 @@ public class SettlementDetail {
   public static final String SERIALIZED_NAME_CRYPTO_ADDRESS_ID = "crypto_address_id";
   @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS_ID)
   private String cryptoAddressId;
+
+  public static final String SERIALIZED_NAME_PAYOUT_CHANNEL = "payout_channel";
+  @SerializedName(SERIALIZED_NAME_PAYOUT_CHANNEL)
+  private PayoutChannel payoutChannel;
 
   public SettlementDetail() {
   }
@@ -343,6 +348,25 @@ public class SettlementDetail {
     this.cryptoAddressId = cryptoAddressId;
   }
 
+
+  public SettlementDetail payoutChannel(PayoutChannel payoutChannel) {
+    this.payoutChannel = payoutChannel;
+    return this;
+  }
+
+   /**
+   * Get payoutChannel
+   * @return payoutChannel
+  **/
+  @javax.annotation.Nullable
+  public PayoutChannel getPayoutChannel() {
+    return payoutChannel;
+  }
+
+  public void setPayoutChannel(PayoutChannel payoutChannel) {
+    this.payoutChannel = payoutChannel;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -409,13 +433,14 @@ public class SettlementDetail {
         Objects.equals(this.transactions, settlementDetail.transactions) &&
         Objects.equals(this.createdTimestamp, settlementDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, settlementDetail.updatedTimestamp) &&
-        Objects.equals(this.cryptoAddressId, settlementDetail.cryptoAddressId)&&
+        Objects.equals(this.cryptoAddressId, settlementDetail.cryptoAddressId) &&
+        Objects.equals(this.payoutChannel, settlementDetail.payoutChannel)&&
         Objects.equals(this.additionalProperties, settlementDetail.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, additionalProperties);
+    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, payoutChannel, additionalProperties);
   }
 
   @Override
@@ -434,6 +459,7 @@ public class SettlementDetail {
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    cryptoAddressId: ").append(toIndentedString(cryptoAddressId)).append("\n");
+    sb.append("    payoutChannel: ").append(toIndentedString(payoutChannel)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -469,6 +495,7 @@ public class SettlementDetail {
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("crypto_address_id");
+    openapiFields.add("payout_channel");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -529,6 +556,10 @@ public class SettlementDetail {
       }
       if ((jsonObj.get("crypto_address_id") != null && !jsonObj.get("crypto_address_id").isJsonNull()) && !jsonObj.get("crypto_address_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address_id").toString()));
+      }
+      // validate the optional field `payout_channel`
+      if (jsonObj.get("payout_channel") != null && !jsonObj.get("payout_channel").isJsonNull()) {
+        PayoutChannel.validateJsonElement(jsonObj.get("payout_channel"));
       }
   }
 

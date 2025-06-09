@@ -84,6 +84,10 @@ public class CreatePaymentOrderRequest {
   @SerializedName(SERIALIZED_NAME_EXPIRED_AT)
   private Integer expiredAt;
 
+  public static final String SERIALIZED_NAME_USE_DEDICATED_ADDRESS = "use_dedicated_address";
+  @SerializedName(SERIALIZED_NAME_USE_DEDICATED_ADDRESS)
+  private Boolean useDedicatedAddress;
+
   public CreatePaymentOrderRequest() {
   }
 
@@ -238,6 +242,25 @@ public class CreatePaymentOrderRequest {
     this.expiredAt = expiredAt;
   }
 
+
+  public CreatePaymentOrderRequest useDedicatedAddress(Boolean useDedicatedAddress) {
+    this.useDedicatedAddress = useDedicatedAddress;
+    return this;
+  }
+
+   /**
+   * Indicates whether to allocate a dedicated address for this order.  If false, a shared address from the address pool will be used. 
+   * @return useDedicatedAddress
+  **/
+  @javax.annotation.Nullable
+  public Boolean getUseDedicatedAddress() {
+    return useDedicatedAddress;
+  }
+
+  public void setUseDedicatedAddress(Boolean useDedicatedAddress) {
+    this.useDedicatedAddress = useDedicatedAddress;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -300,13 +323,14 @@ public class CreatePaymentOrderRequest {
         Objects.equals(this.feeAmount, createPaymentOrderRequest.feeAmount) &&
         Objects.equals(this.merchantOrderCode, createPaymentOrderRequest.merchantOrderCode) &&
         Objects.equals(this.pspOrderCode, createPaymentOrderRequest.pspOrderCode) &&
-        Objects.equals(this.expiredAt, createPaymentOrderRequest.expiredAt)&&
+        Objects.equals(this.expiredAt, createPaymentOrderRequest.expiredAt) &&
+        Objects.equals(this.useDedicatedAddress, createPaymentOrderRequest.useDedicatedAddress)&&
         Objects.equals(this.additionalProperties, createPaymentOrderRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredAt, additionalProperties);
+    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredAt, useDedicatedAddress, additionalProperties);
   }
 
   @Override
@@ -321,6 +345,7 @@ public class CreatePaymentOrderRequest {
     sb.append("    merchantOrderCode: ").append(toIndentedString(merchantOrderCode)).append("\n");
     sb.append("    pspOrderCode: ").append(toIndentedString(pspOrderCode)).append("\n");
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
+    sb.append("    useDedicatedAddress: ").append(toIndentedString(useDedicatedAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -352,6 +377,7 @@ public class CreatePaymentOrderRequest {
     openapiFields.add("merchant_order_code");
     openapiFields.add("psp_order_code");
     openapiFields.add("expired_at");
+    openapiFields.add("use_dedicated_address");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

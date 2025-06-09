@@ -92,4 +92,28 @@ public class CreateRefundRequestTest {
         // TODO: test orderId
     }
 
+    /**
+     * Test the property 'chargeMerchantFee'
+     */
+    @Test
+    public void chargeMerchantFeeTest() {
+        // TODO: test chargeMerchantFee
+    }
+
+    /**
+     * Test the property 'merchantFeeAmount'
+     */
+    @Test
+    public void merchantFeeAmountTest() {
+        // TODO: test merchantFeeAmount
+    }
+
+    /**
+     * Test the property 'merchantFeeTokenId'
+     */
+    @Test
+    public void merchantFeeTokenIdTest() {
+        // TODO: test merchantFeeTokenId
+    }
+
 }

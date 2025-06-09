@@ -92,6 +92,14 @@ public class SwapQuoteTest {
     }
 
     /**
+     * Test the property 'estimatedNetworkFeeAmount'
+     */
+    @Test
+    public void estimatedNetworkFeeAmountTest() {
+        // TODO: test estimatedNetworkFeeAmount
+    }
+
+    /**
      * Test the property 'minReceiveAmount'
      */
     @Test

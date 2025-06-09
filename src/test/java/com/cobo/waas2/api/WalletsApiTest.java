@@ -88,7 +88,7 @@ public class WalletsApiTest {
     /**
      * Check address validity across chains
      *
-     * This operation verifies if a given address is valid for a list of chains.  &lt;Note&gt;You can specify up to 20 chain IDs in a single request.&lt;/Note&gt; 
+     * This operation verifies if a given address is valid for a list of chains. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -146,9 +146,9 @@ public class WalletsApiTest {
     }
 
     /**
-     * Create token listing request
+     * Submit token listing request
      *
-     * This operation creates a token listing request. The token to be listed must already be deployed on the specified blockchain and have a valid contract address.  &lt;note&gt;Currently, tokens listed through this operation are only supported in wallets of type &#x60;Custodial&#x60; or &#x60;MPC&#x60;, and subtype &#x60;Asset&#x60;, &#x60;Web3&#x60;, or &#x60;Org-Controlled&#x60;.&lt;/note&gt; 
+     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -234,9 +234,9 @@ public class WalletsApiTest {
     }
 
     /**
-     * Get token listing request
+     * Get token listing request details
      *
-     * This operation retrieves detailed information about a specific token listing request, including its current status. 
+     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -413,9 +413,9 @@ public class WalletsApiTest {
     }
 
     /**
-     * List token listing requests
+     * Get all token listing requests
      *
-     * This operation lists all token listing requests in your organization. You can filter the results by request status. 
+     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
      *
      * @throws ApiException if the Api call fails
      */
