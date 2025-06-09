@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.SettleStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -134,6 +135,14 @@ public class SettlementDetailTest {
     @Test
     public void cryptoAddressIdTest() {
         // TODO: test cryptoAddressId
+    }
+
+    /**
+     * Test the property 'payoutChannel'
+     */
+    @Test
+    public void payoutChannelTest() {
+        // TODO: test payoutChannel
     }
 
 }

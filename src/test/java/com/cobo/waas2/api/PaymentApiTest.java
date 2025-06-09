@@ -16,10 +16,12 @@ import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.CreateBankAccountRequest;
+import com.cobo.waas2.model.CreateCryptoAddressRequest;
 import com.cobo.waas2.model.CreateMerchantRequest;
 import com.cobo.waas2.model.CreatePaymentOrderRequest;
 import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
+import com.cobo.waas2.model.CryptoAddress;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
@@ -31,6 +33,7 @@ import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Settlement;
+import com.cobo.waas2.model.SupportedToken;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateMerchantByIdRequest;
 import com.cobo.waas2.model.UpdatePaymentOrderRequest;
@@ -66,6 +69,20 @@ public class PaymentApiTest {
     public void createBankAccountTest() throws ApiException {
         CreateBankAccountRequest createBankAccountRequest = null;
         BankAccount response = api.createBankAccount(createBankAccountRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Create crypto address
+     *
+     * Create a new cryptocurrency address for receiving payouts or transfers.  The address must match the specified &#x60;token_id&#x60;&#39;s blockchain.  Optionally, a label can be provided to help categorize the address internally. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createCryptoAddressTest() throws ApiException {
+        CreateCryptoAddressRequest createCryptoAddressRequest = null;
+        CryptoAddress response = api.createCryptoAddress(createCryptoAddressRequest);
         // TODO: test validations
     }
 
@@ -229,6 +246,20 @@ public class PaymentApiTest {
     }
 
     /**
+     * List crypto addresses
+     *
+     * Retrieve a list of cryptocurrency addresses previously created for a given &#x60;token_id&#x60;. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listCryptoAddressesTest() throws ApiException {
+        String tokenId = null;
+        List<CryptoAddress> response = api.listCryptoAddresses(tokenId);
+        // TODO: test validations
+    }
+
+    /**
      * List all merchants
      *
      * This operation retrieves the information of all merchants.   You can filter the results by using a keyword for fuzzy search on merchant names or by specifying a wallet ID. 
@@ -259,7 +290,21 @@ public class PaymentApiTest {
         String before = null;
         String after = null;
         String merchantId = null;
-        ListPaymentOrders200Response response = api.listPaymentOrders(limit, before, after, merchantId);
+        String pspOrderId = null;
+        ListPaymentOrders200Response response = api.listPaymentOrders(limit, before, after, merchantId, pspOrderId);
+        // TODO: test validations
+    }
+
+    /**
+     * List all supported tokens
+     *
+     * This operation retrieves the information of all supported tokens. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listPaymentSupportedTokensTest() throws ApiException {
+        List<SupportedToken> response = api.listPaymentSupportedTokens();
         // TODO: test validations
     }
 

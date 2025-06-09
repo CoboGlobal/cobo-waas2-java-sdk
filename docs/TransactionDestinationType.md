@@ -7,6 +7,8 @@
 
 * `ADDRESS` (value: `"Address"`)
 
+* `CUSTODIALWALLET` (value: `"CustodialWallet"`)
+
 * `EXCHANGEWALLET` (value: `"ExchangeWallet"`)
 
 * `EVM_CONTRACT` (value: `"EVM_Contract"`)

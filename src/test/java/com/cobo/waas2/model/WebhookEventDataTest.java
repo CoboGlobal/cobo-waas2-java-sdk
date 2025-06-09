@@ -17,19 +17,13 @@ import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.ChainsEventData;
 import com.cobo.waas2.model.MPCVaultEventData;
 import com.cobo.waas2.model.MPCVaultType;
-import com.cobo.waas2.model.PaymentOrderEventData;
-import com.cobo.waas2.model.PaymentRefundEventData;
-import com.cobo.waas2.model.PaymentSettlementEvent;
-import com.cobo.waas2.model.PaymentTransaction;
-import com.cobo.waas2.model.RefundType;
 import com.cobo.waas2.model.RootPubkey;
-import com.cobo.waas2.model.SettleRequestStatus;
-import com.cobo.waas2.model.SettlementDetail;
 import com.cobo.waas2.model.SourceGroup;
 import com.cobo.waas2.model.TSSRequestWebhookEventData;
 import com.cobo.waas2.model.TokenInfo;
 import com.cobo.waas2.model.TokenListingEventData;
 import com.cobo.waas2.model.TokenListingRequestSource;
+import com.cobo.waas2.model.TokenListingRequestStatus;
 import com.cobo.waas2.model.TokensEventData;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
@@ -462,158 +456,6 @@ public class WebhookEventDataTest {
     @Test
     public void feedbackTest() {
         // TODO: test feedback
-    }
-
-    /**
-     * Test the property 'orderId'
-     */
-    @Test
-    public void orderIdTest() {
-        // TODO: test orderId
-    }
-
-    /**
-     * Test the property 'merchantId'
-     */
-    @Test
-    public void merchantIdTest() {
-        // TODO: test merchantId
-    }
-
-    /**
-     * Test the property 'payableAmount'
-     */
-    @Test
-    public void payableAmountTest() {
-        // TODO: test payableAmount
-    }
-
-    /**
-     * Test the property 'receiveAddress'
-     */
-    @Test
-    public void receiveAddressTest() {
-        // TODO: test receiveAddress
-    }
-
-    /**
-     * Test the property 'currency'
-     */
-    @Test
-    public void currencyTest() {
-        // TODO: test currency
-    }
-
-    /**
-     * Test the property 'orderAmount'
-     */
-    @Test
-    public void orderAmountTest() {
-        // TODO: test orderAmount
-    }
-
-    /**
-     * Test the property 'feeAmount'
-     */
-    @Test
-    public void feeAmountTest() {
-        // TODO: test feeAmount
-    }
-
-    /**
-     * Test the property 'exchangeRate'
-     */
-    @Test
-    public void exchangeRateTest() {
-        // TODO: test exchangeRate
-    }
-
-    /**
-     * Test the property 'expiredAt'
-     */
-    @Test
-    public void expiredAtTest() {
-        // TODO: test expiredAt
-    }
-
-    /**
-     * Test the property 'merchantOrderCode'
-     */
-    @Test
-    public void merchantOrderCodeTest() {
-        // TODO: test merchantOrderCode
-    }
-
-    /**
-     * Test the property 'pspOrderCode'
-     */
-    @Test
-    public void pspOrderCodeTest() {
-        // TODO: test pspOrderCode
-    }
-
-    /**
-     * Test the property 'receivedTokenAmount'
-     */
-    @Test
-    public void receivedTokenAmountTest() {
-        // TODO: test receivedTokenAmount
-    }
-
-    /**
-     * Test the property 'transactions'
-     */
-    @Test
-    public void transactionsTest() {
-        // TODO: test transactions
-    }
-
-    /**
-     * Test the property 'refundId'
-     */
-    @Test
-    public void refundIdTest() {
-        // TODO: test refundId
-    }
-
-    /**
-     * Test the property 'amount'
-     */
-    @Test
-    public void amountTest() {
-        // TODO: test amount
-    }
-
-    /**
-     * Test the property 'toAddress'
-     */
-    @Test
-    public void toAddressTest() {
-        // TODO: test toAddress
-    }
-
-    /**
-     * Test the property 'refundType'
-     */
-    @Test
-    public void refundTypeTest() {
-        // TODO: test refundType
-    }
-
-    /**
-     * Test the property 'settlementRequestId'
-     */
-    @Test
-    public void settlementRequestIdTest() {
-        // TODO: test settlementRequestId
-    }
-
-    /**
-     * Test the property 'settlements'
-     */
-    @Test
-    public void settlementsTest() {
-        // TODO: test settlements
     }
 
 }

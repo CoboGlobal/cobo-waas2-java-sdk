@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The extra information related to Babylon business logic.
+ * The Babylon business information.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

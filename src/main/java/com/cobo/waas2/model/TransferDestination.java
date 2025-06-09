@@ -15,6 +15,7 @@ import java.util.Objects;
 import com.cobo.waas2.model.AddressTransferDestination;
 import com.cobo.waas2.model.AddressTransferDestinationAccountOutput;
 import com.cobo.waas2.model.AddressTransferDestinationUtxoOutputsInner;
+import com.cobo.waas2.model.CustodialTransferDestination;
 import com.cobo.waas2.model.ExchangeTransferDestination;
 import com.cobo.waas2.model.TransferDestinationType;
 import com.google.gson.TypeAdapter;
@@ -79,6 +80,7 @@ public class TransferDestination extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<AddressTransferDestination> adapterAddressTransferDestination = gson.getDelegateAdapter(this, TypeToken.get(AddressTransferDestination.class));
+            final TypeAdapter<CustodialTransferDestination> adapterCustodialTransferDestination = gson.getDelegateAdapter(this, TypeToken.get(CustodialTransferDestination.class));
             final TypeAdapter<ExchangeTransferDestination> adapterExchangeTransferDestination = gson.getDelegateAdapter(this, TypeToken.get(ExchangeTransferDestination.class));
 
             return (TypeAdapter<T>) new TypeAdapter<TransferDestination>() {
@@ -95,13 +97,19 @@ public class TransferDestination extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `CustodialTransferDestination`
+                    if (value.getActualInstance() instanceof CustodialTransferDestination) {
+                        JsonElement element = adapterCustodialTransferDestination.toJsonTree((CustodialTransferDestination)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `ExchangeTransferDestination`
                     if (value.getActualInstance() instanceof ExchangeTransferDestination) {
                         JsonElement element = adapterExchangeTransferDestination.toJsonTree((ExchangeTransferDestination)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AddressTransferDestination, ExchangeTransferDestination");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AddressTransferDestination, CustodialTransferDestination, ExchangeTransferDestination");
                 }
 
                 @Override
@@ -122,6 +130,10 @@ public class TransferDestination extends AbstractOpenApiSchema {
                                 deserialized = adapterAddressTransferDestination.fromJsonTree(jsonObject);
                                 newTransferDestination.setActualInstance(deserialized);
                                 return newTransferDestination;
+                            case "CustodialWallet":
+                                deserialized = adapterCustodialTransferDestination.fromJsonTree(jsonObject);
+                                newTransferDestination.setActualInstance(deserialized);
+                                return newTransferDestination;
                             case "ExchangeWallet":
                                 deserialized = adapterExchangeTransferDestination.fromJsonTree(jsonObject);
                                 newTransferDestination.setActualInstance(deserialized);
@@ -130,12 +142,16 @@ public class TransferDestination extends AbstractOpenApiSchema {
                                 deserialized = adapterAddressTransferDestination.fromJsonTree(jsonObject);
                                 newTransferDestination.setActualInstance(deserialized);
                                 return newTransferDestination;
+                            case "CustodialTransferDestination":
+                                deserialized = adapterCustodialTransferDestination.fromJsonTree(jsonObject);
+                                newTransferDestination.setActualInstance(deserialized);
+                                return newTransferDestination;
                             case "ExchangeTransferDestination":
                                 deserialized = adapterExchangeTransferDestination.fromJsonTree(jsonObject);
                                 newTransferDestination.setActualInstance(deserialized);
                                 return newTransferDestination;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransferDestination. Possible values: Address ExchangeWallet AddressTransferDestination ExchangeTransferDestination", jsonObject.get("destination_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransferDestination. Possible values: Address CustodialWallet ExchangeWallet AddressTransferDestination CustodialTransferDestination ExchangeTransferDestination", jsonObject.get("destination_type").getAsString()));
                         }
                     }
 
@@ -154,6 +170,18 @@ public class TransferDestination extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for AddressTransferDestination failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'AddressTransferDestination'", e);
+                    }
+                    // deserialize CustodialTransferDestination
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        CustodialTransferDestination.validateJsonElement(jsonElement);
+                        actualAdapter = adapterCustodialTransferDestination;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CustodialTransferDestination'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for CustodialTransferDestination failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'CustodialTransferDestination'", e);
                     }
                     // deserialize ExchangeTransferDestination
                     try {
@@ -192,6 +220,11 @@ public class TransferDestination extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public TransferDestination(CustodialTransferDestination o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public TransferDestination(ExchangeTransferDestination o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -199,6 +232,7 @@ public class TransferDestination extends AbstractOpenApiSchema {
 
     static {
         schemas.put("AddressTransferDestination", AddressTransferDestination.class);
+        schemas.put("CustodialTransferDestination", CustodialTransferDestination.class);
         schemas.put("ExchangeTransferDestination", ExchangeTransferDestination.class);
     }
 
@@ -210,7 +244,7 @@ public class TransferDestination extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AddressTransferDestination, ExchangeTransferDestination
+     * AddressTransferDestination, CustodialTransferDestination, ExchangeTransferDestination
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -221,19 +255,24 @@ public class TransferDestination extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof CustodialTransferDestination) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof ExchangeTransferDestination) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be AddressTransferDestination, ExchangeTransferDestination");
+        throw new RuntimeException("Invalid instance type. Must be AddressTransferDestination, CustodialTransferDestination, ExchangeTransferDestination");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AddressTransferDestination, ExchangeTransferDestination
+     * AddressTransferDestination, CustodialTransferDestination, ExchangeTransferDestination
      *
-     * @return The actual instance (AddressTransferDestination, ExchangeTransferDestination)
+     * @return The actual instance (AddressTransferDestination, CustodialTransferDestination, ExchangeTransferDestination)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -250,6 +289,16 @@ public class TransferDestination extends AbstractOpenApiSchema {
      */
     public AddressTransferDestination getAddressTransferDestination() throws ClassCastException {
         return (AddressTransferDestination)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `CustodialTransferDestination`. If the actual instance is not `CustodialTransferDestination`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CustodialTransferDestination`
+     * @throws ClassCastException if the instance is not `CustodialTransferDestination`
+     */
+    public CustodialTransferDestination getCustodialTransferDestination() throws ClassCastException {
+        return (CustodialTransferDestination)super.getActualInstance();
     }
     /**
      * Get the actual instance of `ExchangeTransferDestination`. If the actual instance is not `ExchangeTransferDestination`,
@@ -280,6 +329,14 @@ public class TransferDestination extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for AddressTransferDestination failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with CustodialTransferDestination
+        try {
+            CustodialTransferDestination.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for CustodialTransferDestination failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with ExchangeTransferDestination
         try {
             ExchangeTransferDestination.validateJsonElement(jsonElement);
@@ -289,7 +346,7 @@ public class TransferDestination extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for TransferDestination with oneOf schemas: AddressTransferDestination, ExchangeTransferDestination. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for TransferDestination with oneOf schemas: AddressTransferDestination, CustodialTransferDestination, ExchangeTransferDestination. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 
