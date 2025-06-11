@@ -80,9 +80,9 @@ public class CreatePaymentOrderRequest {
   @SerializedName(SERIALIZED_NAME_PSP_ORDER_CODE)
   private String pspOrderCode;
 
-  public static final String SERIALIZED_NAME_EXPIRED_AT = "expired_at";
-  @SerializedName(SERIALIZED_NAME_EXPIRED_AT)
-  private Integer expiredAt;
+  public static final String SERIALIZED_NAME_EXPIRED_IN = "expired_in";
+  @SerializedName(SERIALIZED_NAME_EXPIRED_IN)
+  private Integer expiredIn;
 
   public static final String SERIALIZED_NAME_USE_DEDICATED_ADDRESS = "use_dedicated_address";
   @SerializedName(SERIALIZED_NAME_USE_DEDICATED_ADDRESS)
@@ -224,22 +224,22 @@ public class CreatePaymentOrderRequest {
   }
 
 
-  public CreatePaymentOrderRequest expiredAt(Integer expiredAt) {
-    this.expiredAt = expiredAt;
+  public CreatePaymentOrderRequest expiredIn(Integer expiredIn) {
+    this.expiredIn = expiredIn;
     return this;
   }
 
    /**
-   * The expiration time of the pay-in order, represented as a UNIX timestamp in seconds. After this time: - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
-   * @return expiredAt
+   * The pay-in order will expire after approximately a certain number of seconds: - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
+   * @return expiredIn
   **/
   @javax.annotation.Nullable
-  public Integer getExpiredAt() {
-    return expiredAt;
+  public Integer getExpiredIn() {
+    return expiredIn;
   }
 
-  public void setExpiredAt(Integer expiredAt) {
-    this.expiredAt = expiredAt;
+  public void setExpiredIn(Integer expiredIn) {
+    this.expiredIn = expiredIn;
   }
 
 
@@ -323,14 +323,14 @@ public class CreatePaymentOrderRequest {
         Objects.equals(this.feeAmount, createPaymentOrderRequest.feeAmount) &&
         Objects.equals(this.merchantOrderCode, createPaymentOrderRequest.merchantOrderCode) &&
         Objects.equals(this.pspOrderCode, createPaymentOrderRequest.pspOrderCode) &&
-        Objects.equals(this.expiredAt, createPaymentOrderRequest.expiredAt) &&
+        Objects.equals(this.expiredIn, createPaymentOrderRequest.expiredIn) &&
         Objects.equals(this.useDedicatedAddress, createPaymentOrderRequest.useDedicatedAddress)&&
         Objects.equals(this.additionalProperties, createPaymentOrderRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredAt, useDedicatedAddress, additionalProperties);
+    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredIn, useDedicatedAddress, additionalProperties);
   }
 
   @Override
@@ -344,7 +344,7 @@ public class CreatePaymentOrderRequest {
     sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
     sb.append("    merchantOrderCode: ").append(toIndentedString(merchantOrderCode)).append("\n");
     sb.append("    pspOrderCode: ").append(toIndentedString(pspOrderCode)).append("\n");
-    sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
+    sb.append("    expiredIn: ").append(toIndentedString(expiredIn)).append("\n");
     sb.append("    useDedicatedAddress: ").append(toIndentedString(useDedicatedAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -376,7 +376,7 @@ public class CreatePaymentOrderRequest {
     openapiFields.add("fee_amount");
     openapiFields.add("merchant_order_code");
     openapiFields.add("psp_order_code");
-    openapiFields.add("expired_at");
+    openapiFields.add("expired_in");
     openapiFields.add("use_dedicated_address");
 
     // a set of required properties/fields (JSON key names)
