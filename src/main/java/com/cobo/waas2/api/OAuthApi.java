@@ -26,8 +26,11 @@ import java.io.IOException;
 
 
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.ExchangePermissionToken201Response;
+import com.cobo.waas2.model.ExchangePermissionTokenRequest;
 import com.cobo.waas2.model.GetToken2XXResponse;
 import com.cobo.waas2.model.GetToken4XXResponse;
+import com.cobo.waas2.model.RefreshPermissionTokenRequest;
 import com.cobo.waas2.model.RefreshToken2XXResponse;
 import com.cobo.waas2.model.RefreshTokenRequest;
 
@@ -56,6 +59,124 @@ public class OAuthApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for exchangePermissionToken
+     * @param exchangePermissionTokenRequest The request body for exchanging an Permission Access Token. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call exchangePermissionTokenCall(ExchangePermissionTokenRequest exchangePermissionTokenRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = exchangePermissionTokenRequest;
+
+        // create path and map variables
+        String localVarPath = "/oauth/permission_token/exchange";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call exchangePermissionTokenValidateBeforeCall(ExchangePermissionTokenRequest exchangePermissionTokenRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'exchangePermissionTokenRequest' is set
+        if (exchangePermissionTokenRequest == null) {
+            throw new ApiException("Missing the required parameter 'exchangePermissionTokenRequest' when calling exchangePermissionToken(Async)");
+        }
+
+        return exchangePermissionTokenCall(exchangePermissionTokenRequest, _callback);
+
+    }
+
+    /**
+     * Exchange Permission Access Token by API Key
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param exchangePermissionTokenRequest The request body for exchanging an Permission Access Token. (required)
+     * @return ExchangePermissionToken201Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ExchangePermissionToken201Response exchangePermissionToken(ExchangePermissionTokenRequest exchangePermissionTokenRequest) throws ApiException {
+        ApiResponse<ExchangePermissionToken201Response> localVarResp = exchangePermissionTokenWithHttpInfo(exchangePermissionTokenRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Exchange Permission Access Token by API Key
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param exchangePermissionTokenRequest The request body for exchanging an Permission Access Token. (required)
+     * @return ApiResponse&lt;ExchangePermissionToken201Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ExchangePermissionToken201Response> exchangePermissionTokenWithHttpInfo(ExchangePermissionTokenRequest exchangePermissionTokenRequest) throws ApiException {
+        okhttp3.Call localVarCall = exchangePermissionTokenValidateBeforeCall(exchangePermissionTokenRequest, null);
+        Type localVarReturnType = new TypeToken<ExchangePermissionToken201Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Exchange Permission Access Token by API Key (asynchronously)
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param exchangePermissionTokenRequest The request body for exchanging an Permission Access Token. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call exchangePermissionTokenAsync(ExchangePermissionTokenRequest exchangePermissionTokenRequest, final ApiCallback<ExchangePermissionToken201Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = exchangePermissionTokenValidateBeforeCall(exchangePermissionTokenRequest, _callback);
+        Type localVarReturnType = new TypeToken<ExchangePermissionToken201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for getToken
      * @param clientId The client ID, a unique identifier to distinguish Cobo Portal Apps. You can get the client ID by retrieving the manifest file after publishing the app. (required)
@@ -200,6 +321,124 @@ public class OAuthApi {
 
         okhttp3.Call localVarCall = getTokenValidateBeforeCall(clientId, orgId, grantType, _callback);
         Type localVarReturnType = new TypeToken<GetToken2XXResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for refreshPermissionToken
+     * @param refreshPermissionTokenRequest The request body for refreshing an Permission Access Token. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call refreshPermissionTokenCall(RefreshPermissionTokenRequest refreshPermissionTokenRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = refreshPermissionTokenRequest;
+
+        // create path and map variables
+        String localVarPath = "/oauth/permission_token/refresh";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call refreshPermissionTokenValidateBeforeCall(RefreshPermissionTokenRequest refreshPermissionTokenRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'refreshPermissionTokenRequest' is set
+        if (refreshPermissionTokenRequest == null) {
+            throw new ApiException("Missing the required parameter 'refreshPermissionTokenRequest' when calling refreshPermissionToken(Async)");
+        }
+
+        return refreshPermissionTokenCall(refreshPermissionTokenRequest, _callback);
+
+    }
+
+    /**
+     * Refresh Permission Access Token by Permission Refresh Token
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param refreshPermissionTokenRequest The request body for refreshing an Permission Access Token. (required)
+     * @return ExchangePermissionToken201Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ExchangePermissionToken201Response refreshPermissionToken(RefreshPermissionTokenRequest refreshPermissionTokenRequest) throws ApiException {
+        ApiResponse<ExchangePermissionToken201Response> localVarResp = refreshPermissionTokenWithHttpInfo(refreshPermissionTokenRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Refresh Permission Access Token by Permission Refresh Token
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param refreshPermissionTokenRequest The request body for refreshing an Permission Access Token. (required)
+     * @return ApiResponse&lt;ExchangePermissionToken201Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ExchangePermissionToken201Response> refreshPermissionTokenWithHttpInfo(RefreshPermissionTokenRequest refreshPermissionTokenRequest) throws ApiException {
+        okhttp3.Call localVarCall = refreshPermissionTokenValidateBeforeCall(refreshPermissionTokenRequest, null);
+        Type localVarReturnType = new TypeToken<ExchangePermissionToken201Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Refresh Permission Access Token by Permission Refresh Token (asynchronously)
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param refreshPermissionTokenRequest The request body for refreshing an Permission Access Token. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call refreshPermissionTokenAsync(RefreshPermissionTokenRequest refreshPermissionTokenRequest, final ApiCallback<ExchangePermissionToken201Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = refreshPermissionTokenValidateBeforeCall(refreshPermissionTokenRequest, _callback);
+        Type localVarReturnType = new TypeToken<ExchangePermissionToken201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

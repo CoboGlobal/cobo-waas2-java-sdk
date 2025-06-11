@@ -179,6 +179,8 @@ docs/EvmEip1559FeeRate.md
 docs/EvmLegacyFeeBasePrice.md
 docs/EvmLegacyFeeRate.md
 docs/ExchangeId.md
+docs/ExchangePermissionToken201Response.md
+docs/ExchangePermissionTokenRequest.md
 docs/ExchangeTransferDestination.md
 docs/ExchangeTransferSource.md
 docs/ExchangeWalletInfo.md
@@ -301,6 +303,7 @@ docs/QueryGuardPubkey200ResponseAddressesInner.md
 docs/RawMessageSignDestination.md
 docs/RefreshAddressBalancesByToken200Response.md
 docs/RefreshAddressBalancesByTokenRequest.md
+docs/RefreshPermissionTokenRequest.md
 docs/RefreshToken2XXResponse.md
 docs/RefreshTokenRequest.md
 docs/Refund.md
@@ -769,6 +772,8 @@ src/main/java/com/cobo/waas2/model/EvmEip1559FeeRate.java
 src/main/java/com/cobo/waas2/model/EvmLegacyFeeBasePrice.java
 src/main/java/com/cobo/waas2/model/EvmLegacyFeeRate.java
 src/main/java/com/cobo/waas2/model/ExchangeId.java
+src/main/java/com/cobo/waas2/model/ExchangePermissionToken201Response.java
+src/main/java/com/cobo/waas2/model/ExchangePermissionTokenRequest.java
 src/main/java/com/cobo/waas2/model/ExchangeTransferDestination.java
 src/main/java/com/cobo/waas2/model/ExchangeTransferSource.java
 src/main/java/com/cobo/waas2/model/ExchangeWalletInfo.java
@@ -886,6 +891,7 @@ src/main/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseAddressesInner.jav
 src/main/java/com/cobo/waas2/model/RawMessageSignDestination.java
 src/main/java/com/cobo/waas2/model/RefreshAddressBalancesByToken200Response.java
 src/main/java/com/cobo/waas2/model/RefreshAddressBalancesByTokenRequest.java
+src/main/java/com/cobo/waas2/model/RefreshPermissionTokenRequest.java
 src/main/java/com/cobo/waas2/model/RefreshToken2XXResponse.java
 src/main/java/com/cobo/waas2/model/RefreshTokenRequest.java
 src/main/java/com/cobo/waas2/model/Refund.java
@@ -1306,6 +1312,8 @@ src/test/java/com/cobo/waas2/model/EvmEip1559FeeRateTest.java
 src/test/java/com/cobo/waas2/model/EvmLegacyFeeBasePriceTest.java
 src/test/java/com/cobo/waas2/model/EvmLegacyFeeRateTest.java
 src/test/java/com/cobo/waas2/model/ExchangeIdTest.java
+src/test/java/com/cobo/waas2/model/ExchangePermissionToken201ResponseTest.java
+src/test/java/com/cobo/waas2/model/ExchangePermissionTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/ExchangeTransferDestinationTest.java
 src/test/java/com/cobo/waas2/model/ExchangeTransferSourceTest.java
 src/test/java/com/cobo/waas2/model/ExchangeWalletInfoTest.java
@@ -1423,6 +1431,7 @@ src/test/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseTest.java
 src/test/java/com/cobo/waas2/model/RawMessageSignDestinationTest.java
 src/test/java/com/cobo/waas2/model/RefreshAddressBalancesByToken200ResponseTest.java
 src/test/java/com/cobo/waas2/model/RefreshAddressBalancesByTokenRequestTest.java
+src/test/java/com/cobo/waas2/model/RefreshPermissionTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/RefreshToken2XXResponseTest.java
 src/test/java/com/cobo/waas2/model/RefreshTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/RefundStatusTest.java
