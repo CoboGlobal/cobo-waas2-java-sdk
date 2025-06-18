@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information of an app workflow approval user entry.
+ * The information of the user.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -78,7 +78,7 @@ public class ApprovalUser {
   }
 
    /**
-   * The approval user email.
+   * The user email.
    * @return email
   **/
   @javax.annotation.Nonnull
@@ -97,7 +97,7 @@ public class ApprovalUser {
   }
 
    /**
-   * The approval user name.
+   * The user name.
    * @return name
   **/
   @javax.annotation.Nullable

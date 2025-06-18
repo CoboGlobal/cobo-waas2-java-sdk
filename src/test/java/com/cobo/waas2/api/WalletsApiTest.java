@@ -73,7 +73,7 @@ public class WalletsApiTest {
     /**
      * Batch check UTXOs
      *
-     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
+     * This operation verifies the existence and details of specified unspent transaction outputs (UTXOs) for a given wallet and token. A maximum of 100 UTXOs can be verified per request. &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -432,7 +432,7 @@ public class WalletsApiTest {
     /**
      * List UTXOs
      *
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets.&lt;/Note&gt; 
+     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

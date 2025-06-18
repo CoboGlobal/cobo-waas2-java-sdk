@@ -89,7 +89,7 @@ public class WalletsApi {
     /**
      * Build call for batchCheckUtxo
      * @param walletId The wallet ID. (required)
-     * @param batchCheckUtxoRequest The request body of the batch check UTXOs operation. (optional)
+     * @param batchCheckUtxoRequest The request body of the Batch check UTXOs operation. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -147,9 +147,9 @@ public class WalletsApi {
 
     /**
      * Batch check UTXOs
-     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
+     * This operation verifies the existence and details of specified unspent transaction outputs (UTXOs) for a given wallet and token. A maximum of 100 UTXOs can be verified per request. &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
-     * @param batchCheckUtxoRequest The request body of the batch check UTXOs operation. (optional)
+     * @param batchCheckUtxoRequest The request body of the Batch check UTXOs operation. (optional)
      * @return BatchCheckUtxo201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -167,9 +167,9 @@ public class WalletsApi {
 
     /**
      * Batch check UTXOs
-     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
+     * This operation verifies the existence and details of specified unspent transaction outputs (UTXOs) for a given wallet and token. A maximum of 100 UTXOs can be verified per request. &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
-     * @param batchCheckUtxoRequest The request body of the batch check UTXOs operation. (optional)
+     * @param batchCheckUtxoRequest The request body of the Batch check UTXOs operation. (optional)
      * @return ApiResponse&lt;BatchCheckUtxo201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -188,9 +188,9 @@ public class WalletsApi {
 
     /**
      * Batch check UTXOs (asynchronously)
-     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
+     * This operation verifies the existence and details of specified unspent transaction outputs (UTXOs) for a given wallet and token. A maximum of 100 UTXOs can be verified per request. &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
-     * @param batchCheckUtxoRequest The request body of the batch check UTXOs operation. (optional)
+     * @param batchCheckUtxoRequest The request body of the Batch check UTXOs operation. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3206,7 +3206,7 @@ public class WalletsApi {
 
     /**
      * List UTXOs
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets.&lt;/Note&gt; 
+     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param address The wallet address. (optional)
@@ -3231,7 +3231,7 @@ public class WalletsApi {
 
     /**
      * List UTXOs
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets.&lt;/Note&gt; 
+     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param address The wallet address. (optional)
@@ -3257,7 +3257,7 @@ public class WalletsApi {
 
     /**
      * List UTXOs (asynchronously)
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets.&lt;/Note&gt; 
+     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param address The wallet address. (optional)

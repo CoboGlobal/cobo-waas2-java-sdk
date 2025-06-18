@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.TransferDestinationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -19,8 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,44 +47,82 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * CreateBankAccountRequest
+ * The information about the transaction destination type &#x60;CustodialWallet&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  An Custodial Wallet  can only receive asset transfers from another Custodial Wallet by using Loop.  Switch between the tabs to display the properties for different transaction destinations. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class CreateBankAccountRequest {
-  public static final String SERIALIZED_NAME_INFO = "info";
-  @SerializedName(SERIALIZED_NAME_INFO)
-  private Map<String, Object> info = new HashMap<>();
+public class CustodialTransferDestination {
+  public static final String SERIALIZED_NAME_DESTINATION_TYPE = "destination_type";
+  @SerializedName(SERIALIZED_NAME_DESTINATION_TYPE)
+  private TransferDestinationType destinationType;
 
-  public CreateBankAccountRequest() {
+  public static final String SERIALIZED_NAME_WALLET_ID = "wallet_id";
+  @SerializedName(SERIALIZED_NAME_WALLET_ID)
+  private UUID walletId;
+
+  public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  private String amount;
+
+  public CustodialTransferDestination() {
   }
 
-  public CreateBankAccountRequest info(Map<String, Object> info) {
-    this.info = info;
-    return this;
-  }
-
-  public CreateBankAccountRequest putInfoItem(String key, Object infoItem) {
-    if (this.info == null) {
-      this.info = new HashMap<>();
-    }
-    this.info.put(key, infoItem);
+  public CustodialTransferDestination destinationType(TransferDestinationType destinationType) {
+    this.destinationType = destinationType;
     return this;
   }
 
    /**
-   * JSON-formatted bank account details. The object should include the following fields: - beneficiary_name: Name of the account holder - beneficiary_address: Address of the account holder - account_number: Bank account number - bank_name: Name of the bank - bank_address: Address of the bank - iban: (Optional) International Bank Account Number - swift_or_bic: SWIFT or BIC code of the bank 
-   * @return info
+   * Get destinationType
+   * @return destinationType
   **/
   @javax.annotation.Nonnull
-  public Map<String, Object> getInfo() {
-    return info;
+  public TransferDestinationType getDestinationType() {
+    return destinationType;
   }
 
-  public void setInfo(Map<String, Object> info) {
-    this.info = info;
+  public void setDestinationType(TransferDestinationType destinationType) {
+    this.destinationType = destinationType;
+  }
+
+
+  public CustodialTransferDestination walletId(UUID walletId) {
+    this.walletId = walletId;
+    return this;
+  }
+
+   /**
+   * The wallet ID.
+   * @return walletId
+  **/
+  @javax.annotation.Nonnull
+  public UUID getWalletId() {
+    return walletId;
+  }
+
+  public void setWalletId(UUID walletId) {
+    this.walletId = walletId;
+  }
+
+
+  public CustodialTransferDestination amount(String amount) {
+    this.amount = amount;
+    return this;
+  }
+
+   /**
+   * The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;. 
+   * @return amount
+  **/
+  @javax.annotation.Nonnull
+  public String getAmount() {
+    return amount;
+  }
+
+  public void setAmount(String amount) {
+    this.amount = amount;
   }
 
   /**
@@ -100,9 +138,9 @@ public class CreateBankAccountRequest {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CreateBankAccountRequest instance itself
+   * @return the CustodialTransferDestination instance itself
    */
-  public CreateBankAccountRequest putAdditionalProperty(String key, Object value) {
+  public CustodialTransferDestination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -141,21 +179,25 @@ public class CreateBankAccountRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateBankAccountRequest createBankAccountRequest = (CreateBankAccountRequest) o;
-    return Objects.equals(this.info, createBankAccountRequest.info)&&
-        Objects.equals(this.additionalProperties, createBankAccountRequest.additionalProperties);
+    CustodialTransferDestination custodialTransferDestination = (CustodialTransferDestination) o;
+    return Objects.equals(this.destinationType, custodialTransferDestination.destinationType) &&
+        Objects.equals(this.walletId, custodialTransferDestination.walletId) &&
+        Objects.equals(this.amount, custodialTransferDestination.amount)&&
+        Objects.equals(this.additionalProperties, custodialTransferDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(info, additionalProperties);
+    return Objects.hash(destinationType, walletId, amount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateBankAccountRequest {\n");
-    sb.append("    info: ").append(toIndentedString(info)).append("\n");
+    sb.append("class CustodialTransferDestination {\n");
+    sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
+    sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -179,49 +221,61 @@ public class CreateBankAccountRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("info");
+    openapiFields.add("destination_type");
+    openapiFields.add("wallet_id");
+    openapiFields.add("amount");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("info");
+    openapiRequiredFields.add("destination_type");
+    openapiRequiredFields.add("wallet_id");
+    openapiRequiredFields.add("amount");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CreateBankAccountRequest
+  * @throws IOException if the JSON Element is invalid with respect to CustodialTransferDestination
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CreateBankAccountRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateBankAccountRequest is not found in the empty JSON string", CreateBankAccountRequest.openapiRequiredFields.toString()));
+        if (!CustodialTransferDestination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CustodialTransferDestination is not found in the empty JSON string", CustodialTransferDestination.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateBankAccountRequest.openapiRequiredFields) {
+      for (String requiredField : CustodialTransferDestination.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `destination_type`
+      TransferDestinationType.validateJsonElement(jsonObj.get("destination_type"));
+      if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
+      }
+      if (!jsonObj.get("amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateBankAccountRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateBankAccountRequest' and its subtypes
+       if (!CustodialTransferDestination.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CustodialTransferDestination' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateBankAccountRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateBankAccountRequest.class));
+       final TypeAdapter<CustodialTransferDestination> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CustodialTransferDestination.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateBankAccountRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<CustodialTransferDestination>() {
            @Override
-           public void write(JsonWriter out, CreateBankAccountRequest value) throws IOException {
+           public void write(JsonWriter out, CustodialTransferDestination value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -251,12 +305,12 @@ public class CreateBankAccountRequest {
            }
 
            @Override
-           public CreateBankAccountRequest read(JsonReader in) throws IOException {
+           public CustodialTransferDestination read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CreateBankAccountRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             CustodialTransferDestination instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -283,18 +337,18 @@ public class CreateBankAccountRequest {
   }
 
  /**
-  * Create an instance of CreateBankAccountRequest given an JSON string
+  * Create an instance of CustodialTransferDestination given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreateBankAccountRequest
-  * @throws IOException if the JSON string is invalid with respect to CreateBankAccountRequest
+  * @return An instance of CustodialTransferDestination
+  * @throws IOException if the JSON string is invalid with respect to CustodialTransferDestination
   */
-  public static CreateBankAccountRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateBankAccountRequest.class);
+  public static CustodialTransferDestination fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CustodialTransferDestination.class);
   }
 
  /**
-  * Convert an instance of CreateBankAccountRequest to an JSON string
+  * Convert an instance of CustodialTransferDestination to an JSON string
   *
   * @return JSON string
   */

@@ -94,7 +94,6 @@ docs/CreateBabylonAirdropRegistration201Response.md
 docs/CreateBabylonAirdropRegistrationRequest.md
 docs/CreateBabylonStakingRegistration201Response.md
 docs/CreateBabylonStakingRegistrationRequest.md
-docs/CreateBankAccountRequest.md
 docs/CreateClaimActivity.md
 docs/CreateClaimActivityRequest.md
 docs/CreateCustodialWalletParams.md
@@ -129,7 +128,9 @@ docs/CreateWebhookEndpointRequest.md
 docs/CreateWithdrawActivity.md
 docs/CreateWithdrawActivityRequest.md
 docs/CreatedWalletInfo.md
+docs/CryptoAddress.md
 docs/CurveType.md
+docs/CustodialTransferDestination.md
 docs/CustodialTransferSource.md
 docs/CustodialWalletInfo.md
 docs/CustodialWeb3ContractCallSource.md
@@ -175,6 +176,8 @@ docs/EvmEip1559FeeRate.md
 docs/EvmLegacyFeeBasePrice.md
 docs/EvmLegacyFeeRate.md
 docs/ExchangeId.md
+docs/ExchangePermissionToken201Response.md
+docs/ExchangePermissionTokenRequest.md
 docs/ExchangeTransferDestination.md
 docs/ExchangeTransferSource.md
 docs/ExchangeWalletInfo.md
@@ -276,6 +279,7 @@ docs/PaymentOrderEventData.md
 docs/PaymentRefundEventData.md
 docs/PaymentSettlementEvent.md
 docs/PaymentTransaction.md
+docs/PayoutChannel.md
 docs/PolicyAction.md
 docs/PolicyActionContent.md
 docs/PolicyActionType.md
@@ -292,6 +296,7 @@ docs/QueryGuardPubkey200ResponseAddressesInner.md
 docs/RawMessageSignDestination.md
 docs/RefreshAddressBalancesByToken200Response.md
 docs/RefreshAddressBalancesByTokenRequest.md
+docs/RefreshPermissionTokenRequest.md
 docs/RefreshToken2XXResponse.md
 docs/RefreshTokenRequest.md
 docs/Refund.md
@@ -341,6 +346,7 @@ docs/StakingsApi.md
 docs/StakingsExtra.md
 docs/SubWalletAssetBalance.md
 docs/SubmitDepositTravelRuleInfo201Response.md
+docs/SupportedToken.md
 docs/SwapActivity.md
 docs/SwapActivityApprovers.md
 docs/SwapActivityDetail.md
@@ -671,7 +677,6 @@ src/main/java/com/cobo/waas2/model/CreateBabylonAirdropRegistration201Response.j
 src/main/java/com/cobo/waas2/model/CreateBabylonAirdropRegistrationRequest.java
 src/main/java/com/cobo/waas2/model/CreateBabylonStakingRegistration201Response.java
 src/main/java/com/cobo/waas2/model/CreateBabylonStakingRegistrationRequest.java
-src/main/java/com/cobo/waas2/model/CreateBankAccountRequest.java
 src/main/java/com/cobo/waas2/model/CreateClaimActivity.java
 src/main/java/com/cobo/waas2/model/CreateClaimActivityRequest.java
 src/main/java/com/cobo/waas2/model/CreateCustodialWalletParams.java
@@ -706,7 +711,9 @@ src/main/java/com/cobo/waas2/model/CreateWebhookEndpointRequest.java
 src/main/java/com/cobo/waas2/model/CreateWithdrawActivity.java
 src/main/java/com/cobo/waas2/model/CreateWithdrawActivityRequest.java
 src/main/java/com/cobo/waas2/model/CreatedWalletInfo.java
+src/main/java/com/cobo/waas2/model/CryptoAddress.java
 src/main/java/com/cobo/waas2/model/CurveType.java
+src/main/java/com/cobo/waas2/model/CustodialTransferDestination.java
 src/main/java/com/cobo/waas2/model/CustodialTransferSource.java
 src/main/java/com/cobo/waas2/model/CustodialWalletInfo.java
 src/main/java/com/cobo/waas2/model/CustodialWeb3ContractCallSource.java
@@ -750,6 +757,8 @@ src/main/java/com/cobo/waas2/model/EvmEip1559FeeRate.java
 src/main/java/com/cobo/waas2/model/EvmLegacyFeeBasePrice.java
 src/main/java/com/cobo/waas2/model/EvmLegacyFeeRate.java
 src/main/java/com/cobo/waas2/model/ExchangeId.java
+src/main/java/com/cobo/waas2/model/ExchangePermissionToken201Response.java
+src/main/java/com/cobo/waas2/model/ExchangePermissionTokenRequest.java
 src/main/java/com/cobo/waas2/model/ExchangeTransferDestination.java
 src/main/java/com/cobo/waas2/model/ExchangeTransferSource.java
 src/main/java/com/cobo/waas2/model/ExchangeWalletInfo.java
@@ -848,6 +857,7 @@ src/main/java/com/cobo/waas2/model/PaymentOrderEventData.java
 src/main/java/com/cobo/waas2/model/PaymentRefundEventData.java
 src/main/java/com/cobo/waas2/model/PaymentSettlementEvent.java
 src/main/java/com/cobo/waas2/model/PaymentTransaction.java
+src/main/java/com/cobo/waas2/model/PayoutChannel.java
 src/main/java/com/cobo/waas2/model/PolicyAction.java
 src/main/java/com/cobo/waas2/model/PolicyActionContent.java
 src/main/java/com/cobo/waas2/model/PolicyActionType.java
@@ -863,6 +873,7 @@ src/main/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseAddressesInner.jav
 src/main/java/com/cobo/waas2/model/RawMessageSignDestination.java
 src/main/java/com/cobo/waas2/model/RefreshAddressBalancesByToken200Response.java
 src/main/java/com/cobo/waas2/model/RefreshAddressBalancesByTokenRequest.java
+src/main/java/com/cobo/waas2/model/RefreshPermissionTokenRequest.java
 src/main/java/com/cobo/waas2/model/RefreshToken2XXResponse.java
 src/main/java/com/cobo/waas2/model/RefreshTokenRequest.java
 src/main/java/com/cobo/waas2/model/Refund.java
@@ -911,6 +922,7 @@ src/main/java/com/cobo/waas2/model/Stakings.java
 src/main/java/com/cobo/waas2/model/StakingsExtra.java
 src/main/java/com/cobo/waas2/model/SubWalletAssetBalance.java
 src/main/java/com/cobo/waas2/model/SubmitDepositTravelRuleInfo201Response.java
+src/main/java/com/cobo/waas2/model/SupportedToken.java
 src/main/java/com/cobo/waas2/model/SwapActivity.java
 src/main/java/com/cobo/waas2/model/SwapActivityApprovers.java
 src/main/java/com/cobo/waas2/model/SwapActivityDetail.java
@@ -1195,7 +1207,6 @@ src/test/java/com/cobo/waas2/model/CreateBabylonAirdropRegistration201ResponseTe
 src/test/java/com/cobo/waas2/model/CreateBabylonAirdropRegistrationRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateBabylonStakingRegistration201ResponseTest.java
 src/test/java/com/cobo/waas2/model/CreateBabylonStakingRegistrationRequestTest.java
-src/test/java/com/cobo/waas2/model/CreateBankAccountRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateClaimActivityRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateClaimActivityTest.java
 src/test/java/com/cobo/waas2/model/CreateCustodialWalletParamsTest.java
@@ -1230,7 +1241,9 @@ src/test/java/com/cobo/waas2/model/CreateWebhookEndpointRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateWithdrawActivityRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateWithdrawActivityTest.java
 src/test/java/com/cobo/waas2/model/CreatedWalletInfoTest.java
+src/test/java/com/cobo/waas2/model/CryptoAddressTest.java
 src/test/java/com/cobo/waas2/model/CurveTypeTest.java
+src/test/java/com/cobo/waas2/model/CustodialTransferDestinationTest.java
 src/test/java/com/cobo/waas2/model/CustodialTransferSourceTest.java
 src/test/java/com/cobo/waas2/model/CustodialWalletInfoTest.java
 src/test/java/com/cobo/waas2/model/CustodialWeb3ContractCallSourceTest.java
@@ -1274,6 +1287,8 @@ src/test/java/com/cobo/waas2/model/EvmEip1559FeeRateTest.java
 src/test/java/com/cobo/waas2/model/EvmLegacyFeeBasePriceTest.java
 src/test/java/com/cobo/waas2/model/EvmLegacyFeeRateTest.java
 src/test/java/com/cobo/waas2/model/ExchangeIdTest.java
+src/test/java/com/cobo/waas2/model/ExchangePermissionToken201ResponseTest.java
+src/test/java/com/cobo/waas2/model/ExchangePermissionTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/ExchangeTransferDestinationTest.java
 src/test/java/com/cobo/waas2/model/ExchangeTransferSourceTest.java
 src/test/java/com/cobo/waas2/model/ExchangeWalletInfoTest.java
@@ -1372,6 +1387,7 @@ src/test/java/com/cobo/waas2/model/PaymentOrderEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentRefundEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentSettlementEventTest.java
 src/test/java/com/cobo/waas2/model/PaymentTransactionTest.java
+src/test/java/com/cobo/waas2/model/PayoutChannelTest.java
 src/test/java/com/cobo/waas2/model/PolicyActionContentTest.java
 src/test/java/com/cobo/waas2/model/PolicyActionTest.java
 src/test/java/com/cobo/waas2/model/PolicyActionTypeTest.java
@@ -1387,6 +1403,7 @@ src/test/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseTest.java
 src/test/java/com/cobo/waas2/model/RawMessageSignDestinationTest.java
 src/test/java/com/cobo/waas2/model/RefreshAddressBalancesByToken200ResponseTest.java
 src/test/java/com/cobo/waas2/model/RefreshAddressBalancesByTokenRequestTest.java
+src/test/java/com/cobo/waas2/model/RefreshPermissionTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/RefreshToken2XXResponseTest.java
 src/test/java/com/cobo/waas2/model/RefreshTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/RefundStatusTest.java
@@ -1435,6 +1452,7 @@ src/test/java/com/cobo/waas2/model/StakingsExtraTest.java
 src/test/java/com/cobo/waas2/model/StakingsTest.java
 src/test/java/com/cobo/waas2/model/SubWalletAssetBalanceTest.java
 src/test/java/com/cobo/waas2/model/SubmitDepositTravelRuleInfo201ResponseTest.java
+src/test/java/com/cobo/waas2/model/SupportedTokenTest.java
 src/test/java/com/cobo/waas2/model/SwapActivityApproversTest.java
 src/test/java/com/cobo/waas2/model/SwapActivityDetailTest.java
 src/test/java/com/cobo/waas2/model/SwapActivityStatusTest.java

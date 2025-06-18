@@ -62,7 +62,7 @@ public class AppWorkflowsApi {
 
     /**
      * Build call for createApprovalRequest
-     * @param requestApproval The request body to app workflow approval. (optional)
+     * @param requestApproval The request body to request workflow approval. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -114,8 +114,8 @@ public class AppWorkflowsApi {
 
     /**
      * Request workflow approval
-     * This operation is request approval from app workflow with idempotency checks. 
-     * @param requestApproval The request body to app workflow approval. (optional)
+     * This operation triggers a specified workflow and generates a new approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param requestApproval The request body to request workflow approval. (optional)
      * @return CreateApprovalRequest201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -133,8 +133,8 @@ public class AppWorkflowsApi {
 
     /**
      * Request workflow approval
-     * This operation is request approval from app workflow with idempotency checks. 
-     * @param requestApproval The request body to app workflow approval. (optional)
+     * This operation triggers a specified workflow and generates a new approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param requestApproval The request body to request workflow approval. (optional)
      * @return ApiResponse&lt;CreateApprovalRequest201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -153,8 +153,8 @@ public class AppWorkflowsApi {
 
     /**
      * Request workflow approval (asynchronously)
-     * This operation is request approval from app workflow with idempotency checks. 
-     * @param requestApproval The request body to app workflow approval. (optional)
+     * This operation triggers a specified workflow and generates a new approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param requestApproval The request body to request workflow approval. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -175,14 +175,14 @@ public class AppWorkflowsApi {
     }
     /**
      * Build call for getApprovalRequestById
-     * @param approvalId The approval ID that is used to track a workflow approval request. (required)
+     * @param approvalId The system-generated unique ID of the approval request. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an app workflow approval. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an approval request. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -232,14 +232,14 @@ public class AppWorkflowsApi {
 
     /**
      * Get approval request details
-     * This operation is retrieves approval request from app workflow. 
-     * @param approvalId The approval ID that is used to track a workflow approval request. (required)
+     * This operation retrieves the details of a specific approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param approvalId The system-generated unique ID of the approval request. (required)
      * @return ApprovalRequestDetail
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an app workflow approval. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an approval request. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -251,14 +251,14 @@ public class AppWorkflowsApi {
 
     /**
      * Get approval request details
-     * This operation is retrieves approval request from app workflow. 
-     * @param approvalId The approval ID that is used to track a workflow approval request. (required)
+     * This operation retrieves the details of a specific approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param approvalId The system-generated unique ID of the approval request. (required)
      * @return ApiResponse&lt;ApprovalRequestDetail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an app workflow approval. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an approval request. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -271,15 +271,15 @@ public class AppWorkflowsApi {
 
     /**
      * Get approval request details (asynchronously)
-     * This operation is retrieves approval request from app workflow. 
-     * @param approvalId The approval ID that is used to track a workflow approval request. (required)
+     * This operation retrieves the details of a specific approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param approvalId The system-generated unique ID of the approval request. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an app workflow approval. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an approval request. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -299,7 +299,7 @@ public class AppWorkflowsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of app workflows have been successfully configured. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A list of approval workflows successfully retrieved </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -342,14 +342,14 @@ public class AppWorkflowsApi {
     }
 
     /**
-     * list app workflows
-     * This operation is list app workflows of app. 
+     * List app workflows
+     * This operation retrieves all approval workflows of an Cobo Portal App. &lt;Note&gt;You need to [configure approval workflow](https://www.cobo.com/developers/v2/apps/configure-workflow) in the app Manifest file first.&lt;/Note&gt; &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
      * @return List&lt;AppWorkflow&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of app workflows have been successfully configured. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A list of approval workflows successfully retrieved </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -360,14 +360,14 @@ public class AppWorkflowsApi {
     }
 
     /**
-     * list app workflows
-     * This operation is list app workflows of app. 
+     * List app workflows
+     * This operation retrieves all approval workflows of an Cobo Portal App. &lt;Note&gt;You need to [configure approval workflow](https://www.cobo.com/developers/v2/apps/configure-workflow) in the app Manifest file first.&lt;/Note&gt; &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
      * @return ApiResponse&lt;List&lt;AppWorkflow&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of app workflows have been successfully configured. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A list of approval workflows successfully retrieved </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -379,15 +379,15 @@ public class AppWorkflowsApi {
     }
 
     /**
-     * list app workflows (asynchronously)
-     * This operation is list app workflows of app. 
+     * List app workflows (asynchronously)
+     * This operation retrieves all approval workflows of an Cobo Portal App. &lt;Note&gt;You need to [configure approval workflow](https://www.cobo.com/developers/v2/apps/configure-workflow) in the app Manifest file first.&lt;/Note&gt; &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of app workflows have been successfully configured. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A list of approval workflows successfully retrieved </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -401,7 +401,7 @@ public class AppWorkflowsApi {
     }
     /**
      * Build call for listApprovalRequests
-     * @param operationId The operation ID that is used to track a workflow. The operation ID is provided by you and must be unique within your app. (required)
+     * @param operationId The unique ID of the approval workflow. (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -411,7 +411,7 @@ public class AppWorkflowsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of approval request have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A list of approval requests have been successfully retrieved. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -476,8 +476,8 @@ public class AppWorkflowsApi {
 
     /**
      * List approval requests
-     * This operation is retrieves list approval requests from app workflow. 
-     * @param operationId The operation ID that is used to track a workflow. The operation ID is provided by you and must be unique within your app. (required)
+     * This operation retrieves a list of approval requests.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param operationId The unique ID of the approval workflow. (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -486,7 +486,7 @@ public class AppWorkflowsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of approval request have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A list of approval requests have been successfully retrieved. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -498,8 +498,8 @@ public class AppWorkflowsApi {
 
     /**
      * List approval requests
-     * This operation is retrieves list approval requests from app workflow. 
-     * @param operationId The operation ID that is used to track a workflow. The operation ID is provided by you and must be unique within your app. (required)
+     * This operation retrieves a list of approval requests.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param operationId The unique ID of the approval workflow. (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -508,7 +508,7 @@ public class AppWorkflowsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of approval request have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A list of approval requests have been successfully retrieved. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -521,8 +521,8 @@ public class AppWorkflowsApi {
 
     /**
      * List approval requests (asynchronously)
-     * This operation is retrieves list approval requests from app workflow. 
-     * @param operationId The operation ID that is used to track a workflow. The operation ID is provided by you and must be unique within your app. (required)
+     * This operation retrieves a list of approval requests.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param operationId The unique ID of the approval workflow. (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -532,7 +532,7 @@ public class AppWorkflowsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A list of approval request have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> A list of approval requests have been successfully retrieved. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -546,8 +546,8 @@ public class AppWorkflowsApi {
     }
     /**
      * Build call for revokeApprovalRequest
-     * @param approvalId The approval ID that is used to track a workflow approval request. (required)
-     * @param revokeApprovalRequestRequest The revoke request body to app workflow approval. (optional)
+     * @param approvalId The system-generated unique ID of the approval request. (required)
+     * @param revokeApprovalRequestRequest The request body to revoke an approval request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -605,9 +605,9 @@ public class AppWorkflowsApi {
 
     /**
      * Revoke approval request
-     * This operation is revoke approval request from app workflow. 
-     * @param approvalId The approval ID that is used to track a workflow approval request. (required)
-     * @param revokeApprovalRequestRequest The revoke request body to app workflow approval. (optional)
+     * This operation revokes a pending approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param approvalId The system-generated unique ID of the approval request. (required)
+     * @param revokeApprovalRequestRequest The request body to revoke an approval request. (optional)
      * @return RevokeApprovalRequest201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -625,9 +625,9 @@ public class AppWorkflowsApi {
 
     /**
      * Revoke approval request
-     * This operation is revoke approval request from app workflow. 
-     * @param approvalId The approval ID that is used to track a workflow approval request. (required)
-     * @param revokeApprovalRequestRequest The revoke request body to app workflow approval. (optional)
+     * This operation revokes a pending approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param approvalId The system-generated unique ID of the approval request. (required)
+     * @param revokeApprovalRequestRequest The request body to revoke an approval request. (optional)
      * @return ApiResponse&lt;RevokeApprovalRequest201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -646,9 +646,9 @@ public class AppWorkflowsApi {
 
     /**
      * Revoke approval request (asynchronously)
-     * This operation is revoke approval request from app workflow. 
-     * @param approvalId The approval ID that is used to track a workflow approval request. (required)
-     * @param revokeApprovalRequestRequest The revoke request body to app workflow approval. (optional)
+     * This operation revokes a pending approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * @param approvalId The system-generated unique ID of the approval request. (required)
+     * @param revokeApprovalRequestRequest The request body to revoke an approval request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

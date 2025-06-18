@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.SettlementType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -18,7 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -83,6 +86,30 @@ public class CreateSettlementTest {
     @Test
     public void settlementTypeTest() {
         // TODO: test settlementType
+    }
+
+    /**
+     * Test the property 'cryptoAddressId'
+     */
+    @Test
+    public void cryptoAddressIdTest() {
+        // TODO: test cryptoAddressId
+    }
+
+    /**
+     * Test the property 'payoutChannel'
+     */
+    @Test
+    public void payoutChannelTest() {
+        // TODO: test payoutChannel
+    }
+
+    /**
+     * Test the property 'orderIds'
+     */
+    @Test
+    public void orderIdsTest() {
+        // TODO: test orderIds
     }
 
 }

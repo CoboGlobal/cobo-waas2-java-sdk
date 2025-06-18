@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.16.0</version>
+  <version>1.17.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.16.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.17.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.16.0.jar`
+* `target/cobo-waas2-1.17.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -203,7 +203,7 @@ Class | Method | HTTP request | Description
 *AddressBooksApi* | [**listAddressBooks**](docs/AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List address book entries
 *AppWorkflowsApi* | [**createApprovalRequest**](docs/AppWorkflowsApi.md#createApprovalRequest) | **POST** /app/workflows/approval_requests | Request workflow approval
 *AppWorkflowsApi* | [**getApprovalRequestById**](docs/AppWorkflowsApi.md#getApprovalRequestById) | **GET** /app/workflows/approval_requests/{approval_id} | Get approval request details
-*AppWorkflowsApi* | [**listAppWorkflows**](docs/AppWorkflowsApi.md#listAppWorkflows) | **GET** /app/workflows | list app workflows
+*AppWorkflowsApi* | [**listAppWorkflows**](docs/AppWorkflowsApi.md#listAppWorkflows) | **GET** /app/workflows | List app workflows
 *AppWorkflowsApi* | [**listApprovalRequests**](docs/AppWorkflowsApi.md#listApprovalRequests) | **GET** /app/workflows/approval_requests | List approval requests
 *AppWorkflowsApi* | [**revokeApprovalRequest**](docs/AppWorkflowsApi.md#revokeApprovalRequest) | **POST** /app/workflows/approval_requests/{approval_id}/revoke | Revoke approval request
 *DevelopersApi* | [**getApiKeyInfo**](docs/DevelopersApi.md#getApiKeyInfo) | **GET** /developers/api_key_info | Get API key information
@@ -224,9 +224,10 @@ Class | Method | HTTP request | Description
 *FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses
 *FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions
 *FeeStationApi* | [**listTokenBalancesForFeeStation**](docs/FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances
+*OAuthApi* | [**exchangePermissionToken**](docs/OAuthApi.md#exchangePermissionToken) | **POST** /oauth/permission_token/exchange | Exchange Permission Access Token by API Key
 *OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
+*OAuthApi* | [**refreshPermissionToken**](docs/OAuthApi.md#refreshPermissionToken) | **POST** /oauth/permission_token/refresh | Refresh Permission Access Token by Permission Refresh Token
 *OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
-*PaymentApi* | [**createBankAccount**](docs/PaymentApi.md#createBankAccount) | **POST** /payments/bank_accounts | Create bank account
 *PaymentApi* | [**createMerchant**](docs/PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant
 *PaymentApi* | [**createPaymentOrder**](docs/PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
@@ -238,10 +239,11 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**getSettlementById**](docs/PaymentApi.md#getSettlementById) | **GET** /payments/settlement_requests/{settlement_request_id} | Get settlement request information
 *PaymentApi* | [**getSettlementInfoByIds**](docs/PaymentApi.md#getSettlementInfoByIds) | **GET** /payments/settlement_info | Get withdrawable balances
 *PaymentApi* | [**listBankAccounts**](docs/PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts
+*PaymentApi* | [**listCryptoAddresses**](docs/PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
 *PaymentApi* | [**listMerchants**](docs/PaymentApi.md#listMerchants) | **GET** /payments/merchants | List all merchants
 *PaymentApi* | [**listPaymentOrders**](docs/PaymentApi.md#listPaymentOrders) | **GET** /payments/orders | List all pay-in orders
+*PaymentApi* | [**listPaymentSupportedTokens**](docs/PaymentApi.md#listPaymentSupportedTokens) | **GET** /payments/supported_tokens | List all supported tokens
 *PaymentApi* | [**listSettlementRequests**](docs/PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests
-*PaymentApi* | [**updateBankAccountById**](docs/PaymentApi.md#updateBankAccountById) | **PUT** /payments/bank_accounts/{bank_account_id} | Update bank account
 *PaymentApi* | [**updateMerchantById**](docs/PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant
 *PaymentApi* | [**updatePaymentOrder**](docs/PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order
 *PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
@@ -430,7 +432,6 @@ Class | Method | HTTP request | Description
  - [CreateBabylonAirdropRegistrationRequest](docs/CreateBabylonAirdropRegistrationRequest.md)
  - [CreateBabylonStakingRegistration201Response](docs/CreateBabylonStakingRegistration201Response.md)
  - [CreateBabylonStakingRegistrationRequest](docs/CreateBabylonStakingRegistrationRequest.md)
- - [CreateBankAccountRequest](docs/CreateBankAccountRequest.md)
  - [CreateClaimActivity](docs/CreateClaimActivity.md)
  - [CreateClaimActivityRequest](docs/CreateClaimActivityRequest.md)
  - [CreateCustodialWalletParams](docs/CreateCustodialWalletParams.md)
@@ -465,7 +466,9 @@ Class | Method | HTTP request | Description
  - [CreateWithdrawActivity](docs/CreateWithdrawActivity.md)
  - [CreateWithdrawActivityRequest](docs/CreateWithdrawActivityRequest.md)
  - [CreatedWalletInfo](docs/CreatedWalletInfo.md)
+ - [CryptoAddress](docs/CryptoAddress.md)
  - [CurveType](docs/CurveType.md)
+ - [CustodialTransferDestination](docs/CustodialTransferDestination.md)
  - [CustodialTransferSource](docs/CustodialTransferSource.md)
  - [CustodialWalletInfo](docs/CustodialWalletInfo.md)
  - [CustodialWeb3ContractCallSource](docs/CustodialWeb3ContractCallSource.md)
@@ -509,6 +512,8 @@ Class | Method | HTTP request | Description
  - [EvmLegacyFeeBasePrice](docs/EvmLegacyFeeBasePrice.md)
  - [EvmLegacyFeeRate](docs/EvmLegacyFeeRate.md)
  - [ExchangeId](docs/ExchangeId.md)
+ - [ExchangePermissionToken201Response](docs/ExchangePermissionToken201Response.md)
+ - [ExchangePermissionTokenRequest](docs/ExchangePermissionTokenRequest.md)
  - [ExchangeTransferDestination](docs/ExchangeTransferDestination.md)
  - [ExchangeTransferSource](docs/ExchangeTransferSource.md)
  - [ExchangeWalletInfo](docs/ExchangeWalletInfo.md)
@@ -607,6 +612,7 @@ Class | Method | HTTP request | Description
  - [PaymentRefundEventData](docs/PaymentRefundEventData.md)
  - [PaymentSettlementEvent](docs/PaymentSettlementEvent.md)
  - [PaymentTransaction](docs/PaymentTransaction.md)
+ - [PayoutChannel](docs/PayoutChannel.md)
  - [PolicyAction](docs/PolicyAction.md)
  - [PolicyActionContent](docs/PolicyActionContent.md)
  - [PolicyActionType](docs/PolicyActionType.md)
@@ -622,6 +628,7 @@ Class | Method | HTTP request | Description
  - [RawMessageSignDestination](docs/RawMessageSignDestination.md)
  - [RefreshAddressBalancesByToken200Response](docs/RefreshAddressBalancesByToken200Response.md)
  - [RefreshAddressBalancesByTokenRequest](docs/RefreshAddressBalancesByTokenRequest.md)
+ - [RefreshPermissionTokenRequest](docs/RefreshPermissionTokenRequest.md)
  - [RefreshToken2XXResponse](docs/RefreshToken2XXResponse.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [Refund](docs/Refund.md)
@@ -670,6 +677,7 @@ Class | Method | HTTP request | Description
  - [StakingsExtra](docs/StakingsExtra.md)
  - [SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
  - [SubmitDepositTravelRuleInfo201Response](docs/SubmitDepositTravelRuleInfo201Response.md)
+ - [SupportedToken](docs/SupportedToken.md)
  - [SwapActivity](docs/SwapActivity.md)
  - [SwapActivityApprovers](docs/SwapActivityApprovers.md)
  - [SwapActivityDetail](docs/SwapActivityDetail.md)

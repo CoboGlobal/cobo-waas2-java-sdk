@@ -6,7 +6,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 |------------- | ------------- | -------------|
 | [**createApprovalRequest**](AppWorkflowsApi.md#createApprovalRequest) | **POST** /app/workflows/approval_requests | Request workflow approval |
 | [**getApprovalRequestById**](AppWorkflowsApi.md#getApprovalRequestById) | **GET** /app/workflows/approval_requests/{approval_id} | Get approval request details |
-| [**listAppWorkflows**](AppWorkflowsApi.md#listAppWorkflows) | **GET** /app/workflows | list app workflows |
+| [**listAppWorkflows**](AppWorkflowsApi.md#listAppWorkflows) | **GET** /app/workflows | List app workflows |
 | [**listApprovalRequests**](AppWorkflowsApi.md#listApprovalRequests) | **GET** /app/workflows/approval_requests | List approval requests |
 | [**revokeApprovalRequest**](AppWorkflowsApi.md#revokeApprovalRequest) | **POST** /app/workflows/approval_requests/{approval_id}/revoke | Revoke approval request |
 
@@ -17,7 +17,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Request workflow approval
 
-This operation is request approval from app workflow with idempotency checks. 
+This operation triggers a specified workflow and generates a new approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -57,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **requestApproval** | [**RequestApproval**](RequestApproval.md)| The request body to app workflow approval. | [optional] |
+| **requestApproval** | [**RequestApproval**](RequestApproval.md)| The request body to request workflow approval. | [optional] |
 
 ### Return type
 
@@ -85,7 +85,7 @@ public class Example {
 
 Get approval request details
 
-This operation is retrieves approval request from app workflow. 
+This operation retrieves the details of a specific approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -125,7 +125,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **approvalId** | **UUID**| The approval ID that is used to track a workflow approval request. | |
+| **approvalId** | **UUID**| The system-generated unique ID of the approval request. | |
 
 ### Return type
 
@@ -143,7 +143,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The information about an app workflow approval. |  -  |
+| **200** | The information about an approval request. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -151,9 +151,9 @@ public class Example {
 # **listAppWorkflows**
 > List&lt;AppWorkflow&gt; listAppWorkflows()
 
-list app workflows
+List app workflows
 
-This operation is list app workflows of app. 
+This operation retrieves all approval workflows of an Cobo Portal App. &lt;Note&gt;You need to [configure approval workflow](https://www.cobo.com/developers/v2/apps/configure-workflow) in the app Manifest file first.&lt;/Note&gt; &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -207,7 +207,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A list of app workflows have been successfully configured. |  -  |
+| **200** | A list of approval workflows successfully retrieved |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -217,7 +217,7 @@ This endpoint does not need any parameter.
 
 List approval requests
 
-This operation is retrieves list approval requests from app workflow. 
+This operation retrieves a list of approval requests.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -260,7 +260,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **operationId** | **String**| The operation ID that is used to track a workflow. The operation ID is provided by you and must be unique within your app. | |
+| **operationId** | **String**| The unique ID of the approval workflow. | |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
 | **before** | **String**| A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  | [optional] |
 | **after** | **String**| A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  | [optional] |
@@ -281,7 +281,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A list of approval request have been successfully retrieved. |  -  |
+| **200** | A list of approval requests have been successfully retrieved. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -291,7 +291,7 @@ public class Example {
 
 Revoke approval request
 
-This operation is revoke approval request from app workflow. 
+This operation revokes a pending approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -332,8 +332,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **approvalId** | **UUID**| The approval ID that is used to track a workflow approval request. | |
-| **revokeApprovalRequestRequest** | [**RevokeApprovalRequestRequest**](RevokeApprovalRequestRequest.md)| The revoke request body to app workflow approval. | [optional] |
+| **approvalId** | **UUID**| The system-generated unique ID of the approval request. | |
+| **revokeApprovalRequestRequest** | [**RevokeApprovalRequestRequest**](RevokeApprovalRequestRequest.md)| The request body to revoke an approval request. | [optional] |
 
 ### Return type
 

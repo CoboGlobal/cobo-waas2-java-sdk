@@ -92,11 +92,11 @@ public class CreatePaymentOrderRequestTest {
     }
 
     /**
-     * Test the property 'expiredAt'
+     * Test the property 'expiredIn'
      */
     @Test
-    public void expiredAtTest() {
-        // TODO: test expiredAt
+    public void expiredInTest() {
+        // TODO: test expiredIn
     }
 
 }

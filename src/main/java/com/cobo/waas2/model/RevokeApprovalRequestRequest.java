@@ -65,7 +65,7 @@ public class RevokeApprovalRequestRequest {
   }
 
    /**
-   * The initiator email of workflow approval request.
+   * The email of the user who requested the approval.
    * @return initiatorEmail
   **/
   @javax.annotation.Nonnull

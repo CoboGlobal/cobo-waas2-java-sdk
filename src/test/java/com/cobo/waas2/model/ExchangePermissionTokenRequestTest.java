@@ -18,31 +18,29 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CreateBankAccountRequest
+ * Model tests for ExchangePermissionTokenRequest
  */
-public class CreateBankAccountRequestTest {
-    private final CreateBankAccountRequest model = new CreateBankAccountRequest();
+public class ExchangePermissionTokenRequestTest {
+    private final ExchangePermissionTokenRequest model = new ExchangePermissionTokenRequest();
 
     /**
-     * Model tests for CreateBankAccountRequest
+     * Model tests for ExchangePermissionTokenRequest
      */
     @Test
-    public void testCreateBankAccountRequest() {
-        // TODO: test CreateBankAccountRequest
+    public void testExchangePermissionTokenRequest() {
+        // TODO: test ExchangePermissionTokenRequest
     }
 
     /**
-     * Test the property 'info'
+     * Test the property 'permissionType'
      */
     @Test
-    public void infoTest() {
-        // TODO: test info
+    public void permissionTypeTest() {
+        // TODO: test permissionType
     }
 
 }

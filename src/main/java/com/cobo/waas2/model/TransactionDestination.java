@@ -248,6 +248,10 @@ public class TransactionDestination extends AbstractOpenApiSchema {
                                 deserialized = adapterTransactionCosmosContractDestination.fromJsonTree(jsonObject);
                                 newTransactionDestination.setActualInstance(deserialized);
                                 return newTransactionDestination;
+                            case "CustodialWallet":
+                                deserialized = adapterTransactionTransferToWalletDestination.fromJsonTree(jsonObject);
+                                newTransactionDestination.setActualInstance(deserialized);
+                                return newTransactionDestination;
                             case "DepositToAddress":
                                 deserialized = adapterTransactionDepositToAddressDestination.fromJsonTree(jsonObject);
                                 newTransactionDestination.setActualInstance(deserialized);
@@ -337,7 +341,7 @@ public class TransactionDestination extends AbstractOpenApiSchema {
                                 newTransactionDestination.setActualInstance(deserialized);
                                 return newTransactionDestination;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionDestination. Possible values: Address BTC_BIP_137_Signature BTC_BIP_322_Signature BTC_EIP_191_Signature COSMOS_ADR_36_Signature COSMOS_Contract DepositToAddress DepositToWallet EVM_Contract EVM_EIP_191_Signature EVM_EIP_712_Signature ExchangeWallet Raw_Message_Signature SOL_Contract TransactionBIP137Destination TransactionBIP322Destination TransactionCosmosAdr36Destination TransactionCosmosContractDestination TransactionDepositToAddressDestination TransactionDepositToWalletDestination TransactionEvmContractDestination TransactionMessageSignBTCEIP191Destination TransactionMessageSignEIP191Destination TransactionMessageSignEIP712Destination TransactionRawMessageSignDestination TransactionSolContractDestination TransactionTransferToAddressDestination TransactionTransferToWalletDestination", jsonObject.get("destination_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionDestination. Possible values: Address BTC_BIP_137_Signature BTC_BIP_322_Signature BTC_EIP_191_Signature COSMOS_ADR_36_Signature COSMOS_Contract CustodialWallet DepositToAddress DepositToWallet EVM_Contract EVM_EIP_191_Signature EVM_EIP_712_Signature ExchangeWallet Raw_Message_Signature SOL_Contract TransactionBIP137Destination TransactionBIP322Destination TransactionCosmosAdr36Destination TransactionCosmosContractDestination TransactionDepositToAddressDestination TransactionDepositToWalletDestination TransactionEvmContractDestination TransactionMessageSignBTCEIP191Destination TransactionMessageSignEIP191Destination TransactionMessageSignEIP712Destination TransactionRawMessageSignDestination TransactionSolContractDestination TransactionTransferToAddressDestination TransactionTransferToWalletDestination", jsonObject.get("destination_type").getAsString()));
                         }
                     }
 
