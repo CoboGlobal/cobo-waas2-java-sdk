@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.AddressTransferDestination;
 import com.cobo.waas2.model.AddressTransferDestinationAccountOutput;
 import com.cobo.waas2.model.AddressTransferDestinationUtxoOutputsInner;
+import com.cobo.waas2.model.CustodialTransferDestination;
 import com.cobo.waas2.model.ExchangeTransferDestination;
 import com.cobo.waas2.model.TransferDestinationType;
 import com.google.gson.TypeAdapter;
@@ -108,19 +109,19 @@ public class TransferDestinationTest {
     }
 
     /**
-     * Test the property 'tradingAccountType'
-     */
-    @Test
-    public void tradingAccountTypeTest() {
-        // TODO: test tradingAccountType
-    }
-
-    /**
      * Test the property 'amount'
      */
     @Test
     public void amountTest() {
         // TODO: test amount
+    }
+
+    /**
+     * Test the property 'tradingAccountType'
+     */
+    @Test
+    public void tradingAccountTypeTest() {
+        // TODO: test tradingAccountType
     }
 
 }

@@ -48,7 +48,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about a request that approve an operation.
+ * The information about a approval request.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -84,7 +84,7 @@ public class RequestApproval {
   }
 
    /**
-   * The operation id of workflow approval request.
+   * The unique ID of the approval workflow.
    * @return operationId
   **/
   @javax.annotation.Nonnull
@@ -103,7 +103,7 @@ public class RequestApproval {
   }
 
    /**
-   * The request id of workflow approval request.
+   * An identifier provided by you to track this request.
    * @return requestId
   **/
   @javax.annotation.Nonnull
@@ -122,7 +122,7 @@ public class RequestApproval {
   }
 
    /**
-   * The initiator email of workflow approval request.
+   * The email of the user who requested the approval.
    * @return initiatorEmail
   **/
   @javax.annotation.Nonnull
@@ -168,7 +168,7 @@ public class RequestApproval {
   }
 
    /**
-   * The guard template content of workflow approval request, need to connect cobo.
+   * The template of a Cobo Guard message. Please connect [help@cobo.com](mailto:help@cobo.com) to get the template content.
    * @return guardTemplate
   **/
   @javax.annotation.Nonnull

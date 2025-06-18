@@ -30,6 +30,8 @@ public enum TransactionDestinationType {
   
   ADDRESS("Address"),
   
+  CUSTODIALWALLET("CustodialWallet"),
+  
   EXCHANGEWALLET("ExchangeWallet"),
   
   EVM_CONTRACT("EVM_Contract"),

@@ -15,11 +15,11 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.BankAccount;
-import com.cobo.waas2.model.CreateBankAccountRequest;
 import com.cobo.waas2.model.CreateMerchantRequest;
 import com.cobo.waas2.model.CreatePaymentOrderRequest;
 import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
+import com.cobo.waas2.model.CryptoAddress;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
@@ -31,6 +31,7 @@ import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Settlement;
+import com.cobo.waas2.model.SupportedToken;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateMerchantByIdRequest;
 import com.cobo.waas2.model.UpdatePaymentOrderRequest;
@@ -54,20 +55,6 @@ public class PaymentApiTest {
         defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     }
     private final PaymentApi api = new PaymentApi();
-
-    /**
-     * Create bank account
-     *
-     * This operation registers a bank account for payment settlement.  Upon successful registration, the bank account details can be retrieved using the assigned bank account ID. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createBankAccountTest() throws ApiException {
-        CreateBankAccountRequest createBankAccountRequest = null;
-        BankAccount response = api.createBankAccount(createBankAccountRequest);
-        // TODO: test validations
-    }
 
     /**
      * Create merchant
@@ -218,13 +205,27 @@ public class PaymentApiTest {
     /**
      * List all bank accounts
      *
-     * This operation retrieves the information of all bank accounts registered. 
+     * This operation retrieves the information of all bank accounts you have registered for payment settlement. Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new bank account. 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void listBankAccountsTest() throws ApiException {
         List<BankAccount> response = api.listBankAccounts();
+        // TODO: test validations
+    }
+
+    /**
+     * List crypto addresses
+     *
+     * Retrieve a list of cryptocurrency addresses previously created for a given &#x60;token_id&#x60;. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listCryptoAddressesTest() throws ApiException {
+        String tokenId = null;
+        List<CryptoAddress> response = api.listCryptoAddresses(tokenId);
         // TODO: test validations
     }
 
@@ -259,7 +260,21 @@ public class PaymentApiTest {
         String before = null;
         String after = null;
         String merchantId = null;
-        ListPaymentOrders200Response response = api.listPaymentOrders(limit, before, after, merchantId);
+        String pspOrderId = null;
+        ListPaymentOrders200Response response = api.listPaymentOrders(limit, before, after, merchantId, pspOrderId);
+        // TODO: test validations
+    }
+
+    /**
+     * List all supported tokens
+     *
+     * This operation retrieves the information of all supported tokens. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listPaymentSupportedTokensTest() throws ApiException {
+        List<SupportedToken> response = api.listPaymentSupportedTokens();
         // TODO: test validations
     }
 
@@ -277,21 +292,6 @@ public class PaymentApiTest {
         String after = null;
         String requestId = null;
         ListSettlementRequests200Response response = api.listSettlementRequests(limit, before, after, requestId);
-        // TODO: test validations
-    }
-
-    /**
-     * Update bank account
-     *
-     * This operation updates the information of an existing bank account. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateBankAccountByIdTest() throws ApiException {
-        UUID bankAccountId = null;
-        CreateBankAccountRequest createBankAccountRequest = null;
-        BankAccount response = api.updateBankAccountById(bankAccountId, createBankAccountRequest);
         // TODO: test validations
     }
 

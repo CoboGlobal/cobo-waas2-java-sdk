@@ -226,7 +226,7 @@ public class ChainInfo {
   }
 
    /**
-   * The number of confirmations required for a coinbase transaction to be mature, such as 100 for BTC.
+   * The number of confirmations required before a coinbase transaction is considered mature and can be spent, for example, 100 confirmations for BTC.
    * @return coinbaseMaturity
   **/
   @javax.annotation.Nullable

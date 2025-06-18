@@ -15,8 +15,11 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.ExchangePermissionToken201Response;
+import com.cobo.waas2.model.ExchangePermissionTokenRequest;
 import com.cobo.waas2.model.GetToken2XXResponse;
 import com.cobo.waas2.model.GetToken4XXResponse;
+import com.cobo.waas2.model.RefreshPermissionTokenRequest;
 import com.cobo.waas2.model.RefreshToken2XXResponse;
 import com.cobo.waas2.model.RefreshTokenRequest;
 import org.junit.jupiter.api.Disabled;
@@ -41,6 +44,20 @@ public class OAuthApiTest {
     private final OAuthApi api = new OAuthApi();
 
     /**
+     * Exchange Permission Access Token by API Key
+     *
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void exchangePermissionTokenTest() throws ApiException {
+        ExchangePermissionTokenRequest exchangePermissionTokenRequest = null;
+        ExchangePermissionToken201Response response = api.exchangePermissionToken(exchangePermissionTokenRequest);
+        // TODO: test validations
+    }
+
+    /**
      * Get Org Access Token
      *
      * &lt;Note&gt;This operation is only applicable to Cobo Portal App developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an app key.&lt;/Note&gt; This operation allows Cobo Portal Apps to get an Org Access Token and a Refresh Token with a specified client ID, organization ID, and grant type.   Access tokens allow the app to signal to the WaaS service that it has received permission to access specific resources of the app user&#39;s [organization](https://manuals.cobo.com/en/portal/organization/introduction). Once the app has been granted permission by the organization&#39;s admin, it can use this operation to obtain both an Org Access Token and a Refresh Token.  For security purposes, Org Access Tokens expire after a certain period. Once they expire, the app needs to call [Refresh token](https://www.cobo.com/developers/v2/api-references/oauth/refresh-org-access-token) to get a new Org Access Token and a new Refresh Token.  
@@ -53,6 +70,20 @@ public class OAuthApiTest {
         String orgId = null;
         String grantType = null;
         GetToken2XXResponse response = api.getToken(clientId, orgId, grantType);
+        // TODO: test validations
+    }
+
+    /**
+     * Refresh Permission Access Token by Permission Refresh Token
+     *
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void refreshPermissionTokenTest() throws ApiException {
+        RefreshPermissionTokenRequest refreshPermissionTokenRequest = null;
+        ExchangePermissionToken201Response response = api.refreshPermissionToken(refreshPermissionTokenRequest);
         // TODO: test validations
     }
 

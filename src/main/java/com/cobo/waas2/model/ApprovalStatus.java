@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The approval status. Possible values include:    - &#x60;Pending&#x60;: The approval is pending.   - &#x60;Completed&#x60;: The approval is completed.    - &#x60;Failed&#x60;: The approval is failed.   - &#x60;Revoked&#x60;: The approval is revoked.  
+ * The approval status. Possible values include:    - &#x60;Pending&#x60;: The approval is pending.   - &#x60;Completed&#x60;: The approval is completed.    - &#x60;Failed&#x60;: The approval is rejected.   - &#x60;Revoked&#x60;: The approval is revoked.  
  */
 @JsonAdapter(ApprovalStatus.Adapter.class)
 public enum ApprovalStatus {

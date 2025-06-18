@@ -81,6 +81,18 @@ public class CreateRefundRequest {
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   private String orderId;
 
+  public static final String SERIALIZED_NAME_CHARGE_MERCHANT_FEE = "charge_merchant_fee";
+  @SerializedName(SERIALIZED_NAME_CHARGE_MERCHANT_FEE)
+  private Boolean chargeMerchantFee;
+
+  public static final String SERIALIZED_NAME_MERCHANT_FEE_AMOUNT = "merchant_fee_amount";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_FEE_AMOUNT)
+  private String merchantFeeAmount;
+
+  public static final String SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID = "merchant_fee_token_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID)
+  private String merchantFeeTokenId;
+
   public CreateRefundRequest() {
   }
 
@@ -216,6 +228,63 @@ public class CreateRefundRequest {
     this.orderId = orderId;
   }
 
+
+  public CreateRefundRequest chargeMerchantFee(Boolean chargeMerchantFee) {
+    this.chargeMerchantFee = chargeMerchantFee;
+    return this;
+  }
+
+   /**
+   * Indicates whether the merchant should bear the transaction fee for the refund.  If true, the fee will be deducted from merchant&#39;s account balance. 
+   * @return chargeMerchantFee
+  **/
+  @javax.annotation.Nullable
+  public Boolean getChargeMerchantFee() {
+    return chargeMerchantFee;
+  }
+
+  public void setChargeMerchantFee(Boolean chargeMerchantFee) {
+    this.chargeMerchantFee = chargeMerchantFee;
+  }
+
+
+  public CreateRefundRequest merchantFeeAmount(String merchantFeeAmount) {
+    this.merchantFeeAmount = merchantFeeAmount;
+    return this;
+  }
+
+   /**
+   * The amount of the transaction fee that the merchant will bear for the refund.  This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true. 
+   * @return merchantFeeAmount
+  **/
+  @javax.annotation.Nullable
+  public String getMerchantFeeAmount() {
+    return merchantFeeAmount;
+  }
+
+  public void setMerchantFeeAmount(String merchantFeeAmount) {
+    this.merchantFeeAmount = merchantFeeAmount;
+  }
+
+
+  public CreateRefundRequest merchantFeeTokenId(String merchantFeeTokenId) {
+    this.merchantFeeTokenId = merchantFeeTokenId;
+    return this;
+  }
+
+   /**
+   * The ID of the cryptocurrency used for the transaction fee.  This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true. 
+   * @return merchantFeeTokenId
+  **/
+  @javax.annotation.Nullable
+  public String getMerchantFeeTokenId() {
+    return merchantFeeTokenId;
+  }
+
+  public void setMerchantFeeTokenId(String merchantFeeTokenId) {
+    this.merchantFeeTokenId = merchantFeeTokenId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -277,13 +346,16 @@ public class CreateRefundRequest {
         Objects.equals(this.toAddress, createRefundRequest.toAddress) &&
         Objects.equals(this.tokenId, createRefundRequest.tokenId) &&
         Objects.equals(this.refundType, createRefundRequest.refundType) &&
-        Objects.equals(this.orderId, createRefundRequest.orderId)&&
+        Objects.equals(this.orderId, createRefundRequest.orderId) &&
+        Objects.equals(this.chargeMerchantFee, createRefundRequest.chargeMerchantFee) &&
+        Objects.equals(this.merchantFeeAmount, createRefundRequest.merchantFeeAmount) &&
+        Objects.equals(this.merchantFeeTokenId, createRefundRequest.merchantFeeTokenId)&&
         Objects.equals(this.additionalProperties, createRefundRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, merchantId, payableAmount, toAddress, tokenId, refundType, orderId, additionalProperties);
+    return Objects.hash(requestId, merchantId, payableAmount, toAddress, tokenId, refundType, orderId, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, additionalProperties);
   }
 
   @Override
@@ -297,6 +369,9 @@ public class CreateRefundRequest {
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    refundType: ").append(toIndentedString(refundType)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    chargeMerchantFee: ").append(toIndentedString(chargeMerchantFee)).append("\n");
+    sb.append("    merchantFeeAmount: ").append(toIndentedString(merchantFeeAmount)).append("\n");
+    sb.append("    merchantFeeTokenId: ").append(toIndentedString(merchantFeeTokenId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -327,6 +402,9 @@ public class CreateRefundRequest {
     openapiFields.add("token_id");
     openapiFields.add("refund_type");
     openapiFields.add("order_id");
+    openapiFields.add("charge_merchant_fee");
+    openapiFields.add("merchant_fee_amount");
+    openapiFields.add("merchant_fee_token_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -376,6 +454,12 @@ public class CreateRefundRequest {
       RefundType.validateJsonElement(jsonObj.get("refund_type"));
       if ((jsonObj.get("order_id") != null && !jsonObj.get("order_id").isJsonNull()) && !jsonObj.get("order_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `order_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_id").toString()));
+      }
+      if ((jsonObj.get("merchant_fee_amount") != null && !jsonObj.get("merchant_fee_amount").isJsonNull()) && !jsonObj.get("merchant_fee_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_fee_amount").toString()));
+      }
+      if ((jsonObj.get("merchant_fee_token_id") != null && !jsonObj.get("merchant_fee_token_id").isJsonNull()) && !jsonObj.get("merchant_fee_token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_fee_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_fee_token_id").toString()));
       }
   }
 

@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.SettlementType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -19,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 import com.google.gson.Gson;
@@ -77,6 +80,18 @@ public class CreateSettlement {
   public static final String SERIALIZED_NAME_SETTLEMENT_TYPE = "settlement_type";
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_TYPE)
   private SettlementType settlementType;
+
+  public static final String SERIALIZED_NAME_CRYPTO_ADDRESS_ID = "crypto_address_id";
+  @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS_ID)
+  private String cryptoAddressId;
+
+  public static final String SERIALIZED_NAME_PAYOUT_CHANNEL = "payout_channel";
+  @SerializedName(SERIALIZED_NAME_PAYOUT_CHANNEL)
+  private PayoutChannel payoutChannel;
+
+  public static final String SERIALIZED_NAME_ORDER_IDS = "order_ids";
+  @SerializedName(SERIALIZED_NAME_ORDER_IDS)
+  private List<String> orderIds = new ArrayList<>();
 
   public CreateSettlement() {
   }
@@ -194,6 +209,71 @@ public class CreateSettlement {
     this.settlementType = settlementType;
   }
 
+
+  public CreateSettlement cryptoAddressId(String cryptoAddressId) {
+    this.cryptoAddressId = cryptoAddressId;
+    return this;
+  }
+
+   /**
+   * The ID of the pre-approved crypto address used for Crypto settlements.  - This field is only applicable when &#x60;payout_channel&#x60; is set to &#x60;Crypto&#x60;. - If &#x60;payout_channel&#x60; is &#x60;OffRamp&#x60;, this field will be ignored. - The value must refer to a valid address that has been pre-configured and approved for the given token. 
+   * @return cryptoAddressId
+  **/
+  @javax.annotation.Nullable
+  public String getCryptoAddressId() {
+    return cryptoAddressId;
+  }
+
+  public void setCryptoAddressId(String cryptoAddressId) {
+    this.cryptoAddressId = cryptoAddressId;
+  }
+
+
+  public CreateSettlement payoutChannel(PayoutChannel payoutChannel) {
+    this.payoutChannel = payoutChannel;
+    return this;
+  }
+
+   /**
+   * Get payoutChannel
+   * @return payoutChannel
+  **/
+  @javax.annotation.Nullable
+  public PayoutChannel getPayoutChannel() {
+    return payoutChannel;
+  }
+
+  public void setPayoutChannel(PayoutChannel payoutChannel) {
+    this.payoutChannel = payoutChannel;
+  }
+
+
+  public CreateSettlement orderIds(List<String> orderIds) {
+    this.orderIds = orderIds;
+    return this;
+  }
+
+  public CreateSettlement addOrderIdsItem(String orderIdsItem) {
+    if (this.orderIds == null) {
+      this.orderIds = new ArrayList<>();
+    }
+    this.orderIds.add(orderIdsItem);
+    return this;
+  }
+
+   /**
+   * A list of unique order IDs to be included in this settlement.  - This field is only applicable when &#x60;settlement_type&#x60; is set to &#x60;Merchant&#x60;. - If provided, the settlement will only apply to the specified orders. - The settlement &#x60;amount&#x60; must exactly match the total eligible amount from these orders. - This ensures consistency between the declared amount and the actual order-level data being settled. 
+   * @return orderIds
+  **/
+  @javax.annotation.Nullable
+  public List<String> getOrderIds() {
+    return orderIds;
+  }
+
+  public void setOrderIds(List<String> orderIds) {
+    this.orderIds = orderIds;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -254,13 +334,16 @@ public class CreateSettlement {
         Objects.equals(this.currency, createSettlement.currency) &&
         Objects.equals(this.amount, createSettlement.amount) &&
         Objects.equals(this.bankAccountId, createSettlement.bankAccountId) &&
-        Objects.equals(this.settlementType, createSettlement.settlementType)&&
+        Objects.equals(this.settlementType, createSettlement.settlementType) &&
+        Objects.equals(this.cryptoAddressId, createSettlement.cryptoAddressId) &&
+        Objects.equals(this.payoutChannel, createSettlement.payoutChannel) &&
+        Objects.equals(this.orderIds, createSettlement.orderIds)&&
         Objects.equals(this.additionalProperties, createSettlement.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, currency, amount, bankAccountId, settlementType, additionalProperties);
+    return Objects.hash(merchantId, tokenId, currency, amount, bankAccountId, settlementType, cryptoAddressId, payoutChannel, orderIds, additionalProperties);
   }
 
   @Override
@@ -273,6 +356,9 @@ public class CreateSettlement {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
     sb.append("    settlementType: ").append(toIndentedString(settlementType)).append("\n");
+    sb.append("    cryptoAddressId: ").append(toIndentedString(cryptoAddressId)).append("\n");
+    sb.append("    payoutChannel: ").append(toIndentedString(payoutChannel)).append("\n");
+    sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -302,6 +388,9 @@ public class CreateSettlement {
     openapiFields.add("amount");
     openapiFields.add("bank_account_id");
     openapiFields.add("settlement_type");
+    openapiFields.add("crypto_address_id");
+    openapiFields.add("payout_channel");
+    openapiFields.add("order_ids");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -338,6 +427,17 @@ public class CreateSettlement {
       // validate the optional field `settlement_type`
       if (jsonObj.get("settlement_type") != null && !jsonObj.get("settlement_type").isJsonNull()) {
         SettlementType.validateJsonElement(jsonObj.get("settlement_type"));
+      }
+      if ((jsonObj.get("crypto_address_id") != null && !jsonObj.get("crypto_address_id").isJsonNull()) && !jsonObj.get("crypto_address_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address_id").toString()));
+      }
+      // validate the optional field `payout_channel`
+      if (jsonObj.get("payout_channel") != null && !jsonObj.get("payout_channel").isJsonNull()) {
+        PayoutChannel.validateJsonElement(jsonObj.get("payout_channel"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("order_ids") != null && !jsonObj.get("order_ids").isJsonNull() && !jsonObj.get("order_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_ids` to be an array in the JSON string but got `%s`", jsonObj.get("order_ids").toString()));
       }
   }
 

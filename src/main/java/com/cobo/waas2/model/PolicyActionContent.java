@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information of an app workflow policy quorum action content.
+ * The definition of the quorum action. This property is applicable only when &#x60;action_type&#x60; is &#x60;Quorum&#x60;.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -55,7 +55,7 @@ import com.cobo.waas2.JSON;
 )
 public class PolicyActionContent {
   /**
-   * The quorum action content type. Possible values include:    - &#x60;FULL_APPROVAL&#x60;: The content type is approved by all persons.   - &#x60;PART_APPROVAL&#x60;: The content type is approved by some persons. 
+   * The quorum type. Possible values include:    - &#x60;FULL_APPROVAL&#x60;: Requires approval from all participants.   - &#x60;PART_APPROVAL&#x60;: Requires approval from a specified number of participants. 
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -131,7 +131,7 @@ public class PolicyActionContent {
   }
 
    /**
-   * The quorum action content type. Possible values include:    - &#x60;FULL_APPROVAL&#x60;: The content type is approved by all persons.   - &#x60;PART_APPROVAL&#x60;: The content type is approved by some persons. 
+   * The quorum type. Possible values include:    - &#x60;FULL_APPROVAL&#x60;: Requires approval from all participants.   - &#x60;PART_APPROVAL&#x60;: Requires approval from a specified number of participants. 
    * @return type
   **/
   @javax.annotation.Nonnull
@@ -158,7 +158,7 @@ public class PolicyActionContent {
   }
 
    /**
-   * Get roles
+   * The roles included in the quorum. Possible values include &#x60;admin&#x60;, &#x60;spender&#x60;, &#x60;operator&#x60;, and &#x60;approver&#x60;.
    * @return roles
   **/
   @javax.annotation.Nullable
@@ -185,7 +185,7 @@ public class PolicyActionContent {
   }
 
    /**
-   * Get userIds
+   * The ID of the users included in the quorum.
    * @return userIds
   **/
   @javax.annotation.Nullable
@@ -204,7 +204,7 @@ public class PolicyActionContent {
   }
 
    /**
-   * The number of persons need approved, such as 2.
+   * The number of approvers required to meet the quorum.
    * @return threshold
   **/
   @javax.annotation.Nullable

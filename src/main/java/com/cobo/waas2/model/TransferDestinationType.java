@@ -30,6 +30,8 @@ public enum TransferDestinationType {
   
   ADDRESS("Address"),
   
+  CUSTODIALWALLET("CustodialWallet"),
+  
   EXCHANGEWALLET("ExchangeWallet");
 
   private String value;
