@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.PayoutChannel;
@@ -109,6 +110,10 @@ public class SettlementDetail {
   public static final String SERIALIZED_NAME_PAYOUT_CHANNEL = "payout_channel";
   @SerializedName(SERIALIZED_NAME_PAYOUT_CHANNEL)
   private PayoutChannel payoutChannel;
+
+  public static final String SERIALIZED_NAME_ACQUIRING_TYPE = "acquiring_type";
+  @SerializedName(SERIALIZED_NAME_ACQUIRING_TYPE)
+  private AcquiringType acquiringType;
 
   public SettlementDetail() {
   }
@@ -367,6 +372,25 @@ public class SettlementDetail {
     this.payoutChannel = payoutChannel;
   }
 
+
+  public SettlementDetail acquiringType(AcquiringType acquiringType) {
+    this.acquiringType = acquiringType;
+    return this;
+  }
+
+   /**
+   * Get acquiringType
+   * @return acquiringType
+  **/
+  @javax.annotation.Nullable
+  public AcquiringType getAcquiringType() {
+    return acquiringType;
+  }
+
+  public void setAcquiringType(AcquiringType acquiringType) {
+    this.acquiringType = acquiringType;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -434,13 +458,14 @@ public class SettlementDetail {
         Objects.equals(this.createdTimestamp, settlementDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, settlementDetail.updatedTimestamp) &&
         Objects.equals(this.cryptoAddressId, settlementDetail.cryptoAddressId) &&
-        Objects.equals(this.payoutChannel, settlementDetail.payoutChannel)&&
+        Objects.equals(this.payoutChannel, settlementDetail.payoutChannel) &&
+        Objects.equals(this.acquiringType, settlementDetail.acquiringType)&&
         Objects.equals(this.additionalProperties, settlementDetail.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, payoutChannel, additionalProperties);
+    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, payoutChannel, acquiringType, additionalProperties);
   }
 
   @Override
@@ -460,6 +485,7 @@ public class SettlementDetail {
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    cryptoAddressId: ").append(toIndentedString(cryptoAddressId)).append("\n");
     sb.append("    payoutChannel: ").append(toIndentedString(payoutChannel)).append("\n");
+    sb.append("    acquiringType: ").append(toIndentedString(acquiringType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -496,6 +522,7 @@ public class SettlementDetail {
     openapiFields.add("updated_timestamp");
     openapiFields.add("crypto_address_id");
     openapiFields.add("payout_channel");
+    openapiFields.add("acquiring_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -560,6 +587,10 @@ public class SettlementDetail {
       // validate the optional field `payout_channel`
       if (jsonObj.get("payout_channel") != null && !jsonObj.get("payout_channel").isJsonNull()) {
         PayoutChannel.validateJsonElement(jsonObj.get("payout_channel"));
+      }
+      // validate the optional field `acquiring_type`
+      if (jsonObj.get("acquiring_type") != null && !jsonObj.get("acquiring_type").isJsonNull()) {
+        AcquiringType.validateJsonElement(jsonObj.get("acquiring_type"));
       }
   }
 

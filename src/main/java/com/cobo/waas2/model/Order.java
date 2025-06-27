@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.OrderStatus;
 import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.SettleStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -127,6 +128,10 @@ public class Order {
   public static final String SERIALIZED_NAME_TRANSACTIONS = "transactions";
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
   private List<PaymentTransaction> transactions = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_SETTLEMENT_STATUS = "settlement_status";
+  @SerializedName(SERIALIZED_NAME_SETTLEMENT_STATUS)
+  private SettleStatus settlementStatus;
 
   public Order() {
   }
@@ -480,6 +485,25 @@ public class Order {
     this.transactions = transactions;
   }
 
+
+  public Order settlementStatus(SettleStatus settlementStatus) {
+    this.settlementStatus = settlementStatus;
+    return this;
+  }
+
+   /**
+   * Get settlementStatus
+   * @return settlementStatus
+  **/
+  @javax.annotation.Nullable
+  public SettleStatus getSettlementStatus() {
+    return settlementStatus;
+  }
+
+  public void setSettlementStatus(SettleStatus settlementStatus) {
+    this.settlementStatus = settlementStatus;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -552,13 +576,14 @@ public class Order {
         Objects.equals(this.receivedTokenAmount, order.receivedTokenAmount) &&
         Objects.equals(this.createdTimestamp, order.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, order.updatedTimestamp) &&
-        Objects.equals(this.transactions, order.transactions)&&
+        Objects.equals(this.transactions, order.transactions) &&
+        Objects.equals(this.settlementStatus, order.settlementStatus)&&
         Objects.equals(this.additionalProperties, order.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, createdTimestamp, updatedTimestamp, transactions, additionalProperties);
+    return Objects.hash(orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, createdTimestamp, updatedTimestamp, transactions, settlementStatus, additionalProperties);
   }
 
   @Override
@@ -583,6 +608,7 @@ public class Order {
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+    sb.append("    settlementStatus: ").append(toIndentedString(settlementStatus)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -624,6 +650,7 @@ public class Order {
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("transactions");
+    openapiFields.add("settlement_status");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -715,6 +742,10 @@ public class Order {
             PaymentTransaction.validateJsonElement(jsonArraytransactions.get(i));
           };
         }
+      }
+      // validate the optional field `settlement_status`
+      if (jsonObj.get("settlement_status") != null && !jsonObj.get("settlement_status").isJsonNull()) {
+        SettleStatus.validateJsonElement(jsonObj.get("settlement_status"));
       }
   }
 

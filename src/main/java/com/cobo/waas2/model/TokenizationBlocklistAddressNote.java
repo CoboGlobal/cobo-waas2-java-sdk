@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.TransactionDestinationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,59 +45,82 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the destination &#x60;BTC_EIP_191_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
+ * TokenizationBlocklistAddressNote
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class TransactionMessageSignBTCEIP191Destination {
-  public static final String SERIALIZED_NAME_DESTINATION_TYPE = "destination_type";
-  @SerializedName(SERIALIZED_NAME_DESTINATION_TYPE)
-  private TransactionDestinationType destinationType;
+public class TokenizationBlocklistAddressNote {
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  private String address;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
+  public static final String SERIALIZED_NAME_NOTE = "note";
+  @SerializedName(SERIALIZED_NAME_NOTE)
+  private String note;
 
-  public TransactionMessageSignBTCEIP191Destination() {
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
+
+  public TokenizationBlocklistAddressNote() {
   }
 
-  public TransactionMessageSignBTCEIP191Destination destinationType(TransactionDestinationType destinationType) {
-    this.destinationType = destinationType;
+  public TokenizationBlocklistAddressNote address(String address) {
+    this.address = address;
     return this;
   }
 
    /**
-   * Get destinationType
-   * @return destinationType
+   * The allowed address.
+   * @return address
   **/
   @javax.annotation.Nonnull
-  public TransactionDestinationType getDestinationType() {
-    return destinationType;
+  public String getAddress() {
+    return address;
   }
 
-  public void setDestinationType(TransactionDestinationType destinationType) {
-    this.destinationType = destinationType;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
 
-  public TransactionMessageSignBTCEIP191Destination message(String message) {
-    this.message = message;
+  public TokenizationBlocklistAddressNote note(String note) {
+    this.note = note;
     return this;
   }
 
    /**
-   * The raw data of the message to be signed, encoded in Base64 format.
-   * @return message
+   * The note for the allowed address.
+   * @return note
   **/
-  @javax.annotation.Nonnull
-  public String getMessage() {
-    return message;
+  @javax.annotation.Nullable
+  public String getNote() {
+    return note;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setNote(String note) {
+    this.note = note;
+  }
+
+
+  public TokenizationBlocklistAddressNote createdTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The time when the blocklist address was created, in Unix timestamp format, measured in milliseconds.
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
   /**
@@ -114,9 +136,9 @@ public class TransactionMessageSignBTCEIP191Destination {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TransactionMessageSignBTCEIP191Destination instance itself
+   * @return the TokenizationBlocklistAddressNote instance itself
    */
-  public TransactionMessageSignBTCEIP191Destination putAdditionalProperty(String key, Object value) {
+  public TokenizationBlocklistAddressNote putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -155,23 +177,25 @@ public class TransactionMessageSignBTCEIP191Destination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TransactionMessageSignBTCEIP191Destination transactionMessageSignBTCEIP191Destination = (TransactionMessageSignBTCEIP191Destination) o;
-    return Objects.equals(this.destinationType, transactionMessageSignBTCEIP191Destination.destinationType) &&
-        Objects.equals(this.message, transactionMessageSignBTCEIP191Destination.message)&&
-        Objects.equals(this.additionalProperties, transactionMessageSignBTCEIP191Destination.additionalProperties);
+    TokenizationBlocklistAddressNote tokenizationBlocklistAddressNote = (TokenizationBlocklistAddressNote) o;
+    return Objects.equals(this.address, tokenizationBlocklistAddressNote.address) &&
+        Objects.equals(this.note, tokenizationBlocklistAddressNote.note) &&
+        Objects.equals(this.createdTimestamp, tokenizationBlocklistAddressNote.createdTimestamp)&&
+        Objects.equals(this.additionalProperties, tokenizationBlocklistAddressNote.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, message, additionalProperties);
+    return Objects.hash(address, note, createdTimestamp, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TransactionMessageSignBTCEIP191Destination {\n");
-    sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("class TokenizationBlocklistAddressNote {\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    note: ").append(toIndentedString(note)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -195,39 +219,40 @@ public class TransactionMessageSignBTCEIP191Destination {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("destination_type");
-    openapiFields.add("message");
+    openapiFields.add("address");
+    openapiFields.add("note");
+    openapiFields.add("created_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("destination_type");
-    openapiRequiredFields.add("message");
+    openapiRequiredFields.add("address");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TransactionMessageSignBTCEIP191Destination
+  * @throws IOException if the JSON Element is invalid with respect to TokenizationBlocklistAddressNote
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TransactionMessageSignBTCEIP191Destination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionMessageSignBTCEIP191Destination is not found in the empty JSON string", TransactionMessageSignBTCEIP191Destination.openapiRequiredFields.toString()));
+        if (!TokenizationBlocklistAddressNote.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenizationBlocklistAddressNote is not found in the empty JSON string", TokenizationBlocklistAddressNote.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TransactionMessageSignBTCEIP191Destination.openapiRequiredFields) {
+      for (String requiredField : TokenizationBlocklistAddressNote.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `destination_type`
-      TransactionDestinationType.validateJsonElement(jsonObj.get("destination_type"));
-      if (!jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      if (!jsonObj.get("address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
+      }
+      if ((jsonObj.get("note") != null && !jsonObj.get("note").isJsonNull()) && !jsonObj.get("note").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `note` to be a primitive type in the JSON string but got `%s`", jsonObj.get("note").toString()));
       }
   }
 
@@ -235,16 +260,16 @@ public class TransactionMessageSignBTCEIP191Destination {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TransactionMessageSignBTCEIP191Destination.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TransactionMessageSignBTCEIP191Destination' and its subtypes
+       if (!TokenizationBlocklistAddressNote.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TokenizationBlocklistAddressNote' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TransactionMessageSignBTCEIP191Destination> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionMessageSignBTCEIP191Destination.class));
+       final TypeAdapter<TokenizationBlocklistAddressNote> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TokenizationBlocklistAddressNote.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TransactionMessageSignBTCEIP191Destination>() {
+       return (TypeAdapter<T>) new TypeAdapter<TokenizationBlocklistAddressNote>() {
            @Override
-           public void write(JsonWriter out, TransactionMessageSignBTCEIP191Destination value) throws IOException {
+           public void write(JsonWriter out, TokenizationBlocklistAddressNote value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -274,12 +299,12 @@ public class TransactionMessageSignBTCEIP191Destination {
            }
 
            @Override
-           public TransactionMessageSignBTCEIP191Destination read(JsonReader in) throws IOException {
+           public TokenizationBlocklistAddressNote read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TransactionMessageSignBTCEIP191Destination instance = thisAdapter.fromJsonTree(jsonObj);
+             TokenizationBlocklistAddressNote instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -306,18 +331,18 @@ public class TransactionMessageSignBTCEIP191Destination {
   }
 
  /**
-  * Create an instance of TransactionMessageSignBTCEIP191Destination given an JSON string
+  * Create an instance of TokenizationBlocklistAddressNote given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of TransactionMessageSignBTCEIP191Destination
-  * @throws IOException if the JSON string is invalid with respect to TransactionMessageSignBTCEIP191Destination
+  * @return An instance of TokenizationBlocklistAddressNote
+  * @throws IOException if the JSON string is invalid with respect to TokenizationBlocklistAddressNote
   */
-  public static TransactionMessageSignBTCEIP191Destination fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TransactionMessageSignBTCEIP191Destination.class);
+  public static TokenizationBlocklistAddressNote fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TokenizationBlocklistAddressNote.class);
   }
 
  /**
-  * Convert an instance of TransactionMessageSignBTCEIP191Destination to an JSON string
+  * Convert an instance of TokenizationBlocklistAddressNote to an JSON string
   *
   * @return JSON string
   */

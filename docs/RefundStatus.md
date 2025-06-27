@@ -15,5 +15,7 @@
 
 * `FAILED` (value: `"Failed"`)
 
+* `PENDINGCONFIRMATION` (value: `"PendingConfirmation"`)
+
 
 

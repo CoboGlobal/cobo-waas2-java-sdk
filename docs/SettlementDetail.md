@@ -20,6 +20,7 @@
 |**updatedTimestamp** | **Integer** | The updated time of the settlement, represented as a UNIX timestamp in seconds. |  [optional] |
 |**cryptoAddressId** | **String** | Unique identifier for the pre-approved crypto address, used to reference the address securely in requests. |  [optional] |
 |**payoutChannel** | **PayoutChannel** |  |  [optional] |
+|**acquiringType** | **AcquiringType** |  |  [optional] |
 
 
 

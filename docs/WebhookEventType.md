@@ -43,5 +43,9 @@
 
 * `WALLET_CHAIN_ENABLED` (value: `"wallet.chain.enabled"`)
 
+* `WALLET_MPC_BALANCE_UPDATED` (value: `"wallet.mpc.balance.updated"`)
+
+* `WALLET_WEB3_BALANCE_UPDATED` (value: `"wallet.web3.balance.updated"`)
+
 
 

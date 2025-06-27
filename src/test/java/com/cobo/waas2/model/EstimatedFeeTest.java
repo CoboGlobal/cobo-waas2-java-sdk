@@ -13,9 +13,11 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.EstimatedEvmEip1559Fee;
 import com.cobo.waas2.model.EstimatedEvmLegacyFee;
+import com.cobo.waas2.model.EstimatedFILFee;
+import com.cobo.waas2.model.EstimatedFILFeeSlow;
 import com.cobo.waas2.model.EstimatedFixedFee;
+import com.cobo.waas2.model.EstimatedSOLFee;
 import com.cobo.waas2.model.EstimatedUtxoFee;
-import com.cobo.waas2.model.EstimatedUtxoFeeSlow;
 import com.cobo.waas2.model.FeeType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

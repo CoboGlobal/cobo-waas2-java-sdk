@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.PayoutChannel;
@@ -143,6 +144,14 @@ public class SettlementDetailTest {
     @Test
     public void payoutChannelTest() {
         // TODO: test payoutChannel
+    }
+
+    /**
+     * Test the property 'acquiringType'
+     */
+    @Test
+    public void acquiringTypeTest() {
+        // TODO: test acquiringType
     }
 
 }

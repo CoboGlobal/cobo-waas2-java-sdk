@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The fee model. Possible values include: - &#x60;Fixed&#x60;: The fixed fee model.  - &#x60;EVM_EIP_1559&#x60;: The EIP-1559 fee model. - &#x60;EVM_Legacy&#x60;: The legacy fee model. - &#x60;UTXO&#x60;: The fee model used in UTXO-based blockchains, such as Bitcoin.  Each fee model requires a different set of properties. Switch between the above tabs for details.  To learn more about the fee models, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models). 
+ * The fee model. Possible values include: - &#x60;Fixed&#x60;: The fixed fee model.  - &#x60;EVM_EIP_1559&#x60;: The EIP-1559 fee model. - &#x60;EVM_Legacy&#x60;: The legacy fee model. - &#x60;UTXO&#x60;: The fee model used in UTXO-based blockchains, such as Bitcoin. - &#x60;SOL&#x60;: The fee model used in Solana. - &#x60;FIL&#x60;: The fee model used in Filecoin.   Each fee model requires a different set of properties. Switch between the above tabs for details.  To learn more about the fee models, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models). 
  */
 @JsonAdapter(FeeType.Adapter.class)
 public enum FeeType {
@@ -34,7 +34,11 @@ public enum FeeType {
   
   EVM_LEGACY("EVM_Legacy"),
   
-  UTXO("UTXO");
+  UTXO("UTXO"),
+  
+  SOL("SOL"),
+  
+  FIL("FIL");
 
   private String value;
 
