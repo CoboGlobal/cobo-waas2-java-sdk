@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * PayoutChannel defines the method by which settlement funds are paid out: - &#x60;Crypto&#x60;: Funds will be settled to a pre-approved blockchain crypto address. (Requires crypto_address_id to be specified.) - &#x60;OffRamp&#x60;: Funds will be settled through an off-ramp to a fiat bank account. (Requires bank_account_id to be specified.) 
+ * PayoutChannel defines the method by which settlement funds are paid out: - &#x60;Crypto&#x60;: Funds will be settled to a pre-approved blockchain crypto address. (Requires crypto_address_id and token_id to be specified.) - &#x60;OffRamp&#x60;: Funds will be settled through an off-ramp to a fiat bank account by fiat currency exchange rate. (Requires bank_account_id and currency to be specified.) 
  */
 @JsonAdapter(PayoutChannel.Adapter.class)
 public enum PayoutChannel {

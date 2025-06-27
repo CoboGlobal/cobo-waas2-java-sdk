@@ -14,7 +14,9 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.FeeType;
 import com.cobo.waas2.model.TransactionRequestEvmEip1559Fee;
 import com.cobo.waas2.model.TransactionRequestEvmLegacyFee;
+import com.cobo.waas2.model.TransactionRequestFILFee;
 import com.cobo.waas2.model.TransactionRequestFixedFee;
+import com.cobo.waas2.model.TransactionRequestSOLFee;
 import com.cobo.waas2.model.TransactionRequestUtxoFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -102,6 +104,38 @@ public class TransactionRequestFeeTest {
     @Test
     public void feeRateTest() {
         // TODO: test feeRate
+    }
+
+    /**
+     * Test the property 'computeUnitPrice'
+     */
+    @Test
+    public void computeUnitPriceTest() {
+        // TODO: test computeUnitPrice
+    }
+
+    /**
+     * Test the property 'computeUnitLimit'
+     */
+    @Test
+    public void computeUnitLimitTest() {
+        // TODO: test computeUnitLimit
+    }
+
+    /**
+     * Test the property 'gasPremium'
+     */
+    @Test
+    public void gasPremiumTest() {
+        // TODO: test gasPremium
+    }
+
+    /**
+     * Test the property 'gasFeeCap'
+     */
+    @Test
+    public void gasFeeCapTest() {
+        // TODO: test gasFeeCap
     }
 
 }

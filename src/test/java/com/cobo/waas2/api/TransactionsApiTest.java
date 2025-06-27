@@ -22,7 +22,9 @@ import com.cobo.waas2.model.CreateTransferTransaction201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.EstimateFeeParams;
 import com.cobo.waas2.model.EstimatedFee;
+import com.cobo.waas2.model.ListApprovalDetails200Response;
 import com.cobo.waas2.model.ListTransactionApprovalDetails200Response;
+import com.cobo.waas2.model.ListTransactionTemplates200Response;
 import com.cobo.waas2.model.ListTransactions200Response;
 import com.cobo.waas2.model.MessageSignParams;
 import com.cobo.waas2.model.TransactionApprovalDetail;
@@ -200,6 +202,22 @@ public class TransactionsApiTest {
     /**
      * List transaction approval details
      *
+     * This operation retrieves detailed approval information for a specified transaction. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listApprovalDetailsTest() throws ApiException {
+        String transactionIds = null;
+        String coboIds = null;
+        String requestId = null;
+        ListApprovalDetails200Response response = api.listApprovalDetails(transactionIds, coboIds, requestId);
+        // TODO: test validations
+    }
+
+    /**
+     * List transaction approval details
+     *
      * This operation retrieves detailed approval information for all transactions. 
      *
      * @throws ApiException if the Api call fails
@@ -209,6 +227,21 @@ public class TransactionsApiTest {
         String transactionIds = null;
         String coboIds = null;
         ListTransactionApprovalDetails200Response response = api.listTransactionApprovalDetails(transactionIds, coboIds);
+        // TODO: test validations
+    }
+
+    /**
+     * list transaction templates
+     *
+     * This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listTransactionTemplatesTest() throws ApiException {
+        String transactionType = null;
+        String templateVersion = null;
+        ListTransactionTemplates200Response response = api.listTransactionTemplates(transactionType, templateVersion);
         // TODO: test validations
     }
 

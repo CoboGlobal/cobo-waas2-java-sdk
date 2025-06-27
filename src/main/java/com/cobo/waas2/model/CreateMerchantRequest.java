@@ -61,6 +61,10 @@ public class CreateMerchantRequest {
   @SerializedName(SERIALIZED_NAME_WALLET_ID)
   private UUID walletId;
 
+  public static final String SERIALIZED_NAME_DEVELOPER_FEE_RATE = "developer_fee_rate";
+  @SerializedName(SERIALIZED_NAME_DEVELOPER_FEE_RATE)
+  private String developerFeeRate;
+
   public CreateMerchantRequest() {
   }
 
@@ -99,6 +103,25 @@ public class CreateMerchantRequest {
 
   public void setWalletId(UUID walletId) {
     this.walletId = walletId;
+  }
+
+
+  public CreateMerchantRequest developerFeeRate(String developerFeeRate) {
+    this.developerFeeRate = developerFeeRate;
+    return this;
+  }
+
+   /**
+   * The fee rate applied when topping up the merchant account. Represented as a string percentage (e.g., \&quot;0.1\&quot; means 10%).
+   * @return developerFeeRate
+  **/
+  @javax.annotation.Nullable
+  public String getDeveloperFeeRate() {
+    return developerFeeRate;
+  }
+
+  public void setDeveloperFeeRate(String developerFeeRate) {
+    this.developerFeeRate = developerFeeRate;
   }
 
   /**
@@ -157,13 +180,14 @@ public class CreateMerchantRequest {
     }
     CreateMerchantRequest createMerchantRequest = (CreateMerchantRequest) o;
     return Objects.equals(this.name, createMerchantRequest.name) &&
-        Objects.equals(this.walletId, createMerchantRequest.walletId)&&
+        Objects.equals(this.walletId, createMerchantRequest.walletId) &&
+        Objects.equals(this.developerFeeRate, createMerchantRequest.developerFeeRate)&&
         Objects.equals(this.additionalProperties, createMerchantRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, walletId, additionalProperties);
+    return Objects.hash(name, walletId, developerFeeRate, additionalProperties);
   }
 
   @Override
@@ -172,6 +196,7 @@ public class CreateMerchantRequest {
     sb.append("class CreateMerchantRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
+    sb.append("    developerFeeRate: ").append(toIndentedString(developerFeeRate)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -197,6 +222,7 @@ public class CreateMerchantRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("wallet_id");
+    openapiFields.add("developer_fee_rate");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -229,6 +255,9 @@ public class CreateMerchantRequest {
       }
       if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
+      }
+      if ((jsonObj.get("developer_fee_rate") != null && !jsonObj.get("developer_fee_rate").isJsonNull()) && !jsonObj.get("developer_fee_rate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `developer_fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("developer_fee_rate").toString()));
       }
   }
 

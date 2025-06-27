@@ -11,45 +11,47 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.TransactionDestinationType;
+import com.cobo.waas2.model.TokenizationTokenPermission;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TransactionMessageSignBTCEIP191Destination
+ * Model tests for TokenizationTokenPermissionsResponse
  */
-public class TransactionMessageSignBTCEIP191DestinationTest {
-    private final TransactionMessageSignBTCEIP191Destination model = new TransactionMessageSignBTCEIP191Destination();
+public class TokenizationTokenPermissionsResponseTest {
+    private final TokenizationTokenPermissionsResponse model = new TokenizationTokenPermissionsResponse();
 
     /**
-     * Model tests for TransactionMessageSignBTCEIP191Destination
+     * Model tests for TokenizationTokenPermissionsResponse
      */
     @Test
-    public void testTransactionMessageSignBTCEIP191Destination() {
-        // TODO: test TransactionMessageSignBTCEIP191Destination
+    public void testTokenizationTokenPermissionsResponse() {
+        // TODO: test TokenizationTokenPermissionsResponse
     }
 
     /**
-     * Test the property 'destinationType'
+     * Test the property 'permissions'
      */
     @Test
-    public void destinationTypeTest() {
-        // TODO: test destinationType
+    public void permissionsTest() {
+        // TODO: test permissions
     }
 
     /**
-     * Test the property 'message'
+     * Test the property 'totalCount'
      */
     @Test
-    public void messageTest() {
-        // TODO: test message
+    public void totalCountTest() {
+        // TODO: test totalCount
     }
 
 }

@@ -14,7 +14,9 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.FeeType;
 import com.cobo.waas2.model.TransactionEvmEip1559Fee;
 import com.cobo.waas2.model.TransactionEvmLegacyFee;
+import com.cobo.waas2.model.TransactionFILFee;
 import com.cobo.waas2.model.TransactionFixedFee;
+import com.cobo.waas2.model.TransactionSOLFee;
 import com.cobo.waas2.model.TransactionUtxoFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -134,6 +136,62 @@ public class TransactionFeeTest {
     @Test
     public void feeRateTest() {
         // TODO: test feeRate
+    }
+
+    /**
+     * Test the property 'baseFee'
+     */
+    @Test
+    public void baseFeeTest() {
+        // TODO: test baseFee
+    }
+
+    /**
+     * Test the property 'rentAmount'
+     */
+    @Test
+    public void rentAmountTest() {
+        // TODO: test rentAmount
+    }
+
+    /**
+     * Test the property 'computeUnitPrice'
+     */
+    @Test
+    public void computeUnitPriceTest() {
+        // TODO: test computeUnitPrice
+    }
+
+    /**
+     * Test the property 'computeUnitLimit'
+     */
+    @Test
+    public void computeUnitLimitTest() {
+        // TODO: test computeUnitLimit
+    }
+
+    /**
+     * Test the property 'gasBase'
+     */
+    @Test
+    public void gasBaseTest() {
+        // TODO: test gasBase
+    }
+
+    /**
+     * Test the property 'gasPremium'
+     */
+    @Test
+    public void gasPremiumTest() {
+        // TODO: test gasPremium
+    }
+
+    /**
+     * Test the property 'gasFeeCap'
+     */
+    @Test
+    public void gasFeeCapTest() {
+        // TODO: test gasFeeCap
     }
 
 }

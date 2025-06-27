@@ -25,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.CreateBankAccountRequest;
 import com.cobo.waas2.model.CreateCryptoAddressRequest;
@@ -37,9 +38,12 @@ import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
+import com.cobo.waas2.model.GetTopUpAddress200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
+import com.cobo.waas2.model.ListTopUpPayerAccounts200Response;
+import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
 import com.cobo.waas2.model.Refund;
@@ -48,6 +52,7 @@ import com.cobo.waas2.model.SupportedToken;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateMerchantByIdRequest;
 import com.cobo.waas2.model.UpdatePaymentOrderRequest;
+import com.cobo.waas2.model.UpdateRefundByIdRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1386,6 +1391,7 @@ public class PaymentApi {
      * Build call for getSettlementInfoByIds
      * @param merchantIds A list of merchant IDs to query. (optional)
      * @param currency The currency for the operation. Currently, only &#x60;USD&#x60; is supported. (optional, default to USD)
+     * @param acquiringType AcquiringType defines the acquisition logic used in the payment flow: - &#x60;Order&#x60;: Each order is created with a specific amount and associated payment request. Funds are settled on a per-order basis. - &#x60;TopUp&#x60;: Recharge-style flow where funds are topped up to a payer balance or account. Useful for flexible or usage-based payment models.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1397,7 +1403,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSettlementInfoByIdsCall(String merchantIds, String currency, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSettlementInfoByIdsCall(String merchantIds, String currency, AcquiringType acquiringType, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1415,6 +1421,10 @@ public class PaymentApi {
 
         if (currency != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (acquiringType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("acquiring_type", acquiringType));
         }
 
         final String[] localVarAccepts = {
@@ -1437,8 +1447,8 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSettlementInfoByIdsValidateBeforeCall(String merchantIds, String currency, final ApiCallback _callback) throws ApiException {
-        return getSettlementInfoByIdsCall(merchantIds, currency, _callback);
+    private okhttp3.Call getSettlementInfoByIdsValidateBeforeCall(String merchantIds, String currency, AcquiringType acquiringType, final ApiCallback _callback) throws ApiException {
+        return getSettlementInfoByIdsCall(merchantIds, currency, acquiringType, _callback);
 
     }
 
@@ -1447,6 +1457,7 @@ public class PaymentApi {
      * This operation retrieves the current withdrawable balances of specified merchants or the developer. 
      * @param merchantIds A list of merchant IDs to query. (optional)
      * @param currency The currency for the operation. Currently, only &#x60;USD&#x60; is supported. (optional, default to USD)
+     * @param acquiringType AcquiringType defines the acquisition logic used in the payment flow: - &#x60;Order&#x60;: Each order is created with a specific amount and associated payment request. Funds are settled on a per-order basis. - &#x60;TopUp&#x60;: Recharge-style flow where funds are topped up to a payer balance or account. Useful for flexible or usage-based payment models.  (optional)
      * @return GetSettlementInfoByIds200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1457,8 +1468,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public GetSettlementInfoByIds200Response getSettlementInfoByIds(String merchantIds, String currency) throws ApiException {
-        ApiResponse<GetSettlementInfoByIds200Response> localVarResp = getSettlementInfoByIdsWithHttpInfo(merchantIds, currency);
+    public GetSettlementInfoByIds200Response getSettlementInfoByIds(String merchantIds, String currency, AcquiringType acquiringType) throws ApiException {
+        ApiResponse<GetSettlementInfoByIds200Response> localVarResp = getSettlementInfoByIdsWithHttpInfo(merchantIds, currency, acquiringType);
         return localVarResp.getData();
     }
 
@@ -1467,6 +1478,7 @@ public class PaymentApi {
      * This operation retrieves the current withdrawable balances of specified merchants or the developer. 
      * @param merchantIds A list of merchant IDs to query. (optional)
      * @param currency The currency for the operation. Currently, only &#x60;USD&#x60; is supported. (optional, default to USD)
+     * @param acquiringType AcquiringType defines the acquisition logic used in the payment flow: - &#x60;Order&#x60;: Each order is created with a specific amount and associated payment request. Funds are settled on a per-order basis. - &#x60;TopUp&#x60;: Recharge-style flow where funds are topped up to a payer balance or account. Useful for flexible or usage-based payment models.  (optional)
      * @return ApiResponse&lt;GetSettlementInfoByIds200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1477,8 +1489,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetSettlementInfoByIds200Response> getSettlementInfoByIdsWithHttpInfo(String merchantIds, String currency) throws ApiException {
-        okhttp3.Call localVarCall = getSettlementInfoByIdsValidateBeforeCall(merchantIds, currency, null);
+    public ApiResponse<GetSettlementInfoByIds200Response> getSettlementInfoByIdsWithHttpInfo(String merchantIds, String currency, AcquiringType acquiringType) throws ApiException {
+        okhttp3.Call localVarCall = getSettlementInfoByIdsValidateBeforeCall(merchantIds, currency, acquiringType, null);
         Type localVarReturnType = new TypeToken<GetSettlementInfoByIds200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1488,6 +1500,7 @@ public class PaymentApi {
      * This operation retrieves the current withdrawable balances of specified merchants or the developer. 
      * @param merchantIds A list of merchant IDs to query. (optional)
      * @param currency The currency for the operation. Currently, only &#x60;USD&#x60; is supported. (optional, default to USD)
+     * @param acquiringType AcquiringType defines the acquisition logic used in the payment flow: - &#x60;Order&#x60;: Each order is created with a specific amount and associated payment request. Funds are settled on a per-order basis. - &#x60;TopUp&#x60;: Recharge-style flow where funds are topped up to a payer balance or account. Useful for flexible or usage-based payment models.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1499,10 +1512,157 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSettlementInfoByIdsAsync(String merchantIds, String currency, final ApiCallback<GetSettlementInfoByIds200Response> _callback) throws ApiException {
+    public okhttp3.Call getSettlementInfoByIdsAsync(String merchantIds, String currency, AcquiringType acquiringType, final ApiCallback<GetSettlementInfoByIds200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSettlementInfoByIdsValidateBeforeCall(merchantIds, currency, _callback);
+        okhttp3.Call localVarCall = getSettlementInfoByIdsValidateBeforeCall(merchantIds, currency, acquiringType, _callback);
         Type localVarReturnType = new TypeToken<GetSettlementInfoByIds200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getTopUpAddress
+     * @param merchantId The merchant ID. (required)
+     * @param tokenId The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param customPayerId Unique customer identifier on the merchant side, used to allocate a dedicated top-up address  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTopUpAddressCall(String merchantId, String tokenId, String customPayerId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/topup/address";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (merchantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_id", merchantId));
+        }
+
+        if (tokenId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("token_id", tokenId));
+        }
+
+        if (customPayerId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("custom_payer_id", customPayerId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getTopUpAddressValidateBeforeCall(String merchantId, String tokenId, String customPayerId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'merchantId' is set
+        if (merchantId == null) {
+            throw new ApiException("Missing the required parameter 'merchantId' when calling getTopUpAddress(Async)");
+        }
+
+        // verify the required parameter 'tokenId' is set
+        if (tokenId == null) {
+            throw new ApiException("Missing the required parameter 'tokenId' when calling getTopUpAddress(Async)");
+        }
+
+        // verify the required parameter 'customPayerId' is set
+        if (customPayerId == null) {
+            throw new ApiException("Missing the required parameter 'customPayerId' when calling getTopUpAddress(Async)");
+        }
+
+        return getTopUpAddressCall(merchantId, tokenId, customPayerId, _callback);
+
+    }
+
+    /**
+     * Get top-up address
+     * Get a top-up address for certain payer under merchant. 
+     * @param merchantId The merchant ID. (required)
+     * @param tokenId The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param customPayerId Unique customer identifier on the merchant side, used to allocate a dedicated top-up address  (required)
+     * @return GetTopUpAddress200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetTopUpAddress200Response getTopUpAddress(String merchantId, String tokenId, String customPayerId) throws ApiException {
+        ApiResponse<GetTopUpAddress200Response> localVarResp = getTopUpAddressWithHttpInfo(merchantId, tokenId, customPayerId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get top-up address
+     * Get a top-up address for certain payer under merchant. 
+     * @param merchantId The merchant ID. (required)
+     * @param tokenId The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param customPayerId Unique customer identifier on the merchant side, used to allocate a dedicated top-up address  (required)
+     * @return ApiResponse&lt;GetTopUpAddress200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetTopUpAddress200Response> getTopUpAddressWithHttpInfo(String merchantId, String tokenId, String customPayerId) throws ApiException {
+        okhttp3.Call localVarCall = getTopUpAddressValidateBeforeCall(merchantId, tokenId, customPayerId, null);
+        Type localVarReturnType = new TypeToken<GetTopUpAddress200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get top-up address (asynchronously)
+     * Get a top-up address for certain payer under merchant. 
+     * @param merchantId The merchant ID. (required)
+     * @param tokenId The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param customPayerId Unique customer identifier on the merchant side, used to allocate a dedicated top-up address  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTopUpAddressAsync(String merchantId, String tokenId, String customPayerId, final ApiCallback<GetTopUpAddress200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getTopUpAddressValidateBeforeCall(merchantId, tokenId, customPayerId, _callback);
+        Type localVarReturnType = new TypeToken<GetTopUpAddress200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2275,6 +2435,307 @@ public class PaymentApi {
         return localVarCall;
     }
     /**
+     * Build call for listTopUpPayerAccounts
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTopUpPayerAccountsCall(Integer limit, String before, String after, String merchantId, String payerId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/topup/payer_accounts";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (merchantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_id", merchantId));
+        }
+
+        if (payerId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("payer_id", payerId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listTopUpPayerAccountsValidateBeforeCall(Integer limit, String before, String after, String merchantId, String payerId, final ApiCallback _callback) throws ApiException {
+        return listTopUpPayerAccountsCall(limit, before, after, merchantId, payerId, _callback);
+
+    }
+
+    /**
+     * List top-up payer accounts
+     * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (optional)
+     * @return ListTopUpPayerAccounts200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListTopUpPayerAccounts200Response listTopUpPayerAccounts(Integer limit, String before, String after, String merchantId, String payerId) throws ApiException {
+        ApiResponse<ListTopUpPayerAccounts200Response> localVarResp = listTopUpPayerAccountsWithHttpInfo(limit, before, after, merchantId, payerId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List top-up payer accounts
+     * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (optional)
+     * @return ApiResponse&lt;ListTopUpPayerAccounts200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListTopUpPayerAccounts200Response> listTopUpPayerAccountsWithHttpInfo(Integer limit, String before, String after, String merchantId, String payerId) throws ApiException {
+        okhttp3.Call localVarCall = listTopUpPayerAccountsValidateBeforeCall(limit, before, after, merchantId, payerId, null);
+        Type localVarReturnType = new TypeToken<ListTopUpPayerAccounts200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List top-up payer accounts (asynchronously)
+     * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTopUpPayerAccountsAsync(Integer limit, String before, String after, String merchantId, String payerId, final ApiCallback<ListTopUpPayerAccounts200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listTopUpPayerAccountsValidateBeforeCall(limit, before, after, merchantId, payerId, _callback);
+        Type localVarReturnType = new TypeToken<ListTopUpPayerAccounts200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listTopUpPayers
+     * @param merchantId The merchant ID. (required)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTopUpPayersCall(String merchantId, Integer limit, String before, String after, String payerId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/topup/payers";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (merchantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_id", merchantId));
+        }
+
+        if (payerId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("payer_id", payerId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listTopUpPayersValidateBeforeCall(String merchantId, Integer limit, String before, String after, String payerId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'merchantId' is set
+        if (merchantId == null) {
+            throw new ApiException("Missing the required parameter 'merchantId' when calling listTopUpPayers(Async)");
+        }
+
+        return listTopUpPayersCall(merchantId, limit, before, after, payerId, _callback);
+
+    }
+
+    /**
+     * List top-up payers
+     * This operation retrieves the information of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param merchantId The merchant ID. (required)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (optional)
+     * @return ListTopUpPayers200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListTopUpPayers200Response listTopUpPayers(String merchantId, Integer limit, String before, String after, String payerId) throws ApiException {
+        ApiResponse<ListTopUpPayers200Response> localVarResp = listTopUpPayersWithHttpInfo(merchantId, limit, before, after, payerId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List top-up payers
+     * This operation retrieves the information of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param merchantId The merchant ID. (required)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (optional)
+     * @return ApiResponse&lt;ListTopUpPayers200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListTopUpPayers200Response> listTopUpPayersWithHttpInfo(String merchantId, Integer limit, String before, String after, String payerId) throws ApiException {
+        okhttp3.Call localVarCall = listTopUpPayersValidateBeforeCall(merchantId, limit, before, after, payerId, null);
+        Type localVarReturnType = new TypeToken<ListTopUpPayers200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List top-up payers (asynchronously)
+     * This operation retrieves the information of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param merchantId The merchant ID. (required)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTopUpPayersAsync(String merchantId, Integer limit, String before, String after, String payerId, final ApiCallback<ListTopUpPayers200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listTopUpPayersValidateBeforeCall(merchantId, limit, before, after, payerId, _callback);
+        Type localVarReturnType = new TypeToken<ListTopUpPayers200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for updateBankAccountById
      * @param bankAccountId The bank account ID. (required)
      * @param createBankAccountRequest The request body for updating an existing bank account. (optional)
@@ -2640,6 +3101,129 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = updatePaymentOrderValidateBeforeCall(orderId, updatePaymentOrderRequest, _callback);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateRefundById
+     * @param refundId The refund order ID. (required)
+     * @param updateRefundByIdRequest The request body to update a refund order. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateRefundByIdCall(String refundId, UpdateRefundByIdRequest updateRefundByIdRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = updateRefundByIdRequest;
+
+        // create path and map variables
+        String localVarPath = "/payments/refunds/{refund_id}"
+            .replace("{" + "refund_id" + "}", localVarApiClient.escapeString(refundId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateRefundByIdValidateBeforeCall(String refundId, UpdateRefundByIdRequest updateRefundByIdRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'refundId' is set
+        if (refundId == null) {
+            throw new ApiException("Missing the required parameter 'refundId' when calling updateRefundById(Async)");
+        }
+
+        return updateRefundByIdCall(refundId, updateRefundByIdRequest, _callback);
+
+    }
+
+    /**
+     * Update refund order information
+     * This operation updates a specified refund order. 
+     * @param refundId The refund order ID. (required)
+     * @param updateRefundByIdRequest The request body to update a refund order. (optional)
+     * @return Refund
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Refund updateRefundById(String refundId, UpdateRefundByIdRequest updateRefundByIdRequest) throws ApiException {
+        ApiResponse<Refund> localVarResp = updateRefundByIdWithHttpInfo(refundId, updateRefundByIdRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update refund order information
+     * This operation updates a specified refund order. 
+     * @param refundId The refund order ID. (required)
+     * @param updateRefundByIdRequest The request body to update a refund order. (optional)
+     * @return ApiResponse&lt;Refund&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Refund> updateRefundByIdWithHttpInfo(String refundId, UpdateRefundByIdRequest updateRefundByIdRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateRefundByIdValidateBeforeCall(refundId, updateRefundByIdRequest, null);
+        Type localVarReturnType = new TypeToken<Refund>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update refund order information (asynchronously)
+     * This operation updates a specified refund order. 
+     * @param refundId The refund order ID. (required)
+     * @param updateRefundByIdRequest The request body to update a refund order. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateRefundByIdAsync(String refundId, UpdateRefundByIdRequest updateRefundByIdRequest, final ApiCallback<Refund> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateRefundByIdValidateBeforeCall(refundId, updateRefundByIdRequest, _callback);
+        Type localVarReturnType = new TypeToken<Refund>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

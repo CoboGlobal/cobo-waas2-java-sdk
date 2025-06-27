@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AcquiringType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -79,6 +80,10 @@ public class SettlementInfo {
   public static final String SERIALIZED_NAME_SETTLED_AMOUNT = "settled_amount";
   @SerializedName(SERIALIZED_NAME_SETTLED_AMOUNT)
   private String settledAmount;
+
+  public static final String SERIALIZED_NAME_ACQUIRING_TYPE = "acquiring_type";
+  @SerializedName(SERIALIZED_NAME_ACQUIRING_TYPE)
+  private AcquiringType acquiringType;
 
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
@@ -224,6 +229,25 @@ public class SettlementInfo {
   }
 
 
+  public SettlementInfo acquiringType(AcquiringType acquiringType) {
+    this.acquiringType = acquiringType;
+    return this;
+  }
+
+   /**
+   * Get acquiringType
+   * @return acquiringType
+  **/
+  @javax.annotation.Nullable
+  public AcquiringType getAcquiringType() {
+    return acquiringType;
+  }
+
+  public void setAcquiringType(AcquiringType acquiringType) {
+    this.acquiringType = acquiringType;
+  }
+
+
   public SettlementInfo createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -323,6 +347,7 @@ public class SettlementInfo {
         Objects.equals(this.pendingAmount, settlementInfo.pendingAmount) &&
         Objects.equals(this.pendingCurrencyBalance, settlementInfo.pendingCurrencyBalance) &&
         Objects.equals(this.settledAmount, settlementInfo.settledAmount) &&
+        Objects.equals(this.acquiringType, settlementInfo.acquiringType) &&
         Objects.equals(this.createdTimestamp, settlementInfo.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, settlementInfo.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, settlementInfo.additionalProperties);
@@ -330,7 +355,7 @@ public class SettlementInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, availableAmount, availableCurrencyBalance, pendingAmount, pendingCurrencyBalance, settledAmount, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(merchantId, tokenId, availableAmount, availableCurrencyBalance, pendingAmount, pendingCurrencyBalance, settledAmount, acquiringType, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -344,6 +369,7 @@ public class SettlementInfo {
     sb.append("    pendingAmount: ").append(toIndentedString(pendingAmount)).append("\n");
     sb.append("    pendingCurrencyBalance: ").append(toIndentedString(pendingCurrencyBalance)).append("\n");
     sb.append("    settledAmount: ").append(toIndentedString(settledAmount)).append("\n");
+    sb.append("    acquiringType: ").append(toIndentedString(acquiringType)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -376,6 +402,7 @@ public class SettlementInfo {
     openapiFields.add("pending_amount");
     openapiFields.add("pending_currency_balance");
     openapiFields.add("settled_amount");
+    openapiFields.add("acquiring_type");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -424,6 +451,10 @@ public class SettlementInfo {
       }
       if ((jsonObj.get("settled_amount") != null && !jsonObj.get("settled_amount").isJsonNull()) && !jsonObj.get("settled_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `settled_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("settled_amount").toString()));
+      }
+      // validate the optional field `acquiring_type`
+      if (jsonObj.get("acquiring_type") != null && !jsonObj.get("acquiring_type").isJsonNull()) {
+        AcquiringType.validateJsonElement(jsonObj.get("acquiring_type"));
       }
   }
 

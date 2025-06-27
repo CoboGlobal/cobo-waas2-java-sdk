@@ -24,7 +24,6 @@ import com.cobo.waas2.model.TransactionDepositToWalletDestination;
 import com.cobo.waas2.model.TransactionDestinationType;
 import com.cobo.waas2.model.TransactionEvmCalldataInfo;
 import com.cobo.waas2.model.TransactionEvmContractDestination;
-import com.cobo.waas2.model.TransactionMessageSignBTCEIP191Destination;
 import com.cobo.waas2.model.TransactionMessageSignEIP191Destination;
 import com.cobo.waas2.model.TransactionMessageSignEIP712Destination;
 import com.cobo.waas2.model.TransactionRawMessageSignDestination;

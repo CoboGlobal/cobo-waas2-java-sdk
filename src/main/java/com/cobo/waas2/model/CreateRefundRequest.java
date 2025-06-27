@@ -162,7 +162,7 @@ public class CreateRefundRequest {
    * The address where the refunded cryptocurrency will be sent.
    * @return toAddress
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getToAddress() {
     return toAddress;
   }
@@ -410,7 +410,6 @@ public class CreateRefundRequest {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("request_id");
     openapiRequiredFields.add("payable_amount");
-    openapiRequiredFields.add("to_address");
     openapiRequiredFields.add("token_id");
     openapiRequiredFields.add("refund_type");
   }
@@ -444,7 +443,7 @@ public class CreateRefundRequest {
       if (!jsonObj.get("payable_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payable_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payable_amount").toString()));
       }
-      if (!jsonObj.get("to_address").isJsonPrimitive()) {
+      if ((jsonObj.get("to_address") != null && !jsonObj.get("to_address").isJsonNull()) && !jsonObj.get("to_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to_address").toString()));
       }
       if (!jsonObj.get("token_id").isJsonPrimitive()) {

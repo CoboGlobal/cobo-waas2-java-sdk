@@ -14,6 +14,7 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.CreateBankAccountRequest;
 import com.cobo.waas2.model.CreateCryptoAddressRequest;
@@ -26,9 +27,12 @@ import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
+import com.cobo.waas2.model.GetTopUpAddress200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
+import com.cobo.waas2.model.ListTopUpPayerAccounts200Response;
+import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
 import com.cobo.waas2.model.Refund;
@@ -37,6 +41,7 @@ import com.cobo.waas2.model.SupportedToken;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateMerchantByIdRequest;
 import com.cobo.waas2.model.UpdatePaymentOrderRequest;
+import com.cobo.waas2.model.UpdateRefundByIdRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -228,7 +233,24 @@ public class PaymentApiTest {
     public void getSettlementInfoByIdsTest() throws ApiException {
         String merchantIds = null;
         String currency = null;
-        GetSettlementInfoByIds200Response response = api.getSettlementInfoByIds(merchantIds, currency);
+        AcquiringType acquiringType = null;
+        GetSettlementInfoByIds200Response response = api.getSettlementInfoByIds(merchantIds, currency, acquiringType);
+        // TODO: test validations
+    }
+
+    /**
+     * Get top-up address
+     *
+     * Get a top-up address for certain payer under merchant. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTopUpAddressTest() throws ApiException {
+        String merchantId = null;
+        String tokenId = null;
+        String customPayerId = null;
+        GetTopUpAddress200Response response = api.getTopUpAddress(merchantId, tokenId, customPayerId);
         // TODO: test validations
     }
 
@@ -326,6 +348,42 @@ public class PaymentApiTest {
     }
 
     /**
+     * List top-up payer accounts
+     *
+     * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listTopUpPayerAccountsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String merchantId = null;
+        String payerId = null;
+        ListTopUpPayerAccounts200Response response = api.listTopUpPayerAccounts(limit, before, after, merchantId, payerId);
+        // TODO: test validations
+    }
+
+    /**
+     * List top-up payers
+     *
+     * This operation retrieves the information of all payers. You can filter the result by merchant ID and payer_id. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listTopUpPayersTest() throws ApiException {
+        String merchantId = null;
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String payerId = null;
+        ListTopUpPayers200Response response = api.listTopUpPayers(merchantId, limit, before, after, payerId);
+        // TODO: test validations
+    }
+
+    /**
      * Update bank account
      *
      * This operation updates the information of an existing bank account. 
@@ -367,6 +425,21 @@ public class PaymentApiTest {
         String orderId = null;
         UpdatePaymentOrderRequest updatePaymentOrderRequest = null;
         Order response = api.updatePaymentOrder(orderId, updatePaymentOrderRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Update refund order information
+     *
+     * This operation updates a specified refund order. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateRefundByIdTest() throws ApiException {
+        String refundId = null;
+        UpdateRefundByIdRequest updateRefundByIdRequest = null;
+        Refund response = api.updateRefundById(refundId, updateRefundByIdRequest);
         // TODO: test validations
     }
 

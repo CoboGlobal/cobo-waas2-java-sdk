@@ -14,9 +14,11 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.EstimatedEvmEip1559Fee;
 import com.cobo.waas2.model.EstimatedEvmLegacyFee;
+import com.cobo.waas2.model.EstimatedFILFee;
+import com.cobo.waas2.model.EstimatedFILFeeSlow;
 import com.cobo.waas2.model.EstimatedFixedFee;
+import com.cobo.waas2.model.EstimatedSOLFee;
 import com.cobo.waas2.model.EstimatedUtxoFee;
-import com.cobo.waas2.model.EstimatedUtxoFeeSlow;
 import com.cobo.waas2.model.FeeType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -80,6 +82,8 @@ public class EstimatedFee extends AbstractOpenApiSchema {
             final TypeAdapter<EstimatedEvmEip1559Fee> adapterEstimatedEvmEip1559Fee = gson.getDelegateAdapter(this, TypeToken.get(EstimatedEvmEip1559Fee.class));
             final TypeAdapter<EstimatedEvmLegacyFee> adapterEstimatedEvmLegacyFee = gson.getDelegateAdapter(this, TypeToken.get(EstimatedEvmLegacyFee.class));
             final TypeAdapter<EstimatedUtxoFee> adapterEstimatedUtxoFee = gson.getDelegateAdapter(this, TypeToken.get(EstimatedUtxoFee.class));
+            final TypeAdapter<EstimatedSOLFee> adapterEstimatedSOLFee = gson.getDelegateAdapter(this, TypeToken.get(EstimatedSOLFee.class));
+            final TypeAdapter<EstimatedFILFee> adapterEstimatedFILFee = gson.getDelegateAdapter(this, TypeToken.get(EstimatedFILFee.class));
 
             return (TypeAdapter<T>) new TypeAdapter<EstimatedFee>() {
                 @Override
@@ -113,7 +117,19 @@ public class EstimatedFee extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFixedFee, EstimatedUtxoFee");
+                    // check if the actual instance is of the type `EstimatedSOLFee`
+                    if (value.getActualInstance() instanceof EstimatedSOLFee) {
+                        JsonElement element = adapterEstimatedSOLFee.toJsonTree((EstimatedSOLFee)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `EstimatedFILFee`
+                    if (value.getActualInstance() instanceof EstimatedFILFee) {
+                        JsonElement element = adapterEstimatedFILFee.toJsonTree((EstimatedFILFee)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFILFee, EstimatedFixedFee, EstimatedSOLFee, EstimatedUtxoFee");
                 }
 
                 @Override
@@ -138,8 +154,16 @@ public class EstimatedFee extends AbstractOpenApiSchema {
                                 deserialized = adapterEstimatedEvmLegacyFee.fromJsonTree(jsonObject);
                                 newEstimatedFee.setActualInstance(deserialized);
                                 return newEstimatedFee;
+                            case "FIL":
+                                deserialized = adapterEstimatedFILFee.fromJsonTree(jsonObject);
+                                newEstimatedFee.setActualInstance(deserialized);
+                                return newEstimatedFee;
                             case "Fixed":
                                 deserialized = adapterEstimatedFixedFee.fromJsonTree(jsonObject);
+                                newEstimatedFee.setActualInstance(deserialized);
+                                return newEstimatedFee;
+                            case "SOL":
+                                deserialized = adapterEstimatedSOLFee.fromJsonTree(jsonObject);
                                 newEstimatedFee.setActualInstance(deserialized);
                                 return newEstimatedFee;
                             case "UTXO":
@@ -154,8 +178,16 @@ public class EstimatedFee extends AbstractOpenApiSchema {
                                 deserialized = adapterEstimatedEvmLegacyFee.fromJsonTree(jsonObject);
                                 newEstimatedFee.setActualInstance(deserialized);
                                 return newEstimatedFee;
+                            case "EstimatedFILFee":
+                                deserialized = adapterEstimatedFILFee.fromJsonTree(jsonObject);
+                                newEstimatedFee.setActualInstance(deserialized);
+                                return newEstimatedFee;
                             case "EstimatedFixedFee":
                                 deserialized = adapterEstimatedFixedFee.fromJsonTree(jsonObject);
+                                newEstimatedFee.setActualInstance(deserialized);
+                                return newEstimatedFee;
+                            case "EstimatedSOLFee":
+                                deserialized = adapterEstimatedSOLFee.fromJsonTree(jsonObject);
                                 newEstimatedFee.setActualInstance(deserialized);
                                 return newEstimatedFee;
                             case "EstimatedUtxoFee":
@@ -163,7 +195,7 @@ public class EstimatedFee extends AbstractOpenApiSchema {
                                 newEstimatedFee.setActualInstance(deserialized);
                                 return newEstimatedFee;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for EstimatedFee. Possible values: EVM_EIP_1559 EVM_Legacy Fixed UTXO EstimatedEvmEip1559Fee EstimatedEvmLegacyFee EstimatedFixedFee EstimatedUtxoFee", jsonObject.get("fee_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for EstimatedFee. Possible values: EVM_EIP_1559 EVM_Legacy FIL Fixed SOL UTXO EstimatedEvmEip1559Fee EstimatedEvmLegacyFee EstimatedFILFee EstimatedFixedFee EstimatedSOLFee EstimatedUtxoFee", jsonObject.get("fee_type").getAsString()));
                         }
                     }
 
@@ -219,6 +251,30 @@ public class EstimatedFee extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for EstimatedUtxoFee failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EstimatedUtxoFee'", e);
                     }
+                    // deserialize EstimatedSOLFee
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EstimatedSOLFee.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEstimatedSOLFee;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EstimatedSOLFee'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for EstimatedSOLFee failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EstimatedSOLFee'", e);
+                    }
+                    // deserialize EstimatedFILFee
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EstimatedFILFee.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEstimatedFILFee;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EstimatedFILFee'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for EstimatedFILFee failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EstimatedFILFee'", e);
+                    }
 
                     if (match == 1) {
                         EstimatedFee ret = new EstimatedFee();
@@ -249,7 +305,17 @@ public class EstimatedFee extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public EstimatedFee(EstimatedFILFee o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public EstimatedFee(EstimatedFixedFee o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public EstimatedFee(EstimatedSOLFee o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -264,6 +330,8 @@ public class EstimatedFee extends AbstractOpenApiSchema {
         schemas.put("EstimatedEvmEip1559Fee", EstimatedEvmEip1559Fee.class);
         schemas.put("EstimatedEvmLegacyFee", EstimatedEvmLegacyFee.class);
         schemas.put("EstimatedUtxoFee", EstimatedUtxoFee.class);
+        schemas.put("EstimatedSOLFee", EstimatedSOLFee.class);
+        schemas.put("EstimatedFILFee", EstimatedFILFee.class);
     }
 
     @Override
@@ -274,7 +342,7 @@ public class EstimatedFee extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFixedFee, EstimatedUtxoFee
+     * EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFILFee, EstimatedFixedFee, EstimatedSOLFee, EstimatedUtxoFee
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -300,14 +368,24 @@ public class EstimatedFee extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFixedFee, EstimatedUtxoFee");
+        if (instance instanceof EstimatedSOLFee) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof EstimatedFILFee) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFILFee, EstimatedFixedFee, EstimatedSOLFee, EstimatedUtxoFee");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFixedFee, EstimatedUtxoFee
+     * EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFILFee, EstimatedFixedFee, EstimatedSOLFee, EstimatedUtxoFee
      *
-     * @return The actual instance (EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFixedFee, EstimatedUtxoFee)
+     * @return The actual instance (EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFILFee, EstimatedFixedFee, EstimatedSOLFee, EstimatedUtxoFee)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -355,6 +433,26 @@ public class EstimatedFee extends AbstractOpenApiSchema {
     public EstimatedUtxoFee getEstimatedUtxoFee() throws ClassCastException {
         return (EstimatedUtxoFee)super.getActualInstance();
     }
+    /**
+     * Get the actual instance of `EstimatedSOLFee`. If the actual instance is not `EstimatedSOLFee`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EstimatedSOLFee`
+     * @throws ClassCastException if the instance is not `EstimatedSOLFee`
+     */
+    public EstimatedSOLFee getEstimatedSOLFee() throws ClassCastException {
+        return (EstimatedSOLFee)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `EstimatedFILFee`. If the actual instance is not `EstimatedFILFee`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EstimatedFILFee`
+     * @throws ClassCastException if the instance is not `EstimatedFILFee`
+     */
+    public EstimatedFILFee getEstimatedFILFee() throws ClassCastException {
+        return (EstimatedFILFee)super.getActualInstance();
+    }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
@@ -398,8 +496,24 @@ public class EstimatedFee extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for EstimatedUtxoFee failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with EstimatedSOLFee
+        try {
+            EstimatedSOLFee.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for EstimatedSOLFee failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with EstimatedFILFee
+        try {
+            EstimatedFILFee.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for EstimatedFILFee failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for EstimatedFee with oneOf schemas: EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFixedFee, EstimatedUtxoFee. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for EstimatedFee with oneOf schemas: EstimatedEvmEip1559Fee, EstimatedEvmLegacyFee, EstimatedFILFee, EstimatedFixedFee, EstimatedSOLFee, EstimatedUtxoFee. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

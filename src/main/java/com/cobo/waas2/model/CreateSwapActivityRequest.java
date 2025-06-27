@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.AddressTransferDestination;
+import com.cobo.waas2.model.EstimatedFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -77,6 +78,10 @@ public class CreateSwapActivityRequest {
   public static final String SERIALIZED_NAME_DESTINATION = "destination";
   @SerializedName(SERIALIZED_NAME_DESTINATION)
   private AddressTransferDestination destination;
+
+  public static final String SERIALIZED_NAME_FEE = "fee";
+  @SerializedName(SERIALIZED_NAME_FEE)
+  private EstimatedFee fee;
 
   public CreateSwapActivityRequest() {
   }
@@ -194,6 +199,25 @@ public class CreateSwapActivityRequest {
     this.destination = destination;
   }
 
+
+  public CreateSwapActivityRequest fee(EstimatedFee fee) {
+    this.fee = fee;
+    return this;
+  }
+
+   /**
+   * Get fee
+   * @return fee
+  **/
+  @javax.annotation.Nullable
+  public EstimatedFee getFee() {
+    return fee;
+  }
+
+  public void setFee(EstimatedFee fee) {
+    this.fee = fee;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -254,13 +278,14 @@ public class CreateSwapActivityRequest {
         Objects.equals(this.quoteId, createSwapActivityRequest.quoteId) &&
         Objects.equals(this.appInitiator, createSwapActivityRequest.appInitiator) &&
         Objects.equals(this.requestId, createSwapActivityRequest.requestId) &&
-        Objects.equals(this.destination, createSwapActivityRequest.destination)&&
+        Objects.equals(this.destination, createSwapActivityRequest.destination) &&
+        Objects.equals(this.fee, createSwapActivityRequest.fee)&&
         Objects.equals(this.additionalProperties, createSwapActivityRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, address, quoteId, appInitiator, requestId, destination, additionalProperties);
+    return Objects.hash(walletId, address, quoteId, appInitiator, requestId, destination, fee, additionalProperties);
   }
 
   @Override
@@ -273,6 +298,7 @@ public class CreateSwapActivityRequest {
     sb.append("    appInitiator: ").append(toIndentedString(appInitiator)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -302,6 +328,7 @@ public class CreateSwapActivityRequest {
     openapiFields.add("app_initiator");
     openapiFields.add("request_id");
     openapiFields.add("destination");
+    openapiFields.add("fee");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -347,6 +374,10 @@ public class CreateSwapActivityRequest {
       // validate the optional field `destination`
       if (jsonObj.get("destination") != null && !jsonObj.get("destination").isJsonNull()) {
         AddressTransferDestination.validateJsonElement(jsonObj.get("destination"));
+      }
+      // validate the optional field `fee`
+      if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
+        EstimatedFee.validateJsonElement(jsonObj.get("fee"));
       }
   }
 

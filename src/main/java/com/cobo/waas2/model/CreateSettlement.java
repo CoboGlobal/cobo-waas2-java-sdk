@@ -12,8 +12,6 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.PayoutChannel;
-import com.cobo.waas2.model.SettlementType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -67,7 +65,7 @@ public class CreateSettlement {
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private String currency = "USD";
+  private String currency;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -77,17 +75,9 @@ public class CreateSettlement {
   @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_ID)
   private UUID bankAccountId;
 
-  public static final String SERIALIZED_NAME_SETTLEMENT_TYPE = "settlement_type";
-  @SerializedName(SERIALIZED_NAME_SETTLEMENT_TYPE)
-  private SettlementType settlementType;
-
   public static final String SERIALIZED_NAME_CRYPTO_ADDRESS_ID = "crypto_address_id";
   @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS_ID)
   private String cryptoAddressId;
-
-  public static final String SERIALIZED_NAME_PAYOUT_CHANNEL = "payout_channel";
-  @SerializedName(SERIALIZED_NAME_PAYOUT_CHANNEL)
-  private PayoutChannel payoutChannel;
 
   public static final String SERIALIZED_NAME_ORDER_IDS = "order_ids";
   @SerializedName(SERIALIZED_NAME_ORDER_IDS)
@@ -102,7 +92,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The merchant ID.
+   * Only used in Merchant settlement type. The merchant ID. 
    * @return merchantId
   **/
   @javax.annotation.Nullable
@@ -121,7 +111,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The ID of the cryptocurrency you want to settle. Supported values:  - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60; - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
+   * Only used in Crypto payout channel. The ID of the cryptocurrency you want to settle. Supported values:  - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60; - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -140,7 +130,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The fiat currency for settling the cryptocurrency. Currently, only &#x60;USD&#x60; is supported.
+   * Only used in OffRamp payout channel. The fiat currency for settling the cryptocurrency. Currently, only &#x60;USD&#x60; is supported. 
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -159,7 +149,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The settlement amount. - If &#x60;token_id&#x60; is specified, this represents the settlement amount in the specified cryptocurrency. - If &#x60;token_id&#x60; is not specified, this represents the settlement amount in the specified fiat currency.
+   * The settlement amount. - In Crypto payout channel, this represents the settlement amount in the specified cryptocurrency. - In OffRamp payout channel, this represents the settlement amount in the specified fiat currency. 
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -178,7 +168,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The ID of the bank account where the settled funds will be deposited.
+   * ｜ Only used in OffRamp payout channel. The ID of the bank account where the settled funds will be deposited.
    * @return bankAccountId
   **/
   @javax.annotation.Nullable
@@ -191,32 +181,13 @@ public class CreateSettlement {
   }
 
 
-  public CreateSettlement settlementType(SettlementType settlementType) {
-    this.settlementType = settlementType;
-    return this;
-  }
-
-   /**
-   * Get settlementType
-   * @return settlementType
-  **/
-  @javax.annotation.Nullable
-  public SettlementType getSettlementType() {
-    return settlementType;
-  }
-
-  public void setSettlementType(SettlementType settlementType) {
-    this.settlementType = settlementType;
-  }
-
-
   public CreateSettlement cryptoAddressId(String cryptoAddressId) {
     this.cryptoAddressId = cryptoAddressId;
     return this;
   }
 
    /**
-   * The ID of the pre-approved crypto address used for Crypto settlements.  - This field is only applicable when &#x60;payout_channel&#x60; is set to &#x60;Crypto&#x60;. - If &#x60;payout_channel&#x60; is &#x60;OffRamp&#x60;, this field will be ignored. - The value must refer to a valid address that has been pre-configured and approved for the given token. 
+   * Only used in Crypto payout channel. The ID of the pre-approved crypto address used for Crypto settlements. - The value must refer to a valid address that has been pre-configured and approved for the given token. 
    * @return cryptoAddressId
   **/
   @javax.annotation.Nullable
@@ -226,25 +197,6 @@ public class CreateSettlement {
 
   public void setCryptoAddressId(String cryptoAddressId) {
     this.cryptoAddressId = cryptoAddressId;
-  }
-
-
-  public CreateSettlement payoutChannel(PayoutChannel payoutChannel) {
-    this.payoutChannel = payoutChannel;
-    return this;
-  }
-
-   /**
-   * Get payoutChannel
-   * @return payoutChannel
-  **/
-  @javax.annotation.Nullable
-  public PayoutChannel getPayoutChannel() {
-    return payoutChannel;
-  }
-
-  public void setPayoutChannel(PayoutChannel payoutChannel) {
-    this.payoutChannel = payoutChannel;
   }
 
 
@@ -334,16 +286,14 @@ public class CreateSettlement {
         Objects.equals(this.currency, createSettlement.currency) &&
         Objects.equals(this.amount, createSettlement.amount) &&
         Objects.equals(this.bankAccountId, createSettlement.bankAccountId) &&
-        Objects.equals(this.settlementType, createSettlement.settlementType) &&
         Objects.equals(this.cryptoAddressId, createSettlement.cryptoAddressId) &&
-        Objects.equals(this.payoutChannel, createSettlement.payoutChannel) &&
         Objects.equals(this.orderIds, createSettlement.orderIds)&&
         Objects.equals(this.additionalProperties, createSettlement.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, currency, amount, bankAccountId, settlementType, cryptoAddressId, payoutChannel, orderIds, additionalProperties);
+    return Objects.hash(merchantId, tokenId, currency, amount, bankAccountId, cryptoAddressId, orderIds, additionalProperties);
   }
 
   @Override
@@ -355,9 +305,7 @@ public class CreateSettlement {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
-    sb.append("    settlementType: ").append(toIndentedString(settlementType)).append("\n");
     sb.append("    cryptoAddressId: ").append(toIndentedString(cryptoAddressId)).append("\n");
-    sb.append("    payoutChannel: ").append(toIndentedString(payoutChannel)).append("\n");
     sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -387,9 +335,7 @@ public class CreateSettlement {
     openapiFields.add("currency");
     openapiFields.add("amount");
     openapiFields.add("bank_account_id");
-    openapiFields.add("settlement_type");
     openapiFields.add("crypto_address_id");
-    openapiFields.add("payout_channel");
     openapiFields.add("order_ids");
 
     // a set of required properties/fields (JSON key names)
@@ -424,16 +370,8 @@ public class CreateSettlement {
       if ((jsonObj.get("bank_account_id") != null && !jsonObj.get("bank_account_id").isJsonNull()) && !jsonObj.get("bank_account_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bank_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_account_id").toString()));
       }
-      // validate the optional field `settlement_type`
-      if (jsonObj.get("settlement_type") != null && !jsonObj.get("settlement_type").isJsonNull()) {
-        SettlementType.validateJsonElement(jsonObj.get("settlement_type"));
-      }
       if ((jsonObj.get("crypto_address_id") != null && !jsonObj.get("crypto_address_id").isJsonNull()) && !jsonObj.get("crypto_address_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address_id").toString()));
-      }
-      // validate the optional field `payout_channel`
-      if (jsonObj.get("payout_channel") != null && !jsonObj.get("payout_channel").isJsonNull()) {
-        PayoutChannel.validateJsonElement(jsonObj.get("payout_channel"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("order_ids") != null && !jsonObj.get("order_ids").isJsonNull() && !jsonObj.get("order_ids").isJsonArray()) {

@@ -29,6 +29,7 @@ import com.cobo.waas2.model.CreatedWalletInfo;
 import com.cobo.waas2.model.DeleteWalletById201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExtendedTokenInfo;
+import com.cobo.waas2.model.GetMaxTransferableValueWithFeeModelRequest;
 import com.cobo.waas2.model.ListAddressBalancesByToken200Response;
 import com.cobo.waas2.model.ListAddresses200Response;
 import com.cobo.waas2.model.ListSupportedChains200Response;
@@ -220,6 +221,21 @@ public class WalletsApiTest {
     }
 
     /**
+     * Get maximum transferable value with fee model
+     *
+     * This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getMaxTransferableValueWithFeeModelTest() throws ApiException {
+        UUID walletId = null;
+        GetMaxTransferableValueWithFeeModelRequest getMaxTransferableValueWithFeeModelRequest = null;
+        MaxTransferableValue response = api.getMaxTransferableValueWithFeeModel(walletId, getMaxTransferableValueWithFeeModelRequest);
+        // TODO: test validations
+    }
+
+    /**
      * Get token information
      *
      * This operation retrieves the detailed information about a specified token. 
@@ -329,10 +345,11 @@ public class WalletsApiTest {
         WalletType walletType = null;
         WalletSubtype walletSubtype = null;
         String chainIds = null;
+        String tokenIds = null;
         Integer limit = null;
         String before = null;
         String after = null;
-        ListSupportedTokens200Response response = api.listEnabledTokens(walletType, walletSubtype, chainIds, limit, before, after);
+        ListSupportedTokens200Response response = api.listEnabledTokens(walletType, walletSubtype, chainIds, tokenIds, limit, before, after);
         // TODO: test validations
     }
 

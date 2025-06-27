@@ -21,6 +21,9 @@
 |**updatedTimestamp** | **Integer** | The updated time of the refund order, represented as a UNIX timestamp in seconds. |  [optional] |
 |**initiator** | **String** | The initiator of this refund order, usually the user&#39;s API key. |  [optional] |
 |**transactions** | [**List&lt;PaymentTransaction&gt;**](PaymentTransaction.md) | An array of transactions associated with this refund order. Each transaction represents a separate blockchain operation related to the refund process. |  [optional] |
+|**chargeMerchantFee** | **Boolean** | Indicates whether the merchant should bear the transaction fee for the refund.  If true, the fee will be deducted from merchant&#39;s account balance.  |  [optional] |
+|**merchantFeeAmount** | **String** | The amount of the transaction fee that the merchant will bear for the refund.  This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true.  |  [optional] |
+|**merchantFeeTokenId** | **String** | The ID of the cryptocurrency used for the transaction fee.  This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true.  |  [optional] |
 
 
 

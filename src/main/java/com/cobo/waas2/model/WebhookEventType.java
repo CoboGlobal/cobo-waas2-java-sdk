@@ -64,7 +64,11 @@ public enum WebhookEventType {
   
   WALLET_TOKEN_ENABLED("wallet.token.enabled"),
   
-  WALLET_CHAIN_ENABLED("wallet.chain.enabled");
+  WALLET_CHAIN_ENABLED("wallet.chain.enabled"),
+  
+  WALLET_MPC_BALANCE_UPDATED("wallet.mpc.balance.updated"),
+  
+  WALLET_WEB3_BALANCE_UPDATED("wallet.web3.balance.updated");
 
   private String value;
 
