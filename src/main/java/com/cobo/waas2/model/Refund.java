@@ -113,6 +113,18 @@ public class Refund {
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
   private List<PaymentTransaction> transactions = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_CHARGE_MERCHANT_FEE = "charge_merchant_fee";
+  @SerializedName(SERIALIZED_NAME_CHARGE_MERCHANT_FEE)
+  private Boolean chargeMerchantFee;
+
+  public static final String SERIALIZED_NAME_MERCHANT_FEE_AMOUNT = "merchant_fee_amount";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_FEE_AMOUNT)
+  private String merchantFeeAmount;
+
+  public static final String SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID = "merchant_fee_token_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID)
+  private String merchantFeeTokenId;
+
   public Refund() {
   }
 
@@ -160,7 +172,7 @@ public class Refund {
   }
 
    /**
-   * The order ID corresponding to this refund.
+   * The ID of the pay-in order corresponding to this refund.
    * @return orderId
   **/
   @javax.annotation.Nullable
@@ -312,7 +324,7 @@ public class Refund {
   }
 
    /**
-   * The created time of the refund order, represented as a UNIX timestamp in seconds.
+   * The creation time of the refund order, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -331,7 +343,7 @@ public class Refund {
   }
 
    /**
-   * The updated time of the refund order, represented as a UNIX timestamp in seconds.
+   * The last update time of the refund order, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable
@@ -350,7 +362,7 @@ public class Refund {
   }
 
    /**
-   * The initiator of this refund order, usually the user&#39;s API key.
+   *  The initiator of this settlement request. Can return either an API key or the Payment Management App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payment API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payment Management App using the App ID. 
    * @return initiator
   **/
   @javax.annotation.Nullable
@@ -387,6 +399,63 @@ public class Refund {
 
   public void setTransactions(List<PaymentTransaction> transactions) {
     this.transactions = transactions;
+  }
+
+
+  public Refund chargeMerchantFee(Boolean chargeMerchantFee) {
+    this.chargeMerchantFee = chargeMerchantFee;
+    return this;
+  }
+
+   /**
+   * Whether to charge developer fee to the merchant for the refund.    - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance    - &#x60;false&#x60;: The merchant is not charged any developer fee. 
+   * @return chargeMerchantFee
+  **/
+  @javax.annotation.Nullable
+  public Boolean getChargeMerchantFee() {
+    return chargeMerchantFee;
+  }
+
+  public void setChargeMerchantFee(Boolean chargeMerchantFee) {
+    this.chargeMerchantFee = chargeMerchantFee;
+  }
+
+
+  public Refund merchantFeeAmount(String merchantFeeAmount) {
+    this.merchantFeeAmount = merchantFeeAmount;
+    return this;
+  }
+
+   /**
+   * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to &#x60;true&#x60;.
+   * @return merchantFeeAmount
+  **/
+  @javax.annotation.Nullable
+  public String getMerchantFeeAmount() {
+    return merchantFeeAmount;
+  }
+
+  public void setMerchantFeeAmount(String merchantFeeAmount) {
+    this.merchantFeeAmount = merchantFeeAmount;
+  }
+
+
+  public Refund merchantFeeTokenId(String merchantFeeTokenId) {
+    this.merchantFeeTokenId = merchantFeeTokenId;
+    return this;
+  }
+
+   /**
+   * The ID of the cryptocurrency used for the developer fee. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true.
+   * @return merchantFeeTokenId
+  **/
+  @javax.annotation.Nullable
+  public String getMerchantFeeTokenId() {
+    return merchantFeeTokenId;
+  }
+
+  public void setMerchantFeeTokenId(String merchantFeeTokenId) {
+    this.merchantFeeTokenId = merchantFeeTokenId;
   }
 
   /**
@@ -457,13 +526,16 @@ public class Refund {
         Objects.equals(this.createdTimestamp, refund.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, refund.updatedTimestamp) &&
         Objects.equals(this.initiator, refund.initiator) &&
-        Objects.equals(this.transactions, refund.transactions)&&
+        Objects.equals(this.transactions, refund.transactions) &&
+        Objects.equals(this.chargeMerchantFee, refund.chargeMerchantFee) &&
+        Objects.equals(this.merchantFeeAmount, refund.merchantFeeAmount) &&
+        Objects.equals(this.merchantFeeTokenId, refund.merchantFeeTokenId)&&
         Objects.equals(this.additionalProperties, refund.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, additionalProperties);
+    return Objects.hash(requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, additionalProperties);
   }
 
   @Override
@@ -484,6 +556,9 @@ public class Refund {
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+    sb.append("    chargeMerchantFee: ").append(toIndentedString(chargeMerchantFee)).append("\n");
+    sb.append("    merchantFeeAmount: ").append(toIndentedString(merchantFeeAmount)).append("\n");
+    sb.append("    merchantFeeTokenId: ").append(toIndentedString(merchantFeeTokenId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -521,6 +596,9 @@ public class Refund {
     openapiFields.add("updated_timestamp");
     openapiFields.add("initiator");
     openapiFields.add("transactions");
+    openapiFields.add("charge_merchant_fee");
+    openapiFields.add("merchant_fee_amount");
+    openapiFields.add("merchant_fee_token_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -598,6 +676,12 @@ public class Refund {
             PaymentTransaction.validateJsonElement(jsonArraytransactions.get(i));
           };
         }
+      }
+      if ((jsonObj.get("merchant_fee_amount") != null && !jsonObj.get("merchant_fee_amount").isJsonNull()) && !jsonObj.get("merchant_fee_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_fee_amount").toString()));
+      }
+      if ((jsonObj.get("merchant_fee_token_id") != null && !jsonObj.get("merchant_fee_token_id").isJsonNull()) && !jsonObj.get("merchant_fee_token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_fee_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_fee_token_id").toString()));
       }
   }
 

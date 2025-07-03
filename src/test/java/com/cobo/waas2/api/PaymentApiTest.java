@@ -14,6 +14,7 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.CreateMerchantRequest;
 import com.cobo.waas2.model.CreatePaymentOrderRequest;
@@ -27,14 +28,17 @@ import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
+import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Settlement;
 import com.cobo.waas2.model.SupportedToken;
+import com.cobo.waas2.model.TopUpAddress;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateMerchantByIdRequest;
 import com.cobo.waas2.model.UpdatePaymentOrderRequest;
+import com.cobo.waas2.model.UpdateRefundByIdRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -55,6 +59,20 @@ public class PaymentApiTest {
         defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     }
     private final PaymentApi api = new PaymentApi();
+
+    /**
+     * Cancel refund order
+     *
+     * This operation cancels a specified refund order. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void cancelRefundByIdTest() throws ApiException {
+        String refundId = null;
+        Refund response = api.cancelRefundById(refundId);
+        // TODO: test validations
+    }
 
     /**
      * Create merchant
@@ -101,7 +119,7 @@ public class PaymentApiTest {
     /**
      * Create settlement request
      *
-     * This operation creates a settlement request to withdraw available balances.   You can include multiple merchants and cryptocurrencies in a single settlement request. 
+     * This operation creates a settlement request to withdraw available balances. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -198,7 +216,24 @@ public class PaymentApiTest {
     public void getSettlementInfoByIdsTest() throws ApiException {
         String merchantIds = null;
         String currency = null;
-        GetSettlementInfoByIds200Response response = api.getSettlementInfoByIds(merchantIds, currency);
+        AcquiringType acquiringType = null;
+        GetSettlementInfoByIds200Response response = api.getSettlementInfoByIds(merchantIds, currency, acquiringType);
+        // TODO: test validations
+    }
+
+    /**
+     * Get top-up address
+     *
+     * This operation retrieves the information of the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTopUpAddressTest() throws ApiException {
+        String merchantId = null;
+        String tokenId = null;
+        String customPayerId = null;
+        TopUpAddress response = api.getTopUpAddress(merchantId, tokenId, customPayerId);
         // TODO: test validations
     }
 
@@ -218,7 +253,7 @@ public class PaymentApiTest {
     /**
      * List crypto addresses
      *
-     * Retrieve a list of cryptocurrency addresses previously created for a given &#x60;token_id&#x60;. 
+     * This operation retrieves a list of crypto addresses registered for crypto withdrawal.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -296,6 +331,24 @@ public class PaymentApiTest {
     }
 
     /**
+     * List payers
+     *
+     * This operation retrieves the information of all payers under a merchant.   You can filter the result by the payer ID. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listTopUpPayersTest() throws ApiException {
+        String merchantId = null;
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String payerId = null;
+        ListTopUpPayers200Response response = api.listTopUpPayers(merchantId, limit, before, after, payerId);
+        // TODO: test validations
+    }
+
+    /**
      * Update merchant
      *
      * This operation updates the information of an existing merchant. 
@@ -322,6 +375,21 @@ public class PaymentApiTest {
         String orderId = null;
         UpdatePaymentOrderRequest updatePaymentOrderRequest = null;
         Order response = api.updatePaymentOrder(orderId, updatePaymentOrderRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Update refund order information
+     *
+     * This operation updates a specified refund order. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateRefundByIdTest() throws ApiException {
+        String refundId = null;
+        UpdateRefundByIdRequest updateRefundByIdRequest = null;
+        Refund response = api.updateRefundById(refundId, updateRefundByIdRequest);
         // TODO: test validations
     }
 

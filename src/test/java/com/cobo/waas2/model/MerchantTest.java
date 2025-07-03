@@ -61,6 +61,14 @@ public class MerchantTest {
     }
 
     /**
+     * Test the property 'developerFeeRate'
+     */
+    @Test
+    public void developerFeeRateTest() {
+        // TODO: test developerFeeRate
+    }
+
+    /**
      * Test the property 'createdTimestamp'
      */
     @Test

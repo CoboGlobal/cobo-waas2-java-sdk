@@ -94,7 +94,7 @@ public class TransactionEvmCalldataInfo {
   }
 
    /**
-   * The ID of the chain on which the smart contract is deployed.
+   * The ID of the chain on which the smart contract is issued.
    * @return chainId
   **/
   @javax.annotation.Nullable

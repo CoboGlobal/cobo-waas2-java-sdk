@@ -11,7 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.TransactionDestinationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,33 +22,41 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TransactionMessageSignBTCEIP191Destination
+ * Model tests for FILPrice
  */
-public class TransactionMessageSignBTCEIP191DestinationTest {
-    private final TransactionMessageSignBTCEIP191Destination model = new TransactionMessageSignBTCEIP191Destination();
+public class FILPriceTest {
+    private final FILPrice model = new FILPrice();
 
     /**
-     * Model tests for TransactionMessageSignBTCEIP191Destination
+     * Model tests for FILPrice
      */
     @Test
-    public void testTransactionMessageSignBTCEIP191Destination() {
-        // TODO: test TransactionMessageSignBTCEIP191Destination
+    public void testFILPrice() {
+        // TODO: test FILPrice
     }
 
     /**
-     * Test the property 'destinationType'
+     * Test the property 'gasPremium'
      */
     @Test
-    public void destinationTypeTest() {
-        // TODO: test destinationType
+    public void gasPremiumTest() {
+        // TODO: test gasPremium
     }
 
     /**
-     * Test the property 'message'
+     * Test the property 'gasFeeCap'
      */
     @Test
-    public void messageTest() {
-        // TODO: test message
+    public void gasFeeCapTest() {
+        // TODO: test gasFeeCap
+    }
+
+    /**
+     * Test the property 'gasLimit'
+     */
+    @Test
+    public void gasLimitTest() {
+        // TODO: test gasLimit
     }
 
 }

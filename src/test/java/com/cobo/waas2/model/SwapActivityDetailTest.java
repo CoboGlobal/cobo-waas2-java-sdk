@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.SwapActivityApprovers;
+import com.cobo.waas2.model.SwapActivitySigners;
 import com.cobo.waas2.model.SwapActivityStatus;
 import com.cobo.waas2.model.SwapActivityTimeline;
 import com.cobo.waas2.model.SwapType;
@@ -186,6 +187,14 @@ public class SwapActivityDetailTest {
     @Test
     public void approversTest() {
         // TODO: test approvers
+    }
+
+    /**
+     * Test the property 'signers'
+     */
+    @Test
+    public void signersTest() {
+        // TODO: test signers
     }
 
 }

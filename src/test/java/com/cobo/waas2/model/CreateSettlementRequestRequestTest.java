@@ -11,7 +11,10 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.CreateSettlement;
+import com.cobo.waas2.model.PayoutChannel;
+import com.cobo.waas2.model.SettlementType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,6 +47,30 @@ public class CreateSettlementRequestRequestTest {
     @Test
     public void requestIdTest() {
         // TODO: test requestId
+    }
+
+    /**
+     * Test the property 'acquiringType'
+     */
+    @Test
+    public void acquiringTypeTest() {
+        // TODO: test acquiringType
+    }
+
+    /**
+     * Test the property 'payoutChannel'
+     */
+    @Test
+    public void payoutChannelTest() {
+        // TODO: test payoutChannel
+    }
+
+    /**
+     * Test the property 'settlementType'
+     */
+    @Test
+    public void settlementTypeTest() {
+        // TODO: test settlementType
     }
 
     /**

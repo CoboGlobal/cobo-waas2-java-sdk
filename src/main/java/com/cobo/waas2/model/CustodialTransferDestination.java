@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the transaction destination type &#x60;CustodialWallet&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  An Custodial Wallet  can only receive asset transfers from another Custodial Wallet by using Loop.  Switch between the tabs to display the properties for different transaction destinations. 
+ * The information about the transaction destination type &#x60;CustodialWallet&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  A Custodial Wallet (Asset Wallet) can only receive transfers from another Custodial Wallet (Asset Wallet) by using [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop).  Switch between the tabs to display the properties for different transaction destinations. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

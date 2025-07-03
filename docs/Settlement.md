@@ -11,9 +11,9 @@
 |**requestId** | **String** | The request ID provided by you when creating the settlement request. |  |
 |**status** | **SettleRequestStatus** |  |  |
 |**settlements** | [**List&lt;SettlementDetail&gt;**](SettlementDetail.md) |  |  |
-|**createdTimestamp** | **Integer** | The created time of the settlement request, represented as a UNIX timestamp in seconds. |  [optional] |
-|**updatedTimestamp** | **Integer** | The updated time of the settlement request, represented as a UNIX timestamp in seconds. |  [optional] |
-|**initiator** | **String** | The initiator of this settlement request, usually the user&#39;s API key. |  [optional] |
+|**createdTimestamp** | **Integer** | The creation time of the settlement request, represented as a UNIX timestamp in seconds. |  [optional] |
+|**updatedTimestamp** | **Integer** | The last update time of the settlement request, represented as a UNIX timestamp in seconds. |  [optional] |
+|**initiator** | **String** |  The initiator of this settlement request. Can return either an API key or the Payment Management App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payment API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payment Management App using the App ID.  |  [optional] |
 
 
 

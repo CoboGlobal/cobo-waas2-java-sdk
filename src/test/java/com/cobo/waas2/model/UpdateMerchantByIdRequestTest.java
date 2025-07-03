@@ -43,4 +43,12 @@ public class UpdateMerchantByIdRequestTest {
         // TODO: test name
     }
 
+    /**
+     * Test the property 'developerFeeRate'
+     */
+    @Test
+    public void developerFeeRateTest() {
+        // TODO: test developerFeeRate
+    }
+
 }

@@ -14,8 +14,9 @@
 |**pendingAmount** | **String** | The amount unavailable for settlement or refund, in the specified cryptocurrency. |  [optional] |
 |**pendingCurrencyBalance** | **String** | The amount unavailable for settlement or refund, in the specified fiat currency. |  [optional] |
 |**settledAmount** | **String** | The amount already settled, in the specified cryptocurrency. |  [optional] |
-|**createdTimestamp** | **Integer** | The created time of the settlement, represented as a UNIX timestamp in seconds. |  [optional] |
-|**updatedTimestamp** | **Integer** | The updated time of the settlement, represented as a UNIX timestamp in seconds. |  [optional] |
+|**acquiringType** | **AcquiringType** |  |  [optional] |
+|**createdTimestamp** | **Integer** | The creation time of the settlement, represented as a UNIX timestamp in seconds. |  [optional] |
+|**updatedTimestamp** | **Integer** | The last update time of the settlement, represented as a UNIX timestamp in seconds. |  [optional] |
 
 
 

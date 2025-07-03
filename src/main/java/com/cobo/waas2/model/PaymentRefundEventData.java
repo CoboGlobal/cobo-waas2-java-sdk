@@ -58,7 +58,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentRefundEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -77,6 +77,8 @@ public class PaymentRefundEventData {
     TOKENS("Tokens"),
     
     TOKENLISTING("TokenListing"),
+    
+    BALANCEUPDATEINFO("BalanceUpdateInfo"),
     
     PAYMENTORDER("PaymentOrder"),
     
@@ -187,6 +189,18 @@ public class PaymentRefundEventData {
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
   private List<PaymentTransaction> transactions = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_CHARGE_MERCHANT_FEE = "charge_merchant_fee";
+  @SerializedName(SERIALIZED_NAME_CHARGE_MERCHANT_FEE)
+  private Boolean chargeMerchantFee;
+
+  public static final String SERIALIZED_NAME_MERCHANT_FEE_AMOUNT = "merchant_fee_amount";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_FEE_AMOUNT)
+  private String merchantFeeAmount;
+
+  public static final String SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID = "merchant_fee_token_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID)
+  private String merchantFeeTokenId;
+
   public PaymentRefundEventData() {
   }
 
@@ -196,7 +210,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -253,7 +267,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   * The order ID corresponding to this refund.
+   * The ID of the pay-in order corresponding to this refund.
    * @return orderId
   **/
   @javax.annotation.Nullable
@@ -405,7 +419,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   * The created time of the refund order, represented as a UNIX timestamp in seconds.
+   * The creation time of the refund order, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -424,7 +438,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   * The updated time of the refund order, represented as a UNIX timestamp in seconds.
+   * The last update time of the refund order, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable
@@ -443,7 +457,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   * The initiator of this refund order, usually the user&#39;s API key.
+   *  The initiator of this settlement request. Can return either an API key or the Payment Management App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payment API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payment Management App using the App ID. 
    * @return initiator
   **/
   @javax.annotation.Nullable
@@ -480,6 +494,63 @@ public class PaymentRefundEventData {
 
   public void setTransactions(List<PaymentTransaction> transactions) {
     this.transactions = transactions;
+  }
+
+
+  public PaymentRefundEventData chargeMerchantFee(Boolean chargeMerchantFee) {
+    this.chargeMerchantFee = chargeMerchantFee;
+    return this;
+  }
+
+   /**
+   * Whether to charge developer fee to the merchant for the refund.    - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance    - &#x60;false&#x60;: The merchant is not charged any developer fee. 
+   * @return chargeMerchantFee
+  **/
+  @javax.annotation.Nullable
+  public Boolean getChargeMerchantFee() {
+    return chargeMerchantFee;
+  }
+
+  public void setChargeMerchantFee(Boolean chargeMerchantFee) {
+    this.chargeMerchantFee = chargeMerchantFee;
+  }
+
+
+  public PaymentRefundEventData merchantFeeAmount(String merchantFeeAmount) {
+    this.merchantFeeAmount = merchantFeeAmount;
+    return this;
+  }
+
+   /**
+   * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to &#x60;true&#x60;.
+   * @return merchantFeeAmount
+  **/
+  @javax.annotation.Nullable
+  public String getMerchantFeeAmount() {
+    return merchantFeeAmount;
+  }
+
+  public void setMerchantFeeAmount(String merchantFeeAmount) {
+    this.merchantFeeAmount = merchantFeeAmount;
+  }
+
+
+  public PaymentRefundEventData merchantFeeTokenId(String merchantFeeTokenId) {
+    this.merchantFeeTokenId = merchantFeeTokenId;
+    return this;
+  }
+
+   /**
+   * The ID of the cryptocurrency used for the developer fee. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true.
+   * @return merchantFeeTokenId
+  **/
+  @javax.annotation.Nullable
+  public String getMerchantFeeTokenId() {
+    return merchantFeeTokenId;
+  }
+
+  public void setMerchantFeeTokenId(String merchantFeeTokenId) {
+    this.merchantFeeTokenId = merchantFeeTokenId;
   }
 
   /**
@@ -551,13 +622,16 @@ public class PaymentRefundEventData {
         Objects.equals(this.createdTimestamp, paymentRefundEventData.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, paymentRefundEventData.updatedTimestamp) &&
         Objects.equals(this.initiator, paymentRefundEventData.initiator) &&
-        Objects.equals(this.transactions, paymentRefundEventData.transactions)&&
+        Objects.equals(this.transactions, paymentRefundEventData.transactions) &&
+        Objects.equals(this.chargeMerchantFee, paymentRefundEventData.chargeMerchantFee) &&
+        Objects.equals(this.merchantFeeAmount, paymentRefundEventData.merchantFeeAmount) &&
+        Objects.equals(this.merchantFeeTokenId, paymentRefundEventData.merchantFeeTokenId)&&
         Objects.equals(this.additionalProperties, paymentRefundEventData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, additionalProperties);
+    return Objects.hash(dataType, requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, additionalProperties);
   }
 
   @Override
@@ -579,6 +653,9 @@ public class PaymentRefundEventData {
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+    sb.append("    chargeMerchantFee: ").append(toIndentedString(chargeMerchantFee)).append("\n");
+    sb.append("    merchantFeeAmount: ").append(toIndentedString(merchantFeeAmount)).append("\n");
+    sb.append("    merchantFeeTokenId: ").append(toIndentedString(merchantFeeTokenId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -617,6 +694,9 @@ public class PaymentRefundEventData {
     openapiFields.add("updated_timestamp");
     openapiFields.add("initiator");
     openapiFields.add("transactions");
+    openapiFields.add("charge_merchant_fee");
+    openapiFields.add("merchant_fee_amount");
+    openapiFields.add("merchant_fee_token_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -700,6 +780,12 @@ public class PaymentRefundEventData {
             PaymentTransaction.validateJsonElement(jsonArraytransactions.get(i));
           };
         }
+      }
+      if ((jsonObj.get("merchant_fee_amount") != null && !jsonObj.get("merchant_fee_amount").isJsonNull()) && !jsonObj.get("merchant_fee_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_fee_amount").toString()));
+      }
+      if ((jsonObj.get("merchant_fee_token_id") != null && !jsonObj.get("merchant_fee_token_id").isJsonNull()) && !jsonObj.get("merchant_fee_token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_fee_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_fee_token_id").toString()));
       }
   }
 

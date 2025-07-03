@@ -84,6 +84,10 @@ public class CreatePaymentOrderRequest {
   @SerializedName(SERIALIZED_NAME_EXPIRED_IN)
   private Integer expiredIn;
 
+  public static final String SERIALIZED_NAME_USE_DEDICATED_ADDRESS = "use_dedicated_address";
+  @SerializedName(SERIALIZED_NAME_USE_DEDICATED_ADDRESS)
+  private Boolean useDedicatedAddress;
+
   public CreatePaymentOrderRequest() {
   }
 
@@ -226,7 +230,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The pay-in order will expire after approximately a certain number of seconds: - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
+   * The number of seconds after which the pay-in order will expire. After expiration: - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
    * @return expiredIn
   **/
   @javax.annotation.Nullable
@@ -236,6 +240,25 @@ public class CreatePaymentOrderRequest {
 
   public void setExpiredIn(Integer expiredIn) {
     this.expiredIn = expiredIn;
+  }
+
+
+  public CreatePaymentOrderRequest useDedicatedAddress(Boolean useDedicatedAddress) {
+    this.useDedicatedAddress = useDedicatedAddress;
+    return this;
+  }
+
+   /**
+   * Whether to allocate a dedicated address for this order.  - &#x60;true&#x60;: A dedicated address will be allocated for this order. - &#x60;false&#x60;: A shared address from the address pool will be used. 
+   * @return useDedicatedAddress
+  **/
+  @javax.annotation.Nullable
+  public Boolean getUseDedicatedAddress() {
+    return useDedicatedAddress;
+  }
+
+  public void setUseDedicatedAddress(Boolean useDedicatedAddress) {
+    this.useDedicatedAddress = useDedicatedAddress;
   }
 
   /**
@@ -300,13 +323,14 @@ public class CreatePaymentOrderRequest {
         Objects.equals(this.feeAmount, createPaymentOrderRequest.feeAmount) &&
         Objects.equals(this.merchantOrderCode, createPaymentOrderRequest.merchantOrderCode) &&
         Objects.equals(this.pspOrderCode, createPaymentOrderRequest.pspOrderCode) &&
-        Objects.equals(this.expiredIn, createPaymentOrderRequest.expiredIn)&&
+        Objects.equals(this.expiredIn, createPaymentOrderRequest.expiredIn) &&
+        Objects.equals(this.useDedicatedAddress, createPaymentOrderRequest.useDedicatedAddress)&&
         Objects.equals(this.additionalProperties, createPaymentOrderRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredIn, additionalProperties);
+    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredIn, useDedicatedAddress, additionalProperties);
   }
 
   @Override
@@ -321,6 +345,7 @@ public class CreatePaymentOrderRequest {
     sb.append("    merchantOrderCode: ").append(toIndentedString(merchantOrderCode)).append("\n");
     sb.append("    pspOrderCode: ").append(toIndentedString(pspOrderCode)).append("\n");
     sb.append("    expiredIn: ").append(toIndentedString(expiredIn)).append("\n");
+    sb.append("    useDedicatedAddress: ").append(toIndentedString(useDedicatedAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -352,6 +377,7 @@ public class CreatePaymentOrderRequest {
     openapiFields.add("merchant_order_code");
     openapiFields.add("psp_order_code");
     openapiFields.add("expired_in");
+    openapiFields.add("use_dedicated_address");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

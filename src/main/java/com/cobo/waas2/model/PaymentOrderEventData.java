@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.OrderStatus;
 import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.SettleStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,7 +58,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentOrderEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -76,6 +77,8 @@ public class PaymentOrderEventData {
     TOKENS("Tokens"),
     
     TOKENLISTING("TokenListing"),
+    
+    BALANCEUPDATEINFO("BalanceUpdateInfo"),
     
     PAYMENTORDER("PaymentOrder"),
     
@@ -202,6 +205,10 @@ public class PaymentOrderEventData {
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
   private List<PaymentTransaction> transactions = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SETTLEMENT_STATUS = "settlement_status";
+  @SerializedName(SERIALIZED_NAME_SETTLEMENT_STATUS)
+  private SettleStatus settlementStatus;
+
   public PaymentOrderEventData() {
   }
 
@@ -211,7 +218,7 @@ public class PaymentOrderEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -515,7 +522,7 @@ public class PaymentOrderEventData {
   }
 
    /**
-   * The created time of the order, represented as a UNIX timestamp in seconds.
+   * The creation time of the order, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -534,7 +541,7 @@ public class PaymentOrderEventData {
   }
 
    /**
-   * The updated time of the order, represented as a UNIX timestamp in seconds.
+   * The last update time of the order, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable
@@ -561,7 +568,7 @@ public class PaymentOrderEventData {
   }
 
    /**
-   * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the settlement process.
+   * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the pay-in process.
    * @return transactions
   **/
   @javax.annotation.Nullable
@@ -571,6 +578,25 @@ public class PaymentOrderEventData {
 
   public void setTransactions(List<PaymentTransaction> transactions) {
     this.transactions = transactions;
+  }
+
+
+  public PaymentOrderEventData settlementStatus(SettleStatus settlementStatus) {
+    this.settlementStatus = settlementStatus;
+    return this;
+  }
+
+   /**
+   * Get settlementStatus
+   * @return settlementStatus
+  **/
+  @javax.annotation.Nullable
+  public SettleStatus getSettlementStatus() {
+    return settlementStatus;
+  }
+
+  public void setSettlementStatus(SettleStatus settlementStatus) {
+    this.settlementStatus = settlementStatus;
   }
 
   /**
@@ -646,13 +672,14 @@ public class PaymentOrderEventData {
         Objects.equals(this.receivedTokenAmount, paymentOrderEventData.receivedTokenAmount) &&
         Objects.equals(this.createdTimestamp, paymentOrderEventData.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, paymentOrderEventData.updatedTimestamp) &&
-        Objects.equals(this.transactions, paymentOrderEventData.transactions)&&
+        Objects.equals(this.transactions, paymentOrderEventData.transactions) &&
+        Objects.equals(this.settlementStatus, paymentOrderEventData.settlementStatus)&&
         Objects.equals(this.additionalProperties, paymentOrderEventData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, createdTimestamp, updatedTimestamp, transactions, additionalProperties);
+    return Objects.hash(dataType, orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, createdTimestamp, updatedTimestamp, transactions, settlementStatus, additionalProperties);
   }
 
   @Override
@@ -678,6 +705,7 @@ public class PaymentOrderEventData {
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+    sb.append("    settlementStatus: ").append(toIndentedString(settlementStatus)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -720,6 +748,7 @@ public class PaymentOrderEventData {
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("transactions");
+    openapiFields.add("settlement_status");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -817,6 +846,10 @@ public class PaymentOrderEventData {
             PaymentTransaction.validateJsonElement(jsonArraytransactions.get(i));
           };
         }
+      }
+      // validate the optional field `settlement_status`
+      if (jsonObj.get("settlement_status") != null && !jsonObj.get("settlement_status").isJsonNull()) {
+        SettleStatus.validateJsonElement(jsonObj.get("settlement_status"));
       }
   }
 

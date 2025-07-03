@@ -73,7 +73,7 @@ public class GetExchangeRate200Response {
   }
 
    /**
-   * The token ID, which identifies the cryptocurrency.
+   * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;.
    * @return tokenId
   **/
   @javax.annotation.Nonnull

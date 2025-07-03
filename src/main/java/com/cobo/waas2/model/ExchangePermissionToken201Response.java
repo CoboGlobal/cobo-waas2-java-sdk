@@ -77,7 +77,7 @@ public class ExchangePermissionToken201Response {
   }
 
    /**
-   * The new Permission Access Token.
+   * The Access Token.
    * @return accessToken
   **/
   @javax.annotation.Nullable
@@ -96,7 +96,7 @@ public class ExchangePermissionToken201Response {
   }
 
    /**
-   * The type of the tokens, which is Bearer.
+   * The token type. This is always &#x60;Bearer&#x60;.
    * @return tokenType
   **/
   @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class ExchangePermissionToken201Response {
   }
 
    /**
-   * The time in seconds in which the new Permission Access Token expires.
+   * The time in seconds until the Access Token expires. This is always &#x60;3600&#x60;, indicating the token expires 1 hour after issuance.
    * @return expiresIn
   **/
   @javax.annotation.Nullable
@@ -134,7 +134,7 @@ public class ExchangePermissionToken201Response {
   }
 
    /**
-   * The Refresh Token, used to obtain another Org Access Token when the new Permission Access Token expires. The expiration time for Refresh Tokens is currently set to 7 days and is subject to change.
+   * The Refresh Token. Use it to obtain a new Access Token when the current one expires. The Refresh Token is valid for 7 days.
    * @return refreshToken
   **/
   @javax.annotation.Nullable

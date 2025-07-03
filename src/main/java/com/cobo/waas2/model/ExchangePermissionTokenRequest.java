@@ -65,7 +65,7 @@ public class ExchangePermissionTokenRequest {
   }
 
    /**
-   * The OAuth permission type. Set the value as &#x60;payment_orders_payin&#x60;.
+   * Set the value to &#x60;payment_orders_payin&#x60;.
    * @return permissionType
   **/
   @javax.annotation.Nonnull

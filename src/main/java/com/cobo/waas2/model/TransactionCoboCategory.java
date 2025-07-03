@@ -80,7 +80,15 @@ public enum TransactionCoboCategory {
   
   STAKINGSKYFARMSTAKE("StakingSkyfarmStake"),
   
-  STAKINGSKYFARMUNSTAKE("StakingSkyfarmUnstake");
+  STAKINGSKYFARMUNSTAKE("StakingSkyfarmUnstake"),
+  
+  SCREENAPPREFUND("ScreenAppRefund"),
+  
+  SCREENAPPISOLATE("ScreenAppIsolate"),
+  
+  COMPLIANCEREFUND("ComplianceRefund"),
+  
+  COMPLIANCEISOLATE("ComplianceIsolate");
 
   private String value;
 

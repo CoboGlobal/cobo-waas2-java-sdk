@@ -99,4 +99,12 @@ public class CreatePaymentOrderRequestTest {
         // TODO: test expiredIn
     }
 
+    /**
+     * Test the property 'useDedicatedAddress'
+     */
+    @Test
+    public void useDedicatedAddressTest() {
+        // TODO: test useDedicatedAddress
+    }
+
 }
