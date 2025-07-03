@@ -66,9 +66,15 @@ public enum WebhookEventType {
   
   WALLET_CHAIN_ENABLED("wallet.chain.enabled"),
   
+  WALLET_MPC_BALANCE_UPDATED("wallet.mpc.balance.updated"),
+  
+  WALLET_WEB3_BALANCE_UPDATED("wallet.web3.balance.updated"),
+  
   PAYMENT_TRANSACTION_CREATED("payment.transaction.created"),
   
   PAYMENT_TRANSACTION_LATE("payment.transaction.late"),
+  
+  PAYMENT_TRANSACTION_COMPLETED("payment.transaction.completed"),
   
   PAYMENT_TRANSACTION_HELD("payment.transaction.held"),
   

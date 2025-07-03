@@ -52,4 +52,12 @@ public class CreateMerchantRequestTest {
         // TODO: test walletId
     }
 
+    /**
+     * Test the property 'developerFeeRate'
+     */
+    @Test
+    public void developerFeeRateTest() {
+        // TODO: test developerFeeRate
+    }
+
 }

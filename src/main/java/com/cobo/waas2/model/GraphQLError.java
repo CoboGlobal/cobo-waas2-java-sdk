@@ -12,14 +12,16 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.TransactionDestinationType;
+import com.cobo.waas2.model.GraphQLErrorLocationsInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,59 +48,98 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the destination &#x60;BTC_EIP_191_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
+ * Details of an error in the GraphQL operation.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class TransactionMessageSignBTCEIP191Destination {
-  public static final String SERIALIZED_NAME_DESTINATION_TYPE = "destination_type";
-  @SerializedName(SERIALIZED_NAME_DESTINATION_TYPE)
-  private TransactionDestinationType destinationType;
-
+public class GraphQLError {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
-  public TransactionMessageSignBTCEIP191Destination() {
+  public static final String SERIALIZED_NAME_LOCATIONS = "locations";
+  @SerializedName(SERIALIZED_NAME_LOCATIONS)
+  private List<GraphQLErrorLocationsInner> locations = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_PATH = "path";
+  @SerializedName(SERIALIZED_NAME_PATH)
+  private List<String> path = new ArrayList<>();
+
+  public GraphQLError() {
   }
 
-  public TransactionMessageSignBTCEIP191Destination destinationType(TransactionDestinationType destinationType) {
-    this.destinationType = destinationType;
-    return this;
-  }
-
-   /**
-   * Get destinationType
-   * @return destinationType
-  **/
-  @javax.annotation.Nonnull
-  public TransactionDestinationType getDestinationType() {
-    return destinationType;
-  }
-
-  public void setDestinationType(TransactionDestinationType destinationType) {
-    this.destinationType = destinationType;
-  }
-
-
-  public TransactionMessageSignBTCEIP191Destination message(String message) {
+  public GraphQLError message(String message) {
     this.message = message;
     return this;
   }
 
    /**
-   * The raw data of the message to be signed, encoded in Base64 format.
+   * The error message.
    * @return message
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getMessage() {
     return message;
   }
 
   public void setMessage(String message) {
     this.message = message;
+  }
+
+
+  public GraphQLError locations(List<GraphQLErrorLocationsInner> locations) {
+    this.locations = locations;
+    return this;
+  }
+
+  public GraphQLError addLocationsItem(GraphQLErrorLocationsInner locationsItem) {
+    if (this.locations == null) {
+      this.locations = new ArrayList<>();
+    }
+    this.locations.add(locationsItem);
+    return this;
+  }
+
+   /**
+   * The locations in the query where the error occurred.
+   * @return locations
+  **/
+  @javax.annotation.Nullable
+  public List<GraphQLErrorLocationsInner> getLocations() {
+    return locations;
+  }
+
+  public void setLocations(List<GraphQLErrorLocationsInner> locations) {
+    this.locations = locations;
+  }
+
+
+  public GraphQLError path(List<String> path) {
+    this.path = path;
+    return this;
+  }
+
+  public GraphQLError addPathItem(String pathItem) {
+    if (this.path == null) {
+      this.path = new ArrayList<>();
+    }
+    this.path.add(pathItem);
+    return this;
+  }
+
+   /**
+   * The path in the response where the error occurred.
+   * @return path
+  **/
+  @javax.annotation.Nullable
+  public List<String> getPath() {
+    return path;
+  }
+
+  public void setPath(List<String> path) {
+    this.path = path;
   }
 
   /**
@@ -114,9 +155,9 @@ public class TransactionMessageSignBTCEIP191Destination {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TransactionMessageSignBTCEIP191Destination instance itself
+   * @return the GraphQLError instance itself
    */
-  public TransactionMessageSignBTCEIP191Destination putAdditionalProperty(String key, Object value) {
+  public GraphQLError putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -155,23 +196,25 @@ public class TransactionMessageSignBTCEIP191Destination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TransactionMessageSignBTCEIP191Destination transactionMessageSignBTCEIP191Destination = (TransactionMessageSignBTCEIP191Destination) o;
-    return Objects.equals(this.destinationType, transactionMessageSignBTCEIP191Destination.destinationType) &&
-        Objects.equals(this.message, transactionMessageSignBTCEIP191Destination.message)&&
-        Objects.equals(this.additionalProperties, transactionMessageSignBTCEIP191Destination.additionalProperties);
+    GraphQLError graphQLError = (GraphQLError) o;
+    return Objects.equals(this.message, graphQLError.message) &&
+        Objects.equals(this.locations, graphQLError.locations) &&
+        Objects.equals(this.path, graphQLError.path)&&
+        Objects.equals(this.additionalProperties, graphQLError.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, message, additionalProperties);
+    return Objects.hash(message, locations, path, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TransactionMessageSignBTCEIP191Destination {\n");
-    sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
+    sb.append("class GraphQLError {\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    locations: ").append(toIndentedString(locations)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -195,39 +238,47 @@ public class TransactionMessageSignBTCEIP191Destination {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("destination_type");
     openapiFields.add("message");
+    openapiFields.add("locations");
+    openapiFields.add("path");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("destination_type");
-    openapiRequiredFields.add("message");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TransactionMessageSignBTCEIP191Destination
+  * @throws IOException if the JSON Element is invalid with respect to GraphQLError
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TransactionMessageSignBTCEIP191Destination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionMessageSignBTCEIP191Destination is not found in the empty JSON string", TransactionMessageSignBTCEIP191Destination.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TransactionMessageSignBTCEIP191Destination.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!GraphQLError.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in GraphQLError is not found in the empty JSON string", GraphQLError.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `destination_type`
-      TransactionDestinationType.validateJsonElement(jsonObj.get("destination_type"));
-      if (!jsonObj.get("message").isJsonPrimitive()) {
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
+      if (jsonObj.get("locations") != null && !jsonObj.get("locations").isJsonNull()) {
+        JsonArray jsonArraylocations = jsonObj.getAsJsonArray("locations");
+        if (jsonArraylocations != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("locations").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `locations` to be an array in the JSON string but got `%s`", jsonObj.get("locations").toString()));
+          }
+
+          // validate the optional field `locations` (array)
+          for (int i = 0; i < jsonArraylocations.size(); i++) {
+            GraphQLErrorLocationsInner.validateJsonElement(jsonArraylocations.get(i));
+          };
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull() && !jsonObj.get("path").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `path` to be an array in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
   }
 
@@ -235,16 +286,16 @@ public class TransactionMessageSignBTCEIP191Destination {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TransactionMessageSignBTCEIP191Destination.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TransactionMessageSignBTCEIP191Destination' and its subtypes
+       if (!GraphQLError.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GraphQLError' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TransactionMessageSignBTCEIP191Destination> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionMessageSignBTCEIP191Destination.class));
+       final TypeAdapter<GraphQLError> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GraphQLError.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TransactionMessageSignBTCEIP191Destination>() {
+       return (TypeAdapter<T>) new TypeAdapter<GraphQLError>() {
            @Override
-           public void write(JsonWriter out, TransactionMessageSignBTCEIP191Destination value) throws IOException {
+           public void write(JsonWriter out, GraphQLError value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -274,12 +325,12 @@ public class TransactionMessageSignBTCEIP191Destination {
            }
 
            @Override
-           public TransactionMessageSignBTCEIP191Destination read(JsonReader in) throws IOException {
+           public GraphQLError read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TransactionMessageSignBTCEIP191Destination instance = thisAdapter.fromJsonTree(jsonObj);
+             GraphQLError instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -306,18 +357,18 @@ public class TransactionMessageSignBTCEIP191Destination {
   }
 
  /**
-  * Create an instance of TransactionMessageSignBTCEIP191Destination given an JSON string
+  * Create an instance of GraphQLError given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of TransactionMessageSignBTCEIP191Destination
-  * @throws IOException if the JSON string is invalid with respect to TransactionMessageSignBTCEIP191Destination
+  * @return An instance of GraphQLError
+  * @throws IOException if the JSON string is invalid with respect to GraphQLError
   */
-  public static TransactionMessageSignBTCEIP191Destination fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TransactionMessageSignBTCEIP191Destination.class);
+  public static GraphQLError fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GraphQLError.class);
   }
 
  /**
-  * Convert an instance of TransactionMessageSignBTCEIP191Destination to an JSON string
+  * Convert an instance of GraphQLError to an JSON string
   *
   * @return JSON string
   */

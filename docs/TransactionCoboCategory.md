@@ -59,5 +59,13 @@
 
 * `STAKINGSKYFARMUNSTAKE` (value: `"StakingSkyfarmUnstake"`)
 
+* `SCREENAPPREFUND` (value: `"ScreenAppRefund"`)
+
+* `SCREENAPPISOLATE` (value: `"ScreenAppIsolate"`)
+
+* `COMPLIANCEREFUND` (value: `"ComplianceRefund"`)
+
+* `COMPLIANCEISOLATE` (value: `"ComplianceIsolate"`)
+
 
 

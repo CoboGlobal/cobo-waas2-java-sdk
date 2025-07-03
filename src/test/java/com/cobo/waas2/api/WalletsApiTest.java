@@ -320,7 +320,7 @@ public class WalletsApiTest {
     /**
      * List enabled tokens
      *
-     * This operation retrieves all the tokens that can be used by your organization.   You can filter the result by wallet type, subtype, and chain IDs. If you do not specify a wallet type, this operation returns a combination of tokens that can be used by your organization for each wallet type. 
+     * This operation retrieves all the tokens that can be used by your organization.   You can filter the result by wallet type, subtype, chain IDs, and token IDs. If you do not specify a wallet type, this operation returns a combination of tokens that can be used by your organization for each wallet type. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -329,10 +329,11 @@ public class WalletsApiTest {
         WalletType walletType = null;
         WalletSubtype walletSubtype = null;
         String chainIds = null;
+        String tokenIds = null;
         Integer limit = null;
         String before = null;
         String after = null;
-        ListSupportedTokens200Response response = api.listEnabledTokens(walletType, walletSubtype, chainIds, limit, before, after);
+        ListSupportedTokens200Response response = api.listEnabledTokens(walletType, walletSubtype, chainIds, tokenIds, limit, before, after);
         // TODO: test validations
     }
 

@@ -15,7 +15,9 @@ import java.util.Objects;
 import com.cobo.waas2.model.FeeType;
 import com.cobo.waas2.model.TransactionEvmEip1559Fee;
 import com.cobo.waas2.model.TransactionEvmLegacyFee;
+import com.cobo.waas2.model.TransactionFILFee;
 import com.cobo.waas2.model.TransactionFixedFee;
+import com.cobo.waas2.model.TransactionSOLFee;
 import com.cobo.waas2.model.TransactionUtxoFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -79,6 +81,8 @@ public class TransactionFee extends AbstractOpenApiSchema {
             final TypeAdapter<TransactionEvmLegacyFee> adapterTransactionEvmLegacyFee = gson.getDelegateAdapter(this, TypeToken.get(TransactionEvmLegacyFee.class));
             final TypeAdapter<TransactionUtxoFee> adapterTransactionUtxoFee = gson.getDelegateAdapter(this, TypeToken.get(TransactionUtxoFee.class));
             final TypeAdapter<TransactionFixedFee> adapterTransactionFixedFee = gson.getDelegateAdapter(this, TypeToken.get(TransactionFixedFee.class));
+            final TypeAdapter<TransactionSOLFee> adapterTransactionSOLFee = gson.getDelegateAdapter(this, TypeToken.get(TransactionSOLFee.class));
+            final TypeAdapter<TransactionFILFee> adapterTransactionFILFee = gson.getDelegateAdapter(this, TypeToken.get(TransactionFILFee.class));
 
             return (TypeAdapter<T>) new TypeAdapter<TransactionFee>() {
                 @Override
@@ -112,7 +116,19 @@ public class TransactionFee extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFixedFee, TransactionUtxoFee");
+                    // check if the actual instance is of the type `TransactionSOLFee`
+                    if (value.getActualInstance() instanceof TransactionSOLFee) {
+                        JsonElement element = adapterTransactionSOLFee.toJsonTree((TransactionSOLFee)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `TransactionFILFee`
+                    if (value.getActualInstance() instanceof TransactionFILFee) {
+                        JsonElement element = adapterTransactionFILFee.toJsonTree((TransactionFILFee)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFILFee, TransactionFixedFee, TransactionSOLFee, TransactionUtxoFee");
                 }
 
                 @Override
@@ -137,8 +153,16 @@ public class TransactionFee extends AbstractOpenApiSchema {
                                 deserialized = adapterTransactionEvmLegacyFee.fromJsonTree(jsonObject);
                                 newTransactionFee.setActualInstance(deserialized);
                                 return newTransactionFee;
+                            case "FIL":
+                                deserialized = adapterTransactionFILFee.fromJsonTree(jsonObject);
+                                newTransactionFee.setActualInstance(deserialized);
+                                return newTransactionFee;
                             case "Fixed":
                                 deserialized = adapterTransactionFixedFee.fromJsonTree(jsonObject);
+                                newTransactionFee.setActualInstance(deserialized);
+                                return newTransactionFee;
+                            case "SOL":
+                                deserialized = adapterTransactionSOLFee.fromJsonTree(jsonObject);
                                 newTransactionFee.setActualInstance(deserialized);
                                 return newTransactionFee;
                             case "UTXO":
@@ -153,8 +177,16 @@ public class TransactionFee extends AbstractOpenApiSchema {
                                 deserialized = adapterTransactionEvmLegacyFee.fromJsonTree(jsonObject);
                                 newTransactionFee.setActualInstance(deserialized);
                                 return newTransactionFee;
+                            case "TransactionFILFee":
+                                deserialized = adapterTransactionFILFee.fromJsonTree(jsonObject);
+                                newTransactionFee.setActualInstance(deserialized);
+                                return newTransactionFee;
                             case "TransactionFixedFee":
                                 deserialized = adapterTransactionFixedFee.fromJsonTree(jsonObject);
+                                newTransactionFee.setActualInstance(deserialized);
+                                return newTransactionFee;
+                            case "TransactionSOLFee":
+                                deserialized = adapterTransactionSOLFee.fromJsonTree(jsonObject);
                                 newTransactionFee.setActualInstance(deserialized);
                                 return newTransactionFee;
                             case "TransactionUtxoFee":
@@ -162,7 +194,7 @@ public class TransactionFee extends AbstractOpenApiSchema {
                                 newTransactionFee.setActualInstance(deserialized);
                                 return newTransactionFee;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionFee. Possible values: EVM_EIP_1559 EVM_Legacy Fixed UTXO TransactionEvmEip1559Fee TransactionEvmLegacyFee TransactionFixedFee TransactionUtxoFee", jsonObject.get("fee_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionFee. Possible values: EVM_EIP_1559 EVM_Legacy FIL Fixed SOL UTXO TransactionEvmEip1559Fee TransactionEvmLegacyFee TransactionFILFee TransactionFixedFee TransactionSOLFee TransactionUtxoFee", jsonObject.get("fee_type").getAsString()));
                         }
                     }
 
@@ -218,6 +250,30 @@ public class TransactionFee extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for TransactionFixedFee failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'TransactionFixedFee'", e);
                     }
+                    // deserialize TransactionSOLFee
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        TransactionSOLFee.validateJsonElement(jsonElement);
+                        actualAdapter = adapterTransactionSOLFee;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'TransactionSOLFee'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for TransactionSOLFee failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'TransactionSOLFee'", e);
+                    }
+                    // deserialize TransactionFILFee
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        TransactionFILFee.validateJsonElement(jsonElement);
+                        actualAdapter = adapterTransactionFILFee;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'TransactionFILFee'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for TransactionFILFee failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'TransactionFILFee'", e);
+                    }
 
                     if (match == 1) {
                         TransactionFee ret = new TransactionFee();
@@ -248,7 +304,17 @@ public class TransactionFee extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public TransactionFee(TransactionFILFee o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public TransactionFee(TransactionFixedFee o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public TransactionFee(TransactionSOLFee o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -263,6 +329,8 @@ public class TransactionFee extends AbstractOpenApiSchema {
         schemas.put("TransactionEvmLegacyFee", TransactionEvmLegacyFee.class);
         schemas.put("TransactionUtxoFee", TransactionUtxoFee.class);
         schemas.put("TransactionFixedFee", TransactionFixedFee.class);
+        schemas.put("TransactionSOLFee", TransactionSOLFee.class);
+        schemas.put("TransactionFILFee", TransactionFILFee.class);
     }
 
     @Override
@@ -273,7 +341,7 @@ public class TransactionFee extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFixedFee, TransactionUtxoFee
+     * TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFILFee, TransactionFixedFee, TransactionSOLFee, TransactionUtxoFee
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -299,14 +367,24 @@ public class TransactionFee extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFixedFee, TransactionUtxoFee");
+        if (instance instanceof TransactionSOLFee) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof TransactionFILFee) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFILFee, TransactionFixedFee, TransactionSOLFee, TransactionUtxoFee");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFixedFee, TransactionUtxoFee
+     * TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFILFee, TransactionFixedFee, TransactionSOLFee, TransactionUtxoFee
      *
-     * @return The actual instance (TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFixedFee, TransactionUtxoFee)
+     * @return The actual instance (TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFILFee, TransactionFixedFee, TransactionSOLFee, TransactionUtxoFee)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -354,6 +432,26 @@ public class TransactionFee extends AbstractOpenApiSchema {
     public TransactionFixedFee getTransactionFixedFee() throws ClassCastException {
         return (TransactionFixedFee)super.getActualInstance();
     }
+    /**
+     * Get the actual instance of `TransactionSOLFee`. If the actual instance is not `TransactionSOLFee`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TransactionSOLFee`
+     * @throws ClassCastException if the instance is not `TransactionSOLFee`
+     */
+    public TransactionSOLFee getTransactionSOLFee() throws ClassCastException {
+        return (TransactionSOLFee)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `TransactionFILFee`. If the actual instance is not `TransactionFILFee`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TransactionFILFee`
+     * @throws ClassCastException if the instance is not `TransactionFILFee`
+     */
+    public TransactionFILFee getTransactionFILFee() throws ClassCastException {
+        return (TransactionFILFee)super.getActualInstance();
+    }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
@@ -397,8 +495,24 @@ public class TransactionFee extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for TransactionFixedFee failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with TransactionSOLFee
+        try {
+            TransactionSOLFee.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for TransactionSOLFee failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with TransactionFILFee
+        try {
+            TransactionFILFee.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for TransactionFILFee failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for TransactionFee with oneOf schemas: TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFixedFee, TransactionUtxoFee. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for TransactionFee with oneOf schemas: TransactionEvmEip1559Fee, TransactionEvmLegacyFee, TransactionFILFee, TransactionFixedFee, TransactionSOLFee, TransactionUtxoFee. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

@@ -13,6 +13,8 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.AddressesEventData;
 import com.cobo.waas2.model.AddressesEventDataAllOfAddresses;
+import com.cobo.waas2.model.Balance;
+import com.cobo.waas2.model.BalanceUpdateInfoEventData;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.ChainsEventData;
 import com.cobo.waas2.model.MPCVaultEventData;
@@ -24,6 +26,7 @@ import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.RefundType;
 import com.cobo.waas2.model.RootPubkey;
 import com.cobo.waas2.model.SettleRequestStatus;
+import com.cobo.waas2.model.SettleStatus;
 import com.cobo.waas2.model.SettlementDetail;
 import com.cobo.waas2.model.SourceGroup;
 import com.cobo.waas2.model.TSSRequestWebhookEventData;
@@ -465,6 +468,30 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'address'
+     */
+    @Test
+    public void addressTest() {
+        // TODO: test address
+    }
+
+    /**
+     * Test the property 'walletUuid'
+     */
+    @Test
+    public void walletUuidTest() {
+        // TODO: test walletUuid
+    }
+
+    /**
+     * Test the property 'balance'
+     */
+    @Test
+    public void balanceTest() {
+        // TODO: test balance
+    }
+
+    /**
      * Test the property 'orderId'
      */
     @Test
@@ -569,6 +596,14 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'settlementStatus'
+     */
+    @Test
+    public void settlementStatusTest() {
+        // TODO: test settlementStatus
+    }
+
+    /**
      * Test the property 'refundId'
      */
     @Test
@@ -598,6 +633,30 @@ public class WebhookEventDataTest {
     @Test
     public void refundTypeTest() {
         // TODO: test refundType
+    }
+
+    /**
+     * Test the property 'chargeMerchantFee'
+     */
+    @Test
+    public void chargeMerchantFeeTest() {
+        // TODO: test chargeMerchantFee
+    }
+
+    /**
+     * Test the property 'merchantFeeAmount'
+     */
+    @Test
+    public void merchantFeeAmountTest() {
+        // TODO: test merchantFeeAmount
+    }
+
+    /**
+     * Test the property 'merchantFeeTokenId'
+     */
+    @Test
+    public void merchantFeeTokenIdTest() {
+        // TODO: test merchantFeeTokenId
     }
 
     /**

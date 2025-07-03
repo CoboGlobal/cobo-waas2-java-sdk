@@ -140,7 +140,7 @@ public class CreateRefundRequest {
   }
 
    /**
-   * The amount to refund in cryptocurrency.
+   * The amount to refund in cryptocurrency. The amount must be a positive integer with up to two decimal places.
    * @return payableAmount
   **/
   @javax.annotation.Nonnull
@@ -162,7 +162,7 @@ public class CreateRefundRequest {
    * The address where the refunded cryptocurrency will be sent.
    * @return toAddress
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getToAddress() {
     return toAddress;
   }
@@ -235,7 +235,7 @@ public class CreateRefundRequest {
   }
 
    /**
-   * Indicates whether the merchant should bear the transaction fee for the refund.  If true, the fee will be deducted from merchant&#39;s account balance. 
+   * Whether to charge developer fee to the merchant.     - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance    - &#x60;false&#x60;: The merchant is not charged any developer fee  When enabled, ensure both &#x60;merchant_fee_amount&#x60; and &#x60;merchant_fee_token_id&#x60; are properly specified. 
    * @return chargeMerchantFee
   **/
   @javax.annotation.Nullable
@@ -254,7 +254,7 @@ public class CreateRefundRequest {
   }
 
    /**
-   * The amount of the transaction fee that the merchant will bear for the refund.  This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true. 
+   * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. Required when &#x60;charge_merchant_fee&#x60; is &#x60;true&#x60;. Must be:   - A positive integer with up to two decimal places.   - Less than the refund amount 
    * @return merchantFeeAmount
   **/
   @javax.annotation.Nullable
@@ -273,7 +273,7 @@ public class CreateRefundRequest {
   }
 
    /**
-   * The ID of the cryptocurrency used for the transaction fee.  This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true. 
+   * The ID of the cryptocurrency used for the developer fee. It must be the same as &#x60;token_id&#x60;. Supported values:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return merchantFeeTokenId
   **/
   @javax.annotation.Nullable
@@ -410,7 +410,6 @@ public class CreateRefundRequest {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("request_id");
     openapiRequiredFields.add("payable_amount");
-    openapiRequiredFields.add("to_address");
     openapiRequiredFields.add("token_id");
     openapiRequiredFields.add("refund_type");
   }
@@ -444,7 +443,7 @@ public class CreateRefundRequest {
       if (!jsonObj.get("payable_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payable_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payable_amount").toString()));
       }
-      if (!jsonObj.get("to_address").isJsonPrimitive()) {
+      if ((jsonObj.get("to_address") != null && !jsonObj.get("to_address").isJsonNull()) && !jsonObj.get("to_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `to_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to_address").toString()));
       }
       if (!jsonObj.get("token_id").isJsonPrimitive()) {

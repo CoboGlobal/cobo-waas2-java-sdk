@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.OrderStatus;
 import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.SettleStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -181,6 +182,14 @@ public class OrderTest {
     @Test
     public void transactionsTest() {
         // TODO: test transactions
+    }
+
+    /**
+     * Test the property 'settlementStatus'
+     */
+    @Test
+    public void settlementStatusTest() {
+        // TODO: test settlementStatus
     }
 
 }

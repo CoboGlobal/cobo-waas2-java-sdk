@@ -13,5 +13,9 @@
 
 * `UTXO` (value: `"UTXO"`)
 
+* `SOL` (value: `"SOL"`)
+
+* `FIL` (value: `"FIL"`)
+
 
 
