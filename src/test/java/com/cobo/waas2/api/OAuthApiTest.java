@@ -44,9 +44,9 @@ public class OAuthApiTest {
     private final OAuthApi api = new OAuthApi();
 
     /**
-     * Get Access Token
+     * Exchange Permission Access Token by API Key
      *
-     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -74,9 +74,9 @@ public class OAuthApiTest {
     }
 
     /**
-     * Refresh Access Token
+     * Refresh Permission Access Token by Permission Refresh Token
      *
-     * This operation refreshes the Access Token and Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call this operation to get a new Access Token and Refresh Token. 
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
      *
      * @throws ApiException if the Api call fails
      */

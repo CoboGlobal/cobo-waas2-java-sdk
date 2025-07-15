@@ -254,7 +254,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The creation time of the settlement, represented as a UNIX timestamp in seconds.
+   * The created time of the settlement, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -273,7 +273,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The last update time of the settlement, represented as a UNIX timestamp in seconds.
+   * The updated time of the settlement, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable

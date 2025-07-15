@@ -230,7 +230,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The number of seconds after which the pay-in order will expire. After expiration: - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
+   * The pay-in order will expire after approximately a certain number of seconds: - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
    * @return expiredIn
   **/
   @javax.annotation.Nullable
@@ -249,7 +249,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * Whether to allocate a dedicated address for this order.  - &#x60;true&#x60;: A dedicated address will be allocated for this order. - &#x60;false&#x60;: A shared address from the address pool will be used. 
+   * Indicates whether to allocate a dedicated address for this order.  If false, a shared address from the address pool will be used. 
    * @return useDedicatedAddress
   **/
   @javax.annotation.Nullable

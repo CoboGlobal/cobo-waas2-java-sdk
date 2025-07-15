@@ -16,6 +16,7 @@ The transaction fee actually charged by the chain that uses the FIL fee model.  
 |**tokenId** | **String** | The token ID of the transaction fee. |  [optional] |
 |**feeUsed** | **String** | The transaction fee. |  [optional] |
 |**estimatedFeeUsed** | **String** | The estimated transaction fee. |  [optional] |
+|**gasUsed** | **String** | The gas units used in the transaction. |  [optional] |
 
 
 

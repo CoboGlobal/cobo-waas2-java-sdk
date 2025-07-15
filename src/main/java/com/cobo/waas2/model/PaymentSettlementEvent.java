@@ -57,7 +57,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentSettlementEvent {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -77,13 +77,15 @@ public class PaymentSettlementEvent {
     
     TOKENLISTING("TokenListing"),
     
-    BALANCEUPDATEINFO("BalanceUpdateInfo"),
-    
     PAYMENTORDER("PaymentOrder"),
     
     PAYMENTREFUND("PaymentRefund"),
     
-    PAYMENTSETTLEMENT("PaymentSettlement");
+    PAYMENTSETTLEMENT("PaymentSettlement"),
+    
+    BALANCEUPDATEINFO("BalanceUpdateInfo"),
+    
+    SUSPENDEDTOKEN("SuspendedToken");
 
     private String value;
 
@@ -169,7 +171,7 @@ public class PaymentSettlementEvent {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -272,7 +274,7 @@ public class PaymentSettlementEvent {
   }
 
    /**
-   * The creation time of the settlement request, represented as a UNIX timestamp in seconds.
+   * The created time of the settlement request, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -291,7 +293,7 @@ public class PaymentSettlementEvent {
   }
 
    /**
-   * The last update time of the settlement request, represented as a UNIX timestamp in seconds.
+   * The updated time of the settlement request, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable
@@ -310,7 +312,7 @@ public class PaymentSettlementEvent {
   }
 
    /**
-   *  The initiator of this settlement request. Can return either an API key or the Payment Management App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payment API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payment Management App using the App ID. 
+   * The initiator of this settlement request, usually the user&#39;s API key.
    * @return initiator
   **/
   @javax.annotation.Nullable

@@ -173,7 +173,7 @@ public class EstimateContractCallFeeParams {
    * Get destination
    * @return destination
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public ContractCallDestination getDestination() {
     return destination;
   }
@@ -337,7 +337,6 @@ public class EstimateContractCallFeeParams {
     openapiRequiredFields.add("request_type");
     openapiRequiredFields.add("chain_id");
     openapiRequiredFields.add("source");
-    openapiRequiredFields.add("destination");
   }
 
  /**
@@ -370,8 +369,10 @@ public class EstimateContractCallFeeParams {
       }
       // validate the required field `source`
       ContractCallSource.validateJsonElement(jsonObj.get("source"));
-      // validate the required field `destination`
-      ContractCallDestination.validateJsonElement(jsonObj.get("destination"));
+      // validate the optional field `destination`
+      if (jsonObj.get("destination") != null && !jsonObj.get("destination").isJsonNull()) {
+        ContractCallDestination.validateJsonElement(jsonObj.get("destination"));
+      }
       // validate the optional field `fee_type`
       if (jsonObj.get("fee_type") != null && !jsonObj.get("fee_type").isJsonNull()) {
         FeeType.validateJsonElement(jsonObj.get("fee_type"));

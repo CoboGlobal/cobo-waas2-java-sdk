@@ -177,7 +177,7 @@ public class Settlement {
   }
 
    /**
-   * The creation time of the settlement request, represented as a UNIX timestamp in seconds.
+   * The created time of the settlement request, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -196,7 +196,7 @@ public class Settlement {
   }
 
    /**
-   * The last update time of the settlement request, represented as a UNIX timestamp in seconds.
+   * The updated time of the settlement request, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable
@@ -215,7 +215,7 @@ public class Settlement {
   }
 
    /**
-   *  The initiator of this settlement request. Can return either an API key or the Payment Management App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payment API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payment Management App using the App ID. 
+   * The initiator of this settlement request, usually the user&#39;s API key.
    * @return initiator
   **/
   @javax.annotation.Nullable
