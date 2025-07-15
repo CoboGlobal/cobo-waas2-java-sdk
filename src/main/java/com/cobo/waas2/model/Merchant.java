@@ -143,7 +143,7 @@ public class Merchant {
   }
 
    /**
-   * The developer fee rate applied to this merchant. Expressed as a string in decimal format where \&quot;0.1\&quot; represents 10%. This fee is deducted from the payment amount and only applies to top-up transactions.
+   * Developer fee rate for this token. For example, 0.01 represents a 1% fee. 
    * @return developerFeeRate
   **/
   @javax.annotation.Nullable
@@ -162,7 +162,7 @@ public class Merchant {
   }
 
    /**
-   * The creation time of the merchant, represented as a UNIX timestamp in seconds.
+   * The created time of the merchant, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -181,7 +181,7 @@ public class Merchant {
   }
 
    /**
-   * The last update time of the merchant, represented as a UNIX timestamp in seconds.
+   * The updated time of the merchant, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable

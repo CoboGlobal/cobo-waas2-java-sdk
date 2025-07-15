@@ -18,6 +18,7 @@ import com.cobo.waas2.model.SwapActivityStatus;
 import com.cobo.waas2.model.SwapActivityTimeline;
 import com.cobo.waas2.model.SwapType;
 import com.cobo.waas2.model.TransactionInitiatorType;
+import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -125,6 +126,14 @@ public class SwapActivityDetail {
   public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
   private Integer updatedTimestamp;
+
+  public static final String SERIALIZED_NAME_NETWORK_FEE = "network_fee";
+  @SerializedName(SERIALIZED_NAME_NETWORK_FEE)
+  private TransactionRequestFee networkFee;
+
+  public static final String SERIALIZED_NAME_DESTINATION_ADDRESS = "destination_address";
+  @SerializedName(SERIALIZED_NAME_DESTINATION_ADDRESS)
+  private String destinationAddress;
 
   public static final String SERIALIZED_NAME_TIMELINE = "timeline";
   @SerializedName(SERIALIZED_NAME_TIMELINE)
@@ -445,6 +454,44 @@ public class SwapActivityDetail {
   }
 
 
+  public SwapActivityDetail networkFee(TransactionRequestFee networkFee) {
+    this.networkFee = networkFee;
+    return this;
+  }
+
+   /**
+   * Get networkFee
+   * @return networkFee
+  **/
+  @javax.annotation.Nullable
+  public TransactionRequestFee getNetworkFee() {
+    return networkFee;
+  }
+
+  public void setNetworkFee(TransactionRequestFee networkFee) {
+    this.networkFee = networkFee;
+  }
+
+
+  public SwapActivityDetail destinationAddress(String destinationAddress) {
+    this.destinationAddress = destinationAddress;
+    return this;
+  }
+
+   /**
+   * the destination address of web3/mpc wallets.
+   * @return destinationAddress
+  **/
+  @javax.annotation.Nullable
+  public String getDestinationAddress() {
+    return destinationAddress;
+  }
+
+  public void setDestinationAddress(String destinationAddress) {
+    this.destinationAddress = destinationAddress;
+  }
+
+
   public SwapActivityDetail timeline(List<SwapActivityTimeline> timeline) {
     this.timeline = timeline;
     return this;
@@ -596,6 +643,8 @@ public class SwapActivityDetail {
         Objects.equals(this.description, swapActivityDetail.description) &&
         Objects.equals(this.createdTimestamp, swapActivityDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, swapActivityDetail.updatedTimestamp) &&
+        Objects.equals(this.networkFee, swapActivityDetail.networkFee) &&
+        Objects.equals(this.destinationAddress, swapActivityDetail.destinationAddress) &&
         Objects.equals(this.timeline, swapActivityDetail.timeline) &&
         Objects.equals(this.approvers, swapActivityDetail.approvers) &&
         Objects.equals(this.signers, swapActivityDetail.signers)&&
@@ -608,7 +657,7 @@ public class SwapActivityDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activityId, swapType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeTokenId, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, timeline, approvers, signers, additionalProperties);
+    return Objects.hash(activityId, swapType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeTokenId, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, networkFee, destinationAddress, timeline, approvers, signers, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -638,6 +687,8 @@ public class SwapActivityDetail {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
+    sb.append("    networkFee: ").append(toIndentedString(networkFee)).append("\n");
+    sb.append("    destinationAddress: ").append(toIndentedString(destinationAddress)).append("\n");
     sb.append("    timeline: ").append(toIndentedString(timeline)).append("\n");
     sb.append("    approvers: ").append(toIndentedString(approvers)).append("\n");
     sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
@@ -680,6 +731,8 @@ public class SwapActivityDetail {
     openapiFields.add("description");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
+    openapiFields.add("network_fee");
+    openapiFields.add("destination_address");
     openapiFields.add("timeline");
     openapiFields.add("approvers");
     openapiFields.add("signers");
@@ -745,6 +798,13 @@ public class SwapActivityDetail {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // validate the optional field `network_fee`
+      if (jsonObj.get("network_fee") != null && !jsonObj.get("network_fee").isJsonNull()) {
+        TransactionRequestFee.validateJsonElement(jsonObj.get("network_fee"));
+      }
+      if ((jsonObj.get("destination_address") != null && !jsonObj.get("destination_address").isJsonNull()) && !jsonObj.get("destination_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `destination_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("destination_address").toString()));
       }
       if (jsonObj.get("timeline") != null && !jsonObj.get("timeline").isJsonNull()) {
         JsonArray jsonArraytimeline = jsonObj.getAsJsonArray("timeline");

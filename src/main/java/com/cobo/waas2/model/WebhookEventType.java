@@ -70,6 +70,14 @@ public enum WebhookEventType {
   
   WALLET_WEB3_BALANCE_UPDATED("wallet.web3.balance.updated"),
   
+  WALLET_TOKEN_DISABLED("wallet.token.disabled"),
+  
+  WALLET_CHAIN_DISABLED("wallet.chain.disabled"),
+  
+  TOKEN_SUSPENDED_DEPOSIT("token.suspended.deposit"),
+  
+  TOKEN_SUSPENDED_WITHDRAW("token.suspended.withdraw"),
+  
   PAYMENT_TRANSACTION_CREATED("payment.transaction.created"),
   
   PAYMENT_TRANSACTION_LATE("payment.transaction.late"),

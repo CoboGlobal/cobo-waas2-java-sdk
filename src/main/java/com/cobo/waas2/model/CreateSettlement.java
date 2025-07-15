@@ -92,7 +92,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The merchant ID. Specify this field when &#x60;settlement_type&#x60; is set to &#x60;Merchant&#x60;.
+   * Only used in Merchant settlement type. The merchant ID. 
    * @return merchantId
   **/
   @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The ID of the cryptocurrency you want to settle. Specify this field when &#x60;payout_channel&#x60; is set to &#x60;Crypto&#x60;. Supported values:  - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60; - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
+   * Only used in Crypto payout channel. The ID of the cryptocurrency you want to settle. Supported values:  - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60; - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -130,7 +130,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The fiat currency for settling the cryptocurrency. Currently, only &#x60;USD&#x60; is supported. Specify this field when &#x60;payout_channel&#x60; is set to &#x60;OffRamp&#x60;.
+   * Only used in OffRamp payout channel. The fiat currency for settling the cryptocurrency. Currently, only &#x60;USD&#x60; is supported. 
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -149,7 +149,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The settlement amount. - If &#x60;payout_channel&#x60; is set to &#x60;Crypto&#x60;, this represents the settlement amount in the specified cryptocurrency. - If &#x60;payout_channel&#x60; is set to &#x60;OffRamp&#x60;, this represents the settlement amount in the specified fiat currency. 
+   * The settlement amount. - In Crypto payout channel, this represents the settlement amount in the specified cryptocurrency. - In OffRamp payout channel, this represents the settlement amount in the specified fiat currency. 
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -168,7 +168,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The ID of the bank account where the settled funds will be deposited. This field is only applicable when &#x60;payout_channel&#x60; is set to &#x60;OffRamp&#x60;. Call [List all bank accounts](/v2/api-references/payment/list-all-bank-accounts) to retrieve the IDs of registered bank accounts. 
+   * ｜ Only used in OffRamp payout channel. The ID of the bank account where the settled funds will be deposited.
    * @return bankAccountId
   **/
   @javax.annotation.Nullable
@@ -187,7 +187,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The ID of the crypto address used for crypto withdrawal. Specify this field when &#x60;payout_channel&#x60; is set to &#x60;Crypto&#x60;.  Call [List all crypto addresses](/v2/api-references/payments/list-all-crypto-addresses) to retrieve registered crypto addresses. 
+   * Only used in Crypto payout channel. The ID of the pre-approved crypto address used for Crypto settlements. - The value must refer to a valid address that has been pre-configured and approved for the given token. 
    * @return cryptoAddressId
   **/
   @javax.annotation.Nullable
@@ -214,7 +214,7 @@ public class CreateSettlement {
   }
 
    /**
-   * A list of order IDs to be included in this settlement. If provided, the settlement request will settle the merchant funds received from the specified orders, and the &#x60;amount&#x60; field will be ignored.   This field is only applicable when &#x60;settlement_type&#x60; is set to &#x60;Merchant&#x60;.  
+   * A list of unique order IDs to be included in this settlement.  - This field is only applicable when &#x60;settlement_type&#x60; is set to &#x60;Merchant&#x60;. - If provided, the settlement will only apply to the specified orders. - The settlement &#x60;amount&#x60; must exactly match the total eligible amount from these orders. - This ensures consistency between the declared amount and the actual order-level data being settled. 
    * @return orderIds
   **/
   @javax.annotation.Nullable

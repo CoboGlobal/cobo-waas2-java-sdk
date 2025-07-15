@@ -29,6 +29,8 @@ import com.cobo.waas2.model.SettleRequestStatus;
 import com.cobo.waas2.model.SettleStatus;
 import com.cobo.waas2.model.SettlementDetail;
 import com.cobo.waas2.model.SourceGroup;
+import com.cobo.waas2.model.SuspendedTokenEventData;
+import com.cobo.waas2.model.SuspendedTokenOperationType;
 import com.cobo.waas2.model.TSSRequestWebhookEventData;
 import com.cobo.waas2.model.TokenInfo;
 import com.cobo.waas2.model.TokenListingEventData;
@@ -489,6 +491,22 @@ public class WebhookEventDataTest {
     @Test
     public void balanceTest() {
         // TODO: test balance
+    }
+
+    /**
+     * Test the property 'tokenIds'
+     */
+    @Test
+    public void tokenIdsTest() {
+        // TODO: test tokenIds
+    }
+
+    /**
+     * Test the property 'operationType'
+     */
+    @Test
+    public void operationTypeTest() {
+        // TODO: test operationType
     }
 
     /**

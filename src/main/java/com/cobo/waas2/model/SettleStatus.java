@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The current status of settlement. - &#x60;Pending&#x60;: The settlement has been created and is awaiting processing. - &#x60;Processing&#x60;: The settlement is being processed. - &#x60;Completed&#x60;: The funds have been successfully deposited into the bank account. - &#x60;PartiallyCompleted&#x60;: Some settlement transactions have been completed successfully, while others have failed. - &#x60;Failed&#x60;: The settlement could not be completed due to an error. 
+ * The current status of the settlement: - &#x60;Pending&#x60;: The settlement has been created and is awaiting processing. - &#x60;Processing&#x60;: The settlement is being processed. - &#x60;Completed&#x60;: The funds have been successfully deposited into the bank account. - &#x60;PartiallyCompleted&#x60;: Some settlement transactions have been completed successfully, while others have failed. - &#x60;Failed&#x60;: The settlement could not be completed due to an error. 
  */
 @JsonAdapter(SettleStatus.Adapter.class)
 public enum SettleStatus {

@@ -58,7 +58,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentRefundEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -78,13 +78,15 @@ public class PaymentRefundEventData {
     
     TOKENLISTING("TokenListing"),
     
-    BALANCEUPDATEINFO("BalanceUpdateInfo"),
-    
     PAYMENTORDER("PaymentOrder"),
     
     PAYMENTREFUND("PaymentRefund"),
     
-    PAYMENTSETTLEMENT("PaymentSettlement");
+    PAYMENTSETTLEMENT("PaymentSettlement"),
+    
+    BALANCEUPDATEINFO("BalanceUpdateInfo"),
+    
+    SUSPENDEDTOKEN("SuspendedToken");
 
     private String value;
 
@@ -210,7 +212,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -267,7 +269,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   * The ID of the pay-in order corresponding to this refund.
+   * The order ID corresponding to this refund.
    * @return orderId
   **/
   @javax.annotation.Nullable
@@ -419,7 +421,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   * The creation time of the refund order, represented as a UNIX timestamp in seconds.
+   * The created time of the refund order, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -438,7 +440,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   * The last update time of the refund order, represented as a UNIX timestamp in seconds.
+   * The updated time of the refund order, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable
@@ -457,7 +459,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   *  The initiator of this settlement request. Can return either an API key or the Payment Management App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payment API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payment Management App using the App ID. 
+   * The initiator of this refund order, usually the user&#39;s API key.
    * @return initiator
   **/
   @javax.annotation.Nullable
@@ -503,7 +505,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   * Whether to charge developer fee to the merchant for the refund.    - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance    - &#x60;false&#x60;: The merchant is not charged any developer fee. 
+   * Whether to charge developer fee to the merchant.  - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance - &#x60;false&#x60;: The merchant is not charged any developer fee. 
    * @return chargeMerchantFee
   **/
   @javax.annotation.Nullable
@@ -522,7 +524,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to &#x60;true&#x60;.
+   * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;.
    * @return merchantFeeAmount
   **/
   @javax.annotation.Nullable
@@ -541,7 +543,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   * The ID of the cryptocurrency used for the developer fee. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true.
+   * The ID of the cryptocurrency used for the developer fee.
    * @return merchantFeeTokenId
   **/
   @javax.annotation.Nullable

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**approvalId** | **UUID** | The system-generated unique ID of the approval request. |  |
+|**approvalId** | **UUID** |  |  |
 |**status** | **ApprovalStatus** |  |  [optional] |
 
 

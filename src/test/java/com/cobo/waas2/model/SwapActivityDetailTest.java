@@ -17,6 +17,7 @@ import com.cobo.waas2.model.SwapActivityStatus;
 import com.cobo.waas2.model.SwapActivityTimeline;
 import com.cobo.waas2.model.SwapType;
 import com.cobo.waas2.model.TransactionInitiatorType;
+import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -171,6 +172,22 @@ public class SwapActivityDetailTest {
     @Test
     public void updatedTimestampTest() {
         // TODO: test updatedTimestamp
+    }
+
+    /**
+     * Test the property 'networkFee'
+     */
+    @Test
+    public void networkFeeTest() {
+        // TODO: test networkFee
+    }
+
+    /**
+     * Test the property 'destinationAddress'
+     */
+    @Test
+    public void destinationAddressTest() {
+        // TODO: test destinationAddress
     }
 
     /**

@@ -737,7 +737,7 @@ public class Transaction {
   }
 
    /**
-   * A list of JSON-encoded strings containing structured, business-specific extra information for the transaction. Each item corresponds to a specific data type, indicated by the &#x60;extra_type&#x60; field in the JSON object (for example, \&quot;BabylonBusinessInfo\&quot;, \&quot;BtcAddressInfo\&quot;). 
+   * The transaction extra information.
    * @return extra
   **/
   @javax.annotation.Nullable

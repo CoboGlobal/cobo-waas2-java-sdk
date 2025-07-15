@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. |  |
+|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data. |  |
 |**transactionId** | **UUID** | The transaction ID. |  |
 |**coboId** | **String** | The Cobo ID, which can be used to track a transaction. |  [optional] |
 |**requestId** | **String** | The request ID provided by you when creating the settlement request. |  |
@@ -23,7 +23,7 @@
 |**destination** | [**TransactionDestination**](TransactionDestination.md) |  |  |
 |**result** | [**TransactionResult**](TransactionResult.md) |  |  [optional] |
 |**fee** | [**TransactionFee**](TransactionFee.md) |  |  [optional] |
-|**initiator** | **String** |  The initiator of this settlement request. Can return either an API key or the Payment Management App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payment API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payment Management App using the App ID.  |  [optional] |
+|**initiator** | **String** | The initiator of this settlement request, usually the user&#39;s API key. |  [optional] |
 |**initiatorType** | **TransactionInitiatorType** |  |  |
 |**confirmedNum** | **Integer** | The number of confirmations this transaction has received. |  [optional] |
 |**confirmingThreshold** | **Integer** | The minimum number of confirmations required to deem a transaction secure. The common threshold is 6 for a Bitcoin transaction. |  [optional] |
@@ -35,10 +35,10 @@
 |**description** | **String** | The description of the TSS request. |  [optional] |
 |**isLoop** | **Boolean** | Whether the transaction was executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer. - &#x60;true&#x60;: The transaction was executed as a Cobo Loop transfer. - &#x60;false&#x60;: The transaction was not executed as a Cobo Loop transfer.  |  [optional] |
 |**coboCategory** | **List&lt;String&gt;** | The transaction category defined by Cobo. Possible values include:  - &#x60;AutoSweep&#x60;: An auto-sweep transaction. - &#x60;AutoFueling&#x60;: A transaction where Fee Station pays transaction fees to an address within your wallet. - &#x60;AutoFuelingRefund&#x60;: A refund for an auto-fueling transaction. - &#x60;SafeTxMessage&#x60;: A message signing transaction to authorize a Smart Contract Wallet (Safe\\{Wallet\\}) transaction. - &#x60;BillPayment&#x60;: A transaction to pay Cobo bills through Fee Station. - &#x60;BillRefund&#x60;: A refund for a previously made bill payment. - &#x60;CommissionFeeCharge&#x60;: A transaction to charge commission fees via Fee Station. - &#x60;CommissionFeeRefund&#x60;: A refund of previously charged commission fees.  |  [optional] |
-|**extra** | **List&lt;String&gt;** | A list of JSON-encoded strings containing structured, business-specific extra information for the transaction. Each item corresponds to a specific data type, indicated by the &#x60;extra_type&#x60; field in the JSON object (for example, \&quot;BabylonBusinessInfo\&quot;, \&quot;BtcAddressInfo\&quot;).  |  [optional] |
+|**extra** | **List&lt;String&gt;** | The transaction extra information. |  [optional] |
 |**fuelingInfo** | [**TransactionFuelingInfo**](TransactionFuelingInfo.md) |  |  [optional] |
-|**createdTimestamp** | **Integer** | The creation time of the settlement request, represented as a UNIX timestamp in seconds. |  |
-|**updatedTimestamp** | **Integer** | The last update time of the settlement request, represented as a UNIX timestamp in seconds. |  |
+|**createdTimestamp** | **Integer** | The created time of the settlement request, represented as a UNIX timestamp in seconds. |  |
+|**updatedTimestamp** | **Integer** | The updated time of the settlement request, represented as a UNIX timestamp in seconds. |  |
 |**tssRequestId** | **String** | The TSS request ID. |  [optional] |
 |**sourceKeyShareHolderGroup** | [**SourceGroup**](SourceGroup.md) |  |  [optional] |
 |**targetKeyShareHolderGroupId** | **String** | The target key share holder group ID. |  [optional] |
@@ -52,14 +52,16 @@
 |**walletType** | **WalletType** |  |  |
 |**walletSubtypes** | **List&lt;WalletSubtype&gt;** |  |  [optional] |
 |**tokens** | [**List&lt;TokenInfo&gt;**](TokenInfo.md) | The enabled tokens. |  |
-|**contractAddress** | **String** | The token&#39;s contract address on the specified blockchain. |  |
+|**contractAddress** | **String** | Contract address of the token |  |
 |**walletSubtype** | **WalletSubtype** |  |  |
 |**token** | [**TokenInfo**](TokenInfo.md) |  |  [optional] |
-|**feedback** | **String** | The feedback provided by Cobo when a token listing request is rejected. |  [optional] |
+|**feedback** | **String** | Feedback provided by the admin for rejected requests |  [optional] |
 |**address** | **String** | The wallet address. |  |
 |**walletUuid** | **UUID** | The wallet ID. |  |
 |**balance** | [**Balance**](Balance.md) |  |  |
-|**orderId** | **String** | The ID of the pay-in order corresponding to this refund. |  |
+|**tokenIds** | **String** | A list of token IDs, separated by comma. |  |
+|**operationType** | **SuspendedTokenOperationType** |  |  |
+|**orderId** | **String** | The order ID corresponding to this refund. |  |
 |**merchantId** | **String** | The merchant ID. |  [optional] |
 |**payableAmount** | **String** | The cryptocurrency amount to be paid for this order. |  |
 |**receiveAddress** | **String** | The recipient wallet address to be used for the payment transaction. |  |
@@ -77,9 +79,9 @@
 |**amount** | **String** | The amount in cryptocurrency to be returned for this refund order. |  |
 |**toAddress** | **String** | The recipient&#39;s wallet address where the refund will be sent. |  |
 |**refundType** | **RefundType** |  |  [optional] |
-|**chargeMerchantFee** | **Boolean** | Whether to charge developer fee to the merchant for the refund.    - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance    - &#x60;false&#x60;: The merchant is not charged any developer fee.  |  [optional] |
-|**merchantFeeAmount** | **String** | The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to &#x60;true&#x60;. |  [optional] |
-|**merchantFeeTokenId** | **String** | The ID of the cryptocurrency used for the developer fee. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true. |  [optional] |
+|**chargeMerchantFee** | **Boolean** | Whether to charge developer fee to the merchant.  - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance - &#x60;false&#x60;: The merchant is not charged any developer fee.  |  [optional] |
+|**merchantFeeAmount** | **String** | The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. |  [optional] |
+|**merchantFeeTokenId** | **String** | The ID of the cryptocurrency used for the developer fee. |  [optional] |
 |**settlementRequestId** | **String** | The settlement request ID generated by Cobo. |  |
 |**settlements** | [**List&lt;SettlementDetail&gt;**](SettlementDetail.md) |  |  |
 
@@ -97,10 +99,11 @@
 | CHAINS | &quot;Chains&quot; |
 | TOKENS | &quot;Tokens&quot; |
 | TOKENLISTING | &quot;TokenListing&quot; |
-| BALANCEUPDATEINFO | &quot;BalanceUpdateInfo&quot; |
 | PAYMENTORDER | &quot;PaymentOrder&quot; |
 | PAYMENTREFUND | &quot;PaymentRefund&quot; |
 | PAYMENTSETTLEMENT | &quot;PaymentSettlement&quot; |
+| BALANCEUPDATEINFO | &quot;BalanceUpdateInfo&quot; |
+| SUSPENDEDTOKEN | &quot;SuspendedToken&quot; |
 
 
 
