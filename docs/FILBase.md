@@ -2,7 +2,6 @@
 
 # FILBase
 
-The transaction gas base based on the FIL fee model.
 
 ## Properties
 

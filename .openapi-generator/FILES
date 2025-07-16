@@ -261,6 +261,7 @@ docs/ListTokenBalancesForFeeStation200ResponseDataInner.md
 docs/ListTokenListingRequests200Response.md
 docs/ListTopUpPayers200Response.md
 docs/ListTopUpPayers200ResponseDataInner.md
+docs/ListTransactionApprovalDetails200Response.md
 docs/ListTransactions200Response.md
 docs/ListTssRequests200Response.md
 docs/ListUtxos200Response.md
@@ -943,6 +944,7 @@ src/main/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseData
 src/main/java/com/cobo/waas2/model/ListTokenListingRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListTopUpPayers200Response.java
 src/main/java/com/cobo/waas2/model/ListTopUpPayers200ResponseDataInner.java
+src/main/java/com/cobo/waas2/model/ListTransactionApprovalDetails200Response.java
 src/main/java/com/cobo/waas2/model/ListTransactions200Response.java
 src/main/java/com/cobo/waas2/model/ListTssRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListUtxos200Response.java
@@ -1574,6 +1576,7 @@ src/test/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseTest
 src/test/java/com/cobo/waas2/model/ListTokenListingRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTopUpPayers200ResponseDataInnerTest.java
 src/test/java/com/cobo/waas2/model/ListTopUpPayers200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListTransactionApprovalDetails200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTransactions200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTssRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListUtxos200ResponseTest.java

@@ -12,13 +12,16 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.TransactionApprovalDetail;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,36 +48,44 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * FILBase
+ * ListTransactionApprovalDetails200Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class FILBase {
-  public static final String SERIALIZED_NAME_GAS_BASE = "gas_base";
-  @SerializedName(SERIALIZED_NAME_GAS_BASE)
-  private String gasBase;
+public class ListTransactionApprovalDetails200Response {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private List<TransactionApprovalDetail> data = new ArrayList<>();
 
-  public FILBase() {
+  public ListTransactionApprovalDetails200Response() {
   }
 
-  public FILBase gasBase(String gasBase) {
-    this.gasBase = gasBase;
+  public ListTransactionApprovalDetails200Response data(List<TransactionApprovalDetail> data) {
+    this.data = data;
+    return this;
+  }
+
+  public ListTransactionApprovalDetails200Response addDataItem(TransactionApprovalDetail dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * The minimum fee required for a transaction to be included in a block. The base fee is dynamically adjusted based on network congestion to maintain target block utilization. It is burned rather than paid to miners, reducing the total Filecoin supply over time.
-   * @return gasBase
+   * Get data
+   * @return data
   **/
   @javax.annotation.Nullable
-  public String getGasBase() {
-    return gasBase;
+  public List<TransactionApprovalDetail> getData() {
+    return data;
   }
 
-  public void setGasBase(String gasBase) {
-    this.gasBase = gasBase;
+  public void setData(List<TransactionApprovalDetail> data) {
+    this.data = data;
   }
 
   /**
@@ -90,9 +101,9 @@ public class FILBase {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FILBase instance itself
+   * @return the ListTransactionApprovalDetails200Response instance itself
    */
-  public FILBase putAdditionalProperty(String key, Object value) {
+  public ListTransactionApprovalDetails200Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -131,21 +142,21 @@ public class FILBase {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FILBase fiLBase = (FILBase) o;
-    return Objects.equals(this.gasBase, fiLBase.gasBase)&&
-        Objects.equals(this.additionalProperties, fiLBase.additionalProperties);
+    ListTransactionApprovalDetails200Response listTransactionApprovalDetails200Response = (ListTransactionApprovalDetails200Response) o;
+    return Objects.equals(this.data, listTransactionApprovalDetails200Response.data)&&
+        Objects.equals(this.additionalProperties, listTransactionApprovalDetails200Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gasBase, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FILBase {\n");
-    sb.append("    gasBase: ").append(toIndentedString(gasBase)).append("\n");
+    sb.append("class ListTransactionApprovalDetails200Response {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -169,7 +180,7 @@ public class FILBase {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("gas_base");
+    openapiFields.add("data");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -179,17 +190,28 @@ public class FILBase {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to FILBase
+  * @throws IOException if the JSON Element is invalid with respect to ListTransactionApprovalDetails200Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FILBase.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FILBase is not found in the empty JSON string", FILBase.openapiRequiredFields.toString()));
+        if (!ListTransactionApprovalDetails200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListTransactionApprovalDetails200Response is not found in the empty JSON string", ListTransactionApprovalDetails200Response.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("gas_base") != null && !jsonObj.get("gas_base").isJsonNull()) && !jsonObj.get("gas_base").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gas_base` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gas_base").toString()));
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        if (jsonArraydata != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("data").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+          }
+
+          // validate the optional field `data` (array)
+          for (int i = 0; i < jsonArraydata.size(); i++) {
+            TransactionApprovalDetail.validateJsonElement(jsonArraydata.get(i));
+          };
+        }
       }
   }
 
@@ -197,16 +219,16 @@ public class FILBase {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FILBase.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FILBase' and its subtypes
+       if (!ListTransactionApprovalDetails200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListTransactionApprovalDetails200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FILBase> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FILBase.class));
+       final TypeAdapter<ListTransactionApprovalDetails200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListTransactionApprovalDetails200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FILBase>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListTransactionApprovalDetails200Response>() {
            @Override
-           public void write(JsonWriter out, FILBase value) throws IOException {
+           public void write(JsonWriter out, ListTransactionApprovalDetails200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -236,12 +258,12 @@ public class FILBase {
            }
 
            @Override
-           public FILBase read(JsonReader in) throws IOException {
+           public ListTransactionApprovalDetails200Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FILBase instance = thisAdapter.fromJsonTree(jsonObj);
+             ListTransactionApprovalDetails200Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -268,18 +290,18 @@ public class FILBase {
   }
 
  /**
-  * Create an instance of FILBase given an JSON string
+  * Create an instance of ListTransactionApprovalDetails200Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of FILBase
-  * @throws IOException if the JSON string is invalid with respect to FILBase
+  * @return An instance of ListTransactionApprovalDetails200Response
+  * @throws IOException if the JSON string is invalid with respect to ListTransactionApprovalDetails200Response
   */
-  public static FILBase fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FILBase.class);
+  public static ListTransactionApprovalDetails200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListTransactionApprovalDetails200Response.class);
   }
 
  /**
-  * Convert an instance of FILBase to an JSON string
+  * Convert an instance of ListTransactionApprovalDetails200Response to an JSON string
   *
   * @return JSON string
   */
