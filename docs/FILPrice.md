@@ -2,7 +2,6 @@
 
 # FILPrice
 
-The transaction gas price configuration based on the Filecoin fee model.
 
 ## Properties
 

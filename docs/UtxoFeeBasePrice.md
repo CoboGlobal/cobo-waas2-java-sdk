@@ -2,7 +2,6 @@
 
 # UtxoFeeBasePrice
 
-The transaction fee rate for UTXO-based chains (such as Bitcoin).
 
 ## Properties
 

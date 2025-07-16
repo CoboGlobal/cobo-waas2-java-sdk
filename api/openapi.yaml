@@ -14335,7 +14335,6 @@ components:
           type: string
       type: object
     MaxFeeAmount:
-      description: The maximum transaction fee.
       properties:
         max_fee_amount:
           description: The maximum fee that you are willing to pay for the transaction.
@@ -14354,7 +14353,6 @@ components:
           type: string
       type: object
     EvmEip1559FeeBasePrice:
-      description: The transaction gas price based on the EIP-1559 fee model.
       properties:
         max_fee_per_gas:
           description: "The maximum gas fee per gas unit used on the chain, in wei."
@@ -14368,7 +14366,6 @@ components:
           type: string
       type: object
     EvmLegacyFeeBasePrice:
-      description: The transaction gas price based on the legacy fee model.
       properties:
         gas_price:
           description: "The gas price, in wei. The gas price represents the amount\
@@ -14378,7 +14375,6 @@ components:
           type: string
       type: object
     UtxoFeeBasePrice:
-      description: The transaction fee rate for UTXO-based chains (such as Bitcoin).
       properties:
         fee_rate:
           description: The fee rate in sat/vByte. The fee rate represents the satoshis
@@ -14535,8 +14531,6 @@ components:
           type: string
       type: object
     SOLComputeUnit:
-      description: The transaction gas price configuration based on the Solana fee
-        model.
       properties:
         compute_unit_price:
           description: "The price paid per compute unit. This value determines the\
@@ -14563,8 +14557,6 @@ components:
           type: string
       type: object
     FILPrice:
-      description: The transaction gas price configuration based on the Filecoin fee
-        model.
       properties:
         gas_premium:
           description: An optional tip you can include to prioritize your transaction.
@@ -14693,7 +14685,7 @@ components:
       - fee_type
       - recommended
       - token_id
-      title: SOL (Estimated)
+      title: SOL
       type: object
     EstimatedFILFee:
       description: The estimated transaction fee based on the fil fee model.
@@ -14714,7 +14706,7 @@ components:
       - fee_type
       - recommended
       - token_id
-      title: FIL (Estimated)
+      title: FIL
       type: object
     EstimatedFee:
       discriminator:

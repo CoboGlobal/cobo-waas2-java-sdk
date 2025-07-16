@@ -2,7 +2,6 @@
 
 # SOLComputeUnit
 
-The transaction gas price configuration based on the Solana fee model.
 
 ## Properties
 
