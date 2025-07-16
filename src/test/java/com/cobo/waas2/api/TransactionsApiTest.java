@@ -22,10 +22,8 @@ import com.cobo.waas2.model.CreateTransferTransaction201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.EstimateFeeParams;
 import com.cobo.waas2.model.EstimatedFee;
-import com.cobo.waas2.model.ListTransactionApprovalDetails200Response;
 import com.cobo.waas2.model.ListTransactions200Response;
 import com.cobo.waas2.model.MessageSignParams;
-import com.cobo.waas2.model.TransactionApprovalDetail;
 import com.cobo.waas2.model.TransactionDetail;
 import com.cobo.waas2.model.TransactionRbf;
 import com.cobo.waas2.model.TransactionResend;
@@ -170,20 +168,6 @@ public class TransactionsApiTest {
     }
 
     /**
-     * Get transaction approval details
-     *
-     * This operation retrieves detailed approval information about a specified transaction. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getTransactionApprovalDetailTest() throws ApiException {
-        UUID transactionId = null;
-        TransactionApprovalDetail response = api.getTransactionApprovalDetail(transactionId);
-        // TODO: test validations
-    }
-
-    /**
      * Get transaction information
      *
      * This operation retrieves detailed information about a specified transaction, such as the transaction status, source address, destination address, and timestamp. 
@@ -194,21 +178,6 @@ public class TransactionsApiTest {
     public void getTransactionByIdTest() throws ApiException {
         UUID transactionId = null;
         TransactionDetail response = api.getTransactionById(transactionId);
-        // TODO: test validations
-    }
-
-    /**
-     * List transaction approval details
-     *
-     * This operation retrieves detailed approval information for all transactions. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listTransactionApprovalDetailsTest() throws ApiException {
-        String transactionIds = null;
-        String coboIds = null;
-        ListTransactionApprovalDetails200Response response = api.listTransactionApprovalDetails(transactionIds, coboIds);
         // TODO: test validations
     }
 

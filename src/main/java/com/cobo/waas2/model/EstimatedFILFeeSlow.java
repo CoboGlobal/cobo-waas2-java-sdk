@@ -77,7 +77,7 @@ public class EstimatedFILFeeSlow {
   }
 
    /**
-   * An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
+   * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
    * @return gasPremium
   **/
   @javax.annotation.Nonnull
@@ -96,7 +96,7 @@ public class EstimatedFILFeeSlow {
   }
 
    /**
-   * The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
+   * The maximum gas price you are willing to pay per unit of gas.
    * @return gasFeeCap
   **/
   @javax.annotation.Nonnull
@@ -115,7 +115,7 @@ public class EstimatedFILFeeSlow {
   }
 
    /**
-   * This defines the maximum amount of computational effort that a transaction is allowed to consume. It&#39;s a way to cap the resources that a transaction can use, ensuring it doesn&#39;t consume excessive network resources.
+   * The maximum amount of gas your transaction is allowed to consume.
    * @return gasLimit
   **/
   @javax.annotation.Nonnull
@@ -134,7 +134,7 @@ public class EstimatedFILFeeSlow {
   }
 
    /**
-   * This is the minimum fee required to include a transaction in a block. It is determined by the network&#39;s congestion level, which adjusts to maintain a target block utilization rate. The base fee is burned, reducing the total supply of Filecoin over time.
+   * The minimum fee required for a transaction to be included in a block. The base fee is dynamically adjusted based on network congestion to maintain target block utilization. It is burned rather than paid to miners, reducing the total Filecoin supply over time.
    * @return gasBase
   **/
   @javax.annotation.Nonnull

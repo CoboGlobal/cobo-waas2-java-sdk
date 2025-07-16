@@ -40,6 +40,7 @@ import com.cobo.waas2.model.CreatedWalletInfo;
 import com.cobo.waas2.model.DeleteWalletById201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExtendedTokenInfo;
+import com.cobo.waas2.model.GetMaxTransferableValueWithFeeModelRequest;
 import com.cobo.waas2.model.ListAddressBalancesByToken200Response;
 import com.cobo.waas2.model.ListAddresses200Response;
 import com.cobo.waas2.model.ListSupportedChains200Response;
@@ -1362,6 +1363,129 @@ public class WalletsApi {
     public okhttp3.Call getMaxTransferableValueAsync(UUID walletId, String tokenId, String feeRate, String toAddress, String fromAddress, final ApiCallback<MaxTransferableValue> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMaxTransferableValueValidateBeforeCall(walletId, tokenId, feeRate, toAddress, fromAddress, _callback);
+        Type localVarReturnType = new TypeToken<MaxTransferableValue>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getMaxTransferableValueWithFeeModel
+     * @param walletId The wallet ID. (required)
+     * @param getMaxTransferableValueWithFeeModelRequest The request body for retrieving the maximum transferable value from a specified wallet. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getMaxTransferableValueWithFeeModelCall(UUID walletId, GetMaxTransferableValueWithFeeModelRequest getMaxTransferableValueWithFeeModelRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = getMaxTransferableValueWithFeeModelRequest;
+
+        // create path and map variables
+        String localVarPath = "/wallets/{wallet_id}/max_transferable_value_with_fee_model"
+            .replace("{" + "wallet_id" + "}", localVarApiClient.escapeString(walletId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMaxTransferableValueWithFeeModelValidateBeforeCall(UUID walletId, GetMaxTransferableValueWithFeeModelRequest getMaxTransferableValueWithFeeModelRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling getMaxTransferableValueWithFeeModel(Async)");
+        }
+
+        return getMaxTransferableValueWithFeeModelCall(walletId, getMaxTransferableValueWithFeeModelRequest, _callback);
+
+    }
+
+    /**
+     * Estimate maximum transferable value
+     * This operation estimates the maximum transferable value from a wallet or a specific wallet address, based on the specified fee settings.  The &#x60;to_address&#x60; property is required because it affects the fee calculation.  &lt;Note&gt;This operation is applicable to Custodial Wallets (Web3 Wallets) and MPC Wallets only.&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param getMaxTransferableValueWithFeeModelRequest The request body for retrieving the maximum transferable value from a specified wallet. (optional)
+     * @return MaxTransferableValue
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public MaxTransferableValue getMaxTransferableValueWithFeeModel(UUID walletId, GetMaxTransferableValueWithFeeModelRequest getMaxTransferableValueWithFeeModelRequest) throws ApiException {
+        ApiResponse<MaxTransferableValue> localVarResp = getMaxTransferableValueWithFeeModelWithHttpInfo(walletId, getMaxTransferableValueWithFeeModelRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Estimate maximum transferable value
+     * This operation estimates the maximum transferable value from a wallet or a specific wallet address, based on the specified fee settings.  The &#x60;to_address&#x60; property is required because it affects the fee calculation.  &lt;Note&gt;This operation is applicable to Custodial Wallets (Web3 Wallets) and MPC Wallets only.&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param getMaxTransferableValueWithFeeModelRequest The request body for retrieving the maximum transferable value from a specified wallet. (optional)
+     * @return ApiResponse&lt;MaxTransferableValue&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MaxTransferableValue> getMaxTransferableValueWithFeeModelWithHttpInfo(UUID walletId, GetMaxTransferableValueWithFeeModelRequest getMaxTransferableValueWithFeeModelRequest) throws ApiException {
+        okhttp3.Call localVarCall = getMaxTransferableValueWithFeeModelValidateBeforeCall(walletId, getMaxTransferableValueWithFeeModelRequest, null);
+        Type localVarReturnType = new TypeToken<MaxTransferableValue>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Estimate maximum transferable value (asynchronously)
+     * This operation estimates the maximum transferable value from a wallet or a specific wallet address, based on the specified fee settings.  The &#x60;to_address&#x60; property is required because it affects the fee calculation.  &lt;Note&gt;This operation is applicable to Custodial Wallets (Web3 Wallets) and MPC Wallets only.&lt;/Note&gt; 
+     * @param walletId The wallet ID. (required)
+     * @param getMaxTransferableValueWithFeeModelRequest The request body for retrieving the maximum transferable value from a specified wallet. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getMaxTransferableValueWithFeeModelAsync(UUID walletId, GetMaxTransferableValueWithFeeModelRequest getMaxTransferableValueWithFeeModelRequest, final ApiCallback<MaxTransferableValue> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getMaxTransferableValueWithFeeModelValidateBeforeCall(walletId, getMaxTransferableValueWithFeeModelRequest, _callback);
         Type localVarReturnType = new TypeToken<MaxTransferableValue>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

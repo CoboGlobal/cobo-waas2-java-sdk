@@ -10,8 +10,8 @@ The transaction fee actually charged by the chain that uses the UTXO fee model, 
 |------------ | ------------- | ------------- | -------------|
 |**feeRate** | **String** | The fee rate in sat/vByte. The fee rate represents the satoshis you are willing to pay for each byte of data that your transaction will consume on the blockchain. |  [optional] |
 |**feeType** | **FeeType** |  |  |
-|**tokenId** | **String** | The token ID of the transaction fee. |  [optional] |
-|**feeUsed** | **String** | The transaction fee. |  [optional] |
+|**tokenId** | **String** | The token used to pay the transaction fee. |  [optional] |
+|**feeUsed** | **String** | The actually charged transaction fee. |  [optional] |
 |**estimatedFeeUsed** | **String** | The estimated transaction fee. |  [optional] |
 |**maxFeeAmount** | **String** | The maximum fee that you are willing to pay for the transaction. The transaction will fail if the transaction fee exceeds the maximum fee. |  [optional] |
 

@@ -118,7 +118,7 @@ public class OAuthApi {
 
     /**
      * Get Access Token
-     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
+     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](https://www.cobo.com/developers/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
      * @param exchangePermissionTokenRequest The request body to acquire an Access Token. (required)
      * @return ExchangePermissionToken201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -137,7 +137,7 @@ public class OAuthApi {
 
     /**
      * Get Access Token
-     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
+     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](https://www.cobo.com/developers/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
      * @param exchangePermissionTokenRequest The request body to acquire an Access Token. (required)
      * @return ApiResponse&lt;ExchangePermissionToken201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -157,7 +157,7 @@ public class OAuthApi {
 
     /**
      * Get Access Token (asynchronously)
-     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
+     * This operation acquires an Access Token and a Refresh Token for the Checkout SDK.  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](https://www.cobo.com/developers/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
      * @param exchangePermissionTokenRequest The request body to acquire an Access Token. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

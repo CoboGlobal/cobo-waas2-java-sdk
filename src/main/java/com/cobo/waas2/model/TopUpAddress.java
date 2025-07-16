@@ -234,7 +234,7 @@ public class TopUpAddress {
   }
 
    /**
-   * The minimum top-up amount allowed for this address. Top-ups below this threshold will not be credited to merchant funds, but to developer funds instead.
+   * The minimum top-up amount allowed for this address. Top-ups below this threshold will not be credited to merchant or developer funds.
    * @return minAmount
   **/
   @javax.annotation.Nonnull

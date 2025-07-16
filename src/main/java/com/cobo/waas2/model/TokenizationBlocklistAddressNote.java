@@ -12,16 +12,13 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.TransactionApprovalDetail;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,44 +45,82 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * ListTransactionApprovalDetails200Response
+ * TokenizationBlocklistAddressNote
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class ListTransactionApprovalDetails200Response {
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private List<TransactionApprovalDetail> data = new ArrayList<>();
+public class TokenizationBlocklistAddressNote {
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  private String address;
 
-  public ListTransactionApprovalDetails200Response() {
+  public static final String SERIALIZED_NAME_NOTE = "note";
+  @SerializedName(SERIALIZED_NAME_NOTE)
+  private String note;
+
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
+
+  public TokenizationBlocklistAddressNote() {
   }
 
-  public ListTransactionApprovalDetails200Response data(List<TransactionApprovalDetail> data) {
-    this.data = data;
-    return this;
-  }
-
-  public ListTransactionApprovalDetails200Response addDataItem(TransactionApprovalDetail dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
+  public TokenizationBlocklistAddressNote address(String address) {
+    this.address = address;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * The allowed address.
+   * @return address
   **/
-  @javax.annotation.Nullable
-  public List<TransactionApprovalDetail> getData() {
-    return data;
+  @javax.annotation.Nonnull
+  public String getAddress() {
+    return address;
   }
 
-  public void setData(List<TransactionApprovalDetail> data) {
-    this.data = data;
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+
+  public TokenizationBlocklistAddressNote note(String note) {
+    this.note = note;
+    return this;
+  }
+
+   /**
+   * The note for the allowed address.
+   * @return note
+  **/
+  @javax.annotation.Nullable
+  public String getNote() {
+    return note;
+  }
+
+  public void setNote(String note) {
+    this.note = note;
+  }
+
+
+  public TokenizationBlocklistAddressNote createdTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The time when the blocklist address was created, in Unix timestamp format, measured in milliseconds.
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
   /**
@@ -101,9 +136,9 @@ public class ListTransactionApprovalDetails200Response {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ListTransactionApprovalDetails200Response instance itself
+   * @return the TokenizationBlocklistAddressNote instance itself
    */
-  public ListTransactionApprovalDetails200Response putAdditionalProperty(String key, Object value) {
+  public TokenizationBlocklistAddressNote putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -142,21 +177,25 @@ public class ListTransactionApprovalDetails200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListTransactionApprovalDetails200Response listTransactionApprovalDetails200Response = (ListTransactionApprovalDetails200Response) o;
-    return Objects.equals(this.data, listTransactionApprovalDetails200Response.data)&&
-        Objects.equals(this.additionalProperties, listTransactionApprovalDetails200Response.additionalProperties);
+    TokenizationBlocklistAddressNote tokenizationBlocklistAddressNote = (TokenizationBlocklistAddressNote) o;
+    return Objects.equals(this.address, tokenizationBlocklistAddressNote.address) &&
+        Objects.equals(this.note, tokenizationBlocklistAddressNote.note) &&
+        Objects.equals(this.createdTimestamp, tokenizationBlocklistAddressNote.createdTimestamp)&&
+        Objects.equals(this.additionalProperties, tokenizationBlocklistAddressNote.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(address, note, createdTimestamp, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListTransactionApprovalDetails200Response {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class TokenizationBlocklistAddressNote {\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    note: ").append(toIndentedString(note)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -180,38 +219,40 @@ public class ListTransactionApprovalDetails200Response {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("data");
+    openapiFields.add("address");
+    openapiFields.add("note");
+    openapiFields.add("created_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("address");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ListTransactionApprovalDetails200Response
+  * @throws IOException if the JSON Element is invalid with respect to TokenizationBlocklistAddressNote
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ListTransactionApprovalDetails200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ListTransactionApprovalDetails200Response is not found in the empty JSON string", ListTransactionApprovalDetails200Response.openapiRequiredFields.toString()));
+        if (!TokenizationBlocklistAddressNote.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenizationBlocklistAddressNote is not found in the empty JSON string", TokenizationBlocklistAddressNote.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TokenizationBlocklistAddressNote.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-        if (jsonArraydata != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("data").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
-          }
-
-          // validate the optional field `data` (array)
-          for (int i = 0; i < jsonArraydata.size(); i++) {
-            TransactionApprovalDetail.validateJsonElement(jsonArraydata.get(i));
-          };
-        }
+      if (!jsonObj.get("address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
+      }
+      if ((jsonObj.get("note") != null && !jsonObj.get("note").isJsonNull()) && !jsonObj.get("note").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `note` to be a primitive type in the JSON string but got `%s`", jsonObj.get("note").toString()));
       }
   }
 
@@ -219,16 +260,16 @@ public class ListTransactionApprovalDetails200Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ListTransactionApprovalDetails200Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ListTransactionApprovalDetails200Response' and its subtypes
+       if (!TokenizationBlocklistAddressNote.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TokenizationBlocklistAddressNote' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ListTransactionApprovalDetails200Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ListTransactionApprovalDetails200Response.class));
+       final TypeAdapter<TokenizationBlocklistAddressNote> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TokenizationBlocklistAddressNote.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ListTransactionApprovalDetails200Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<TokenizationBlocklistAddressNote>() {
            @Override
-           public void write(JsonWriter out, ListTransactionApprovalDetails200Response value) throws IOException {
+           public void write(JsonWriter out, TokenizationBlocklistAddressNote value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -258,12 +299,12 @@ public class ListTransactionApprovalDetails200Response {
            }
 
            @Override
-           public ListTransactionApprovalDetails200Response read(JsonReader in) throws IOException {
+           public TokenizationBlocklistAddressNote read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ListTransactionApprovalDetails200Response instance = thisAdapter.fromJsonTree(jsonObj);
+             TokenizationBlocklistAddressNote instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -290,18 +331,18 @@ public class ListTransactionApprovalDetails200Response {
   }
 
  /**
-  * Create an instance of ListTransactionApprovalDetails200Response given an JSON string
+  * Create an instance of TokenizationBlocklistAddressNote given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ListTransactionApprovalDetails200Response
-  * @throws IOException if the JSON string is invalid with respect to ListTransactionApprovalDetails200Response
+  * @return An instance of TokenizationBlocklistAddressNote
+  * @throws IOException if the JSON string is invalid with respect to TokenizationBlocklistAddressNote
   */
-  public static ListTransactionApprovalDetails200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ListTransactionApprovalDetails200Response.class);
+  public static TokenizationBlocklistAddressNote fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TokenizationBlocklistAddressNote.class);
   }
 
  /**
-  * Convert an instance of ListTransactionApprovalDetails200Response to an JSON string
+  * Convert an instance of TokenizationBlocklistAddressNote to an JSON string
   *
   * @return JSON string
   */
