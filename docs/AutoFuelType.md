@@ -9,5 +9,7 @@
 
 * `PROACTIVEAUTOFUEL` (value: `"ProActiveAutoFuel"`)
 
+* `USEPORTALPREFERENCE` (value: `"UsePortalPreference"`)
+
 
 

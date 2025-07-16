@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. |  |
+|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. |  |
 |**transactionId** | **UUID** | The transaction ID. |  |
 |**coboId** | **String** | The Cobo ID, which can be used to track a transaction. |  [optional] |
 |**requestId** | **String** | The request ID provided by you when creating the settlement request. |  |
@@ -59,6 +59,8 @@
 |**address** | **String** | The wallet address. |  |
 |**walletUuid** | **UUID** | The wallet ID. |  |
 |**balance** | [**Balance**](Balance.md) |  |  |
+|**tokenIds** | **String** | A list of token IDs, separated by comma. |  |
+|**operationType** | **SuspendedTokenOperationType** |  |  |
 |**orderId** | **String** | The ID of the pay-in order corresponding to this refund. |  |
 |**merchantId** | **String** | The merchant ID. |  [optional] |
 |**payableAmount** | **String** | The cryptocurrency amount to be paid for this order. |  |
@@ -97,10 +99,11 @@
 | CHAINS | &quot;Chains&quot; |
 | TOKENS | &quot;Tokens&quot; |
 | TOKENLISTING | &quot;TokenListing&quot; |
-| BALANCEUPDATEINFO | &quot;BalanceUpdateInfo&quot; |
 | PAYMENTORDER | &quot;PaymentOrder&quot; |
 | PAYMENTREFUND | &quot;PaymentRefund&quot; |
 | PAYMENTSETTLEMENT | &quot;PaymentSettlement&quot; |
+| BALANCEUPDATEINFO | &quot;BalanceUpdateInfo&quot; |
+| SUSPENDEDTOKEN | &quot;SuspendedToken&quot; |
 
 
 

@@ -174,7 +174,7 @@ public class TransactionEvmEip1559Fee {
   }
 
    /**
-   * The token ID of the transaction fee.
+   * The token used to pay the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -212,7 +212,7 @@ public class TransactionEvmEip1559Fee {
   }
 
    /**
-   * The transaction fee.
+   * The actually charged transaction fee.
    * @return feeUsed
   **/
   @javax.annotation.Nullable

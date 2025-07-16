@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The transaction gas price based on the SOL fee model.
+ * The transaction gas price configuration based on the Solana fee model.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -69,7 +69,7 @@ public class SOLComputeUnit {
   }
 
    /**
-   * The cost per compute unit. Transactions consume computational resources measured in compute units, and this price helps determine the cost of executing transactions, especially complex ones involving smart contracts.
+   * The price paid per compute unit. This value determines the priority fee for the transaction, allowing you to increase inclusion probability in congested conditions.
    * @return computeUnitPrice
   **/
   @javax.annotation.Nullable
@@ -88,7 +88,7 @@ public class SOLComputeUnit {
   }
 
    /**
-   * The maximum number of compute units allowed for a transaction. This limits the resources any single transaction can consume, preventing excessive resource usage that could impact network performance negatively.
+   * The maximum number of compute units your transaction is allowed to consume. It sets an upper bound on computational resource usage to prevent overload.
    * @return computeUnitLimit
   **/
   @javax.annotation.Nullable

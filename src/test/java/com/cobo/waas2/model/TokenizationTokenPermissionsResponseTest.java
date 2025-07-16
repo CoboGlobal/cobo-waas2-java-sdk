@@ -11,7 +11,7 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.TransactionApprovalDetail;
+import com.cobo.waas2.model.TokenizationTokenPermission;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,25 +25,33 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for ListTransactionApprovalDetails200Response
+ * Model tests for TokenizationTokenPermissionsResponse
  */
-public class ListTransactionApprovalDetails200ResponseTest {
-    private final ListTransactionApprovalDetails200Response model = new ListTransactionApprovalDetails200Response();
+public class TokenizationTokenPermissionsResponseTest {
+    private final TokenizationTokenPermissionsResponse model = new TokenizationTokenPermissionsResponse();
 
     /**
-     * Model tests for ListTransactionApprovalDetails200Response
+     * Model tests for TokenizationTokenPermissionsResponse
      */
     @Test
-    public void testListTransactionApprovalDetails200Response() {
-        // TODO: test ListTransactionApprovalDetails200Response
+    public void testTokenizationTokenPermissionsResponse() {
+        // TODO: test TokenizationTokenPermissionsResponse
     }
 
     /**
-     * Test the property 'data'
+     * Test the property 'permissions'
      */
     @Test
-    public void dataTest() {
-        // TODO: test data
+    public void permissionsTest() {
+        // TODO: test permissions
+    }
+
+    /**
+     * Test the property 'totalCount'
+     */
+    @Test
+    public void totalCountTest() {
+        // TODO: test totalCount
     }
 
 }

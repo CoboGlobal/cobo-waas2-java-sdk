@@ -29,6 +29,7 @@ import com.cobo.waas2.model.CreatedWalletInfo;
 import com.cobo.waas2.model.DeleteWalletById201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExtendedTokenInfo;
+import com.cobo.waas2.model.GetMaxTransferableValueWithFeeModelRequest;
 import com.cobo.waas2.model.ListAddressBalancesByToken200Response;
 import com.cobo.waas2.model.ListAddresses200Response;
 import com.cobo.waas2.model.ListSupportedChains200Response;
@@ -216,6 +217,21 @@ public class WalletsApiTest {
         String toAddress = null;
         String fromAddress = null;
         MaxTransferableValue response = api.getMaxTransferableValue(walletId, tokenId, feeRate, toAddress, fromAddress);
+        // TODO: test validations
+    }
+
+    /**
+     * Estimate maximum transferable value
+     *
+     * This operation estimates the maximum transferable value from a wallet or a specific wallet address, based on the specified fee settings.  The &#x60;to_address&#x60; property is required because it affects the fee calculation.  &lt;Note&gt;This operation is applicable to Custodial Wallets (Web3 Wallets) and MPC Wallets only.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getMaxTransferableValueWithFeeModelTest() throws ApiException {
+        UUID walletId = null;
+        GetMaxTransferableValueWithFeeModelRequest getMaxTransferableValueWithFeeModelRequest = null;
+        MaxTransferableValue response = api.getMaxTransferableValueWithFeeModel(walletId, getMaxTransferableValueWithFeeModelRequest);
         // TODO: test validations
     }
 

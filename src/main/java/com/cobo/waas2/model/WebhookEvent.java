@@ -135,7 +135,7 @@ public class WebhookEvent {
   }
 
    /**
-   * The time when the event type was triggered, in Unix timestamp format (milliseconds). - The value remains unchanged across retries. - The default webhook timeout is 2 seconds. 
+   * The time when the event was triggered, in Unix timestamp format (milliseconds). - The value remains unchanged across retries. - The default webhook timeout is 2 seconds. 
    * @return createdTimestamp
   **/
   @javax.annotation.Nonnull

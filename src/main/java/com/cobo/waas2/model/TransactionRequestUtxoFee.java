@@ -116,7 +116,7 @@ public class TransactionRequestUtxoFee {
   }
 
    /**
-   * The token ID of the transaction fee.
+   * The token used to pay the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nonnull

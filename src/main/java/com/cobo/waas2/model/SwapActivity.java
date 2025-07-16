@@ -15,6 +15,7 @@ import java.util.Objects;
 import com.cobo.waas2.model.SwapActivityStatus;
 import com.cobo.waas2.model.SwapType;
 import com.cobo.waas2.model.TransactionInitiatorType;
+import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -120,6 +121,14 @@ public class SwapActivity {
   public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
   private Integer updatedTimestamp;
+
+  public static final String SERIALIZED_NAME_NETWORK_FEE = "network_fee";
+  @SerializedName(SERIALIZED_NAME_NETWORK_FEE)
+  private TransactionRequestFee networkFee;
+
+  public static final String SERIALIZED_NAME_DESTINATION_ADDRESS = "destination_address";
+  @SerializedName(SERIALIZED_NAME_DESTINATION_ADDRESS)
+  private String destinationAddress;
 
   public SwapActivity() {
   }
@@ -427,6 +436,44 @@ public class SwapActivity {
     this.updatedTimestamp = updatedTimestamp;
   }
 
+
+  public SwapActivity networkFee(TransactionRequestFee networkFee) {
+    this.networkFee = networkFee;
+    return this;
+  }
+
+   /**
+   * Get networkFee
+   * @return networkFee
+  **/
+  @javax.annotation.Nullable
+  public TransactionRequestFee getNetworkFee() {
+    return networkFee;
+  }
+
+  public void setNetworkFee(TransactionRequestFee networkFee) {
+    this.networkFee = networkFee;
+  }
+
+
+  public SwapActivity destinationAddress(String destinationAddress) {
+    this.destinationAddress = destinationAddress;
+    return this;
+  }
+
+   /**
+   * the destination address of web3/mpc wallets.
+   * @return destinationAddress
+  **/
+  @javax.annotation.Nullable
+  public String getDestinationAddress() {
+    return destinationAddress;
+  }
+
+  public void setDestinationAddress(String destinationAddress) {
+    this.destinationAddress = destinationAddress;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -497,7 +544,9 @@ public class SwapActivity {
         Objects.equals(this.initiatorType, swapActivity.initiatorType) &&
         Objects.equals(this.description, swapActivity.description) &&
         Objects.equals(this.createdTimestamp, swapActivity.createdTimestamp) &&
-        Objects.equals(this.updatedTimestamp, swapActivity.updatedTimestamp)&&
+        Objects.equals(this.updatedTimestamp, swapActivity.updatedTimestamp) &&
+        Objects.equals(this.networkFee, swapActivity.networkFee) &&
+        Objects.equals(this.destinationAddress, swapActivity.destinationAddress)&&
         Objects.equals(this.additionalProperties, swapActivity.additionalProperties);
   }
 
@@ -507,7 +556,7 @@ public class SwapActivity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activityId, swapType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeTokenId, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(activityId, swapType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeTokenId, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, networkFee, destinationAddress, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -537,6 +586,8 @@ public class SwapActivity {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
+    sb.append("    networkFee: ").append(toIndentedString(networkFee)).append("\n");
+    sb.append("    destinationAddress: ").append(toIndentedString(destinationAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -576,6 +627,8 @@ public class SwapActivity {
     openapiFields.add("description");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
+    openapiFields.add("network_fee");
+    openapiFields.add("destination_address");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -638,6 +691,13 @@ public class SwapActivity {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // validate the optional field `network_fee`
+      if (jsonObj.get("network_fee") != null && !jsonObj.get("network_fee").isJsonNull()) {
+        TransactionRequestFee.validateJsonElement(jsonObj.get("network_fee"));
+      }
+      if ((jsonObj.get("destination_address") != null && !jsonObj.get("destination_address").isJsonNull()) && !jsonObj.get("destination_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `destination_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("destination_address").toString()));
       }
   }
 

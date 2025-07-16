@@ -82,7 +82,7 @@ public class CreatePaymentOrderRequest {
 
   public static final String SERIALIZED_NAME_EXPIRED_IN = "expired_in";
   @SerializedName(SERIALIZED_NAME_EXPIRED_IN)
-  private Integer expiredIn;
+  private Integer expiredIn = 1800;
 
   public static final String SERIALIZED_NAME_USE_DEDICATED_ADDRESS = "use_dedicated_address";
   @SerializedName(SERIALIZED_NAME_USE_DEDICATED_ADDRESS)
@@ -135,7 +135,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The fiat currency of the order.
+   * The fiat currency of the order. Currently, only &#x60;USD&#x60; is supported.
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -192,7 +192,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * A unique reference code assigned by the merchant to identify this order in their system.
+   * A unique reference code assigned by the merchant to identify this order in their system. The code should have a maximum length of 128 characters.
    * @return merchantOrderCode
   **/
   @javax.annotation.Nullable
@@ -211,7 +211,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * A unique reference code assigned by the developer to identify this order in their system.
+   * A unique reference code assigned by you as a developer to identify this order in your system. This code must be unique across all orders in your system. The code should have a maximum length of 128 characters. 
    * @return pspOrderCode
   **/
   @javax.annotation.Nonnull
@@ -230,7 +230,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The number of seconds after which the pay-in order will expire. After expiration: - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
+   * The number of seconds until the pay-in order expires, counted from when the request is sent. For example, if set to &#x60;1800&#x60;, the order will expire in 30 minutes. After expiration: - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
    * @return expiredIn
   **/
   @javax.annotation.Nullable

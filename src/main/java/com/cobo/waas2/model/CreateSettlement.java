@@ -149,7 +149,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The settlement amount. - If &#x60;payout_channel&#x60; is set to &#x60;Crypto&#x60;, this represents the settlement amount in the specified cryptocurrency. - If &#x60;payout_channel&#x60; is set to &#x60;OffRamp&#x60;, this represents the settlement amount in the specified fiat currency. 
+   * The settlement amount. When settling merchant balance from orders (&#x60;acquiring_type&#x60; is &#x60;Order&#x60; and &#x60;settlement_type&#x60; is &#x60;Merchant&#x60;), do not specify this field as the settlement amount will be automatically calculated based on the order amounts. - If &#x60;payout_channel&#x60; is set to &#x60;Crypto&#x60;, this represents the settlement amount in the specified cryptocurrency. - If &#x60;payout_channel&#x60; is set to &#x60;OffRamp&#x60;, this represents the settlement amount in the specified fiat currency. 
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -214,7 +214,7 @@ public class CreateSettlement {
   }
 
    /**
-   * A list of order IDs to be included in this settlement. If provided, the settlement request will settle the merchant funds received from the specified orders, and the &#x60;amount&#x60; field will be ignored.   This field is only applicable when &#x60;settlement_type&#x60; is set to &#x60;Merchant&#x60;.  
+   * Get orderIds
    * @return orderIds
   **/
   @javax.annotation.Nullable
