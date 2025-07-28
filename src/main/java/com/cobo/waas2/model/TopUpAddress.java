@@ -45,13 +45,13 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * GetTopUpAddress200Response
+ * The details of top up address
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class GetTopUpAddress200Response {
+public class TopUpAddress {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
@@ -92,10 +92,10 @@ public class GetTopUpAddress200Response {
   @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
   private Integer updatedTimestamp;
 
-  public GetTopUpAddress200Response() {
+  public TopUpAddress() {
   }
 
-  public GetTopUpAddress200Response address(String address) {
+  public TopUpAddress address(String address) {
     this.address = address;
     return this;
   }
@@ -114,7 +114,7 @@ public class GetTopUpAddress200Response {
   }
 
 
-  public GetTopUpAddress200Response payerId(String payerId) {
+  public TopUpAddress payerId(String payerId) {
     this.payerId = payerId;
     return this;
   }
@@ -133,7 +133,7 @@ public class GetTopUpAddress200Response {
   }
 
 
-  public GetTopUpAddress200Response customPayerId(String customPayerId) {
+  public TopUpAddress customPayerId(String customPayerId) {
     this.customPayerId = customPayerId;
     return this;
   }
@@ -152,7 +152,7 @@ public class GetTopUpAddress200Response {
   }
 
 
-  public GetTopUpAddress200Response merchantId(String merchantId) {
+  public TopUpAddress merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
@@ -171,7 +171,7 @@ public class GetTopUpAddress200Response {
   }
 
 
-  public GetTopUpAddress200Response tokenId(String tokenId) {
+  public TopUpAddress tokenId(String tokenId) {
     this.tokenId = tokenId;
     return this;
   }
@@ -190,7 +190,7 @@ public class GetTopUpAddress200Response {
   }
 
 
-  public GetTopUpAddress200Response chain(String chain) {
+  public TopUpAddress chain(String chain) {
     this.chain = chain;
     return this;
   }
@@ -209,7 +209,7 @@ public class GetTopUpAddress200Response {
   }
 
 
-  public GetTopUpAddress200Response developerFeeRate(String developerFeeRate) {
+  public TopUpAddress developerFeeRate(String developerFeeRate) {
     this.developerFeeRate = developerFeeRate;
     return this;
   }
@@ -228,7 +228,7 @@ public class GetTopUpAddress200Response {
   }
 
 
-  public GetTopUpAddress200Response minAmount(String minAmount) {
+  public TopUpAddress minAmount(String minAmount) {
     this.minAmount = minAmount;
     return this;
   }
@@ -247,7 +247,7 @@ public class GetTopUpAddress200Response {
   }
 
 
-  public GetTopUpAddress200Response createdTimestamp(Integer createdTimestamp) {
+  public TopUpAddress createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
   }
@@ -266,7 +266,7 @@ public class GetTopUpAddress200Response {
   }
 
 
-  public GetTopUpAddress200Response updatedTimestamp(Integer updatedTimestamp) {
+  public TopUpAddress updatedTimestamp(Integer updatedTimestamp) {
     this.updatedTimestamp = updatedTimestamp;
     return this;
   }
@@ -297,9 +297,9 @@ public class GetTopUpAddress200Response {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the GetTopUpAddress200Response instance itself
+   * @return the TopUpAddress instance itself
    */
-  public GetTopUpAddress200Response putAdditionalProperty(String key, Object value) {
+  public TopUpAddress putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -338,18 +338,18 @@ public class GetTopUpAddress200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetTopUpAddress200Response getTopUpAddress200Response = (GetTopUpAddress200Response) o;
-    return Objects.equals(this.address, getTopUpAddress200Response.address) &&
-        Objects.equals(this.payerId, getTopUpAddress200Response.payerId) &&
-        Objects.equals(this.customPayerId, getTopUpAddress200Response.customPayerId) &&
-        Objects.equals(this.merchantId, getTopUpAddress200Response.merchantId) &&
-        Objects.equals(this.tokenId, getTopUpAddress200Response.tokenId) &&
-        Objects.equals(this.chain, getTopUpAddress200Response.chain) &&
-        Objects.equals(this.developerFeeRate, getTopUpAddress200Response.developerFeeRate) &&
-        Objects.equals(this.minAmount, getTopUpAddress200Response.minAmount) &&
-        Objects.equals(this.createdTimestamp, getTopUpAddress200Response.createdTimestamp) &&
-        Objects.equals(this.updatedTimestamp, getTopUpAddress200Response.updatedTimestamp)&&
-        Objects.equals(this.additionalProperties, getTopUpAddress200Response.additionalProperties);
+    TopUpAddress topUpAddress = (TopUpAddress) o;
+    return Objects.equals(this.address, topUpAddress.address) &&
+        Objects.equals(this.payerId, topUpAddress.payerId) &&
+        Objects.equals(this.customPayerId, topUpAddress.customPayerId) &&
+        Objects.equals(this.merchantId, topUpAddress.merchantId) &&
+        Objects.equals(this.tokenId, topUpAddress.tokenId) &&
+        Objects.equals(this.chain, topUpAddress.chain) &&
+        Objects.equals(this.developerFeeRate, topUpAddress.developerFeeRate) &&
+        Objects.equals(this.minAmount, topUpAddress.minAmount) &&
+        Objects.equals(this.createdTimestamp, topUpAddress.createdTimestamp) &&
+        Objects.equals(this.updatedTimestamp, topUpAddress.updatedTimestamp)&&
+        Objects.equals(this.additionalProperties, topUpAddress.additionalProperties);
   }
 
   @Override
@@ -360,7 +360,7 @@ public class GetTopUpAddress200Response {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetTopUpAddress200Response {\n");
+    sb.append("class TopUpAddress {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    payerId: ").append(toIndentedString(payerId)).append("\n");
     sb.append("    customPayerId: ").append(toIndentedString(customPayerId)).append("\n");
@@ -419,17 +419,17 @@ public class GetTopUpAddress200Response {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetTopUpAddress200Response
+  * @throws IOException if the JSON Element is invalid with respect to TopUpAddress
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!GetTopUpAddress200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetTopUpAddress200Response is not found in the empty JSON string", GetTopUpAddress200Response.openapiRequiredFields.toString()));
+        if (!TopUpAddress.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TopUpAddress is not found in the empty JSON string", TopUpAddress.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GetTopUpAddress200Response.openapiRequiredFields) {
+      for (String requiredField : TopUpAddress.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -465,16 +465,16 @@ public class GetTopUpAddress200Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetTopUpAddress200Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetTopUpAddress200Response' and its subtypes
+       if (!TopUpAddress.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TopUpAddress' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetTopUpAddress200Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetTopUpAddress200Response.class));
+       final TypeAdapter<TopUpAddress> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TopUpAddress.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetTopUpAddress200Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<TopUpAddress>() {
            @Override
-           public void write(JsonWriter out, GetTopUpAddress200Response value) throws IOException {
+           public void write(JsonWriter out, TopUpAddress value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -504,12 +504,12 @@ public class GetTopUpAddress200Response {
            }
 
            @Override
-           public GetTopUpAddress200Response read(JsonReader in) throws IOException {
+           public TopUpAddress read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             GetTopUpAddress200Response instance = thisAdapter.fromJsonTree(jsonObj);
+             TopUpAddress instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -536,18 +536,18 @@ public class GetTopUpAddress200Response {
   }
 
  /**
-  * Create an instance of GetTopUpAddress200Response given an JSON string
+  * Create an instance of TopUpAddress given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of GetTopUpAddress200Response
-  * @throws IOException if the JSON string is invalid with respect to GetTopUpAddress200Response
+  * @return An instance of TopUpAddress
+  * @throws IOException if the JSON string is invalid with respect to TopUpAddress
   */
-  public static GetTopUpAddress200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetTopUpAddress200Response.class);
+  public static TopUpAddress fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TopUpAddress.class);
   }
 
  /**
-  * Convert an instance of GetTopUpAddress200Response to an JSON string
+  * Convert an instance of TopUpAddress to an JSON string
   *
   * @return JSON string
   */

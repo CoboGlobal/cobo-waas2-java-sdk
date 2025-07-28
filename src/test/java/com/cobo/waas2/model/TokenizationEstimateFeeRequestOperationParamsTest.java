@@ -15,7 +15,6 @@ import com.cobo.waas2.model.TokenizationBurnEstimateFeeParams;
 import com.cobo.waas2.model.TokenizationBurnTokenParamsBurnsInner;
 import com.cobo.waas2.model.TokenizationContractCallEstimateFeeParams;
 import com.cobo.waas2.model.TokenizationContractCallParamsData;
-import com.cobo.waas2.model.TokenizationDeployEstimateFeeParams;
 import com.cobo.waas2.model.TokenizationIssueEstimateFeeParams;
 import com.cobo.waas2.model.TokenizationIssueTokenParamsTokenParams;
 import com.cobo.waas2.model.TokenizationMintEstimateFeeParams;
@@ -85,6 +84,14 @@ public class TokenizationEstimateFeeRequestOperationParamsTest {
     @Test
     public void operationTypeTest() {
         // TODO: test operationType
+    }
+
+    /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
     }
 
     /**

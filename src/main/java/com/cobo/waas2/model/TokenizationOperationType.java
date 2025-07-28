@@ -28,8 +28,6 @@ import com.google.gson.stream.JsonWriter;
 public enum TokenizationOperationType {
   UNKNOWN(null),
   
-  DEPLOY("Deploy"),
-  
   ISSUE("Issue"),
   
   MINT("Mint"),

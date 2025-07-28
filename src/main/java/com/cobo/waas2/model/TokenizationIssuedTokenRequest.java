@@ -75,6 +75,10 @@ public class TokenizationIssuedTokenRequest {
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
 
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public TokenizationIssuedTokenRequest() {
   }
 
@@ -141,7 +145,7 @@ public class TokenizationIssuedTokenRequest {
   }
 
    /**
-   * The address of the app initiator. 
+   * The initiator of the tokenization activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.
    * @return appInitiator
   **/
   @javax.annotation.Nullable
@@ -170,6 +174,25 @@ public class TokenizationIssuedTokenRequest {
 
   public void setFee(TransactionRequestFee fee) {
     this.fee = fee;
+  }
+
+
+  public TokenizationIssuedTokenRequest requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
   /**
@@ -231,13 +254,14 @@ public class TokenizationIssuedTokenRequest {
         Objects.equals(this.source, tokenizationIssuedTokenRequest.source) &&
         Objects.equals(this.tokenParams, tokenizationIssuedTokenRequest.tokenParams) &&
         Objects.equals(this.appInitiator, tokenizationIssuedTokenRequest.appInitiator) &&
-        Objects.equals(this.fee, tokenizationIssuedTokenRequest.fee)&&
+        Objects.equals(this.fee, tokenizationIssuedTokenRequest.fee) &&
+        Objects.equals(this.requestId, tokenizationIssuedTokenRequest.requestId)&&
         Objects.equals(this.additionalProperties, tokenizationIssuedTokenRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chainId, source, tokenParams, appInitiator, fee, additionalProperties);
+    return Objects.hash(chainId, source, tokenParams, appInitiator, fee, requestId, additionalProperties);
   }
 
   @Override
@@ -249,6 +273,7 @@ public class TokenizationIssuedTokenRequest {
     sb.append("    tokenParams: ").append(toIndentedString(tokenParams)).append("\n");
     sb.append("    appInitiator: ").append(toIndentedString(appInitiator)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -277,6 +302,7 @@ public class TokenizationIssuedTokenRequest {
     openapiFields.add("token_params");
     openapiFields.add("app_initiator");
     openapiFields.add("fee");
+    openapiFields.add("request_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -318,6 +344,9 @@ public class TokenizationIssuedTokenRequest {
       }
       // validate the required field `fee`
       TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

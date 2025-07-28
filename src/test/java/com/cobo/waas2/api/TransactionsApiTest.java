@@ -14,6 +14,8 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.ApprovalDetail;
+import com.cobo.waas2.model.ApprovalTemplate;
 import com.cobo.waas2.model.BroadcastSignedTransactions201ResponseInner;
 import com.cobo.waas2.model.BroadcastSignedTransactionsRequest;
 import com.cobo.waas2.model.CheckLoopTransfers200ResponseInner;
@@ -22,9 +24,7 @@ import com.cobo.waas2.model.CreateTransferTransaction201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.EstimateFeeParams;
 import com.cobo.waas2.model.EstimatedFee;
-import com.cobo.waas2.model.ListApprovalDetails200Response;
 import com.cobo.waas2.model.ListTransactionApprovalDetails200Response;
-import com.cobo.waas2.model.ListTransactionTemplates200Response;
 import com.cobo.waas2.model.ListTransactions200Response;
 import com.cobo.waas2.model.MessageSignParams;
 import com.cobo.waas2.model.TransactionApprovalDetail;
@@ -210,8 +210,8 @@ public class TransactionsApiTest {
     public void listApprovalDetailsTest() throws ApiException {
         String transactionIds = null;
         String coboIds = null;
-        String requestId = null;
-        ListApprovalDetails200Response response = api.listApprovalDetails(transactionIds, coboIds, requestId);
+        String requestIds = null;
+        List<ApprovalDetail> response = api.listApprovalDetails(transactionIds, coboIds, requestIds);
         // TODO: test validations
     }
 
@@ -239,9 +239,9 @@ public class TransactionsApiTest {
      */
     @Test
     public void listTransactionTemplatesTest() throws ApiException {
-        String transactionType = null;
+        String templateKey = null;
         String templateVersion = null;
-        ListTransactionTemplates200Response response = api.listTransactionTemplates(transactionType, templateVersion);
+        List<ApprovalTemplate> response = api.listTransactionTemplates(templateKey, templateVersion);
         // TODO: test validations
     }
 

@@ -711,7 +711,7 @@ public class Example {
 
 <a id="listApprovalDetails"></a>
 # **listApprovalDetails**
-> ListApprovalDetails200Response listApprovalDetails(transactionIds, coboIds, requestId)
+> List&lt;ApprovalDetail&gt; listApprovalDetails(transactionIds, coboIds, requestIds)
 
 List transaction approval details
 
@@ -738,9 +738,9 @@ public class Example {
     TransactionsApi apiInstance = new TransactionsApi();
     String transactionIds = "f47ac10b-58cc-4372-a567-0e02b2c3d479,557918d2-632a-4fe1-932f-315711f05fe3";
     String coboIds = "20231213122855000000000000000000,20231213122955000000000000000000";
-    String requestId = "web_send_by_user_327_1610444045047,web_send_by_user_327_1610444045048";
+    String requestIds = "web_send_by_user_327_1610444045047,web_send_by_user_327_1610444045048";
     try {
-      ListApprovalDetails200Response result = apiInstance.listApprovalDetails(transactionIds, coboIds, requestId);
+      List<ApprovalDetail> result = apiInstance.listApprovalDetails(transactionIds, coboIds, requestIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TransactionsApi#listApprovalDetails");
@@ -759,11 +759,11 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **transactionIds** | **String**| A list of transaction IDs, separated by comma. | [optional] |
 | **coboIds** | **String**| A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. | [optional] |
-| **requestId** | **String**| A list of request IDs, separated by comma. | [optional] |
+| **requestIds** | **String**| A list of request IDs, separated by comma. | [optional] |
 
 ### Return type
 
-[**ListApprovalDetails200Response**](ListApprovalDetails200Response.md)
+[**List&lt;ApprovalDetail&gt;**](ApprovalDetail.md)
 
 ### Authorization
 
@@ -853,7 +853,7 @@ public class Example {
 
 <a id="listTransactionTemplates"></a>
 # **listTransactionTemplates**
-> ListTransactionTemplates200Response listTransactionTemplates(transactionType, templateVersion)
+> List&lt;ApprovalTemplate&gt; listTransactionTemplates(templateKey, templateVersion)
 
 list transaction templates
 
@@ -878,10 +878,10 @@ public class Example {
     // Replace `<YOUR_PRIVATE_KEY>` with your private key
     defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
-    String transactionType = "DEPOSIT";
+    String templateKey = "withdrawal";
     String templateVersion = "1.0.0";
     try {
-      ListTransactionTemplates200Response result = apiInstance.listTransactionTemplates(transactionType, templateVersion);
+      List<ApprovalTemplate> result = apiInstance.listTransactionTemplates(templateKey, templateVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TransactionsApi#listTransactionTemplates");
@@ -898,12 +898,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **transactionType** | **String**| The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  | [enum: DEPOSIT, WITHDRAW] |
+| **templateKey** | **String**| The key of the transaction template to be used for creating a transaction approval message.  | |
 | **templateVersion** | **String**| The version of the template used for the transaction approval. | [optional] |
 
 ### Return type
 
-[**ListTransactionTemplates200Response**](ListTransactionTemplates200Response.md)
+[**List&lt;ApprovalTemplate&gt;**](ApprovalTemplate.md)
 
 ### Authorization
 

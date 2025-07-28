@@ -11,8 +11,7 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.AddressTransferDestination;
-import com.cobo.waas2.model.EstimatedFee;
+import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -79,11 +78,11 @@ public class CreateSwapActivityRequestTest {
     }
 
     /**
-     * Test the property 'destination'
+     * Test the property 'receiverAddress'
      */
     @Test
-    public void destinationTest() {
-        // TODO: test destination
+    public void receiverAddressTest() {
+        // TODO: test receiverAddress
     }
 
     /**

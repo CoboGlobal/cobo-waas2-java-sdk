@@ -25,6 +25,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cobo.waas2.model.ApprovalDetail;
+import com.cobo.waas2.model.ApprovalTemplate;
 import com.cobo.waas2.model.BroadcastSignedTransactions201ResponseInner;
 import com.cobo.waas2.model.BroadcastSignedTransactionsRequest;
 import com.cobo.waas2.model.CheckLoopTransfers200ResponseInner;
@@ -33,9 +35,7 @@ import com.cobo.waas2.model.CreateTransferTransaction201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.EstimateFeeParams;
 import com.cobo.waas2.model.EstimatedFee;
-import com.cobo.waas2.model.ListApprovalDetails200Response;
 import com.cobo.waas2.model.ListTransactionApprovalDetails200Response;
-import com.cobo.waas2.model.ListTransactionTemplates200Response;
 import com.cobo.waas2.model.ListTransactions200Response;
 import com.cobo.waas2.model.MessageSignParams;
 import com.cobo.waas2.model.TransactionApprovalDetail;
@@ -1265,7 +1265,7 @@ public class TransactionsApi {
      * Build call for listApprovalDetails
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
-     * @param requestId A list of request IDs, separated by comma. (optional)
+     * @param requestIds A list of request IDs, separated by comma. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1277,7 +1277,7 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listApprovalDetailsCall(String transactionIds, String coboIds, String requestId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listApprovalDetailsCall(String transactionIds, String coboIds, String requestIds, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1297,8 +1297,8 @@ public class TransactionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("cobo_ids", coboIds));
         }
 
-        if (requestId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("request_id", requestId));
+        if (requestIds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("request_ids", requestIds));
         }
 
         final String[] localVarAccepts = {
@@ -1321,8 +1321,8 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listApprovalDetailsValidateBeforeCall(String transactionIds, String coboIds, String requestId, final ApiCallback _callback) throws ApiException {
-        return listApprovalDetailsCall(transactionIds, coboIds, requestId, _callback);
+    private okhttp3.Call listApprovalDetailsValidateBeforeCall(String transactionIds, String coboIds, String requestIds, final ApiCallback _callback) throws ApiException {
+        return listApprovalDetailsCall(transactionIds, coboIds, requestIds, _callback);
 
     }
 
@@ -1331,8 +1331,8 @@ public class TransactionsApi {
      * This operation retrieves detailed approval information for a specified transaction. 
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
-     * @param requestId A list of request IDs, separated by comma. (optional)
-     * @return ListApprovalDetails200Response
+     * @param requestIds A list of request IDs, separated by comma. (optional)
+     * @return List&lt;ApprovalDetail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1342,8 +1342,8 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListApprovalDetails200Response listApprovalDetails(String transactionIds, String coboIds, String requestId) throws ApiException {
-        ApiResponse<ListApprovalDetails200Response> localVarResp = listApprovalDetailsWithHttpInfo(transactionIds, coboIds, requestId);
+    public List<ApprovalDetail> listApprovalDetails(String transactionIds, String coboIds, String requestIds) throws ApiException {
+        ApiResponse<List<ApprovalDetail>> localVarResp = listApprovalDetailsWithHttpInfo(transactionIds, coboIds, requestIds);
         return localVarResp.getData();
     }
 
@@ -1352,8 +1352,8 @@ public class TransactionsApi {
      * This operation retrieves detailed approval information for a specified transaction. 
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
-     * @param requestId A list of request IDs, separated by comma. (optional)
-     * @return ApiResponse&lt;ListApprovalDetails200Response&gt;
+     * @param requestIds A list of request IDs, separated by comma. (optional)
+     * @return ApiResponse&lt;List&lt;ApprovalDetail&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1363,9 +1363,9 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListApprovalDetails200Response> listApprovalDetailsWithHttpInfo(String transactionIds, String coboIds, String requestId) throws ApiException {
-        okhttp3.Call localVarCall = listApprovalDetailsValidateBeforeCall(transactionIds, coboIds, requestId, null);
-        Type localVarReturnType = new TypeToken<ListApprovalDetails200Response>(){}.getType();
+    public ApiResponse<List<ApprovalDetail>> listApprovalDetailsWithHttpInfo(String transactionIds, String coboIds, String requestIds) throws ApiException {
+        okhttp3.Call localVarCall = listApprovalDetailsValidateBeforeCall(transactionIds, coboIds, requestIds, null);
+        Type localVarReturnType = new TypeToken<List<ApprovalDetail>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1374,7 +1374,7 @@ public class TransactionsApi {
      * This operation retrieves detailed approval information for a specified transaction. 
      * @param transactionIds A list of transaction IDs, separated by comma. (optional)
      * @param coboIds A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. (optional)
-     * @param requestId A list of request IDs, separated by comma. (optional)
+     * @param requestIds A list of request IDs, separated by comma. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1386,10 +1386,10 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listApprovalDetailsAsync(String transactionIds, String coboIds, String requestId, final ApiCallback<ListApprovalDetails200Response> _callback) throws ApiException {
+    public okhttp3.Call listApprovalDetailsAsync(String transactionIds, String coboIds, String requestIds, final ApiCallback<List<ApprovalDetail>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listApprovalDetailsValidateBeforeCall(transactionIds, coboIds, requestId, _callback);
-        Type localVarReturnType = new TypeToken<ListApprovalDetails200Response>(){}.getType();
+        okhttp3.Call localVarCall = listApprovalDetailsValidateBeforeCall(transactionIds, coboIds, requestIds, _callback);
+        Type localVarReturnType = new TypeToken<List<ApprovalDetail>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1519,7 +1519,7 @@ public class TransactionsApi {
     }
     /**
      * Build call for listTransactionTemplates
-     * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
+     * @param templateKey The key of the transaction template to be used for creating a transaction approval message.  (required)
      * @param templateVersion The version of the template used for the transaction approval. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1532,7 +1532,7 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTransactionTemplatesCall(String transactionType, String templateVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listTransactionTemplatesCall(String templateKey, String templateVersion, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1544,8 +1544,8 @@ public class TransactionsApi {
         Map<String, String> localVarCookieParams = new HashMap<>();
         Map<String, Object> localVarFormParams = new HashMap<>();
 
-        if (transactionType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("transaction_type", transactionType));
+        if (templateKey != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("template_key", templateKey));
         }
 
         if (templateVersion != null) {
@@ -1572,22 +1572,22 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listTransactionTemplatesValidateBeforeCall(String transactionType, String templateVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'transactionType' is set
-        if (transactionType == null) {
-            throw new ApiException("Missing the required parameter 'transactionType' when calling listTransactionTemplates(Async)");
+    private okhttp3.Call listTransactionTemplatesValidateBeforeCall(String templateKey, String templateVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'templateKey' is set
+        if (templateKey == null) {
+            throw new ApiException("Missing the required parameter 'templateKey' when calling listTransactionTemplates(Async)");
         }
 
-        return listTransactionTemplatesCall(transactionType, templateVersion, _callback);
+        return listTransactionTemplatesCall(templateKey, templateVersion, _callback);
 
     }
 
     /**
      * list transaction templates
      * This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
-     * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
+     * @param templateKey The key of the transaction template to be used for creating a transaction approval message.  (required)
      * @param templateVersion The version of the template used for the transaction approval. (optional)
-     * @return ListTransactionTemplates200Response
+     * @return List&lt;ApprovalTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1597,17 +1597,17 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListTransactionTemplates200Response listTransactionTemplates(String transactionType, String templateVersion) throws ApiException {
-        ApiResponse<ListTransactionTemplates200Response> localVarResp = listTransactionTemplatesWithHttpInfo(transactionType, templateVersion);
+    public List<ApprovalTemplate> listTransactionTemplates(String templateKey, String templateVersion) throws ApiException {
+        ApiResponse<List<ApprovalTemplate>> localVarResp = listTransactionTemplatesWithHttpInfo(templateKey, templateVersion);
         return localVarResp.getData();
     }
 
     /**
      * list transaction templates
      * This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
-     * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
+     * @param templateKey The key of the transaction template to be used for creating a transaction approval message.  (required)
      * @param templateVersion The version of the template used for the transaction approval. (optional)
-     * @return ApiResponse&lt;ListTransactionTemplates200Response&gt;
+     * @return ApiResponse&lt;List&lt;ApprovalTemplate&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1617,16 +1617,16 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListTransactionTemplates200Response> listTransactionTemplatesWithHttpInfo(String transactionType, String templateVersion) throws ApiException {
-        okhttp3.Call localVarCall = listTransactionTemplatesValidateBeforeCall(transactionType, templateVersion, null);
-        Type localVarReturnType = new TypeToken<ListTransactionTemplates200Response>(){}.getType();
+    public ApiResponse<List<ApprovalTemplate>> listTransactionTemplatesWithHttpInfo(String templateKey, String templateVersion) throws ApiException {
+        okhttp3.Call localVarCall = listTransactionTemplatesValidateBeforeCall(templateKey, templateVersion, null);
+        Type localVarReturnType = new TypeToken<List<ApprovalTemplate>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * list transaction templates (asynchronously)
      * This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
-     * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
+     * @param templateKey The key of the transaction template to be used for creating a transaction approval message.  (required)
      * @param templateVersion The version of the template used for the transaction approval. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1639,10 +1639,10 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTransactionTemplatesAsync(String transactionType, String templateVersion, final ApiCallback<ListTransactionTemplates200Response> _callback) throws ApiException {
+    public okhttp3.Call listTransactionTemplatesAsync(String templateKey, String templateVersion, final ApiCallback<List<ApprovalTemplate>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listTransactionTemplatesValidateBeforeCall(transactionType, templateVersion, _callback);
-        Type localVarReturnType = new TypeToken<ListTransactionTemplates200Response>(){}.getType();
+        okhttp3.Call localVarCall = listTransactionTemplatesValidateBeforeCall(templateKey, templateVersion, _callback);
+        Type localVarReturnType = new TypeToken<List<ApprovalTemplate>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

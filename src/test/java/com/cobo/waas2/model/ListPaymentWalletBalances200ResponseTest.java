@@ -11,7 +11,7 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.ApprovalTemplate;
+import com.cobo.waas2.model.PaymentWalletBalance;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,17 +25,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for ListTransactionTemplates200Response
+ * Model tests for ListPaymentWalletBalances200Response
  */
-public class ListTransactionTemplates200ResponseTest {
-    private final ListTransactionTemplates200Response model = new ListTransactionTemplates200Response();
+public class ListPaymentWalletBalances200ResponseTest {
+    private final ListPaymentWalletBalances200Response model = new ListPaymentWalletBalances200Response();
 
     /**
-     * Model tests for ListTransactionTemplates200Response
+     * Model tests for ListPaymentWalletBalances200Response
      */
     @Test
-    public void testListTransactionTemplates200Response() {
-        // TODO: test ListTransactionTemplates200Response
+    public void testListPaymentWalletBalances200Response() {
+        // TODO: test ListPaymentWalletBalances200Response
     }
 
     /**

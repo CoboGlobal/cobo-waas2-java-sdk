@@ -5,7 +5,7 @@
     <artifactId>cobo-waas2</artifactId>
     <packaging>jar</packaging>
     <name>cobo-waas2</name>
-    <version>1.17.0</version>
+    <version>1.19.1</version>
     <url>https://github.com/CoboGlobal/cobo-waas2-java-sdk</url>
     <description>Cobo WaaS 2.0 Java SDK</description>
     <scm>
@@ -106,9 +106,11 @@
                             <value>conf/log4j.properties</value>
                         </property>
                     </systemPropertyVariables>
-                    <argLine>-Xms512m -Xmx1500m</argLine>
+                    <argLine>-Xms512m -Xmx2048m --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED</argLine>
                     <parallel>methods</parallel>
-                    <threadCount>10</threadCount>
+                    <threadCount>5</threadCount>
+                    <forkCount>1</forkCount>
+                    <reuseForks>true</reuseForks>
                 </configuration>
                 <dependencies>
                     <!--Custom provider and engine for Junit 5 to surefire-->

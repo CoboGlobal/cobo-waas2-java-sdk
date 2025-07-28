@@ -1,7 +1,8 @@
 
 
-# GetTopUpAddress200Response
+# TopUpAddress
 
+The details of top up address
 
 ## Properties
 

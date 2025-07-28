@@ -12,16 +12,17 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.TokenizationIssueTokenParamsTokenParams;
-import com.cobo.waas2.model.TokenizationOperationType;
-import com.cobo.waas2.model.TokenizationTokenOperationSource;
+import com.cobo.waas2.model.ForcedSweep;
+import com.cobo.waas2.model.Pagination;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,105 +49,67 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * TokenizationDeployEstimateFeeParams
+ * ListForcedSweepRequests200Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class TokenizationDeployEstimateFeeParams {
-  public static final String SERIALIZED_NAME_CHAIN_ID = "chain_id";
-  @SerializedName(SERIALIZED_NAME_CHAIN_ID)
-  private String chainId;
+public class ListForcedSweepRequests200Response {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private List<ForcedSweep> data = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_SOURCE = "source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
-  private TokenizationTokenOperationSource source;
+  public static final String SERIALIZED_NAME_PAGINATION = "pagination";
+  @SerializedName(SERIALIZED_NAME_PAGINATION)
+  private Pagination pagination;
 
-  public static final String SERIALIZED_NAME_TOKEN_PARAMS = "token_params";
-  @SerializedName(SERIALIZED_NAME_TOKEN_PARAMS)
-  private TokenizationIssueTokenParamsTokenParams tokenParams;
-
-  public static final String SERIALIZED_NAME_OPERATION_TYPE = "operation_type";
-  @SerializedName(SERIALIZED_NAME_OPERATION_TYPE)
-  private TokenizationOperationType operationType;
-
-  public TokenizationDeployEstimateFeeParams() {
+  public ListForcedSweepRequests200Response() {
   }
 
-  public TokenizationDeployEstimateFeeParams chainId(String chainId) {
-    this.chainId = chainId;
+  public ListForcedSweepRequests200Response data(List<ForcedSweep> data) {
+    this.data = data;
+    return this;
+  }
+
+  public ListForcedSweepRequests200Response addDataItem(ForcedSweep dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * The chain ID where the token will be issued.
-   * @return chainId
+   * Get data
+   * @return data
   **/
-  @javax.annotation.Nonnull
-  public String getChainId() {
-    return chainId;
+  @javax.annotation.Nullable
+  public List<ForcedSweep> getData() {
+    return data;
   }
 
-  public void setChainId(String chainId) {
-    this.chainId = chainId;
+  public void setData(List<ForcedSweep> data) {
+    this.data = data;
   }
 
 
-  public TokenizationDeployEstimateFeeParams source(TokenizationTokenOperationSource source) {
-    this.source = source;
+  public ListForcedSweepRequests200Response pagination(Pagination pagination) {
+    this.pagination = pagination;
     return this;
   }
 
    /**
-   * Get source
-   * @return source
+   * Get pagination
+   * @return pagination
   **/
-  @javax.annotation.Nonnull
-  public TokenizationTokenOperationSource getSource() {
-    return source;
+  @javax.annotation.Nullable
+  public Pagination getPagination() {
+    return pagination;
   }
 
-  public void setSource(TokenizationTokenOperationSource source) {
-    this.source = source;
-  }
-
-
-  public TokenizationDeployEstimateFeeParams tokenParams(TokenizationIssueTokenParamsTokenParams tokenParams) {
-    this.tokenParams = tokenParams;
-    return this;
-  }
-
-   /**
-   * Get tokenParams
-   * @return tokenParams
-  **/
-  @javax.annotation.Nonnull
-  public TokenizationIssueTokenParamsTokenParams getTokenParams() {
-    return tokenParams;
-  }
-
-  public void setTokenParams(TokenizationIssueTokenParamsTokenParams tokenParams) {
-    this.tokenParams = tokenParams;
-  }
-
-
-  public TokenizationDeployEstimateFeeParams operationType(TokenizationOperationType operationType) {
-    this.operationType = operationType;
-    return this;
-  }
-
-   /**
-   * Get operationType
-   * @return operationType
-  **/
-  @javax.annotation.Nonnull
-  public TokenizationOperationType getOperationType() {
-    return operationType;
-  }
-
-  public void setOperationType(TokenizationOperationType operationType) {
-    this.operationType = operationType;
+  public void setPagination(Pagination pagination) {
+    this.pagination = pagination;
   }
 
   /**
@@ -162,9 +125,9 @@ public class TokenizationDeployEstimateFeeParams {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TokenizationDeployEstimateFeeParams instance itself
+   * @return the ListForcedSweepRequests200Response instance itself
    */
-  public TokenizationDeployEstimateFeeParams putAdditionalProperty(String key, Object value) {
+  public ListForcedSweepRequests200Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -203,27 +166,23 @@ public class TokenizationDeployEstimateFeeParams {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TokenizationDeployEstimateFeeParams tokenizationDeployEstimateFeeParams = (TokenizationDeployEstimateFeeParams) o;
-    return Objects.equals(this.chainId, tokenizationDeployEstimateFeeParams.chainId) &&
-        Objects.equals(this.source, tokenizationDeployEstimateFeeParams.source) &&
-        Objects.equals(this.tokenParams, tokenizationDeployEstimateFeeParams.tokenParams) &&
-        Objects.equals(this.operationType, tokenizationDeployEstimateFeeParams.operationType)&&
-        Objects.equals(this.additionalProperties, tokenizationDeployEstimateFeeParams.additionalProperties);
+    ListForcedSweepRequests200Response listForcedSweepRequests200Response = (ListForcedSweepRequests200Response) o;
+    return Objects.equals(this.data, listForcedSweepRequests200Response.data) &&
+        Objects.equals(this.pagination, listForcedSweepRequests200Response.pagination)&&
+        Objects.equals(this.additionalProperties, listForcedSweepRequests200Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chainId, source, tokenParams, operationType, additionalProperties);
+    return Objects.hash(data, pagination, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TokenizationDeployEstimateFeeParams {\n");
-    sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    tokenParams: ").append(toIndentedString(tokenParams)).append("\n");
-    sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
+    sb.append("class ListForcedSweepRequests200Response {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -247,64 +206,60 @@ public class TokenizationDeployEstimateFeeParams {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("chain_id");
-    openapiFields.add("source");
-    openapiFields.add("token_params");
-    openapiFields.add("operation_type");
+    openapiFields.add("data");
+    openapiFields.add("pagination");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("chain_id");
-    openapiRequiredFields.add("source");
-    openapiRequiredFields.add("token_params");
-    openapiRequiredFields.add("operation_type");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TokenizationDeployEstimateFeeParams
+  * @throws IOException if the JSON Element is invalid with respect to ListForcedSweepRequests200Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TokenizationDeployEstimateFeeParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenizationDeployEstimateFeeParams is not found in the empty JSON string", TokenizationDeployEstimateFeeParams.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TokenizationDeployEstimateFeeParams.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!ListForcedSweepRequests200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListForcedSweepRequests200Response is not found in the empty JSON string", ListForcedSweepRequests200Response.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("chain_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `chain_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chain_id").toString()));
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        if (jsonArraydata != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("data").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+          }
+
+          // validate the optional field `data` (array)
+          for (int i = 0; i < jsonArraydata.size(); i++) {
+            ForcedSweep.validateJsonElement(jsonArraydata.get(i));
+          };
+        }
       }
-      // validate the required field `source`
-      TokenizationTokenOperationSource.validateJsonElement(jsonObj.get("source"));
-      // validate the required field `token_params`
-      TokenizationIssueTokenParamsTokenParams.validateJsonElement(jsonObj.get("token_params"));
-      // validate the required field `operation_type`
-      TokenizationOperationType.validateJsonElement(jsonObj.get("operation_type"));
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        Pagination.validateJsonElement(jsonObj.get("pagination"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TokenizationDeployEstimateFeeParams.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TokenizationDeployEstimateFeeParams' and its subtypes
+       if (!ListForcedSweepRequests200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListForcedSweepRequests200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TokenizationDeployEstimateFeeParams> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TokenizationDeployEstimateFeeParams.class));
+       final TypeAdapter<ListForcedSweepRequests200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListForcedSweepRequests200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TokenizationDeployEstimateFeeParams>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListForcedSweepRequests200Response>() {
            @Override
-           public void write(JsonWriter out, TokenizationDeployEstimateFeeParams value) throws IOException {
+           public void write(JsonWriter out, ListForcedSweepRequests200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -334,12 +289,12 @@ public class TokenizationDeployEstimateFeeParams {
            }
 
            @Override
-           public TokenizationDeployEstimateFeeParams read(JsonReader in) throws IOException {
+           public ListForcedSweepRequests200Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TokenizationDeployEstimateFeeParams instance = thisAdapter.fromJsonTree(jsonObj);
+             ListForcedSweepRequests200Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -366,18 +321,18 @@ public class TokenizationDeployEstimateFeeParams {
   }
 
  /**
-  * Create an instance of TokenizationDeployEstimateFeeParams given an JSON string
+  * Create an instance of ListForcedSweepRequests200Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of TokenizationDeployEstimateFeeParams
-  * @throws IOException if the JSON string is invalid with respect to TokenizationDeployEstimateFeeParams
+  * @return An instance of ListForcedSweepRequests200Response
+  * @throws IOException if the JSON string is invalid with respect to ListForcedSweepRequests200Response
   */
-  public static TokenizationDeployEstimateFeeParams fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TokenizationDeployEstimateFeeParams.class);
+  public static ListForcedSweepRequests200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListForcedSweepRequests200Response.class);
   }
 
  /**
-  * Convert an instance of TokenizationDeployEstimateFeeParams to an JSON string
+  * Convert an instance of ListForcedSweepRequests200Response to an JSON string
   *
   * @return JSON string
   */

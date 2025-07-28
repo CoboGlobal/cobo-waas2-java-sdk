@@ -12,17 +12,14 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.ApprovalTransactionResult;
-import com.cobo.waas2.model.ApprovalUserDetail;
+import com.cobo.waas2.model.RoleDetail;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 
 import com.google.gson.Gson;
@@ -69,17 +66,17 @@ public class ApprovalDetail {
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
   private String requestId;
 
-  public static final String SERIALIZED_NAME_RESULT = "result";
-  @SerializedName(SERIALIZED_NAME_RESULT)
-  private ApprovalTransactionResult result;
+  public static final String SERIALIZED_NAME_BROKER_USER = "broker_user";
+  @SerializedName(SERIALIZED_NAME_BROKER_USER)
+  private RoleDetail brokerUser;
 
-  public static final String SERIALIZED_NAME_THRESHOLD = "threshold";
-  @SerializedName(SERIALIZED_NAME_THRESHOLD)
-  private Integer threshold;
+  public static final String SERIALIZED_NAME_SPENDER = "spender";
+  @SerializedName(SERIALIZED_NAME_SPENDER)
+  private RoleDetail spender;
 
-  public static final String SERIALIZED_NAME_USER_DETAILS = "user_details";
-  @SerializedName(SERIALIZED_NAME_USER_DETAILS)
-  private List<ApprovalUserDetail> userDetails = new ArrayList<>();
+  public static final String SERIALIZED_NAME_APPROVER = "approver";
+  @SerializedName(SERIALIZED_NAME_APPROVER)
+  private RoleDetail approver;
 
   public ApprovalDetail() {
   }
@@ -141,68 +138,60 @@ public class ApprovalDetail {
   }
 
 
-  public ApprovalDetail result(ApprovalTransactionResult result) {
-    this.result = result;
+  public ApprovalDetail brokerUser(RoleDetail brokerUser) {
+    this.brokerUser = brokerUser;
     return this;
   }
 
    /**
-   * Get result
-   * @return result
+   * Get brokerUser
+   * @return brokerUser
   **/
   @javax.annotation.Nullable
-  public ApprovalTransactionResult getResult() {
-    return result;
+  public RoleDetail getBrokerUser() {
+    return brokerUser;
   }
 
-  public void setResult(ApprovalTransactionResult result) {
-    this.result = result;
+  public void setBrokerUser(RoleDetail brokerUser) {
+    this.brokerUser = brokerUser;
   }
 
 
-  public ApprovalDetail threshold(Integer threshold) {
-    this.threshold = threshold;
+  public ApprovalDetail spender(RoleDetail spender) {
+    this.spender = spender;
     return this;
   }
 
    /**
-   * The threshold for the transaction approval.
-   * @return threshold
+   * Get spender
+   * @return spender
   **/
   @javax.annotation.Nullable
-  public Integer getThreshold() {
-    return threshold;
+  public RoleDetail getSpender() {
+    return spender;
   }
 
-  public void setThreshold(Integer threshold) {
-    this.threshold = threshold;
+  public void setSpender(RoleDetail spender) {
+    this.spender = spender;
   }
 
 
-  public ApprovalDetail userDetails(List<ApprovalUserDetail> userDetails) {
-    this.userDetails = userDetails;
-    return this;
-  }
-
-  public ApprovalDetail addUserDetailsItem(ApprovalUserDetail userDetailsItem) {
-    if (this.userDetails == null) {
-      this.userDetails = new ArrayList<>();
-    }
-    this.userDetails.add(userDetailsItem);
+  public ApprovalDetail approver(RoleDetail approver) {
+    this.approver = approver;
     return this;
   }
 
    /**
-   * Get userDetails
-   * @return userDetails
+   * Get approver
+   * @return approver
   **/
   @javax.annotation.Nullable
-  public List<ApprovalUserDetail> getUserDetails() {
-    return userDetails;
+  public RoleDetail getApprover() {
+    return approver;
   }
 
-  public void setUserDetails(List<ApprovalUserDetail> userDetails) {
-    this.userDetails = userDetails;
+  public void setApprover(RoleDetail approver) {
+    this.approver = approver;
   }
 
   /**
@@ -263,15 +252,15 @@ public class ApprovalDetail {
     return Objects.equals(this.transactionId, approvalDetail.transactionId) &&
         Objects.equals(this.coboId, approvalDetail.coboId) &&
         Objects.equals(this.requestId, approvalDetail.requestId) &&
-        Objects.equals(this.result, approvalDetail.result) &&
-        Objects.equals(this.threshold, approvalDetail.threshold) &&
-        Objects.equals(this.userDetails, approvalDetail.userDetails)&&
+        Objects.equals(this.brokerUser, approvalDetail.brokerUser) &&
+        Objects.equals(this.spender, approvalDetail.spender) &&
+        Objects.equals(this.approver, approvalDetail.approver)&&
         Objects.equals(this.additionalProperties, approvalDetail.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionId, coboId, requestId, result, threshold, userDetails, additionalProperties);
+    return Objects.hash(transactionId, coboId, requestId, brokerUser, spender, approver, additionalProperties);
   }
 
   @Override
@@ -281,9 +270,9 @@ public class ApprovalDetail {
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    coboId: ").append(toIndentedString(coboId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
-    sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
-    sb.append("    userDetails: ").append(toIndentedString(userDetails)).append("\n");
+    sb.append("    brokerUser: ").append(toIndentedString(brokerUser)).append("\n");
+    sb.append("    spender: ").append(toIndentedString(spender)).append("\n");
+    sb.append("    approver: ").append(toIndentedString(approver)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -310,9 +299,9 @@ public class ApprovalDetail {
     openapiFields.add("transaction_id");
     openapiFields.add("cobo_id");
     openapiFields.add("request_id");
-    openapiFields.add("result");
-    openapiFields.add("threshold");
-    openapiFields.add("user_details");
+    openapiFields.add("broker_user");
+    openapiFields.add("spender");
+    openapiFields.add("approver");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -340,23 +329,17 @@ public class ApprovalDetail {
       if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
-      // validate the optional field `result`
-      if (jsonObj.get("result") != null && !jsonObj.get("result").isJsonNull()) {
-        ApprovalTransactionResult.validateJsonElement(jsonObj.get("result"));
+      // validate the optional field `broker_user`
+      if (jsonObj.get("broker_user") != null && !jsonObj.get("broker_user").isJsonNull()) {
+        RoleDetail.validateJsonElement(jsonObj.get("broker_user"));
       }
-      if (jsonObj.get("user_details") != null && !jsonObj.get("user_details").isJsonNull()) {
-        JsonArray jsonArrayuserDetails = jsonObj.getAsJsonArray("user_details");
-        if (jsonArrayuserDetails != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("user_details").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `user_details` to be an array in the JSON string but got `%s`", jsonObj.get("user_details").toString()));
-          }
-
-          // validate the optional field `user_details` (array)
-          for (int i = 0; i < jsonArrayuserDetails.size(); i++) {
-            ApprovalUserDetail.validateJsonElement(jsonArrayuserDetails.get(i));
-          };
-        }
+      // validate the optional field `spender`
+      if (jsonObj.get("spender") != null && !jsonObj.get("spender").isJsonNull()) {
+        RoleDetail.validateJsonElement(jsonObj.get("spender"));
+      }
+      // validate the optional field `approver`
+      if (jsonObj.get("approver") != null && !jsonObj.get("approver").isJsonNull()) {
+        RoleDetail.validateJsonElement(jsonObj.get("approver"));
       }
   }
 

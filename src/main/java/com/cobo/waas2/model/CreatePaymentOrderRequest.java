@@ -62,7 +62,7 @@ public class CreatePaymentOrderRequest {
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private String currency = "USD";
+  private String currency = "";
 
   public static final String SERIALIZED_NAME_ORDER_AMOUNT = "order_amount";
   @SerializedName(SERIALIZED_NAME_ORDER_AMOUNT)

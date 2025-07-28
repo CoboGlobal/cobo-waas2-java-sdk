@@ -489,7 +489,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **chainId** | **String**| The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). | [optional] |
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). | [optional] |
-| **tokenStandard** | [**TokenizationTokenStandard**](.md)| Filter by token standard | [optional] [enum: ERC20] |
+| **tokenStandard** | [**TokenizationTokenStandard**](.md)| Filter by token standard | [optional] [enum: ERC20, SPLToken2022] |
 | **status** | [**TokenizationStatus**](.md)| Filter by token status | [optional] [enum: Processing, Active, Failed, Pausing] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
 | **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
@@ -543,7 +543,7 @@ public class Example {
     defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TokenizationApi apiInstance = new TokenizationApi();
     String tokenId = "ETH_USDT";
-    TokenizationOperationType activityType = TokenizationOperationType.fromValue("Deploy");
+    TokenizationOperationType activityType = TokenizationOperationType.fromValue("Issue");
     TokenizationActivityStatus activityStatus = TokenizationActivityStatus.fromValue("Processing");
     Integer limit = 10;
     String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
@@ -568,7 +568,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). | [optional] |
-| **activityType** | [**TokenizationOperationType**](.md)| Filter by tokenization activity type. | [optional] [enum: Deploy, Issue, Mint, Burn, Pause, Unpause, UpdateAllowlistAddresses, UpdateBlocklistAddresses, ToggleAllowlist, ContractCall] |
+| **activityType** | [**TokenizationOperationType**](.md)| Filter by tokenization activity type. | [optional] [enum: Issue, Mint, Burn, Pause, Unpause, UpdateAllowlistAddresses, UpdateBlocklistAddresses, ToggleAllowlist, ContractCall] |
 | **activityStatus** | [**TokenizationActivityStatus**](.md)| Filter by tokenization activity status. | [optional] [enum: Processing, Success, Failed] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
 | **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |

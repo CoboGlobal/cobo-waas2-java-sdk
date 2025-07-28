@@ -11,7 +11,8 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.ApprovalDetail;
+import com.cobo.waas2.model.ForcedSweep;
+import com.cobo.waas2.model.Pagination;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,17 +26,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for ListApprovalDetails200Response
+ * Model tests for ListForcedSweepRequests200Response
  */
-public class ListApprovalDetails200ResponseTest {
-    private final ListApprovalDetails200Response model = new ListApprovalDetails200Response();
+public class ListForcedSweepRequests200ResponseTest {
+    private final ListForcedSweepRequests200Response model = new ListForcedSweepRequests200Response();
 
     /**
-     * Model tests for ListApprovalDetails200Response
+     * Model tests for ListForcedSweepRequests200Response
      */
     @Test
-    public void testListApprovalDetails200Response() {
-        // TODO: test ListApprovalDetails200Response
+    public void testListForcedSweepRequests200Response() {
+        // TODO: test ListForcedSweepRequests200Response
     }
 
     /**
@@ -44,6 +45,14 @@ public class ListApprovalDetails200ResponseTest {
     @Test
     public void dataTest() {
         // TODO: test data
+    }
+
+    /**
+     * Test the property 'pagination'
+     */
+    @Test
+    public void paginationTest() {
+        // TODO: test pagination
     }
 
 }

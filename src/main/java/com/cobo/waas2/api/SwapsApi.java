@@ -27,10 +27,12 @@ import java.io.IOException;
 
 import com.cobo.waas2.model.CreateSwapActivityRequest;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.EstimatedFee;
 import com.cobo.waas2.model.ListSwapActivities200Response;
 import com.cobo.waas2.model.ListSwapEnabledTokens200Response;
 import com.cobo.waas2.model.SwapActivityDetail;
 import com.cobo.waas2.model.SwapActivityStatus;
+import com.cobo.waas2.model.SwapEstimateFee;
 import com.cobo.waas2.model.SwapQuote;
 import com.cobo.waas2.model.SwapType;
 import java.util.UUID;
@@ -175,6 +177,124 @@ public class SwapsApi {
 
         okhttp3.Call localVarCall = createSwapActivityValidateBeforeCall(createSwapActivityRequest, _callback);
         Type localVarReturnType = new TypeToken<SwapActivityDetail>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for estimateSwapFee
+     * @param swapEstimateFee The request body for estimating the fee of a swap activity. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successfully retrieved the estimated fee for swap activity. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call estimateSwapFeeCall(SwapEstimateFee swapEstimateFee, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = swapEstimateFee;
+
+        // create path and map variables
+        String localVarPath = "/swaps/estimate_fee";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call estimateSwapFeeValidateBeforeCall(SwapEstimateFee swapEstimateFee, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'swapEstimateFee' is set
+        if (swapEstimateFee == null) {
+            throw new ApiException("Missing the required parameter 'swapEstimateFee' when calling estimateSwapFee(Async)");
+        }
+
+        return estimateSwapFeeCall(swapEstimateFee, _callback);
+
+    }
+
+    /**
+     * Estimate Swap Fee
+     * This operation to estimate the fee of a swap activity. 
+     * @param swapEstimateFee The request body for estimating the fee of a swap activity. (required)
+     * @return EstimatedFee
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successfully retrieved the estimated fee for swap activity. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public EstimatedFee estimateSwapFee(SwapEstimateFee swapEstimateFee) throws ApiException {
+        ApiResponse<EstimatedFee> localVarResp = estimateSwapFeeWithHttpInfo(swapEstimateFee);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Estimate Swap Fee
+     * This operation to estimate the fee of a swap activity. 
+     * @param swapEstimateFee The request body for estimating the fee of a swap activity. (required)
+     * @return ApiResponse&lt;EstimatedFee&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successfully retrieved the estimated fee for swap activity. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EstimatedFee> estimateSwapFeeWithHttpInfo(SwapEstimateFee swapEstimateFee) throws ApiException {
+        okhttp3.Call localVarCall = estimateSwapFeeValidateBeforeCall(swapEstimateFee, null);
+        Type localVarReturnType = new TypeToken<EstimatedFee>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Estimate Swap Fee (asynchronously)
+     * This operation to estimate the fee of a swap activity. 
+     * @param swapEstimateFee The request body for estimating the fee of a swap activity. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successfully retrieved the estimated fee for swap activity. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call estimateSwapFeeAsync(SwapEstimateFee swapEstimateFee, final ApiCallback<EstimatedFee> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = estimateSwapFeeValidateBeforeCall(swapEstimateFee, _callback);
+        Type localVarReturnType = new TypeToken<EstimatedFee>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
