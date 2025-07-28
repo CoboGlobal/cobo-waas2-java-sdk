@@ -11,17 +11,14 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.ApprovalTransactionResult;
-import com.cobo.waas2.model.ApprovalUserDetail;
+import com.cobo.waas2.model.RoleDetail;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -65,27 +62,27 @@ public class ApprovalDetailTest {
     }
 
     /**
-     * Test the property 'result'
+     * Test the property 'brokerUser'
      */
     @Test
-    public void resultTest() {
-        // TODO: test result
+    public void brokerUserTest() {
+        // TODO: test brokerUser
     }
 
     /**
-     * Test the property 'threshold'
+     * Test the property 'spender'
      */
     @Test
-    public void thresholdTest() {
-        // TODO: test threshold
+    public void spenderTest() {
+        // TODO: test spender
     }
 
     /**
-     * Test the property 'userDetails'
+     * Test the property 'approver'
      */
     @Test
-    public void userDetailsTest() {
-        // TODO: test userDetails
+    public void approverTest() {
+        // TODO: test approver
     }
 
 }

@@ -12,15 +12,19 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.SolContractCallInstruction;
 import com.cobo.waas2.model.TokenizationContractCallType;
 import com.cobo.waas2.model.TokenizationEvmContractCallParams;
+import com.cobo.waas2.model.TokenizationSolContractCallParams;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 
@@ -73,6 +77,7 @@ public class TokenizationContractCallParamsData extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<TokenizationEvmContractCallParams> adapterTokenizationEvmContractCallParams = gson.getDelegateAdapter(this, TypeToken.get(TokenizationEvmContractCallParams.class));
+            final TypeAdapter<TokenizationSolContractCallParams> adapterTokenizationSolContractCallParams = gson.getDelegateAdapter(this, TypeToken.get(TokenizationSolContractCallParams.class));
 
             return (TypeAdapter<T>) new TypeAdapter<TokenizationContractCallParamsData>() {
                 @Override
@@ -88,7 +93,13 @@ public class TokenizationContractCallParamsData extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TokenizationEvmContractCallParams");
+                    // check if the actual instance is of the type `TokenizationSolContractCallParams`
+                    if (value.getActualInstance() instanceof TokenizationSolContractCallParams) {
+                        JsonElement element = adapterTokenizationSolContractCallParams.toJsonTree((TokenizationSolContractCallParams)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TokenizationEvmContractCallParams, TokenizationSolContractCallParams");
                 }
 
                 @Override
@@ -109,12 +120,20 @@ public class TokenizationContractCallParamsData extends AbstractOpenApiSchema {
                                 deserialized = adapterTokenizationEvmContractCallParams.fromJsonTree(jsonObject);
                                 newTokenizationContractCallParamsData.setActualInstance(deserialized);
                                 return newTokenizationContractCallParamsData;
+                            case "SOL_Contract":
+                                deserialized = adapterTokenizationSolContractCallParams.fromJsonTree(jsonObject);
+                                newTokenizationContractCallParamsData.setActualInstance(deserialized);
+                                return newTokenizationContractCallParamsData;
                             case "TokenizationEvmContractCallParams":
                                 deserialized = adapterTokenizationEvmContractCallParams.fromJsonTree(jsonObject);
                                 newTokenizationContractCallParamsData.setActualInstance(deserialized);
                                 return newTokenizationContractCallParamsData;
+                            case "TokenizationSolContractCallParams":
+                                deserialized = adapterTokenizationSolContractCallParams.fromJsonTree(jsonObject);
+                                newTokenizationContractCallParamsData.setActualInstance(deserialized);
+                                return newTokenizationContractCallParamsData;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TokenizationContractCallParamsData. Possible values: EVM_Contract TokenizationEvmContractCallParams", jsonObject.get("type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TokenizationContractCallParamsData. Possible values: EVM_Contract SOL_Contract TokenizationEvmContractCallParams TokenizationSolContractCallParams", jsonObject.get("type").getAsString()));
                         }
                     }
 
@@ -133,6 +152,18 @@ public class TokenizationContractCallParamsData extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for TokenizationEvmContractCallParams failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'TokenizationEvmContractCallParams'", e);
+                    }
+                    // deserialize TokenizationSolContractCallParams
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        TokenizationSolContractCallParams.validateJsonElement(jsonElement);
+                        actualAdapter = adapterTokenizationSolContractCallParams;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'TokenizationSolContractCallParams'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for TokenizationSolContractCallParams failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'TokenizationSolContractCallParams'", e);
                     }
 
                     if (match == 1) {
@@ -159,8 +190,14 @@ public class TokenizationContractCallParamsData extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public TokenizationContractCallParamsData(TokenizationSolContractCallParams o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     static {
         schemas.put("TokenizationEvmContractCallParams", TokenizationEvmContractCallParams.class);
+        schemas.put("TokenizationSolContractCallParams", TokenizationSolContractCallParams.class);
     }
 
     @Override
@@ -171,7 +208,7 @@ public class TokenizationContractCallParamsData extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * TokenizationEvmContractCallParams
+     * TokenizationEvmContractCallParams, TokenizationSolContractCallParams
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -182,14 +219,19 @@ public class TokenizationContractCallParamsData extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be TokenizationEvmContractCallParams");
+        if (instance instanceof TokenizationSolContractCallParams) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be TokenizationEvmContractCallParams, TokenizationSolContractCallParams");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * TokenizationEvmContractCallParams
+     * TokenizationEvmContractCallParams, TokenizationSolContractCallParams
      *
-     * @return The actual instance (TokenizationEvmContractCallParams)
+     * @return The actual instance (TokenizationEvmContractCallParams, TokenizationSolContractCallParams)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -206,6 +248,16 @@ public class TokenizationContractCallParamsData extends AbstractOpenApiSchema {
      */
     public TokenizationEvmContractCallParams getTokenizationEvmContractCallParams() throws ClassCastException {
         return (TokenizationEvmContractCallParams)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `TokenizationSolContractCallParams`. If the actual instance is not `TokenizationSolContractCallParams`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TokenizationSolContractCallParams`
+     * @throws ClassCastException if the instance is not `TokenizationSolContractCallParams`
+     */
+    public TokenizationSolContractCallParams getTokenizationSolContractCallParams() throws ClassCastException {
+        return (TokenizationSolContractCallParams)super.getActualInstance();
     }
 
     /**
@@ -226,8 +278,16 @@ public class TokenizationContractCallParamsData extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for TokenizationEvmContractCallParams failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with TokenizationSolContractCallParams
+        try {
+            TokenizationSolContractCallParams.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for TokenizationSolContractCallParams failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for TokenizationContractCallParamsData with oneOf schemas: TokenizationEvmContractCallParams. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for TokenizationContractCallParamsData with oneOf schemas: TokenizationEvmContractCallParams, TokenizationSolContractCallParams. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

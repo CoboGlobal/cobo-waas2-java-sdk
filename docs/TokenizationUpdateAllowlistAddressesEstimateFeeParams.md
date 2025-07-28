@@ -12,6 +12,7 @@
 |**addresses** | [**List&lt;TokenizationUpdateAllowlistAddressesParamsAddressesInner&gt;**](TokenizationUpdateAllowlistAddressesParamsAddressesInner.md) | A list of addresses to manage. For &#39;add&#39; operations, notes can be provided. For &#39;remove&#39; operations, notes are ignored. |  |
 |**operationType** | **TokenizationOperationType** |  |  |
 |**tokenId** | **String** | The ID of the token. |  |
+|**requestId** | **String** | The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. |  [optional] |
 
 
 

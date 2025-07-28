@@ -72,4 +72,12 @@ public class TokenizationMintEstimateFeeParamsTest {
         // TODO: test tokenId
     }
 
+    /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
+    }
+
 }

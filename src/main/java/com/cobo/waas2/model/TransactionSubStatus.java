@@ -40,6 +40,8 @@ public enum TransactionSubStatus {
   
   REJECTEDCOBOCHECK("RejectedCoboCheck"),
   
+  REJECTEDBYCOBO("RejectedByCobo"),
+  
   REJECTEDWHITELIST("RejectedWhiteList"),
   
   REJECTEDDOUBLECHECK("RejectedDoubleCheck"),

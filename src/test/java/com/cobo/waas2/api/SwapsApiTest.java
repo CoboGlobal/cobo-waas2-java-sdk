@@ -16,10 +16,12 @@ import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.CreateSwapActivityRequest;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.EstimatedFee;
 import com.cobo.waas2.model.ListSwapActivities200Response;
 import com.cobo.waas2.model.ListSwapEnabledTokens200Response;
 import com.cobo.waas2.model.SwapActivityDetail;
 import com.cobo.waas2.model.SwapActivityStatus;
+import com.cobo.waas2.model.SwapEstimateFee;
 import com.cobo.waas2.model.SwapQuote;
 import com.cobo.waas2.model.SwapType;
 import java.util.UUID;
@@ -55,6 +57,20 @@ public class SwapsApiTest {
     public void createSwapActivityTest() throws ApiException {
         CreateSwapActivityRequest createSwapActivityRequest = null;
         SwapActivityDetail response = api.createSwapActivity(createSwapActivityRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Estimate Swap Fee
+     *
+     * This operation to estimate the fee of a swap activity. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void estimateSwapFeeTest() throws ApiException {
+        SwapEstimateFee swapEstimateFee = null;
+        EstimatedFee response = api.estimateSwapFee(swapEstimateFee);
         // TODO: test validations
     }
 

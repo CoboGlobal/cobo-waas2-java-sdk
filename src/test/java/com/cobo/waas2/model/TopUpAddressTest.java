@@ -22,17 +22,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for GetTopUpAddress200Response
+ * Model tests for TopUpAddress
  */
-public class GetTopUpAddress200ResponseTest {
-    private final GetTopUpAddress200Response model = new GetTopUpAddress200Response();
+public class TopUpAddressTest {
+    private final TopUpAddress model = new TopUpAddress();
 
     /**
-     * Model tests for GetTopUpAddress200Response
+     * Model tests for TopUpAddress
      */
     @Test
-    public void testGetTopUpAddress200Response() {
-        // TODO: test GetTopUpAddress200Response
+    public void testTopUpAddress() {
+        // TODO: test TopUpAddress
     }
 
     /**

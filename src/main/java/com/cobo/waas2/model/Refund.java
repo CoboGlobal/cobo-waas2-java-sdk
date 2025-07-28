@@ -408,7 +408,7 @@ public class Refund {
   }
 
    /**
-   * Indicates whether the merchant should bear the transaction fee for the refund.  If true, the fee will be deducted from merchant&#39;s account balance. 
+   * Whether to charge developer fee to the merchant.  - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance - &#x60;false&#x60;: The merchant is not charged any developer fee. 
    * @return chargeMerchantFee
   **/
   @javax.annotation.Nullable
@@ -427,7 +427,7 @@ public class Refund {
   }
 
    /**
-   * The amount of the transaction fee that the merchant will bear for the refund.  This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true. 
+   * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;.
    * @return merchantFeeAmount
   **/
   @javax.annotation.Nullable
@@ -446,7 +446,7 @@ public class Refund {
   }
 
    /**
-   * The ID of the cryptocurrency used for the transaction fee.  This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true. 
+   * The ID of the cryptocurrency used for the developer fee.
    * @return merchantFeeTokenId
   **/
   @javax.annotation.Nullable

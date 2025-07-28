@@ -68,7 +68,31 @@ public enum WebhookEventType {
   
   WALLET_MPC_BALANCE_UPDATED("wallet.mpc.balance.updated"),
   
-  WALLET_WEB3_BALANCE_UPDATED("wallet.web3.balance.updated");
+  WALLET_WEB3_BALANCE_UPDATED("wallet.web3.balance.updated"),
+  
+  WALLET_TOKEN_DISABLED("wallet.token.disabled"),
+  
+  WALLET_CHAIN_DISABLED("wallet.chain.disabled"),
+  
+  TOKEN_SUSPENDED_DEPOSIT("token.suspended.deposit"),
+  
+  TOKEN_SUSPENDED_WITHDRAW("token.suspended.withdraw"),
+  
+  PAYMENT_TRANSACTION_CREATED("payment.transaction.created"),
+  
+  PAYMENT_TRANSACTION_LATE("payment.transaction.late"),
+  
+  PAYMENT_TRANSACTION_COMPLETED("payment.transaction.completed"),
+  
+  PAYMENT_TRANSACTION_HELD("payment.transaction.held"),
+  
+  PAYMENT_STATUS_UPDATED("payment.status.updated"),
+  
+  PAYMENT_REFUND_STATUS_UPDATED("payment.refund.status.updated"),
+  
+  PAYMENT_SETTLEMENT_STATUS_UPDATED("payment.settlement.status.updated"),
+  
+  PAYMENT_ADDRESS_UPDATED("payment.address.updated");
 
   private String value;
 

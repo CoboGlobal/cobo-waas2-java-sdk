@@ -12,8 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.AddressTransferDestination;
-import com.cobo.waas2.model.EstimatedFee;
+import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -75,13 +74,13 @@ public class CreateSwapActivityRequest {
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
   private String requestId;
 
-  public static final String SERIALIZED_NAME_DESTINATION = "destination";
-  @SerializedName(SERIALIZED_NAME_DESTINATION)
-  private AddressTransferDestination destination;
+  public static final String SERIALIZED_NAME_RECEIVER_ADDRESS = "receiver_address";
+  @SerializedName(SERIALIZED_NAME_RECEIVER_ADDRESS)
+  private String receiverAddress;
 
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
-  private EstimatedFee fee;
+  private TransactionRequestFee fee;
 
   public CreateSwapActivityRequest() {
   }
@@ -111,7 +110,7 @@ public class CreateSwapActivityRequest {
   }
 
    /**
-   * The wallet address.
+   * The wallet address, required when the wallet is not a custodial wallet.
    * @return address
   **/
   @javax.annotation.Nullable
@@ -181,26 +180,26 @@ public class CreateSwapActivityRequest {
   }
 
 
-  public CreateSwapActivityRequest destination(AddressTransferDestination destination) {
-    this.destination = destination;
+  public CreateSwapActivityRequest receiverAddress(String receiverAddress) {
+    this.receiverAddress = receiverAddress;
     return this;
   }
 
    /**
-   * Get destination
-   * @return destination
+   * The address of the receiver.
+   * @return receiverAddress
   **/
   @javax.annotation.Nullable
-  public AddressTransferDestination getDestination() {
-    return destination;
+  public String getReceiverAddress() {
+    return receiverAddress;
   }
 
-  public void setDestination(AddressTransferDestination destination) {
-    this.destination = destination;
+  public void setReceiverAddress(String receiverAddress) {
+    this.receiverAddress = receiverAddress;
   }
 
 
-  public CreateSwapActivityRequest fee(EstimatedFee fee) {
+  public CreateSwapActivityRequest fee(TransactionRequestFee fee) {
     this.fee = fee;
     return this;
   }
@@ -210,11 +209,11 @@ public class CreateSwapActivityRequest {
    * @return fee
   **/
   @javax.annotation.Nullable
-  public EstimatedFee getFee() {
+  public TransactionRequestFee getFee() {
     return fee;
   }
 
-  public void setFee(EstimatedFee fee) {
+  public void setFee(TransactionRequestFee fee) {
     this.fee = fee;
   }
 
@@ -278,14 +277,14 @@ public class CreateSwapActivityRequest {
         Objects.equals(this.quoteId, createSwapActivityRequest.quoteId) &&
         Objects.equals(this.appInitiator, createSwapActivityRequest.appInitiator) &&
         Objects.equals(this.requestId, createSwapActivityRequest.requestId) &&
-        Objects.equals(this.destination, createSwapActivityRequest.destination) &&
+        Objects.equals(this.receiverAddress, createSwapActivityRequest.receiverAddress) &&
         Objects.equals(this.fee, createSwapActivityRequest.fee)&&
         Objects.equals(this.additionalProperties, createSwapActivityRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, address, quoteId, appInitiator, requestId, destination, fee, additionalProperties);
+    return Objects.hash(walletId, address, quoteId, appInitiator, requestId, receiverAddress, fee, additionalProperties);
   }
 
   @Override
@@ -297,7 +296,7 @@ public class CreateSwapActivityRequest {
     sb.append("    quoteId: ").append(toIndentedString(quoteId)).append("\n");
     sb.append("    appInitiator: ").append(toIndentedString(appInitiator)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    receiverAddress: ").append(toIndentedString(receiverAddress)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -327,7 +326,7 @@ public class CreateSwapActivityRequest {
     openapiFields.add("quote_id");
     openapiFields.add("app_initiator");
     openapiFields.add("request_id");
-    openapiFields.add("destination");
+    openapiFields.add("receiver_address");
     openapiFields.add("fee");
 
     // a set of required properties/fields (JSON key names)
@@ -371,13 +370,12 @@ public class CreateSwapActivityRequest {
       if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
-      // validate the optional field `destination`
-      if (jsonObj.get("destination") != null && !jsonObj.get("destination").isJsonNull()) {
-        AddressTransferDestination.validateJsonElement(jsonObj.get("destination"));
+      if ((jsonObj.get("receiver_address") != null && !jsonObj.get("receiver_address").isJsonNull()) && !jsonObj.get("receiver_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `receiver_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiver_address").toString()));
       }
       // validate the optional field `fee`
       if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
-        EstimatedFee.validateJsonElement(jsonObj.get("fee"));
+        TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
       }
   }
 

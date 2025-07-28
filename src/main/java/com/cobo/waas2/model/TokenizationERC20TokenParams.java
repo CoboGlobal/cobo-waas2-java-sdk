@@ -70,9 +70,9 @@ public class TokenizationERC20TokenParams {
   @SerializedName(SERIALIZED_NAME_DECIMALS)
   private Integer decimals;
 
-  public static final String SERIALIZED_NAME_ALLOWLIST_ACTIVATED = "allowlist_activated";
-  @SerializedName(SERIALIZED_NAME_ALLOWLIST_ACTIVATED)
-  private Boolean allowlistActivated = false;
+  public static final String SERIALIZED_NAME_TOKEN_ACCESS_ACTIVATED = "token_access_activated";
+  @SerializedName(SERIALIZED_NAME_TOKEN_ACCESS_ACTIVATED)
+  private Boolean tokenAccessActivated = false;
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -159,22 +159,22 @@ public class TokenizationERC20TokenParams {
   }
 
 
-  public TokenizationERC20TokenParams allowlistActivated(Boolean allowlistActivated) {
-    this.allowlistActivated = allowlistActivated;
+  public TokenizationERC20TokenParams tokenAccessActivated(Boolean tokenAccessActivated) {
+    this.tokenAccessActivated = tokenAccessActivated;
     return this;
   }
 
    /**
    * Whether the allowlist feature is activated for the token. When activated, only addresses in the allowlist can perform token operations.
-   * @return allowlistActivated
+   * @return tokenAccessActivated
   **/
   @javax.annotation.Nullable
-  public Boolean getAllowlistActivated() {
-    return allowlistActivated;
+  public Boolean getTokenAccessActivated() {
+    return tokenAccessActivated;
   }
 
-  public void setAllowlistActivated(Boolean allowlistActivated) {
-    this.allowlistActivated = allowlistActivated;
+  public void setTokenAccessActivated(Boolean tokenAccessActivated) {
+    this.tokenAccessActivated = tokenAccessActivated;
   }
 
 
@@ -255,14 +255,14 @@ public class TokenizationERC20TokenParams {
         Objects.equals(this.name, tokenizationERC20TokenParams.name) &&
         Objects.equals(this.symbol, tokenizationERC20TokenParams.symbol) &&
         Objects.equals(this.decimals, tokenizationERC20TokenParams.decimals) &&
-        Objects.equals(this.allowlistActivated, tokenizationERC20TokenParams.allowlistActivated) &&
+        Objects.equals(this.tokenAccessActivated, tokenizationERC20TokenParams.tokenAccessActivated) &&
         Objects.equals(this.permissions, tokenizationERC20TokenParams.permissions)&&
         Objects.equals(this.additionalProperties, tokenizationERC20TokenParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(standard, name, symbol, decimals, allowlistActivated, permissions, additionalProperties);
+    return Objects.hash(standard, name, symbol, decimals, tokenAccessActivated, permissions, additionalProperties);
   }
 
   @Override
@@ -273,7 +273,7 @@ public class TokenizationERC20TokenParams {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
     sb.append("    decimals: ").append(toIndentedString(decimals)).append("\n");
-    sb.append("    allowlistActivated: ").append(toIndentedString(allowlistActivated)).append("\n");
+    sb.append("    tokenAccessActivated: ").append(toIndentedString(tokenAccessActivated)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -302,7 +302,7 @@ public class TokenizationERC20TokenParams {
     openapiFields.add("name");
     openapiFields.add("symbol");
     openapiFields.add("decimals");
-    openapiFields.add("allowlist_activated");
+    openapiFields.add("token_access_activated");
     openapiFields.add("permissions");
 
     // a set of required properties/fields (JSON key names)

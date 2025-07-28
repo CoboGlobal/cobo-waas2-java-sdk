@@ -40,7 +40,13 @@ public enum TokenizationTokenPermissionType {
   
   UPGRADECONTRACT("UpgradeContract"),
   
-  PAUSECONTRACT("PauseContract");
+  PAUSECONTRACT("PauseContract"),
+  
+  FREEZEACCOUNTS("FreezeAccounts"),
+  
+  UPDATEMETADATA("UpdateMetadata"),
+  
+  PERMANENTDELEGATE("PermanentDelegate");
 
   private String value;
 

@@ -70,4 +70,12 @@ public class TokenizationIssueEstimateFeeParamsTest {
         // TODO: test operationType
     }
 
+    /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
+    }
+
 }

@@ -66,6 +66,10 @@ public class TokenizationUnpauseTokenRequest {
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
 
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public TokenizationUnpauseTokenRequest() {
   }
 
@@ -125,6 +129,25 @@ public class TokenizationUnpauseTokenRequest {
     this.fee = fee;
   }
 
+
+  public TokenizationUnpauseTokenRequest requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -182,13 +205,14 @@ public class TokenizationUnpauseTokenRequest {
     TokenizationUnpauseTokenRequest tokenizationUnpauseTokenRequest = (TokenizationUnpauseTokenRequest) o;
     return Objects.equals(this.source, tokenizationUnpauseTokenRequest.source) &&
         Objects.equals(this.appInitiator, tokenizationUnpauseTokenRequest.appInitiator) &&
-        Objects.equals(this.fee, tokenizationUnpauseTokenRequest.fee)&&
+        Objects.equals(this.fee, tokenizationUnpauseTokenRequest.fee) &&
+        Objects.equals(this.requestId, tokenizationUnpauseTokenRequest.requestId)&&
         Objects.equals(this.additionalProperties, tokenizationUnpauseTokenRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(source, appInitiator, fee, additionalProperties);
+    return Objects.hash(source, appInitiator, fee, requestId, additionalProperties);
   }
 
   @Override
@@ -198,6 +222,7 @@ public class TokenizationUnpauseTokenRequest {
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    appInitiator: ").append(toIndentedString(appInitiator)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -224,6 +249,7 @@ public class TokenizationUnpauseTokenRequest {
     openapiFields.add("source");
     openapiFields.add("app_initiator");
     openapiFields.add("fee");
+    openapiFields.add("request_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -258,6 +284,9 @@ public class TokenizationUnpauseTokenRequest {
       }
       // validate the required field `fee`
       TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

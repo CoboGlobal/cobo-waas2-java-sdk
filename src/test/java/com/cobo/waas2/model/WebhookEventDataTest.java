@@ -11,19 +11,30 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.AddressesEventData;
 import com.cobo.waas2.model.AddressesEventDataAllOfAddresses;
+import com.cobo.waas2.model.Balance;
+import com.cobo.waas2.model.BalanceUpdateInfoEventData;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.ChainsEventData;
 import com.cobo.waas2.model.MPCVaultEventData;
-import com.cobo.waas2.model.MPCVaultType;
+import com.cobo.waas2.model.PaymentAddressUpdateEventData;
+import com.cobo.waas2.model.PaymentOrderEventData;
+import com.cobo.waas2.model.PaymentRefundEventData;
+import com.cobo.waas2.model.PaymentSettlementEvent;
+import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.PaymentTransactionEventData;
+import com.cobo.waas2.model.RefundType;
 import com.cobo.waas2.model.RootPubkey;
+import com.cobo.waas2.model.SettleStatus;
+import com.cobo.waas2.model.SettlementDetail;
 import com.cobo.waas2.model.SourceGroup;
+import com.cobo.waas2.model.SuspendedTokenEventData;
+import com.cobo.waas2.model.SuspendedTokenOperationType;
 import com.cobo.waas2.model.TSSRequestWebhookEventData;
 import com.cobo.waas2.model.TokenInfo;
 import com.cobo.waas2.model.TokenListingEventData;
-import com.cobo.waas2.model.TokenListingRequestSource;
-import com.cobo.waas2.model.TokenListingRequestStatus;
 import com.cobo.waas2.model.TokensEventData;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
@@ -33,7 +44,10 @@ import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
 import com.cobo.waas2.model.TransactionResult;
+import com.cobo.waas2.model.TransactionSource;
+import com.cobo.waas2.model.TransactionStatus;
 import com.cobo.waas2.model.TransactionSubStatus;
+import com.cobo.waas2.model.TransactionType;
 import com.cobo.waas2.model.TransactionWebhookEventData;
 import com.cobo.waas2.model.WalletInfo;
 import com.cobo.waas2.model.WalletInfoEventData;
@@ -456,6 +470,278 @@ public class WebhookEventDataTest {
     @Test
     public void feedbackTest() {
         // TODO: test feedback
+    }
+
+    /**
+     * Test the property 'address'
+     */
+    @Test
+    public void addressTest() {
+        // TODO: test address
+    }
+
+    /**
+     * Test the property 'walletUuid'
+     */
+    @Test
+    public void walletUuidTest() {
+        // TODO: test walletUuid
+    }
+
+    /**
+     * Test the property 'balance'
+     */
+    @Test
+    public void balanceTest() {
+        // TODO: test balance
+    }
+
+    /**
+     * Test the property 'tokenIds'
+     */
+    @Test
+    public void tokenIdsTest() {
+        // TODO: test tokenIds
+    }
+
+    /**
+     * Test the property 'operationType'
+     */
+    @Test
+    public void operationTypeTest() {
+        // TODO: test operationType
+    }
+
+    /**
+     * Test the property 'orderId'
+     */
+    @Test
+    public void orderIdTest() {
+        // TODO: test orderId
+    }
+
+    /**
+     * Test the property 'merchantId'
+     */
+    @Test
+    public void merchantIdTest() {
+        // TODO: test merchantId
+    }
+
+    /**
+     * Test the property 'payableAmount'
+     */
+    @Test
+    public void payableAmountTest() {
+        // TODO: test payableAmount
+    }
+
+    /**
+     * Test the property 'receiveAddress'
+     */
+    @Test
+    public void receiveAddressTest() {
+        // TODO: test receiveAddress
+    }
+
+    /**
+     * Test the property 'currency'
+     */
+    @Test
+    public void currencyTest() {
+        // TODO: test currency
+    }
+
+    /**
+     * Test the property 'orderAmount'
+     */
+    @Test
+    public void orderAmountTest() {
+        // TODO: test orderAmount
+    }
+
+    /**
+     * Test the property 'feeAmount'
+     */
+    @Test
+    public void feeAmountTest() {
+        // TODO: test feeAmount
+    }
+
+    /**
+     * Test the property 'exchangeRate'
+     */
+    @Test
+    public void exchangeRateTest() {
+        // TODO: test exchangeRate
+    }
+
+    /**
+     * Test the property 'expiredAt'
+     */
+    @Test
+    public void expiredAtTest() {
+        // TODO: test expiredAt
+    }
+
+    /**
+     * Test the property 'merchantOrderCode'
+     */
+    @Test
+    public void merchantOrderCodeTest() {
+        // TODO: test merchantOrderCode
+    }
+
+    /**
+     * Test the property 'pspOrderCode'
+     */
+    @Test
+    public void pspOrderCodeTest() {
+        // TODO: test pspOrderCode
+    }
+
+    /**
+     * Test the property 'receivedTokenAmount'
+     */
+    @Test
+    public void receivedTokenAmountTest() {
+        // TODO: test receivedTokenAmount
+    }
+
+    /**
+     * Test the property 'transactions'
+     */
+    @Test
+    public void transactionsTest() {
+        // TODO: test transactions
+    }
+
+    /**
+     * Test the property 'settlementStatus'
+     */
+    @Test
+    public void settlementStatusTest() {
+        // TODO: test settlementStatus
+    }
+
+    /**
+     * Test the property 'refundId'
+     */
+    @Test
+    public void refundIdTest() {
+        // TODO: test refundId
+    }
+
+    /**
+     * Test the property 'amount'
+     */
+    @Test
+    public void amountTest() {
+        // TODO: test amount
+    }
+
+    /**
+     * Test the property 'toAddress'
+     */
+    @Test
+    public void toAddressTest() {
+        // TODO: test toAddress
+    }
+
+    /**
+     * Test the property 'refundType'
+     */
+    @Test
+    public void refundTypeTest() {
+        // TODO: test refundType
+    }
+
+    /**
+     * Test the property 'chargeMerchantFee'
+     */
+    @Test
+    public void chargeMerchantFeeTest() {
+        // TODO: test chargeMerchantFee
+    }
+
+    /**
+     * Test the property 'merchantFeeAmount'
+     */
+    @Test
+    public void merchantFeeAmountTest() {
+        // TODO: test merchantFeeAmount
+    }
+
+    /**
+     * Test the property 'merchantFeeTokenId'
+     */
+    @Test
+    public void merchantFeeTokenIdTest() {
+        // TODO: test merchantFeeTokenId
+    }
+
+    /**
+     * Test the property 'settlementRequestId'
+     */
+    @Test
+    public void settlementRequestIdTest() {
+        // TODO: test settlementRequestId
+    }
+
+    /**
+     * Test the property 'settlements'
+     */
+    @Test
+    public void settlementsTest() {
+        // TODO: test settlements
+    }
+
+    /**
+     * Test the property 'acquiringType'
+     */
+    @Test
+    public void acquiringTypeTest() {
+        // TODO: test acquiringType
+    }
+
+    /**
+     * Test the property 'payerId'
+     */
+    @Test
+    public void payerIdTest() {
+        // TODO: test payerId
+    }
+
+    /**
+     * Test the property 'customPayerId'
+     */
+    @Test
+    public void customPayerIdTest() {
+        // TODO: test customPayerId
+    }
+
+    /**
+     * Test the property 'chain'
+     */
+    @Test
+    public void chainTest() {
+        // TODO: test chain
+    }
+
+    /**
+     * Test the property 'previousAddress'
+     */
+    @Test
+    public void previousAddressTest() {
+        // TODO: test previousAddress
+    }
+
+    /**
+     * Test the property 'updatedAddress'
+     */
+    @Test
+    public void updatedAddressTest() {
+        // TODO: test updatedAddress
     }
 
 }

@@ -28,7 +28,9 @@ import com.google.gson.stream.JsonWriter;
 public enum TokenizationTokenStandard {
   UNKNOWN(null),
   
-  ERC20("ERC20");
+  ERC20("ERC20"),
+  
+  SPLTOKEN2022("SPLToken2022");
 
   private String value;
 

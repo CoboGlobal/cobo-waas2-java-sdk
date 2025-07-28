@@ -66,6 +66,7 @@ docs/BabylonStakingRegistration.md
 docs/BabylonValidator.md
 docs/Balance.md
 docs/BalanceUpdateInfo.md
+docs/BalanceUpdateInfoEventData.md
 docs/BankAccount.md
 docs/BaseContractCallSource.md
 docs/BaseEstimateStakingFee.md
@@ -210,6 +211,9 @@ docs/FeeStationTransactionType.md
 docs/FeeStationTransfer.md
 docs/FeeType.md
 docs/FixedFeeRate.md
+docs/ForcedSweep.md
+docs/ForcedSweepRequest.md
+docs/ForcedSweepStatus.md
 docs/GetApiKeyInfo200Response.md
 docs/GetExchangeRate200Response.md
 docs/GetMaxTransferableValueWithFeeModelRequest.md
@@ -220,7 +224,6 @@ docs/GetStakingEstimationFeeRequest.md
 docs/GetToken2XXResponse.md
 docs/GetToken4XXResponse.md
 docs/GetTokenizationAllowlistActivation200Response.md
-docs/GetTopUpAddress200Response.md
 docs/GetTransactionLimitation200Response.md
 docs/GraphQLError.md
 docs/GraphQLErrorLocationsInner.md
@@ -237,7 +240,6 @@ docs/KeyShareHolderType.md
 docs/ListAddressBalancesByToken200Response.md
 docs/ListAddressBooks200Response.md
 docs/ListAddresses200Response.md
-docs/ListApprovalDetails200Response.md
 docs/ListApprovalRequests200Response.md
 docs/ListAssetBalancesForExchangeWallet200Response.md
 docs/ListBabylonAirdropRegistrations200Response.md
@@ -247,12 +249,15 @@ docs/ListBabylonEligibleStakings200ResponseDataInner.md
 docs/ListBabylonStakingRegistrations200Response.md
 docs/ListCallbackMessages200Response.md
 docs/ListExchanges200ResponseInner.md
+docs/ListForcedSweepRequests200Response.md
 docs/ListKeyShareHolderGroups200Response.md
 docs/ListKeyShareHolders200Response.md
+docs/ListMerchantBalances200Response.md
 docs/ListMerchants200Response.md
 docs/ListMpcProjects200Response.md
 docs/ListMpcVaults200Response.md
 docs/ListPaymentOrders200Response.md
+docs/ListPaymentWalletBalances200Response.md
 docs/ListSettlementRequests200Response.md
 docs/ListStakingActivities200Response.md
 docs/ListStakingPools200Response.md
@@ -272,7 +277,6 @@ docs/ListTopUpPayerAccounts200Response.md
 docs/ListTopUpPayers200Response.md
 docs/ListTopUpPayers200ResponseDataInner.md
 docs/ListTransactionApprovalDetails200Response.md
-docs/ListTransactionTemplates200Response.md
 docs/ListTransactions200Response.md
 docs/ListTssRequests200Response.md
 docs/ListUtxos200Response.md
@@ -293,6 +297,7 @@ docs/MPCWalletInfo.md
 docs/MaxFeeAmount.md
 docs/MaxTransferableValue.md
 docs/Merchant.md
+docs/MerchantBalance.md
 docs/MessageSignDestination.md
 docs/MessageSignDestinationType.md
 docs/MessageSignParams.md
@@ -310,8 +315,14 @@ docs/OrgInfo.md
 docs/OrganizationsApi.md
 docs/Pagination.md
 docs/PayerAccount.md
+docs/PaymentAddressUpdateEventData.md
 docs/PaymentApi.md
+docs/PaymentOrderEventData.md
+docs/PaymentRefundEventData.md
+docs/PaymentSettlementEvent.md
 docs/PaymentTransaction.md
+docs/PaymentTransactionEventData.md
+docs/PaymentWalletBalance.md
 docs/PayoutChannel.md
 docs/PolicyAction.md
 docs/PolicyActionContent.md
@@ -323,6 +334,7 @@ docs/PoolDetails.md
 docs/PoolDetailsAllOfValidatorsInfo.md
 docs/PoolSummary.md
 docs/PrimeBrokerApi.md
+docs/PspBalance.md
 docs/QueryApprovalStatement200Response.md
 docs/QueryGuardPubkey200Response.md
 docs/QueryGuardPubkey200ResponseAddressesInner.md
@@ -341,6 +353,7 @@ docs/RetryCallbackMessage201Response.md
 docs/RetryWebhookEventById201Response.md
 docs/RevokeApprovalRequest201Response.md
 docs/RevokeApprovalRequestRequest.md
+docs/RoleDetail.md
 docs/RoleScopes.md
 docs/RootPubkey.md
 docs/SOLBase.md
@@ -382,6 +395,8 @@ docs/StakingsExtra.md
 docs/SubWalletAssetBalance.md
 docs/SubmitDepositTravelRuleInfo201Response.md
 docs/SupportedToken.md
+docs/SuspendedTokenEventData.md
+docs/SuspendedTokenOperationType.md
 docs/SwapActivity.md
 docs/SwapActivityApprovers.md
 docs/SwapActivityDetail.md
@@ -389,6 +404,7 @@ docs/SwapActivitySigners.md
 docs/SwapActivityStatus.md
 docs/SwapActivityTimeline.md
 docs/SwapApproversStatus.md
+docs/SwapEstimateFee.md
 docs/SwapQuote.md
 docs/SwapSingingStatus.md
 docs/SwapToken.md
@@ -460,7 +476,6 @@ docs/TokenizationContractCallParams.md
 docs/TokenizationContractCallParamsData.md
 docs/TokenizationContractCallRequest.md
 docs/TokenizationContractCallType.md
-docs/TokenizationDeployEstimateFeeParams.md
 docs/TokenizationERC20TokenParams.md
 docs/TokenizationEstimateFeeRequest.md
 docs/TokenizationEstimateFeeRequestOperationParams.md
@@ -485,6 +500,9 @@ docs/TokenizationOperationType.md
 docs/TokenizationPauseEstimateFeeParams.md
 docs/TokenizationPauseTokenParams.md
 docs/TokenizationPauseTokenRequest.md
+docs/TokenizationSOLTokenParams.md
+docs/TokenizationSolContractCallParams.md
+docs/TokenizationSolTokenPermissionParams.md
 docs/TokenizationStatus.md
 docs/TokenizationToggleAllowlistEstimateFeeParams.md
 docs/TokenizationTokenDetailInfo.md
@@ -509,6 +527,7 @@ docs/TokenizationUpdateBlocklistAddressesParamsAddressesInner.md
 docs/TokenizationUpdateBlocklistAddressesRequest.md
 docs/TokenizationWeb3OperationSource.md
 docs/TokensEventData.md
+docs/TopUpAddress.md
 docs/Transaction.md
 docs/TransactionApprovalDetail.md
 docs/TransactionApprovalResult.md
@@ -626,6 +645,7 @@ docs/UpdateMpcWalletParams.md
 docs/UpdatePaymentOrderRequest.md
 docs/UpdateRefundByIdRequest.md
 docs/UpdateSmartContractWalletParams.md
+docs/UpdateTopUpAddress.md
 docs/UpdateWalletParams.md
 docs/UpdateWebhookEndpointByIdRequest.md
 docs/UtxoFeeBasePrice.md
@@ -762,6 +782,7 @@ src/main/java/com/cobo/waas2/model/BabylonStakingRegistration.java
 src/main/java/com/cobo/waas2/model/BabylonValidator.java
 src/main/java/com/cobo/waas2/model/Balance.java
 src/main/java/com/cobo/waas2/model/BalanceUpdateInfo.java
+src/main/java/com/cobo/waas2/model/BalanceUpdateInfoEventData.java
 src/main/java/com/cobo/waas2/model/BankAccount.java
 src/main/java/com/cobo/waas2/model/BaseContractCallSource.java
 src/main/java/com/cobo/waas2/model/BaseEstimateStakingFee.java
@@ -903,6 +924,9 @@ src/main/java/com/cobo/waas2/model/FeeStationTransactionType.java
 src/main/java/com/cobo/waas2/model/FeeStationTransfer.java
 src/main/java/com/cobo/waas2/model/FeeType.java
 src/main/java/com/cobo/waas2/model/FixedFeeRate.java
+src/main/java/com/cobo/waas2/model/ForcedSweep.java
+src/main/java/com/cobo/waas2/model/ForcedSweepRequest.java
+src/main/java/com/cobo/waas2/model/ForcedSweepStatus.java
 src/main/java/com/cobo/waas2/model/GetApiKeyInfo200Response.java
 src/main/java/com/cobo/waas2/model/GetExchangeRate200Response.java
 src/main/java/com/cobo/waas2/model/GetMaxTransferableValueWithFeeModelRequest.java
@@ -913,7 +937,6 @@ src/main/java/com/cobo/waas2/model/GetStakingEstimationFeeRequest.java
 src/main/java/com/cobo/waas2/model/GetToken2XXResponse.java
 src/main/java/com/cobo/waas2/model/GetToken4XXResponse.java
 src/main/java/com/cobo/waas2/model/GetTokenizationAllowlistActivation200Response.java
-src/main/java/com/cobo/waas2/model/GetTopUpAddress200Response.java
 src/main/java/com/cobo/waas2/model/GetTransactionLimitation200Response.java
 src/main/java/com/cobo/waas2/model/GraphQLError.java
 src/main/java/com/cobo/waas2/model/GraphQLErrorLocationsInner.java
@@ -929,7 +952,6 @@ src/main/java/com/cobo/waas2/model/KeyShareHolderType.java
 src/main/java/com/cobo/waas2/model/ListAddressBalancesByToken200Response.java
 src/main/java/com/cobo/waas2/model/ListAddressBooks200Response.java
 src/main/java/com/cobo/waas2/model/ListAddresses200Response.java
-src/main/java/com/cobo/waas2/model/ListApprovalDetails200Response.java
 src/main/java/com/cobo/waas2/model/ListApprovalRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListAssetBalancesForExchangeWallet200Response.java
 src/main/java/com/cobo/waas2/model/ListBabylonAirdropRegistrations200Response.java
@@ -939,12 +961,15 @@ src/main/java/com/cobo/waas2/model/ListBabylonEligibleStakings200ResponseDataInn
 src/main/java/com/cobo/waas2/model/ListBabylonStakingRegistrations200Response.java
 src/main/java/com/cobo/waas2/model/ListCallbackMessages200Response.java
 src/main/java/com/cobo/waas2/model/ListExchanges200ResponseInner.java
+src/main/java/com/cobo/waas2/model/ListForcedSweepRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListKeyShareHolderGroups200Response.java
 src/main/java/com/cobo/waas2/model/ListKeyShareHolders200Response.java
+src/main/java/com/cobo/waas2/model/ListMerchantBalances200Response.java
 src/main/java/com/cobo/waas2/model/ListMerchants200Response.java
 src/main/java/com/cobo/waas2/model/ListMpcProjects200Response.java
 src/main/java/com/cobo/waas2/model/ListMpcVaults200Response.java
 src/main/java/com/cobo/waas2/model/ListPaymentOrders200Response.java
+src/main/java/com/cobo/waas2/model/ListPaymentWalletBalances200Response.java
 src/main/java/com/cobo/waas2/model/ListSettlementRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListStakingActivities200Response.java
 src/main/java/com/cobo/waas2/model/ListStakingPools200Response.java
@@ -964,7 +989,6 @@ src/main/java/com/cobo/waas2/model/ListTopUpPayerAccounts200Response.java
 src/main/java/com/cobo/waas2/model/ListTopUpPayers200Response.java
 src/main/java/com/cobo/waas2/model/ListTopUpPayers200ResponseDataInner.java
 src/main/java/com/cobo/waas2/model/ListTransactionApprovalDetails200Response.java
-src/main/java/com/cobo/waas2/model/ListTransactionTemplates200Response.java
 src/main/java/com/cobo/waas2/model/ListTransactions200Response.java
 src/main/java/com/cobo/waas2/model/ListTssRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListUtxos200Response.java
@@ -985,6 +1009,7 @@ src/main/java/com/cobo/waas2/model/MPCWalletInfo.java
 src/main/java/com/cobo/waas2/model/MaxFeeAmount.java
 src/main/java/com/cobo/waas2/model/MaxTransferableValue.java
 src/main/java/com/cobo/waas2/model/Merchant.java
+src/main/java/com/cobo/waas2/model/MerchantBalance.java
 src/main/java/com/cobo/waas2/model/MessageSignDestination.java
 src/main/java/com/cobo/waas2/model/MessageSignDestinationType.java
 src/main/java/com/cobo/waas2/model/MessageSignParams.java
@@ -1000,7 +1025,13 @@ src/main/java/com/cobo/waas2/model/OrderStatus.java
 src/main/java/com/cobo/waas2/model/OrgInfo.java
 src/main/java/com/cobo/waas2/model/Pagination.java
 src/main/java/com/cobo/waas2/model/PayerAccount.java
+src/main/java/com/cobo/waas2/model/PaymentAddressUpdateEventData.java
+src/main/java/com/cobo/waas2/model/PaymentOrderEventData.java
+src/main/java/com/cobo/waas2/model/PaymentRefundEventData.java
+src/main/java/com/cobo/waas2/model/PaymentSettlementEvent.java
 src/main/java/com/cobo/waas2/model/PaymentTransaction.java
+src/main/java/com/cobo/waas2/model/PaymentTransactionEventData.java
+src/main/java/com/cobo/waas2/model/PaymentWalletBalance.java
 src/main/java/com/cobo/waas2/model/PayoutChannel.java
 src/main/java/com/cobo/waas2/model/PolicyAction.java
 src/main/java/com/cobo/waas2/model/PolicyActionContent.java
@@ -1011,6 +1042,7 @@ src/main/java/com/cobo/waas2/model/PolicyFieldValueType.java
 src/main/java/com/cobo/waas2/model/PoolDetails.java
 src/main/java/com/cobo/waas2/model/PoolDetailsAllOfValidatorsInfo.java
 src/main/java/com/cobo/waas2/model/PoolSummary.java
+src/main/java/com/cobo/waas2/model/PspBalance.java
 src/main/java/com/cobo/waas2/model/QueryApprovalStatement200Response.java
 src/main/java/com/cobo/waas2/model/QueryGuardPubkey200Response.java
 src/main/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseAddressesInner.java
@@ -1029,6 +1061,7 @@ src/main/java/com/cobo/waas2/model/RetryCallbackMessage201Response.java
 src/main/java/com/cobo/waas2/model/RetryWebhookEventById201Response.java
 src/main/java/com/cobo/waas2/model/RevokeApprovalRequest201Response.java
 src/main/java/com/cobo/waas2/model/RevokeApprovalRequestRequest.java
+src/main/java/com/cobo/waas2/model/RoleDetail.java
 src/main/java/com/cobo/waas2/model/RoleScopes.java
 src/main/java/com/cobo/waas2/model/RootPubkey.java
 src/main/java/com/cobo/waas2/model/SOLBase.java
@@ -1069,6 +1102,8 @@ src/main/java/com/cobo/waas2/model/StakingsExtra.java
 src/main/java/com/cobo/waas2/model/SubWalletAssetBalance.java
 src/main/java/com/cobo/waas2/model/SubmitDepositTravelRuleInfo201Response.java
 src/main/java/com/cobo/waas2/model/SupportedToken.java
+src/main/java/com/cobo/waas2/model/SuspendedTokenEventData.java
+src/main/java/com/cobo/waas2/model/SuspendedTokenOperationType.java
 src/main/java/com/cobo/waas2/model/SwapActivity.java
 src/main/java/com/cobo/waas2/model/SwapActivityApprovers.java
 src/main/java/com/cobo/waas2/model/SwapActivityDetail.java
@@ -1076,6 +1111,7 @@ src/main/java/com/cobo/waas2/model/SwapActivitySigners.java
 src/main/java/com/cobo/waas2/model/SwapActivityStatus.java
 src/main/java/com/cobo/waas2/model/SwapActivityTimeline.java
 src/main/java/com/cobo/waas2/model/SwapApproversStatus.java
+src/main/java/com/cobo/waas2/model/SwapEstimateFee.java
 src/main/java/com/cobo/waas2/model/SwapQuote.java
 src/main/java/com/cobo/waas2/model/SwapSingingStatus.java
 src/main/java/com/cobo/waas2/model/SwapToken.java
@@ -1145,7 +1181,6 @@ src/main/java/com/cobo/waas2/model/TokenizationContractCallParams.java
 src/main/java/com/cobo/waas2/model/TokenizationContractCallParamsData.java
 src/main/java/com/cobo/waas2/model/TokenizationContractCallRequest.java
 src/main/java/com/cobo/waas2/model/TokenizationContractCallType.java
-src/main/java/com/cobo/waas2/model/TokenizationDeployEstimateFeeParams.java
 src/main/java/com/cobo/waas2/model/TokenizationERC20TokenParams.java
 src/main/java/com/cobo/waas2/model/TokenizationEstimateFeeRequest.java
 src/main/java/com/cobo/waas2/model/TokenizationEstimateFeeRequestOperationParams.java
@@ -1170,6 +1205,9 @@ src/main/java/com/cobo/waas2/model/TokenizationOperationType.java
 src/main/java/com/cobo/waas2/model/TokenizationPauseEstimateFeeParams.java
 src/main/java/com/cobo/waas2/model/TokenizationPauseTokenParams.java
 src/main/java/com/cobo/waas2/model/TokenizationPauseTokenRequest.java
+src/main/java/com/cobo/waas2/model/TokenizationSOLTokenParams.java
+src/main/java/com/cobo/waas2/model/TokenizationSolContractCallParams.java
+src/main/java/com/cobo/waas2/model/TokenizationSolTokenPermissionParams.java
 src/main/java/com/cobo/waas2/model/TokenizationStatus.java
 src/main/java/com/cobo/waas2/model/TokenizationToggleAllowlistEstimateFeeParams.java
 src/main/java/com/cobo/waas2/model/TokenizationTokenDetailInfo.java
@@ -1194,6 +1232,7 @@ src/main/java/com/cobo/waas2/model/TokenizationUpdateBlocklistAddressesParamsAdd
 src/main/java/com/cobo/waas2/model/TokenizationUpdateBlocklistAddressesRequest.java
 src/main/java/com/cobo/waas2/model/TokenizationWeb3OperationSource.java
 src/main/java/com/cobo/waas2/model/TokensEventData.java
+src/main/java/com/cobo/waas2/model/TopUpAddress.java
 src/main/java/com/cobo/waas2/model/Transaction.java
 src/main/java/com/cobo/waas2/model/TransactionApprovalDetail.java
 src/main/java/com/cobo/waas2/model/TransactionApprovalResult.java
@@ -1309,6 +1348,7 @@ src/main/java/com/cobo/waas2/model/UpdateMpcWalletParams.java
 src/main/java/com/cobo/waas2/model/UpdatePaymentOrderRequest.java
 src/main/java/com/cobo/waas2/model/UpdateRefundByIdRequest.java
 src/main/java/com/cobo/waas2/model/UpdateSmartContractWalletParams.java
+src/main/java/com/cobo/waas2/model/UpdateTopUpAddress.java
 src/main/java/com/cobo/waas2/model/UpdateWalletParams.java
 src/main/java/com/cobo/waas2/model/UpdateWebhookEndpointByIdRequest.java
 src/main/java/com/cobo/waas2/model/UtxoFeeBasePrice.java
@@ -1400,6 +1440,7 @@ src/test/java/com/cobo/waas2/model/BabylonStakingExtraTest.java
 src/test/java/com/cobo/waas2/model/BabylonStakingRegistrationTest.java
 src/test/java/com/cobo/waas2/model/BabylonValidatorTest.java
 src/test/java/com/cobo/waas2/model/BalanceTest.java
+src/test/java/com/cobo/waas2/model/BalanceUpdateInfoEventDataTest.java
 src/test/java/com/cobo/waas2/model/BalanceUpdateInfoTest.java
 src/test/java/com/cobo/waas2/model/BankAccountTest.java
 src/test/java/com/cobo/waas2/model/BaseContractCallSourceTest.java
@@ -1542,6 +1583,9 @@ src/test/java/com/cobo/waas2/model/FeeStationTransactionTypeTest.java
 src/test/java/com/cobo/waas2/model/FeeStationTransferTest.java
 src/test/java/com/cobo/waas2/model/FeeTypeTest.java
 src/test/java/com/cobo/waas2/model/FixedFeeRateTest.java
+src/test/java/com/cobo/waas2/model/ForcedSweepRequestTest.java
+src/test/java/com/cobo/waas2/model/ForcedSweepStatusTest.java
+src/test/java/com/cobo/waas2/model/ForcedSweepTest.java
 src/test/java/com/cobo/waas2/model/GetApiKeyInfo200ResponseTest.java
 src/test/java/com/cobo/waas2/model/GetExchangeRate200ResponseTest.java
 src/test/java/com/cobo/waas2/model/GetMaxTransferableValueWithFeeModelRequestTest.java
@@ -1552,7 +1596,6 @@ src/test/java/com/cobo/waas2/model/GetStakingEstimationFeeRequestTest.java
 src/test/java/com/cobo/waas2/model/GetToken2XXResponseTest.java
 src/test/java/com/cobo/waas2/model/GetToken4XXResponseTest.java
 src/test/java/com/cobo/waas2/model/GetTokenizationAllowlistActivation200ResponseTest.java
-src/test/java/com/cobo/waas2/model/GetTopUpAddress200ResponseTest.java
 src/test/java/com/cobo/waas2/model/GetTransactionLimitation200ResponseTest.java
 src/test/java/com/cobo/waas2/model/GraphQLErrorLocationsInnerTest.java
 src/test/java/com/cobo/waas2/model/GraphQLErrorTest.java
@@ -1568,7 +1611,6 @@ src/test/java/com/cobo/waas2/model/KeyShareHolderTypeTest.java
 src/test/java/com/cobo/waas2/model/ListAddressBalancesByToken200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListAddressBooks200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListAddresses200ResponseTest.java
-src/test/java/com/cobo/waas2/model/ListApprovalDetails200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListApprovalRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListAssetBalancesForExchangeWallet200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListBabylonAirdropRegistrations200ResponseTest.java
@@ -1578,12 +1620,15 @@ src/test/java/com/cobo/waas2/model/ListBabylonEligibleStakings200ResponseTest.ja
 src/test/java/com/cobo/waas2/model/ListBabylonStakingRegistrations200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListCallbackMessages200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListExchanges200ResponseInnerTest.java
+src/test/java/com/cobo/waas2/model/ListForcedSweepRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListKeyShareHolderGroups200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListKeyShareHolders200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListMerchantBalances200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListMerchants200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListMpcProjects200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListMpcVaults200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListPaymentOrders200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListPaymentWalletBalances200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListSettlementRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListStakingActivities200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListStakingPools200ResponseTest.java
@@ -1603,7 +1648,6 @@ src/test/java/com/cobo/waas2/model/ListTopUpPayerAccounts200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTopUpPayers200ResponseDataInnerTest.java
 src/test/java/com/cobo/waas2/model/ListTopUpPayers200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTransactionApprovalDetails200ResponseTest.java
-src/test/java/com/cobo/waas2/model/ListTransactionTemplates200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTransactions200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTssRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListUtxos200ResponseTest.java
@@ -1623,6 +1667,7 @@ src/test/java/com/cobo/waas2/model/MPCVaultTypeTest.java
 src/test/java/com/cobo/waas2/model/MPCWalletInfoTest.java
 src/test/java/com/cobo/waas2/model/MaxFeeAmountTest.java
 src/test/java/com/cobo/waas2/model/MaxTransferableValueTest.java
+src/test/java/com/cobo/waas2/model/MerchantBalanceTest.java
 src/test/java/com/cobo/waas2/model/MerchantTest.java
 src/test/java/com/cobo/waas2/model/MessageSignDestinationTest.java
 src/test/java/com/cobo/waas2/model/MessageSignDestinationTypeTest.java
@@ -1639,7 +1684,13 @@ src/test/java/com/cobo/waas2/model/OrderTest.java
 src/test/java/com/cobo/waas2/model/OrgInfoTest.java
 src/test/java/com/cobo/waas2/model/PaginationTest.java
 src/test/java/com/cobo/waas2/model/PayerAccountTest.java
+src/test/java/com/cobo/waas2/model/PaymentAddressUpdateEventDataTest.java
+src/test/java/com/cobo/waas2/model/PaymentOrderEventDataTest.java
+src/test/java/com/cobo/waas2/model/PaymentRefundEventDataTest.java
+src/test/java/com/cobo/waas2/model/PaymentSettlementEventTest.java
+src/test/java/com/cobo/waas2/model/PaymentTransactionEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentTransactionTest.java
+src/test/java/com/cobo/waas2/model/PaymentWalletBalanceTest.java
 src/test/java/com/cobo/waas2/model/PayoutChannelTest.java
 src/test/java/com/cobo/waas2/model/PolicyActionContentTest.java
 src/test/java/com/cobo/waas2/model/PolicyActionTest.java
@@ -1650,6 +1701,7 @@ src/test/java/com/cobo/waas2/model/PolicyFieldValueTypeTest.java
 src/test/java/com/cobo/waas2/model/PoolDetailsAllOfValidatorsInfoTest.java
 src/test/java/com/cobo/waas2/model/PoolDetailsTest.java
 src/test/java/com/cobo/waas2/model/PoolSummaryTest.java
+src/test/java/com/cobo/waas2/model/PspBalanceTest.java
 src/test/java/com/cobo/waas2/model/QueryApprovalStatement200ResponseTest.java
 src/test/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseAddressesInnerTest.java
 src/test/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseTest.java
@@ -1668,6 +1720,7 @@ src/test/java/com/cobo/waas2/model/RetryCallbackMessage201ResponseTest.java
 src/test/java/com/cobo/waas2/model/RetryWebhookEventById201ResponseTest.java
 src/test/java/com/cobo/waas2/model/RevokeApprovalRequest201ResponseTest.java
 src/test/java/com/cobo/waas2/model/RevokeApprovalRequestRequestTest.java
+src/test/java/com/cobo/waas2/model/RoleDetailTest.java
 src/test/java/com/cobo/waas2/model/RoleScopesTest.java
 src/test/java/com/cobo/waas2/model/RootPubkeyTest.java
 src/test/java/com/cobo/waas2/model/SOLBaseTest.java
@@ -1708,6 +1761,8 @@ src/test/java/com/cobo/waas2/model/StakingsTest.java
 src/test/java/com/cobo/waas2/model/SubWalletAssetBalanceTest.java
 src/test/java/com/cobo/waas2/model/SubmitDepositTravelRuleInfo201ResponseTest.java
 src/test/java/com/cobo/waas2/model/SupportedTokenTest.java
+src/test/java/com/cobo/waas2/model/SuspendedTokenEventDataTest.java
+src/test/java/com/cobo/waas2/model/SuspendedTokenOperationTypeTest.java
 src/test/java/com/cobo/waas2/model/SwapActivityApproversTest.java
 src/test/java/com/cobo/waas2/model/SwapActivityDetailTest.java
 src/test/java/com/cobo/waas2/model/SwapActivitySignersTest.java
@@ -1715,6 +1770,7 @@ src/test/java/com/cobo/waas2/model/SwapActivityStatusTest.java
 src/test/java/com/cobo/waas2/model/SwapActivityTest.java
 src/test/java/com/cobo/waas2/model/SwapActivityTimelineTest.java
 src/test/java/com/cobo/waas2/model/SwapApproversStatusTest.java
+src/test/java/com/cobo/waas2/model/SwapEstimateFeeTest.java
 src/test/java/com/cobo/waas2/model/SwapQuoteTest.java
 src/test/java/com/cobo/waas2/model/SwapSingingStatusTest.java
 src/test/java/com/cobo/waas2/model/SwapTokenTest.java
@@ -1784,7 +1840,6 @@ src/test/java/com/cobo/waas2/model/TokenizationContractCallParamsDataTest.java
 src/test/java/com/cobo/waas2/model/TokenizationContractCallParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationContractCallRequestTest.java
 src/test/java/com/cobo/waas2/model/TokenizationContractCallTypeTest.java
-src/test/java/com/cobo/waas2/model/TokenizationDeployEstimateFeeParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationERC20TokenParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationEstimateFeeRequestOperationParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationEstimateFeeRequestTest.java
@@ -1809,6 +1864,9 @@ src/test/java/com/cobo/waas2/model/TokenizationOperationTypeTest.java
 src/test/java/com/cobo/waas2/model/TokenizationPauseEstimateFeeParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationPauseTokenParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationPauseTokenRequestTest.java
+src/test/java/com/cobo/waas2/model/TokenizationSOLTokenParamsTest.java
+src/test/java/com/cobo/waas2/model/TokenizationSolContractCallParamsTest.java
+src/test/java/com/cobo/waas2/model/TokenizationSolTokenPermissionParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationStatusTest.java
 src/test/java/com/cobo/waas2/model/TokenizationToggleAllowlistEstimateFeeParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationTokenDetailInfoTest.java
@@ -1833,6 +1891,7 @@ src/test/java/com/cobo/waas2/model/TokenizationUpdateBlocklistAddressesParamsTes
 src/test/java/com/cobo/waas2/model/TokenizationUpdateBlocklistAddressesRequestTest.java
 src/test/java/com/cobo/waas2/model/TokenizationWeb3OperationSourceTest.java
 src/test/java/com/cobo/waas2/model/TokensEventDataTest.java
+src/test/java/com/cobo/waas2/model/TopUpAddressTest.java
 src/test/java/com/cobo/waas2/model/TransactionApprovalDetailTest.java
 src/test/java/com/cobo/waas2/model/TransactionApprovalResultTest.java
 src/test/java/com/cobo/waas2/model/TransactionApproverTest.java
@@ -1948,6 +2007,7 @@ src/test/java/com/cobo/waas2/model/UpdateMpcWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/UpdatePaymentOrderRequestTest.java
 src/test/java/com/cobo/waas2/model/UpdateRefundByIdRequestTest.java
 src/test/java/com/cobo/waas2/model/UpdateSmartContractWalletParamsTest.java
+src/test/java/com/cobo/waas2/model/UpdateTopUpAddressTest.java
 src/test/java/com/cobo/waas2/model/UpdateWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/UpdateWebhookEndpointByIdRequestTest.java
 src/test/java/com/cobo/waas2/model/UtxoFeeBasePriceTest.java

@@ -61,4 +61,12 @@ public class TokenizationUnpauseEstimateFeeParamsTest {
         // TODO: test tokenId
     }
 
+    /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
+    }
+
 }

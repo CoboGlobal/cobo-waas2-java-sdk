@@ -24,24 +24,31 @@ import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
 import com.cobo.waas2.model.CryptoAddress;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.ForcedSweep;
+import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
-import com.cobo.waas2.model.GetTopUpAddress200Response;
+import com.cobo.waas2.model.ListForcedSweepRequests200Response;
+import com.cobo.waas2.model.ListMerchantBalances200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
+import com.cobo.waas2.model.ListPaymentWalletBalances200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
 import com.cobo.waas2.model.ListTopUpPayerAccounts200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
+import com.cobo.waas2.model.PspBalance;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Settlement;
 import com.cobo.waas2.model.SupportedToken;
+import com.cobo.waas2.model.TopUpAddress;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateMerchantByIdRequest;
 import com.cobo.waas2.model.UpdatePaymentOrderRequest;
 import com.cobo.waas2.model.UpdateRefundByIdRequest;
+import com.cobo.waas2.model.UpdateTopUpAddress;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -62,6 +69,20 @@ public class PaymentApiTest {
         defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     }
     private final PaymentApi api = new PaymentApi();
+
+    /**
+     * Cancel refund order
+     *
+     * This operation cancels a specified refund order. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void cancelRefundByIdTest() throws ApiException {
+        String refundId = null;
+        Refund response = api.cancelRefundById(refundId);
+        // TODO: test validations
+    }
 
     /**
      * Create bank account
@@ -88,6 +109,20 @@ public class PaymentApiTest {
     public void createCryptoAddressTest() throws ApiException {
         CreateCryptoAddressRequest createCryptoAddressRequest = null;
         CryptoAddress response = api.createCryptoAddress(createCryptoAddressRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Create force sweep request
+     *
+     * This operation creates a force sweep request to settle or refund available balances.  
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createForcedSweepRequestTest() throws ApiException {
+        ForcedSweepRequest forcedSweepRequest = null;
+        ForcedSweep response = api.createForcedSweepRequest(forcedSweepRequest);
         // TODO: test validations
     }
 
@@ -177,6 +212,20 @@ public class PaymentApiTest {
     }
 
     /**
+     * Get psp balance
+     *
+     * This operation retrieves the information of psp balance. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPspBalanceTest() throws ApiException {
+        String tokenId = null;
+        PspBalance response = api.getPspBalance(tokenId);
+        // TODO: test validations
+    }
+
+    /**
      * Get refund order information
      *
      * This operation retrieves the detailed information about a specified refund order. 
@@ -250,7 +299,7 @@ public class PaymentApiTest {
         String merchantId = null;
         String tokenId = null;
         String customPayerId = null;
-        GetTopUpAddress200Response response = api.getTopUpAddress(merchantId, tokenId, customPayerId);
+        TopUpAddress response = api.getTopUpAddress(merchantId, tokenId, customPayerId);
         // TODO: test validations
     }
 
@@ -278,6 +327,39 @@ public class PaymentApiTest {
     public void listCryptoAddressesTest() throws ApiException {
         String tokenId = null;
         List<CryptoAddress> response = api.listCryptoAddresses(tokenId);
+        // TODO: test validations
+    }
+
+    /**
+     * List force sweep requests
+     *
+     * This operation retrieves the information of force_sweep requests. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listForcedSweepRequestsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String requestId = null;
+        ListForcedSweepRequests200Response response = api.listForcedSweepRequests(limit, before, after, requestId);
+        // TODO: test validations
+    }
+
+    /**
+     * List merchant balances
+     *
+     * This operation retrieves the information of merchant balances. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listMerchantBalancesTest() throws ApiException {
+        String tokenId = null;
+        AcquiringType acquiringType = null;
+        String merchantIds = null;
+        ListMerchantBalances200Response response = api.listMerchantBalances(tokenId, acquiringType, merchantIds);
         // TODO: test validations
     }
 
@@ -327,6 +409,21 @@ public class PaymentApiTest {
     @Test
     public void listPaymentSupportedTokensTest() throws ApiException {
         List<SupportedToken> response = api.listPaymentSupportedTokens();
+        // TODO: test validations
+    }
+
+    /**
+     * List payment wallet balances
+     *
+     * This operation retrieves the information of payment wallet balances. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listPaymentWalletBalancesTest() throws ApiException {
+        String tokenId = null;
+        String walletIds = null;
+        ListPaymentWalletBalances200Response response = api.listPaymentWalletBalances(tokenId, walletIds);
         // TODO: test validations
     }
 
@@ -440,6 +537,20 @@ public class PaymentApiTest {
         String refundId = null;
         UpdateRefundByIdRequest updateRefundByIdRequest = null;
         Refund response = api.updateRefundById(refundId, updateRefundByIdRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Update top-up address
+     *
+     * Update the top-up address for a payer under a specific merchant and token. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateTopUpAddressTest() throws ApiException {
+        UpdateTopUpAddress updateTopUpAddress = null;
+        TopUpAddress response = api.updateTopUpAddress(updateTopUpAddress);
         // TODO: test validations
     }
 

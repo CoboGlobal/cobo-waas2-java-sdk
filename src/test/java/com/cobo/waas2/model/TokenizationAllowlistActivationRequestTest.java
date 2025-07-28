@@ -69,4 +69,12 @@ public class TokenizationAllowlistActivationRequestTest {
         // TODO: test fee
     }
 
+    /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
+    }
+
 }

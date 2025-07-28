@@ -11,15 +11,19 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.SolContractCallInstruction;
 import com.cobo.waas2.model.TokenizationContractCallType;
 import com.cobo.waas2.model.TokenizationEvmContractCallParams;
+import com.cobo.waas2.model.TokenizationSolContractCallParams;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -59,6 +63,14 @@ public class TokenizationContractCallParamsDataTest {
     @Test
     public void valueTest() {
         // TODO: test value
+    }
+
+    /**
+     * Test the property 'instructions'
+     */
+    @Test
+    public void instructionsTest() {
+        // TODO: test instructions
     }
 
 }

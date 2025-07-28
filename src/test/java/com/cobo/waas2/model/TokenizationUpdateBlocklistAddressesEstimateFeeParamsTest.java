@@ -81,4 +81,12 @@ public class TokenizationUpdateBlocklistAddressesEstimateFeeParamsTest {
         // TODO: test tokenId
     }
 
+    /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
+    }
+
 }

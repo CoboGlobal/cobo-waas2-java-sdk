@@ -81,6 +81,14 @@ public class SettlementInfo {
   @SerializedName(SERIALIZED_NAME_SETTLED_AMOUNT)
   private String settledAmount;
 
+  public static final String SERIALIZED_NAME_AVAILABLE_BALANCE = "available_balance";
+  @SerializedName(SERIALIZED_NAME_AVAILABLE_BALANCE)
+  private String availableBalance;
+
+  public static final String SERIALIZED_NAME_TOTAL_BALANCE = "total_balance";
+  @SerializedName(SERIALIZED_NAME_TOTAL_BALANCE)
+  private String totalBalance;
+
   public static final String SERIALIZED_NAME_ACQUIRING_TYPE = "acquiring_type";
   @SerializedName(SERIALIZED_NAME_ACQUIRING_TYPE)
   private AcquiringType acquiringType;
@@ -229,6 +237,44 @@ public class SettlementInfo {
   }
 
 
+  public SettlementInfo availableBalance(String availableBalance) {
+    this.availableBalance = availableBalance;
+    return this;
+  }
+
+   /**
+   * The balance available for settlement or refund, in the specified fiat currency.
+   * @return availableBalance
+  **/
+  @javax.annotation.Nullable
+  public String getAvailableBalance() {
+    return availableBalance;
+  }
+
+  public void setAvailableBalance(String availableBalance) {
+    this.availableBalance = availableBalance;
+  }
+
+
+  public SettlementInfo totalBalance(String totalBalance) {
+    this.totalBalance = totalBalance;
+    return this;
+  }
+
+   /**
+   * The balance total for settlement or refund, in the specified fiat currency.
+   * @return totalBalance
+  **/
+  @javax.annotation.Nullable
+  public String getTotalBalance() {
+    return totalBalance;
+  }
+
+  public void setTotalBalance(String totalBalance) {
+    this.totalBalance = totalBalance;
+  }
+
+
   public SettlementInfo acquiringType(AcquiringType acquiringType) {
     this.acquiringType = acquiringType;
     return this;
@@ -347,6 +393,8 @@ public class SettlementInfo {
         Objects.equals(this.pendingAmount, settlementInfo.pendingAmount) &&
         Objects.equals(this.pendingCurrencyBalance, settlementInfo.pendingCurrencyBalance) &&
         Objects.equals(this.settledAmount, settlementInfo.settledAmount) &&
+        Objects.equals(this.availableBalance, settlementInfo.availableBalance) &&
+        Objects.equals(this.totalBalance, settlementInfo.totalBalance) &&
         Objects.equals(this.acquiringType, settlementInfo.acquiringType) &&
         Objects.equals(this.createdTimestamp, settlementInfo.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, settlementInfo.updatedTimestamp)&&
@@ -355,7 +403,7 @@ public class SettlementInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, availableAmount, availableCurrencyBalance, pendingAmount, pendingCurrencyBalance, settledAmount, acquiringType, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(merchantId, tokenId, availableAmount, availableCurrencyBalance, pendingAmount, pendingCurrencyBalance, settledAmount, availableBalance, totalBalance, acquiringType, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -369,6 +417,8 @@ public class SettlementInfo {
     sb.append("    pendingAmount: ").append(toIndentedString(pendingAmount)).append("\n");
     sb.append("    pendingCurrencyBalance: ").append(toIndentedString(pendingCurrencyBalance)).append("\n");
     sb.append("    settledAmount: ").append(toIndentedString(settledAmount)).append("\n");
+    sb.append("    availableBalance: ").append(toIndentedString(availableBalance)).append("\n");
+    sb.append("    totalBalance: ").append(toIndentedString(totalBalance)).append("\n");
     sb.append("    acquiringType: ").append(toIndentedString(acquiringType)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
@@ -402,6 +452,8 @@ public class SettlementInfo {
     openapiFields.add("pending_amount");
     openapiFields.add("pending_currency_balance");
     openapiFields.add("settled_amount");
+    openapiFields.add("available_balance");
+    openapiFields.add("total_balance");
     openapiFields.add("acquiring_type");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
@@ -451,6 +503,12 @@ public class SettlementInfo {
       }
       if ((jsonObj.get("settled_amount") != null && !jsonObj.get("settled_amount").isJsonNull()) && !jsonObj.get("settled_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `settled_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("settled_amount").toString()));
+      }
+      if ((jsonObj.get("available_balance") != null && !jsonObj.get("available_balance").isJsonNull()) && !jsonObj.get("available_balance").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `available_balance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("available_balance").toString()));
+      }
+      if ((jsonObj.get("total_balance") != null && !jsonObj.get("total_balance").isJsonNull()) && !jsonObj.get("total_balance").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `total_balance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("total_balance").toString()));
       }
       // validate the optional field `acquiring_type`
       if (jsonObj.get("acquiring_type") != null && !jsonObj.get("acquiring_type").isJsonNull()) {
