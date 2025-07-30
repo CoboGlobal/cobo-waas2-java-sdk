@@ -5,6 +5,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**cancelRefundById**](PaymentApi.md#cancelRefundById) | **PUT** /payments/refunds/{refund_id}/cancel | Cancel refund order |
+| [**createForcedSweepRequest**](PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create force sweep request |
 | [**createMerchant**](PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant |
 | [**createPaymentOrder**](PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order |
 | [**createRefund**](PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order |
@@ -18,6 +19,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**getTopUpAddress**](PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Get top-up address |
 | [**listBankAccounts**](PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts |
 | [**listCryptoAddresses**](PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses |
+| [**listForcedSweepRequests**](PaymentApi.md#listForcedSweepRequests) | **GET** /payments/force_sweep_requests | List force sweep requests |
 | [**listMerchants**](PaymentApi.md#listMerchants) | **GET** /payments/merchants | List all merchants |
 | [**listPaymentOrders**](PaymentApi.md#listPaymentOrders) | **GET** /payments/orders | List all pay-in orders |
 | [**listPaymentSupportedTokens**](PaymentApi.md#listPaymentSupportedTokens) | **GET** /payments/supported_tokens | List all supported tokens |
@@ -26,6 +28,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**updateMerchantById**](PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant |
 | [**updatePaymentOrder**](PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order |
 | [**updateRefundById**](PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order information |
+| [**updateTopUpAddress**](PaymentApi.md#updateTopUpAddress) | **PUT** /payments/topup/address | Update top-up address |
 
 
 <a id="cancelRefundById"></a>
@@ -93,6 +96,74 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="createForcedSweepRequest"></a>
+# **createForcedSweepRequest**
+> ForcedSweep createForcedSweepRequest(forcedSweepRequest)
+
+Create force sweep request
+
+This operation creates a force sweep request to settle or refund available balances.  
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.PaymentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    PaymentApi apiInstance = new PaymentApi();
+    ForcedSweepRequest forcedSweepRequest = new ForcedSweepRequest();
+    try {
+      ForcedSweep result = apiInstance.createForcedSweepRequest(forcedSweepRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PaymentApi#createForcedSweepRequest");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **forcedSweepRequest** | [**ForcedSweepRequest**](ForcedSweepRequest.md)| The request body to force sweep. | [optional] |
+
+### Return type
+
+[**ForcedSweep**](ForcedSweep.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Force sweep request created successfully. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -415,7 +486,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tokenId** | **String**| The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  | |
+| **tokenId** | **String**| The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  | |
 | **currency** | **String**| The fiat currency. Currently, only &#x60;USD&#x60; is supported. | [default to USD] |
 
 ### Return type
@@ -839,7 +910,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **merchantId** | **String**| The merchant ID. | |
-| **tokenId** | **String**| The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  | |
+| **tokenId** | **String**| The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  | |
 | **customPayerId** | **String**| A unique identifier assigned by the developer to track and identify individual payers in their system. | |
 
 ### Return type
@@ -972,11 +1043,85 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tokenId** | **String**| The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  | [optional] |
+| **tokenId** | **String**| The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  | [optional] |
 
 ### Return type
 
 [**List&lt;CryptoAddress&gt;**](CryptoAddress.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="listForcedSweepRequests"></a>
+# **listForcedSweepRequests**
+> ListForcedSweepRequests200Response listForcedSweepRequests(limit, before, after, requestId)
+
+List force sweep requests
+
+This operation retrieves the information of force_sweep requests. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.PaymentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    PaymentApi apiInstance = new PaymentApi();
+    Integer limit = 10;
+    String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
+    String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
+    String requestId = "random_request_id";
+    try {
+      ListForcedSweepRequests200Response result = apiInstance.listForcedSweepRequests(limit, before, after, requestId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PaymentApi#listForcedSweepRequests");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
+| **before** | **String**| A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  | [optional] |
+| **after** | **String**| A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  | [optional] |
+| **requestId** | **String**| The request ID. | [optional] |
+
+### Return type
+
+[**ListForcedSweepRequests200Response**](ListForcedSweepRequests200Response.md)
 
 ### Authorization
 
@@ -1567,6 +1712,74 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="updateTopUpAddress"></a>
+# **updateTopUpAddress**
+> TopUpAddress updateTopUpAddress(updateTopUpAddress)
+
+Update top-up address
+
+Update the top-up address for a payer under a specific merchant and token. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.PaymentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    PaymentApi apiInstance = new PaymentApi();
+    UpdateTopUpAddress updateTopUpAddress = new UpdateTopUpAddress();
+    try {
+      TopUpAddress result = apiInstance.updateTopUpAddress(updateTopUpAddress);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PaymentApi#updateTopUpAddress");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updateTopUpAddress** | [**UpdateTopUpAddress**](UpdateTopUpAddress.md)| The request body to update top up address. | [optional] |
+
+### Return type
+
+[**TopUpAddress**](TopUpAddress.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Top-up address updated successfully. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 

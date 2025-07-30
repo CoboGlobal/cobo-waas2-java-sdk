@@ -22,9 +22,12 @@ import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
 import com.cobo.waas2.model.CryptoAddress;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.ForcedSweep;
+import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
+import com.cobo.waas2.model.ListForcedSweepRequests200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
@@ -39,6 +42,7 @@ import java.util.UUID;
 import com.cobo.waas2.model.UpdateMerchantByIdRequest;
 import com.cobo.waas2.model.UpdatePaymentOrderRequest;
 import com.cobo.waas2.model.UpdateRefundByIdRequest;
+import com.cobo.waas2.model.UpdateTopUpAddress;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -71,6 +75,20 @@ public class PaymentApiTest {
     public void cancelRefundByIdTest() throws ApiException {
         String refundId = null;
         Refund response = api.cancelRefundById(refundId);
+        // TODO: test validations
+    }
+
+    /**
+     * Create force sweep request
+     *
+     * This operation creates a force sweep request to settle or refund available balances.  
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createForcedSweepRequestTest() throws ApiException {
+        ForcedSweepRequest forcedSweepRequest = null;
+        ForcedSweep response = api.createForcedSweepRequest(forcedSweepRequest);
         // TODO: test validations
     }
 
@@ -265,6 +283,23 @@ public class PaymentApiTest {
     }
 
     /**
+     * List force sweep requests
+     *
+     * This operation retrieves the information of force_sweep requests. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listForcedSweepRequestsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String requestId = null;
+        ListForcedSweepRequests200Response response = api.listForcedSweepRequests(limit, before, after, requestId);
+        // TODO: test validations
+    }
+
+    /**
      * List all merchants
      *
      * This operation retrieves the information of all merchants.   You can filter the results by using a keyword for fuzzy search on merchant names or by specifying a wallet ID. 
@@ -390,6 +425,20 @@ public class PaymentApiTest {
         String refundId = null;
         UpdateRefundByIdRequest updateRefundByIdRequest = null;
         Refund response = api.updateRefundById(refundId, updateRefundByIdRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Update top-up address
+     *
+     * Update the top-up address for a payer under a specific merchant and token. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateTopUpAddressTest() throws ApiException {
+        UpdateTopUpAddress updateTopUpAddress = null;
+        TopUpAddress response = api.updateTopUpAddress(updateTopUpAddress);
         // TODO: test validations
     }
 

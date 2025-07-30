@@ -719,9 +719,11 @@ public class JSON {
                         classByDiscriminatorValue.put("BalanceUpdateInfo", com.cobo.waas2.model.BalanceUpdateInfoEventData.class);
                         classByDiscriminatorValue.put("Chains", com.cobo.waas2.model.ChainsEventData.class);
                         classByDiscriminatorValue.put("MPCVault", com.cobo.waas2.model.MPCVaultEventData.class);
+                        classByDiscriminatorValue.put("PaymentAddressUpdate", com.cobo.waas2.model.PaymentAddressUpdateEventData.class);
                         classByDiscriminatorValue.put("PaymentOrder", com.cobo.waas2.model.PaymentOrderEventData.class);
                         classByDiscriminatorValue.put("PaymentRefund", com.cobo.waas2.model.PaymentRefundEventData.class);
                         classByDiscriminatorValue.put("PaymentSettlement", com.cobo.waas2.model.PaymentSettlementEvent.class);
+                        classByDiscriminatorValue.put("PaymentTransaction", com.cobo.waas2.model.PaymentTransactionEventData.class);
                         classByDiscriminatorValue.put("SuspendedToken", com.cobo.waas2.model.SuspendedTokenEventData.class);
                         classByDiscriminatorValue.put("TSSRequest", com.cobo.waas2.model.TSSRequestWebhookEventData.class);
                         classByDiscriminatorValue.put("TokenListing", com.cobo.waas2.model.TokenListingEventData.class);
@@ -732,9 +734,11 @@ public class JSON {
                         classByDiscriminatorValue.put("BalanceUpdateInfoEventData", com.cobo.waas2.model.BalanceUpdateInfoEventData.class);
                         classByDiscriminatorValue.put("ChainsEventData", com.cobo.waas2.model.ChainsEventData.class);
                         classByDiscriminatorValue.put("MPCVaultEventData", com.cobo.waas2.model.MPCVaultEventData.class);
+                        classByDiscriminatorValue.put("PaymentAddressUpdateEventData", com.cobo.waas2.model.PaymentAddressUpdateEventData.class);
                         classByDiscriminatorValue.put("PaymentOrderEventData", com.cobo.waas2.model.PaymentOrderEventData.class);
                         classByDiscriminatorValue.put("PaymentRefundEventData", com.cobo.waas2.model.PaymentRefundEventData.class);
                         classByDiscriminatorValue.put("PaymentSettlementEvent", com.cobo.waas2.model.PaymentSettlementEvent.class);
+                        classByDiscriminatorValue.put("PaymentTransactionEventData", com.cobo.waas2.model.PaymentTransactionEventData.class);
                         classByDiscriminatorValue.put("SuspendedTokenEventData", com.cobo.waas2.model.SuspendedTokenEventData.class);
                         classByDiscriminatorValue.put("TSSRequestWebhookEventData", com.cobo.waas2.model.TSSRequestWebhookEventData.class);
                         classByDiscriminatorValue.put("TokenListingEventData", com.cobo.waas2.model.TokenListingEventData.class);
@@ -954,6 +958,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.FeeStationDestination.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.FeeStationTransfer.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.FixedFeeRate.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ForcedSweep.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ForcedSweepRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.GetApiKeyInfo200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.GetExchangeRate200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.GetMaxTransferableValueWithFeeModelRequest.CustomTypeAdapterFactory());
@@ -982,6 +988,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ListBabylonStakingRegistrations200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ListCallbackMessages200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ListExchanges200ResponseInner.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ListForcedSweepRequests200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ListKeyShareHolderGroups200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ListKeyShareHolders200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ListMerchants200Response.CustomTypeAdapterFactory());
@@ -1034,10 +1041,12 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.OrgInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.Pagination.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.PayerAccount.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.PaymentAddressUpdateEventData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.PaymentOrderEventData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.PaymentRefundEventData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.PaymentSettlementEvent.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.PaymentTransaction.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.PaymentTransactionEventData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.PolicyAction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.PolicyActionContent.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.PolicyCondition.CustomTypeAdapterFactory());

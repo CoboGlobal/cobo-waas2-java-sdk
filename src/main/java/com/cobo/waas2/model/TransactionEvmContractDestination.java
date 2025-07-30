@@ -140,7 +140,7 @@ public class TransactionEvmContractDestination {
   }
 
    /**
-   * The data that is used to invoke a specific function or method within the specified contract at the destination address. 
+   * The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters. 
    * @return calldata
   **/
   @javax.annotation.Nonnull

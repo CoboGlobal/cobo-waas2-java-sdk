@@ -33,9 +33,12 @@ import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
 import com.cobo.waas2.model.CryptoAddress;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.ForcedSweep;
+import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
+import com.cobo.waas2.model.ListForcedSweepRequests200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
@@ -50,6 +53,7 @@ import java.util.UUID;
 import com.cobo.waas2.model.UpdateMerchantByIdRequest;
 import com.cobo.waas2.model.UpdatePaymentOrderRequest;
 import com.cobo.waas2.model.UpdateRefundByIdRequest;
+import com.cobo.waas2.model.UpdateTopUpAddress;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -191,6 +195,119 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = cancelRefundByIdValidateBeforeCall(refundId, _callback);
         Type localVarReturnType = new TypeToken<Refund>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createForcedSweepRequest
+     * @param forcedSweepRequest The request body to force sweep. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Force sweep request created successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createForcedSweepRequestCall(ForcedSweepRequest forcedSweepRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = forcedSweepRequest;
+
+        // create path and map variables
+        String localVarPath = "/payments/force_sweep_requests";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createForcedSweepRequestValidateBeforeCall(ForcedSweepRequest forcedSweepRequest, final ApiCallback _callback) throws ApiException {
+        return createForcedSweepRequestCall(forcedSweepRequest, _callback);
+
+    }
+
+    /**
+     * Create force sweep request
+     * This operation creates a force sweep request to settle or refund available balances.  
+     * @param forcedSweepRequest The request body to force sweep. (optional)
+     * @return ForcedSweep
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Force sweep request created successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ForcedSweep createForcedSweepRequest(ForcedSweepRequest forcedSweepRequest) throws ApiException {
+        ApiResponse<ForcedSweep> localVarResp = createForcedSweepRequestWithHttpInfo(forcedSweepRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create force sweep request
+     * This operation creates a force sweep request to settle or refund available balances.  
+     * @param forcedSweepRequest The request body to force sweep. (optional)
+     * @return ApiResponse&lt;ForcedSweep&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Force sweep request created successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ForcedSweep> createForcedSweepRequestWithHttpInfo(ForcedSweepRequest forcedSweepRequest) throws ApiException {
+        okhttp3.Call localVarCall = createForcedSweepRequestValidateBeforeCall(forcedSweepRequest, null);
+        Type localVarReturnType = new TypeToken<ForcedSweep>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create force sweep request (asynchronously)
+     * This operation creates a force sweep request to settle or refund available balances.  
+     * @param forcedSweepRequest The request body to force sweep. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Force sweep request created successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createForcedSweepRequestAsync(ForcedSweepRequest forcedSweepRequest, final ApiCallback<ForcedSweep> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createForcedSweepRequestValidateBeforeCall(forcedSweepRequest, _callback);
+        Type localVarReturnType = new TypeToken<ForcedSweep>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -648,7 +765,7 @@ public class PaymentApi {
     }
     /**
      * Build call for getExchangeRate
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param currency The fiat currency. Currently, only &#x60;USD&#x60; is supported. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -713,7 +830,7 @@ public class PaymentApi {
     /**
      * Get exchange rate
      * This operation retrieves the current exchange rate between a specified currency pair. 
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param currency The fiat currency. Currently, only &#x60;USD&#x60; is supported. (required)
      * @return GetExchangeRate200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -733,7 +850,7 @@ public class PaymentApi {
     /**
      * Get exchange rate
      * This operation retrieves the current exchange rate between a specified currency pair. 
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param currency The fiat currency. Currently, only &#x60;USD&#x60; is supported. (required)
      * @return ApiResponse&lt;GetExchangeRate200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -754,7 +871,7 @@ public class PaymentApi {
     /**
      * Get exchange rate (asynchronously)
      * This operation retrieves the current exchange rate between a specified currency pair. 
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param currency The fiat currency. Currently, only &#x60;USD&#x60; is supported. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1411,7 +1528,7 @@ public class PaymentApi {
     /**
      * Build call for getTopUpAddress
      * @param merchantId The merchant ID. (required)
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param customPayerId A unique identifier assigned by the developer to track and identify individual payers in their system. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1492,7 +1609,7 @@ public class PaymentApi {
      * Get top-up address
      * This operation retrieves the information of the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
      * @param merchantId The merchant ID. (required)
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param customPayerId A unique identifier assigned by the developer to track and identify individual payers in their system. (required)
      * @return TopUpAddress
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1513,7 +1630,7 @@ public class PaymentApi {
      * Get top-up address
      * This operation retrieves the information of the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
      * @param merchantId The merchant ID. (required)
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param customPayerId A unique identifier assigned by the developer to track and identify individual payers in their system. (required)
      * @return ApiResponse&lt;TopUpAddress&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1535,7 +1652,7 @@ public class PaymentApi {
      * Get top-up address (asynchronously)
      * This operation retrieves the information of the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
      * @param merchantId The merchant ID. (required)
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param customPayerId A unique identifier assigned by the developer to track and identify individual payers in their system. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1665,7 +1782,7 @@ public class PaymentApi {
     }
     /**
      * Build call for listCryptoAddresses
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1721,7 +1838,7 @@ public class PaymentApi {
     /**
      * List crypto addresses
      * This operation retrieves a list of crypto addresses registered for crypto withdrawal.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
      * @return List&lt;CryptoAddress&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1740,7 +1857,7 @@ public class PaymentApi {
     /**
      * List crypto addresses
      * This operation retrieves a list of crypto addresses registered for crypto withdrawal.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
      * @return ApiResponse&lt;List&lt;CryptoAddress&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1760,7 +1877,7 @@ public class PaymentApi {
     /**
      * List crypto addresses (asynchronously)
      * This operation retrieves a list of crypto addresses registered for crypto withdrawal.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
-     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
+     * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1776,6 +1893,146 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = listCryptoAddressesValidateBeforeCall(tokenId, _callback);
         Type localVarReturnType = new TypeToken<List<CryptoAddress>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listForcedSweepRequests
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param requestId The request ID. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listForcedSweepRequestsCall(Integer limit, String before, String after, String requestId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/force_sweep_requests";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (requestId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("request_id", requestId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listForcedSweepRequestsValidateBeforeCall(Integer limit, String before, String after, String requestId, final ApiCallback _callback) throws ApiException {
+        return listForcedSweepRequestsCall(limit, before, after, requestId, _callback);
+
+    }
+
+    /**
+     * List force sweep requests
+     * This operation retrieves the information of force_sweep requests. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param requestId The request ID. (optional)
+     * @return ListForcedSweepRequests200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListForcedSweepRequests200Response listForcedSweepRequests(Integer limit, String before, String after, String requestId) throws ApiException {
+        ApiResponse<ListForcedSweepRequests200Response> localVarResp = listForcedSweepRequestsWithHttpInfo(limit, before, after, requestId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List force sweep requests
+     * This operation retrieves the information of force_sweep requests. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param requestId The request ID. (optional)
+     * @return ApiResponse&lt;ListForcedSweepRequests200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListForcedSweepRequests200Response> listForcedSweepRequestsWithHttpInfo(Integer limit, String before, String after, String requestId) throws ApiException {
+        okhttp3.Call localVarCall = listForcedSweepRequestsValidateBeforeCall(limit, before, after, requestId, null);
+        Type localVarReturnType = new TypeToken<ListForcedSweepRequests200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List force sweep requests (asynchronously)
+     * This operation retrieves the information of force_sweep requests. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param requestId The request ID. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listForcedSweepRequestsAsync(Integer limit, String before, String after, String requestId, final ApiCallback<ListForcedSweepRequests200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listForcedSweepRequestsValidateBeforeCall(limit, before, after, requestId, _callback);
+        Type localVarReturnType = new TypeToken<ListForcedSweepRequests200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2842,6 +3099,119 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = updateRefundByIdValidateBeforeCall(refundId, updateRefundByIdRequest, _callback);
         Type localVarReturnType = new TypeToken<Refund>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateTopUpAddress
+     * @param updateTopUpAddress The request body to update top up address. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Top-up address updated successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateTopUpAddressCall(UpdateTopUpAddress updateTopUpAddress, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = updateTopUpAddress;
+
+        // create path and map variables
+        String localVarPath = "/payments/topup/address";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateTopUpAddressValidateBeforeCall(UpdateTopUpAddress updateTopUpAddress, final ApiCallback _callback) throws ApiException {
+        return updateTopUpAddressCall(updateTopUpAddress, _callback);
+
+    }
+
+    /**
+     * Update top-up address
+     * Update the top-up address for a payer under a specific merchant and token. 
+     * @param updateTopUpAddress The request body to update top up address. (optional)
+     * @return TopUpAddress
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Top-up address updated successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TopUpAddress updateTopUpAddress(UpdateTopUpAddress updateTopUpAddress) throws ApiException {
+        ApiResponse<TopUpAddress> localVarResp = updateTopUpAddressWithHttpInfo(updateTopUpAddress);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update top-up address
+     * Update the top-up address for a payer under a specific merchant and token. 
+     * @param updateTopUpAddress The request body to update top up address. (optional)
+     * @return ApiResponse&lt;TopUpAddress&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Top-up address updated successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TopUpAddress> updateTopUpAddressWithHttpInfo(UpdateTopUpAddress updateTopUpAddress) throws ApiException {
+        okhttp3.Call localVarCall = updateTopUpAddressValidateBeforeCall(updateTopUpAddress, null);
+        Type localVarReturnType = new TypeToken<TopUpAddress>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update top-up address (asynchronously)
+     * Update the top-up address for a payer under a specific merchant and token. 
+     * @param updateTopUpAddress The request body to update top up address. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Top-up address updated successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateTopUpAddressAsync(UpdateTopUpAddress updateTopUpAddress, final ApiCallback<TopUpAddress> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateTopUpAddressValidateBeforeCall(updateTopUpAddress, _callback);
+        Type localVarReturnType = new TypeToken<TopUpAddress>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

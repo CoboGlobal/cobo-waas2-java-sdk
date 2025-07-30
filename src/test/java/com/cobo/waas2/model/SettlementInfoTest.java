@@ -93,6 +93,22 @@ public class SettlementInfoTest {
     }
 
     /**
+     * Test the property 'availableBalance'
+     */
+    @Test
+    public void availableBalanceTest() {
+        // TODO: test availableBalance
+    }
+
+    /**
+     * Test the property 'totalBalance'
+     */
+    @Test
+    public void totalBalanceTest() {
+        // TODO: test totalBalance
+    }
+
+    /**
      * Test the property 'acquiringType'
      */
     @Test
