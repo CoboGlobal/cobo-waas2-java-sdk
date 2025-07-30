@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.AddressesEventData;
 import com.cobo.waas2.model.AddressesEventDataAllOfAddresses;
 import com.cobo.waas2.model.Balance;
@@ -18,14 +19,14 @@ import com.cobo.waas2.model.BalanceUpdateInfoEventData;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.ChainsEventData;
 import com.cobo.waas2.model.MPCVaultEventData;
-import com.cobo.waas2.model.MPCVaultType;
+import com.cobo.waas2.model.PaymentAddressUpdateEventData;
 import com.cobo.waas2.model.PaymentOrderEventData;
 import com.cobo.waas2.model.PaymentRefundEventData;
 import com.cobo.waas2.model.PaymentSettlementEvent;
 import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.PaymentTransactionEventData;
 import com.cobo.waas2.model.RefundType;
 import com.cobo.waas2.model.RootPubkey;
-import com.cobo.waas2.model.SettleRequestStatus;
 import com.cobo.waas2.model.SettleStatus;
 import com.cobo.waas2.model.SettlementDetail;
 import com.cobo.waas2.model.SourceGroup;
@@ -34,7 +35,6 @@ import com.cobo.waas2.model.SuspendedTokenOperationType;
 import com.cobo.waas2.model.TSSRequestWebhookEventData;
 import com.cobo.waas2.model.TokenInfo;
 import com.cobo.waas2.model.TokenListingEventData;
-import com.cobo.waas2.model.TokenListingRequestSource;
 import com.cobo.waas2.model.TokensEventData;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
@@ -44,7 +44,10 @@ import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
 import com.cobo.waas2.model.TransactionResult;
+import com.cobo.waas2.model.TransactionSource;
+import com.cobo.waas2.model.TransactionStatus;
 import com.cobo.waas2.model.TransactionSubStatus;
+import com.cobo.waas2.model.TransactionType;
 import com.cobo.waas2.model.TransactionWebhookEventData;
 import com.cobo.waas2.model.WalletInfo;
 import com.cobo.waas2.model.WalletInfoEventData;
@@ -691,6 +694,54 @@ public class WebhookEventDataTest {
     @Test
     public void settlementsTest() {
         // TODO: test settlements
+    }
+
+    /**
+     * Test the property 'acquiringType'
+     */
+    @Test
+    public void acquiringTypeTest() {
+        // TODO: test acquiringType
+    }
+
+    /**
+     * Test the property 'payerId'
+     */
+    @Test
+    public void payerIdTest() {
+        // TODO: test payerId
+    }
+
+    /**
+     * Test the property 'customPayerId'
+     */
+    @Test
+    public void customPayerIdTest() {
+        // TODO: test customPayerId
+    }
+
+    /**
+     * Test the property 'chain'
+     */
+    @Test
+    public void chainTest() {
+        // TODO: test chain
+    }
+
+    /**
+     * Test the property 'previousAddress'
+     */
+    @Test
+    public void previousAddressTest() {
+        // TODO: test previousAddress
+    }
+
+    /**
+     * Test the property 'updatedAddress'
+     */
+    @Test
+    public void updatedAddressTest() {
+        // TODO: test updatedAddress
     }
 
 }

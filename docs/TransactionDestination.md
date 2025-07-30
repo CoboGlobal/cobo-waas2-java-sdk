@@ -19,7 +19,7 @@
 |**amount** | **String** | The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;.  |  |
 |**address** | **String** | The destination address. |  |
 |**value** | **String** | The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  |  [optional] |
-|**calldata** | **String** | The data that is used to invoke a specific function or method within the specified contract at the destination address.  |  |
+|**calldata** | **String** | The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters.  |  |
 |**calldataInfo** | [**TransactionEvmCalldataInfo**](TransactionEvmCalldataInfo.md) |  |  [optional] |
 |**instructions** | [**List&lt;TransactionSolContractInstruction&gt;**](TransactionSolContractInstruction.md) |  |  [optional] |
 |**cosmosMessages** | [**List&lt;TransactionCosmosMessage&gt;**](TransactionCosmosMessage.md) |  |  |

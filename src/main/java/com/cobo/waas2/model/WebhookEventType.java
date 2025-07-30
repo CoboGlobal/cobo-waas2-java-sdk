@@ -90,7 +90,9 @@ public enum WebhookEventType {
   
   PAYMENT_REFUND_STATUS_UPDATED("payment.refund.status.updated"),
   
-  PAYMENT_SETTLEMENT_STATUS_UPDATED("payment.settlement.status.updated");
+  PAYMENT_SETTLEMENT_STATUS_UPDATED("payment.settlement.status.updated"),
+  
+  PAYMENT_ADDRESS_UPDATED("payment.address.updated");
 
   private String value;
 

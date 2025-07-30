@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.19.1</version>
+  <version>1.20.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.19.1"
+     implementation "com.cobo.waas2:cobo-waas2:1.20.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.19.1.jar`
+* `target/cobo-waas2-1.20.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -230,6 +230,7 @@ Class | Method | HTTP request | Description
 *OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
 *OrganizationsApi* | [**getOrgInfo**](docs/OrganizationsApi.md#getOrgInfo) | **GET** /organizations/info | Get organization information
 *PaymentApi* | [**cancelRefundById**](docs/PaymentApi.md#cancelRefundById) | **PUT** /payments/refunds/{refund_id}/cancel | Cancel refund order
+*PaymentApi* | [**createForcedSweepRequest**](docs/PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create force sweep request
 *PaymentApi* | [**createMerchant**](docs/PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant
 *PaymentApi* | [**createPaymentOrder**](docs/PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
@@ -243,6 +244,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**getTopUpAddress**](docs/PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Get top-up address
 *PaymentApi* | [**listBankAccounts**](docs/PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts
 *PaymentApi* | [**listCryptoAddresses**](docs/PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
+*PaymentApi* | [**listForcedSweepRequests**](docs/PaymentApi.md#listForcedSweepRequests) | **GET** /payments/force_sweep_requests | List force sweep requests
 *PaymentApi* | [**listMerchants**](docs/PaymentApi.md#listMerchants) | **GET** /payments/merchants | List all merchants
 *PaymentApi* | [**listPaymentOrders**](docs/PaymentApi.md#listPaymentOrders) | **GET** /payments/orders | List all pay-in orders
 *PaymentApi* | [**listPaymentSupportedTokens**](docs/PaymentApi.md#listPaymentSupportedTokens) | **GET** /payments/supported_tokens | List all supported tokens
@@ -251,6 +253,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**updateMerchantById**](docs/PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant
 *PaymentApi* | [**updatePaymentOrder**](docs/PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order
 *PaymentApi* | [**updateRefundById**](docs/PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order information
+*PaymentApi* | [**updateTopUpAddress**](docs/PaymentApi.md#updateTopUpAddress) | **PUT** /payments/topup/address | Update top-up address
 *PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
 *PrimeBrokerApi* | [**createGuardPubkey**](docs/PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | Create Guard pubkey binding
 *PrimeBrokerApi* | [**createPrimeBrokerAddress**](docs/PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | Bind addresses to a broker user
@@ -549,6 +552,9 @@ Class | Method | HTTP request | Description
  - [FeeStationTransfer](docs/FeeStationTransfer.md)
  - [FeeType](docs/FeeType.md)
  - [FixedFeeRate](docs/FixedFeeRate.md)
+ - [ForcedSweep](docs/ForcedSweep.md)
+ - [ForcedSweepRequest](docs/ForcedSweepRequest.md)
+ - [ForcedSweepStatus](docs/ForcedSweepStatus.md)
  - [GetApiKeyInfo200Response](docs/GetApiKeyInfo200Response.md)
  - [GetExchangeRate200Response](docs/GetExchangeRate200Response.md)
  - [GetMaxTransferableValueWithFeeModelRequest](docs/GetMaxTransferableValueWithFeeModelRequest.md)
@@ -582,6 +588,7 @@ Class | Method | HTTP request | Description
  - [ListBabylonStakingRegistrations200Response](docs/ListBabylonStakingRegistrations200Response.md)
  - [ListCallbackMessages200Response](docs/ListCallbackMessages200Response.md)
  - [ListExchanges200ResponseInner](docs/ListExchanges200ResponseInner.md)
+ - [ListForcedSweepRequests200Response](docs/ListForcedSweepRequests200Response.md)
  - [ListKeyShareHolderGroups200Response](docs/ListKeyShareHolderGroups200Response.md)
  - [ListKeyShareHolders200Response](docs/ListKeyShareHolders200Response.md)
  - [ListMerchants200Response](docs/ListMerchants200Response.md)
@@ -638,10 +645,12 @@ Class | Method | HTTP request | Description
  - [OrgInfo](docs/OrgInfo.md)
  - [Pagination](docs/Pagination.md)
  - [PayerAccount](docs/PayerAccount.md)
+ - [PaymentAddressUpdateEventData](docs/PaymentAddressUpdateEventData.md)
  - [PaymentOrderEventData](docs/PaymentOrderEventData.md)
  - [PaymentRefundEventData](docs/PaymentRefundEventData.md)
  - [PaymentSettlementEvent](docs/PaymentSettlementEvent.md)
  - [PaymentTransaction](docs/PaymentTransaction.md)
+ - [PaymentTransactionEventData](docs/PaymentTransactionEventData.md)
  - [PayoutChannel](docs/PayoutChannel.md)
  - [PolicyAction](docs/PolicyAction.md)
  - [PolicyActionContent](docs/PolicyActionContent.md)

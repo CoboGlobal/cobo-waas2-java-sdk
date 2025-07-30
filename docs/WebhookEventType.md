@@ -69,5 +69,7 @@
 
 * `PAYMENT_SETTLEMENT_STATUS_UPDATED` (value: `"payment.settlement.status.updated"`)
 
+* `PAYMENT_ADDRESS_UPDATED` (value: `"payment.address.updated"`)
+
 
 

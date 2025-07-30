@@ -208,6 +208,9 @@ docs/FeeStationTransactionType.md
 docs/FeeStationTransfer.md
 docs/FeeType.md
 docs/FixedFeeRate.md
+docs/ForcedSweep.md
+docs/ForcedSweepRequest.md
+docs/ForcedSweepStatus.md
 docs/GetApiKeyInfo200Response.md
 docs/GetExchangeRate200Response.md
 docs/GetMaxTransferableValueWithFeeModelRequest.md
@@ -241,6 +244,7 @@ docs/ListBabylonEligibleStakings200ResponseDataInner.md
 docs/ListBabylonStakingRegistrations200Response.md
 docs/ListCallbackMessages200Response.md
 docs/ListExchanges200ResponseInner.md
+docs/ListForcedSweepRequests200Response.md
 docs/ListKeyShareHolderGroups200Response.md
 docs/ListKeyShareHolders200Response.md
 docs/ListMerchants200Response.md
@@ -299,11 +303,13 @@ docs/OrgInfo.md
 docs/OrganizationsApi.md
 docs/Pagination.md
 docs/PayerAccount.md
+docs/PaymentAddressUpdateEventData.md
 docs/PaymentApi.md
 docs/PaymentOrderEventData.md
 docs/PaymentRefundEventData.md
 docs/PaymentSettlementEvent.md
 docs/PaymentTransaction.md
+docs/PaymentTransactionEventData.md
 docs/PayoutChannel.md
 docs/PolicyAction.md
 docs/PolicyActionContent.md
@@ -891,6 +897,9 @@ src/main/java/com/cobo/waas2/model/FeeStationTransactionType.java
 src/main/java/com/cobo/waas2/model/FeeStationTransfer.java
 src/main/java/com/cobo/waas2/model/FeeType.java
 src/main/java/com/cobo/waas2/model/FixedFeeRate.java
+src/main/java/com/cobo/waas2/model/ForcedSweep.java
+src/main/java/com/cobo/waas2/model/ForcedSweepRequest.java
+src/main/java/com/cobo/waas2/model/ForcedSweepStatus.java
 src/main/java/com/cobo/waas2/model/GetApiKeyInfo200Response.java
 src/main/java/com/cobo/waas2/model/GetExchangeRate200Response.java
 src/main/java/com/cobo/waas2/model/GetMaxTransferableValueWithFeeModelRequest.java
@@ -924,6 +933,7 @@ src/main/java/com/cobo/waas2/model/ListBabylonEligibleStakings200ResponseDataInn
 src/main/java/com/cobo/waas2/model/ListBabylonStakingRegistrations200Response.java
 src/main/java/com/cobo/waas2/model/ListCallbackMessages200Response.java
 src/main/java/com/cobo/waas2/model/ListExchanges200ResponseInner.java
+src/main/java/com/cobo/waas2/model/ListForcedSweepRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListKeyShareHolderGroups200Response.java
 src/main/java/com/cobo/waas2/model/ListKeyShareHolders200Response.java
 src/main/java/com/cobo/waas2/model/ListMerchants200Response.java
@@ -980,10 +990,12 @@ src/main/java/com/cobo/waas2/model/OrderStatus.java
 src/main/java/com/cobo/waas2/model/OrgInfo.java
 src/main/java/com/cobo/waas2/model/Pagination.java
 src/main/java/com/cobo/waas2/model/PayerAccount.java
+src/main/java/com/cobo/waas2/model/PaymentAddressUpdateEventData.java
 src/main/java/com/cobo/waas2/model/PaymentOrderEventData.java
 src/main/java/com/cobo/waas2/model/PaymentRefundEventData.java
 src/main/java/com/cobo/waas2/model/PaymentSettlementEvent.java
 src/main/java/com/cobo/waas2/model/PaymentTransaction.java
+src/main/java/com/cobo/waas2/model/PaymentTransactionEventData.java
 src/main/java/com/cobo/waas2/model/PayoutChannel.java
 src/main/java/com/cobo/waas2/model/PolicyAction.java
 src/main/java/com/cobo/waas2/model/PolicyActionContent.java
@@ -1523,6 +1535,9 @@ src/test/java/com/cobo/waas2/model/FeeStationTransactionTypeTest.java
 src/test/java/com/cobo/waas2/model/FeeStationTransferTest.java
 src/test/java/com/cobo/waas2/model/FeeTypeTest.java
 src/test/java/com/cobo/waas2/model/FixedFeeRateTest.java
+src/test/java/com/cobo/waas2/model/ForcedSweepRequestTest.java
+src/test/java/com/cobo/waas2/model/ForcedSweepStatusTest.java
+src/test/java/com/cobo/waas2/model/ForcedSweepTest.java
 src/test/java/com/cobo/waas2/model/GetApiKeyInfo200ResponseTest.java
 src/test/java/com/cobo/waas2/model/GetExchangeRate200ResponseTest.java
 src/test/java/com/cobo/waas2/model/GetMaxTransferableValueWithFeeModelRequestTest.java
@@ -1556,6 +1571,7 @@ src/test/java/com/cobo/waas2/model/ListBabylonEligibleStakings200ResponseTest.ja
 src/test/java/com/cobo/waas2/model/ListBabylonStakingRegistrations200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListCallbackMessages200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListExchanges200ResponseInnerTest.java
+src/test/java/com/cobo/waas2/model/ListForcedSweepRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListKeyShareHolderGroups200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListKeyShareHolders200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListMerchants200ResponseTest.java
@@ -1612,9 +1628,11 @@ src/test/java/com/cobo/waas2/model/OrderTest.java
 src/test/java/com/cobo/waas2/model/OrgInfoTest.java
 src/test/java/com/cobo/waas2/model/PaginationTest.java
 src/test/java/com/cobo/waas2/model/PayerAccountTest.java
+src/test/java/com/cobo/waas2/model/PaymentAddressUpdateEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentOrderEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentRefundEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentSettlementEventTest.java
+src/test/java/com/cobo/waas2/model/PaymentTransactionEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentTransactionTest.java
 src/test/java/com/cobo/waas2/model/PayoutChannelTest.java
 src/test/java/com/cobo/waas2/model/PolicyActionContentTest.java
