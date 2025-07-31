@@ -34,6 +34,7 @@ import com.cobo.waas2.model.ListMerchantBalances200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListPaymentWalletBalances200Response;
+import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
 import com.cobo.waas2.model.ListTopUpPayerAccounts200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
@@ -253,7 +254,8 @@ public class PaymentApiTest {
         String after = null;
         String merchantId = null;
         String requestId = null;
-        GetRefunds200Response response = api.getRefunds(limit, before, after, merchantId, requestId);
+        String statuses = null;
+        GetRefunds200Response response = api.getRefunds(limit, before, after, merchantId, requestId, statuses);
         // TODO: test validations
     }
 
@@ -395,7 +397,8 @@ public class PaymentApiTest {
         String after = null;
         String merchantId = null;
         String pspOrderId = null;
-        ListPaymentOrders200Response response = api.listPaymentOrders(limit, before, after, merchantId, pspOrderId);
+        String statuses = null;
+        ListPaymentOrders200Response response = api.listPaymentOrders(limit, before, after, merchantId, pspOrderId, statuses);
         // TODO: test validations
     }
 
@@ -424,6 +427,24 @@ public class PaymentApiTest {
         String tokenId = null;
         String walletIds = null;
         ListPaymentWalletBalances200Response response = api.listPaymentWalletBalances(tokenId, walletIds);
+        // TODO: test validations
+    }
+
+    /**
+     * List all settlement details
+     *
+     * This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listSettlementDetailsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String merchantId = null;
+        String statuses = null;
+        ListSettlementDetails200Response response = api.listSettlementDetails(limit, before, after, merchantId, statuses);
         // TODO: test validations
     }
 

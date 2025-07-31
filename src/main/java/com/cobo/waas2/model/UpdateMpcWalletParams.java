@@ -61,6 +61,10 @@ public class UpdateMpcWalletParams {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_ENABLE_AUTO_SWEEP = "enable_auto_sweep";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AUTO_SWEEP)
+  private Boolean enableAutoSweep;
+
   public UpdateMpcWalletParams() {
   }
 
@@ -99,6 +103,25 @@ public class UpdateMpcWalletParams {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public UpdateMpcWalletParams enableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
+    return this;
+  }
+
+   /**
+   * Enable the auto sweep feature for the wallet
+   * @return enableAutoSweep
+  **/
+  @javax.annotation.Nullable
+  public Boolean getEnableAutoSweep() {
+    return enableAutoSweep;
+  }
+
+  public void setEnableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
   }
 
   /**
@@ -157,13 +180,14 @@ public class UpdateMpcWalletParams {
     }
     UpdateMpcWalletParams updateMpcWalletParams = (UpdateMpcWalletParams) o;
     return Objects.equals(this.walletType, updateMpcWalletParams.walletType) &&
-        Objects.equals(this.name, updateMpcWalletParams.name)&&
+        Objects.equals(this.name, updateMpcWalletParams.name) &&
+        Objects.equals(this.enableAutoSweep, updateMpcWalletParams.enableAutoSweep)&&
         Objects.equals(this.additionalProperties, updateMpcWalletParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletType, name, additionalProperties);
+    return Objects.hash(walletType, name, enableAutoSweep, additionalProperties);
   }
 
   @Override
@@ -172,6 +196,7 @@ public class UpdateMpcWalletParams {
     sb.append("class UpdateMpcWalletParams {\n");
     sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    enableAutoSweep: ").append(toIndentedString(enableAutoSweep)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -197,6 +222,7 @@ public class UpdateMpcWalletParams {
     openapiFields = new HashSet<String>();
     openapiFields.add("wallet_type");
     openapiFields.add("name");
+    openapiFields.add("enable_auto_sweep");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

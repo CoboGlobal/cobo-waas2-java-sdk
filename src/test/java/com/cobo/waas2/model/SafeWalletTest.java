@@ -83,6 +83,14 @@ public class SafeWalletTest {
     }
 
     /**
+     * Test the property 'enableAutoSweep'
+     */
+    @Test
+    public void enableAutoSweepTest() {
+        // TODO: test enableAutoSweep
+    }
+
+    /**
      * Test the property 'chainId'
      */
     @Test

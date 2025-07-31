@@ -67,6 +67,10 @@ public class CreateExchangeWalletParams {
   @SerializedName(SERIALIZED_NAME_WALLET_SUBTYPE)
   private WalletSubtype walletSubtype;
 
+  public static final String SERIALIZED_NAME_ENABLE_AUTO_SWEEP = "enable_auto_sweep";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AUTO_SWEEP)
+  private Boolean enableAutoSweep;
+
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
   private ExchangeId exchangeId;
@@ -156,6 +160,25 @@ public class CreateExchangeWalletParams {
 
   public void setWalletSubtype(WalletSubtype walletSubtype) {
     this.walletSubtype = walletSubtype;
+  }
+
+
+  public CreateExchangeWalletParams enableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
+    return this;
+  }
+
+   /**
+   * Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets.
+   * @return enableAutoSweep
+  **/
+  @javax.annotation.Nullable
+  public Boolean getEnableAutoSweep() {
+    return enableAutoSweep;
+  }
+
+  public void setEnableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
   }
 
 
@@ -368,6 +391,7 @@ public class CreateExchangeWalletParams {
     return Objects.equals(this.name, createExchangeWalletParams.name) &&
         Objects.equals(this.walletType, createExchangeWalletParams.walletType) &&
         Objects.equals(this.walletSubtype, createExchangeWalletParams.walletSubtype) &&
+        Objects.equals(this.enableAutoSweep, createExchangeWalletParams.enableAutoSweep) &&
         Objects.equals(this.exchangeId, createExchangeWalletParams.exchangeId) &&
         Objects.equals(this.apikey, createExchangeWalletParams.apikey) &&
         Objects.equals(this.secret, createExchangeWalletParams.secret) &&
@@ -381,7 +405,7 @@ public class CreateExchangeWalletParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, walletType, walletSubtype, exchangeId, apikey, secret, passphrase, memo, accountIdentify, gaCode, mainWalletId, additionalProperties);
+    return Objects.hash(name, walletType, walletSubtype, enableAutoSweep, exchangeId, apikey, secret, passphrase, memo, accountIdentify, gaCode, mainWalletId, additionalProperties);
   }
 
   @Override
@@ -391,6 +415,7 @@ public class CreateExchangeWalletParams {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
     sb.append("    walletSubtype: ").append(toIndentedString(walletSubtype)).append("\n");
+    sb.append("    enableAutoSweep: ").append(toIndentedString(enableAutoSweep)).append("\n");
     sb.append("    exchangeId: ").append(toIndentedString(exchangeId)).append("\n");
     sb.append("    apikey: ").append(toIndentedString(apikey)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
@@ -425,6 +450,7 @@ public class CreateExchangeWalletParams {
     openapiFields.add("name");
     openapiFields.add("wallet_type");
     openapiFields.add("wallet_subtype");
+    openapiFields.add("enable_auto_sweep");
     openapiFields.add("exchange_id");
     openapiFields.add("apikey");
     openapiFields.add("secret");

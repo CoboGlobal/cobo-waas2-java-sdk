@@ -45,6 +45,7 @@ import com.cobo.waas2.model.ListMerchantBalances200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListPaymentWalletBalances200Response;
+import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
 import com.cobo.waas2.model.ListTopUpPayerAccounts200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
@@ -1487,6 +1488,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param requestId The request ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1498,7 +1500,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRefundsCall(Integer limit, String before, String after, String merchantId, String requestId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRefundsCall(Integer limit, String before, String after, String merchantId, String requestId, String statuses, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1530,6 +1532,10 @@ public class PaymentApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("request_id", requestId));
         }
 
+        if (statuses != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("statuses", statuses));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1550,8 +1556,8 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRefundsValidateBeforeCall(Integer limit, String before, String after, String merchantId, String requestId, final ApiCallback _callback) throws ApiException {
-        return getRefundsCall(limit, before, after, merchantId, requestId, _callback);
+    private okhttp3.Call getRefundsValidateBeforeCall(Integer limit, String before, String after, String merchantId, String requestId, String statuses, final ApiCallback _callback) throws ApiException {
+        return getRefundsCall(limit, before, after, merchantId, requestId, statuses, _callback);
 
     }
 
@@ -1563,6 +1569,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param requestId The request ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @return GetRefunds200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1573,8 +1580,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public GetRefunds200Response getRefunds(Integer limit, String before, String after, String merchantId, String requestId) throws ApiException {
-        ApiResponse<GetRefunds200Response> localVarResp = getRefundsWithHttpInfo(limit, before, after, merchantId, requestId);
+    public GetRefunds200Response getRefunds(Integer limit, String before, String after, String merchantId, String requestId, String statuses) throws ApiException {
+        ApiResponse<GetRefunds200Response> localVarResp = getRefundsWithHttpInfo(limit, before, after, merchantId, requestId, statuses);
         return localVarResp.getData();
     }
 
@@ -1586,6 +1593,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param requestId The request ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @return ApiResponse&lt;GetRefunds200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1596,8 +1604,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetRefunds200Response> getRefundsWithHttpInfo(Integer limit, String before, String after, String merchantId, String requestId) throws ApiException {
-        okhttp3.Call localVarCall = getRefundsValidateBeforeCall(limit, before, after, merchantId, requestId, null);
+    public ApiResponse<GetRefunds200Response> getRefundsWithHttpInfo(Integer limit, String before, String after, String merchantId, String requestId, String statuses) throws ApiException {
+        okhttp3.Call localVarCall = getRefundsValidateBeforeCall(limit, before, after, merchantId, requestId, statuses, null);
         Type localVarReturnType = new TypeToken<GetRefunds200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1610,6 +1618,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param requestId The request ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1621,9 +1630,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRefundsAsync(Integer limit, String before, String after, String merchantId, String requestId, final ApiCallback<GetRefunds200Response> _callback) throws ApiException {
+    public okhttp3.Call getRefundsAsync(Integer limit, String before, String after, String merchantId, String requestId, String statuses, final ApiCallback<GetRefunds200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRefundsValidateBeforeCall(limit, before, after, merchantId, requestId, _callback);
+        okhttp3.Call localVarCall = getRefundsValidateBeforeCall(limit, before, after, merchantId, requestId, statuses, _callback);
         Type localVarReturnType = new TypeToken<GetRefunds200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2686,6 +2695,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param pspOrderId The PSP order ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2697,7 +2707,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listPaymentOrdersCall(Integer limit, String before, String after, String merchantId, String pspOrderId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listPaymentOrdersCall(Integer limit, String before, String after, String merchantId, String pspOrderId, String statuses, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2729,6 +2739,10 @@ public class PaymentApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("psp_order_id", pspOrderId));
         }
 
+        if (statuses != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("statuses", statuses));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2749,8 +2763,8 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPaymentOrdersValidateBeforeCall(Integer limit, String before, String after, String merchantId, String pspOrderId, final ApiCallback _callback) throws ApiException {
-        return listPaymentOrdersCall(limit, before, after, merchantId, pspOrderId, _callback);
+    private okhttp3.Call listPaymentOrdersValidateBeforeCall(Integer limit, String before, String after, String merchantId, String pspOrderId, String statuses, final ApiCallback _callback) throws ApiException {
+        return listPaymentOrdersCall(limit, before, after, merchantId, pspOrderId, statuses, _callback);
 
     }
 
@@ -2762,6 +2776,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param pspOrderId The PSP order ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @return ListPaymentOrders200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2772,8 +2787,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListPaymentOrders200Response listPaymentOrders(Integer limit, String before, String after, String merchantId, String pspOrderId) throws ApiException {
-        ApiResponse<ListPaymentOrders200Response> localVarResp = listPaymentOrdersWithHttpInfo(limit, before, after, merchantId, pspOrderId);
+    public ListPaymentOrders200Response listPaymentOrders(Integer limit, String before, String after, String merchantId, String pspOrderId, String statuses) throws ApiException {
+        ApiResponse<ListPaymentOrders200Response> localVarResp = listPaymentOrdersWithHttpInfo(limit, before, after, merchantId, pspOrderId, statuses);
         return localVarResp.getData();
     }
 
@@ -2785,6 +2800,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param pspOrderId The PSP order ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @return ApiResponse&lt;ListPaymentOrders200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2795,8 +2811,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListPaymentOrders200Response> listPaymentOrdersWithHttpInfo(Integer limit, String before, String after, String merchantId, String pspOrderId) throws ApiException {
-        okhttp3.Call localVarCall = listPaymentOrdersValidateBeforeCall(limit, before, after, merchantId, pspOrderId, null);
+    public ApiResponse<ListPaymentOrders200Response> listPaymentOrdersWithHttpInfo(Integer limit, String before, String after, String merchantId, String pspOrderId, String statuses) throws ApiException {
+        okhttp3.Call localVarCall = listPaymentOrdersValidateBeforeCall(limit, before, after, merchantId, pspOrderId, statuses, null);
         Type localVarReturnType = new TypeToken<ListPaymentOrders200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2809,6 +2825,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param pspOrderId The PSP order ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2820,9 +2837,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listPaymentOrdersAsync(Integer limit, String before, String after, String merchantId, String pspOrderId, final ApiCallback<ListPaymentOrders200Response> _callback) throws ApiException {
+    public okhttp3.Call listPaymentOrdersAsync(Integer limit, String before, String after, String merchantId, String pspOrderId, String statuses, final ApiCallback<ListPaymentOrders200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listPaymentOrdersValidateBeforeCall(limit, before, after, merchantId, pspOrderId, _callback);
+        okhttp3.Call localVarCall = listPaymentOrdersValidateBeforeCall(limit, before, after, merchantId, pspOrderId, statuses, _callback);
         Type localVarReturnType = new TypeToken<ListPaymentOrders200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3061,6 +3078,154 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = listPaymentWalletBalancesValidateBeforeCall(tokenId, walletIds, _callback);
         Type localVarReturnType = new TypeToken<ListPaymentWalletBalances200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSettlementDetails
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSettlementDetailsCall(Integer limit, String before, String after, String merchantId, String statuses, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/settlement_details";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (merchantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_id", merchantId));
+        }
+
+        if (statuses != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("statuses", statuses));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSettlementDetailsValidateBeforeCall(Integer limit, String before, String after, String merchantId, String statuses, final ApiCallback _callback) throws ApiException {
+        return listSettlementDetailsCall(limit, before, after, merchantId, statuses, _callback);
+
+    }
+
+    /**
+     * List all settlement details
+     * This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
+     * @return ListSettlementDetails200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListSettlementDetails200Response listSettlementDetails(Integer limit, String before, String after, String merchantId, String statuses) throws ApiException {
+        ApiResponse<ListSettlementDetails200Response> localVarResp = listSettlementDetailsWithHttpInfo(limit, before, after, merchantId, statuses);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List all settlement details
+     * This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
+     * @return ApiResponse&lt;ListSettlementDetails200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListSettlementDetails200Response> listSettlementDetailsWithHttpInfo(Integer limit, String before, String after, String merchantId, String statuses) throws ApiException {
+        okhttp3.Call localVarCall = listSettlementDetailsValidateBeforeCall(limit, before, after, merchantId, statuses, null);
+        Type localVarReturnType = new TypeToken<ListSettlementDetails200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List all settlement details (asynchronously)
+     * This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSettlementDetailsAsync(Integer limit, String before, String after, String merchantId, String statuses, final ApiCallback<ListSettlementDetails200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSettlementDetailsValidateBeforeCall(limit, before, after, merchantId, statuses, _callback);
+        Type localVarReturnType = new TypeToken<ListSettlementDetails200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

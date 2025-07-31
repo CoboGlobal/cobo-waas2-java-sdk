@@ -10,6 +10,7 @@
 |**name** | **String** | The wallet name. |  |
 |**walletType** | **WalletType** |  |  |
 |**walletSubtype** | **WalletSubtype** |  |  |
+|**enableAutoSweep** | **Boolean** | Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets. |  [optional] |
 |**chainId** | **String** | The ID of the chain that the wallet operates on. |  |
 |**smartContractWalletType** | **SmartContractWalletType** |  |  |
 |**safeAddress** | **String** | The address of the Smart Contract Wallet. If this is not provided, Cobo will create a new Safe{Wallet} and set up Cobo Safe for you. In that case, the &#x60;threshold&#x60; and &#x60;signers&#x60; properties are required. |  [optional] |

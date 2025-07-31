@@ -88,6 +88,14 @@ public class WalletInfoTest {
     }
 
     /**
+     * Test the property 'enableAutoSweep'
+     */
+    @Test
+    public void enableAutoSweepTest() {
+        // TODO: test enableAutoSweep
+    }
+
+    /**
      * Test the property 'projectId'
      */
     @Test
