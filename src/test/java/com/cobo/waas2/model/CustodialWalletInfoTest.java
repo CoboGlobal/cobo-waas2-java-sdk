@@ -78,4 +78,12 @@ public class CustodialWalletInfoTest {
         // TODO: test orgId
     }
 
+    /**
+     * Test the property 'enableAutoSweep'
+     */
+    @Test
+    public void enableAutoSweepTest() {
+        // TODO: test enableAutoSweep
+    }
+
 }

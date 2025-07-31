@@ -79,6 +79,10 @@ public class SafeWallet {
   @SerializedName(SERIALIZED_NAME_ORG_ID)
   private String orgId;
 
+  public static final String SERIALIZED_NAME_ENABLE_AUTO_SWEEP = "enable_auto_sweep";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AUTO_SWEEP)
+  private Boolean enableAutoSweep;
+
   public static final String SERIALIZED_NAME_CHAIN_ID = "chain_id";
   @SerializedName(SERIALIZED_NAME_CHAIN_ID)
   private String chainId;
@@ -202,6 +206,25 @@ public class SafeWallet {
 
   public void setOrgId(String orgId) {
     this.orgId = orgId;
+  }
+
+
+  public SafeWallet enableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
+    return this;
+  }
+
+   /**
+   * Enable the auto sweep feature for the wallet
+   * @return enableAutoSweep
+  **/
+  @javax.annotation.Nullable
+  public Boolean getEnableAutoSweep() {
+    return enableAutoSweep;
+  }
+
+  public void setEnableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
   }
 
 
@@ -406,6 +429,7 @@ public class SafeWallet {
         Objects.equals(this.walletSubtype, safeWallet.walletSubtype) &&
         Objects.equals(this.name, safeWallet.name) &&
         Objects.equals(this.orgId, safeWallet.orgId) &&
+        Objects.equals(this.enableAutoSweep, safeWallet.enableAutoSweep) &&
         Objects.equals(this.chainId, safeWallet.chainId) &&
         Objects.equals(this.smartContractWalletType, safeWallet.smartContractWalletType) &&
         Objects.equals(this.safeAddress, safeWallet.safeAddress) &&
@@ -418,7 +442,7 @@ public class SafeWallet {
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, walletType, walletSubtype, name, orgId, chainId, smartContractWalletType, safeAddress, signers, threshold, coboSafeAddress, initiator, additionalProperties);
+    return Objects.hash(walletId, walletType, walletSubtype, name, orgId, enableAutoSweep, chainId, smartContractWalletType, safeAddress, signers, threshold, coboSafeAddress, initiator, additionalProperties);
   }
 
   @Override
@@ -430,6 +454,7 @@ public class SafeWallet {
     sb.append("    walletSubtype: ").append(toIndentedString(walletSubtype)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    enableAutoSweep: ").append(toIndentedString(enableAutoSweep)).append("\n");
     sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
     sb.append("    smartContractWalletType: ").append(toIndentedString(smartContractWalletType)).append("\n");
     sb.append("    safeAddress: ").append(toIndentedString(safeAddress)).append("\n");
@@ -465,6 +490,7 @@ public class SafeWallet {
     openapiFields.add("wallet_subtype");
     openapiFields.add("name");
     openapiFields.add("org_id");
+    openapiFields.add("enable_auto_sweep");
     openapiFields.add("chain_id");
     openapiFields.add("smart_contract_wallet_type");
     openapiFields.add("safe_address");

@@ -61,4 +61,12 @@ public class CreateCustodialWalletParamsTest {
         // TODO: test walletSubtype
     }
 
+    /**
+     * Test the property 'enableAutoSweep'
+     */
+    @Test
+    public void enableAutoSweepTest() {
+        // TODO: test enableAutoSweep
+    }
+
 }
