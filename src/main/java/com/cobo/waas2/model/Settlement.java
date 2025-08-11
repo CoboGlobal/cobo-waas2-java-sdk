@@ -12,8 +12,11 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AcquiringType;
+import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.SettleRequestStatus;
 import com.cobo.waas2.model.SettlementDetail;
+import com.cobo.waas2.model.SettlementType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -83,6 +86,18 @@ public class Settlement {
   public static final String SERIALIZED_NAME_INITIATOR = "initiator";
   @SerializedName(SERIALIZED_NAME_INITIATOR)
   private String initiator;
+
+  public static final String SERIALIZED_NAME_ACQUIRING_TYPE = "acquiring_type";
+  @SerializedName(SERIALIZED_NAME_ACQUIRING_TYPE)
+  private AcquiringType acquiringType;
+
+  public static final String SERIALIZED_NAME_PAYOUT_CHANNEL = "payout_channel";
+  @SerializedName(SERIALIZED_NAME_PAYOUT_CHANNEL)
+  private PayoutChannel payoutChannel;
+
+  public static final String SERIALIZED_NAME_SETTLEMENT_TYPE = "settlement_type";
+  @SerializedName(SERIALIZED_NAME_SETTLEMENT_TYPE)
+  private SettlementType settlementType;
 
   public Settlement() {
   }
@@ -227,6 +242,63 @@ public class Settlement {
     this.initiator = initiator;
   }
 
+
+  public Settlement acquiringType(AcquiringType acquiringType) {
+    this.acquiringType = acquiringType;
+    return this;
+  }
+
+   /**
+   * Get acquiringType
+   * @return acquiringType
+  **/
+  @javax.annotation.Nullable
+  public AcquiringType getAcquiringType() {
+    return acquiringType;
+  }
+
+  public void setAcquiringType(AcquiringType acquiringType) {
+    this.acquiringType = acquiringType;
+  }
+
+
+  public Settlement payoutChannel(PayoutChannel payoutChannel) {
+    this.payoutChannel = payoutChannel;
+    return this;
+  }
+
+   /**
+   * Get payoutChannel
+   * @return payoutChannel
+  **/
+  @javax.annotation.Nullable
+  public PayoutChannel getPayoutChannel() {
+    return payoutChannel;
+  }
+
+  public void setPayoutChannel(PayoutChannel payoutChannel) {
+    this.payoutChannel = payoutChannel;
+  }
+
+
+  public Settlement settlementType(SettlementType settlementType) {
+    this.settlementType = settlementType;
+    return this;
+  }
+
+   /**
+   * Get settlementType
+   * @return settlementType
+  **/
+  @javax.annotation.Nullable
+  public SettlementType getSettlementType() {
+    return settlementType;
+  }
+
+  public void setSettlementType(SettlementType settlementType) {
+    this.settlementType = settlementType;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -288,13 +360,16 @@ public class Settlement {
         Objects.equals(this.settlements, settlement.settlements) &&
         Objects.equals(this.createdTimestamp, settlement.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, settlement.updatedTimestamp) &&
-        Objects.equals(this.initiator, settlement.initiator)&&
+        Objects.equals(this.initiator, settlement.initiator) &&
+        Objects.equals(this.acquiringType, settlement.acquiringType) &&
+        Objects.equals(this.payoutChannel, settlement.payoutChannel) &&
+        Objects.equals(this.settlementType, settlement.settlementType)&&
         Objects.equals(this.additionalProperties, settlement.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settlementRequestId, requestId, status, settlements, createdTimestamp, updatedTimestamp, initiator, additionalProperties);
+    return Objects.hash(settlementRequestId, requestId, status, settlements, createdTimestamp, updatedTimestamp, initiator, acquiringType, payoutChannel, settlementType, additionalProperties);
   }
 
   @Override
@@ -308,6 +383,9 @@ public class Settlement {
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
+    sb.append("    acquiringType: ").append(toIndentedString(acquiringType)).append("\n");
+    sb.append("    payoutChannel: ").append(toIndentedString(payoutChannel)).append("\n");
+    sb.append("    settlementType: ").append(toIndentedString(settlementType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -338,6 +416,9 @@ public class Settlement {
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("initiator");
+    openapiFields.add("acquiring_type");
+    openapiFields.add("payout_channel");
+    openapiFields.add("settlement_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -387,6 +468,18 @@ public class Settlement {
       };
       if ((jsonObj.get("initiator") != null && !jsonObj.get("initiator").isJsonNull()) && !jsonObj.get("initiator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiator").toString()));
+      }
+      // validate the optional field `acquiring_type`
+      if (jsonObj.get("acquiring_type") != null && !jsonObj.get("acquiring_type").isJsonNull()) {
+        AcquiringType.validateJsonElement(jsonObj.get("acquiring_type"));
+      }
+      // validate the optional field `payout_channel`
+      if (jsonObj.get("payout_channel") != null && !jsonObj.get("payout_channel").isJsonNull()) {
+        PayoutChannel.validateJsonElement(jsonObj.get("payout_channel"));
+      }
+      // validate the optional field `settlement_type`
+      if (jsonObj.get("settlement_type") != null && !jsonObj.get("settlement_type").isJsonNull()) {
+        SettlementType.validateJsonElement(jsonObj.get("settlement_type"));
       }
   }
 

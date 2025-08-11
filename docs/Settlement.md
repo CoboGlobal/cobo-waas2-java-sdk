@@ -14,6 +14,9 @@
 |**createdTimestamp** | **Integer** | The created time of the settlement request, represented as a UNIX timestamp in seconds. |  [optional] |
 |**updatedTimestamp** | **Integer** | The updated time of the settlement request, represented as a UNIX timestamp in seconds. |  [optional] |
 |**initiator** | **String** | The initiator of this settlement request, usually the user&#39;s API key. |  [optional] |
+|**acquiringType** | **AcquiringType** |  |  [optional] |
+|**payoutChannel** | **PayoutChannel** |  |  [optional] |
+|**settlementType** | **SettlementType** |  |  [optional] |
 
 
 

@@ -25,10 +25,12 @@ import com.cobo.waas2.model.PaymentRefundEventData;
 import com.cobo.waas2.model.PaymentSettlementEvent;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.PaymentTransactionEventData;
+import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.RefundType;
 import com.cobo.waas2.model.RootPubkey;
 import com.cobo.waas2.model.SettleStatus;
 import com.cobo.waas2.model.SettlementDetail;
+import com.cobo.waas2.model.SettlementType;
 import com.cobo.waas2.model.SourceGroup;
 import com.cobo.waas2.model.SuspendedTokenEventData;
 import com.cobo.waas2.model.SuspendedTokenOperationType;
@@ -702,6 +704,22 @@ public class WebhookEventDataTest {
     @Test
     public void acquiringTypeTest() {
         // TODO: test acquiringType
+    }
+
+    /**
+     * Test the property 'payoutChannel'
+     */
+    @Test
+    public void payoutChannelTest() {
+        // TODO: test payoutChannel
+    }
+
+    /**
+     * Test the property 'settlementType'
+     */
+    @Test
+    public void settlementTypeTest() {
+        // TODO: test settlementType
     }
 
     /**

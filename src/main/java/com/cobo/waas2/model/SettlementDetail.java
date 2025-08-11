@@ -119,6 +119,10 @@ public class SettlementDetail {
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_REQUEST_ID)
   private String settlementRequestId;
 
+  public static final String SERIALIZED_NAME_ORDER_IDS = "order_ids";
+  @SerializedName(SERIALIZED_NAME_ORDER_IDS)
+  private List<String> orderIds = new ArrayList<>();
+
   public SettlementDetail() {
   }
 
@@ -414,6 +418,33 @@ public class SettlementDetail {
     this.settlementRequestId = settlementRequestId;
   }
 
+
+  public SettlementDetail orderIds(List<String> orderIds) {
+    this.orderIds = orderIds;
+    return this;
+  }
+
+  public SettlementDetail addOrderIdsItem(String orderIdsItem) {
+    if (this.orderIds == null) {
+      this.orderIds = new ArrayList<>();
+    }
+    this.orderIds.add(orderIdsItem);
+    return this;
+  }
+
+   /**
+   * A list of unique order IDs to be included in this settlement.  - This field is only applicable when &#x60;settlement_type&#x60; is set to &#x60;Merchant&#x60;. - If provided, the settlement will only apply to the specified orders. - The settlement &#x60;amount&#x60; must exactly match the total eligible amount from these orders. - This ensures consistency between the declared amount and the actual order-level data being settled. 
+   * @return orderIds
+  **/
+  @javax.annotation.Nullable
+  public List<String> getOrderIds() {
+    return orderIds;
+  }
+
+  public void setOrderIds(List<String> orderIds) {
+    this.orderIds = orderIds;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -483,13 +514,14 @@ public class SettlementDetail {
         Objects.equals(this.cryptoAddressId, settlementDetail.cryptoAddressId) &&
         Objects.equals(this.payoutChannel, settlementDetail.payoutChannel) &&
         Objects.equals(this.acquiringType, settlementDetail.acquiringType) &&
-        Objects.equals(this.settlementRequestId, settlementDetail.settlementRequestId)&&
+        Objects.equals(this.settlementRequestId, settlementDetail.settlementRequestId) &&
+        Objects.equals(this.orderIds, settlementDetail.orderIds)&&
         Objects.equals(this.additionalProperties, settlementDetail.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, payoutChannel, acquiringType, settlementRequestId, additionalProperties);
+    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, payoutChannel, acquiringType, settlementRequestId, orderIds, additionalProperties);
   }
 
   @Override
@@ -511,6 +543,7 @@ public class SettlementDetail {
     sb.append("    payoutChannel: ").append(toIndentedString(payoutChannel)).append("\n");
     sb.append("    acquiringType: ").append(toIndentedString(acquiringType)).append("\n");
     sb.append("    settlementRequestId: ").append(toIndentedString(settlementRequestId)).append("\n");
+    sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -549,6 +582,7 @@ public class SettlementDetail {
     openapiFields.add("payout_channel");
     openapiFields.add("acquiring_type");
     openapiFields.add("settlement_request_id");
+    openapiFields.add("order_ids");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -620,6 +654,10 @@ public class SettlementDetail {
       }
       if ((jsonObj.get("settlement_request_id") != null && !jsonObj.get("settlement_request_id").isJsonNull()) && !jsonObj.get("settlement_request_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `settlement_request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("settlement_request_id").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("order_ids") != null && !jsonObj.get("order_ids").isJsonNull() && !jsonObj.get("order_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_ids` to be an array in the JSON string but got `%s`", jsonObj.get("order_ids").toString()));
       }
   }
 
