@@ -240,6 +240,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**createPaymentOrder**](docs/PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
 *PaymentApi* | [**createSettlementRequest**](docs/PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request
+*PaymentApi* | [**deleteCryptoAddress**](docs/PaymentApi.md#deleteCryptoAddress) | **POST** /payments/crypto_addresses/{crypto_address_id}/delete | Delete crypto address
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
 *PaymentApi* | [**getPspBalance**](docs/PaymentApi.md#getPspBalance) | **GET** /payments/balance/psp | Get psp balance
@@ -535,6 +536,7 @@ Class | Method | HTTP request | Description
  - [CustodialWeb3ContractCallSource](docs/CustodialWeb3ContractCallSource.md)
  - [CustodialWeb3MessageSignSource](docs/CustodialWeb3MessageSignSource.md)
  - [CustodialWeb3TransferSource](docs/CustodialWeb3TransferSource.md)
+ - [DeleteCryptoAddress201Response](docs/DeleteCryptoAddress201Response.md)
  - [DeleteGuardPubkey201Response](docs/DeleteGuardPubkey201Response.md)
  - [DeleteKeyShareHolderGroupById201Response](docs/DeleteKeyShareHolderGroupById201Response.md)
  - [DeleteWalletById201Response](docs/DeleteWalletById201Response.md)

@@ -44,11 +44,11 @@ public class CryptoAddressTest {
     }
 
     /**
-     * Test the property 'addressId'
+     * Test the property 'cryptoAddressId'
      */
     @Test
-    public void addressIdTest() {
-        // TODO: test addressId
+    public void cryptoAddressIdTest() {
+        // TODO: test cryptoAddressId
     }
 
     /**

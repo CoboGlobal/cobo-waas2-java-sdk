@@ -12,6 +12,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**createPaymentOrder**](PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order |
 | [**createRefund**](PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order |
 | [**createSettlementRequest**](PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request |
+| [**deleteCryptoAddress**](PaymentApi.md#deleteCryptoAddress) | **POST** /payments/crypto_addresses/{crypto_address_id}/delete | Delete crypto address |
 | [**getExchangeRate**](PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate |
 | [**getPaymentOrderDetailById**](PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information |
 | [**getPspBalance**](PaymentApi.md#getPspBalance) | **GET** /payments/balance/psp | Get psp balance |
@@ -582,6 +583,75 @@ public class Example {
 | **201** | The settlement request was successfully created. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
+
+<a id="deleteCryptoAddress"></a>
+# **deleteCryptoAddress**
+> DeleteCryptoAddress201Response deleteCryptoAddress(cryptoAddressId)
+
+Delete crypto address
+
+This operation deletes a crypto address. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.PaymentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    PaymentApi apiInstance = new PaymentApi();
+    String cryptoAddressId = "addr_ethusdt_20250506T123456_ab12cd";
+    try {
+      DeleteCryptoAddress201Response result = apiInstance.deleteCryptoAddress(cryptoAddressId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PaymentApi#deleteCryptoAddress");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **cryptoAddressId** | **String**| The crypto address ID. | |
+
+### Return type
+
+[**DeleteCryptoAddress201Response**](DeleteCryptoAddress201Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The request was successful. |  -  |
+| **400** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **401** | Unauthorized. Please provide valid credentials. |  -  |
+| **403** | Forbidden. You do not have the permission to access the requested resource. |  -  |
 
 <a id="getExchangeRate"></a>
 # **getExchangeRate**

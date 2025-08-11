@@ -151,6 +151,7 @@ docs/CustodialWalletInfo.md
 docs/CustodialWeb3ContractCallSource.md
 docs/CustodialWeb3MessageSignSource.md
 docs/CustodialWeb3TransferSource.md
+docs/DeleteCryptoAddress201Response.md
 docs/DeleteGuardPubkey201Response.md
 docs/DeleteKeyShareHolderGroupById201Response.md
 docs/DeleteWalletById201Response.md
@@ -873,6 +874,7 @@ src/main/java/com/cobo/waas2/model/CustodialWalletInfo.java
 src/main/java/com/cobo/waas2/model/CustodialWeb3ContractCallSource.java
 src/main/java/com/cobo/waas2/model/CustodialWeb3MessageSignSource.java
 src/main/java/com/cobo/waas2/model/CustodialWeb3TransferSource.java
+src/main/java/com/cobo/waas2/model/DeleteCryptoAddress201Response.java
 src/main/java/com/cobo/waas2/model/DeleteGuardPubkey201Response.java
 src/main/java/com/cobo/waas2/model/DeleteKeyShareHolderGroupById201Response.java
 src/main/java/com/cobo/waas2/model/DeleteWalletById201Response.java
@@ -1538,6 +1540,7 @@ src/test/java/com/cobo/waas2/model/CustodialWalletInfoTest.java
 src/test/java/com/cobo/waas2/model/CustodialWeb3ContractCallSourceTest.java
 src/test/java/com/cobo/waas2/model/CustodialWeb3MessageSignSourceTest.java
 src/test/java/com/cobo/waas2/model/CustodialWeb3TransferSourceTest.java
+src/test/java/com/cobo/waas2/model/DeleteCryptoAddress201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteGuardPubkey201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteKeyShareHolderGroupById201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteWalletById201ResponseTest.java

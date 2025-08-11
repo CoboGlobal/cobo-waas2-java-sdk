@@ -45,66 +45,27 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * CryptoAddress
+ * DeleteCryptoAddress201Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class CryptoAddress {
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
-
+public class DeleteCryptoAddress201Response {
   public static final String SERIALIZED_NAME_CRYPTO_ADDRESS_ID = "crypto_address_id";
   @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS_ID)
   private String cryptoAddressId;
 
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private String address;
-
-  public static final String SERIALIZED_NAME_LABEL = "label";
-  @SerializedName(SERIALIZED_NAME_LABEL)
-  private String label;
-
-  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
-  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
-  private Integer createdTimestamp;
-
-  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
-  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
-  private Integer updatedTimestamp;
-
-  public CryptoAddress() {
+  public DeleteCryptoAddress201Response() {
   }
 
-  public CryptoAddress tokenId(String tokenId) {
-    this.tokenId = tokenId;
-    return this;
-  }
-
-   /**
-   * The token identifier (e.g., ETH_USDT, TRON_USDT) that this address is associated with.
-   * @return tokenId
-  **/
-  @javax.annotation.Nonnull
-  public String getTokenId() {
-    return tokenId;
-  }
-
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
-  }
-
-
-  public CryptoAddress cryptoAddressId(String cryptoAddressId) {
+  public DeleteCryptoAddress201Response cryptoAddressId(String cryptoAddressId) {
     this.cryptoAddressId = cryptoAddressId;
     return this;
   }
 
    /**
-   * Unique identifier for the pre-approved crypto address, used to reference the address securely in requests. This ID is returned by the system and should be used instead of the raw blockchain address in API calls.
+   * The crypto address ID.
    * @return cryptoAddressId
   **/
   @javax.annotation.Nonnull
@@ -114,82 +75,6 @@ public class CryptoAddress {
 
   public void setCryptoAddressId(String cryptoAddressId) {
     this.cryptoAddressId = cryptoAddressId;
-  }
-
-
-  public CryptoAddress address(String address) {
-    this.address = address;
-    return this;
-  }
-
-   /**
-   * The actual blockchain address to which funds will be transferred. This is for display purposes only; external clients should always use address_id to refer to the address in secure operations.
-   * @return address
-  **/
-  @javax.annotation.Nonnull
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-
-  public CryptoAddress label(String label) {
-    this.label = label;
-    return this;
-  }
-
-   /**
-   * A human-readable label or alias for the crypto address, set by the merchant or platform operator. This field is optional and intended to help distinguish addresses by usage or purpose (e.g., \&quot;Main Payout Wallet\&quot;, \&quot;Cold Wallet\&quot;).
-   * @return label
-  **/
-  @javax.annotation.Nullable
-  public String getLabel() {
-    return label;
-  }
-
-  public void setLabel(String label) {
-    this.label = label;
-  }
-
-
-  public CryptoAddress createdTimestamp(Integer createdTimestamp) {
-    this.createdTimestamp = createdTimestamp;
-    return this;
-  }
-
-   /**
-   * The created time of the crypto address, represented as a UNIX timestamp in seconds.
-   * @return createdTimestamp
-  **/
-  @javax.annotation.Nullable
-  public Integer getCreatedTimestamp() {
-    return createdTimestamp;
-  }
-
-  public void setCreatedTimestamp(Integer createdTimestamp) {
-    this.createdTimestamp = createdTimestamp;
-  }
-
-
-  public CryptoAddress updatedTimestamp(Integer updatedTimestamp) {
-    this.updatedTimestamp = updatedTimestamp;
-    return this;
-  }
-
-   /**
-   * The updated time of the crypto address, represented as a UNIX timestamp in seconds.
-   * @return updatedTimestamp
-  **/
-  @javax.annotation.Nullable
-  public Integer getUpdatedTimestamp() {
-    return updatedTimestamp;
-  }
-
-  public void setUpdatedTimestamp(Integer updatedTimestamp) {
-    this.updatedTimestamp = updatedTimestamp;
   }
 
   /**
@@ -205,9 +90,9 @@ public class CryptoAddress {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CryptoAddress instance itself
+   * @return the DeleteCryptoAddress201Response instance itself
    */
-  public CryptoAddress putAdditionalProperty(String key, Object value) {
+  public DeleteCryptoAddress201Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -246,31 +131,21 @@ public class CryptoAddress {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CryptoAddress cryptoAddress = (CryptoAddress) o;
-    return Objects.equals(this.tokenId, cryptoAddress.tokenId) &&
-        Objects.equals(this.cryptoAddressId, cryptoAddress.cryptoAddressId) &&
-        Objects.equals(this.address, cryptoAddress.address) &&
-        Objects.equals(this.label, cryptoAddress.label) &&
-        Objects.equals(this.createdTimestamp, cryptoAddress.createdTimestamp) &&
-        Objects.equals(this.updatedTimestamp, cryptoAddress.updatedTimestamp)&&
-        Objects.equals(this.additionalProperties, cryptoAddress.additionalProperties);
+    DeleteCryptoAddress201Response deleteCryptoAddress201Response = (DeleteCryptoAddress201Response) o;
+    return Objects.equals(this.cryptoAddressId, deleteCryptoAddress201Response.cryptoAddressId)&&
+        Objects.equals(this.additionalProperties, deleteCryptoAddress201Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokenId, cryptoAddressId, address, label, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(cryptoAddressId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CryptoAddress {\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
+    sb.append("class DeleteCryptoAddress201Response {\n");
     sb.append("    cryptoAddressId: ").append(toIndentedString(cryptoAddressId)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
-    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
-    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -294,51 +169,35 @@ public class CryptoAddress {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("token_id");
     openapiFields.add("crypto_address_id");
-    openapiFields.add("address");
-    openapiFields.add("label");
-    openapiFields.add("created_timestamp");
-    openapiFields.add("updated_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("token_id");
     openapiRequiredFields.add("crypto_address_id");
-    openapiRequiredFields.add("address");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CryptoAddress
+  * @throws IOException if the JSON Element is invalid with respect to DeleteCryptoAddress201Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CryptoAddress.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CryptoAddress is not found in the empty JSON string", CryptoAddress.openapiRequiredFields.toString()));
+        if (!DeleteCryptoAddress201Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DeleteCryptoAddress201Response is not found in the empty JSON string", DeleteCryptoAddress201Response.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CryptoAddress.openapiRequiredFields) {
+      for (String requiredField : DeleteCryptoAddress201Response.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
-      }
       if (!jsonObj.get("crypto_address_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address_id").toString()));
-      }
-      if (!jsonObj.get("address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
-      }
-      if ((jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()) && !jsonObj.get("label").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }
   }
 
@@ -346,16 +205,16 @@ public class CryptoAddress {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CryptoAddress.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CryptoAddress' and its subtypes
+       if (!DeleteCryptoAddress201Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeleteCryptoAddress201Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CryptoAddress> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CryptoAddress.class));
+       final TypeAdapter<DeleteCryptoAddress201Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeleteCryptoAddress201Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CryptoAddress>() {
+       return (TypeAdapter<T>) new TypeAdapter<DeleteCryptoAddress201Response>() {
            @Override
-           public void write(JsonWriter out, CryptoAddress value) throws IOException {
+           public void write(JsonWriter out, DeleteCryptoAddress201Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -385,12 +244,12 @@ public class CryptoAddress {
            }
 
            @Override
-           public CryptoAddress read(JsonReader in) throws IOException {
+           public DeleteCryptoAddress201Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CryptoAddress instance = thisAdapter.fromJsonTree(jsonObj);
+             DeleteCryptoAddress201Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -417,18 +276,18 @@ public class CryptoAddress {
   }
 
  /**
-  * Create an instance of CryptoAddress given an JSON string
+  * Create an instance of DeleteCryptoAddress201Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CryptoAddress
-  * @throws IOException if the JSON string is invalid with respect to CryptoAddress
+  * @return An instance of DeleteCryptoAddress201Response
+  * @throws IOException if the JSON string is invalid with respect to DeleteCryptoAddress201Response
   */
-  public static CryptoAddress fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CryptoAddress.class);
+  public static DeleteCryptoAddress201Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeleteCryptoAddress201Response.class);
   }
 
  /**
-  * Convert an instance of CryptoAddress to an JSON string
+  * Convert an instance of DeleteCryptoAddress201Response to an JSON string
   *
   * @return JSON string
   */

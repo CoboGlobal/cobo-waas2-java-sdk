@@ -912,6 +912,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.CustodialWeb3ContractCallSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.CustodialWeb3MessageSignSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.CustodialWeb3TransferSource.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.DeleteCryptoAddress201Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.DeleteGuardPubkey201Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.DeleteKeyShareHolderGroupById201Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.DeleteWalletById201Response.CustomTypeAdapterFactory());

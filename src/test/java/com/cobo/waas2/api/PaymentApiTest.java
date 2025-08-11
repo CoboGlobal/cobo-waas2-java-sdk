@@ -23,6 +23,7 @@ import com.cobo.waas2.model.CreatePaymentOrderRequest;
 import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
 import com.cobo.waas2.model.CryptoAddress;
+import com.cobo.waas2.model.DeleteCryptoAddress201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ForcedSweep;
 import com.cobo.waas2.model.ForcedSweepRequest;
@@ -180,6 +181,20 @@ public class PaymentApiTest {
     public void createSettlementRequestTest() throws ApiException {
         CreateSettlementRequestRequest createSettlementRequestRequest = null;
         Settlement response = api.createSettlementRequest(createSettlementRequestRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Delete crypto address
+     *
+     * This operation deletes a crypto address. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteCryptoAddressTest() throws ApiException {
+        String cryptoAddressId = null;
+        DeleteCryptoAddress201Response response = api.deleteCryptoAddress(cryptoAddressId);
         // TODO: test validations
     }
 
