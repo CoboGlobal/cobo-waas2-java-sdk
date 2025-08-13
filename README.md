@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.20.0</version>
+  <version>1.21.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.20.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.21.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.20.0.jar`
+* `target/cobo-waas2-1.21.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -230,11 +230,13 @@ Class | Method | HTTP request | Description
 *OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
 *OrganizationsApi* | [**getOrgInfo**](docs/OrganizationsApi.md#getOrgInfo) | **GET** /organizations/info | Get organization information
 *PaymentApi* | [**cancelRefundById**](docs/PaymentApi.md#cancelRefundById) | **PUT** /payments/refunds/{refund_id}/cancel | Cancel refund order
-*PaymentApi* | [**createForcedSweepRequest**](docs/PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create force sweep request
+*PaymentApi* | [**createCryptoAddress**](docs/PaymentApi.md#createCryptoAddress) | **POST** /payments/crypto_addresses | Create crypto address
+*PaymentApi* | [**createForcedSweepRequest**](docs/PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create forced sweep
 *PaymentApi* | [**createMerchant**](docs/PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant
 *PaymentApi* | [**createPaymentOrder**](docs/PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
 *PaymentApi* | [**createSettlementRequest**](docs/PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request
+*PaymentApi* | [**deleteCryptoAddress**](docs/PaymentApi.md#deleteCryptoAddress) | **POST** /payments/crypto_addresses/{crypto_address_id}/delete | Delete crypto address
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
 *PaymentApi* | [**getRefundDetailById**](docs/PaymentApi.md#getRefundDetailById) | **GET** /payments/refunds/{refund_id} | Get refund order information
@@ -244,10 +246,11 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**getTopUpAddress**](docs/PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Get top-up address
 *PaymentApi* | [**listBankAccounts**](docs/PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts
 *PaymentApi* | [**listCryptoAddresses**](docs/PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
-*PaymentApi* | [**listForcedSweepRequests**](docs/PaymentApi.md#listForcedSweepRequests) | **GET** /payments/force_sweep_requests | List force sweep requests
+*PaymentApi* | [**listForcedSweepRequests**](docs/PaymentApi.md#listForcedSweepRequests) | **GET** /payments/force_sweep_requests | List forced sweeps
 *PaymentApi* | [**listMerchants**](docs/PaymentApi.md#listMerchants) | **GET** /payments/merchants | List all merchants
 *PaymentApi* | [**listPaymentOrders**](docs/PaymentApi.md#listPaymentOrders) | **GET** /payments/orders | List all pay-in orders
 *PaymentApi* | [**listPaymentSupportedTokens**](docs/PaymentApi.md#listPaymentSupportedTokens) | **GET** /payments/supported_tokens | List all supported tokens
+*PaymentApi* | [**listSettlementDetails**](docs/PaymentApi.md#listSettlementDetails) | **GET** /payments/settlement_details | List all settlement details
 *PaymentApi* | [**listSettlementRequests**](docs/PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests
 *PaymentApi* | [**listTopUpPayers**](docs/PaymentApi.md#listTopUpPayers) | **GET** /payments/topup/payers | List payers
 *PaymentApi* | [**updateMerchantById**](docs/PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant
@@ -453,6 +456,7 @@ Class | Method | HTTP request | Description
  - [CreateBabylonStakingRegistrationRequest](docs/CreateBabylonStakingRegistrationRequest.md)
  - [CreateClaimActivity](docs/CreateClaimActivity.md)
  - [CreateClaimActivityRequest](docs/CreateClaimActivityRequest.md)
+ - [CreateCryptoAddressRequest](docs/CreateCryptoAddressRequest.md)
  - [CreateCustodialWalletParams](docs/CreateCustodialWalletParams.md)
  - [CreateExchangeWalletParams](docs/CreateExchangeWalletParams.md)
  - [CreateKeyShareHolder](docs/CreateKeyShareHolder.md)
@@ -493,6 +497,7 @@ Class | Method | HTTP request | Description
  - [CustodialWeb3ContractCallSource](docs/CustodialWeb3ContractCallSource.md)
  - [CustodialWeb3MessageSignSource](docs/CustodialWeb3MessageSignSource.md)
  - [CustodialWeb3TransferSource](docs/CustodialWeb3TransferSource.md)
+ - [DeleteCryptoAddress201Response](docs/DeleteCryptoAddress201Response.md)
  - [DeleteGuardPubkey201Response](docs/DeleteGuardPubkey201Response.md)
  - [DeleteKeyShareHolderGroupById201Response](docs/DeleteKeyShareHolderGroupById201Response.md)
  - [DeleteWalletById201Response](docs/DeleteWalletById201Response.md)
@@ -595,6 +600,7 @@ Class | Method | HTTP request | Description
  - [ListMpcProjects200Response](docs/ListMpcProjects200Response.md)
  - [ListMpcVaults200Response](docs/ListMpcVaults200Response.md)
  - [ListPaymentOrders200Response](docs/ListPaymentOrders200Response.md)
+ - [ListSettlementDetails200Response](docs/ListSettlementDetails200Response.md)
  - [ListSettlementRequests200Response](docs/ListSettlementRequests200Response.md)
  - [ListStakingActivities200Response](docs/ListStakingActivities200Response.md)
  - [ListStakingPools200Response](docs/ListStakingPools200Response.md)

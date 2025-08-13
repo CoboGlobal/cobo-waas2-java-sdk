@@ -19,7 +19,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,105 +45,36 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * ForcedSweepRequest
+ * DeleteCryptoAddress201Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class ForcedSweepRequest {
-  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
-  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  private String requestId;
+public class DeleteCryptoAddress201Response {
+  public static final String SERIALIZED_NAME_CRYPTO_ADDRESS_ID = "crypto_address_id";
+  @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS_ID)
+  private String cryptoAddressId;
 
-  public static final String SERIALIZED_NAME_WALLET_ID = "wallet_id";
-  @SerializedName(SERIALIZED_NAME_WALLET_ID)
-  private UUID walletId;
-
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
-
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private String amount;
-
-  public ForcedSweepRequest() {
+  public DeleteCryptoAddress201Response() {
   }
 
-  public ForcedSweepRequest requestId(String requestId) {
-    this.requestId = requestId;
+  public DeleteCryptoAddress201Response cryptoAddressId(String cryptoAddressId) {
+    this.cryptoAddressId = cryptoAddressId;
     return this;
   }
 
    /**
-   * The request ID that is used to track a forced sweep. The request ID is provided by you and must be unique.
-   * @return requestId
+   * The crypto address ID.
+   * @return cryptoAddressId
   **/
   @javax.annotation.Nonnull
-  public String getRequestId() {
-    return requestId;
+  public String getCryptoAddressId() {
+    return cryptoAddressId;
   }
 
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
-
-  public ForcedSweepRequest walletId(UUID walletId) {
-    this.walletId = walletId;
-    return this;
-  }
-
-   /**
-   * The ID of the wallet in which the funds will be forcefully swept.
-   * @return walletId
-  **/
-  @javax.annotation.Nonnull
-  public UUID getWalletId() {
-    return walletId;
-  }
-
-  public void setWalletId(UUID walletId) {
-    this.walletId = walletId;
-  }
-
-
-  public ForcedSweepRequest tokenId(String tokenId) {
-    this.tokenId = tokenId;
-    return this;
-  }
-
-   /**
-   * The ID of the token to be forcefully swept.
-   * @return tokenId
-  **/
-  @javax.annotation.Nonnull
-  public String getTokenId() {
-    return tokenId;
-  }
-
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
-  }
-
-
-  public ForcedSweepRequest amount(String amount) {
-    this.amount = amount;
-    return this;
-  }
-
-   /**
-   * The amount of the token to be forcefully swept.
-   * @return amount
-  **/
-  @javax.annotation.Nonnull
-  public String getAmount() {
-    return amount;
-  }
-
-  public void setAmount(String amount) {
-    this.amount = amount;
+  public void setCryptoAddressId(String cryptoAddressId) {
+    this.cryptoAddressId = cryptoAddressId;
   }
 
   /**
@@ -160,9 +90,9 @@ public class ForcedSweepRequest {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ForcedSweepRequest instance itself
+   * @return the DeleteCryptoAddress201Response instance itself
    */
-  public ForcedSweepRequest putAdditionalProperty(String key, Object value) {
+  public DeleteCryptoAddress201Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -201,27 +131,21 @@ public class ForcedSweepRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ForcedSweepRequest forcedSweepRequest = (ForcedSweepRequest) o;
-    return Objects.equals(this.requestId, forcedSweepRequest.requestId) &&
-        Objects.equals(this.walletId, forcedSweepRequest.walletId) &&
-        Objects.equals(this.tokenId, forcedSweepRequest.tokenId) &&
-        Objects.equals(this.amount, forcedSweepRequest.amount)&&
-        Objects.equals(this.additionalProperties, forcedSweepRequest.additionalProperties);
+    DeleteCryptoAddress201Response deleteCryptoAddress201Response = (DeleteCryptoAddress201Response) o;
+    return Objects.equals(this.cryptoAddressId, deleteCryptoAddress201Response.cryptoAddressId)&&
+        Objects.equals(this.additionalProperties, deleteCryptoAddress201Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, walletId, tokenId, amount, additionalProperties);
+    return Objects.hash(cryptoAddressId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ForcedSweepRequest {\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("class DeleteCryptoAddress201Response {\n");
+    sb.append("    cryptoAddressId: ").append(toIndentedString(cryptoAddressId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -245,50 +169,35 @@ public class ForcedSweepRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("request_id");
-    openapiFields.add("wallet_id");
-    openapiFields.add("token_id");
-    openapiFields.add("amount");
+    openapiFields.add("crypto_address_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("request_id");
-    openapiRequiredFields.add("wallet_id");
-    openapiRequiredFields.add("token_id");
-    openapiRequiredFields.add("amount");
+    openapiRequiredFields.add("crypto_address_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ForcedSweepRequest
+  * @throws IOException if the JSON Element is invalid with respect to DeleteCryptoAddress201Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ForcedSweepRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ForcedSweepRequest is not found in the empty JSON string", ForcedSweepRequest.openapiRequiredFields.toString()));
+        if (!DeleteCryptoAddress201Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DeleteCryptoAddress201Response is not found in the empty JSON string", DeleteCryptoAddress201Response.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ForcedSweepRequest.openapiRequiredFields) {
+      for (String requiredField : DeleteCryptoAddress201Response.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("request_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
-      }
-      if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
-      }
-      if (!jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
-      }
-      if (!jsonObj.get("amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
+      if (!jsonObj.get("crypto_address_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address_id").toString()));
       }
   }
 
@@ -296,16 +205,16 @@ public class ForcedSweepRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ForcedSweepRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ForcedSweepRequest' and its subtypes
+       if (!DeleteCryptoAddress201Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeleteCryptoAddress201Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ForcedSweepRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ForcedSweepRequest.class));
+       final TypeAdapter<DeleteCryptoAddress201Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeleteCryptoAddress201Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ForcedSweepRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<DeleteCryptoAddress201Response>() {
            @Override
-           public void write(JsonWriter out, ForcedSweepRequest value) throws IOException {
+           public void write(JsonWriter out, DeleteCryptoAddress201Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -335,12 +244,12 @@ public class ForcedSweepRequest {
            }
 
            @Override
-           public ForcedSweepRequest read(JsonReader in) throws IOException {
+           public DeleteCryptoAddress201Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ForcedSweepRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             DeleteCryptoAddress201Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -367,18 +276,18 @@ public class ForcedSweepRequest {
   }
 
  /**
-  * Create an instance of ForcedSweepRequest given an JSON string
+  * Create an instance of DeleteCryptoAddress201Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ForcedSweepRequest
-  * @throws IOException if the JSON string is invalid with respect to ForcedSweepRequest
+  * @return An instance of DeleteCryptoAddress201Response
+  * @throws IOException if the JSON string is invalid with respect to DeleteCryptoAddress201Response
   */
-  public static ForcedSweepRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ForcedSweepRequest.class);
+  public static DeleteCryptoAddress201Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeleteCryptoAddress201Response.class);
   }
 
  /**
-  * Convert an instance of ForcedSweepRequest to an JSON string
+  * Convert an instance of DeleteCryptoAddress201Response to an JSON string
   *
   * @return JSON string
   */

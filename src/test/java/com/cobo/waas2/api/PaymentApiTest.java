@@ -16,11 +16,13 @@ import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
+import com.cobo.waas2.model.CreateCryptoAddressRequest;
 import com.cobo.waas2.model.CreateMerchantRequest;
 import com.cobo.waas2.model.CreatePaymentOrderRequest;
 import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
 import com.cobo.waas2.model.CryptoAddress;
+import com.cobo.waas2.model.DeleteCryptoAddress201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ForcedSweep;
 import com.cobo.waas2.model.ForcedSweepRequest;
@@ -30,6 +32,7 @@ import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
 import com.cobo.waas2.model.ListForcedSweepRequests200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
+import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
@@ -79,9 +82,23 @@ public class PaymentApiTest {
     }
 
     /**
-     * Create force sweep request
+     * Create crypto address
      *
-     * This operation creates a force sweep request to settle or refund available balances.  
+     * Create a new cryptocurrency address for receiving payouts or transfers.  The address must match the specified &#x60;token_id&#x60;&#39;s blockchain.  Optionally, a label can be provided to help categorize the address internally. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createCryptoAddressTest() throws ApiException {
+        CreateCryptoAddressRequest createCryptoAddressRequest = null;
+        CryptoAddress response = api.createCryptoAddress(createCryptoAddressRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Create forced sweep
+     *
+     * This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -149,6 +166,20 @@ public class PaymentApiTest {
     }
 
     /**
+     * Delete crypto address
+     *
+     * This operation deletes a crypto address. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteCryptoAddressTest() throws ApiException {
+        String cryptoAddressId = null;
+        DeleteCryptoAddress201Response response = api.deleteCryptoAddress(cryptoAddressId);
+        // TODO: test validations
+    }
+
+    /**
      * Get exchange rate
      *
      * This operation retrieves the current exchange rate between a specified currency pair. 
@@ -205,7 +236,8 @@ public class PaymentApiTest {
         String after = null;
         String merchantId = null;
         String requestId = null;
-        GetRefunds200Response response = api.getRefunds(limit, before, after, merchantId, requestId);
+        String statuses = null;
+        GetRefunds200Response response = api.getRefunds(limit, before, after, merchantId, requestId, statuses);
         // TODO: test validations
     }
 
@@ -226,7 +258,7 @@ public class PaymentApiTest {
     /**
      * Get withdrawable balances
      *
-     * This operation retrieves the current withdrawable balances of specified merchants or the developer. 
+     * This operation retrieves the balances of specified merchants or the developer. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -283,9 +315,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * List force sweep requests
+     * List forced sweeps
      *
-     * This operation retrieves the information of force_sweep requests. 
+     * This operation retrieves the information of all forced sweeps. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -331,7 +363,8 @@ public class PaymentApiTest {
         String after = null;
         String merchantId = null;
         String pspOrderId = null;
-        ListPaymentOrders200Response response = api.listPaymentOrders(limit, before, after, merchantId, pspOrderId);
+        String statuses = null;
+        ListPaymentOrders200Response response = api.listPaymentOrders(limit, before, after, merchantId, pspOrderId, statuses);
         // TODO: test validations
     }
 
@@ -345,6 +378,24 @@ public class PaymentApiTest {
     @Test
     public void listPaymentSupportedTokensTest() throws ApiException {
         List<SupportedToken> response = api.listPaymentSupportedTokens();
+        // TODO: test validations
+    }
+
+    /**
+     * List all settlement details
+     *
+     * This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listSettlementDetailsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String merchantId = null;
+        String statuses = null;
+        ListSettlementDetails200Response response = api.listSettlementDetails(limit, before, after, merchantId, statuses);
         // TODO: test validations
     }
 
@@ -431,7 +482,7 @@ public class PaymentApiTest {
     /**
      * Update top-up address
      *
-     * Update the top-up address for a payer under a specific merchant and token. 
+     * This operation updates the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
      *
      * @throws ApiException if the Api call fails
      */

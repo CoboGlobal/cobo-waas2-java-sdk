@@ -5,11 +5,13 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**cancelRefundById**](PaymentApi.md#cancelRefundById) | **PUT** /payments/refunds/{refund_id}/cancel | Cancel refund order |
-| [**createForcedSweepRequest**](PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create force sweep request |
+| [**createCryptoAddress**](PaymentApi.md#createCryptoAddress) | **POST** /payments/crypto_addresses | Create crypto address |
+| [**createForcedSweepRequest**](PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create forced sweep |
 | [**createMerchant**](PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant |
 | [**createPaymentOrder**](PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order |
 | [**createRefund**](PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order |
 | [**createSettlementRequest**](PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request |
+| [**deleteCryptoAddress**](PaymentApi.md#deleteCryptoAddress) | **POST** /payments/crypto_addresses/{crypto_address_id}/delete | Delete crypto address |
 | [**getExchangeRate**](PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate |
 | [**getPaymentOrderDetailById**](PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information |
 | [**getRefundDetailById**](PaymentApi.md#getRefundDetailById) | **GET** /payments/refunds/{refund_id} | Get refund order information |
@@ -19,10 +21,11 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**getTopUpAddress**](PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Get top-up address |
 | [**listBankAccounts**](PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts |
 | [**listCryptoAddresses**](PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses |
-| [**listForcedSweepRequests**](PaymentApi.md#listForcedSweepRequests) | **GET** /payments/force_sweep_requests | List force sweep requests |
+| [**listForcedSweepRequests**](PaymentApi.md#listForcedSweepRequests) | **GET** /payments/force_sweep_requests | List forced sweeps |
 | [**listMerchants**](PaymentApi.md#listMerchants) | **GET** /payments/merchants | List all merchants |
 | [**listPaymentOrders**](PaymentApi.md#listPaymentOrders) | **GET** /payments/orders | List all pay-in orders |
 | [**listPaymentSupportedTokens**](PaymentApi.md#listPaymentSupportedTokens) | **GET** /payments/supported_tokens | List all supported tokens |
+| [**listSettlementDetails**](PaymentApi.md#listSettlementDetails) | **GET** /payments/settlement_details | List all settlement details |
 | [**listSettlementRequests**](PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests |
 | [**listTopUpPayers**](PaymentApi.md#listTopUpPayers) | **GET** /payments/topup/payers | List payers |
 | [**updateMerchantById**](PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant |
@@ -99,13 +102,81 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
+<a id="createCryptoAddress"></a>
+# **createCryptoAddress**
+> CryptoAddress createCryptoAddress(createCryptoAddressRequest)
+
+Create crypto address
+
+Create a new cryptocurrency address for receiving payouts or transfers.  The address must match the specified &#x60;token_id&#x60;&#39;s blockchain.  Optionally, a label can be provided to help categorize the address internally. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.PaymentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    PaymentApi apiInstance = new PaymentApi();
+    CreateCryptoAddressRequest createCryptoAddressRequest = new CreateCryptoAddressRequest();
+    try {
+      CryptoAddress result = apiInstance.createCryptoAddress(createCryptoAddressRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PaymentApi#createCryptoAddress");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createCryptoAddressRequest** | [**CreateCryptoAddressRequest**](CreateCryptoAddressRequest.md)| The request body to create a crypto address. | [optional] |
+
+### Return type
+
+[**CryptoAddress**](CryptoAddress.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Crypto address created successfully. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
 <a id="createForcedSweepRequest"></a>
 # **createForcedSweepRequest**
 > ForcedSweep createForcedSweepRequest(forcedSweepRequest)
 
-Create force sweep request
+Create forced sweep
 
-This operation creates a force sweep request to settle or refund available balances.  
+This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
 
 ### Example
 ```java
@@ -145,7 +216,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **forcedSweepRequest** | [**ForcedSweepRequest**](ForcedSweepRequest.md)| The request body to force sweep. | [optional] |
+| **forcedSweepRequest** | [**ForcedSweepRequest**](ForcedSweepRequest.md)| The request body for forced sweep. | [optional] |
 
 ### Return type
 
@@ -163,7 +234,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Force sweep request created successfully. |  -  |
+| **201** | Forced sweep created successfully. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -439,6 +510,75 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
+<a id="deleteCryptoAddress"></a>
+# **deleteCryptoAddress**
+> DeleteCryptoAddress201Response deleteCryptoAddress(cryptoAddressId)
+
+Delete crypto address
+
+This operation deletes a crypto address. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.PaymentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    PaymentApi apiInstance = new PaymentApi();
+    String cryptoAddressId = "addr_ethusdt_20250506T123456_ab12cd";
+    try {
+      DeleteCryptoAddress201Response result = apiInstance.deleteCryptoAddress(cryptoAddressId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PaymentApi#deleteCryptoAddress");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **cryptoAddressId** | **String**| The crypto address ID. | |
+
+### Return type
+
+[**DeleteCryptoAddress201Response**](DeleteCryptoAddress201Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The request was successful. |  -  |
+| **400** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **401** | Unauthorized. Please provide valid credentials. |  -  |
+| **403** | Forbidden. You do not have the permission to access the requested resource. |  -  |
+
 <a id="getExchangeRate"></a>
 # **getExchangeRate**
 > GetExchangeRate200Response getExchangeRate(tokenId, currency)
@@ -647,7 +787,7 @@ public class Example {
 
 <a id="getRefunds"></a>
 # **getRefunds**
-> GetRefunds200Response getRefunds(limit, before, after, merchantId, requestId)
+> GetRefunds200Response getRefunds(limit, before, after, merchantId, requestId, statuses)
 
 List all refund orders
 
@@ -677,8 +817,9 @@ public class Example {
     String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
     String merchantId = "M1001";
     String requestId = "random_request_id";
+    String statuses = "Pending,Processing";
     try {
-      GetRefunds200Response result = apiInstance.getRefunds(limit, before, after, merchantId, requestId);
+      GetRefunds200Response result = apiInstance.getRefunds(limit, before, after, merchantId, requestId, statuses);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentApi#getRefunds");
@@ -700,6 +841,7 @@ public class Example {
 | **after** | **String**| A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  | [optional] |
 | **merchantId** | **String**| The merchant ID. | [optional] |
 | **requestId** | **String**| The request ID. | [optional] |
+| **statuses** | **String**| A list of  statuses of order, refund or settle request. | [optional] |
 
 ### Return type
 
@@ -795,7 +937,7 @@ public class Example {
 
 Get withdrawable balances
 
-This operation retrieves the current withdrawable balances of specified merchants or the developer. 
+This operation retrieves the balances of specified merchants or the developer. 
 
 ### Example
 ```java
@@ -1069,9 +1211,9 @@ public class Example {
 # **listForcedSweepRequests**
 > ListForcedSweepRequests200Response listForcedSweepRequests(limit, before, after, requestId)
 
-List force sweep requests
+List forced sweeps
 
-This operation retrieves the information of force_sweep requests. 
+This operation retrieves the information of all forced sweeps. 
 
 ### Example
 ```java
@@ -1217,7 +1359,7 @@ public class Example {
 
 <a id="listPaymentOrders"></a>
 # **listPaymentOrders**
-> ListPaymentOrders200Response listPaymentOrders(limit, before, after, merchantId, pspOrderId)
+> ListPaymentOrders200Response listPaymentOrders(limit, before, after, merchantId, pspOrderId, statuses)
 
 List all pay-in orders
 
@@ -1247,8 +1389,9 @@ public class Example {
     String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
     String merchantId = "M1001";
     String pspOrderId = "P20240201001";
+    String statuses = "Pending,Processing";
     try {
-      ListPaymentOrders200Response result = apiInstance.listPaymentOrders(limit, before, after, merchantId, pspOrderId);
+      ListPaymentOrders200Response result = apiInstance.listPaymentOrders(limit, before, after, merchantId, pspOrderId, statuses);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentApi#listPaymentOrders");
@@ -1270,6 +1413,7 @@ public class Example {
 | **after** | **String**| A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  | [optional] |
 | **merchantId** | **String**| The merchant ID. | [optional] |
 | **pspOrderId** | **String**| A unique reference code assigned by the developer to identify this order in their system. | [optional] |
+| **statuses** | **String**| A list of  statuses of order, refund or settle request. | [optional] |
 
 ### Return type
 
@@ -1338,6 +1482,82 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;SupportedToken&gt;**](SupportedToken.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="listSettlementDetails"></a>
+# **listSettlementDetails**
+> ListSettlementDetails200Response listSettlementDetails(limit, before, after, merchantId, statuses)
+
+List all settlement details
+
+This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.PaymentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    PaymentApi apiInstance = new PaymentApi();
+    Integer limit = 10;
+    String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
+    String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
+    String merchantId = "M1001";
+    String statuses = "Pending,Processing";
+    try {
+      ListSettlementDetails200Response result = apiInstance.listSettlementDetails(limit, before, after, merchantId, statuses);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PaymentApi#listSettlementDetails");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
+| **before** | **String**| A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  | [optional] |
+| **after** | **String**| A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  | [optional] |
+| **merchantId** | **String**| The merchant ID. | [optional] |
+| **statuses** | **String**| A list of  statuses of order, refund or settle request. | [optional] |
+
+### Return type
+
+[**ListSettlementDetails200Response**](ListSettlementDetails200Response.md)
 
 ### Authorization
 
@@ -1721,7 +1941,7 @@ public class Example {
 
 Update top-up address
 
-Update the top-up address for a payer under a specific merchant and token. 
+This operation updates the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
 
 ### Example
 ```java
@@ -1761,7 +1981,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **updateTopUpAddress** | [**UpdateTopUpAddress**](UpdateTopUpAddress.md)| The request body to update top up address. | [optional] |
+| **updateTopUpAddress** | [**UpdateTopUpAddress**](UpdateTopUpAddress.md)| The request body to update top-up address. | [optional] |
 
 ### Return type
 

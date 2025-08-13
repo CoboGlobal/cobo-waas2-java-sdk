@@ -12,14 +12,17 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.Pagination;
+import com.cobo.waas2.model.SettlementDetail;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.UUID;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,105 +49,67 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * ForcedSweepRequest
+ * ListSettlementDetails200Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class ForcedSweepRequest {
-  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
-  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  private String requestId;
+public class ListSettlementDetails200Response {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private List<SettlementDetail> data = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_WALLET_ID = "wallet_id";
-  @SerializedName(SERIALIZED_NAME_WALLET_ID)
-  private UUID walletId;
+  public static final String SERIALIZED_NAME_PAGINATION = "pagination";
+  @SerializedName(SERIALIZED_NAME_PAGINATION)
+  private Pagination pagination;
 
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
-
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private String amount;
-
-  public ForcedSweepRequest() {
+  public ListSettlementDetails200Response() {
   }
 
-  public ForcedSweepRequest requestId(String requestId) {
-    this.requestId = requestId;
+  public ListSettlementDetails200Response data(List<SettlementDetail> data) {
+    this.data = data;
+    return this;
+  }
+
+  public ListSettlementDetails200Response addDataItem(SettlementDetail dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * The request ID that is used to track a forced sweep. The request ID is provided by you and must be unique.
-   * @return requestId
+   * Get data
+   * @return data
   **/
-  @javax.annotation.Nonnull
-  public String getRequestId() {
-    return requestId;
+  @javax.annotation.Nullable
+  public List<SettlementDetail> getData() {
+    return data;
   }
 
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
+  public void setData(List<SettlementDetail> data) {
+    this.data = data;
   }
 
 
-  public ForcedSweepRequest walletId(UUID walletId) {
-    this.walletId = walletId;
+  public ListSettlementDetails200Response pagination(Pagination pagination) {
+    this.pagination = pagination;
     return this;
   }
 
    /**
-   * The ID of the wallet in which the funds will be forcefully swept.
-   * @return walletId
+   * Get pagination
+   * @return pagination
   **/
-  @javax.annotation.Nonnull
-  public UUID getWalletId() {
-    return walletId;
+  @javax.annotation.Nullable
+  public Pagination getPagination() {
+    return pagination;
   }
 
-  public void setWalletId(UUID walletId) {
-    this.walletId = walletId;
-  }
-
-
-  public ForcedSweepRequest tokenId(String tokenId) {
-    this.tokenId = tokenId;
-    return this;
-  }
-
-   /**
-   * The ID of the token to be forcefully swept.
-   * @return tokenId
-  **/
-  @javax.annotation.Nonnull
-  public String getTokenId() {
-    return tokenId;
-  }
-
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
-  }
-
-
-  public ForcedSweepRequest amount(String amount) {
-    this.amount = amount;
-    return this;
-  }
-
-   /**
-   * The amount of the token to be forcefully swept.
-   * @return amount
-  **/
-  @javax.annotation.Nonnull
-  public String getAmount() {
-    return amount;
-  }
-
-  public void setAmount(String amount) {
-    this.amount = amount;
+  public void setPagination(Pagination pagination) {
+    this.pagination = pagination;
   }
 
   /**
@@ -160,9 +125,9 @@ public class ForcedSweepRequest {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ForcedSweepRequest instance itself
+   * @return the ListSettlementDetails200Response instance itself
    */
-  public ForcedSweepRequest putAdditionalProperty(String key, Object value) {
+  public ListSettlementDetails200Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -201,27 +166,23 @@ public class ForcedSweepRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ForcedSweepRequest forcedSweepRequest = (ForcedSweepRequest) o;
-    return Objects.equals(this.requestId, forcedSweepRequest.requestId) &&
-        Objects.equals(this.walletId, forcedSweepRequest.walletId) &&
-        Objects.equals(this.tokenId, forcedSweepRequest.tokenId) &&
-        Objects.equals(this.amount, forcedSweepRequest.amount)&&
-        Objects.equals(this.additionalProperties, forcedSweepRequest.additionalProperties);
+    ListSettlementDetails200Response listSettlementDetails200Response = (ListSettlementDetails200Response) o;
+    return Objects.equals(this.data, listSettlementDetails200Response.data) &&
+        Objects.equals(this.pagination, listSettlementDetails200Response.pagination)&&
+        Objects.equals(this.additionalProperties, listSettlementDetails200Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, walletId, tokenId, amount, additionalProperties);
+    return Objects.hash(data, pagination, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ForcedSweepRequest {\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("class ListSettlementDetails200Response {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -245,50 +206,43 @@ public class ForcedSweepRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("request_id");
-    openapiFields.add("wallet_id");
-    openapiFields.add("token_id");
-    openapiFields.add("amount");
+    openapiFields.add("data");
+    openapiFields.add("pagination");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("request_id");
-    openapiRequiredFields.add("wallet_id");
-    openapiRequiredFields.add("token_id");
-    openapiRequiredFields.add("amount");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ForcedSweepRequest
+  * @throws IOException if the JSON Element is invalid with respect to ListSettlementDetails200Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ForcedSweepRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ForcedSweepRequest is not found in the empty JSON string", ForcedSweepRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ForcedSweepRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!ListSettlementDetails200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListSettlementDetails200Response is not found in the empty JSON string", ListSettlementDetails200Response.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("request_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        if (jsonArraydata != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("data").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+          }
+
+          // validate the optional field `data` (array)
+          for (int i = 0; i < jsonArraydata.size(); i++) {
+            SettlementDetail.validateJsonElement(jsonArraydata.get(i));
+          };
+        }
       }
-      if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
-      }
-      if (!jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
-      }
-      if (!jsonObj.get("amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        Pagination.validateJsonElement(jsonObj.get("pagination"));
       }
   }
 
@@ -296,16 +250,16 @@ public class ForcedSweepRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ForcedSweepRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ForcedSweepRequest' and its subtypes
+       if (!ListSettlementDetails200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListSettlementDetails200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ForcedSweepRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ForcedSweepRequest.class));
+       final TypeAdapter<ListSettlementDetails200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListSettlementDetails200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ForcedSweepRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListSettlementDetails200Response>() {
            @Override
-           public void write(JsonWriter out, ForcedSweepRequest value) throws IOException {
+           public void write(JsonWriter out, ListSettlementDetails200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -335,12 +289,12 @@ public class ForcedSweepRequest {
            }
 
            @Override
-           public ForcedSweepRequest read(JsonReader in) throws IOException {
+           public ListSettlementDetails200Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ForcedSweepRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             ListSettlementDetails200Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -367,18 +321,18 @@ public class ForcedSweepRequest {
   }
 
  /**
-  * Create an instance of ForcedSweepRequest given an JSON string
+  * Create an instance of ListSettlementDetails200Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ForcedSweepRequest
-  * @throws IOException if the JSON string is invalid with respect to ForcedSweepRequest
+  * @return An instance of ListSettlementDetails200Response
+  * @throws IOException if the JSON string is invalid with respect to ListSettlementDetails200Response
   */
-  public static ForcedSweepRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ForcedSweepRequest.class);
+  public static ListSettlementDetails200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListSettlementDetails200Response.class);
   }
 
  /**
-  * Convert an instance of ForcedSweepRequest to an JSON string
+  * Convert an instance of ListSettlementDetails200Response to an JSON string
   *
   * @return JSON string
   */

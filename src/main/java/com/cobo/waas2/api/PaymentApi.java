@@ -27,11 +27,13 @@ import java.io.IOException;
 
 import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
+import com.cobo.waas2.model.CreateCryptoAddressRequest;
 import com.cobo.waas2.model.CreateMerchantRequest;
 import com.cobo.waas2.model.CreatePaymentOrderRequest;
 import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
 import com.cobo.waas2.model.CryptoAddress;
+import com.cobo.waas2.model.DeleteCryptoAddress201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ForcedSweep;
 import com.cobo.waas2.model.ForcedSweepRequest;
@@ -41,6 +43,7 @@ import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
 import com.cobo.waas2.model.ListForcedSweepRequests200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
+import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
@@ -199,15 +202,128 @@ public class PaymentApi {
         return localVarCall;
     }
     /**
-     * Build call for createForcedSweepRequest
-     * @param forcedSweepRequest The request body to force sweep. (optional)
+     * Build call for createCryptoAddress
+     * @param createCryptoAddressRequest The request body to create a crypto address. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Force sweep request created successfully. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Crypto address created successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createCryptoAddressCall(CreateCryptoAddressRequest createCryptoAddressRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createCryptoAddressRequest;
+
+        // create path and map variables
+        String localVarPath = "/payments/crypto_addresses";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createCryptoAddressValidateBeforeCall(CreateCryptoAddressRequest createCryptoAddressRequest, final ApiCallback _callback) throws ApiException {
+        return createCryptoAddressCall(createCryptoAddressRequest, _callback);
+
+    }
+
+    /**
+     * Create crypto address
+     * Create a new cryptocurrency address for receiving payouts or transfers.  The address must match the specified &#x60;token_id&#x60;&#39;s blockchain.  Optionally, a label can be provided to help categorize the address internally. 
+     * @param createCryptoAddressRequest The request body to create a crypto address. (optional)
+     * @return CryptoAddress
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Crypto address created successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CryptoAddress createCryptoAddress(CreateCryptoAddressRequest createCryptoAddressRequest) throws ApiException {
+        ApiResponse<CryptoAddress> localVarResp = createCryptoAddressWithHttpInfo(createCryptoAddressRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create crypto address
+     * Create a new cryptocurrency address for receiving payouts or transfers.  The address must match the specified &#x60;token_id&#x60;&#39;s blockchain.  Optionally, a label can be provided to help categorize the address internally. 
+     * @param createCryptoAddressRequest The request body to create a crypto address. (optional)
+     * @return ApiResponse&lt;CryptoAddress&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Crypto address created successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CryptoAddress> createCryptoAddressWithHttpInfo(CreateCryptoAddressRequest createCryptoAddressRequest) throws ApiException {
+        okhttp3.Call localVarCall = createCryptoAddressValidateBeforeCall(createCryptoAddressRequest, null);
+        Type localVarReturnType = new TypeToken<CryptoAddress>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create crypto address (asynchronously)
+     * Create a new cryptocurrency address for receiving payouts or transfers.  The address must match the specified &#x60;token_id&#x60;&#39;s blockchain.  Optionally, a label can be provided to help categorize the address internally. 
+     * @param createCryptoAddressRequest The request body to create a crypto address. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Crypto address created successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createCryptoAddressAsync(CreateCryptoAddressRequest createCryptoAddressRequest, final ApiCallback<CryptoAddress> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createCryptoAddressValidateBeforeCall(createCryptoAddressRequest, _callback);
+        Type localVarReturnType = new TypeToken<CryptoAddress>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createForcedSweepRequest
+     * @param forcedSweepRequest The request body for forced sweep. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Forced sweep created successfully. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -251,15 +367,15 @@ public class PaymentApi {
     }
 
     /**
-     * Create force sweep request
-     * This operation creates a force sweep request to settle or refund available balances.  
-     * @param forcedSweepRequest The request body to force sweep. (optional)
+     * Create forced sweep
+     * This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
+     * @param forcedSweepRequest The request body for forced sweep. (optional)
      * @return ForcedSweep
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Force sweep request created successfully. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Forced sweep created successfully. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -270,15 +386,15 @@ public class PaymentApi {
     }
 
     /**
-     * Create force sweep request
-     * This operation creates a force sweep request to settle or refund available balances.  
-     * @param forcedSweepRequest The request body to force sweep. (optional)
+     * Create forced sweep
+     * This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
+     * @param forcedSweepRequest The request body for forced sweep. (optional)
      * @return ApiResponse&lt;ForcedSweep&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Force sweep request created successfully. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Forced sweep created successfully. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -290,16 +406,16 @@ public class PaymentApi {
     }
 
     /**
-     * Create force sweep request (asynchronously)
-     * This operation creates a force sweep request to settle or refund available balances.  
-     * @param forcedSweepRequest The request body to force sweep. (optional)
+     * Create forced sweep (asynchronously)
+     * This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
+     * @param forcedSweepRequest The request body for forced sweep. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Force sweep request created successfully. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Forced sweep created successfully. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -764,6 +880,128 @@ public class PaymentApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteCryptoAddress
+     * @param cryptoAddressId The crypto address ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteCryptoAddressCall(String cryptoAddressId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/crypto_addresses/{crypto_address_id}/delete"
+            .replace("{" + "crypto_address_id" + "}", localVarApiClient.escapeString(cryptoAddressId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteCryptoAddressValidateBeforeCall(String cryptoAddressId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'cryptoAddressId' is set
+        if (cryptoAddressId == null) {
+            throw new ApiException("Missing the required parameter 'cryptoAddressId' when calling deleteCryptoAddress(Async)");
+        }
+
+        return deleteCryptoAddressCall(cryptoAddressId, _callback);
+
+    }
+
+    /**
+     * Delete crypto address
+     * This operation deletes a crypto address. 
+     * @param cryptoAddressId The crypto address ID. (required)
+     * @return DeleteCryptoAddress201Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+     </table>
+     */
+    public DeleteCryptoAddress201Response deleteCryptoAddress(String cryptoAddressId) throws ApiException {
+        ApiResponse<DeleteCryptoAddress201Response> localVarResp = deleteCryptoAddressWithHttpInfo(cryptoAddressId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete crypto address
+     * This operation deletes a crypto address. 
+     * @param cryptoAddressId The crypto address ID. (required)
+     * @return ApiResponse&lt;DeleteCryptoAddress201Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DeleteCryptoAddress201Response> deleteCryptoAddressWithHttpInfo(String cryptoAddressId) throws ApiException {
+        okhttp3.Call localVarCall = deleteCryptoAddressValidateBeforeCall(cryptoAddressId, null);
+        Type localVarReturnType = new TypeToken<DeleteCryptoAddress201Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete crypto address (asynchronously)
+     * This operation deletes a crypto address. 
+     * @param cryptoAddressId The crypto address ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteCryptoAddressAsync(String cryptoAddressId, final ApiCallback<DeleteCryptoAddress201Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteCryptoAddressValidateBeforeCall(cryptoAddressId, _callback);
+        Type localVarReturnType = new TypeToken<DeleteCryptoAddress201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getExchangeRate
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param currency The fiat currency. Currently, only &#x60;USD&#x60; is supported. (required)
@@ -1134,6 +1372,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param requestId The request ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1145,7 +1384,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRefundsCall(Integer limit, String before, String after, String merchantId, String requestId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRefundsCall(Integer limit, String before, String after, String merchantId, String requestId, String statuses, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1177,6 +1416,10 @@ public class PaymentApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("request_id", requestId));
         }
 
+        if (statuses != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("statuses", statuses));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1197,8 +1440,8 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRefundsValidateBeforeCall(Integer limit, String before, String after, String merchantId, String requestId, final ApiCallback _callback) throws ApiException {
-        return getRefundsCall(limit, before, after, merchantId, requestId, _callback);
+    private okhttp3.Call getRefundsValidateBeforeCall(Integer limit, String before, String after, String merchantId, String requestId, String statuses, final ApiCallback _callback) throws ApiException {
+        return getRefundsCall(limit, before, after, merchantId, requestId, statuses, _callback);
 
     }
 
@@ -1210,6 +1453,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param requestId The request ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @return GetRefunds200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1220,8 +1464,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public GetRefunds200Response getRefunds(Integer limit, String before, String after, String merchantId, String requestId) throws ApiException {
-        ApiResponse<GetRefunds200Response> localVarResp = getRefundsWithHttpInfo(limit, before, after, merchantId, requestId);
+    public GetRefunds200Response getRefunds(Integer limit, String before, String after, String merchantId, String requestId, String statuses) throws ApiException {
+        ApiResponse<GetRefunds200Response> localVarResp = getRefundsWithHttpInfo(limit, before, after, merchantId, requestId, statuses);
         return localVarResp.getData();
     }
 
@@ -1233,6 +1477,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param requestId The request ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @return ApiResponse&lt;GetRefunds200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1243,8 +1488,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetRefunds200Response> getRefundsWithHttpInfo(Integer limit, String before, String after, String merchantId, String requestId) throws ApiException {
-        okhttp3.Call localVarCall = getRefundsValidateBeforeCall(limit, before, after, merchantId, requestId, null);
+    public ApiResponse<GetRefunds200Response> getRefundsWithHttpInfo(Integer limit, String before, String after, String merchantId, String requestId, String statuses) throws ApiException {
+        okhttp3.Call localVarCall = getRefundsValidateBeforeCall(limit, before, after, merchantId, requestId, statuses, null);
         Type localVarReturnType = new TypeToken<GetRefunds200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1257,6 +1502,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param requestId The request ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1268,9 +1514,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRefundsAsync(Integer limit, String before, String after, String merchantId, String requestId, final ApiCallback<GetRefunds200Response> _callback) throws ApiException {
+    public okhttp3.Call getRefundsAsync(Integer limit, String before, String after, String merchantId, String requestId, String statuses, final ApiCallback<GetRefunds200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRefundsValidateBeforeCall(limit, before, after, merchantId, requestId, _callback);
+        okhttp3.Call localVarCall = getRefundsValidateBeforeCall(limit, before, after, merchantId, requestId, statuses, _callback);
         Type localVarReturnType = new TypeToken<GetRefunds200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1460,7 +1706,7 @@ public class PaymentApi {
 
     /**
      * Get withdrawable balances
-     * This operation retrieves the current withdrawable balances of specified merchants or the developer. 
+     * This operation retrieves the balances of specified merchants or the developer. 
      * @param merchantIds A list of merchant IDs to query. (optional)
      * @param currency The currency for the operation. Currently, only &#x60;USD&#x60; is supported. (optional, default to USD)
      * @param acquiringType  (optional)
@@ -1481,7 +1727,7 @@ public class PaymentApi {
 
     /**
      * Get withdrawable balances
-     * This operation retrieves the current withdrawable balances of specified merchants or the developer. 
+     * This operation retrieves the balances of specified merchants or the developer. 
      * @param merchantIds A list of merchant IDs to query. (optional)
      * @param currency The currency for the operation. Currently, only &#x60;USD&#x60; is supported. (optional, default to USD)
      * @param acquiringType  (optional)
@@ -1503,7 +1749,7 @@ public class PaymentApi {
 
     /**
      * Get withdrawable balances (asynchronously)
-     * This operation retrieves the current withdrawable balances of specified merchants or the developer. 
+     * This operation retrieves the balances of specified merchants or the developer. 
      * @param merchantIds A list of merchant IDs to query. (optional)
      * @param currency The currency for the operation. Currently, only &#x60;USD&#x60; is supported. (optional, default to USD)
      * @param acquiringType  (optional)
@@ -1967,8 +2213,8 @@ public class PaymentApi {
     }
 
     /**
-     * List force sweep requests
-     * This operation retrieves the information of force_sweep requests. 
+     * List forced sweeps
+     * This operation retrieves the information of all forced sweeps. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -1989,8 +2235,8 @@ public class PaymentApi {
     }
 
     /**
-     * List force sweep requests
-     * This operation retrieves the information of force_sweep requests. 
+     * List forced sweeps
+     * This operation retrieves the information of all forced sweeps. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -2012,8 +2258,8 @@ public class PaymentApi {
     }
 
     /**
-     * List force sweep requests (asynchronously)
-     * This operation retrieves the information of force_sweep requests. 
+     * List forced sweeps (asynchronously)
+     * This operation retrieves the information of all forced sweeps. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -2191,6 +2437,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param pspOrderId A unique reference code assigned by the developer to identify this order in their system. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2202,7 +2449,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listPaymentOrdersCall(Integer limit, String before, String after, String merchantId, String pspOrderId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listPaymentOrdersCall(Integer limit, String before, String after, String merchantId, String pspOrderId, String statuses, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2234,6 +2481,10 @@ public class PaymentApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("psp_order_id", pspOrderId));
         }
 
+        if (statuses != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("statuses", statuses));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2254,8 +2505,8 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPaymentOrdersValidateBeforeCall(Integer limit, String before, String after, String merchantId, String pspOrderId, final ApiCallback _callback) throws ApiException {
-        return listPaymentOrdersCall(limit, before, after, merchantId, pspOrderId, _callback);
+    private okhttp3.Call listPaymentOrdersValidateBeforeCall(Integer limit, String before, String after, String merchantId, String pspOrderId, String statuses, final ApiCallback _callback) throws ApiException {
+        return listPaymentOrdersCall(limit, before, after, merchantId, pspOrderId, statuses, _callback);
 
     }
 
@@ -2267,6 +2518,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param pspOrderId A unique reference code assigned by the developer to identify this order in their system. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @return ListPaymentOrders200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2277,8 +2529,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListPaymentOrders200Response listPaymentOrders(Integer limit, String before, String after, String merchantId, String pspOrderId) throws ApiException {
-        ApiResponse<ListPaymentOrders200Response> localVarResp = listPaymentOrdersWithHttpInfo(limit, before, after, merchantId, pspOrderId);
+    public ListPaymentOrders200Response listPaymentOrders(Integer limit, String before, String after, String merchantId, String pspOrderId, String statuses) throws ApiException {
+        ApiResponse<ListPaymentOrders200Response> localVarResp = listPaymentOrdersWithHttpInfo(limit, before, after, merchantId, pspOrderId, statuses);
         return localVarResp.getData();
     }
 
@@ -2290,6 +2542,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param pspOrderId A unique reference code assigned by the developer to identify this order in their system. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @return ApiResponse&lt;ListPaymentOrders200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2300,8 +2553,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListPaymentOrders200Response> listPaymentOrdersWithHttpInfo(Integer limit, String before, String after, String merchantId, String pspOrderId) throws ApiException {
-        okhttp3.Call localVarCall = listPaymentOrdersValidateBeforeCall(limit, before, after, merchantId, pspOrderId, null);
+    public ApiResponse<ListPaymentOrders200Response> listPaymentOrdersWithHttpInfo(Integer limit, String before, String after, String merchantId, String pspOrderId, String statuses) throws ApiException {
+        okhttp3.Call localVarCall = listPaymentOrdersValidateBeforeCall(limit, before, after, merchantId, pspOrderId, statuses, null);
         Type localVarReturnType = new TypeToken<ListPaymentOrders200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2314,6 +2567,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param merchantId The merchant ID. (optional)
      * @param pspOrderId A unique reference code assigned by the developer to identify this order in their system. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2325,9 +2579,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listPaymentOrdersAsync(Integer limit, String before, String after, String merchantId, String pspOrderId, final ApiCallback<ListPaymentOrders200Response> _callback) throws ApiException {
+    public okhttp3.Call listPaymentOrdersAsync(Integer limit, String before, String after, String merchantId, String pspOrderId, String statuses, final ApiCallback<ListPaymentOrders200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listPaymentOrdersValidateBeforeCall(limit, before, after, merchantId, pspOrderId, _callback);
+        okhttp3.Call localVarCall = listPaymentOrdersValidateBeforeCall(limit, before, after, merchantId, pspOrderId, statuses, _callback);
         Type localVarReturnType = new TypeToken<ListPaymentOrders200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2437,6 +2691,154 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = listPaymentSupportedTokensValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<List<SupportedToken>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSettlementDetails
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSettlementDetailsCall(Integer limit, String before, String after, String merchantId, String statuses, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/settlement_details";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (merchantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_id", merchantId));
+        }
+
+        if (statuses != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("statuses", statuses));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSettlementDetailsValidateBeforeCall(Integer limit, String before, String after, String merchantId, String statuses, final ApiCallback _callback) throws ApiException {
+        return listSettlementDetailsCall(limit, before, after, merchantId, statuses, _callback);
+
+    }
+
+    /**
+     * List all settlement details
+     * This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
+     * @return ListSettlementDetails200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListSettlementDetails200Response listSettlementDetails(Integer limit, String before, String after, String merchantId, String statuses) throws ApiException {
+        ApiResponse<ListSettlementDetails200Response> localVarResp = listSettlementDetailsWithHttpInfo(limit, before, after, merchantId, statuses);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List all settlement details
+     * This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
+     * @return ApiResponse&lt;ListSettlementDetails200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListSettlementDetails200Response> listSettlementDetailsWithHttpInfo(Integer limit, String before, String after, String merchantId, String statuses) throws ApiException {
+        okhttp3.Call localVarCall = listSettlementDetailsValidateBeforeCall(limit, before, after, merchantId, statuses, null);
+        Type localVarReturnType = new TypeToken<ListSettlementDetails200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List all settlement details (asynchronously)
+     * This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param statuses A list of  statuses of order, refund or settle request. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSettlementDetailsAsync(Integer limit, String before, String after, String merchantId, String statuses, final ApiCallback<ListSettlementDetails200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSettlementDetailsValidateBeforeCall(limit, before, after, merchantId, statuses, _callback);
+        Type localVarReturnType = new TypeToken<ListSettlementDetails200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3104,7 +3506,7 @@ public class PaymentApi {
     }
     /**
      * Build call for updateTopUpAddress
-     * @param updateTopUpAddress The request body to update top up address. (optional)
+     * @param updateTopUpAddress The request body to update top-up address. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3156,8 +3558,8 @@ public class PaymentApi {
 
     /**
      * Update top-up address
-     * Update the top-up address for a payer under a specific merchant and token. 
-     * @param updateTopUpAddress The request body to update top up address. (optional)
+     * This operation updates the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
+     * @param updateTopUpAddress The request body to update top-up address. (optional)
      * @return TopUpAddress
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3175,8 +3577,8 @@ public class PaymentApi {
 
     /**
      * Update top-up address
-     * Update the top-up address for a payer under a specific merchant and token. 
-     * @param updateTopUpAddress The request body to update top up address. (optional)
+     * This operation updates the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
+     * @param updateTopUpAddress The request body to update top-up address. (optional)
      * @return ApiResponse&lt;TopUpAddress&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3195,8 +3597,8 @@ public class PaymentApi {
 
     /**
      * Update top-up address (asynchronously)
-     * Update the top-up address for a payer under a specific merchant and token. 
-     * @param updateTopUpAddress The request body to update top up address. (optional)
+     * This operation updates the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
+     * @param updateTopUpAddress The request body to update top-up address. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

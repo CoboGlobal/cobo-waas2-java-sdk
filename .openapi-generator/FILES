@@ -106,6 +106,7 @@ docs/CreateBabylonStakingRegistration201Response.md
 docs/CreateBabylonStakingRegistrationRequest.md
 docs/CreateClaimActivity.md
 docs/CreateClaimActivityRequest.md
+docs/CreateCryptoAddressRequest.md
 docs/CreateCustodialWalletParams.md
 docs/CreateExchangeWalletParams.md
 docs/CreateKeyShareHolder.md
@@ -146,6 +147,7 @@ docs/CustodialWalletInfo.md
 docs/CustodialWeb3ContractCallSource.md
 docs/CustodialWeb3MessageSignSource.md
 docs/CustodialWeb3TransferSource.md
+docs/DeleteCryptoAddress201Response.md
 docs/DeleteGuardPubkey201Response.md
 docs/DeleteKeyShareHolderGroupById201Response.md
 docs/DeleteWalletById201Response.md
@@ -251,6 +253,7 @@ docs/ListMerchants200Response.md
 docs/ListMpcProjects200Response.md
 docs/ListMpcVaults200Response.md
 docs/ListPaymentOrders200Response.md
+docs/ListSettlementDetails200Response.md
 docs/ListSettlementRequests200Response.md
 docs/ListStakingActivities200Response.md
 docs/ListStakingPools200Response.md
@@ -798,6 +801,7 @@ src/main/java/com/cobo/waas2/model/CreateBabylonStakingRegistration201Response.j
 src/main/java/com/cobo/waas2/model/CreateBabylonStakingRegistrationRequest.java
 src/main/java/com/cobo/waas2/model/CreateClaimActivity.java
 src/main/java/com/cobo/waas2/model/CreateClaimActivityRequest.java
+src/main/java/com/cobo/waas2/model/CreateCryptoAddressRequest.java
 src/main/java/com/cobo/waas2/model/CreateCustodialWalletParams.java
 src/main/java/com/cobo/waas2/model/CreateExchangeWalletParams.java
 src/main/java/com/cobo/waas2/model/CreateKeyShareHolder.java
@@ -838,6 +842,7 @@ src/main/java/com/cobo/waas2/model/CustodialWalletInfo.java
 src/main/java/com/cobo/waas2/model/CustodialWeb3ContractCallSource.java
 src/main/java/com/cobo/waas2/model/CustodialWeb3MessageSignSource.java
 src/main/java/com/cobo/waas2/model/CustodialWeb3TransferSource.java
+src/main/java/com/cobo/waas2/model/DeleteCryptoAddress201Response.java
 src/main/java/com/cobo/waas2/model/DeleteGuardPubkey201Response.java
 src/main/java/com/cobo/waas2/model/DeleteKeyShareHolderGroupById201Response.java
 src/main/java/com/cobo/waas2/model/DeleteWalletById201Response.java
@@ -940,6 +945,7 @@ src/main/java/com/cobo/waas2/model/ListMerchants200Response.java
 src/main/java/com/cobo/waas2/model/ListMpcProjects200Response.java
 src/main/java/com/cobo/waas2/model/ListMpcVaults200Response.java
 src/main/java/com/cobo/waas2/model/ListPaymentOrders200Response.java
+src/main/java/com/cobo/waas2/model/ListSettlementDetails200Response.java
 src/main/java/com/cobo/waas2/model/ListSettlementRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListStakingActivities200Response.java
 src/main/java/com/cobo/waas2/model/ListStakingPools200Response.java
@@ -1436,6 +1442,7 @@ src/test/java/com/cobo/waas2/model/CreateBabylonStakingRegistration201ResponseTe
 src/test/java/com/cobo/waas2/model/CreateBabylonStakingRegistrationRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateClaimActivityRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateClaimActivityTest.java
+src/test/java/com/cobo/waas2/model/CreateCryptoAddressRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateCustodialWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/CreateExchangeWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/CreateKeyShareHolderGroupRequestTest.java
@@ -1476,6 +1483,7 @@ src/test/java/com/cobo/waas2/model/CustodialWalletInfoTest.java
 src/test/java/com/cobo/waas2/model/CustodialWeb3ContractCallSourceTest.java
 src/test/java/com/cobo/waas2/model/CustodialWeb3MessageSignSourceTest.java
 src/test/java/com/cobo/waas2/model/CustodialWeb3TransferSourceTest.java
+src/test/java/com/cobo/waas2/model/DeleteCryptoAddress201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteGuardPubkey201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteKeyShareHolderGroupById201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteWalletById201ResponseTest.java
@@ -1578,6 +1586,7 @@ src/test/java/com/cobo/waas2/model/ListMerchants200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListMpcProjects200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListMpcVaults200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListPaymentOrders200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListSettlementDetails200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListSettlementRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListStakingActivities200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListStakingPools200ResponseTest.java
