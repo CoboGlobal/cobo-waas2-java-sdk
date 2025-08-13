@@ -135,7 +135,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The fiat currency of the order. Currently, only &#x60;USD&#x60; is supported.
+   * The fiat currency for the base order amount and the developer fee. Currently, only &#x60;USD&#x60; is supported.  If left empty, both &#x60;order_amount&#x60; and &#x60;fee_amount&#x60; will be denominated in the cryptocurrency specified by &#x60;token_id&#x60; 
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -154,7 +154,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;). Values must be greater than &#x60;0&#x60; and contain two decimal places.
+   *  The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;), in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the amount is in the cryptocurrency specified by &#x60;token_id&#x60;.   Values must be greater than &#x60;0&#x60; and contain two decimal places.  
    * @return orderAmount
   **/
   @javax.annotation.Nonnull
@@ -173,7 +173,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The developer fee for the order in fiat currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example, if order_amount is \&quot;100.00\&quot; and fee_amount is \&quot;2.00\&quot;, the customer will be charged \&quot;102.00\&quot; in total, with \&quot;100.00\&quot; being settled to the merchant and \&quot;2.00\&quot; settled to the developer. Values must be greater than 0 and contain two decimal places.
+   *  The developer fee for the order, in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the fee is in the cryptocurrency specified by &#x60;token_id&#x60;.  The developer fee is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example: - Base amount (&#x60;order_amount&#x60;): \&quot;100.00\&quot; - Developer fee (&#x60;fee_amount&#x60;): \&quot;2.00\&quot;  - Total charged to customer: \&quot;102.00\&quot;  Values must be greater than 0 and contain two decimal places. 
    * @return feeAmount
   **/
   @javax.annotation.Nonnull

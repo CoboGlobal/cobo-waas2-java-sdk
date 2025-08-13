@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The request body to update top up address.
+ * The request body to update top-up address.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -111,7 +111,7 @@ public class UpdateTopUpAddress {
   }
 
    /**
-   * Unique customer identifier on the merchant side, used to allocate a dedicated top-up address 
+   * A unique identifier assigned by the developer to track and identify individual payers in their system.
    * @return customPayerId
   **/
   @javax.annotation.Nonnull

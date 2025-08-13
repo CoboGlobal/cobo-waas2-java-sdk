@@ -1296,7 +1296,7 @@ public class WalletsApi {
 
     /**
      * Get maximum transferable value
-     * This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
+     * &lt;Warning&gt;This operation is planned for deprecation. We recommend using  [Estimate maximum transferable value](https://www.cobo.com/developers/v2/api-references/wallets/estimate-maximum-transferable-value) instead.&lt;/Warning&gt; This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param feeRate The fee rate in sats/vByte or gas price in wei. (required)
@@ -1319,7 +1319,7 @@ public class WalletsApi {
 
     /**
      * Get maximum transferable value
-     * This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
+     * &lt;Warning&gt;This operation is planned for deprecation. We recommend using  [Estimate maximum transferable value](https://www.cobo.com/developers/v2/api-references/wallets/estimate-maximum-transferable-value) instead.&lt;/Warning&gt; This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param feeRate The fee rate in sats/vByte or gas price in wei. (required)
@@ -1343,7 +1343,7 @@ public class WalletsApi {
 
     /**
      * Get maximum transferable value (asynchronously)
-     * This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
+     * &lt;Warning&gt;This operation is planned for deprecation. We recommend using  [Estimate maximum transferable value](https://www.cobo.com/developers/v2/api-references/wallets/estimate-maximum-transferable-value) instead.&lt;/Warning&gt; This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param feeRate The fee rate in sats/vByte or gas price in wei. (required)

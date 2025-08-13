@@ -22,17 +22,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CryptoAddress
+ * Model tests for CreateCryptoAddressRequest
  */
-public class CryptoAddressTest {
-    private final CryptoAddress model = new CryptoAddress();
+public class CreateCryptoAddressRequestTest {
+    private final CreateCryptoAddressRequest model = new CreateCryptoAddressRequest();
 
     /**
-     * Model tests for CryptoAddress
+     * Model tests for CreateCryptoAddressRequest
      */
     @Test
-    public void testCryptoAddress() {
-        // TODO: test CryptoAddress
+    public void testCreateCryptoAddressRequest() {
+        // TODO: test CreateCryptoAddressRequest
     }
 
     /**
@@ -41,14 +41,6 @@ public class CryptoAddressTest {
     @Test
     public void tokenIdTest() {
         // TODO: test tokenId
-    }
-
-    /**
-     * Test the property 'cryptoAddressId'
-     */
-    @Test
-    public void cryptoAddressIdTest() {
-        // TODO: test cryptoAddressId
     }
 
     /**
@@ -65,22 +57,6 @@ public class CryptoAddressTest {
     @Test
     public void labelTest() {
         // TODO: test label
-    }
-
-    /**
-     * Test the property 'createdTimestamp'
-     */
-    @Test
-    public void createdTimestampTest() {
-        // TODO: test createdTimestamp
-    }
-
-    /**
-     * Test the property 'updatedTimestamp'
-     */
-    @Test
-    public void updatedTimestampTest() {
-        // TODO: test updatedTimestamp
     }
 
 }

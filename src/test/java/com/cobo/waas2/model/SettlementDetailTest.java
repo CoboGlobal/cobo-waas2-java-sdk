@@ -154,4 +154,20 @@ public class SettlementDetailTest {
         // TODO: test acquiringType
     }
 
+    /**
+     * Test the property 'settlementRequestId'
+     */
+    @Test
+    public void settlementRequestIdTest() {
+        // TODO: test settlementRequestId
+    }
+
+    /**
+     * Test the property 'orderIds'
+     */
+    @Test
+    public void orderIdsTest() {
+        // TODO: test orderIds
+    }
+
 }
