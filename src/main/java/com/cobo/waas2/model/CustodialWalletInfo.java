@@ -75,6 +75,10 @@ public class CustodialWalletInfo {
   @SerializedName(SERIALIZED_NAME_ORG_ID)
   private String orgId;
 
+  public static final String SERIALIZED_NAME_ENABLE_AUTO_SWEEP = "enable_auto_sweep";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AUTO_SWEEP)
+  private Boolean enableAutoSweep;
+
   public CustodialWalletInfo() {
   }
 
@@ -172,6 +176,25 @@ public class CustodialWalletInfo {
     this.orgId = orgId;
   }
 
+
+  public CustodialWalletInfo enableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
+    return this;
+  }
+
+   /**
+   * Enable the auto sweep feature for the wallet
+   * @return enableAutoSweep
+  **/
+  @javax.annotation.Nullable
+  public Boolean getEnableAutoSweep() {
+    return enableAutoSweep;
+  }
+
+  public void setEnableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -231,13 +254,14 @@ public class CustodialWalletInfo {
         Objects.equals(this.walletType, custodialWalletInfo.walletType) &&
         Objects.equals(this.walletSubtype, custodialWalletInfo.walletSubtype) &&
         Objects.equals(this.name, custodialWalletInfo.name) &&
-        Objects.equals(this.orgId, custodialWalletInfo.orgId)&&
+        Objects.equals(this.orgId, custodialWalletInfo.orgId) &&
+        Objects.equals(this.enableAutoSweep, custodialWalletInfo.enableAutoSweep)&&
         Objects.equals(this.additionalProperties, custodialWalletInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, walletType, walletSubtype, name, orgId, additionalProperties);
+    return Objects.hash(walletId, walletType, walletSubtype, name, orgId, enableAutoSweep, additionalProperties);
   }
 
   @Override
@@ -249,6 +273,7 @@ public class CustodialWalletInfo {
     sb.append("    walletSubtype: ").append(toIndentedString(walletSubtype)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    enableAutoSweep: ").append(toIndentedString(enableAutoSweep)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -277,6 +302,7 @@ public class CustodialWalletInfo {
     openapiFields.add("wallet_subtype");
     openapiFields.add("name");
     openapiFields.add("org_id");
+    openapiFields.add("enable_auto_sweep");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

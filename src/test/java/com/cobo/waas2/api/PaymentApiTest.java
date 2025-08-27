@@ -30,13 +30,17 @@ import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
 import com.cobo.waas2.model.ListForcedSweepRequests200Response;
+import com.cobo.waas2.model.ListMerchantBalances200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
+import com.cobo.waas2.model.ListPaymentWalletBalances200Response;
 import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
+import com.cobo.waas2.model.PspBalance;
+import com.cobo.waas2.model.ReceivedAmountPerAddress;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Settlement;
 import com.cobo.waas2.model.SupportedToken;
@@ -70,7 +74,7 @@ public class PaymentApiTest {
     /**
      * Cancel refund order
      *
-     * This operation cancels a specified refund order. 
+     * This operation cancels a specified refund order. You can only cancel refund orders that have not been processed yet. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -84,7 +88,7 @@ public class PaymentApiTest {
     /**
      * Create crypto address
      *
-     * Create a new cryptocurrency address for receiving payouts or transfers.  The address must match the specified &#x60;token_id&#x60;&#39;s blockchain.  Optionally, a label can be provided to help categorize the address internally. 
+     * This operation registers a crypto address for crypto withdrawal.  The registered address can later be referenced by its ID when creating settlement requests. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -168,7 +172,7 @@ public class PaymentApiTest {
     /**
      * Delete crypto address
      *
-     * This operation deletes a crypto address. 
+     * This operation unregisters a crypto address from being used for crypto withdrawals. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -195,6 +199,22 @@ public class PaymentApiTest {
     }
 
     /**
+     * Get payer balance by address
+     *
+     * This operation retrieves aggregated balance details for a specific token and payer, with amounts grouped by address. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPayerBalanceByAddressTest() throws ApiException {
+        String merchantId = null;
+        String payerId = null;
+        String tokenId = null;
+        List<ReceivedAmountPerAddress> response = api.getPayerBalanceByAddress(merchantId, payerId, tokenId);
+        // TODO: test validations
+    }
+
+    /**
      * Get pay-in order information
      *
      * This operation retrieves details of a specific pay-in order. 
@@ -205,6 +225,20 @@ public class PaymentApiTest {
     public void getPaymentOrderDetailByIdTest() throws ApiException {
         String orderId = null;
         Order response = api.getPaymentOrderDetailById(orderId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get psp balance
+     *
+     * This operation retrieves the information of psp balance. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPspBalanceTest() throws ApiException {
+        String tokenId = null;
+        PspBalance response = api.getPspBalance(tokenId);
         // TODO: test validations
     }
 
@@ -332,6 +366,22 @@ public class PaymentApiTest {
     }
 
     /**
+     * List merchant balances
+     *
+     * This operation retrieves the information of merchant balances. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listMerchantBalancesTest() throws ApiException {
+        String tokenId = null;
+        AcquiringType acquiringType = null;
+        String merchantIds = null;
+        ListMerchantBalances200Response response = api.listMerchantBalances(tokenId, acquiringType, merchantIds);
+        // TODO: test validations
+    }
+
+    /**
      * List all merchants
      *
      * This operation retrieves the information of all merchants.   You can filter the results by using a keyword for fuzzy search on merchant names or by specifying a wallet ID. 
@@ -378,6 +428,21 @@ public class PaymentApiTest {
     @Test
     public void listPaymentSupportedTokensTest() throws ApiException {
         List<SupportedToken> response = api.listPaymentSupportedTokens();
+        // TODO: test validations
+    }
+
+    /**
+     * List payment wallet balances
+     *
+     * This operation retrieves the information of payment wallet balances. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listPaymentWalletBalancesTest() throws ApiException {
+        String tokenId = null;
+        String walletIds = null;
+        ListPaymentWalletBalances200Response response = api.listPaymentWalletBalances(tokenId, walletIds);
         // TODO: test validations
     }
 
@@ -465,9 +530,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Update refund order information
+     * Update refund order
      *
-     * This operation updates a specified refund order. 
+     * This operation updates a specified refund order by modifying its recipient address. You can only update the recipient address for refund orders that have not been processed yet. 
      *
      * @throws ApiException if the Api call fails
      */

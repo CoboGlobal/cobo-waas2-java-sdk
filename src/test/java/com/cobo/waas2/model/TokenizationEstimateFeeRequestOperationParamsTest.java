@@ -87,6 +87,14 @@ public class TokenizationEstimateFeeRequestOperationParamsTest {
     }
 
     /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
+    }
+
+    /**
      * Test the property 'mints'
      */
     @Test

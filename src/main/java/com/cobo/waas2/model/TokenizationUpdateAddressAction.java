@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The operation to perform on the blocklist or allowlist addresses list.
+ * The operation to perform on the blocklist or allowlist.
  */
 @JsonAdapter(TokenizationUpdateAddressAction.Adapter.class)
 public enum TokenizationUpdateAddressAction {

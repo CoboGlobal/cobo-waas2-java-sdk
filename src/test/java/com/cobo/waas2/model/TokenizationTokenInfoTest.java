@@ -85,11 +85,11 @@ public class TokenizationTokenInfoTest {
     }
 
     /**
-     * Test the property 'allowlistActivated'
+     * Test the property 'tokenAccessActivated'
      */
     @Test
-    public void allowlistActivatedTest() {
-        // TODO: test allowlistActivated
+    public void tokenAccessActivatedTest() {
+        // TODO: test tokenAccessActivated
     }
 
     /**

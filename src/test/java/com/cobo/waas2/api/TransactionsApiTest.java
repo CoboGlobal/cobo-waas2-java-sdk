@@ -14,6 +14,8 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.ApprovalDetail;
+import com.cobo.waas2.model.ApprovalTemplate;
 import com.cobo.waas2.model.BroadcastSignedTransactions201ResponseInner;
 import com.cobo.waas2.model.BroadcastSignedTransactionsRequest;
 import com.cobo.waas2.model.CheckLoopTransfers200ResponseInner;
@@ -200,6 +202,22 @@ public class TransactionsApiTest {
     /**
      * List transaction approval details
      *
+     * This operation retrieves detailed approval information for a specified transaction. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listApprovalDetailsTest() throws ApiException {
+        String transactionIds = null;
+        String coboIds = null;
+        String requestIds = null;
+        List<ApprovalDetail> response = api.listApprovalDetails(transactionIds, coboIds, requestIds);
+        // TODO: test validations
+    }
+
+    /**
+     * List transaction approval details
+     *
      * This operation retrieves detailed approval information for all transactions. 
      *
      * @throws ApiException if the Api call fails
@@ -209,6 +227,21 @@ public class TransactionsApiTest {
         String transactionIds = null;
         String coboIds = null;
         ListTransactionApprovalDetails200Response response = api.listTransactionApprovalDetails(transactionIds, coboIds);
+        // TODO: test validations
+    }
+
+    /**
+     * list transaction templates
+     *
+     * This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listTransactionTemplatesTest() throws ApiException {
+        String templateKey = null;
+        String templateVersion = null;
+        List<ApprovalTemplate> response = api.listTransactionTemplates(templateKey, templateVersion);
         // TODO: test validations
     }
 

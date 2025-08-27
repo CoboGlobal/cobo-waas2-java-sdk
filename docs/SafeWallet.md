@@ -12,6 +12,7 @@
 |**walletSubtype** | **WalletSubtype** |  |  |
 |**name** | **String** | The wallet name. |  |
 |**orgId** | **String** | The ID of the owning organization. |  |
+|**enableAutoSweep** | **Boolean** | Enable the auto sweep feature for the wallet |  [optional] |
 |**chainId** | **String** | The ID of the chain on which the wallet operates. |  [optional] |
 |**smartContractWalletType** | **SmartContractWalletType** |  |  |
 |**safeAddress** | **String** | The Smart Contract Wallet address. |  [optional] |

@@ -9,7 +9,8 @@ The information of MPC Wallets.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**walletType** | **WalletType** |  |  |
-|**name** | **String** | The wallet name. |  |
+|**name** | **String** | The wallet name. |  [optional] |
+|**enableAutoSweep** | **Boolean** | Enable the auto sweep feature for the wallet |  [optional] |
 
 
 

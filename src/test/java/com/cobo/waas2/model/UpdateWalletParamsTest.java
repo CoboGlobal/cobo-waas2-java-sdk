@@ -56,4 +56,12 @@ public class UpdateWalletParamsTest {
         // TODO: test name
     }
 
+    /**
+     * Test the property 'enableAutoSweep'
+     */
+    @Test
+    public void enableAutoSweepTest() {
+        // TODO: test enableAutoSweep
+    }
+
 }

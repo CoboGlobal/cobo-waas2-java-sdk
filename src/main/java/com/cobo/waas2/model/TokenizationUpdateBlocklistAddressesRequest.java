@@ -78,6 +78,10 @@ public class TokenizationUpdateBlocklistAddressesRequest {
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
 
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public TokenizationUpdateBlocklistAddressesRequest() {
   }
 
@@ -183,6 +187,25 @@ public class TokenizationUpdateBlocklistAddressesRequest {
     this.fee = fee;
   }
 
+
+  public TokenizationUpdateBlocklistAddressesRequest requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -242,13 +265,14 @@ public class TokenizationUpdateBlocklistAddressesRequest {
         Objects.equals(this.source, tokenizationUpdateBlocklistAddressesRequest.source) &&
         Objects.equals(this.addresses, tokenizationUpdateBlocklistAddressesRequest.addresses) &&
         Objects.equals(this.appInitiator, tokenizationUpdateBlocklistAddressesRequest.appInitiator) &&
-        Objects.equals(this.fee, tokenizationUpdateBlocklistAddressesRequest.fee)&&
+        Objects.equals(this.fee, tokenizationUpdateBlocklistAddressesRequest.fee) &&
+        Objects.equals(this.requestId, tokenizationUpdateBlocklistAddressesRequest.requestId)&&
         Objects.equals(this.additionalProperties, tokenizationUpdateBlocklistAddressesRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, source, addresses, appInitiator, fee, additionalProperties);
+    return Objects.hash(action, source, addresses, appInitiator, fee, requestId, additionalProperties);
   }
 
   @Override
@@ -260,6 +284,7 @@ public class TokenizationUpdateBlocklistAddressesRequest {
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    appInitiator: ").append(toIndentedString(appInitiator)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -288,6 +313,7 @@ public class TokenizationUpdateBlocklistAddressesRequest {
     openapiFields.add("addresses");
     openapiFields.add("app_initiator");
     openapiFields.add("fee");
+    openapiFields.add("request_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -336,6 +362,9 @@ public class TokenizationUpdateBlocklistAddressesRequest {
       }
       // validate the required field `fee`
       TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

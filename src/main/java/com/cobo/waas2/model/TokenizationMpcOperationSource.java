@@ -113,7 +113,7 @@ public class TokenizationMpcOperationSource {
   }
 
    /**
-   * The wallet address to interact with the token contract from.
+   * The wallet address used to interact with the token contract.
    * @return address
   **/
   @javax.annotation.Nonnull

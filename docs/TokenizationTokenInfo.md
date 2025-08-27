@@ -13,7 +13,7 @@
 |**tokenName** | **String** | The name of the token. |  [optional] |
 |**tokenSymbol** | **String** | The unique token symbol. |  |
 |**decimals** | **Integer** | The number of decimals of the token. |  |
-|**allowlistActivated** | **Boolean** | Whether the allowlist feature is activated for the token. |  [optional] |
+|**tokenAccessActivated** | **Boolean** | Whether the allowlist feature is activated for the token. |  [optional] |
 |**status** | **TokenizationStatus** |  |  |
 |**totalSupply** | **String** | The total supply of the token. |  [optional] |
 |**holdings** | **String** | The amount of tokens held by the organization. |  [optional] |

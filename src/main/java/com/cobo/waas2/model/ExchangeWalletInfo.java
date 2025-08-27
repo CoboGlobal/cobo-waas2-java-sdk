@@ -76,6 +76,10 @@ public class ExchangeWalletInfo {
   @SerializedName(SERIALIZED_NAME_ORG_ID)
   private String orgId;
 
+  public static final String SERIALIZED_NAME_ENABLE_AUTO_SWEEP = "enable_auto_sweep";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AUTO_SWEEP)
+  private Boolean enableAutoSweep;
+
   public static final String SERIALIZED_NAME_APIKEY = "apikey";
   @SerializedName(SERIALIZED_NAME_APIKEY)
   private String apikey;
@@ -183,6 +187,25 @@ public class ExchangeWalletInfo {
 
   public void setOrgId(String orgId) {
     this.orgId = orgId;
+  }
+
+
+  public ExchangeWalletInfo enableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
+    return this;
+  }
+
+   /**
+   * Enable the auto sweep feature for the wallet
+   * @return enableAutoSweep
+  **/
+  @javax.annotation.Nullable
+  public Boolean getEnableAutoSweep() {
+    return enableAutoSweep;
+  }
+
+  public void setEnableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
   }
 
 
@@ -302,6 +325,7 @@ public class ExchangeWalletInfo {
         Objects.equals(this.walletSubtype, exchangeWalletInfo.walletSubtype) &&
         Objects.equals(this.name, exchangeWalletInfo.name) &&
         Objects.equals(this.orgId, exchangeWalletInfo.orgId) &&
+        Objects.equals(this.enableAutoSweep, exchangeWalletInfo.enableAutoSweep) &&
         Objects.equals(this.apikey, exchangeWalletInfo.apikey) &&
         Objects.equals(this.exchangeId, exchangeWalletInfo.exchangeId) &&
         Objects.equals(this.mainWalletId, exchangeWalletInfo.mainWalletId)&&
@@ -310,7 +334,7 @@ public class ExchangeWalletInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, walletType, walletSubtype, name, orgId, apikey, exchangeId, mainWalletId, additionalProperties);
+    return Objects.hash(walletId, walletType, walletSubtype, name, orgId, enableAutoSweep, apikey, exchangeId, mainWalletId, additionalProperties);
   }
 
   @Override
@@ -322,6 +346,7 @@ public class ExchangeWalletInfo {
     sb.append("    walletSubtype: ").append(toIndentedString(walletSubtype)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    enableAutoSweep: ").append(toIndentedString(enableAutoSweep)).append("\n");
     sb.append("    apikey: ").append(toIndentedString(apikey)).append("\n");
     sb.append("    exchangeId: ").append(toIndentedString(exchangeId)).append("\n");
     sb.append("    mainWalletId: ").append(toIndentedString(mainWalletId)).append("\n");
@@ -353,6 +378,7 @@ public class ExchangeWalletInfo {
     openapiFields.add("wallet_subtype");
     openapiFields.add("name");
     openapiFields.add("org_id");
+    openapiFields.add("enable_auto_sweep");
     openapiFields.add("apikey");
     openapiFields.add("exchange_id");
     openapiFields.add("main_wallet_id");

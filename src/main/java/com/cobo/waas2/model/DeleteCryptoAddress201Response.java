@@ -65,7 +65,7 @@ public class DeleteCryptoAddress201Response {
   }
 
    /**
-   * The crypto address ID.
+   * The ID of the deleted crypto address.
    * @return cryptoAddressId
   **/
   @javax.annotation.Nonnull
