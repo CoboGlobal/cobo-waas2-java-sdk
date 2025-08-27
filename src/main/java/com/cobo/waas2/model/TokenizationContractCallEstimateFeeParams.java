@@ -71,6 +71,10 @@ public class TokenizationContractCallEstimateFeeParams {
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
   private String tokenId;
 
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public TokenizationContractCallEstimateFeeParams() {
   }
 
@@ -149,6 +153,25 @@ public class TokenizationContractCallEstimateFeeParams {
     this.tokenId = tokenId;
   }
 
+
+  public TokenizationContractCallEstimateFeeParams requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -207,13 +230,14 @@ public class TokenizationContractCallEstimateFeeParams {
     return Objects.equals(this.source, tokenizationContractCallEstimateFeeParams.source) &&
         Objects.equals(this.data, tokenizationContractCallEstimateFeeParams.data) &&
         Objects.equals(this.operationType, tokenizationContractCallEstimateFeeParams.operationType) &&
-        Objects.equals(this.tokenId, tokenizationContractCallEstimateFeeParams.tokenId)&&
+        Objects.equals(this.tokenId, tokenizationContractCallEstimateFeeParams.tokenId) &&
+        Objects.equals(this.requestId, tokenizationContractCallEstimateFeeParams.requestId)&&
         Objects.equals(this.additionalProperties, tokenizationContractCallEstimateFeeParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(source, data, operationType, tokenId, additionalProperties);
+    return Objects.hash(source, data, operationType, tokenId, requestId, additionalProperties);
   }
 
   @Override
@@ -224,6 +248,7 @@ public class TokenizationContractCallEstimateFeeParams {
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -251,6 +276,7 @@ public class TokenizationContractCallEstimateFeeParams {
     openapiFields.add("data");
     openapiFields.add("operation_type");
     openapiFields.add("token_id");
+    openapiFields.add("request_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -290,6 +316,9 @@ public class TokenizationContractCallEstimateFeeParams {
       TokenizationOperationType.validateJsonElement(jsonObj.get("operation_type"));
       if (!jsonObj.get("token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      }
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
   }
 

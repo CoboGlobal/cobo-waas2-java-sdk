@@ -62,11 +62,11 @@ public class ApprovalDetailTest {
     }
 
     /**
-     * Test the property 'brokerUser'
+     * Test the property 'addressOwner'
      */
     @Test
-    public void brokerUserTest() {
-        // TODO: test brokerUser
+    public void addressOwnerTest() {
+        // TODO: test addressOwner
     }
 
     /**

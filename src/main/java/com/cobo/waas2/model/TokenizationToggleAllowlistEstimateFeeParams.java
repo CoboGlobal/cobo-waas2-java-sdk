@@ -70,6 +70,10 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
   private String tokenId;
 
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public TokenizationToggleAllowlistEstimateFeeParams() {
   }
 
@@ -148,6 +152,25 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
     this.tokenId = tokenId;
   }
 
+
+  public TokenizationToggleAllowlistEstimateFeeParams requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -206,13 +229,14 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
     return Objects.equals(this.source, tokenizationToggleAllowlistEstimateFeeParams.source) &&
         Objects.equals(this.activation, tokenizationToggleAllowlistEstimateFeeParams.activation) &&
         Objects.equals(this.operationType, tokenizationToggleAllowlistEstimateFeeParams.operationType) &&
-        Objects.equals(this.tokenId, tokenizationToggleAllowlistEstimateFeeParams.tokenId)&&
+        Objects.equals(this.tokenId, tokenizationToggleAllowlistEstimateFeeParams.tokenId) &&
+        Objects.equals(this.requestId, tokenizationToggleAllowlistEstimateFeeParams.requestId)&&
         Objects.equals(this.additionalProperties, tokenizationToggleAllowlistEstimateFeeParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(source, activation, operationType, tokenId, additionalProperties);
+    return Objects.hash(source, activation, operationType, tokenId, requestId, additionalProperties);
   }
 
   @Override
@@ -223,6 +247,7 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
     sb.append("    activation: ").append(toIndentedString(activation)).append("\n");
     sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -250,6 +275,7 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
     openapiFields.add("activation");
     openapiFields.add("operation_type");
     openapiFields.add("token_id");
+    openapiFields.add("request_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -285,6 +311,9 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
       TokenizationOperationType.validateJsonElement(jsonObj.get("operation_type"));
       if (!jsonObj.get("token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      }
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
   }
 

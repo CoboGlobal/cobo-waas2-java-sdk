@@ -75,6 +75,10 @@ public class MPCWalletInfo {
   @SerializedName(SERIALIZED_NAME_ORG_ID)
   private String orgId;
 
+  public static final String SERIALIZED_NAME_ENABLE_AUTO_SWEEP = "enable_auto_sweep";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AUTO_SWEEP)
+  private Boolean enableAutoSweep;
+
   public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
   private String projectId;
@@ -186,6 +190,25 @@ public class MPCWalletInfo {
 
   public void setOrgId(String orgId) {
     this.orgId = orgId;
+  }
+
+
+  public MPCWalletInfo enableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
+    return this;
+  }
+
+   /**
+   * Enable the auto sweep feature for the wallet
+   * @return enableAutoSweep
+  **/
+  @javax.annotation.Nullable
+  public Boolean getEnableAutoSweep() {
+    return enableAutoSweep;
+  }
+
+  public void setEnableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
   }
 
 
@@ -324,6 +347,7 @@ public class MPCWalletInfo {
         Objects.equals(this.walletSubtype, mpCWalletInfo.walletSubtype) &&
         Objects.equals(this.name, mpCWalletInfo.name) &&
         Objects.equals(this.orgId, mpCWalletInfo.orgId) &&
+        Objects.equals(this.enableAutoSweep, mpCWalletInfo.enableAutoSweep) &&
         Objects.equals(this.projectId, mpCWalletInfo.projectId) &&
         Objects.equals(this.projectName, mpCWalletInfo.projectName) &&
         Objects.equals(this.vaultId, mpCWalletInfo.vaultId) &&
@@ -333,7 +357,7 @@ public class MPCWalletInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, walletType, walletSubtype, name, orgId, projectId, projectName, vaultId, vaultName, additionalProperties);
+    return Objects.hash(walletId, walletType, walletSubtype, name, orgId, enableAutoSweep, projectId, projectName, vaultId, vaultName, additionalProperties);
   }
 
   @Override
@@ -345,6 +369,7 @@ public class MPCWalletInfo {
     sb.append("    walletSubtype: ").append(toIndentedString(walletSubtype)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    enableAutoSweep: ").append(toIndentedString(enableAutoSweep)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vaultId: ").append(toIndentedString(vaultId)).append("\n");
@@ -377,6 +402,7 @@ public class MPCWalletInfo {
     openapiFields.add("wallet_subtype");
     openapiFields.add("name");
     openapiFields.add("org_id");
+    openapiFields.add("enable_auto_sweep");
     openapiFields.add("project_id");
     openapiFields.add("project_name");
     openapiFields.add("vault_id");

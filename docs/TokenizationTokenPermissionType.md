@@ -19,5 +19,11 @@
 
 * `PAUSECONTRACT` (value: `"PauseContract"`)
 
+* `FREEZEACCOUNTS` (value: `"FreezeAccounts"`)
+
+* `UPDATEMETADATA` (value: `"UpdateMetadata"`)
+
+* `PERMANENTDELEGATE` (value: `"PermanentDelegate"`)
+
 
 

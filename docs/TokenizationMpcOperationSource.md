@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**sourceType** | **TokenizationOperationSourceType** |  |  |
 |**walletId** | **UUID** | The wallet ID. |  |
-|**address** | **String** | The wallet address to interact with the token contract from. |  |
+|**address** | **String** | The wallet address used to interact with the token contract. |  |
 
 
 

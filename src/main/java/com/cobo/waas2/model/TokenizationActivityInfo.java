@@ -252,7 +252,7 @@ public class TokenizationActivityInfo {
    * The IDs of the corresponding transactions of the activity.
    * @return transactionIds
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<String> getTransactionIds() {
     return transactionIds;
   }
@@ -271,7 +271,7 @@ public class TokenizationActivityInfo {
    * The creation timestamp of the activity in milliseconds since the Unix epoch.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -429,6 +429,8 @@ public class TokenizationActivityInfo {
     openapiRequiredFields.add("source");
     openapiRequiredFields.add("initiator");
     openapiRequiredFields.add("initiator_type");
+    openapiRequiredFields.add("transaction_ids");
+    openapiRequiredFields.add("created_timestamp");
     openapiRequiredFields.add("updated_timestamp");
   }
 
@@ -469,8 +471,10 @@ public class TokenizationActivityInfo {
       }
       // validate the required field `initiator_type`
       TransactionInitiatorType.validateJsonElement(jsonObj.get("initiator_type"));
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("transaction_ids") != null && !jsonObj.get("transaction_ids").isJsonNull() && !jsonObj.get("transaction_ids").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("transaction_ids") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("transaction_ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `transaction_ids` to be an array in the JSON string but got `%s`", jsonObj.get("transaction_ids").toString()));
       }
   }

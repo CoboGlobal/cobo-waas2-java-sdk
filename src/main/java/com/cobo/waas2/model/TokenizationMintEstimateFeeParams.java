@@ -73,6 +73,10 @@ public class TokenizationMintEstimateFeeParams {
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
   private String tokenId;
 
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public TokenizationMintEstimateFeeParams() {
   }
 
@@ -159,6 +163,25 @@ public class TokenizationMintEstimateFeeParams {
     this.tokenId = tokenId;
   }
 
+
+  public TokenizationMintEstimateFeeParams requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -217,13 +240,14 @@ public class TokenizationMintEstimateFeeParams {
     return Objects.equals(this.source, tokenizationMintEstimateFeeParams.source) &&
         Objects.equals(this.mints, tokenizationMintEstimateFeeParams.mints) &&
         Objects.equals(this.operationType, tokenizationMintEstimateFeeParams.operationType) &&
-        Objects.equals(this.tokenId, tokenizationMintEstimateFeeParams.tokenId)&&
+        Objects.equals(this.tokenId, tokenizationMintEstimateFeeParams.tokenId) &&
+        Objects.equals(this.requestId, tokenizationMintEstimateFeeParams.requestId)&&
         Objects.equals(this.additionalProperties, tokenizationMintEstimateFeeParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(source, mints, operationType, tokenId, additionalProperties);
+    return Objects.hash(source, mints, operationType, tokenId, requestId, additionalProperties);
   }
 
   @Override
@@ -234,6 +258,7 @@ public class TokenizationMintEstimateFeeParams {
     sb.append("    mints: ").append(toIndentedString(mints)).append("\n");
     sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -261,6 +286,7 @@ public class TokenizationMintEstimateFeeParams {
     openapiFields.add("mints");
     openapiFields.add("operation_type");
     openapiFields.add("token_id");
+    openapiFields.add("request_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -306,6 +332,9 @@ public class TokenizationMintEstimateFeeParams {
       TokenizationOperationType.validateJsonElement(jsonObj.get("operation_type"));
       if (!jsonObj.get("token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      }
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
   }
 

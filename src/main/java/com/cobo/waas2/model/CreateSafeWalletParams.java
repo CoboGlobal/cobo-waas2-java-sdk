@@ -70,6 +70,10 @@ public class CreateSafeWalletParams {
   @SerializedName(SERIALIZED_NAME_WALLET_SUBTYPE)
   private WalletSubtype walletSubtype;
 
+  public static final String SERIALIZED_NAME_ENABLE_AUTO_SWEEP = "enable_auto_sweep";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AUTO_SWEEP)
+  private Boolean enableAutoSweep;
+
   public static final String SERIALIZED_NAME_CHAIN_ID = "chain_id";
   @SerializedName(SERIALIZED_NAME_CHAIN_ID)
   private String chainId;
@@ -155,6 +159,25 @@ public class CreateSafeWalletParams {
 
   public void setWalletSubtype(WalletSubtype walletSubtype) {
     this.walletSubtype = walletSubtype;
+  }
+
+
+  public CreateSafeWalletParams enableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
+    return this;
+  }
+
+   /**
+   * Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets.
+   * @return enableAutoSweep
+  **/
+  @javax.annotation.Nullable
+  public Boolean getEnableAutoSweep() {
+    return enableAutoSweep;
+  }
+
+  public void setEnableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
   }
 
 
@@ -357,6 +380,7 @@ public class CreateSafeWalletParams {
     return Objects.equals(this.name, createSafeWalletParams.name) &&
         Objects.equals(this.walletType, createSafeWalletParams.walletType) &&
         Objects.equals(this.walletSubtype, createSafeWalletParams.walletSubtype) &&
+        Objects.equals(this.enableAutoSweep, createSafeWalletParams.enableAutoSweep) &&
         Objects.equals(this.chainId, createSafeWalletParams.chainId) &&
         Objects.equals(this.smartContractWalletType, createSafeWalletParams.smartContractWalletType) &&
         Objects.equals(this.safeAddress, createSafeWalletParams.safeAddress) &&
@@ -369,7 +393,7 @@ public class CreateSafeWalletParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, walletType, walletSubtype, chainId, smartContractWalletType, safeAddress, signers, threshold, coboSafeAddress, initiator, additionalProperties);
+    return Objects.hash(name, walletType, walletSubtype, enableAutoSweep, chainId, smartContractWalletType, safeAddress, signers, threshold, coboSafeAddress, initiator, additionalProperties);
   }
 
   @Override
@@ -379,6 +403,7 @@ public class CreateSafeWalletParams {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
     sb.append("    walletSubtype: ").append(toIndentedString(walletSubtype)).append("\n");
+    sb.append("    enableAutoSweep: ").append(toIndentedString(enableAutoSweep)).append("\n");
     sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
     sb.append("    smartContractWalletType: ").append(toIndentedString(smartContractWalletType)).append("\n");
     sb.append("    safeAddress: ").append(toIndentedString(safeAddress)).append("\n");
@@ -412,6 +437,7 @@ public class CreateSafeWalletParams {
     openapiFields.add("name");
     openapiFields.add("wallet_type");
     openapiFields.add("wallet_subtype");
+    openapiFields.add("enable_auto_sweep");
     openapiFields.add("chain_id");
     openapiFields.add("smart_contract_wallet_type");
     openapiFields.add("safe_address");

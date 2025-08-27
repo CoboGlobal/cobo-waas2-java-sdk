@@ -66,6 +66,10 @@ public class CreateMpcWalletParams {
   @SerializedName(SERIALIZED_NAME_WALLET_SUBTYPE)
   private WalletSubtype walletSubtype;
 
+  public static final String SERIALIZED_NAME_ENABLE_AUTO_SWEEP = "enable_auto_sweep";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AUTO_SWEEP)
+  private Boolean enableAutoSweep;
+
   public static final String SERIALIZED_NAME_VAULT_ID = "vault_id";
   @SerializedName(SERIALIZED_NAME_VAULT_ID)
   private String vaultId;
@@ -127,6 +131,25 @@ public class CreateMpcWalletParams {
 
   public void setWalletSubtype(WalletSubtype walletSubtype) {
     this.walletSubtype = walletSubtype;
+  }
+
+
+  public CreateMpcWalletParams enableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
+    return this;
+  }
+
+   /**
+   * Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets.
+   * @return enableAutoSweep
+  **/
+  @javax.annotation.Nullable
+  public Boolean getEnableAutoSweep() {
+    return enableAutoSweep;
+  }
+
+  public void setEnableAutoSweep(Boolean enableAutoSweep) {
+    this.enableAutoSweep = enableAutoSweep;
   }
 
 
@@ -206,13 +229,14 @@ public class CreateMpcWalletParams {
     return Objects.equals(this.name, createMpcWalletParams.name) &&
         Objects.equals(this.walletType, createMpcWalletParams.walletType) &&
         Objects.equals(this.walletSubtype, createMpcWalletParams.walletSubtype) &&
+        Objects.equals(this.enableAutoSweep, createMpcWalletParams.enableAutoSweep) &&
         Objects.equals(this.vaultId, createMpcWalletParams.vaultId)&&
         Objects.equals(this.additionalProperties, createMpcWalletParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, walletType, walletSubtype, vaultId, additionalProperties);
+    return Objects.hash(name, walletType, walletSubtype, enableAutoSweep, vaultId, additionalProperties);
   }
 
   @Override
@@ -222,6 +246,7 @@ public class CreateMpcWalletParams {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
     sb.append("    walletSubtype: ").append(toIndentedString(walletSubtype)).append("\n");
+    sb.append("    enableAutoSweep: ").append(toIndentedString(enableAutoSweep)).append("\n");
     sb.append("    vaultId: ").append(toIndentedString(vaultId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -249,6 +274,7 @@ public class CreateMpcWalletParams {
     openapiFields.add("name");
     openapiFields.add("wallet_type");
     openapiFields.add("wallet_subtype");
+    openapiFields.add("enable_auto_sweep");
     openapiFields.add("vault_id");
 
     // a set of required properties/fields (JSON key names)
