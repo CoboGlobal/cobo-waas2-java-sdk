@@ -2,7 +2,7 @@
 
 # SweepToAddress
 
-The sweep to address information.
+Information about the sweep-to address.
 
 ## Properties
 

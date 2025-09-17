@@ -14,8 +14,14 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.AddressBook;
+import com.cobo.waas2.model.CreateAddressBooks201Response;
+import com.cobo.waas2.model.CreateAddressBooksParam;
+import com.cobo.waas2.model.DeleteAddressBookById201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ListAddressBooks200Response;
+import java.util.UUID;
+import com.cobo.waas2.model.UpdateAddressBookParam;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -38,9 +44,51 @@ public class AddressBooksApiTest {
     private final AddressBooksApi api = new AddressBooksApi();
 
     /**
-     * List address book entries
+     * Create Address Book entries
      *
-     * This operation retrieves a list of addresses from your address book. 
+     * This operation adds new entries (records) to your Address Book. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createAddressBooksTest() throws ApiException {
+        CreateAddressBooksParam createAddressBooksParam = null;
+        CreateAddressBooks201Response response = api.createAddressBooks(createAddressBooksParam);
+        // TODO: test validations
+    }
+
+    /**
+     * Delete Address Book entry
+     *
+     * This operation deletes a specified Address Book entry (record). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteAddressBookByIdTest() throws ApiException {
+        UUID entryId = null;
+        DeleteAddressBookById201Response response = api.deleteAddressBookById(entryId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get Address Book entry
+     *
+     * This operation retrieves the detailed information about a specified Address Book entry (record). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getAddressBookByIdTest() throws ApiException {
+        UUID entryId = null;
+        AddressBook response = api.getAddressBookById(entryId);
+        // TODO: test validations
+    }
+
+    /**
+     * List Address Book entries
+     *
+     * This operation retrieves all entries (records) from your Address Book. You can filter the entries by chain ID, address, and label. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -53,6 +101,21 @@ public class AddressBooksApiTest {
         String before = null;
         String after = null;
         ListAddressBooks200Response response = api.listAddressBooks(chainId, address, label, limit, before, after);
+        // TODO: test validations
+    }
+
+    /**
+     * Update Address Book entry
+     *
+     * This operation updates the information of a specified Address Book entry (record). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateAddressBookByIdTest() throws ApiException {
+        UUID entryId = null;
+        UpdateAddressBookParam updateAddressBookParam = null;
+        AddressBook response = api.updateAddressBookById(entryId, updateAddressBookParam);
         // TODO: test validations
     }
 

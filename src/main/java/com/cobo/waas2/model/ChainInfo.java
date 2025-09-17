@@ -64,6 +64,10 @@ public class ChainInfo {
   @SerializedName(SERIALIZED_NAME_ICON_URL)
   private String iconUrl;
 
+  public static final String SERIALIZED_NAME_CHAIN_IDENTIFIER = "chain_identifier";
+  @SerializedName(SERIALIZED_NAME_CHAIN_IDENTIFIER)
+  private String chainIdentifier;
+
   public static final String SERIALIZED_NAME_EXPLORER_TX_URL = "explorer_tx_url";
   @SerializedName(SERIALIZED_NAME_EXPLORER_TX_URL)
   private String explorerTxUrl;
@@ -112,7 +116,7 @@ public class ChainInfo {
   }
 
    /**
-   * The chain symbol, which is the abbreviated name of a chain.
+   * The chain symbol for display purposes, which is the abbreviated name of a chain.
    * @return symbol
   **/
   @javax.annotation.Nullable
@@ -141,6 +145,25 @@ public class ChainInfo {
 
   public void setIconUrl(String iconUrl) {
     this.iconUrl = iconUrl;
+  }
+
+
+  public ChainInfo chainIdentifier(String chainIdentifier) {
+    this.chainIdentifier = chainIdentifier;
+    return this;
+  }
+
+   /**
+   * A functional identifier used to group blockchains with similar execution logic. For example, &#x60;ETH&#x60; for all EVM-compatible chains (Ethereum, BNB Smart Chain, Polygon).
+   * @return chainIdentifier
+  **/
+  @javax.annotation.Nullable
+  public String getChainIdentifier() {
+    return chainIdentifier;
+  }
+
+  public void setChainIdentifier(String chainIdentifier) {
+    this.chainIdentifier = chainIdentifier;
   }
 
 
@@ -296,6 +319,7 @@ public class ChainInfo {
     return Objects.equals(this.chainId, chainInfo.chainId) &&
         Objects.equals(this.symbol, chainInfo.symbol) &&
         Objects.equals(this.iconUrl, chainInfo.iconUrl) &&
+        Objects.equals(this.chainIdentifier, chainInfo.chainIdentifier) &&
         Objects.equals(this.explorerTxUrl, chainInfo.explorerTxUrl) &&
         Objects.equals(this.explorerAddressUrl, chainInfo.explorerAddressUrl) &&
         Objects.equals(this.requireMemo, chainInfo.requireMemo) &&
@@ -306,7 +330,7 @@ public class ChainInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chainId, symbol, iconUrl, explorerTxUrl, explorerAddressUrl, requireMemo, confirmingThreshold, coinbaseMaturity, additionalProperties);
+    return Objects.hash(chainId, symbol, iconUrl, chainIdentifier, explorerTxUrl, explorerAddressUrl, requireMemo, confirmingThreshold, coinbaseMaturity, additionalProperties);
   }
 
   @Override
@@ -316,6 +340,7 @@ public class ChainInfo {
     sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
     sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
     sb.append("    iconUrl: ").append(toIndentedString(iconUrl)).append("\n");
+    sb.append("    chainIdentifier: ").append(toIndentedString(chainIdentifier)).append("\n");
     sb.append("    explorerTxUrl: ").append(toIndentedString(explorerTxUrl)).append("\n");
     sb.append("    explorerAddressUrl: ").append(toIndentedString(explorerAddressUrl)).append("\n");
     sb.append("    requireMemo: ").append(toIndentedString(requireMemo)).append("\n");
@@ -347,6 +372,7 @@ public class ChainInfo {
     openapiFields.add("chain_id");
     openapiFields.add("symbol");
     openapiFields.add("icon_url");
+    openapiFields.add("chain_identifier");
     openapiFields.add("explorer_tx_url");
     openapiFields.add("explorer_address_url");
     openapiFields.add("require_memo");
@@ -386,6 +412,9 @@ public class ChainInfo {
       }
       if ((jsonObj.get("icon_url") != null && !jsonObj.get("icon_url").isJsonNull()) && !jsonObj.get("icon_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `icon_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("icon_url").toString()));
+      }
+      if ((jsonObj.get("chain_identifier") != null && !jsonObj.get("chain_identifier").isJsonNull()) && !jsonObj.get("chain_identifier").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `chain_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chain_identifier").toString()));
       }
       if ((jsonObj.get("explorer_tx_url") != null && !jsonObj.get("explorer_tx_url").isJsonNull()) && !jsonObj.get("explorer_tx_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `explorer_tx_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("explorer_tx_url").toString()));

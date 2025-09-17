@@ -17,62 +17,64 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for ApprovalShowInfo
+ * Model tests for CreateAddressBookParam
  */
-public class ApprovalShowInfoTest {
-    private final ApprovalShowInfo model = new ApprovalShowInfo();
+public class CreateAddressBookParamTest {
+    private final CreateAddressBookParam model = new CreateAddressBookParam();
 
     /**
-     * Model tests for ApprovalShowInfo
+     * Model tests for CreateAddressBookParam
      */
     @Test
-    public void testApprovalShowInfo() {
-        // TODO: test ApprovalShowInfo
+    public void testCreateAddressBookParam() {
+        // TODO: test CreateAddressBookParam
     }
 
     /**
-     * Test the property 'orgName'
+     * Test the property 'chainIds'
      */
     @Test
-    public void orgNameTest() {
-        // TODO: test orgName
+    public void chainIdsTest() {
+        // TODO: test chainIds
     }
 
     /**
-     * Test the property 'walletName'
+     * Test the property 'address'
      */
     @Test
-    public void walletNameTest() {
-        // TODO: test walletName
+    public void addressTest() {
+        // TODO: test address
     }
 
     /**
-     * Test the property 'environment'
+     * Test the property 'memo'
      */
     @Test
-    public void environmentTest() {
-        // TODO: test environment
+    public void memoTest() {
+        // TODO: test memo
     }
 
     /**
-     * Test the property 'fromAddressLabel'
+     * Test the property 'label'
      */
     @Test
-    public void fromAddressLabelTest() {
-        // TODO: test fromAddressLabel
+    public void labelTest() {
+        // TODO: test label
     }
 
     /**
-     * Test the property 'toAddressLabel'
+     * Test the property 'email'
      */
     @Test
-    public void toAddressLabelTest() {
-        // TODO: test toAddressLabel
+    public void emailTest() {
+        // TODO: test email
     }
 
 }

@@ -25,8 +25,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cobo.waas2.model.AddressBook;
+import com.cobo.waas2.model.CreateAddressBooks201Response;
+import com.cobo.waas2.model.CreateAddressBooksParam;
+import com.cobo.waas2.model.DeleteAddressBookById201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ListAddressBooks200Response;
+import java.util.UUID;
+import com.cobo.waas2.model.UpdateAddressBookParam;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -54,10 +60,359 @@ public class AddressBooksApi {
     }
 
     /**
+     * Build call for createAddressBooks
+     * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The information about created Address Books. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAddressBooksCall(CreateAddressBooksParam createAddressBooksParam, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createAddressBooksParam;
+
+        // create path and map variables
+        String localVarPath = "/address_books";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAddressBooksValidateBeforeCall(CreateAddressBooksParam createAddressBooksParam, final ApiCallback _callback) throws ApiException {
+        return createAddressBooksCall(createAddressBooksParam, _callback);
+
+    }
+
+    /**
+     * Create Address Book entries
+     * This operation adds new entries (records) to your Address Book. 
+     * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
+     * @return CreateAddressBooks201Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The information about created Address Books. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateAddressBooks201Response createAddressBooks(CreateAddressBooksParam createAddressBooksParam) throws ApiException {
+        ApiResponse<CreateAddressBooks201Response> localVarResp = createAddressBooksWithHttpInfo(createAddressBooksParam);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Address Book entries
+     * This operation adds new entries (records) to your Address Book. 
+     * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
+     * @return ApiResponse&lt;CreateAddressBooks201Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The information about created Address Books. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateAddressBooks201Response> createAddressBooksWithHttpInfo(CreateAddressBooksParam createAddressBooksParam) throws ApiException {
+        okhttp3.Call localVarCall = createAddressBooksValidateBeforeCall(createAddressBooksParam, null);
+        Type localVarReturnType = new TypeToken<CreateAddressBooks201Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Address Book entries (asynchronously)
+     * This operation adds new entries (records) to your Address Book. 
+     * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The information about created Address Books. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAddressBooksAsync(CreateAddressBooksParam createAddressBooksParam, final ApiCallback<CreateAddressBooks201Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createAddressBooksValidateBeforeCall(createAddressBooksParam, _callback);
+        Type localVarReturnType = new TypeToken<CreateAddressBooks201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteAddressBookById
+     * @param entryId The Address Book entry ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteAddressBookByIdCall(UUID entryId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/address_books/{entry_id}/delete"
+            .replace("{" + "entry_id" + "}", localVarApiClient.escapeString(entryId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteAddressBookByIdValidateBeforeCall(UUID entryId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'entryId' is set
+        if (entryId == null) {
+            throw new ApiException("Missing the required parameter 'entryId' when calling deleteAddressBookById(Async)");
+        }
+
+        return deleteAddressBookByIdCall(entryId, _callback);
+
+    }
+
+    /**
+     * Delete Address Book entry
+     * This operation deletes a specified Address Book entry (record). 
+     * @param entryId The Address Book entry ID. (required)
+     * @return DeleteAddressBookById201Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public DeleteAddressBookById201Response deleteAddressBookById(UUID entryId) throws ApiException {
+        ApiResponse<DeleteAddressBookById201Response> localVarResp = deleteAddressBookByIdWithHttpInfo(entryId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete Address Book entry
+     * This operation deletes a specified Address Book entry (record). 
+     * @param entryId The Address Book entry ID. (required)
+     * @return ApiResponse&lt;DeleteAddressBookById201Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DeleteAddressBookById201Response> deleteAddressBookByIdWithHttpInfo(UUID entryId) throws ApiException {
+        okhttp3.Call localVarCall = deleteAddressBookByIdValidateBeforeCall(entryId, null);
+        Type localVarReturnType = new TypeToken<DeleteAddressBookById201Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete Address Book entry (asynchronously)
+     * This operation deletes a specified Address Book entry (record). 
+     * @param entryId The Address Book entry ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteAddressBookByIdAsync(UUID entryId, final ApiCallback<DeleteAddressBookById201Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteAddressBookByIdValidateBeforeCall(entryId, _callback);
+        Type localVarReturnType = new TypeToken<DeleteAddressBookById201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAddressBookById
+     * @param entryId The Address Book entry ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAddressBookByIdCall(UUID entryId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/address_books/{entry_id}"
+            .replace("{" + "entry_id" + "}", localVarApiClient.escapeString(entryId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAddressBookByIdValidateBeforeCall(UUID entryId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'entryId' is set
+        if (entryId == null) {
+            throw new ApiException("Missing the required parameter 'entryId' when calling getAddressBookById(Async)");
+        }
+
+        return getAddressBookByIdCall(entryId, _callback);
+
+    }
+
+    /**
+     * Get Address Book entry
+     * This operation retrieves the detailed information about a specified Address Book entry (record). 
+     * @param entryId The Address Book entry ID. (required)
+     * @return AddressBook
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AddressBook getAddressBookById(UUID entryId) throws ApiException {
+        ApiResponse<AddressBook> localVarResp = getAddressBookByIdWithHttpInfo(entryId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Address Book entry
+     * This operation retrieves the detailed information about a specified Address Book entry (record). 
+     * @param entryId The Address Book entry ID. (required)
+     * @return ApiResponse&lt;AddressBook&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AddressBook> getAddressBookByIdWithHttpInfo(UUID entryId) throws ApiException {
+        okhttp3.Call localVarCall = getAddressBookByIdValidateBeforeCall(entryId, null);
+        Type localVarReturnType = new TypeToken<AddressBook>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Address Book entry (asynchronously)
+     * This operation retrieves the detailed information about a specified Address Book entry (record). 
+     * @param entryId The Address Book entry ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAddressBookByIdAsync(UUID entryId, final ApiCallback<AddressBook> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAddressBookByIdValidateBeforeCall(entryId, _callback);
+        Type localVarReturnType = new TypeToken<AddressBook>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listAddressBooks
-     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param address The wallet address. (optional)
-     * @param label The address label. (optional)
+     * @param label A user-defined label for the address. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -67,7 +422,7 @@ public class AddressBooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an address book entry. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -129,21 +484,16 @@ public class AddressBooksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAddressBooksValidateBeforeCall(String chainId, String address, String label, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'chainId' is set
-        if (chainId == null) {
-            throw new ApiException("Missing the required parameter 'chainId' when calling listAddressBooks(Async)");
-        }
-
         return listAddressBooksCall(chainId, address, label, limit, before, after, _callback);
 
     }
 
     /**
-     * List address book entries
-     * This operation retrieves a list of addresses from your address book. 
-     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
+     * List Address Book entries
+     * This operation retrieves all entries (records) from your Address Book. You can filter the entries by chain ID, address, and label. 
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param address The wallet address. (optional)
-     * @param label The address label. (optional)
+     * @param label A user-defined label for the address. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -152,7 +502,7 @@ public class AddressBooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an address book entry. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -163,11 +513,11 @@ public class AddressBooksApi {
     }
 
     /**
-     * List address book entries
-     * This operation retrieves a list of addresses from your address book. 
-     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
+     * List Address Book entries
+     * This operation retrieves all entries (records) from your Address Book. You can filter the entries by chain ID, address, and label. 
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param address The wallet address. (optional)
-     * @param label The address label. (optional)
+     * @param label A user-defined label for the address. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -176,7 +526,7 @@ public class AddressBooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an address book entry. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -188,11 +538,11 @@ public class AddressBooksApi {
     }
 
     /**
-     * List address book entries (asynchronously)
-     * This operation retrieves a list of addresses from your address book. 
-     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
+     * List Address Book entries (asynchronously)
+     * This operation retrieves all entries (records) from your Address Book. You can filter the entries by chain ID, address, and label. 
+     * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param address The wallet address. (optional)
-     * @param label The address label. (optional)
+     * @param label A user-defined label for the address. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -202,7 +552,7 @@ public class AddressBooksApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an address book entry. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -211,6 +561,129 @@ public class AddressBooksApi {
 
         okhttp3.Call localVarCall = listAddressBooksValidateBeforeCall(chainId, address, label, limit, before, after, _callback);
         Type localVarReturnType = new TypeToken<ListAddressBooks200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateAddressBookById
+     * @param entryId The Address Book entry ID. (required)
+     * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated Address Book. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAddressBookByIdCall(UUID entryId, UpdateAddressBookParam updateAddressBookParam, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = updateAddressBookParam;
+
+        // create path and map variables
+        String localVarPath = "/address_books/{entry_id}"
+            .replace("{" + "entry_id" + "}", localVarApiClient.escapeString(entryId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateAddressBookByIdValidateBeforeCall(UUID entryId, UpdateAddressBookParam updateAddressBookParam, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'entryId' is set
+        if (entryId == null) {
+            throw new ApiException("Missing the required parameter 'entryId' when calling updateAddressBookById(Async)");
+        }
+
+        return updateAddressBookByIdCall(entryId, updateAddressBookParam, _callback);
+
+    }
+
+    /**
+     * Update Address Book entry
+     * This operation updates the information of a specified Address Book entry (record). 
+     * @param entryId The Address Book entry ID. (required)
+     * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
+     * @return AddressBook
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated Address Book. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AddressBook updateAddressBookById(UUID entryId, UpdateAddressBookParam updateAddressBookParam) throws ApiException {
+        ApiResponse<AddressBook> localVarResp = updateAddressBookByIdWithHttpInfo(entryId, updateAddressBookParam);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Address Book entry
+     * This operation updates the information of a specified Address Book entry (record). 
+     * @param entryId The Address Book entry ID. (required)
+     * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
+     * @return ApiResponse&lt;AddressBook&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated Address Book. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AddressBook> updateAddressBookByIdWithHttpInfo(UUID entryId, UpdateAddressBookParam updateAddressBookParam) throws ApiException {
+        okhttp3.Call localVarCall = updateAddressBookByIdValidateBeforeCall(entryId, updateAddressBookParam, null);
+        Type localVarReturnType = new TypeToken<AddressBook>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Address Book entry (asynchronously)
+     * This operation updates the information of a specified Address Book entry (record). 
+     * @param entryId The Address Book entry ID. (required)
+     * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated Address Book. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAddressBookByIdAsync(UUID entryId, UpdateAddressBookParam updateAddressBookParam, final ApiCallback<AddressBook> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateAddressBookByIdValidateBeforeCall(entryId, updateAddressBookParam, _callback);
+        Type localVarReturnType = new TypeToken<AddressBook>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

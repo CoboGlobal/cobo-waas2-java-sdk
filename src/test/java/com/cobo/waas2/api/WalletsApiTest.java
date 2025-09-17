@@ -299,7 +299,7 @@ public class WalletsApiTest {
     /**
      * List wallet addresses
      *
-     * This operation retrieves a list of addresses within a specified wallet. 
+     * This operation retrieves a list of addresses within a specified wallet. &lt;Note&gt; For Web3 Wallets, Asset Wallets, and MPC Wallets, addresses created on one EVM chain automatically work on all other supported EVM chains.   Currently, query results for EVM chain addresses differ between interfaces:  - API: Query results are limited by chain_id, so only addresses from that specific chain are returned. - Cobo Portal: Displays addresses from all supported EVM chains, so the number of addresses may be larger than the API results. &lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

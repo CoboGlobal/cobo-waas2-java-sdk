@@ -48,11 +48,35 @@ public class RoleDetailTest {
     }
 
     /**
-     * Test the property 'threshold'
+     * Test the property 'reviewThreshold'
      */
     @Test
-    public void thresholdTest() {
-        // TODO: test threshold
+    public void reviewThresholdTest() {
+        // TODO: test reviewThreshold
+    }
+
+    /**
+     * Test the property 'initiator'
+     */
+    @Test
+    public void initiatorTest() {
+        // TODO: test initiator
+    }
+
+    /**
+     * Test the property 'isUpgraded'
+     */
+    @Test
+    public void isUpgradedTest() {
+        // TODO: test isUpgraded
+    }
+
+    /**
+     * Test the property 'completeTime'
+     */
+    @Test
+    public void completeTimeTest() {
+        // TODO: test completeTime
     }
 
     /**

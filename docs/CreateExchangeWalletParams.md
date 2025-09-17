@@ -10,7 +10,7 @@
 |**name** | **String** | The wallet name. |  |
 |**walletType** | **WalletType** |  |  |
 |**walletSubtype** | **WalletSubtype** |  |  |
-|**enableAutoSweep** | **Boolean** | Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets. |  [optional] |
+|**enableAutoSweep** | **Boolean** | Enable the auto-sweep feature for the wallet. This parameter only applies to MPC Wallets and Web3 Wallets. |  [optional] |
 |**exchangeId** | **ExchangeId** |  |  |
 |**apikey** | **String** | The API key of your exchange account. |  |
 |**secret** | **String** | The API secret of your exchange account. |  |

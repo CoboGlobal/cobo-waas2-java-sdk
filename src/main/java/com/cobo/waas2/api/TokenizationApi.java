@@ -1347,7 +1347,7 @@ public class TokenizationApi {
     }
 
     /**
-     * Lists addresses on blocklist
+     * List addresses on blocklist
      * This operation lists addresses on the blocklist. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -1370,7 +1370,7 @@ public class TokenizationApi {
     }
 
     /**
-     * Lists addresses on blocklist
+     * List addresses on blocklist
      * This operation lists addresses on the blocklist. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -1394,7 +1394,7 @@ public class TokenizationApi {
     }
 
     /**
-     * Lists addresses on blocklist (asynchronously)
+     * List addresses on blocklist (asynchronously)
      * This operation lists addresses on the blocklist. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)

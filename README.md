@@ -200,17 +200,25 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AddressBooksApi* | [**listAddressBooks**](docs/AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List address book entries
+*AddressBooksApi* | [**createAddressBooks**](docs/AddressBooksApi.md#createAddressBooks) | **POST** /address_books | Create Address Book entries
+*AddressBooksApi* | [**deleteAddressBookById**](docs/AddressBooksApi.md#deleteAddressBookById) | **POST** /address_books/{entry_id}/delete | Delete Address Book entry
+*AddressBooksApi* | [**getAddressBookById**](docs/AddressBooksApi.md#getAddressBookById) | **GET** /address_books/{entry_id} | Get Address Book entry
+*AddressBooksApi* | [**listAddressBooks**](docs/AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List Address Book entries
+*AddressBooksApi* | [**updateAddressBookById**](docs/AddressBooksApi.md#updateAddressBookById) | **PUT** /address_books/{entry_id} | Update Address Book entry
 *AppWorkflowsApi* | [**createApprovalRequest**](docs/AppWorkflowsApi.md#createApprovalRequest) | **POST** /app/workflows/approval_requests | Request workflow approval
 *AppWorkflowsApi* | [**getApprovalRequestById**](docs/AppWorkflowsApi.md#getApprovalRequestById) | **GET** /app/workflows/approval_requests/{approval_id} | Get approval request details
 *AppWorkflowsApi* | [**listAppWorkflows**](docs/AppWorkflowsApi.md#listAppWorkflows) | **GET** /app/workflows | List app workflows
 *AppWorkflowsApi* | [**listApprovalRequests**](docs/AppWorkflowsApi.md#listApprovalRequests) | **GET** /app/workflows/approval_requests | List approval requests
 *AppWorkflowsApi* | [**revokeApprovalRequest**](docs/AppWorkflowsApi.md#revokeApprovalRequest) | **POST** /app/workflows/approval_requests/{approval_id}/revoke | Revoke approval request
-*AutoSweepApi* | [**createAutoSweepTask**](docs/AutoSweepApi.md#createAutoSweepTask) | **POST** /auto_sweep/tasks | create auto sweep task
-*AutoSweepApi* | [**createWalletSweepToAddresses**](docs/AutoSweepApi.md#createWalletSweepToAddresses) | **POST** /auto_sweep/sweep_to_addresses | create wallet sweep to addresses
-*AutoSweepApi* | [**getAutoSweepTaskById**](docs/AutoSweepApi.md#getAutoSweepTaskById) | **GET** /auto_sweep/tasks/{task_id} | Get auto sweep task information
-*AutoSweepApi* | [**listAutoSweepTask**](docs/AutoSweepApi.md#listAutoSweepTask) | **GET** /auto_sweep/tasks | List wallet auto sweep task
-*AutoSweepApi* | [**listWalletSweepToAddresses**](docs/AutoSweepApi.md#listWalletSweepToAddresses) | **GET** /auto_sweep/sweep_to_addresses | List wallet sweep to addresses
+*AutoSweepApi* | [**createAutoSweepTask**](docs/AutoSweepApi.md#createAutoSweepTask) | **POST** /auto_sweep/tasks | Create auto-sweep task
+*AutoSweepApi* | [**createWalletSweepToAddresses**](docs/AutoSweepApi.md#createWalletSweepToAddresses) | **POST** /auto_sweep/sweep_to_addresses | create sweep-to address
+*AutoSweepApi* | [**getAutoSweepTaskById**](docs/AutoSweepApi.md#getAutoSweepTaskById) | **GET** /auto_sweep/tasks/{task_id} | Get auto-sweep task details
+*AutoSweepApi* | [**listAutoSweepTask**](docs/AutoSweepApi.md#listAutoSweepTask) | **GET** /auto_sweep/tasks | List auto-sweep tasks
+*AutoSweepApi* | [**listWalletSweepToAddresses**](docs/AutoSweepApi.md#listWalletSweepToAddresses) | **GET** /auto_sweep/sweep_to_addresses | List sweep-to addresses
+*ComplianceApi* | [**getDispositionStatus**](docs/ComplianceApi.md#getDispositionStatus) | **GET** /compliance/funds/disposition | Get disposition status
+*ComplianceApi* | [**isolateFunds**](docs/ComplianceApi.md#isolateFunds) | **POST** /compliance/funds/disposition/isolate | Isolate funds
+*ComplianceApi* | [**refundFunds**](docs/ComplianceApi.md#refundFunds) | **POST** /compliance/funds/disposition/refund | Refund funds
+*ComplianceApi* | [**unfreezeFunds**](docs/ComplianceApi.md#unfreezeFunds) | **POST** /compliance/funds/disposition/unfreeze | Unfreeze frozen funds
 *DevelopersApi* | [**getApiKeyInfo**](docs/DevelopersApi.md#getApiKeyInfo) | **GET** /developers/api_key_info | Get API key information
 *DevelopersApi* | [**listCallbackMessages**](docs/DevelopersApi.md#listCallbackMessages) | **GET** /developers/callback_messages | List all callback messages
 *DevelopersApi* | [**retryCallbackMessage**](docs/DevelopersApi.md#retryCallbackMessage) | **POST** /developers/callback_messages/{message_id}/retry | Retry callback message
@@ -243,9 +251,9 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**createSettlementRequest**](docs/PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request
 *PaymentApi* | [**deleteCryptoAddress**](docs/PaymentApi.md#deleteCryptoAddress) | **POST** /payments/crypto_addresses/{crypto_address_id}/delete | Delete crypto address
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
-*PaymentApi* | [**getPayerBalanceByAddress**](docs/PaymentApi.md#getPayerBalanceByAddress) | **GET** /payments/balance/payer/address | Get payer balance by address
+*PaymentApi* | [**getPayerBalanceByAddress**](docs/PaymentApi.md#getPayerBalanceByAddress) | **GET** /payments/balance/payer/address | Get payer balance
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
-*PaymentApi* | [**getPspBalance**](docs/PaymentApi.md#getPspBalance) | **GET** /payments/balance/psp | Get psp balance
+*PaymentApi* | [**getPspBalance**](docs/PaymentApi.md#getPspBalance) | **GET** /payments/balance/psp | Get developer balance
 *PaymentApi* | [**getRefundDetailById**](docs/PaymentApi.md#getRefundDetailById) | **GET** /payments/refunds/{refund_id} | Get refund order information
 *PaymentApi* | [**getRefunds**](docs/PaymentApi.md#getRefunds) | **GET** /payments/refunds | List all refund orders
 *PaymentApi* | [**getSettlementById**](docs/PaymentApi.md#getSettlementById) | **GET** /payments/settlement_requests/{settlement_request_id} | Get settlement request information
@@ -301,7 +309,7 @@ Class | Method | HTTP request | Description
 *TokenizationApi* | [**listIssuedTokens**](docs/TokenizationApi.md#listIssuedTokens) | **GET** /tokenization/tokens | List issued tokens
 *TokenizationApi* | [**listTokenizationActivities**](docs/TokenizationApi.md#listTokenizationActivities) | **GET** /tokenization/activities | List tokenization activities
 *TokenizationApi* | [**listTokenizationAllowlistAddresses**](docs/TokenizationApi.md#listTokenizationAllowlistAddresses) | **GET** /tokenization/tokens/{token_id}/allowlist/addresses | List addresses on allowlist
-*TokenizationApi* | [**listTokenizationBlocklistAddresses**](docs/TokenizationApi.md#listTokenizationBlocklistAddresses) | **GET** /tokenization/tokens/{token_id}/blocklist/addresses | Lists addresses on blocklist
+*TokenizationApi* | [**listTokenizationBlocklistAddresses**](docs/TokenizationApi.md#listTokenizationBlocklistAddresses) | **GET** /tokenization/tokens/{token_id}/blocklist/addresses | List addresses on blocklist
 *TokenizationApi* | [**listTokenizationHoldings**](docs/TokenizationApi.md#listTokenizationHoldings) | **GET** /tokenization/tokens/{token_id}/holdings | Get token holdings information
 *TokenizationApi* | [**listTokenizationSupportedChains**](docs/TokenizationApi.md#listTokenizationSupportedChains) | **GET** /tokenization/enabled_chains | List supported chains for tokenization
 *TokenizationApi* | [**mintTokenization**](docs/TokenizationApi.md#mintTokenization) | **POST** /tokenization/tokens/{token_id}/mint | Mint tokens
@@ -321,9 +329,9 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**estimateFee**](docs/TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee
 *TransactionsApi* | [**getTransactionApprovalDetail**](docs/TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval details
 *TransactionsApi* | [**getTransactionById**](docs/TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
-*TransactionsApi* | [**listApprovalDetails**](docs/TransactionsApi.md#listApprovalDetails) | **GET** /transactions/approval/details | List transaction approval details
+*TransactionsApi* | [**listApprovalDetails**](docs/TransactionsApi.md#listApprovalDetails) | **GET** /transactions/approval/details | List approval details
 *TransactionsApi* | [**listTransactionApprovalDetails**](docs/TransactionsApi.md#listTransactionApprovalDetails) | **GET** /transactions/approval_details | List transaction approval details
-*TransactionsApi* | [**listTransactionTemplates**](docs/TransactionsApi.md#listTransactionTemplates) | **GET** /transactions/templates | list transaction templates
+*TransactionsApi* | [**listTransactionTemplates**](docs/TransactionsApi.md#listTransactionTemplates) | **GET** /transactions/templates | List transaction templates
 *TransactionsApi* | [**listTransactions**](docs/TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 *TransactionsApi* | [**resendTransactionById**](docs/TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
 *TransactionsApi* | [**signAndBroadcastTransactionById**](docs/TransactionsApi.md#signAndBroadcastTransactionById) | **POST** /transactions/{transaction_id}/sign_and_broadcast | Sign and broadcast transaction
@@ -420,7 +428,6 @@ Class | Method | HTTP request | Description
  - [ApprovalRequest](docs/ApprovalRequest.md)
  - [ApprovalRequestDetail](docs/ApprovalRequestDetail.md)
  - [ApprovalResult](docs/ApprovalResult.md)
- - [ApprovalShowInfo](docs/ApprovalShowInfo.md)
  - [ApprovalStatementStatus](docs/ApprovalStatementStatus.md)
  - [ApprovalStatus](docs/ApprovalStatus.md)
  - [ApprovalTemplate](docs/ApprovalTemplate.md)
@@ -469,6 +476,7 @@ Class | Method | HTTP request | Description
  - [CheckLoopTransfers200ResponseInner](docs/CheckLoopTransfers200ResponseInner.md)
  - [CoboSafeDelegate](docs/CoboSafeDelegate.md)
  - [CoboSafeDelegateType](docs/CoboSafeDelegateType.md)
+ - [ComplianceDispositionUpdateEventData](docs/ComplianceDispositionUpdateEventData.md)
  - [ContractCallDestination](docs/ContractCallDestination.md)
  - [ContractCallDestinationType](docs/ContractCallDestinationType.md)
  - [ContractCallParams](docs/ContractCallParams.md)
@@ -480,6 +488,9 @@ Class | Method | HTTP request | Description
  - [CosmosAdr36MessageSignDestination](docs/CosmosAdr36MessageSignDestination.md)
  - [CosmosContractCallDestination](docs/CosmosContractCallDestination.md)
  - [CosmosContractCallMessage](docs/CosmosContractCallMessage.md)
+ - [CreateAddressBookParam](docs/CreateAddressBookParam.md)
+ - [CreateAddressBooks201Response](docs/CreateAddressBooks201Response.md)
+ - [CreateAddressBooksParam](docs/CreateAddressBooksParam.md)
  - [CreateAddressRequest](docs/CreateAddressRequest.md)
  - [CreateApprovalRequest201Response](docs/CreateApprovalRequest201Response.md)
  - [CreateAutoSweepTask](docs/CreateAutoSweepTask.md)
@@ -531,11 +542,17 @@ Class | Method | HTTP request | Description
  - [CustodialWeb3ContractCallSource](docs/CustodialWeb3ContractCallSource.md)
  - [CustodialWeb3MessageSignSource](docs/CustodialWeb3MessageSignSource.md)
  - [CustodialWeb3TransferSource](docs/CustodialWeb3TransferSource.md)
+ - [DeleteAddressBookById201Response](docs/DeleteAddressBookById201Response.md)
  - [DeleteCryptoAddress201Response](docs/DeleteCryptoAddress201Response.md)
  - [DeleteGuardPubkey201Response](docs/DeleteGuardPubkey201Response.md)
  - [DeleteKeyShareHolderGroupById201Response](docs/DeleteKeyShareHolderGroupById201Response.md)
  - [DeleteWalletById201Response](docs/DeleteWalletById201Response.md)
  - [DestinationWalletType](docs/DestinationWalletType.md)
+ - [DispositionEventData](docs/DispositionEventData.md)
+ - [DispositionQueryResponse](docs/DispositionQueryResponse.md)
+ - [DispositionResponse](docs/DispositionResponse.md)
+ - [DispositionStatus](docs/DispositionStatus.md)
+ - [DispositionType](docs/DispositionType.md)
  - [EigenLayerLstStakeExtra](docs/EigenLayerLstStakeExtra.md)
  - [EigenLayerNativeStakeExtra](docs/EigenLayerNativeStakeExtra.md)
  - [EigenlayerValidator](docs/EigenlayerValidator.md)
@@ -610,6 +627,7 @@ Class | Method | HTTP request | Description
  - [GraphQLRequest](docs/GraphQLRequest.md)
  - [GraphQLResponse](docs/GraphQLResponse.md)
  - [GuardPubkeyStatus](docs/GuardPubkeyStatus.md)
+ - [IsolateDisposition](docs/IsolateDisposition.md)
  - [KeyShareHolder](docs/KeyShareHolder.md)
  - [KeyShareHolderGroup](docs/KeyShareHolderGroup.md)
  - [KeyShareHolderGroupStatus](docs/KeyShareHolderGroupStatus.md)
@@ -721,6 +739,7 @@ Class | Method | HTTP request | Description
  - [RefreshToken2XXResponse](docs/RefreshToken2XXResponse.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [Refund](docs/Refund.md)
+ - [RefundDisposition](docs/RefundDisposition.md)
  - [RefundStatus](docs/RefundStatus.md)
  - [RefundType](docs/RefundType.md)
  - [ReplaceType](docs/ReplaceType.md)
@@ -1006,6 +1025,8 @@ Class | Method | HTTP request | Description
  - [TriggerTestWebhookEvent201Response](docs/TriggerTestWebhookEvent201Response.md)
  - [TriggerTestWebhookEventRequest](docs/TriggerTestWebhookEventRequest.md)
  - [UTXO](docs/UTXO.md)
+ - [UnfreezeDisposition](docs/UnfreezeDisposition.md)
+ - [UpdateAddressBookParam](docs/UpdateAddressBookParam.md)
  - [UpdateCustodialWalletParams](docs/UpdateCustodialWalletParams.md)
  - [UpdateExchangeWalletParams](docs/UpdateExchangeWalletParams.md)
  - [UpdateGroupAction](docs/UpdateGroupAction.md)
@@ -1070,7 +1091,7 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: https://auth.cobo.com/authorize
 - **Scopes**: 
-  - address_book.read: Read address book
+  - address_book.read: Read Address Book
   - api_key.read: Read API key information
   - callback.read: Read callback message
   - callback.resend: Resend callback message
@@ -1117,6 +1138,10 @@ Authentication schemes defined for the API:
   - payment_merchant.update: Update payment merchant
   - payment_force_sweep.create: Create payment force sweep request
   - payment_force_sweep.read: Read payment force sweep request information
+  - compliance_funds.refund: Refund compliance funds request
+  - compliance_funds.isolate: Isolate compliance funds request
+  - compliance_funds.unfreeze: Unfreeze compliance funds request
+  - compliance_funds.read: Read compliance funds request information
 
 
 ## Recommendation

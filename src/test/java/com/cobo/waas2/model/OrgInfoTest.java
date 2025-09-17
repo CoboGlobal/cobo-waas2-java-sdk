@@ -44,6 +44,14 @@ public class OrgInfoTest {
     }
 
     /**
+     * Test the property 'bizOrgId'
+     */
+    @Test
+    public void bizOrgIdTest() {
+        // TODO: test bizOrgId
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test
