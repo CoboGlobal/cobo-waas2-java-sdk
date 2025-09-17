@@ -117,7 +117,7 @@ public class TransactionsApiTest {
     /**
      * Sign message
      *
-     * This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](https://www.cobo.com/developers/v2/api-references/transactions/get-transaction-information).   &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt; 
+     * This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](https://www.cobo.com/developers/v2/api-references/transactions/get-transaction-information).   &lt;Note&gt; This operation only supports message signing transactions from the following wallets and chains: - MPC Wallets: BTC, EVM-compatible chains, Cosmos, and Solana.   - Web3 Wallets: EVM-compatible chains. &lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -200,9 +200,9 @@ public class TransactionsApiTest {
     }
 
     /**
-     * List transaction approval details
+     * List approval details
      *
-     * This operation retrieves detailed approval information for a specified transaction. 
+     * This operation retrieves comprehensive approval information for transactions, including approval status, reviewer details, signatures, and approval history. You can filter the results by transaction IDs, Cobo IDs, or request IDs.   This operation is commonly used to monitor approval progress and identify delays in multi-signature workflows. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -231,9 +231,9 @@ public class TransactionsApiTest {
     }
 
     /**
-     * list transaction templates
+     * List transaction templates
      *
-     * This operation retrieves transaction templates based on the specified transaction type and template version. The response includes a list of templates that can be used for creating transactions approval message. 
+     * This operation retrieves approval templates based on the specified template key and template version.  These templates define the content used to generate approval messages displayed to users, including messages for transaction approvals and other approval workflows. 
      *
      * @throws ApiException if the Api call fails
      */

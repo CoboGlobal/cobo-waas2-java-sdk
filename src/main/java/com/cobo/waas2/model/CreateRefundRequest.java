@@ -140,7 +140,7 @@ public class CreateRefundRequest {
   }
 
    /**
-   * The amount to refund in cryptocurrency. The amount must be a positive integer with up to two decimal places.
+   * The amount to refund in cryptocurrency. The amount must be a positive number and can have up to two decimal places
    * @return payableAmount
   **/
   @javax.annotation.Nonnull

@@ -61,14 +61,14 @@ public class AutoSweepApi {
 
     /**
      * Build call for createAutoSweepTask
-     * @param createAutoSweepTask The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * @param createAutoSweepTask The request body to create an auto-sweep task. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully create auto sweep task </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successfully created auto-sweep task. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -112,15 +112,15 @@ public class AutoSweepApi {
     }
 
     /**
-     * create auto sweep task
-     * This operation create a new auto sweep task. 
-     * @param createAutoSweepTask The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * Create auto-sweep task
+     * This operation creates an auto-sweep task for the specified wallet and token. The task triggers transactions to sweep the full balance of the specified token to the configured sweep-to address. 
+     * @param createAutoSweepTask The request body to create an auto-sweep task. (optional)
      * @return AutoSweepTask
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully create auto sweep task </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successfully created auto-sweep task. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -131,15 +131,15 @@ public class AutoSweepApi {
     }
 
     /**
-     * create auto sweep task
-     * This operation create a new auto sweep task. 
-     * @param createAutoSweepTask The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * Create auto-sweep task
+     * This operation creates an auto-sweep task for the specified wallet and token. The task triggers transactions to sweep the full balance of the specified token to the configured sweep-to address. 
+     * @param createAutoSweepTask The request body to create an auto-sweep task. (optional)
      * @return ApiResponse&lt;AutoSweepTask&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully create auto sweep task </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successfully created auto-sweep task. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -151,16 +151,16 @@ public class AutoSweepApi {
     }
 
     /**
-     * create auto sweep task (asynchronously)
-     * This operation create a new auto sweep task. 
-     * @param createAutoSweepTask The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * Create auto-sweep task (asynchronously)
+     * This operation creates an auto-sweep task for the specified wallet and token. The task triggers transactions to sweep the full balance of the specified token to the configured sweep-to address. 
+     * @param createAutoSweepTask The request body to create an auto-sweep task. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully create auto sweep task </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successfully created auto-sweep task. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -174,7 +174,7 @@ public class AutoSweepApi {
     }
     /**
      * Build call for createWalletSweepToAddresses
-     * @param createSweepToAddress The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * @param createSweepToAddress The request body to generates a new sweep-to address within a specified wallet. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -225,9 +225,9 @@ public class AutoSweepApi {
     }
 
     /**
-     * create wallet sweep to addresses
-     * This operation create a new sweep to address for the wallet. The old sweep to address will become invalid. 
-     * @param createSweepToAddress The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * create sweep-to address
+     * This operation creates a new sweep-to address for the specified wallet. The previously sweep-to address for the same token becomes invalid once the new one is created.  Use this operation to change the sweep-to address when your setup changes, you switch networks, or the current address is compromised or tainted by suspicious funds. You can withdraw any remaining balances from the old sweep-to addresses to the new address or another designated destination.  &lt;Note&gt;Sweep-to addresses are only applicable to MPC Wallets and Web3 Wallets with the auto-sweep feature enabled.&lt;/Note&gt; 
+     * @param createSweepToAddress The request body to generates a new sweep-to address within a specified wallet. (optional)
      * @return SweepToAddress
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -244,9 +244,9 @@ public class AutoSweepApi {
     }
 
     /**
-     * create wallet sweep to addresses
-     * This operation create a new sweep to address for the wallet. The old sweep to address will become invalid. 
-     * @param createSweepToAddress The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * create sweep-to address
+     * This operation creates a new sweep-to address for the specified wallet. The previously sweep-to address for the same token becomes invalid once the new one is created.  Use this operation to change the sweep-to address when your setup changes, you switch networks, or the current address is compromised or tainted by suspicious funds. You can withdraw any remaining balances from the old sweep-to addresses to the new address or another designated destination.  &lt;Note&gt;Sweep-to addresses are only applicable to MPC Wallets and Web3 Wallets with the auto-sweep feature enabled.&lt;/Note&gt; 
+     * @param createSweepToAddress The request body to generates a new sweep-to address within a specified wallet. (optional)
      * @return ApiResponse&lt;SweepToAddress&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -264,9 +264,9 @@ public class AutoSweepApi {
     }
 
     /**
-     * create wallet sweep to addresses (asynchronously)
-     * This operation create a new sweep to address for the wallet. The old sweep to address will become invalid. 
-     * @param createSweepToAddress The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * create sweep-to address (asynchronously)
+     * This operation creates a new sweep-to address for the specified wallet. The previously sweep-to address for the same token becomes invalid once the new one is created.  Use this operation to change the sweep-to address when your setup changes, you switch networks, or the current address is compromised or tainted by suspicious funds. You can withdraw any remaining balances from the old sweep-to addresses to the new address or another designated destination.  &lt;Note&gt;Sweep-to addresses are only applicable to MPC Wallets and Web3 Wallets with the auto-sweep feature enabled.&lt;/Note&gt; 
+     * @param createSweepToAddress The request body to generates a new sweep-to address within a specified wallet. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -294,7 +294,7 @@ public class AutoSweepApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about a auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information about a auto-sweep task. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -343,15 +343,15 @@ public class AutoSweepApi {
     }
 
     /**
-     * Get auto sweep task information
-     * This operation retrieves detailed information about a specified auto sweep task. 
+     * Get auto-sweep task details
+     * This operation retrieves detailed information about a specified auto-sweep task. 
      * @param taskId The auto sweep task ID. (required)
      * @return AutoSweepTask
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about a auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information about a auto-sweep task. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -362,15 +362,15 @@ public class AutoSweepApi {
     }
 
     /**
-     * Get auto sweep task information
-     * This operation retrieves detailed information about a specified auto sweep task. 
+     * Get auto-sweep task details
+     * This operation retrieves detailed information about a specified auto-sweep task. 
      * @param taskId The auto sweep task ID. (required)
      * @return ApiResponse&lt;AutoSweepTask&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about a auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information about a auto-sweep task. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -382,8 +382,8 @@ public class AutoSweepApi {
     }
 
     /**
-     * Get auto sweep task information (asynchronously)
-     * This operation retrieves detailed information about a specified auto sweep task. 
+     * Get auto-sweep task details (asynchronously)
+     * This operation retrieves detailed information about a specified auto-sweep task. 
      * @param taskId The auto sweep task ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -391,7 +391,7 @@ public class AutoSweepApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about a auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information about a auto-sweep task. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -407,7 +407,7 @@ public class AutoSweepApi {
      * Build call for listAutoSweepTask
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
-     * @param taskIds A list of auto sweep task IDs, separated by comma. (optional)
+     * @param taskIds A list of auto-sweep task IDs, separated by comma. (optional)
      * @param minCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time.  If not provided, the default value is 90 days before the current time. This default value is subject to change.  (optional)
      * @param maxCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time.  If not provided, the default value is the current time. This default value is subject to change.  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -420,7 +420,7 @@ public class AutoSweepApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed auto sweep tasks </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved auto-sweep tasks </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -504,11 +504,11 @@ public class AutoSweepApi {
     }
 
     /**
-     * List wallet auto sweep task
-     * This operation retrieves a list of auto sweep task. 
+     * List auto-sweep tasks
+     * This operation retrieves a list of auto-sweep tasks for the specified wallet. You can filter the results by token ID, task IDs, or a created-time range. 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
-     * @param taskIds A list of auto sweep task IDs, separated by comma. (optional)
+     * @param taskIds A list of auto-sweep task IDs, separated by comma. (optional)
      * @param minCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time.  If not provided, the default value is 90 days before the current time. This default value is subject to change.  (optional)
      * @param maxCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time.  If not provided, the default value is the current time. This default value is subject to change.  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -520,7 +520,7 @@ public class AutoSweepApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed auto sweep tasks </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved auto-sweep tasks </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -531,11 +531,11 @@ public class AutoSweepApi {
     }
 
     /**
-     * List wallet auto sweep task
-     * This operation retrieves a list of auto sweep task. 
+     * List auto-sweep tasks
+     * This operation retrieves a list of auto-sweep tasks for the specified wallet. You can filter the results by token ID, task IDs, or a created-time range. 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
-     * @param taskIds A list of auto sweep task IDs, separated by comma. (optional)
+     * @param taskIds A list of auto-sweep task IDs, separated by comma. (optional)
      * @param minCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time.  If not provided, the default value is 90 days before the current time. This default value is subject to change.  (optional)
      * @param maxCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time.  If not provided, the default value is the current time. This default value is subject to change.  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -547,7 +547,7 @@ public class AutoSweepApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed auto sweep tasks </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved auto-sweep tasks </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -559,11 +559,11 @@ public class AutoSweepApi {
     }
 
     /**
-     * List wallet auto sweep task (asynchronously)
-     * This operation retrieves a list of auto sweep task. 
+     * List auto-sweep tasks (asynchronously)
+     * This operation retrieves a list of auto-sweep tasks for the specified wallet. You can filter the results by token ID, task IDs, or a created-time range. 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
-     * @param taskIds A list of auto sweep task IDs, separated by comma. (optional)
+     * @param taskIds A list of auto-sweep task IDs, separated by comma. (optional)
      * @param minCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time.  If not provided, the default value is 90 days before the current time. This default value is subject to change.  (optional)
      * @param maxCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time.  If not provided, the default value is the current time. This default value is subject to change.  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -576,7 +576,7 @@ public class AutoSweepApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed auto sweep tasks </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved auto-sweep tasks </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -597,7 +597,7 @@ public class AutoSweepApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed sweep to addresses </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved sweep-to addresses </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -649,15 +649,15 @@ public class AutoSweepApi {
     }
 
     /**
-     * List wallet sweep to addresses
-     * This operation retrieves a list of sweep to addresses within your wallet. 
+     * List sweep-to addresses
+     * This operation retrieves a list of sweep-to addresses within your wallet. &lt;Note&gt;Sweep-to addresses are only applicable to MPC Wallets and Web3 Wallets with the auto-sweep feature enabled.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @return ListWalletSweepToAddresses200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed sweep to addresses </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved sweep-to addresses </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -668,15 +668,15 @@ public class AutoSweepApi {
     }
 
     /**
-     * List wallet sweep to addresses
-     * This operation retrieves a list of sweep to addresses within your wallet. 
+     * List sweep-to addresses
+     * This operation retrieves a list of sweep-to addresses within your wallet. &lt;Note&gt;Sweep-to addresses are only applicable to MPC Wallets and Web3 Wallets with the auto-sweep feature enabled.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @return ApiResponse&lt;ListWalletSweepToAddresses200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed sweep to addresses </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved sweep-to addresses </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -688,8 +688,8 @@ public class AutoSweepApi {
     }
 
     /**
-     * List wallet sweep to addresses (asynchronously)
-     * This operation retrieves a list of sweep to addresses within your wallet. 
+     * List sweep-to addresses (asynchronously)
+     * This operation retrieves a list of sweep-to addresses within your wallet. &lt;Note&gt;Sweep-to addresses are only applicable to MPC Wallets and Web3 Wallets with the auto-sweep feature enabled.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -697,7 +697,7 @@ public class AutoSweepApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully listed sweep to addresses </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved sweep-to addresses </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>

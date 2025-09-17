@@ -56,6 +56,10 @@ public class OrgInfo {
   @SerializedName(SERIALIZED_NAME_ORG_ID)
   private String orgId;
 
+  public static final String SERIALIZED_NAME_BIZ_ORG_ID = "biz_org_id";
+  @SerializedName(SERIALIZED_NAME_BIZ_ORG_ID)
+  private Integer bizOrgId;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -83,6 +87,25 @@ public class OrgInfo {
 
   public void setOrgId(String orgId) {
     this.orgId = orgId;
+  }
+
+
+  public OrgInfo bizOrgId(Integer bizOrgId) {
+    this.bizOrgId = bizOrgId;
+    return this;
+  }
+
+   /**
+   * An internal business ID assigned by Cobo. Used mainly by Cobo&#39;s customer support to locate the organization.
+   * @return bizOrgId
+  **/
+  @javax.annotation.Nullable
+  public Integer getBizOrgId() {
+    return bizOrgId;
+  }
+
+  public void setBizOrgId(Integer bizOrgId) {
+    this.bizOrgId = bizOrgId;
   }
 
 
@@ -179,6 +202,7 @@ public class OrgInfo {
     }
     OrgInfo orgInfo = (OrgInfo) o;
     return Objects.equals(this.orgId, orgInfo.orgId) &&
+        Objects.equals(this.bizOrgId, orgInfo.bizOrgId) &&
         Objects.equals(this.name, orgInfo.name) &&
         Objects.equals(this.createdTimestamp, orgInfo.createdTimestamp)&&
         Objects.equals(this.additionalProperties, orgInfo.additionalProperties);
@@ -186,7 +210,7 @@ public class OrgInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(orgId, name, createdTimestamp, additionalProperties);
+    return Objects.hash(orgId, bizOrgId, name, createdTimestamp, additionalProperties);
   }
 
   @Override
@@ -194,6 +218,7 @@ public class OrgInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrgInfo {\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    bizOrgId: ").append(toIndentedString(bizOrgId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -220,6 +245,7 @@ public class OrgInfo {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("org_id");
+    openapiFields.add("biz_org_id");
     openapiFields.add("name");
     openapiFields.add("created_timestamp");
 

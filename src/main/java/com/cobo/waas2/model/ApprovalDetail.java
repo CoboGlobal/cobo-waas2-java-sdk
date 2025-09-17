@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The approval detail data for transaction.
+ * Details of the transaction approval.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -87,7 +87,7 @@ public class ApprovalDetail {
   }
 
    /**
-   * The transaction ID.
+   * Transaction ID.
    * @return transactionId
   **/
   @javax.annotation.Nullable
@@ -106,7 +106,7 @@ public class ApprovalDetail {
   }
 
    /**
-   * The Cobo ID, which can be used to track a transaction.
+   * Cobo ID used to track a transaction.
    * @return coboId
   **/
   @javax.annotation.Nullable
@@ -125,7 +125,7 @@ public class ApprovalDetail {
   }
 
    /**
-   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
+   * Request ID used to track a transaction request.
    * @return requestId
   **/
   @javax.annotation.Nullable

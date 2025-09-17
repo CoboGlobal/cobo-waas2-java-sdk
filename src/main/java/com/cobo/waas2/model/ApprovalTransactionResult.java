@@ -22,25 +22,25 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The transaction approval result. Possible values include:    - &#x60;-1&#x60;: The transaction is rejected.   - &#x60;0&#x60;: The transaction is pending approval.   - &#x60;1&#x60;: The transaction is approved. 
+ * Result of transaction approval. Possible values include:    - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is pending approval.   - &#x60;Approved&#x60;: The transaction is approved. 
  */
 @JsonAdapter(ApprovalTransactionResult.Adapter.class)
 public enum ApprovalTransactionResult {
   UNKNOWN(null),
   
-  REJECTED(-1),
+  REJECTED("Rejected"),
   
-  PENDING(0),
+  PENDING("Pending"),
   
-  APPROVED(1);
+  APPROVED("Approved");
 
-  private Integer value;
+  private String value;
 
-  ApprovalTransactionResult(Integer value) {
+  ApprovalTransactionResult(String value) {
     this.value = value;
   }
 
-  public Integer getValue() {
+  public String getValue() {
     return value;
   }
 
@@ -49,7 +49,7 @@ public enum ApprovalTransactionResult {
     return String.valueOf(value);
   }
 
-  public static ApprovalTransactionResult fromValue(Integer value) {
+  public static ApprovalTransactionResult fromValue(String value) {
     for (ApprovalTransactionResult b : ApprovalTransactionResult.values()) {
       if (b == UNKNOWN) continue;
       if (b.value.equals(value)) {
@@ -68,13 +68,13 @@ public enum ApprovalTransactionResult {
 
     @Override
     public ApprovalTransactionResult read(final JsonReader jsonReader) throws IOException {
-      Integer value = jsonReader.nextInt();
+      String value = jsonReader.nextString();
       return ApprovalTransactionResult.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    Integer value = jsonElement.getAsInt();
+    String value = jsonElement.getAsString();
     ApprovalTransactionResult.fromValue(value);
   }
 }

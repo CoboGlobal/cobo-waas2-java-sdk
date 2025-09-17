@@ -113,7 +113,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The ID of the cryptocurrency.
+   * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -151,7 +151,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant total received amount.
+   * The total amount of the token that has been received by the merchant.
    * @return totalReceivedAmount
   **/
   @javax.annotation.Nullable
@@ -170,7 +170,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant settled amount.
+   * The total amount of the token that has been settled from the merchant&#39;s balance.
    * @return settledAmount
   **/
   @javax.annotation.Nullable
@@ -189,7 +189,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant total refunded amount.
+   * The total amount of the token that has been refunded from the merchant&#39;s balance.
    * @return refundedAmount
   **/
   @javax.annotation.Nullable
@@ -208,7 +208,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant total balance.
+   * The total balance of the token for the merchant.
    * @return totalBalance
   **/
   @javax.annotation.Nullable
@@ -227,7 +227,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant available balance.
+   * The balance available for settlement or refund, in the specified cryptocurrency.
    * @return availableBalance
   **/
   @javax.annotation.Nullable

@@ -105,7 +105,7 @@ public class PaymentWalletBalance {
   }
 
    /**
-   * The ID of the cryptocurrency.
+   * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -124,7 +124,7 @@ public class PaymentWalletBalance {
   }
 
    /**
-   * The payment wallet swept balance.
+   * The total amount of the token on the sweep-to address of the payment wallet.
    * @return sweptBalance
   **/
   @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class PaymentWalletBalance {
   }
 
    /**
-   * The payment wallet available balance.
+   * The balance available for settlement or refund, in the specified cryptocurrency.
    * @return availableBalance
   **/
   @javax.annotation.Nullable
@@ -162,7 +162,7 @@ public class PaymentWalletBalance {
   }
 
    /**
-   * The payment wallet total balance.
+   * The total balance of the token for the payment wallet.
    * @return totalBalance
   **/
   @javax.annotation.Nullable
@@ -181,7 +181,7 @@ public class PaymentWalletBalance {
   }
 
    /**
-   * The payment wallet above sweep threshold balance.
+   * The total amount of funds that exceed the sweep threshold across all receiving addresses in the payment wallet. When the balance on a receiving address exceeds the sweep threshold, those funds become eligible for automatic sweeping and are included in this balance.
    * @return aboveSweepThresholdBalance
   **/
   @javax.annotation.Nullable

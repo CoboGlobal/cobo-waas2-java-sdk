@@ -2,14 +2,14 @@
 
 # ReceivedAmountPerAddress
 
-Total amount of a specific token received at a given address.
+The total amount of the token that has been received at a given address.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**address** | **String** | Receiving address. |  |
-|**totalReceivedAmount** | **String** | Total tokens received at this address, as a decimal string. |  |
+|**address** | **String** | The receiving address. |  |
+|**totalReceivedAmount** | **String** | The total amount of the token that has been received at this address. |  |
 
 
 

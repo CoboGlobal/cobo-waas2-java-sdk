@@ -5,11 +5,9 @@
 ## Enum
 
 
-* `PENDING` (value: `1`)
+* `APPROVED` (value: `"Approved"`)
 
-* `APPROVED` (value: `2`)
-
-* `REJECTED` (value: `3`)
+* `REJECTED` (value: `"Rejected"`)
 
 
 

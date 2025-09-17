@@ -60,6 +60,14 @@ public class ChainInfoTest {
     }
 
     /**
+     * Test the property 'chainIdentifier'
+     */
+    @Test
+    public void chainIdentifierTest() {
+        // TODO: test chainIdentifier
+    }
+
+    /**
      * Test the property 'explorerTxUrl'
      */
     @Test

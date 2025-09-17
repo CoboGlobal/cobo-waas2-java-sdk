@@ -19,6 +19,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,128 +46,36 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Extra information for transaction approval details. 
+ * The information about a request to unfreeze funds.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class ApprovalShowInfo {
-  public static final String SERIALIZED_NAME_ORG_NAME = "org_name";
-  @SerializedName(SERIALIZED_NAME_ORG_NAME)
-  private String orgName;
+public class UnfreezeDisposition {
+  public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
+  private UUID transactionId;
 
-  public static final String SERIALIZED_NAME_WALLET_NAME = "wallet_name";
-  @SerializedName(SERIALIZED_NAME_WALLET_NAME)
-  private String walletName;
-
-  public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
-  @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-  private String environment;
-
-  public static final String SERIALIZED_NAME_FROM_ADDRESS_LABEL = "from_address_label";
-  @SerializedName(SERIALIZED_NAME_FROM_ADDRESS_LABEL)
-  private String fromAddressLabel;
-
-  public static final String SERIALIZED_NAME_TO_ADDRESS_LABEL = "to_address_label";
-  @SerializedName(SERIALIZED_NAME_TO_ADDRESS_LABEL)
-  private String toAddressLabel;
-
-  public ApprovalShowInfo() {
+  public UnfreezeDisposition() {
   }
 
-  public ApprovalShowInfo orgName(String orgName) {
-    this.orgName = orgName;
+  public UnfreezeDisposition transactionId(UUID transactionId) {
+    this.transactionId = transactionId;
     return this;
   }
 
    /**
-   * The name of the organization that the transaction belongs to.
-   * @return orgName
+   * The UUID of the transaction whose funds are to be unfrozen.
+   * @return transactionId
   **/
-  @javax.annotation.Nullable
-  public String getOrgName() {
-    return orgName;
+  @javax.annotation.Nonnull
+  public UUID getTransactionId() {
+    return transactionId;
   }
 
-  public void setOrgName(String orgName) {
-    this.orgName = orgName;
-  }
-
-
-  public ApprovalShowInfo walletName(String walletName) {
-    this.walletName = walletName;
-    return this;
-  }
-
-   /**
-   * The name of the wallet that the transaction belongs to.
-   * @return walletName
-  **/
-  @javax.annotation.Nullable
-  public String getWalletName() {
-    return walletName;
-  }
-
-  public void setWalletName(String walletName) {
-    this.walletName = walletName;
-  }
-
-
-  public ApprovalShowInfo environment(String environment) {
-    this.environment = environment;
-    return this;
-  }
-
-   /**
-   * The environment in which the transaction is processed.
-   * @return environment
-  **/
-  @javax.annotation.Nullable
-  public String getEnvironment() {
-    return environment;
-  }
-
-  public void setEnvironment(String environment) {
-    this.environment = environment;
-  }
-
-
-  public ApprovalShowInfo fromAddressLabel(String fromAddressLabel) {
-    this.fromAddressLabel = fromAddressLabel;
-    return this;
-  }
-
-   /**
-   * The label of the address from which the transaction is initiated.
-   * @return fromAddressLabel
-  **/
-  @javax.annotation.Nullable
-  public String getFromAddressLabel() {
-    return fromAddressLabel;
-  }
-
-  public void setFromAddressLabel(String fromAddressLabel) {
-    this.fromAddressLabel = fromAddressLabel;
-  }
-
-
-  public ApprovalShowInfo toAddressLabel(String toAddressLabel) {
-    this.toAddressLabel = toAddressLabel;
-    return this;
-  }
-
-   /**
-   * The label of the address to which the transaction is sent.
-   * @return toAddressLabel
-  **/
-  @javax.annotation.Nullable
-  public String getToAddressLabel() {
-    return toAddressLabel;
-  }
-
-  public void setToAddressLabel(String toAddressLabel) {
-    this.toAddressLabel = toAddressLabel;
+  public void setTransactionId(UUID transactionId) {
+    this.transactionId = transactionId;
   }
 
   /**
@@ -182,9 +91,9 @@ public class ApprovalShowInfo {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ApprovalShowInfo instance itself
+   * @return the UnfreezeDisposition instance itself
    */
-  public ApprovalShowInfo putAdditionalProperty(String key, Object value) {
+  public UnfreezeDisposition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -223,29 +132,21 @@ public class ApprovalShowInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApprovalShowInfo approvalShowInfo = (ApprovalShowInfo) o;
-    return Objects.equals(this.orgName, approvalShowInfo.orgName) &&
-        Objects.equals(this.walletName, approvalShowInfo.walletName) &&
-        Objects.equals(this.environment, approvalShowInfo.environment) &&
-        Objects.equals(this.fromAddressLabel, approvalShowInfo.fromAddressLabel) &&
-        Objects.equals(this.toAddressLabel, approvalShowInfo.toAddressLabel)&&
-        Objects.equals(this.additionalProperties, approvalShowInfo.additionalProperties);
+    UnfreezeDisposition unfreezeDisposition = (UnfreezeDisposition) o;
+    return Objects.equals(this.transactionId, unfreezeDisposition.transactionId)&&
+        Objects.equals(this.additionalProperties, unfreezeDisposition.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orgName, walletName, environment, fromAddressLabel, toAddressLabel, additionalProperties);
+    return Objects.hash(transactionId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApprovalShowInfo {\n");
-    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
-    sb.append("    walletName: ").append(toIndentedString(walletName)).append("\n");
-    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-    sb.append("    fromAddressLabel: ").append(toIndentedString(fromAddressLabel)).append("\n");
-    sb.append("    toAddressLabel: ").append(toIndentedString(toAddressLabel)).append("\n");
+    sb.append("class UnfreezeDisposition {\n");
+    sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -269,43 +170,35 @@ public class ApprovalShowInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("org_name");
-    openapiFields.add("wallet_name");
-    openapiFields.add("environment");
-    openapiFields.add("from_address_label");
-    openapiFields.add("to_address_label");
+    openapiFields.add("transaction_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("transaction_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ApprovalShowInfo
+  * @throws IOException if the JSON Element is invalid with respect to UnfreezeDisposition
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ApprovalShowInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApprovalShowInfo is not found in the empty JSON string", ApprovalShowInfo.openapiRequiredFields.toString()));
+        if (!UnfreezeDisposition.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UnfreezeDisposition is not found in the empty JSON string", UnfreezeDisposition.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : UnfreezeDisposition.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("org_name") != null && !jsonObj.get("org_name").isJsonNull()) && !jsonObj.get("org_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `org_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("org_name").toString()));
-      }
-      if ((jsonObj.get("wallet_name") != null && !jsonObj.get("wallet_name").isJsonNull()) && !jsonObj.get("wallet_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wallet_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_name").toString()));
-      }
-      if ((jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull()) && !jsonObj.get("environment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `environment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("environment").toString()));
-      }
-      if ((jsonObj.get("from_address_label") != null && !jsonObj.get("from_address_label").isJsonNull()) && !jsonObj.get("from_address_label").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `from_address_label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("from_address_label").toString()));
-      }
-      if ((jsonObj.get("to_address_label") != null && !jsonObj.get("to_address_label").isJsonNull()) && !jsonObj.get("to_address_label").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `to_address_label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to_address_label").toString()));
+      if (!jsonObj.get("transaction_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transaction_id").toString()));
       }
   }
 
@@ -313,16 +206,16 @@ public class ApprovalShowInfo {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApprovalShowInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApprovalShowInfo' and its subtypes
+       if (!UnfreezeDisposition.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UnfreezeDisposition' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApprovalShowInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApprovalShowInfo.class));
+       final TypeAdapter<UnfreezeDisposition> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UnfreezeDisposition.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ApprovalShowInfo>() {
+       return (TypeAdapter<T>) new TypeAdapter<UnfreezeDisposition>() {
            @Override
-           public void write(JsonWriter out, ApprovalShowInfo value) throws IOException {
+           public void write(JsonWriter out, UnfreezeDisposition value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -352,12 +245,12 @@ public class ApprovalShowInfo {
            }
 
            @Override
-           public ApprovalShowInfo read(JsonReader in) throws IOException {
+           public UnfreezeDisposition read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ApprovalShowInfo instance = thisAdapter.fromJsonTree(jsonObj);
+             UnfreezeDisposition instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -384,18 +277,18 @@ public class ApprovalShowInfo {
   }
 
  /**
-  * Create an instance of ApprovalShowInfo given an JSON string
+  * Create an instance of UnfreezeDisposition given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ApprovalShowInfo
-  * @throws IOException if the JSON string is invalid with respect to ApprovalShowInfo
+  * @return An instance of UnfreezeDisposition
+  * @throws IOException if the JSON string is invalid with respect to UnfreezeDisposition
   */
-  public static ApprovalShowInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ApprovalShowInfo.class);
+  public static UnfreezeDisposition fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UnfreezeDisposition.class);
   }
 
  /**
-  * Convert an instance of ApprovalShowInfo to an JSON string
+  * Convert an instance of UnfreezeDisposition to an JSON string
   *
   * @return JSON string
   */

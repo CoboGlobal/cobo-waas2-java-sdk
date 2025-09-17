@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The template for transaction approval details.
+ * Approval template details.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -73,7 +73,7 @@ public class ApprovalTemplate {
   }
 
    /**
-   * The business key that is used to identify the transaction.
+   * Business key used to identify the type of approval template.
    * @return businessKey
   **/
   @javax.annotation.Nullable
@@ -92,7 +92,7 @@ public class ApprovalTemplate {
   }
 
    /**
-   * The template text that is used for the transaction approval.
+   * Text content defined in the approval template used to generate approval messages shown to users
    * @return templateText
   **/
   @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class ApprovalTemplate {
   }
 
    /**
-   * The version of the template used for the transaction approval.
+   * Version of the approval template.
    * @return templateVersion
   **/
   @javax.annotation.Nullable

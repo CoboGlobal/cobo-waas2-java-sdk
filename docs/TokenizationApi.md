@@ -13,7 +13,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**listIssuedTokens**](TokenizationApi.md#listIssuedTokens) | **GET** /tokenization/tokens | List issued tokens |
 | [**listTokenizationActivities**](TokenizationApi.md#listTokenizationActivities) | **GET** /tokenization/activities | List tokenization activities |
 | [**listTokenizationAllowlistAddresses**](TokenizationApi.md#listTokenizationAllowlistAddresses) | **GET** /tokenization/tokens/{token_id}/allowlist/addresses | List addresses on allowlist |
-| [**listTokenizationBlocklistAddresses**](TokenizationApi.md#listTokenizationBlocklistAddresses) | **GET** /tokenization/tokens/{token_id}/blocklist/addresses | Lists addresses on blocklist |
+| [**listTokenizationBlocklistAddresses**](TokenizationApi.md#listTokenizationBlocklistAddresses) | **GET** /tokenization/tokens/{token_id}/blocklist/addresses | List addresses on blocklist |
 | [**listTokenizationHoldings**](TokenizationApi.md#listTokenizationHoldings) | **GET** /tokenization/tokens/{token_id}/holdings | Get token holdings information |
 | [**listTokenizationSupportedChains**](TokenizationApi.md#listTokenizationSupportedChains) | **GET** /tokenization/enabled_chains | List supported chains for tokenization |
 | [**mintTokenization**](TokenizationApi.md#mintTokenization) | **POST** /tokenization/tokens/{token_id}/mint | Mint tokens |
@@ -675,7 +675,7 @@ public class Example {
 # **listTokenizationBlocklistAddresses**
 > ListTokenizationBlocklistAddresses200Response listTokenizationBlocklistAddresses(tokenId, limit, after, before, direction)
 
-Lists addresses on blocklist
+List addresses on blocklist
 
 This operation lists addresses on the blocklist. 
 

@@ -40,7 +40,6 @@ docs/ApprovalEntry.md
 docs/ApprovalRequest.md
 docs/ApprovalRequestDetail.md
 docs/ApprovalResult.md
-docs/ApprovalShowInfo.md
 docs/ApprovalStatementStatus.md
 docs/ApprovalStatus.md
 docs/ApprovalTemplate.md
@@ -90,6 +89,8 @@ docs/CheckAddressesValidity200ResponseInner.md
 docs/CheckLoopTransfers200ResponseInner.md
 docs/CoboSafeDelegate.md
 docs/CoboSafeDelegateType.md
+docs/ComplianceApi.md
+docs/ComplianceDispositionUpdateEventData.md
 docs/ContractCallDestination.md
 docs/ContractCallDestinationType.md
 docs/ContractCallParams.md
@@ -101,6 +102,9 @@ docs/CoreStakingExtra.md
 docs/CosmosAdr36MessageSignDestination.md
 docs/CosmosContractCallDestination.md
 docs/CosmosContractCallMessage.md
+docs/CreateAddressBookParam.md
+docs/CreateAddressBooks201Response.md
+docs/CreateAddressBooksParam.md
 docs/CreateAddressRequest.md
 docs/CreateApprovalRequest201Response.md
 docs/CreateAutoSweepTask.md
@@ -152,6 +156,7 @@ docs/CustodialWalletInfo.md
 docs/CustodialWeb3ContractCallSource.md
 docs/CustodialWeb3MessageSignSource.md
 docs/CustodialWeb3TransferSource.md
+docs/DeleteAddressBookById201Response.md
 docs/DeleteCryptoAddress201Response.md
 docs/DeleteGuardPubkey201Response.md
 docs/DeleteKeyShareHolderGroupById201Response.md
@@ -159,6 +164,11 @@ docs/DeleteWalletById201Response.md
 docs/DestinationWalletType.md
 docs/DevelopersApi.md
 docs/DevelopersWebhooksApi.md
+docs/DispositionEventData.md
+docs/DispositionQueryResponse.md
+docs/DispositionResponse.md
+docs/DispositionStatus.md
+docs/DispositionType.md
 docs/EigenLayerLstStakeExtra.md
 docs/EigenLayerNativeStakeExtra.md
 docs/EigenlayerValidator.md
@@ -234,6 +244,7 @@ docs/GraphQLErrorLocationsInner.md
 docs/GraphQLRequest.md
 docs/GraphQLResponse.md
 docs/GuardPubkeyStatus.md
+docs/IsolateDisposition.md
 docs/KeyShareHolder.md
 docs/KeyShareHolderGroup.md
 docs/KeyShareHolderGroupStatus.md
@@ -349,6 +360,7 @@ docs/RefreshPermissionTokenRequest.md
 docs/RefreshToken2XXResponse.md
 docs/RefreshTokenRequest.md
 docs/Refund.md
+docs/RefundDisposition.md
 docs/RefundStatus.md
 docs/RefundType.md
 docs/ReplaceType.md
@@ -638,6 +650,8 @@ docs/TravelRuleWithdrawRequestTravelRuleInfo.md
 docs/TriggerTestWebhookEvent201Response.md
 docs/TriggerTestWebhookEventRequest.md
 docs/UTXO.md
+docs/UnfreezeDisposition.md
+docs/UpdateAddressBookParam.md
 docs/UpdateCustodialWalletParams.md
 docs/UpdateExchangeWalletParams.md
 docs/UpdateGroupAction.md
@@ -699,6 +713,7 @@ src/main/java/com/cobo/waas2/StringUtil.java
 src/main/java/com/cobo/waas2/api/AddressBooksApi.java
 src/main/java/com/cobo/waas2/api/AppWorkflowsApi.java
 src/main/java/com/cobo/waas2/api/AutoSweepApi.java
+src/main/java/com/cobo/waas2/api/ComplianceApi.java
 src/main/java/com/cobo/waas2/api/DevelopersApi.java
 src/main/java/com/cobo/waas2/api/DevelopersWebhooksApi.java
 src/main/java/com/cobo/waas2/api/FeeStationApi.java
@@ -759,7 +774,6 @@ src/main/java/com/cobo/waas2/model/ApprovalEntry.java
 src/main/java/com/cobo/waas2/model/ApprovalRequest.java
 src/main/java/com/cobo/waas2/model/ApprovalRequestDetail.java
 src/main/java/com/cobo/waas2/model/ApprovalResult.java
-src/main/java/com/cobo/waas2/model/ApprovalShowInfo.java
 src/main/java/com/cobo/waas2/model/ApprovalStatementStatus.java
 src/main/java/com/cobo/waas2/model/ApprovalStatus.java
 src/main/java/com/cobo/waas2/model/ApprovalTemplate.java
@@ -808,6 +822,7 @@ src/main/java/com/cobo/waas2/model/CheckAddressesValidity200ResponseInner.java
 src/main/java/com/cobo/waas2/model/CheckLoopTransfers200ResponseInner.java
 src/main/java/com/cobo/waas2/model/CoboSafeDelegate.java
 src/main/java/com/cobo/waas2/model/CoboSafeDelegateType.java
+src/main/java/com/cobo/waas2/model/ComplianceDispositionUpdateEventData.java
 src/main/java/com/cobo/waas2/model/ContractCallDestination.java
 src/main/java/com/cobo/waas2/model/ContractCallDestinationType.java
 src/main/java/com/cobo/waas2/model/ContractCallParams.java
@@ -819,6 +834,9 @@ src/main/java/com/cobo/waas2/model/CoreStakingExtra.java
 src/main/java/com/cobo/waas2/model/CosmosAdr36MessageSignDestination.java
 src/main/java/com/cobo/waas2/model/CosmosContractCallDestination.java
 src/main/java/com/cobo/waas2/model/CosmosContractCallMessage.java
+src/main/java/com/cobo/waas2/model/CreateAddressBookParam.java
+src/main/java/com/cobo/waas2/model/CreateAddressBooks201Response.java
+src/main/java/com/cobo/waas2/model/CreateAddressBooksParam.java
 src/main/java/com/cobo/waas2/model/CreateAddressRequest.java
 src/main/java/com/cobo/waas2/model/CreateApprovalRequest201Response.java
 src/main/java/com/cobo/waas2/model/CreateAutoSweepTask.java
@@ -870,11 +888,17 @@ src/main/java/com/cobo/waas2/model/CustodialWalletInfo.java
 src/main/java/com/cobo/waas2/model/CustodialWeb3ContractCallSource.java
 src/main/java/com/cobo/waas2/model/CustodialWeb3MessageSignSource.java
 src/main/java/com/cobo/waas2/model/CustodialWeb3TransferSource.java
+src/main/java/com/cobo/waas2/model/DeleteAddressBookById201Response.java
 src/main/java/com/cobo/waas2/model/DeleteCryptoAddress201Response.java
 src/main/java/com/cobo/waas2/model/DeleteGuardPubkey201Response.java
 src/main/java/com/cobo/waas2/model/DeleteKeyShareHolderGroupById201Response.java
 src/main/java/com/cobo/waas2/model/DeleteWalletById201Response.java
 src/main/java/com/cobo/waas2/model/DestinationWalletType.java
+src/main/java/com/cobo/waas2/model/DispositionEventData.java
+src/main/java/com/cobo/waas2/model/DispositionQueryResponse.java
+src/main/java/com/cobo/waas2/model/DispositionResponse.java
+src/main/java/com/cobo/waas2/model/DispositionStatus.java
+src/main/java/com/cobo/waas2/model/DispositionType.java
 src/main/java/com/cobo/waas2/model/EigenLayerLstStakeExtra.java
 src/main/java/com/cobo/waas2/model/EigenLayerNativeStakeExtra.java
 src/main/java/com/cobo/waas2/model/EigenlayerValidator.java
@@ -949,6 +973,7 @@ src/main/java/com/cobo/waas2/model/GraphQLErrorLocationsInner.java
 src/main/java/com/cobo/waas2/model/GraphQLRequest.java
 src/main/java/com/cobo/waas2/model/GraphQLResponse.java
 src/main/java/com/cobo/waas2/model/GuardPubkeyStatus.java
+src/main/java/com/cobo/waas2/model/IsolateDisposition.java
 src/main/java/com/cobo/waas2/model/KeyShareHolder.java
 src/main/java/com/cobo/waas2/model/KeyShareHolderGroup.java
 src/main/java/com/cobo/waas2/model/KeyShareHolderGroupStatus.java
@@ -1060,6 +1085,7 @@ src/main/java/com/cobo/waas2/model/RefreshPermissionTokenRequest.java
 src/main/java/com/cobo/waas2/model/RefreshToken2XXResponse.java
 src/main/java/com/cobo/waas2/model/RefreshTokenRequest.java
 src/main/java/com/cobo/waas2/model/Refund.java
+src/main/java/com/cobo/waas2/model/RefundDisposition.java
 src/main/java/com/cobo/waas2/model/RefundStatus.java
 src/main/java/com/cobo/waas2/model/RefundType.java
 src/main/java/com/cobo/waas2/model/ReplaceType.java
@@ -1345,6 +1371,8 @@ src/main/java/com/cobo/waas2/model/TravelRuleWithdrawRequestTravelRuleInfo.java
 src/main/java/com/cobo/waas2/model/TriggerTestWebhookEvent201Response.java
 src/main/java/com/cobo/waas2/model/TriggerTestWebhookEventRequest.java
 src/main/java/com/cobo/waas2/model/UTXO.java
+src/main/java/com/cobo/waas2/model/UnfreezeDisposition.java
+src/main/java/com/cobo/waas2/model/UpdateAddressBookParam.java
 src/main/java/com/cobo/waas2/model/UpdateCustodialWalletParams.java
 src/main/java/com/cobo/waas2/model/UpdateExchangeWalletParams.java
 src/main/java/com/cobo/waas2/model/UpdateGroupAction.java
@@ -1377,6 +1405,7 @@ src/main/java/com/cobo/waas2/model/WebhookEventType.java
 src/test/java/com/cobo/waas2/api/AddressBooksApiTest.java
 src/test/java/com/cobo/waas2/api/AppWorkflowsApiTest.java
 src/test/java/com/cobo/waas2/api/AutoSweepApiTest.java
+src/test/java/com/cobo/waas2/api/ComplianceApiTest.java
 src/test/java/com/cobo/waas2/api/DevelopersApiTest.java
 src/test/java/com/cobo/waas2/api/DevelopersWebhooksApiTest.java
 src/test/java/com/cobo/waas2/api/FeeStationApiTest.java
@@ -1422,7 +1451,6 @@ src/test/java/com/cobo/waas2/model/ApprovalEntryTest.java
 src/test/java/com/cobo/waas2/model/ApprovalRequestDetailTest.java
 src/test/java/com/cobo/waas2/model/ApprovalRequestTest.java
 src/test/java/com/cobo/waas2/model/ApprovalResultTest.java
-src/test/java/com/cobo/waas2/model/ApprovalShowInfoTest.java
 src/test/java/com/cobo/waas2/model/ApprovalStatementStatusTest.java
 src/test/java/com/cobo/waas2/model/ApprovalStatusTest.java
 src/test/java/com/cobo/waas2/model/ApprovalTemplateTest.java
@@ -1471,6 +1499,7 @@ src/test/java/com/cobo/waas2/model/CheckAddressesValidity200ResponseInnerTest.ja
 src/test/java/com/cobo/waas2/model/CheckLoopTransfers200ResponseInnerTest.java
 src/test/java/com/cobo/waas2/model/CoboSafeDelegateTest.java
 src/test/java/com/cobo/waas2/model/CoboSafeDelegateTypeTest.java
+src/test/java/com/cobo/waas2/model/ComplianceDispositionUpdateEventDataTest.java
 src/test/java/com/cobo/waas2/model/ContractCallDestinationTest.java
 src/test/java/com/cobo/waas2/model/ContractCallDestinationTypeTest.java
 src/test/java/com/cobo/waas2/model/ContractCallParamsTest.java
@@ -1482,6 +1511,9 @@ src/test/java/com/cobo/waas2/model/CoreStakingExtraTest.java
 src/test/java/com/cobo/waas2/model/CosmosAdr36MessageSignDestinationTest.java
 src/test/java/com/cobo/waas2/model/CosmosContractCallDestinationTest.java
 src/test/java/com/cobo/waas2/model/CosmosContractCallMessageTest.java
+src/test/java/com/cobo/waas2/model/CreateAddressBookParamTest.java
+src/test/java/com/cobo/waas2/model/CreateAddressBooks201ResponseTest.java
+src/test/java/com/cobo/waas2/model/CreateAddressBooksParamTest.java
 src/test/java/com/cobo/waas2/model/CreateAddressRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateApprovalRequest201ResponseTest.java
 src/test/java/com/cobo/waas2/model/CreateAutoSweepTaskTest.java
@@ -1533,11 +1565,17 @@ src/test/java/com/cobo/waas2/model/CustodialWalletInfoTest.java
 src/test/java/com/cobo/waas2/model/CustodialWeb3ContractCallSourceTest.java
 src/test/java/com/cobo/waas2/model/CustodialWeb3MessageSignSourceTest.java
 src/test/java/com/cobo/waas2/model/CustodialWeb3TransferSourceTest.java
+src/test/java/com/cobo/waas2/model/DeleteAddressBookById201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteCryptoAddress201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteGuardPubkey201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteKeyShareHolderGroupById201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteWalletById201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DestinationWalletTypeTest.java
+src/test/java/com/cobo/waas2/model/DispositionEventDataTest.java
+src/test/java/com/cobo/waas2/model/DispositionQueryResponseTest.java
+src/test/java/com/cobo/waas2/model/DispositionResponseTest.java
+src/test/java/com/cobo/waas2/model/DispositionStatusTest.java
+src/test/java/com/cobo/waas2/model/DispositionTypeTest.java
 src/test/java/com/cobo/waas2/model/EigenLayerLstStakeExtraTest.java
 src/test/java/com/cobo/waas2/model/EigenLayerNativeStakeExtraTest.java
 src/test/java/com/cobo/waas2/model/EigenlayerValidatorTest.java
@@ -1612,6 +1650,7 @@ src/test/java/com/cobo/waas2/model/GraphQLErrorTest.java
 src/test/java/com/cobo/waas2/model/GraphQLRequestTest.java
 src/test/java/com/cobo/waas2/model/GraphQLResponseTest.java
 src/test/java/com/cobo/waas2/model/GuardPubkeyStatusTest.java
+src/test/java/com/cobo/waas2/model/IsolateDispositionTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderGroupStatusTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderGroupTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderGroupTypeTest.java
@@ -1722,6 +1761,7 @@ src/test/java/com/cobo/waas2/model/RefreshAddressBalancesByTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/RefreshPermissionTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/RefreshToken2XXResponseTest.java
 src/test/java/com/cobo/waas2/model/RefreshTokenRequestTest.java
+src/test/java/com/cobo/waas2/model/RefundDispositionTest.java
 src/test/java/com/cobo/waas2/model/RefundStatusTest.java
 src/test/java/com/cobo/waas2/model/RefundTest.java
 src/test/java/com/cobo/waas2/model/RefundTypeTest.java
@@ -2008,6 +2048,8 @@ src/test/java/com/cobo/waas2/model/TravelRuleWithdrawRequestTravelRuleInfoTest.j
 src/test/java/com/cobo/waas2/model/TriggerTestWebhookEvent201ResponseTest.java
 src/test/java/com/cobo/waas2/model/TriggerTestWebhookEventRequestTest.java
 src/test/java/com/cobo/waas2/model/UTXOTest.java
+src/test/java/com/cobo/waas2/model/UnfreezeDispositionTest.java
+src/test/java/com/cobo/waas2/model/UpdateAddressBookParamTest.java
 src/test/java/com/cobo/waas2/model/UpdateCustodialWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/UpdateExchangeWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/UpdateGroupActionTest.java

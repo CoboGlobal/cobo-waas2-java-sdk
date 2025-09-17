@@ -49,7 +49,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The auto sweep task information.
+ * Auto-sweep task information.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -97,7 +97,7 @@ public class AutoSweepTask {
   }
 
    /**
-   * The auto sweep task ID.
+   * Auto-sweep task ID.
    * @return taskId
   **/
   @javax.annotation.Nonnull
@@ -116,7 +116,7 @@ public class AutoSweepTask {
   }
 
    /**
-   * The wallet ID.
+   * Wallet ID.
    * @return walletId
   **/
   @javax.annotation.Nonnull
@@ -135,7 +135,7 @@ public class AutoSweepTask {
   }
 
    /**
-   * The token ID of the swept token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
+   * Token ID of the swept token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -181,7 +181,7 @@ public class AutoSweepTask {
   }
 
    /**
-   * The IDs of the corresponding transactions of the auto sweep task.
+   * IDs of the transactions triggered by the task.
    * @return transactionIds
   **/
   @javax.annotation.Nullable
@@ -208,7 +208,7 @@ public class AutoSweepTask {
   }
 
    /**
-   * Failed reason of create auto sweep transaction.
+   * Reasons why the task creation failed.
    * @return failedReasons
   **/
   @javax.annotation.Nullable

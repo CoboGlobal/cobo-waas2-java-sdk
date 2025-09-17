@@ -116,7 +116,7 @@ public class PaymentApiTest {
     /**
      * Create merchant
      *
-     * This operation creates a merchant and links it to a specified wallet. Payments to the merchant will be deposited into the linked wallet.  Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information. 
+     * This operation creates a merchant and links it to a specified wallet. Payments to the merchant will be deposited into the linked wallet.  Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information.  If you are a merchant (directly serving the payer), you only need to create one merchant and do not need to configure the developer fee rate. The developer fee rate only applies to platforms such as payment service providers (PSPs) that charge fees to their downstream merchants. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -199,9 +199,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Get payer balance by address
+     * Get payer balance
      *
-     * This operation retrieves aggregated balance details for a specific token and payer, with amounts grouped by address. 
+     * This operation retrieves the total amount received for a specific payer. The information is grouped by token and receiving address. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -229,9 +229,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Get psp balance
+     * Get developer balance
      *
-     * This operation retrieves the information of psp balance. 
+     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -368,7 +368,7 @@ public class PaymentApiTest {
     /**
      * List merchant balances
      *
-     * This operation retrieves the information of merchant balances. 
+     * This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -434,7 +434,7 @@ public class PaymentApiTest {
     /**
      * List payment wallet balances
      *
-     * This operation retrieves the information of payment wallet balances. 
+     * This operation retrieves the balance information for specified payment wallets. The balance information is grouped by token. If you do not specify the &#x60;wallet_ids&#x60; parameter, the balance information for all payment wallets will be returned. 
      *
      * @throws ApiException if the Api call fails
      */

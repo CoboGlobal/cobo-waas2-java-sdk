@@ -51,7 +51,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information of an address book entry.
+ * The information of an Address Book entry.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -111,7 +111,7 @@ public class AddressBook {
   }
 
    /**
-   * The organization ID.
+   * Organization ID.
    * @return orgId
   **/
   @javax.annotation.Nonnull
@@ -130,7 +130,7 @@ public class AddressBook {
   }
 
    /**
-   * The entry ID.
+   * Address Book entry ID.
    * @return entryId
   **/
   @javax.annotation.Nonnull
@@ -149,7 +149,7 @@ public class AddressBook {
   }
 
    /**
-   * The wallet address.
+   * Wallet address.
    * @return address
   **/
   @javax.annotation.Nonnull
@@ -168,7 +168,7 @@ public class AddressBook {
   }
 
    /**
-   * The memo.
+   * Optional memo or tag required by some chains.
    * @return memo
   **/
   @javax.annotation.Nullable
@@ -187,7 +187,7 @@ public class AddressBook {
   }
 
    /**
-   * The wallet name.
+   * Wallet name.
    * @return walletName
   **/
   @javax.annotation.Nullable
@@ -244,7 +244,7 @@ public class AddressBook {
   }
 
    /**
-   * The address label.
+   * A user-defined label for the address.
    * @return label
   **/
   @javax.annotation.Nonnull
@@ -290,7 +290,7 @@ public class AddressBook {
   }
 
    /**
-   * The email of the address owner.
+   * Email of the address owner.
    * @return email
   **/
   @javax.annotation.Nullable

@@ -206,7 +206,7 @@ public class TokenizationApiTest {
     }
 
     /**
-     * Lists addresses on blocklist
+     * List addresses on blocklist
      *
      * This operation lists addresses on the blocklist. 
      *

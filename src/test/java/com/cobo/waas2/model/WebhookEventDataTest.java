@@ -18,6 +18,9 @@ import com.cobo.waas2.model.Balance;
 import com.cobo.waas2.model.BalanceUpdateInfoEventData;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.ChainsEventData;
+import com.cobo.waas2.model.ComplianceDispositionUpdateEventData;
+import com.cobo.waas2.model.DispositionStatus;
+import com.cobo.waas2.model.DispositionType;
 import com.cobo.waas2.model.MPCVaultEventData;
 import com.cobo.waas2.model.PaymentAddressUpdateEventData;
 import com.cobo.waas2.model.PaymentOrderEventData;
@@ -760,6 +763,38 @@ public class WebhookEventDataTest {
     @Test
     public void updatedAddressTest() {
         // TODO: test updatedAddress
+    }
+
+    /**
+     * Test the property 'dispositionType'
+     */
+    @Test
+    public void dispositionTypeTest() {
+        // TODO: test dispositionType
+    }
+
+    /**
+     * Test the property 'dispositionStatus'
+     */
+    @Test
+    public void dispositionStatusTest() {
+        // TODO: test dispositionStatus
+    }
+
+    /**
+     * Test the property 'destinationAddress'
+     */
+    @Test
+    public void destinationAddressTest() {
+        // TODO: test destinationAddress
+    }
+
+    /**
+     * Test the property 'dispositionAmount'
+     */
+    @Test
+    public void dispositionAmountTest() {
+        // TODO: test dispositionAmount
     }
 
 }

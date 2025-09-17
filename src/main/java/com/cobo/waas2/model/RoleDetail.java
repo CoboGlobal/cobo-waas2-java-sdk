@@ -49,7 +49,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Transaction approval details response schema.
+ * Details of the role in a transaction approval.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -60,9 +60,21 @@ public class RoleDetail {
   @SerializedName(SERIALIZED_NAME_RESULT)
   private ApprovalTransactionResult result;
 
-  public static final String SERIALIZED_NAME_THRESHOLD = "threshold";
-  @SerializedName(SERIALIZED_NAME_THRESHOLD)
-  private Integer threshold;
+  public static final String SERIALIZED_NAME_REVIEW_THRESHOLD = "review_threshold";
+  @SerializedName(SERIALIZED_NAME_REVIEW_THRESHOLD)
+  private Integer reviewThreshold;
+
+  public static final String SERIALIZED_NAME_INITIATOR = "initiator";
+  @SerializedName(SERIALIZED_NAME_INITIATOR)
+  private String initiator;
+
+  public static final String SERIALIZED_NAME_IS_UPGRADED = "is_upgraded";
+  @SerializedName(SERIALIZED_NAME_IS_UPGRADED)
+  private Boolean isUpgraded;
+
+  public static final String SERIALIZED_NAME_COMPLETE_TIME = "complete_time";
+  @SerializedName(SERIALIZED_NAME_COMPLETE_TIME)
+  private String completeTime;
 
   public static final String SERIALIZED_NAME_USER_DETAILS = "user_details";
   @SerializedName(SERIALIZED_NAME_USER_DETAILS)
@@ -90,22 +102,79 @@ public class RoleDetail {
   }
 
 
-  public RoleDetail threshold(Integer threshold) {
-    this.threshold = threshold;
+  public RoleDetail reviewThreshold(Integer reviewThreshold) {
+    this.reviewThreshold = reviewThreshold;
     return this;
   }
 
    /**
-   * The threshold for the transaction approval.
-   * @return threshold
+   * Minimum number of approvals required for this role.
+   * @return reviewThreshold
   **/
   @javax.annotation.Nullable
-  public Integer getThreshold() {
-    return threshold;
+  public Integer getReviewThreshold() {
+    return reviewThreshold;
   }
 
-  public void setThreshold(Integer threshold) {
-    this.threshold = threshold;
+  public void setReviewThreshold(Integer reviewThreshold) {
+    this.reviewThreshold = reviewThreshold;
+  }
+
+
+  public RoleDetail initiator(String initiator) {
+    this.initiator = initiator;
+    return this;
+  }
+
+   /**
+   * The initiator of the transaction.
+   * @return initiator
+  **/
+  @javax.annotation.Nullable
+  public String getInitiator() {
+    return initiator;
+  }
+
+  public void setInitiator(String initiator) {
+    this.initiator = initiator;
+  }
+
+
+  public RoleDetail isUpgraded(Boolean isUpgraded) {
+    this.isUpgraded = isUpgraded;
+    return this;
+  }
+
+   /**
+   * Indicates whether the transaction approval has been upgraded.
+   * @return isUpgraded
+  **/
+  @javax.annotation.Nullable
+  public Boolean getIsUpgraded() {
+    return isUpgraded;
+  }
+
+  public void setIsUpgraded(Boolean isUpgraded) {
+    this.isUpgraded = isUpgraded;
+  }
+
+
+  public RoleDetail completeTime(String completeTime) {
+    this.completeTime = completeTime;
+    return this;
+  }
+
+   /**
+   * Time when the role completed the approval.
+   * @return completeTime
+  **/
+  @javax.annotation.Nullable
+  public String getCompleteTime() {
+    return completeTime;
+  }
+
+  public void setCompleteTime(String completeTime) {
+    this.completeTime = completeTime;
   }
 
 
@@ -191,14 +260,17 @@ public class RoleDetail {
     }
     RoleDetail roleDetail = (RoleDetail) o;
     return Objects.equals(this.result, roleDetail.result) &&
-        Objects.equals(this.threshold, roleDetail.threshold) &&
+        Objects.equals(this.reviewThreshold, roleDetail.reviewThreshold) &&
+        Objects.equals(this.initiator, roleDetail.initiator) &&
+        Objects.equals(this.isUpgraded, roleDetail.isUpgraded) &&
+        Objects.equals(this.completeTime, roleDetail.completeTime) &&
         Objects.equals(this.userDetails, roleDetail.userDetails)&&
         Objects.equals(this.additionalProperties, roleDetail.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(result, threshold, userDetails, additionalProperties);
+    return Objects.hash(result, reviewThreshold, initiator, isUpgraded, completeTime, userDetails, additionalProperties);
   }
 
   @Override
@@ -206,7 +278,10 @@ public class RoleDetail {
     StringBuilder sb = new StringBuilder();
     sb.append("class RoleDetail {\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
-    sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
+    sb.append("    reviewThreshold: ").append(toIndentedString(reviewThreshold)).append("\n");
+    sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
+    sb.append("    isUpgraded: ").append(toIndentedString(isUpgraded)).append("\n");
+    sb.append("    completeTime: ").append(toIndentedString(completeTime)).append("\n");
     sb.append("    userDetails: ").append(toIndentedString(userDetails)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -232,7 +307,10 @@ public class RoleDetail {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("result");
-    openapiFields.add("threshold");
+    openapiFields.add("review_threshold");
+    openapiFields.add("initiator");
+    openapiFields.add("is_upgraded");
+    openapiFields.add("complete_time");
     openapiFields.add("user_details");
 
     // a set of required properties/fields (JSON key names)
@@ -255,6 +333,12 @@ public class RoleDetail {
       // validate the optional field `result`
       if (jsonObj.get("result") != null && !jsonObj.get("result").isJsonNull()) {
         ApprovalTransactionResult.validateJsonElement(jsonObj.get("result"));
+      }
+      if ((jsonObj.get("initiator") != null && !jsonObj.get("initiator").isJsonNull()) && !jsonObj.get("initiator").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiator").toString()));
+      }
+      if ((jsonObj.get("complete_time") != null && !jsonObj.get("complete_time").isJsonNull()) && !jsonObj.get("complete_time").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `complete_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("complete_time").toString()));
       }
       if (jsonObj.get("user_details") != null && !jsonObj.get("user_details").isJsonNull()) {
         JsonArray jsonArrayuserDetails = jsonObj.getAsJsonArray("user_details");
