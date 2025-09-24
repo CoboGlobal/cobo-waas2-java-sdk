@@ -15,6 +15,7 @@ import com.cobo.waas2.model.SwapActivityApprovers;
 import com.cobo.waas2.model.SwapActivitySigners;
 import com.cobo.waas2.model.SwapActivityStatus;
 import com.cobo.waas2.model.SwapActivityTimeline;
+import com.cobo.waas2.model.SwapReceivingTransaction;
 import com.cobo.waas2.model.SwapType;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRequestFee;
@@ -212,6 +213,14 @@ public class SwapActivityDetailTest {
     @Test
     public void signersTest() {
         // TODO: test signers
+    }
+
+    /**
+     * Test the property 'receivingTransaction'
+     */
+    @Test
+    public void receivingTransactionTest() {
+        // TODO: test receivingTransaction
     }
 
 }

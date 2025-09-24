@@ -30,7 +30,9 @@ public enum TokenizationTokenStandard {
   
   ERC20("ERC20"),
   
-  SPLTOKEN2022("SPLToken2022");
+  SPLTOKEN2022("SPLToken2022"),
+  
+  ERC20WRAPPER("ERC20Wrapper");
 
   private String value;
 

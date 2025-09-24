@@ -13,7 +13,6 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.ApprovalResult;
-import com.cobo.waas2.model.ApprovalShowInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,9 +54,13 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class ApprovalUserDetail {
-  public static final String SERIALIZED_NAME_USER_EMAIL = "user_email";
-  @SerializedName(SERIALIZED_NAME_USER_EMAIL)
-  private String userEmail;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   public static final String SERIALIZED_NAME_PUBKEY = "pubkey";
   @SerializedName(SERIALIZED_NAME_PUBKEY)
@@ -74,6 +77,10 @@ public class ApprovalUserDetail {
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
   private ApprovalResult result;
+
+  public static final String SERIALIZED_NAME_APPROVAL_RESULT_CODE = "approval_result_code";
+  @SerializedName(SERIALIZED_NAME_APPROVAL_RESULT_CODE)
+  private Integer approvalResultCode;
 
   public static final String SERIALIZED_NAME_CREATED_TIME = "created_time";
   @SerializedName(SERIALIZED_NAME_CREATED_TIME)
@@ -93,27 +100,62 @@ public class ApprovalUserDetail {
 
   public static final String SERIALIZED_NAME_SHOW_INFO = "show_info";
   @SerializedName(SERIALIZED_NAME_SHOW_INFO)
-  private ApprovalShowInfo showInfo;
+  private String showInfo;
+
+  public static final String SERIALIZED_NAME_LANGUAGE = "language";
+  @SerializedName(SERIALIZED_NAME_LANGUAGE)
+  private String language;
+
+  public static final String SERIALIZED_NAME_MESSAGE_VERSION = "message_version";
+  @SerializedName(SERIALIZED_NAME_MESSAGE_VERSION)
+  private String messageVersion;
+
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  private String message;
+
+  public static final String SERIALIZED_NAME_EXTRA_MESSAGE = "extra_message";
+  @SerializedName(SERIALIZED_NAME_EXTRA_MESSAGE)
+  private String extraMessage;
 
   public ApprovalUserDetail() {
   }
 
-  public ApprovalUserDetail userEmail(String userEmail) {
-    this.userEmail = userEmail;
+  public ApprovalUserDetail name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The name of the user who approved the transaction.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public ApprovalUserDetail email(String email) {
+    this.email = email;
     return this;
   }
 
    /**
    * The email address of the user who approved the transaction.
-   * @return userEmail
+   * @return email
   **/
   @javax.annotation.Nullable
-  public String getUserEmail() {
-    return userEmail;
+  public String getEmail() {
+    return email;
   }
 
-  public void setUserEmail(String userEmail) {
-    this.userEmail = userEmail;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -193,6 +235,25 @@ public class ApprovalUserDetail {
   }
 
 
+  public ApprovalUserDetail approvalResultCode(Integer approvalResultCode) {
+    this.approvalResultCode = approvalResultCode;
+    return this;
+  }
+
+   /**
+   * The integer value representing the result of the approval.
+   * @return approvalResultCode
+  **/
+  @javax.annotation.Nullable
+  public Integer getApprovalResultCode() {
+    return approvalResultCode;
+  }
+
+  public void setApprovalResultCode(Integer approvalResultCode) {
+    this.approvalResultCode = approvalResultCode;
+  }
+
+
   public ApprovalUserDetail createdTime(Integer createdTime) {
     this.createdTime = createdTime;
     return this;
@@ -269,22 +330,98 @@ public class ApprovalUserDetail {
   }
 
 
-  public ApprovalUserDetail showInfo(ApprovalShowInfo showInfo) {
+  public ApprovalUserDetail showInfo(String showInfo) {
     this.showInfo = showInfo;
     return this;
   }
 
    /**
-   * Get showInfo
+   * Additional information to show for the transaction approval.
    * @return showInfo
   **/
   @javax.annotation.Nullable
-  public ApprovalShowInfo getShowInfo() {
+  public String getShowInfo() {
     return showInfo;
   }
 
-  public void setShowInfo(ApprovalShowInfo showInfo) {
+  public void setShowInfo(String showInfo) {
     this.showInfo = showInfo;
+  }
+
+
+  public ApprovalUserDetail language(String language) {
+    this.language = language;
+    return this;
+  }
+
+   /**
+   * The language used for the transaction approval.
+   * @return language
+  **/
+  @javax.annotation.Nullable
+  public String getLanguage() {
+    return language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+
+  public ApprovalUserDetail messageVersion(String messageVersion) {
+    this.messageVersion = messageVersion;
+    return this;
+  }
+
+   /**
+   * The version of the message format used for the transaction approval.
+   * @return messageVersion
+  **/
+  @javax.annotation.Nullable
+  public String getMessageVersion() {
+    return messageVersion;
+  }
+
+  public void setMessageVersion(String messageVersion) {
+    this.messageVersion = messageVersion;
+  }
+
+
+  public ApprovalUserDetail message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * The message associated with the transaction approval.
+   * @return message
+  **/
+  @javax.annotation.Nullable
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+
+  public ApprovalUserDetail extraMessage(String extraMessage) {
+    this.extraMessage = extraMessage;
+    return this;
+  }
+
+   /**
+   * Any additional message or information related to the transaction approval.
+   * @return extraMessage
+  **/
+  @javax.annotation.Nullable
+  public String getExtraMessage() {
+    return extraMessage;
+  }
+
+  public void setExtraMessage(String extraMessage) {
+    this.extraMessage = extraMessage;
   }
 
   /**
@@ -342,38 +479,50 @@ public class ApprovalUserDetail {
       return false;
     }
     ApprovalUserDetail approvalUserDetail = (ApprovalUserDetail) o;
-    return Objects.equals(this.userEmail, approvalUserDetail.userEmail) &&
+    return Objects.equals(this.name, approvalUserDetail.name) &&
+        Objects.equals(this.email, approvalUserDetail.email) &&
         Objects.equals(this.pubkey, approvalUserDetail.pubkey) &&
         Objects.equals(this.signature, approvalUserDetail.signature) &&
         Objects.equals(this.statementUuid, approvalUserDetail.statementUuid) &&
         Objects.equals(this.result, approvalUserDetail.result) &&
+        Objects.equals(this.approvalResultCode, approvalUserDetail.approvalResultCode) &&
         Objects.equals(this.createdTime, approvalUserDetail.createdTime) &&
         Objects.equals(this.templateVersion, approvalUserDetail.templateVersion) &&
         Objects.equals(this.headerTitle, approvalUserDetail.headerTitle) &&
         Objects.equals(this.isForSign, approvalUserDetail.isForSign) &&
-        Objects.equals(this.showInfo, approvalUserDetail.showInfo)&&
+        Objects.equals(this.showInfo, approvalUserDetail.showInfo) &&
+        Objects.equals(this.language, approvalUserDetail.language) &&
+        Objects.equals(this.messageVersion, approvalUserDetail.messageVersion) &&
+        Objects.equals(this.message, approvalUserDetail.message) &&
+        Objects.equals(this.extraMessage, approvalUserDetail.extraMessage)&&
         Objects.equals(this.additionalProperties, approvalUserDetail.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userEmail, pubkey, signature, statementUuid, result, createdTime, templateVersion, headerTitle, isForSign, showInfo, additionalProperties);
+    return Objects.hash(name, email, pubkey, signature, statementUuid, result, approvalResultCode, createdTime, templateVersion, headerTitle, isForSign, showInfo, language, messageVersion, message, extraMessage, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApprovalUserDetail {\n");
-    sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    pubkey: ").append(toIndentedString(pubkey)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
     sb.append("    statementUuid: ").append(toIndentedString(statementUuid)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    approvalResultCode: ").append(toIndentedString(approvalResultCode)).append("\n");
     sb.append("    createdTime: ").append(toIndentedString(createdTime)).append("\n");
     sb.append("    templateVersion: ").append(toIndentedString(templateVersion)).append("\n");
     sb.append("    headerTitle: ").append(toIndentedString(headerTitle)).append("\n");
     sb.append("    isForSign: ").append(toIndentedString(isForSign)).append("\n");
     sb.append("    showInfo: ").append(toIndentedString(showInfo)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    extraMessage: ").append(toIndentedString(extraMessage)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -397,16 +546,22 @@ public class ApprovalUserDetail {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("user_email");
+    openapiFields.add("name");
+    openapiFields.add("email");
     openapiFields.add("pubkey");
     openapiFields.add("signature");
     openapiFields.add("statement_uuid");
     openapiFields.add("result");
+    openapiFields.add("approval_result_code");
     openapiFields.add("created_time");
     openapiFields.add("template_version");
     openapiFields.add("header_title");
     openapiFields.add("is_for_sign");
     openapiFields.add("show_info");
+    openapiFields.add("language");
+    openapiFields.add("message_version");
+    openapiFields.add("message");
+    openapiFields.add("extra_message");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -425,8 +580,11 @@ public class ApprovalUserDetail {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("user_email") != null && !jsonObj.get("user_email").isJsonNull()) && !jsonObj.get("user_email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_email").toString()));
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("pubkey") != null && !jsonObj.get("pubkey").isJsonNull()) && !jsonObj.get("pubkey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pubkey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pubkey").toString()));
@@ -447,9 +605,20 @@ public class ApprovalUserDetail {
       if ((jsonObj.get("header_title") != null && !jsonObj.get("header_title").isJsonNull()) && !jsonObj.get("header_title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `header_title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("header_title").toString()));
       }
-      // validate the optional field `show_info`
-      if (jsonObj.get("show_info") != null && !jsonObj.get("show_info").isJsonNull()) {
-        ApprovalShowInfo.validateJsonElement(jsonObj.get("show_info"));
+      if ((jsonObj.get("show_info") != null && !jsonObj.get("show_info").isJsonNull()) && !jsonObj.get("show_info").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `show_info` to be a primitive type in the JSON string but got `%s`", jsonObj.get("show_info").toString()));
+      }
+      if ((jsonObj.get("language") != null && !jsonObj.get("language").isJsonNull()) && !jsonObj.get("language").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
+      }
+      if ((jsonObj.get("message_version") != null && !jsonObj.get("message_version").isJsonNull()) && !jsonObj.get("message_version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `message_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message_version").toString()));
+      }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
+      if ((jsonObj.get("extra_message") != null && !jsonObj.get("extra_message").isJsonNull()) && !jsonObj.get("extra_message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `extra_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extra_message").toString()));
       }
   }
 

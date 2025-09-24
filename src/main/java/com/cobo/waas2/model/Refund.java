@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.RefundStatus;
 import com.cobo.waas2.model.RefundType;
@@ -124,6 +125,10 @@ public class Refund {
   public static final String SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID = "merchant_fee_token_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID)
   private String merchantFeeTokenId;
+
+  public static final String SERIALIZED_NAME_COMMISSION_FEE = "commission_fee";
+  @SerializedName(SERIALIZED_NAME_COMMISSION_FEE)
+  private CommissionFee commissionFee;
 
   public Refund() {
   }
@@ -458,6 +463,25 @@ public class Refund {
     this.merchantFeeTokenId = merchantFeeTokenId;
   }
 
+
+  public Refund commissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+    return this;
+  }
+
+   /**
+   * Get commissionFee
+   * @return commissionFee
+  **/
+  @javax.annotation.Nullable
+  public CommissionFee getCommissionFee() {
+    return commissionFee;
+  }
+
+  public void setCommissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -529,13 +553,14 @@ public class Refund {
         Objects.equals(this.transactions, refund.transactions) &&
         Objects.equals(this.chargeMerchantFee, refund.chargeMerchantFee) &&
         Objects.equals(this.merchantFeeAmount, refund.merchantFeeAmount) &&
-        Objects.equals(this.merchantFeeTokenId, refund.merchantFeeTokenId)&&
+        Objects.equals(this.merchantFeeTokenId, refund.merchantFeeTokenId) &&
+        Objects.equals(this.commissionFee, refund.commissionFee)&&
         Objects.equals(this.additionalProperties, refund.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, additionalProperties);
+    return Objects.hash(requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, commissionFee, additionalProperties);
   }
 
   @Override
@@ -559,6 +584,7 @@ public class Refund {
     sb.append("    chargeMerchantFee: ").append(toIndentedString(chargeMerchantFee)).append("\n");
     sb.append("    merchantFeeAmount: ").append(toIndentedString(merchantFeeAmount)).append("\n");
     sb.append("    merchantFeeTokenId: ").append(toIndentedString(merchantFeeTokenId)).append("\n");
+    sb.append("    commissionFee: ").append(toIndentedString(commissionFee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -599,6 +625,7 @@ public class Refund {
     openapiFields.add("charge_merchant_fee");
     openapiFields.add("merchant_fee_amount");
     openapiFields.add("merchant_fee_token_id");
+    openapiFields.add("commission_fee");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -682,6 +709,10 @@ public class Refund {
       }
       if ((jsonObj.get("merchant_fee_token_id") != null && !jsonObj.get("merchant_fee_token_id").isJsonNull()) && !jsonObj.get("merchant_fee_token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_fee_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_fee_token_id").toString()));
+      }
+      // validate the optional field `commission_fee`
+      if (jsonObj.get("commission_fee") != null && !jsonObj.get("commission_fee").isJsonNull()) {
+        CommissionFee.validateJsonElement(jsonObj.get("commission_fee"));
       }
   }
 

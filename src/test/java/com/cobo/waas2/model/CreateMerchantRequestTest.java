@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.WalletSetup;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -18,7 +19,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -45,19 +45,19 @@ public class CreateMerchantRequestTest {
     }
 
     /**
-     * Test the property 'walletId'
-     */
-    @Test
-    public void walletIdTest() {
-        // TODO: test walletId
-    }
-
-    /**
      * Test the property 'developerFeeRate'
      */
     @Test
     public void developerFeeRateTest() {
         // TODO: test developerFeeRate
+    }
+
+    /**
+     * Test the property 'walletSetup'
+     */
+    @Test
+    public void walletSetupTest() {
+        // TODO: test walletSetup
     }
 
 }

@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.RefundStatus;
 import com.cobo.waas2.model.RefundType;
@@ -58,7 +59,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentRefundEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -90,7 +91,11 @@ public class PaymentRefundEventData {
     
     BALANCEUPDATEINFO("BalanceUpdateInfo"),
     
-    SUSPENDEDTOKEN("SuspendedToken");
+    SUSPENDEDTOKEN("SuspendedToken"),
+    
+    COMPLIANCEDISPOSITION("ComplianceDisposition"),
+    
+    COMPLIANCEKYTSCREENINGS("ComplianceKytScreenings");
 
     private String value;
 
@@ -207,6 +212,10 @@ public class PaymentRefundEventData {
   @SerializedName(SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID)
   private String merchantFeeTokenId;
 
+  public static final String SERIALIZED_NAME_COMMISSION_FEE = "commission_fee";
+  @SerializedName(SERIALIZED_NAME_COMMISSION_FEE)
+  private CommissionFee commissionFee;
+
   public PaymentRefundEventData() {
   }
 
@@ -216,7 +225,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -559,6 +568,25 @@ public class PaymentRefundEventData {
     this.merchantFeeTokenId = merchantFeeTokenId;
   }
 
+
+  public PaymentRefundEventData commissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+    return this;
+  }
+
+   /**
+   * Get commissionFee
+   * @return commissionFee
+  **/
+  @javax.annotation.Nullable
+  public CommissionFee getCommissionFee() {
+    return commissionFee;
+  }
+
+  public void setCommissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -631,13 +659,14 @@ public class PaymentRefundEventData {
         Objects.equals(this.transactions, paymentRefundEventData.transactions) &&
         Objects.equals(this.chargeMerchantFee, paymentRefundEventData.chargeMerchantFee) &&
         Objects.equals(this.merchantFeeAmount, paymentRefundEventData.merchantFeeAmount) &&
-        Objects.equals(this.merchantFeeTokenId, paymentRefundEventData.merchantFeeTokenId)&&
+        Objects.equals(this.merchantFeeTokenId, paymentRefundEventData.merchantFeeTokenId) &&
+        Objects.equals(this.commissionFee, paymentRefundEventData.commissionFee)&&
         Objects.equals(this.additionalProperties, paymentRefundEventData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, additionalProperties);
+    return Objects.hash(dataType, requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, commissionFee, additionalProperties);
   }
 
   @Override
@@ -662,6 +691,7 @@ public class PaymentRefundEventData {
     sb.append("    chargeMerchantFee: ").append(toIndentedString(chargeMerchantFee)).append("\n");
     sb.append("    merchantFeeAmount: ").append(toIndentedString(merchantFeeAmount)).append("\n");
     sb.append("    merchantFeeTokenId: ").append(toIndentedString(merchantFeeTokenId)).append("\n");
+    sb.append("    commissionFee: ").append(toIndentedString(commissionFee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -703,6 +733,7 @@ public class PaymentRefundEventData {
     openapiFields.add("charge_merchant_fee");
     openapiFields.add("merchant_fee_amount");
     openapiFields.add("merchant_fee_token_id");
+    openapiFields.add("commission_fee");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -792,6 +823,10 @@ public class PaymentRefundEventData {
       }
       if ((jsonObj.get("merchant_fee_token_id") != null && !jsonObj.get("merchant_fee_token_id").isJsonNull()) && !jsonObj.get("merchant_fee_token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_fee_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_fee_token_id").toString()));
+      }
+      // validate the optional field `commission_fee`
+      if (jsonObj.get("commission_fee") != null && !jsonObj.get("commission_fee").isJsonNull()) {
+        CommissionFee.validateJsonElement(jsonObj.get("commission_fee"));
       }
   }
 

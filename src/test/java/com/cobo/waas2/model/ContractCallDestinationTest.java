@@ -15,6 +15,8 @@ import com.cobo.waas2.model.ContractCallDestinationType;
 import com.cobo.waas2.model.EvmContractCallDestination;
 import com.cobo.waas2.model.SolContractCallDestination;
 import com.cobo.waas2.model.SolContractCallInstruction;
+import com.cobo.waas2.model.StellarContractCallContractParam;
+import com.cobo.waas2.model.StellarContractCallDestination;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -79,6 +81,14 @@ public class ContractCallDestinationTest {
     @Test
     public void instructionsTest() {
         // TODO: test instructions
+    }
+
+    /**
+     * Test the property 'contractParam'
+     */
+    @Test
+    public void contractParamTest() {
+        // TODO: test contractParam
     }
 
 }

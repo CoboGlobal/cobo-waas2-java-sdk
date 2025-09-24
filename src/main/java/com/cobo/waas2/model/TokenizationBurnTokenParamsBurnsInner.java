@@ -69,7 +69,7 @@ public class TokenizationBurnTokenParamsBurnsInner {
   }
 
    /**
-   * The amount of tokens to burn from this source.
+   * The amount of tokens to burn.
    * @return amount
   **/
   @javax.annotation.Nonnull
@@ -88,7 +88,7 @@ public class TokenizationBurnTokenParamsBurnsInner {
   }
 
    /**
-   * The address to burn tokens from for this source.
+   * The address to burn tokens from.
    * @return fromAddress
   **/
   @javax.annotation.Nonnull

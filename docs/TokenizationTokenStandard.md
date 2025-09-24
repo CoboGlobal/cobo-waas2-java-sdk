@@ -9,5 +9,7 @@
 
 * `SPLTOKEN2022` (value: `"SPLToken2022"`)
 
+* `ERC20WRAPPER` (value: `"ERC20Wrapper"`)
+
 
 

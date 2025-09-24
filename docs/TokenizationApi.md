@@ -15,14 +15,16 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**listTokenizationAllowlistAddresses**](TokenizationApi.md#listTokenizationAllowlistAddresses) | **GET** /tokenization/tokens/{token_id}/allowlist/addresses | List allowlist addresses |
 | [**listTokenizationBlocklistAddresses**](TokenizationApi.md#listTokenizationBlocklistAddresses) | **GET** /tokenization/tokens/{token_id}/blocklist/addresses | List tokenization blocklist addresses |
 | [**listTokenizationHoldings**](TokenizationApi.md#listTokenizationHoldings) | **GET** /tokenization/tokens/{token_id}/holdings | Get token holdings information |
-| [**listTokenizationSupportedChains**](TokenizationApi.md#listTokenizationSupportedChains) | **GET** /tokenization/enabled_chains | List tokenization supported chains |
+| [**listTokenizationPermissions**](TokenizationApi.md#listTokenizationPermissions) | **GET** /tokenization/tokens/{token_id}/permissions | List permissions of the token |
+| [**listTokenizationSupportedChains**](TokenizationApi.md#listTokenizationSupportedChains) | **GET** /tokenization/enabled_chains | List supported chains for tokenization |
 | [**mintTokenization**](TokenizationApi.md#mintTokenization) | **POST** /tokenization/tokens/{token_id}/mint | Mint tokens |
-| [**pauseTokenization**](TokenizationApi.md#pauseTokenization) | **POST** /tokenization/tokens/{token_id}/pause | Pause tokenization |
-| [**tokenizationContractCall**](TokenizationApi.md#tokenizationContractCall) | **POST** /tokenization/tokens/{token_id}/contract_call | Contract call |
-| [**unpauseTokenization**](TokenizationApi.md#unpauseTokenization) | **POST** /tokenization/tokens/{token_id}/unpause | Unpause tokenization |
-| [**updateAllowlistAddresses**](TokenizationApi.md#updateAllowlistAddresses) | **POST** /tokenization/tokens/{token_id}/allowlist/addresses | Update allowlist addresses |
-| [**updateTokenizationAllowlistActivation**](TokenizationApi.md#updateTokenizationAllowlistActivation) | **POST** /tokenization/tokens/{token_id}/allowlist/activation | Update allowlist activation |
+| [**pauseTokenization**](TokenizationApi.md#pauseTokenization) | **POST** /tokenization/tokens/{token_id}/pause | Pause token contract |
+| [**tokenizationContractCall**](TokenizationApi.md#tokenizationContractCall) | **POST** /tokenization/tokens/{token_id}/contract_call | Call token contract |
+| [**unpauseTokenization**](TokenizationApi.md#unpauseTokenization) | **POST** /tokenization/tokens/{token_id}/unpause | Unpause token contract |
+| [**updateTokenizationAllowlistActivation**](TokenizationApi.md#updateTokenizationAllowlistActivation) | **POST** /tokenization/tokens/{token_id}/allowlist/activation | Activate or deactivate the allowlist |
+| [**updateTokenizationAllowlistAddresses**](TokenizationApi.md#updateTokenizationAllowlistAddresses) | **POST** /tokenization/tokens/{token_id}/allowlist/addresses | Update allowlist addresses |
 | [**updateTokenizationBlocklistAddresses**](TokenizationApi.md#updateTokenizationBlocklistAddresses) | **POST** /tokenization/tokens/{token_id}/blocklist/addresses | Update tokenization blocklist addresses |
+| [**updateTokenizationPermissions**](TokenizationApi.md#updateTokenizationPermissions) | **POST** /tokenization/tokens/{token_id}/permissions | Update permissions of the token |
 
 
 <a id="burnTokenization"></a>
@@ -73,7 +75,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
-| **tokenizationBurnTokenRequest** | [**TokenizationBurnTokenRequest**](TokenizationBurnTokenRequest.md)| Request body for burning tokens | [optional] |
+| **tokenizationBurnTokenRequest** | [**TokenizationBurnTokenRequest**](TokenizationBurnTokenRequest.md)| The request body for burning tokens. | [optional] |
 
 ### Return type
 
@@ -227,7 +229,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Activity details retrieved successfully |  -  |
+| **200** | Successfully retrieved Activity details. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -295,7 +297,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful response with the allowlist activation status. |  -  |
+| **200** | Successfully retrieved the allowlist activation status. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -363,7 +365,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved token information |  -  |
+| **200** | Successfully retrieved token information. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -489,8 +491,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **chainId** | **String**| The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). | [optional] |
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). | [optional] |
-| **tokenStandard** | [**TokenizationTokenStandard**](.md)| Filter by token standard | [optional] [enum: ERC20, SPLToken2022] |
-| **status** | [**TokenizationStatus**](.md)| Filter by token status | [optional] [enum: Processing, Active, Failed, Pausing] |
+| **tokenStandard** | [**TokenizationTokenStandard**](.md)| Filter by token standard. | [optional] [enum: ERC20, SPLToken2022, ERC20Wrapper] |
+| **status** | [**TokenizationStatus**](.md)| Filter by token status. | [optional] [enum: Processing, Active, Failed, Pausing] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
 | **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
 | **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
@@ -568,7 +570,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). | [optional] |
-| **activityType** | [**TokenizationOperationType**](.md)| Filter by tokenization activity type. | [optional] [enum: Issue, Mint, Burn, Pause, Unpause, UpdateAllowlistAddresses, UpdateBlocklistAddresses, ToggleAllowlist, ContractCall] |
+| **activityType** | [**TokenizationOperationType**](.md)| Filter by tokenization activity type. | [optional] [enum: Issue, Mint, Burn, Pause, Unpause, UpdateAllowlistAddresses, UpdateBlocklistAddresses, ToggleAllowlist, ContractCall, UpdatePermissions] |
 | **activityStatus** | [**TokenizationActivityStatus**](.md)| Filter by tokenization activity status. | [optional] [enum: Processing, Success, Failed] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
 | **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
@@ -591,7 +593,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of tokenization activities retrieved successfully |  -  |
+| **200** | Successfully retrieved the list of tokenization activities. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -667,7 +669,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful response with the list of allowlist addresses. |  -  |
+| **200** | Successfully retrieved the list of allowlist addresses. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -743,7 +745,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful response with the list of blocklist addresses. |  -  |
+| **200** | Successfully retrieved the list of blocklist addresses. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -817,7 +819,85 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved token holdings information |  -  |
+| **200** | Successfully retrieved token holdings information. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="listTokenizationPermissions"></a>
+# **listTokenizationPermissions**
+> TokenizationListPermissionsResponse listTokenizationPermissions(tokenId, address, limit, after, before, direction)
+
+List permissions of the token
+
+This operation retrieves the permissions for a tokenization contract. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.TokenizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    TokenizationApi apiInstance = new TokenizationApi();
+    String tokenId = "ETH_USDT";
+    String address = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
+    Integer limit = 10;
+    String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
+    String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
+    String direction = "ASC";
+    try {
+      TokenizationListPermissionsResponse result = apiInstance.listTokenizationPermissions(tokenId, address, limit, after, before, direction);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TokenizationApi#listTokenizationPermissions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
+| **address** | **String**| The address to query permissions for. If not provided, returns all addresses with permissions. | [optional] |
+| **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
+| **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
+| **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
+| **direction** | **String**| The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  | [optional] [default to ASC] [enum: ASC, DESC] |
+
+### Return type
+
+[**TokenizationListPermissionsResponse**](TokenizationListPermissionsResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved permissions |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -825,7 +905,7 @@ public class Example {
 # **listTokenizationSupportedChains**
 > TokenizationListEnabledChainsResponse listTokenizationSupportedChains(limit, after, before)
 
-List tokenization supported chains
+List supported chains for tokenization
 
 This operation retrieves a list of tokenization supported chains. 
 
@@ -889,7 +969,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of tokenization supported chains retrieved successfully |  -  |
+| **200** | Successfully retrieved the list of tokenization supported chains. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -941,7 +1021,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
-| **tokenizationMintTokenRequest** | [**TokenizationMintTokenRequest**](TokenizationMintTokenRequest.md)| The request body for minting tokens | |
+| **tokenizationMintTokenRequest** | [**TokenizationMintTokenRequest**](TokenizationMintTokenRequest.md)| The request body for minting tokens. | |
 
 ### Return type
 
@@ -967,9 +1047,9 @@ public class Example {
 # **pauseTokenization**
 > TokenizationOperationResponse pauseTokenization(tokenId, tokenizationPauseTokenRequest)
 
-Pause tokenization
+Pause token contract
 
-This operation pauses the token contract. Creates a pause transaction that will stop the token contract. 
+This operation pauses the token contract, temporarily halting token operations and transfers. 
 
 ### Example
 ```java
@@ -1011,7 +1091,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
-| **tokenizationPauseTokenRequest** | [**TokenizationPauseTokenRequest**](TokenizationPauseTokenRequest.md)| Request body for pausing tokens | [optional] |
+| **tokenizationPauseTokenRequest** | [**TokenizationPauseTokenRequest**](TokenizationPauseTokenRequest.md)| The request body for pausing tokens. | [optional] |
 
 ### Return type
 
@@ -1037,9 +1117,9 @@ public class Example {
 # **tokenizationContractCall**
 > TokenizationOperationResponse tokenizationContractCall(tokenId, tokenizationContractCallRequest)
 
-Contract call
+Call token contract
 
-This operation calls a smart contract. 
+This operation performs a contract call on the token contract. 
 
 ### Example
 ```java
@@ -1081,7 +1161,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
-| **tokenizationContractCallRequest** | [**TokenizationContractCallRequest**](TokenizationContractCallRequest.md)| Request body for contract call | [optional] |
+| **tokenizationContractCallRequest** | [**TokenizationContractCallRequest**](TokenizationContractCallRequest.md)| The request body for contract call. | [optional] |
 
 ### Return type
 
@@ -1107,9 +1187,9 @@ public class Example {
 # **unpauseTokenization**
 > TokenizationOperationResponse unpauseTokenization(tokenId, tokenizationUnpauseTokenRequest)
 
-Unpause tokenization
+Unpause token contract
 
-This operation unpauses the token contract. Creates an unpause transaction that will resume the token contract. 
+This operation unpauses the token contract, resuming token operations and transfers. 
 
 ### Example
 ```java
@@ -1151,77 +1231,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
-| **tokenizationUnpauseTokenRequest** | [**TokenizationUnpauseTokenRequest**](TokenizationUnpauseTokenRequest.md)| Request body for unpausing tokens | [optional] |
-
-### Return type
-
-[**TokenizationOperationResponse**](TokenizationOperationResponse.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Tokenization operation transaction created successfully |  -  |
-| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
-| **5XX** | Internal server error. |  -  |
-
-<a id="updateAllowlistAddresses"></a>
-# **updateAllowlistAddresses**
-> TokenizationOperationResponse updateAllowlistAddresses(tokenId, tokenizationUpdateAllowlistAddressesRequest)
-
-Update allowlist addresses
-
-This operation updates the allowlist addresses of the token contract. 
-
-### Example
-```java
-// Import classes:
-import com.cobo.waas2.ApiClient;
-import com.cobo.waas2.ApiException;
-import com.cobo.waas2.Configuration;
-import com.cobo.waas2.model.*;
-import com.cobo.waas2.Env;
-import com.cobo.waas2.api.TokenizationApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
-    defaultClient.setEnv(Env.DEV);
-
-    // Replace `<YOUR_PRIVATE_KEY>` with your private key
-    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
-    TokenizationApi apiInstance = new TokenizationApi();
-    String tokenId = "ETH_USDT";
-    TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest = new TokenizationUpdateAllowlistAddressesRequest();
-    try {
-      TokenizationOperationResponse result = apiInstance.updateAllowlistAddresses(tokenId, tokenizationUpdateAllowlistAddressesRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TokenizationApi#updateAllowlistAddresses");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
-| **tokenizationUpdateAllowlistAddressesRequest** | [**TokenizationUpdateAllowlistAddressesRequest**](TokenizationUpdateAllowlistAddressesRequest.md)| Request body for managing multiple allowlist addresses (adding or removing). | [optional] |
+| **tokenizationUnpauseTokenRequest** | [**TokenizationUnpauseTokenRequest**](TokenizationUnpauseTokenRequest.md)| The request body for unpausing tokens. | [optional] |
 
 ### Return type
 
@@ -1247,9 +1257,9 @@ public class Example {
 # **updateTokenizationAllowlistActivation**
 > TokenizationOperationResponse updateTokenizationAllowlistActivation(tokenId, tokenizationAllowlistActivationRequest)
 
-Update allowlist activation
+Activate or deactivate the allowlist
 
-This operation updates the allowlist activation setting of the token contract. 
+This operation activates or deactivates the allowlist. 
 
 ### Example
 ```java
@@ -1291,7 +1301,77 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
-| **tokenizationAllowlistActivationRequest** | [**TokenizationAllowlistActivationRequest**](TokenizationAllowlistActivationRequest.md)| Request body for updating the allowlist activation setting. | [optional] |
+| **tokenizationAllowlistActivationRequest** | [**TokenizationAllowlistActivationRequest**](TokenizationAllowlistActivationRequest.md)| The request body for activating or deactivating the allowlist. | [optional] |
+
+### Return type
+
+[**TokenizationOperationResponse**](TokenizationOperationResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Tokenization operation transaction created successfully |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="updateTokenizationAllowlistAddresses"></a>
+# **updateTokenizationAllowlistAddresses**
+> TokenizationOperationResponse updateTokenizationAllowlistAddresses(tokenId, tokenizationUpdateAllowlistAddressesRequest)
+
+Update allowlist addresses
+
+This operation updates the allowlist addresses of the token contract. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.TokenizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    TokenizationApi apiInstance = new TokenizationApi();
+    String tokenId = "ETH_USDT";
+    TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest = new TokenizationUpdateAllowlistAddressesRequest();
+    try {
+      TokenizationOperationResponse result = apiInstance.updateTokenizationAllowlistAddresses(tokenId, tokenizationUpdateAllowlistAddressesRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TokenizationApi#updateTokenizationAllowlistAddresses");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
+| **tokenizationUpdateAllowlistAddressesRequest** | [**TokenizationUpdateAllowlistAddressesRequest**](TokenizationUpdateAllowlistAddressesRequest.md)| The request body for managing multiple allowlist addresses (adding or removing). | [optional] |
 
 ### Return type
 
@@ -1361,7 +1441,77 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
-| **tokenizationUpdateBlocklistAddressesRequest** | [**TokenizationUpdateBlocklistAddressesRequest**](TokenizationUpdateBlocklistAddressesRequest.md)| Request body for managing multiple blocklist addresses (adding or removing). | [optional] |
+| **tokenizationUpdateBlocklistAddressesRequest** | [**TokenizationUpdateBlocklistAddressesRequest**](TokenizationUpdateBlocklistAddressesRequest.md)| The request body for managing multiple blocklist addresses (adding or removing). | [optional] |
+
+### Return type
+
+[**TokenizationOperationResponse**](TokenizationOperationResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Tokenization operation transaction created successfully |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="updateTokenizationPermissions"></a>
+# **updateTokenizationPermissions**
+> TokenizationOperationResponse updateTokenizationPermissions(tokenId, tokenizationUpdatePermissionsRequest)
+
+Update permissions of the token
+
+This operation updates permissions for tokenization contracts.  **For Ethereum-based tokens:** Use &#x60;add&#x60; to grant permissions or &#x60;remove&#x60; to revoke permissions. Multiple permissions can be assigned to the same address.  **For Solana tokens:** Use &#x60;set&#x60; to define the complete list of permissions for an address. This replaces any existing permissions. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.TokenizationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    TokenizationApi apiInstance = new TokenizationApi();
+    String tokenId = "ETH_USDT";
+    TokenizationUpdatePermissionsRequest tokenizationUpdatePermissionsRequest = new TokenizationUpdatePermissionsRequest();
+    try {
+      TokenizationOperationResponse result = apiInstance.updateTokenizationPermissions(tokenId, tokenizationUpdatePermissionsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TokenizationApi#updateTokenizationPermissions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tokenId** | **String**| The token ID, which is the unique identifier of a token. | |
+| **tokenizationUpdatePermissionsRequest** | [**TokenizationUpdatePermissionsRequest**](TokenizationUpdatePermissionsRequest.md)| The request body for managing permissions. | |
 
 ### Return type
 

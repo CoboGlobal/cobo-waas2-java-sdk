@@ -37,20 +37,35 @@ import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListPaymentWalletBalances200Response;
 import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
+import com.cobo.waas2.model.ListSubscriptionActions200Response;
+import com.cobo.waas2.model.ListSubscriptionPlans200Response;
+import com.cobo.waas2.model.ListSubscriptions200Response;
 import com.cobo.waas2.model.ListTopUpPayerAccounts200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
+import com.cobo.waas2.model.PaymentCreateSubscriptionAction;
+import com.cobo.waas2.model.PaymentCreateSubscriptionPlan;
+import com.cobo.waas2.model.PaymentEstimateFee201Response;
+import com.cobo.waas2.model.PaymentEstimateFeeRequest;
+import com.cobo.waas2.model.PaymentSubscriptionAction;
+import com.cobo.waas2.model.PaymentSubscriptionActionType;
+import com.cobo.waas2.model.PaymentSubscriptionDetail;
+import com.cobo.waas2.model.PaymentSubscriptionPlan;
+import com.cobo.waas2.model.PaymentSubscriptionPlanDetail;
 import com.cobo.waas2.model.PspBalance;
+import com.cobo.waas2.model.ReceivedAmountPerAddress;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Settlement;
 import com.cobo.waas2.model.SupportedToken;
 import com.cobo.waas2.model.TopUpAddress;
 import java.util.UUID;
+import com.cobo.waas2.model.UpdateBankAccountByIdRequest;
 import com.cobo.waas2.model.UpdateMerchantByIdRequest;
 import com.cobo.waas2.model.UpdatePaymentOrderRequest;
 import com.cobo.waas2.model.UpdateRefundByIdRequest;
 import com.cobo.waas2.model.UpdateTopUpAddress;
+import com.cobo.waas2.model.WalletSetup;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -185,6 +200,34 @@ public class PaymentApiTest {
     }
 
     /**
+     * Create a subscription action
+     *
+     * This operation creates a subscription action. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createSubscriptionActionTest() throws ApiException {
+        PaymentCreateSubscriptionAction paymentCreateSubscriptionAction = null;
+        PaymentSubscriptionAction response = api.createSubscriptionAction(paymentCreateSubscriptionAction);
+        // TODO: test validations
+    }
+
+    /**
+     * Create subscription plan
+     *
+     * This operation creates a subscription plan. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createSubscriptionPlanTest() throws ApiException {
+        PaymentCreateSubscriptionPlan paymentCreateSubscriptionPlan = null;
+        PaymentSubscriptionPlan response = api.createSubscriptionPlan(paymentCreateSubscriptionPlan);
+        // TODO: test validations
+    }
+
+    /**
      * Delete crypto address
      *
      * This operation deletes a crypto address. 
@@ -210,6 +253,22 @@ public class PaymentApiTest {
         String tokenId = null;
         String currency = null;
         GetExchangeRate200Response response = api.getExchangeRate(tokenId, currency);
+        // TODO: test validations
+    }
+
+    /**
+     * Get payer balance by address
+     *
+     * This operation retrieves aggregated balance details for a specific token and payer, with amounts grouped by address. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPayerBalanceByAddressTest() throws ApiException {
+        String payerId = null;
+        String tokenId = null;
+        String merchantId = null;
+        List<ReceivedAmountPerAddress> response = api.getPayerBalanceByAddress(payerId, tokenId, merchantId);
         // TODO: test validations
     }
 
@@ -305,6 +364,35 @@ public class PaymentApiTest {
     }
 
     /**
+     * Get subscription by id
+     *
+     * This operation retrieves the information of subscription detail. You can filter the result by subscription_id. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSubscriptionByIdTest() throws ApiException {
+        String subscriptionId = null;
+        PaymentSubscriptionDetail response = api.getSubscriptionById(subscriptionId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get subscription plan by id
+     *
+     * This operation retrieves the information of subscription plan detail. You can filter the result by subscription_id. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSubscriptionPlanByIdTest() throws ApiException {
+        String subscriptionId = null;
+        String tokenId = null;
+        PaymentSubscriptionPlanDetail response = api.getSubscriptionPlanById(subscriptionId, tokenId);
+        // TODO: test validations
+    }
+
+    /**
      * Get top-up address
      *
      * Get a top-up address for certain payer under merchant. 
@@ -313,10 +401,10 @@ public class PaymentApiTest {
      */
     @Test
     public void getTopUpAddressTest() throws ApiException {
-        String merchantId = null;
         String tokenId = null;
         String customPayerId = null;
-        TopUpAddress response = api.getTopUpAddress(merchantId, tokenId, customPayerId);
+        String merchantId = null;
+        TopUpAddress response = api.getTopUpAddress(tokenId, customPayerId, merchantId);
         // TODO: test validations
     }
 
@@ -393,8 +481,8 @@ public class PaymentApiTest {
         String before = null;
         String after = null;
         String keyword = null;
-        UUID walletId = null;
-        ListMerchants200Response response = api.listMerchants(limit, before, after, keyword, walletId);
+        WalletSetup walletSetup = null;
+        ListMerchants200Response response = api.listMerchants(limit, before, after, keyword, walletSetup);
         // TODO: test validations
     }
 
@@ -481,6 +569,63 @@ public class PaymentApiTest {
     }
 
     /**
+     * List subscription actions
+     *
+     * This operation retrieves the information of subscription actions. You can filter the result by plan id. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listSubscriptionActionsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String planId = null;
+        String merchantId = null;
+        String subscriptionId = null;
+        String requestId = null;
+        PaymentSubscriptionActionType actionType = null;
+        ListSubscriptionActions200Response response = api.listSubscriptionActions(limit, before, after, planId, merchantId, subscriptionId, requestId, actionType);
+        // TODO: test validations
+    }
+
+    /**
+     * List subscription plans
+     *
+     * This operation retrieves the information of subscription plans. You can filter the result by developer plan id. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listSubscriptionPlansTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String developerPlanId = null;
+        ListSubscriptionPlans200Response response = api.listSubscriptionPlans(limit, before, after, developerPlanId);
+        // TODO: test validations
+    }
+
+    /**
+     * List subscriptions
+     *
+     * This operation retrieves the information of subscriptions. You can filter the result by plan id. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listSubscriptionsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String planId = null;
+        String merchantId = null;
+        String subscriptionActionId = null;
+        ListSubscriptions200Response response = api.listSubscriptions(limit, before, after, planId, merchantId, subscriptionActionId);
+        // TODO: test validations
+    }
+
+    /**
      * List top-up payer accounts
      *
      * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
@@ -507,12 +652,26 @@ public class PaymentApiTest {
      */
     @Test
     public void listTopUpPayersTest() throws ApiException {
-        String merchantId = null;
         Integer limit = null;
         String before = null;
         String after = null;
+        String merchantId = null;
         String payerId = null;
-        ListTopUpPayers200Response response = api.listTopUpPayers(merchantId, limit, before, after, payerId);
+        ListTopUpPayers200Response response = api.listTopUpPayers(limit, before, after, merchantId, payerId);
+        // TODO: test validations
+    }
+
+    /**
+     * Payment estimate fee
+     *
+     * This operation to payment estimate fee. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void paymentEstimateFeeTest() throws ApiException {
+        PaymentEstimateFeeRequest paymentEstimateFeeRequest = null;
+        PaymentEstimateFee201Response response = api.paymentEstimateFee(paymentEstimateFeeRequest);
         // TODO: test validations
     }
 
@@ -526,8 +685,8 @@ public class PaymentApiTest {
     @Test
     public void updateBankAccountByIdTest() throws ApiException {
         UUID bankAccountId = null;
-        CreateBankAccountRequest createBankAccountRequest = null;
-        BankAccount response = api.updateBankAccountById(bankAccountId, createBankAccountRequest);
+        UpdateBankAccountByIdRequest updateBankAccountByIdRequest = null;
+        BankAccount response = api.updateBankAccountById(bankAccountId, updateBankAccountByIdRequest);
         // TODO: test validations
     }
 

@@ -38,6 +38,14 @@ public class CreateBankAccountRequestTest {
     }
 
     /**
+     * Test the property 'otcBankAccountId'
+     */
+    @Test
+    public void otcBankAccountIdTest() {
+        // TODO: test otcBankAccountId
+    }
+
+    /**
      * Test the property 'info'
      */
     @Test

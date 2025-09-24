@@ -14,8 +14,11 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.AutoSweepTask;
+import com.cobo.waas2.model.CreateAutoSweepTask;
 import com.cobo.waas2.model.CreateSweepToAddress;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.ListAutoSweepTask200Response;
 import com.cobo.waas2.model.ListWalletSweepToAddresses200Response;
 import com.cobo.waas2.model.SweepToAddress;
 import java.util.UUID;
@@ -41,6 +44,20 @@ public class AutoSweepApiTest {
     private final AutoSweepApi api = new AutoSweepApi();
 
     /**
+     * create auto sweep task
+     *
+     * This operation create a new auto sweep task. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createAutoSweepTaskTest() throws ApiException {
+        CreateAutoSweepTask createAutoSweepTask = null;
+        AutoSweepTask response = api.createAutoSweepTask(createAutoSweepTask);
+        // TODO: test validations
+    }
+
+    /**
      * create wallet sweep to addresses
      *
      * This operation create a new sweep to address for the wallet. The old sweep to address will become invalid. 
@@ -51,6 +68,42 @@ public class AutoSweepApiTest {
     public void createWalletSweepToAddressesTest() throws ApiException {
         CreateSweepToAddress createSweepToAddress = null;
         SweepToAddress response = api.createWalletSweepToAddresses(createSweepToAddress);
+        // TODO: test validations
+    }
+
+    /**
+     * Get auto sweep task information
+     *
+     * This operation retrieves detailed information about a specified auto sweep task. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getAutoSweepTaskByIdTest() throws ApiException {
+        UUID taskId = null;
+        AutoSweepTask response = api.getAutoSweepTaskById(taskId);
+        // TODO: test validations
+    }
+
+    /**
+     * List wallet auto sweep task
+     *
+     * This operation retrieves a list of auto sweep task. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listAutoSweepTaskTest() throws ApiException {
+        UUID walletId = null;
+        String tokenId = null;
+        String taskIds = null;
+        Long minCreatedTimestamp = null;
+        Long maxCreatedTimestamp = null;
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String direction = null;
+        ListAutoSweepTask200Response response = api.listAutoSweepTask(walletId, tokenId, taskIds, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction);
         // TODO: test validations
     }
 

@@ -29,6 +29,8 @@ import com.cobo.waas2.model.TransactionMessageSignEIP712Destination;
 import com.cobo.waas2.model.TransactionRawMessageSignDestination;
 import com.cobo.waas2.model.TransactionSolContractDestination;
 import com.cobo.waas2.model.TransactionSolContractInstruction;
+import com.cobo.waas2.model.TransactionStellarContractParam;
+import com.cobo.waas2.model.TransactionStellarDestination;
 import com.cobo.waas2.model.TransactionTransferToAddressDestination;
 import com.cobo.waas2.model.TransactionTransferToAddressDestinationAccountOutput;
 import com.cobo.waas2.model.TransactionTransferToAddressDestinationUtxoOutputsInner;
@@ -286,6 +288,14 @@ public class TransactionDestinationTest {
     @Test
     public void messageCosmosAdr36Test() {
         // TODO: test messageCosmosAdr36
+    }
+
+    /**
+     * Test the property 'contractParam'
+     */
+    @Test
+    public void contractParamTest() {
+        // TODO: test contractParam
     }
 
 }

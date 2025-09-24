@@ -66,9 +66,9 @@ public class ApprovalDetail {
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
   private String requestId;
 
-  public static final String SERIALIZED_NAME_BROKER_USER = "broker_user";
-  @SerializedName(SERIALIZED_NAME_BROKER_USER)
-  private RoleDetail brokerUser;
+  public static final String SERIALIZED_NAME_ADDRESS_OWNER = "address_owner";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_OWNER)
+  private RoleDetail addressOwner;
 
   public static final String SERIALIZED_NAME_SPENDER = "spender";
   @SerializedName(SERIALIZED_NAME_SPENDER)
@@ -138,22 +138,22 @@ public class ApprovalDetail {
   }
 
 
-  public ApprovalDetail brokerUser(RoleDetail brokerUser) {
-    this.brokerUser = brokerUser;
+  public ApprovalDetail addressOwner(RoleDetail addressOwner) {
+    this.addressOwner = addressOwner;
     return this;
   }
 
    /**
-   * Get brokerUser
-   * @return brokerUser
+   * Get addressOwner
+   * @return addressOwner
   **/
   @javax.annotation.Nullable
-  public RoleDetail getBrokerUser() {
-    return brokerUser;
+  public RoleDetail getAddressOwner() {
+    return addressOwner;
   }
 
-  public void setBrokerUser(RoleDetail brokerUser) {
-    this.brokerUser = brokerUser;
+  public void setAddressOwner(RoleDetail addressOwner) {
+    this.addressOwner = addressOwner;
   }
 
 
@@ -252,7 +252,7 @@ public class ApprovalDetail {
     return Objects.equals(this.transactionId, approvalDetail.transactionId) &&
         Objects.equals(this.coboId, approvalDetail.coboId) &&
         Objects.equals(this.requestId, approvalDetail.requestId) &&
-        Objects.equals(this.brokerUser, approvalDetail.brokerUser) &&
+        Objects.equals(this.addressOwner, approvalDetail.addressOwner) &&
         Objects.equals(this.spender, approvalDetail.spender) &&
         Objects.equals(this.approver, approvalDetail.approver)&&
         Objects.equals(this.additionalProperties, approvalDetail.additionalProperties);
@@ -260,7 +260,7 @@ public class ApprovalDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionId, coboId, requestId, brokerUser, spender, approver, additionalProperties);
+    return Objects.hash(transactionId, coboId, requestId, addressOwner, spender, approver, additionalProperties);
   }
 
   @Override
@@ -270,7 +270,7 @@ public class ApprovalDetail {
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    coboId: ").append(toIndentedString(coboId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    brokerUser: ").append(toIndentedString(brokerUser)).append("\n");
+    sb.append("    addressOwner: ").append(toIndentedString(addressOwner)).append("\n");
     sb.append("    spender: ").append(toIndentedString(spender)).append("\n");
     sb.append("    approver: ").append(toIndentedString(approver)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -299,7 +299,7 @@ public class ApprovalDetail {
     openapiFields.add("transaction_id");
     openapiFields.add("cobo_id");
     openapiFields.add("request_id");
-    openapiFields.add("broker_user");
+    openapiFields.add("address_owner");
     openapiFields.add("spender");
     openapiFields.add("approver");
 
@@ -329,9 +329,9 @@ public class ApprovalDetail {
       if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
-      // validate the optional field `broker_user`
-      if (jsonObj.get("broker_user") != null && !jsonObj.get("broker_user").isJsonNull()) {
-        RoleDetail.validateJsonElement(jsonObj.get("broker_user"));
+      // validate the optional field `address_owner`
+      if (jsonObj.get("address_owner") != null && !jsonObj.get("address_owner").isJsonNull()) {
+        RoleDetail.validateJsonElement(jsonObj.get("address_owner"));
       }
       // validate the optional field `spender`
       if (jsonObj.get("spender") != null && !jsonObj.get("spender").isJsonNull()) {

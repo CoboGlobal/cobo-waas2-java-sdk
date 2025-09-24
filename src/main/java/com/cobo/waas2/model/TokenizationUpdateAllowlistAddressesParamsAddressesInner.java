@@ -88,7 +88,7 @@ public class TokenizationUpdateAllowlistAddressesParamsAddressesInner {
   }
 
    /**
-   * An optional note for the address, primarily used when adding.
+   * An optional note for the address, primarily used when adding addresses.
    * @return note
   **/
   @javax.annotation.Nullable

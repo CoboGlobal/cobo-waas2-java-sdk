@@ -5,6 +5,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createBabylonAirdropRegistration**](StakingsApi.md#createBabylonAirdropRegistration) | **POST** /stakings/protocols/babylon/airdrops/registrations | Register for Babylon airdrop |
+| [**createBabylonStakingExpansion**](StakingsApi.md#createBabylonStakingExpansion) | **POST** /stakings/protocols/babylon/stakings/expansions | Expand Babylon BTC staking |
 | [**createBabylonStakingRegistration**](StakingsApi.md#createBabylonStakingRegistration) | **POST** /stakings/protocols/babylon/stakings/registrations | Register for Babylon Phase-2 |
 | [**createClaimActivity**](StakingsApi.md#createClaimActivity) | **POST** /stakings/activities/claim | Create claim activity |
 | [**createStakeActivity**](StakingsApi.md#createStakeActivity) | **POST** /stakings/activities/stake | Create stake activity |
@@ -91,6 +92,74 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Airdrop registration created successfully |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="createBabylonStakingExpansion"></a>
+# **createBabylonStakingExpansion**
+> Stakings createBabylonStakingExpansion(babylonCreateStakingExpansion)
+
+Expand Babylon BTC staking
+
+This operation initiates a Babylon BTC staking expansion request.   Before calling this operation, please ensure the following: - The BTC staking position is active. - The finality provider public keys are valid. And each BSN chain has a unique finality provider public key at most.  The system first checks whether the provided BTC staking position is active. If active, it creates a new BTC staking position for the phase 3 expansion.  The expansion is processed asynchronously and may take some time to complete.  For more information, refer to [Babylon&#39;s official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.StakingsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    StakingsApi apiInstance = new StakingsApi();
+    BabylonCreateStakingExpansion babylonCreateStakingExpansion = new BabylonCreateStakingExpansion();
+    try {
+      Stakings result = apiInstance.createBabylonStakingExpansion(babylonCreateStakingExpansion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling StakingsApi#createBabylonStakingExpansion");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **babylonCreateStakingExpansion** | [**BabylonCreateStakingExpansion**](BabylonCreateStakingExpansion.md)| The request body to expand Babylon BTC staking to phase 3 | [optional] |
+
+### Return type
+
+[**Stakings**](Stakings.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Expand Babylon BTC staking for phase 3 successfully |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 

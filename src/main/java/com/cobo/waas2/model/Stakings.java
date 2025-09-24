@@ -98,6 +98,10 @@ public class Stakings {
   @SerializedName(SERIALIZED_NAME_VALIDATOR_INFO)
   private BabylonValidator validatorInfo;
 
+  public static final String SERIALIZED_NAME_VALIDATORS = "validators";
+  @SerializedName(SERIALIZED_NAME_VALIDATORS)
+  private List<BabylonValidator> validators = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_EXTRA = "extra";
   @SerializedName(SERIALIZED_NAME_EXTRA)
   private StakingsExtra extra;
@@ -293,13 +297,40 @@ public class Stakings {
    * Get validatorInfo
    * @return validatorInfo
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public BabylonValidator getValidatorInfo() {
     return validatorInfo;
   }
 
   public void setValidatorInfo(BabylonValidator validatorInfo) {
     this.validatorInfo = validatorInfo;
+  }
+
+
+  public Stakings validators(List<BabylonValidator> validators) {
+    this.validators = validators;
+    return this;
+  }
+
+  public Stakings addValidatorsItem(BabylonValidator validatorsItem) {
+    if (this.validators == null) {
+      this.validators = new ArrayList<>();
+    }
+    this.validators.add(validatorsItem);
+    return this;
+  }
+
+   /**
+   * Get validators
+   * @return validators
+  **/
+  @javax.annotation.Nullable
+  public List<BabylonValidator> getValidators() {
+    return validators;
+  }
+
+  public void setValidators(List<BabylonValidator> validators) {
+    this.validators = validators;
   }
 
 
@@ -386,13 +417,14 @@ public class Stakings {
         Objects.equals(this.createdTimestamp, stakings.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, stakings.updatedTimestamp) &&
         Objects.equals(this.validatorInfo, stakings.validatorInfo) &&
+        Objects.equals(this.validators, stakings.validators) &&
         Objects.equals(this.extra, stakings.extra)&&
         Objects.equals(this.additionalProperties, stakings.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, walletId, address, amounts, poolId, tokenId, rewardsInfo, createdTimestamp, updatedTimestamp, validatorInfo, extra, additionalProperties);
+    return Objects.hash(id, walletId, address, amounts, poolId, tokenId, rewardsInfo, createdTimestamp, updatedTimestamp, validatorInfo, validators, extra, additionalProperties);
   }
 
   @Override
@@ -409,6 +441,7 @@ public class Stakings {
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    validatorInfo: ").append(toIndentedString(validatorInfo)).append("\n");
+    sb.append("    validators: ").append(toIndentedString(validators)).append("\n");
     sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -443,6 +476,7 @@ public class Stakings {
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("validator_info");
+    openapiFields.add("validators");
     openapiFields.add("extra");
 
     // a set of required properties/fields (JSON key names)
@@ -455,7 +489,6 @@ public class Stakings {
     openapiRequiredFields.add("token_id");
     openapiRequiredFields.add("created_timestamp");
     openapiRequiredFields.add("updated_timestamp");
-    openapiRequiredFields.add("validator_info");
   }
 
  /**
@@ -502,8 +535,24 @@ public class Stakings {
       if (!jsonObj.get("token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
       }
-      // validate the required field `validator_info`
-      BabylonValidator.validateJsonElement(jsonObj.get("validator_info"));
+      // validate the optional field `validator_info`
+      if (jsonObj.get("validator_info") != null && !jsonObj.get("validator_info").isJsonNull()) {
+        BabylonValidator.validateJsonElement(jsonObj.get("validator_info"));
+      }
+      if (jsonObj.get("validators") != null && !jsonObj.get("validators").isJsonNull()) {
+        JsonArray jsonArrayvalidators = jsonObj.getAsJsonArray("validators");
+        if (jsonArrayvalidators != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("validators").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `validators` to be an array in the JSON string but got `%s`", jsonObj.get("validators").toString()));
+          }
+
+          // validate the optional field `validators` (array)
+          for (int i = 0; i < jsonArrayvalidators.size(); i++) {
+            BabylonValidator.validateJsonElement(jsonArrayvalidators.get(i));
+          };
+        }
+      }
       // validate the optional field `extra`
       if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull()) {
         StakingsExtra.validateJsonElement(jsonObj.get("extra"));

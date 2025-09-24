@@ -25,8 +25,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cobo.waas2.model.AutoSweepTask;
+import com.cobo.waas2.model.CreateAutoSweepTask;
 import com.cobo.waas2.model.CreateSweepToAddress;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.ListAutoSweepTask200Response;
 import com.cobo.waas2.model.ListWalletSweepToAddresses200Response;
 import com.cobo.waas2.model.SweepToAddress;
 import java.util.UUID;
@@ -56,6 +59,119 @@ public class AutoSweepApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for createAutoSweepTask
+     * @param createAutoSweepTask The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successfully create auto sweep task </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAutoSweepTaskCall(CreateAutoSweepTask createAutoSweepTask, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createAutoSweepTask;
+
+        // create path and map variables
+        String localVarPath = "/auto_sweep/tasks";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAutoSweepTaskValidateBeforeCall(CreateAutoSweepTask createAutoSweepTask, final ApiCallback _callback) throws ApiException {
+        return createAutoSweepTaskCall(createAutoSweepTask, _callback);
+
+    }
+
+    /**
+     * create auto sweep task
+     * This operation create a new auto sweep task. 
+     * @param createAutoSweepTask The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * @return AutoSweepTask
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successfully create auto sweep task </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AutoSweepTask createAutoSweepTask(CreateAutoSweepTask createAutoSweepTask) throws ApiException {
+        ApiResponse<AutoSweepTask> localVarResp = createAutoSweepTaskWithHttpInfo(createAutoSweepTask);
+        return localVarResp.getData();
+    }
+
+    /**
+     * create auto sweep task
+     * This operation create a new auto sweep task. 
+     * @param createAutoSweepTask The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * @return ApiResponse&lt;AutoSweepTask&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successfully create auto sweep task </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoSweepTask> createAutoSweepTaskWithHttpInfo(CreateAutoSweepTask createAutoSweepTask) throws ApiException {
+        okhttp3.Call localVarCall = createAutoSweepTaskValidateBeforeCall(createAutoSweepTask, null);
+        Type localVarReturnType = new TypeToken<AutoSweepTask>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * create auto sweep task (asynchronously)
+     * This operation create a new auto sweep task. 
+     * @param createAutoSweepTask The request body to generates a new sweep to addresses within a specified wallet. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successfully create auto sweep task </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAutoSweepTaskAsync(CreateAutoSweepTask createAutoSweepTask, final ApiCallback<AutoSweepTask> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createAutoSweepTaskValidateBeforeCall(createAutoSweepTask, _callback);
+        Type localVarReturnType = new TypeToken<AutoSweepTask>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for createWalletSweepToAddresses
      * @param createSweepToAddress The request body to generates a new sweep to addresses within a specified wallet. (optional)
@@ -166,6 +282,309 @@ public class AutoSweepApi {
 
         okhttp3.Call localVarCall = createWalletSweepToAddressesValidateBeforeCall(createSweepToAddress, _callback);
         Type localVarReturnType = new TypeToken<SweepToAddress>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAutoSweepTaskById
+     * @param taskId The auto sweep task ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The information about a auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAutoSweepTaskByIdCall(UUID taskId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/auto_sweep/tasks/{task_id}"
+            .replace("{" + "task_id" + "}", localVarApiClient.escapeString(taskId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAutoSweepTaskByIdValidateBeforeCall(UUID taskId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'taskId' is set
+        if (taskId == null) {
+            throw new ApiException("Missing the required parameter 'taskId' when calling getAutoSweepTaskById(Async)");
+        }
+
+        return getAutoSweepTaskByIdCall(taskId, _callback);
+
+    }
+
+    /**
+     * Get auto sweep task information
+     * This operation retrieves detailed information about a specified auto sweep task. 
+     * @param taskId The auto sweep task ID. (required)
+     * @return AutoSweepTask
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The information about a auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AutoSweepTask getAutoSweepTaskById(UUID taskId) throws ApiException {
+        ApiResponse<AutoSweepTask> localVarResp = getAutoSweepTaskByIdWithHttpInfo(taskId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get auto sweep task information
+     * This operation retrieves detailed information about a specified auto sweep task. 
+     * @param taskId The auto sweep task ID. (required)
+     * @return ApiResponse&lt;AutoSweepTask&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The information about a auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoSweepTask> getAutoSweepTaskByIdWithHttpInfo(UUID taskId) throws ApiException {
+        okhttp3.Call localVarCall = getAutoSweepTaskByIdValidateBeforeCall(taskId, null);
+        Type localVarReturnType = new TypeToken<AutoSweepTask>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get auto sweep task information (asynchronously)
+     * This operation retrieves detailed information about a specified auto sweep task. 
+     * @param taskId The auto sweep task ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The information about a auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAutoSweepTaskByIdAsync(UUID taskId, final ApiCallback<AutoSweepTask> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAutoSweepTaskByIdValidateBeforeCall(taskId, _callback);
+        Type localVarReturnType = new TypeToken<AutoSweepTask>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listAutoSweepTask
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
+     * @param taskIds A list of auto sweep task IDs, separated by comma. (optional)
+     * @param minCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time. (optional)
+     * @param maxCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to ASC)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully listed auto sweep tasks </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAutoSweepTaskCall(UUID walletId, String tokenId, String taskIds, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, String direction, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/auto_sweep/tasks";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (walletId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("wallet_id", walletId));
+        }
+
+        if (tokenId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("token_id", tokenId));
+        }
+
+        if (taskIds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("task_ids", taskIds));
+        }
+
+        if (minCreatedTimestamp != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("min_created_timestamp", minCreatedTimestamp));
+        }
+
+        if (maxCreatedTimestamp != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_created_timestamp", maxCreatedTimestamp));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (direction != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("direction", direction));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAutoSweepTaskValidateBeforeCall(UUID walletId, String tokenId, String taskIds, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, String direction, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling listAutoSweepTask(Async)");
+        }
+
+        return listAutoSweepTaskCall(walletId, tokenId, taskIds, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction, _callback);
+
+    }
+
+    /**
+     * List wallet auto sweep task
+     * This operation retrieves a list of auto sweep task. 
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
+     * @param taskIds A list of auto sweep task IDs, separated by comma. (optional)
+     * @param minCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time. (optional)
+     * @param maxCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to ASC)
+     * @return ListAutoSweepTask200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully listed auto sweep tasks </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListAutoSweepTask200Response listAutoSweepTask(UUID walletId, String tokenId, String taskIds, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, String direction) throws ApiException {
+        ApiResponse<ListAutoSweepTask200Response> localVarResp = listAutoSweepTaskWithHttpInfo(walletId, tokenId, taskIds, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List wallet auto sweep task
+     * This operation retrieves a list of auto sweep task. 
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
+     * @param taskIds A list of auto sweep task IDs, separated by comma. (optional)
+     * @param minCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time. (optional)
+     * @param maxCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to ASC)
+     * @return ApiResponse&lt;ListAutoSweepTask200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully listed auto sweep tasks </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListAutoSweepTask200Response> listAutoSweepTaskWithHttpInfo(UUID walletId, String tokenId, String taskIds, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, String direction) throws ApiException {
+        okhttp3.Call localVarCall = listAutoSweepTaskValidateBeforeCall(walletId, tokenId, taskIds, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction, null);
+        Type localVarReturnType = new TypeToken<ListAutoSweepTask200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List wallet auto sweep task (asynchronously)
+     * This operation retrieves a list of auto sweep task. 
+     * @param walletId The wallet ID. (required)
+     * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
+     * @param taskIds A list of auto sweep task IDs, separated by comma. (optional)
+     * @param minCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time. (optional)
+     * @param maxCreatedTimestamp The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to ASC)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully listed auto sweep tasks </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAutoSweepTaskAsync(UUID walletId, String tokenId, String taskIds, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, String direction, final ApiCallback<ListAutoSweepTask200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listAutoSweepTaskValidateBeforeCall(walletId, tokenId, taskIds, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction, _callback);
+        Type localVarReturnType = new TypeToken<ListAutoSweepTask200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
