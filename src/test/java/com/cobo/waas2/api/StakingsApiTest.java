@@ -18,6 +18,7 @@ import com.cobo.waas2.model.Activity;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityType;
 import com.cobo.waas2.model.BabylonAirdropRegistration;
+import com.cobo.waas2.model.BabylonCreateStakingExpansion;
 import com.cobo.waas2.model.BabylonStakingRegistration;
 import com.cobo.waas2.model.CreateBabylonAirdropRegistration201Response;
 import com.cobo.waas2.model.CreateBabylonAirdropRegistrationRequest;
@@ -74,6 +75,20 @@ public class StakingsApiTest {
     public void createBabylonAirdropRegistrationTest() throws ApiException {
         CreateBabylonAirdropRegistrationRequest createBabylonAirdropRegistrationRequest = null;
         CreateBabylonAirdropRegistration201Response response = api.createBabylonAirdropRegistration(createBabylonAirdropRegistrationRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Expand Babylon BTC staking
+     *
+     * This operation initiates a Babylon BTC staking expansion request.   Before calling this operation, please ensure the following: - The BTC staking position is active. - The finality provider public keys are valid. And each BSN chain has a unique finality provider public key at most.  The system first checks whether the provided BTC staking position is active. If active, it creates a new BTC staking position for the phase 3 expansion.  The expansion is processed asynchronously and may take some time to complete.  For more information, refer to [Babylon&#39;s official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createBabylonStakingExpansionTest() throws ApiException {
+        BabylonCreateStakingExpansion babylonCreateStakingExpansion = null;
+        Stakings response = api.createBabylonStakingExpansion(babylonCreateStakingExpansion);
         // TODO: test validations
     }
 

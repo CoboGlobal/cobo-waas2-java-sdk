@@ -17,7 +17,8 @@ The information about a staking position.
 |**rewardsInfo** | **Object** | The information about the staking rewards. |  [optional] |
 |**createdTimestamp** | **Long** | The time when the staking position was created. |  |
 |**updatedTimestamp** | **Long** | The time when the staking position was last updated. |  |
-|**validatorInfo** | [**BabylonValidator**](BabylonValidator.md) |  |  |
+|**validatorInfo** | [**BabylonValidator**](BabylonValidator.md) |  |  [optional] |
+|**validators** | [**List&lt;BabylonValidator&gt;**](BabylonValidator.md) |  |  [optional] |
 |**extra** | [**StakingsExtra**](StakingsExtra.md) |  |  [optional] |
 
 

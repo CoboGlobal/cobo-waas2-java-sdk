@@ -22,13 +22,15 @@ import com.cobo.waas2.model.TokenizationMintEstimateFeeParams;
 import com.cobo.waas2.model.TokenizationMintTokenParamsMintsInner;
 import com.cobo.waas2.model.TokenizationOperationType;
 import com.cobo.waas2.model.TokenizationPauseEstimateFeeParams;
+import com.cobo.waas2.model.TokenizationPermissionAction;
 import com.cobo.waas2.model.TokenizationToggleAllowlistEstimateFeeParams;
 import com.cobo.waas2.model.TokenizationTokenOperationSource;
+import com.cobo.waas2.model.TokenizationTokenPermissionType;
 import com.cobo.waas2.model.TokenizationUnpauseEstimateFeeParams;
-import com.cobo.waas2.model.TokenizationUpdateAddressAction;
 import com.cobo.waas2.model.TokenizationUpdateAllowlistAddressesEstimateFeeParams;
 import com.cobo.waas2.model.TokenizationUpdateBlocklistAddressesEstimateFeeParams;
 import com.cobo.waas2.model.TokenizationUpdateBlocklistAddressesParamsAddressesInner;
+import com.cobo.waas2.model.TokenizationUpdatePermissionsEstimateFeeParams;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -98,6 +100,7 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
             final TypeAdapter<TokenizationUpdateBlocklistAddressesEstimateFeeParams> adapterTokenizationUpdateBlocklistAddressesEstimateFeeParams = gson.getDelegateAdapter(this, TypeToken.get(TokenizationUpdateBlocklistAddressesEstimateFeeParams.class));
             final TypeAdapter<TokenizationToggleAllowlistEstimateFeeParams> adapterTokenizationToggleAllowlistEstimateFeeParams = gson.getDelegateAdapter(this, TypeToken.get(TokenizationToggleAllowlistEstimateFeeParams.class));
             final TypeAdapter<TokenizationContractCallEstimateFeeParams> adapterTokenizationContractCallEstimateFeeParams = gson.getDelegateAdapter(this, TypeToken.get(TokenizationContractCallEstimateFeeParams.class));
+            final TypeAdapter<TokenizationUpdatePermissionsEstimateFeeParams> adapterTokenizationUpdatePermissionsEstimateFeeParams = gson.getDelegateAdapter(this, TypeToken.get(TokenizationUpdatePermissionsEstimateFeeParams.class));
 
             return (TypeAdapter<T>) new TypeAdapter<TokenizationEstimateFeeRequestOperationParams>() {
                 @Override
@@ -161,7 +164,13 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams");
+                    // check if the actual instance is of the type `TokenizationUpdatePermissionsEstimateFeeParams`
+                    if (value.getActualInstance() instanceof TokenizationUpdatePermissionsEstimateFeeParams) {
+                        JsonElement element = adapterTokenizationUpdatePermissionsEstimateFeeParams.toJsonTree((TokenizationUpdatePermissionsEstimateFeeParams)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams, TokenizationUpdatePermissionsEstimateFeeParams");
                 }
 
                 @Override
@@ -214,6 +223,10 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
                                 deserialized = adapterTokenizationUpdateBlocklistAddressesEstimateFeeParams.fromJsonTree(jsonObject);
                                 newTokenizationEstimateFeeRequestOperationParams.setActualInstance(deserialized);
                                 return newTokenizationEstimateFeeRequestOperationParams;
+                            case "UpdatePermissions":
+                                deserialized = adapterTokenizationUpdatePermissionsEstimateFeeParams.fromJsonTree(jsonObject);
+                                newTokenizationEstimateFeeRequestOperationParams.setActualInstance(deserialized);
+                                return newTokenizationEstimateFeeRequestOperationParams;
                             case "TokenizationBurnEstimateFeeParams":
                                 deserialized = adapterTokenizationBurnEstimateFeeParams.fromJsonTree(jsonObject);
                                 newTokenizationEstimateFeeRequestOperationParams.setActualInstance(deserialized);
@@ -250,8 +263,12 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
                                 deserialized = adapterTokenizationUpdateBlocklistAddressesEstimateFeeParams.fromJsonTree(jsonObject);
                                 newTokenizationEstimateFeeRequestOperationParams.setActualInstance(deserialized);
                                 return newTokenizationEstimateFeeRequestOperationParams;
+                            case "TokenizationUpdatePermissionsEstimateFeeParams":
+                                deserialized = adapterTokenizationUpdatePermissionsEstimateFeeParams.fromJsonTree(jsonObject);
+                                newTokenizationEstimateFeeRequestOperationParams.setActualInstance(deserialized);
+                                return newTokenizationEstimateFeeRequestOperationParams;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TokenizationEstimateFeeRequestOperationParams. Possible values: Burn ContractCall Issue Mint Pause ToggleAllowlist Unpause UpdateAllowlistAddresses UpdateBlocklistAddresses TokenizationBurnEstimateFeeParams TokenizationContractCallEstimateFeeParams TokenizationIssueEstimateFeeParams TokenizationMintEstimateFeeParams TokenizationPauseEstimateFeeParams TokenizationToggleAllowlistEstimateFeeParams TokenizationUnpauseEstimateFeeParams TokenizationUpdateAllowlistAddressesEstimateFeeParams TokenizationUpdateBlocklistAddressesEstimateFeeParams", jsonObject.get("operation_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TokenizationEstimateFeeRequestOperationParams. Possible values: Burn ContractCall Issue Mint Pause ToggleAllowlist Unpause UpdateAllowlistAddresses UpdateBlocklistAddresses UpdatePermissions TokenizationBurnEstimateFeeParams TokenizationContractCallEstimateFeeParams TokenizationIssueEstimateFeeParams TokenizationMintEstimateFeeParams TokenizationPauseEstimateFeeParams TokenizationToggleAllowlistEstimateFeeParams TokenizationUnpauseEstimateFeeParams TokenizationUpdateAllowlistAddressesEstimateFeeParams TokenizationUpdateBlocklistAddressesEstimateFeeParams TokenizationUpdatePermissionsEstimateFeeParams", jsonObject.get("operation_type").getAsString()));
                         }
                     }
 
@@ -367,6 +384,18 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
                         errorMessages.add(String.format("Deserialization for TokenizationContractCallEstimateFeeParams failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'TokenizationContractCallEstimateFeeParams'", e);
                     }
+                    // deserialize TokenizationUpdatePermissionsEstimateFeeParams
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        TokenizationUpdatePermissionsEstimateFeeParams.validateJsonElement(jsonElement);
+                        actualAdapter = adapterTokenizationUpdatePermissionsEstimateFeeParams;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'TokenizationUpdatePermissionsEstimateFeeParams'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for TokenizationUpdatePermissionsEstimateFeeParams failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'TokenizationUpdatePermissionsEstimateFeeParams'", e);
+                    }
 
                     if (match == 1) {
                         TokenizationEstimateFeeRequestOperationParams ret = new TokenizationEstimateFeeRequestOperationParams();
@@ -432,6 +461,11 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
         setActualInstance(o);
     }
 
+    public TokenizationEstimateFeeRequestOperationParams(TokenizationUpdatePermissionsEstimateFeeParams o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     static {
         schemas.put("TokenizationIssueEstimateFeeParams", TokenizationIssueEstimateFeeParams.class);
         schemas.put("TokenizationMintEstimateFeeParams", TokenizationMintEstimateFeeParams.class);
@@ -442,6 +476,7 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
         schemas.put("TokenizationUpdateBlocklistAddressesEstimateFeeParams", TokenizationUpdateBlocklistAddressesEstimateFeeParams.class);
         schemas.put("TokenizationToggleAllowlistEstimateFeeParams", TokenizationToggleAllowlistEstimateFeeParams.class);
         schemas.put("TokenizationContractCallEstimateFeeParams", TokenizationContractCallEstimateFeeParams.class);
+        schemas.put("TokenizationUpdatePermissionsEstimateFeeParams", TokenizationUpdatePermissionsEstimateFeeParams.class);
     }
 
     @Override
@@ -452,7 +487,7 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams
+     * TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams, TokenizationUpdatePermissionsEstimateFeeParams
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -503,14 +538,19 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams");
+        if (instance instanceof TokenizationUpdatePermissionsEstimateFeeParams) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams, TokenizationUpdatePermissionsEstimateFeeParams");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams
+     * TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams, TokenizationUpdatePermissionsEstimateFeeParams
      *
-     * @return The actual instance (TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams)
+     * @return The actual instance (TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams, TokenizationUpdatePermissionsEstimateFeeParams)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -608,6 +648,16 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
     public TokenizationContractCallEstimateFeeParams getTokenizationContractCallEstimateFeeParams() throws ClassCastException {
         return (TokenizationContractCallEstimateFeeParams)super.getActualInstance();
     }
+    /**
+     * Get the actual instance of `TokenizationUpdatePermissionsEstimateFeeParams`. If the actual instance is not `TokenizationUpdatePermissionsEstimateFeeParams`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TokenizationUpdatePermissionsEstimateFeeParams`
+     * @throws ClassCastException if the instance is not `TokenizationUpdatePermissionsEstimateFeeParams`
+     */
+    public TokenizationUpdatePermissionsEstimateFeeParams getTokenizationUpdatePermissionsEstimateFeeParams() throws ClassCastException {
+        return (TokenizationUpdatePermissionsEstimateFeeParams)super.getActualInstance();
+    }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
@@ -691,8 +741,16 @@ public class TokenizationEstimateFeeRequestOperationParams extends AbstractOpenA
             errorMessages.add(String.format("Deserialization for TokenizationContractCallEstimateFeeParams failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with TokenizationUpdatePermissionsEstimateFeeParams
+        try {
+            TokenizationUpdatePermissionsEstimateFeeParams.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for TokenizationUpdatePermissionsEstimateFeeParams failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for TokenizationEstimateFeeRequestOperationParams with oneOf schemas: TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for TokenizationEstimateFeeRequestOperationParams with oneOf schemas: TokenizationBurnEstimateFeeParams, TokenizationContractCallEstimateFeeParams, TokenizationIssueEstimateFeeParams, TokenizationMintEstimateFeeParams, TokenizationPauseEstimateFeeParams, TokenizationToggleAllowlistEstimateFeeParams, TokenizationUnpauseEstimateFeeParams, TokenizationUpdateAllowlistAddressesEstimateFeeParams, TokenizationUpdateBlocklistAddressesEstimateFeeParams, TokenizationUpdatePermissionsEstimateFeeParams. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

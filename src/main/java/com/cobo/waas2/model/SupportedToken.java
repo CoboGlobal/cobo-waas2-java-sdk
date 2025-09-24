@@ -89,6 +89,10 @@ public class SupportedToken {
   @SerializedName(SERIALIZED_NAME_TOKEN_ICON_URL)
   private String tokenIconUrl;
 
+  public static final String SERIALIZED_NAME_CAN_OFF_RAMP = "can_off_ramp";
+  @SerializedName(SERIALIZED_NAME_CAN_OFF_RAMP)
+  private Boolean canOffRamp;
+
   public SupportedToken() {
   }
 
@@ -262,6 +266,25 @@ public class SupportedToken {
     this.tokenIconUrl = tokenIconUrl;
   }
 
+
+  public SupportedToken canOffRamp(Boolean canOffRamp) {
+    this.canOffRamp = canOffRamp;
+    return this;
+  }
+
+   /**
+   * Whether the token can by off ramp settlement
+   * @return canOffRamp
+  **/
+  @javax.annotation.Nullable
+  public Boolean getCanOffRamp() {
+    return canOffRamp;
+  }
+
+  public void setCanOffRamp(Boolean canOffRamp) {
+    this.canOffRamp = canOffRamp;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -325,7 +348,8 @@ public class SupportedToken {
         Objects.equals(this.chainId, supportedToken.chainId) &&
         Objects.equals(this.chainSymbol, supportedToken.chainSymbol) &&
         Objects.equals(this.chainIconUrl, supportedToken.chainIconUrl) &&
-        Objects.equals(this.tokenIconUrl, supportedToken.tokenIconUrl)&&
+        Objects.equals(this.tokenIconUrl, supportedToken.tokenIconUrl) &&
+        Objects.equals(this.canOffRamp, supportedToken.canOffRamp)&&
         Objects.equals(this.additionalProperties, supportedToken.additionalProperties);
   }
 
@@ -335,7 +359,7 @@ public class SupportedToken {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokenId, name, symbol, decimal, tokenAddress, chainId, chainSymbol, chainIconUrl, tokenIconUrl, additionalProperties);
+    return Objects.hash(tokenId, name, symbol, decimal, tokenAddress, chainId, chainSymbol, chainIconUrl, tokenIconUrl, canOffRamp, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -358,6 +382,7 @@ public class SupportedToken {
     sb.append("    chainSymbol: ").append(toIndentedString(chainSymbol)).append("\n");
     sb.append("    chainIconUrl: ").append(toIndentedString(chainIconUrl)).append("\n");
     sb.append("    tokenIconUrl: ").append(toIndentedString(tokenIconUrl)).append("\n");
+    sb.append("    canOffRamp: ").append(toIndentedString(canOffRamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -390,6 +415,7 @@ public class SupportedToken {
     openapiFields.add("chain_symbol");
     openapiFields.add("chain_icon_url");
     openapiFields.add("token_icon_url");
+    openapiFields.add("can_off_ramp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

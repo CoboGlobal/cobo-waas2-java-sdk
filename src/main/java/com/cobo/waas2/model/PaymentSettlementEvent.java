@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.AcquiringType;
+import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.SettleRequestStatus;
 import com.cobo.waas2.model.SettlementDetail;
@@ -60,7 +61,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentSettlementEvent {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -92,7 +93,11 @@ public class PaymentSettlementEvent {
     
     BALANCEUPDATEINFO("BalanceUpdateInfo"),
     
-    SUSPENDEDTOKEN("SuspendedToken");
+    SUSPENDEDTOKEN("SuspendedToken"),
+    
+    COMPLIANCEDISPOSITION("ComplianceDisposition"),
+    
+    COMPLIANCEKYTSCREENINGS("ComplianceKytScreenings");
 
     private String value;
 
@@ -181,6 +186,18 @@ public class PaymentSettlementEvent {
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_TYPE)
   private SettlementType settlementType;
 
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private String currency;
+
+  public static final String SERIALIZED_NAME_RECEIVED_AMOUNT_FIAT = "received_amount_fiat";
+  @SerializedName(SERIALIZED_NAME_RECEIVED_AMOUNT_FIAT)
+  private String receivedAmountFiat;
+
+  public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bank_account";
+  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
+  private BankAccount bankAccount;
+
   public PaymentSettlementEvent() {
   }
 
@@ -190,7 +207,7 @@ public class PaymentSettlementEvent {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -400,6 +417,63 @@ public class PaymentSettlementEvent {
     this.settlementType = settlementType;
   }
 
+
+  public PaymentSettlementEvent currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * The fiat currency for the settlement request.
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
+  public PaymentSettlementEvent receivedAmountFiat(String receivedAmountFiat) {
+    this.receivedAmountFiat = receivedAmountFiat;
+    return this;
+  }
+
+   /**
+   * The received fiat amount of this settlement request. 
+   * @return receivedAmountFiat
+  **/
+  @javax.annotation.Nullable
+  public String getReceivedAmountFiat() {
+    return receivedAmountFiat;
+  }
+
+  public void setReceivedAmountFiat(String receivedAmountFiat) {
+    this.receivedAmountFiat = receivedAmountFiat;
+  }
+
+
+  public PaymentSettlementEvent bankAccount(BankAccount bankAccount) {
+    this.bankAccount = bankAccount;
+    return this;
+  }
+
+   /**
+   * Get bankAccount
+   * @return bankAccount
+  **/
+  @javax.annotation.Nullable
+  public BankAccount getBankAccount() {
+    return bankAccount;
+  }
+
+  public void setBankAccount(BankAccount bankAccount) {
+    this.bankAccount = bankAccount;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -465,13 +539,16 @@ public class PaymentSettlementEvent {
         Objects.equals(this.initiator, paymentSettlementEvent.initiator) &&
         Objects.equals(this.acquiringType, paymentSettlementEvent.acquiringType) &&
         Objects.equals(this.payoutChannel, paymentSettlementEvent.payoutChannel) &&
-        Objects.equals(this.settlementType, paymentSettlementEvent.settlementType)&&
+        Objects.equals(this.settlementType, paymentSettlementEvent.settlementType) &&
+        Objects.equals(this.currency, paymentSettlementEvent.currency) &&
+        Objects.equals(this.receivedAmountFiat, paymentSettlementEvent.receivedAmountFiat) &&
+        Objects.equals(this.bankAccount, paymentSettlementEvent.bankAccount)&&
         Objects.equals(this.additionalProperties, paymentSettlementEvent.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, settlementRequestId, requestId, status, settlements, createdTimestamp, updatedTimestamp, initiator, acquiringType, payoutChannel, settlementType, additionalProperties);
+    return Objects.hash(dataType, settlementRequestId, requestId, status, settlements, createdTimestamp, updatedTimestamp, initiator, acquiringType, payoutChannel, settlementType, currency, receivedAmountFiat, bankAccount, additionalProperties);
   }
 
   @Override
@@ -489,6 +566,9 @@ public class PaymentSettlementEvent {
     sb.append("    acquiringType: ").append(toIndentedString(acquiringType)).append("\n");
     sb.append("    payoutChannel: ").append(toIndentedString(payoutChannel)).append("\n");
     sb.append("    settlementType: ").append(toIndentedString(settlementType)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    receivedAmountFiat: ").append(toIndentedString(receivedAmountFiat)).append("\n");
+    sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -523,6 +603,9 @@ public class PaymentSettlementEvent {
     openapiFields.add("acquiring_type");
     openapiFields.add("payout_channel");
     openapiFields.add("settlement_type");
+    openapiFields.add("currency");
+    openapiFields.add("received_amount_fiat");
+    openapiFields.add("bank_account");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -590,6 +673,16 @@ public class PaymentSettlementEvent {
       // validate the optional field `settlement_type`
       if (jsonObj.get("settlement_type") != null && !jsonObj.get("settlement_type").isJsonNull()) {
         SettlementType.validateJsonElement(jsonObj.get("settlement_type"));
+      }
+      if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
+      if ((jsonObj.get("received_amount_fiat") != null && !jsonObj.get("received_amount_fiat").isJsonNull()) && !jsonObj.get("received_amount_fiat").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `received_amount_fiat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("received_amount_fiat").toString()));
+      }
+      // validate the optional field `bank_account`
+      if (jsonObj.get("bank_account") != null && !jsonObj.get("bank_account").isJsonNull()) {
+        BankAccount.validateJsonElement(jsonObj.get("bank_account"));
       }
   }
 

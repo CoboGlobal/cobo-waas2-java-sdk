@@ -28,6 +28,7 @@
 |**timeline** | [**List&lt;SwapActivityTimeline&gt;**](SwapActivityTimeline.md) |  |  [optional] |
 |**approvers** | [**List&lt;SwapActivityApprovers&gt;**](SwapActivityApprovers.md) |  |  [optional] |
 |**signers** | [**List&lt;SwapActivitySigners&gt;**](SwapActivitySigners.md) |  |  [optional] |
+|**receivingTransaction** | [**SwapReceivingTransaction**](SwapReceivingTransaction.md) |  |  [optional] |
 
 
 

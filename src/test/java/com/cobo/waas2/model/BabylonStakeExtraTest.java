@@ -19,7 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -54,6 +56,14 @@ public class BabylonStakeExtraTest {
     }
 
     /**
+     * Test the property 'finalityProviderPublicKeys'
+     */
+    @Test
+    public void finalityProviderPublicKeysTest() {
+        // TODO: test finalityProviderPublicKeys
+    }
+
+    /**
      * Test the property 'stakeBlockTime'
      */
     @Test
@@ -75,6 +85,14 @@ public class BabylonStakeExtraTest {
     @Test
     public void babylonAddressTest() {
         // TODO: test babylonAddress
+    }
+
+    /**
+     * Test the property 'originalStakingId'
+     */
+    @Test
+    public void originalStakingIdTest() {
+        // TODO: test originalStakingId
     }
 
 }

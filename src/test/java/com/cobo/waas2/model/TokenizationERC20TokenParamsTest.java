@@ -11,7 +11,7 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.TokenizationTokenPermissionParams;
+import com.cobo.waas2.model.TokenizationERC20TokenPermissionParams;
 import com.cobo.waas2.model.TokenizationTokenStandard;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

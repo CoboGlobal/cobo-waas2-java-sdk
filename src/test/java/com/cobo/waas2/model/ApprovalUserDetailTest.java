@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ApprovalResult;
-import com.cobo.waas2.model.ApprovalShowInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -39,11 +38,19 @@ public class ApprovalUserDetailTest {
     }
 
     /**
-     * Test the property 'userEmail'
+     * Test the property 'name'
      */
     @Test
-    public void userEmailTest() {
-        // TODO: test userEmail
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'email'
+     */
+    @Test
+    public void emailTest() {
+        // TODO: test email
     }
 
     /**
@@ -76,6 +83,14 @@ public class ApprovalUserDetailTest {
     @Test
     public void resultTest() {
         // TODO: test result
+    }
+
+    /**
+     * Test the property 'approvalResultCode'
+     */
+    @Test
+    public void approvalResultCodeTest() {
+        // TODO: test approvalResultCode
     }
 
     /**
@@ -116,6 +131,38 @@ public class ApprovalUserDetailTest {
     @Test
     public void showInfoTest() {
         // TODO: test showInfo
+    }
+
+    /**
+     * Test the property 'language'
+     */
+    @Test
+    public void languageTest() {
+        // TODO: test language
+    }
+
+    /**
+     * Test the property 'messageVersion'
+     */
+    @Test
+    public void messageVersionTest() {
+        // TODO: test messageVersion
+    }
+
+    /**
+     * Test the property 'message'
+     */
+    @Test
+    public void messageTest() {
+        // TODO: test message
+    }
+
+    /**
+     * Test the property 'extraMessage'
+     */
+    @Test
+    public void extraMessageTest() {
+        // TODO: test extraMessage
     }
 
 }

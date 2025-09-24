@@ -347,4 +347,12 @@ public class PaymentTransactionEventDataTest {
         // TODO: test customPayerId
     }
 
+    /**
+     * Test the property 'subscriptionId'
+     */
+    @Test
+    public void subscriptionIdTest() {
+        // TODO: test subscriptionId
+    }
+
 }

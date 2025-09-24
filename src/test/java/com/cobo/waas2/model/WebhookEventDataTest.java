@@ -16,8 +16,16 @@ import com.cobo.waas2.model.AddressesEventData;
 import com.cobo.waas2.model.AddressesEventDataAllOfAddresses;
 import com.cobo.waas2.model.Balance;
 import com.cobo.waas2.model.BalanceUpdateInfoEventData;
+import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.ChainsEventData;
+import com.cobo.waas2.model.CommissionFee;
+import com.cobo.waas2.model.ComplianceDispositionUpdateEventData;
+import com.cobo.waas2.model.ComplianceKytScreeningsUpdateEventData;
+import com.cobo.waas2.model.DispositionStatus;
+import com.cobo.waas2.model.DispositionType;
+import com.cobo.waas2.model.FundsStatusType;
+import com.cobo.waas2.model.KytScreeningsTransactionType;
 import com.cobo.waas2.model.MPCVaultEventData;
 import com.cobo.waas2.model.PaymentAddressUpdateEventData;
 import com.cobo.waas2.model.PaymentOrderEventData;
@@ -27,6 +35,7 @@ import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.PaymentTransactionEventData;
 import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.RefundType;
+import com.cobo.waas2.model.ReviewStatusType;
 import com.cobo.waas2.model.RootPubkey;
 import com.cobo.waas2.model.SettleStatus;
 import com.cobo.waas2.model.SettlementDetail;
@@ -683,6 +692,14 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'commissionFee'
+     */
+    @Test
+    public void commissionFeeTest() {
+        // TODO: test commissionFee
+    }
+
+    /**
      * Test the property 'settlementRequestId'
      */
     @Test
@@ -723,6 +740,22 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'receivedAmountFiat'
+     */
+    @Test
+    public void receivedAmountFiatTest() {
+        // TODO: test receivedAmountFiat
+    }
+
+    /**
+     * Test the property 'bankAccount'
+     */
+    @Test
+    public void bankAccountTest() {
+        // TODO: test bankAccount
+    }
+
+    /**
      * Test the property 'payerId'
      */
     @Test
@@ -736,6 +769,14 @@ public class WebhookEventDataTest {
     @Test
     public void customPayerIdTest() {
         // TODO: test customPayerId
+    }
+
+    /**
+     * Test the property 'subscriptionId'
+     */
+    @Test
+    public void subscriptionIdTest() {
+        // TODO: test subscriptionId
     }
 
     /**
@@ -760,6 +801,62 @@ public class WebhookEventDataTest {
     @Test
     public void updatedAddressTest() {
         // TODO: test updatedAddress
+    }
+
+    /**
+     * Test the property 'dispositionType'
+     */
+    @Test
+    public void dispositionTypeTest() {
+        // TODO: test dispositionType
+    }
+
+    /**
+     * Test the property 'dispositionStatus'
+     */
+    @Test
+    public void dispositionStatusTest() {
+        // TODO: test dispositionStatus
+    }
+
+    /**
+     * Test the property 'destinationAddress'
+     */
+    @Test
+    public void destinationAddressTest() {
+        // TODO: test destinationAddress
+    }
+
+    /**
+     * Test the property 'dispositionAmount'
+     */
+    @Test
+    public void dispositionAmountTest() {
+        // TODO: test dispositionAmount
+    }
+
+    /**
+     * Test the property 'transactionType'
+     */
+    @Test
+    public void transactionTypeTest() {
+        // TODO: test transactionType
+    }
+
+    /**
+     * Test the property 'reviewStatus'
+     */
+    @Test
+    public void reviewStatusTest() {
+        // TODO: test reviewStatus
+    }
+
+    /**
+     * Test the property 'fundsStatus'
+     */
+    @Test
+    public void fundsStatusTest() {
+        // TODO: test fundsStatus
     }
 
 }

@@ -14,6 +14,8 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
+import com.cobo.waas2.model.BridgingFee;
+import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.SettleStatus;
@@ -122,6 +124,14 @@ public class SettlementDetail {
   public static final String SERIALIZED_NAME_ORDER_IDS = "order_ids";
   @SerializedName(SERIALIZED_NAME_ORDER_IDS)
   private List<String> orderIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_COMMISSION_FEE = "commission_fee";
+  @SerializedName(SERIALIZED_NAME_COMMISSION_FEE)
+  private CommissionFee commissionFee;
+
+  public static final String SERIALIZED_NAME_BRIDGING_FEE = "bridging_fee";
+  @SerializedName(SERIALIZED_NAME_BRIDGING_FEE)
+  private BridgingFee bridgingFee;
 
   public SettlementDetail() {
   }
@@ -445,6 +455,44 @@ public class SettlementDetail {
     this.orderIds = orderIds;
   }
 
+
+  public SettlementDetail commissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+    return this;
+  }
+
+   /**
+   * Get commissionFee
+   * @return commissionFee
+  **/
+  @javax.annotation.Nullable
+  public CommissionFee getCommissionFee() {
+    return commissionFee;
+  }
+
+  public void setCommissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+  }
+
+
+  public SettlementDetail bridgingFee(BridgingFee bridgingFee) {
+    this.bridgingFee = bridgingFee;
+    return this;
+  }
+
+   /**
+   * Get bridgingFee
+   * @return bridgingFee
+  **/
+  @javax.annotation.Nullable
+  public BridgingFee getBridgingFee() {
+    return bridgingFee;
+  }
+
+  public void setBridgingFee(BridgingFee bridgingFee) {
+    this.bridgingFee = bridgingFee;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -515,13 +563,15 @@ public class SettlementDetail {
         Objects.equals(this.payoutChannel, settlementDetail.payoutChannel) &&
         Objects.equals(this.acquiringType, settlementDetail.acquiringType) &&
         Objects.equals(this.settlementRequestId, settlementDetail.settlementRequestId) &&
-        Objects.equals(this.orderIds, settlementDetail.orderIds)&&
+        Objects.equals(this.orderIds, settlementDetail.orderIds) &&
+        Objects.equals(this.commissionFee, settlementDetail.commissionFee) &&
+        Objects.equals(this.bridgingFee, settlementDetail.bridgingFee)&&
         Objects.equals(this.additionalProperties, settlementDetail.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, payoutChannel, acquiringType, settlementRequestId, orderIds, additionalProperties);
+    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, payoutChannel, acquiringType, settlementRequestId, orderIds, commissionFee, bridgingFee, additionalProperties);
   }
 
   @Override
@@ -544,6 +594,8 @@ public class SettlementDetail {
     sb.append("    acquiringType: ").append(toIndentedString(acquiringType)).append("\n");
     sb.append("    settlementRequestId: ").append(toIndentedString(settlementRequestId)).append("\n");
     sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
+    sb.append("    commissionFee: ").append(toIndentedString(commissionFee)).append("\n");
+    sb.append("    bridgingFee: ").append(toIndentedString(bridgingFee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -583,6 +635,8 @@ public class SettlementDetail {
     openapiFields.add("acquiring_type");
     openapiFields.add("settlement_request_id");
     openapiFields.add("order_ids");
+    openapiFields.add("commission_fee");
+    openapiFields.add("bridging_fee");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -658,6 +712,14 @@ public class SettlementDetail {
       // ensure the optional json data is an array if present
       if (jsonObj.get("order_ids") != null && !jsonObj.get("order_ids").isJsonNull() && !jsonObj.get("order_ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `order_ids` to be an array in the JSON string but got `%s`", jsonObj.get("order_ids").toString()));
+      }
+      // validate the optional field `commission_fee`
+      if (jsonObj.get("commission_fee") != null && !jsonObj.get("commission_fee").isJsonNull()) {
+        CommissionFee.validateJsonElement(jsonObj.get("commission_fee"));
+      }
+      // validate the optional field `bridging_fee`
+      if (jsonObj.get("bridging_fee") != null && !jsonObj.get("bridging_fee").isJsonNull()) {
+        BridgingFee.validateJsonElement(jsonObj.get("bridging_fee"));
       }
   }
 

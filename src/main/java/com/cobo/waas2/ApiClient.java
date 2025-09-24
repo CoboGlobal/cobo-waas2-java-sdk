@@ -197,7 +197,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("cobo-waas2-java-sdk/1.20.0");
+        setUserAgent("cobo-waas2-java-sdk/1.23.0");
 
         authentications = new HashMap<String, Authentication>();
     }

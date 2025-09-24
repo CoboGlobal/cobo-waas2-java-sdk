@@ -35,6 +35,7 @@
 |**messageBip137** | **String** | Message to be signed, in hexadecimal format. |  |
 |**messageBip322** | **String** | Message to be signed, in hexadecimal format. |  |
 |**messageCosmosAdr36** | **String** | Message to be signed, in hexadecimal format. |  |
+|**contractParam** | [**TransactionStellarContractParam**](TransactionStellarContractParam.md) |  |  |
 
 
 

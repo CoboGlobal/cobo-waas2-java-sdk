@@ -54,12 +54,35 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class CreateBankAccountRequest {
+  public static final String SERIALIZED_NAME_OTC_BANK_ACCOUNT_ID = "otc_bank_account_id";
+  @SerializedName(SERIALIZED_NAME_OTC_BANK_ACCOUNT_ID)
+  private String otcBankAccountId;
+
   public static final String SERIALIZED_NAME_INFO = "info";
   @SerializedName(SERIALIZED_NAME_INFO)
   private Map<String, Object> info = new HashMap<>();
 
   public CreateBankAccountRequest() {
   }
+
+  public CreateBankAccountRequest otcBankAccountId(String otcBankAccountId) {
+    this.otcBankAccountId = otcBankAccountId;
+    return this;
+  }
+
+   /**
+   * Get otcBankAccountId
+   * @return otcBankAccountId
+  **/
+  @javax.annotation.Nonnull
+  public String getOtcBankAccountId() {
+    return otcBankAccountId;
+  }
+
+  public void setOtcBankAccountId(String otcBankAccountId) {
+    this.otcBankAccountId = otcBankAccountId;
+  }
+
 
   public CreateBankAccountRequest info(Map<String, Object> info) {
     this.info = info;
@@ -142,19 +165,21 @@ public class CreateBankAccountRequest {
       return false;
     }
     CreateBankAccountRequest createBankAccountRequest = (CreateBankAccountRequest) o;
-    return Objects.equals(this.info, createBankAccountRequest.info)&&
+    return Objects.equals(this.otcBankAccountId, createBankAccountRequest.otcBankAccountId) &&
+        Objects.equals(this.info, createBankAccountRequest.info)&&
         Objects.equals(this.additionalProperties, createBankAccountRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(info, additionalProperties);
+    return Objects.hash(otcBankAccountId, info, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBankAccountRequest {\n");
+    sb.append("    otcBankAccountId: ").append(toIndentedString(otcBankAccountId)).append("\n");
     sb.append("    info: ").append(toIndentedString(info)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -179,10 +204,12 @@ public class CreateBankAccountRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("otc_bank_account_id");
     openapiFields.add("info");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("otc_bank_account_id");
     openapiRequiredFields.add("info");
   }
 
@@ -206,6 +233,9 @@ public class CreateBankAccountRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("otc_bank_account_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `otc_bank_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("otc_bank_account_id").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

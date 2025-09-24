@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.20.0</version>
+  <version>1.23.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.20.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.23.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.20.0.jar`
+* `target/cobo-waas2-1.23.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -200,14 +200,28 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AddressBooksApi* | [**createAddressBooks**](docs/AddressBooksApi.md#createAddressBooks) | **POST** /address_books | Create address books
+*AddressBooksApi* | [**deleteAddressBookById**](docs/AddressBooksApi.md#deleteAddressBookById) | **POST** /address_books/{entry_id}/delete | Delete address book
+*AddressBooksApi* | [**getAddressBookById**](docs/AddressBooksApi.md#getAddressBookById) | **GET** /address_books/{entry_id} | Get address book information
 *AddressBooksApi* | [**listAddressBooks**](docs/AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List address book entries
+*AddressBooksApi* | [**updateAddressBookById**](docs/AddressBooksApi.md#updateAddressBookById) | **PUT** /address_books/{entry_id} | Update address book
 *AppWorkflowsApi* | [**createApprovalRequest**](docs/AppWorkflowsApi.md#createApprovalRequest) | **POST** /app/workflows/approval_requests | Request app workflow approval
 *AppWorkflowsApi* | [**getApprovalRequestById**](docs/AppWorkflowsApi.md#getApprovalRequestById) | **GET** /app/workflows/approval_requests/{approval_id} | Get app workflow approval request by approval id
 *AppWorkflowsApi* | [**listAppWorkflows**](docs/AppWorkflowsApi.md#listAppWorkflows) | **GET** /app/workflows | list app workflows
 *AppWorkflowsApi* | [**listApprovalRequests**](docs/AppWorkflowsApi.md#listApprovalRequests) | **GET** /app/workflows/approval_requests | List app workflow approval requests by operation_id
 *AppWorkflowsApi* | [**revokeApprovalRequest**](docs/AppWorkflowsApi.md#revokeApprovalRequest) | **POST** /app/workflows/approval_requests/{approval_id}/revoke | Revoke an app workflow approval request by request initiator.
+*AutoSweepApi* | [**createAutoSweepTask**](docs/AutoSweepApi.md#createAutoSweepTask) | **POST** /auto_sweep/tasks | create auto sweep task
 *AutoSweepApi* | [**createWalletSweepToAddresses**](docs/AutoSweepApi.md#createWalletSweepToAddresses) | **POST** /auto_sweep/sweep_to_addresses | create wallet sweep to addresses
+*AutoSweepApi* | [**getAutoSweepTaskById**](docs/AutoSweepApi.md#getAutoSweepTaskById) | **GET** /auto_sweep/tasks/{task_id} | Get auto sweep task information
+*AutoSweepApi* | [**listAutoSweepTask**](docs/AutoSweepApi.md#listAutoSweepTask) | **GET** /auto_sweep/tasks | List wallet auto sweep task
 *AutoSweepApi* | [**listWalletSweepToAddresses**](docs/AutoSweepApi.md#listWalletSweepToAddresses) | **GET** /auto_sweep/sweep_to_addresses | List wallet sweep to addresses
+*ComplianceApi* | [**getDispositionStatus**](docs/ComplianceApi.md#getDispositionStatus) | **GET** /compliance/funds/disposition | Query disposition status
+*ComplianceApi* | [**getKytScreeningStatus**](docs/ComplianceApi.md#getKytScreeningStatus) | **GET** /compliance/kyt/screenings/status | Retrieve KYT screening status
+*ComplianceApi* | [**isolateFunds**](docs/ComplianceApi.md#isolateFunds) | **POST** /compliance/funds/disposition/isolate | Create fund isolate disposition
+*ComplianceApi* | [**refundFunds**](docs/ComplianceApi.md#refundFunds) | **POST** /compliance/funds/disposition/refund | Create fund refund disposition
+*ComplianceApi* | [**submitKytManualReview**](docs/ComplianceApi.md#submitKytManualReview) | **POST** /compliance/kyt/screenings/manual_review | Submit KYT manual review result
+*ComplianceApi* | [**submitKytScreeningDecisions**](docs/ComplianceApi.md#submitKytScreeningDecisions) | **POST** /compliance/kyt/screenings/decisions | Submit KYT screening decision
+*ComplianceApi* | [**unfreezeFunds**](docs/ComplianceApi.md#unfreezeFunds) | **POST** /compliance/funds/disposition/unfreeze | Unfreeze frozen funds
 *DevelopersApi* | [**getApiKeyInfo**](docs/DevelopersApi.md#getApiKeyInfo) | **GET** /developers/api_key_info | Get API key information
 *DevelopersApi* | [**listCallbackMessages**](docs/DevelopersApi.md#listCallbackMessages) | **GET** /developers/callback_messages | List all callback messages
 *DevelopersApi* | [**retryCallbackMessage**](docs/DevelopersApi.md#retryCallbackMessage) | **POST** /developers/callback_messages/{message_id}/retry | Retry callback message
@@ -240,14 +254,19 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**createPaymentOrder**](docs/PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
 *PaymentApi* | [**createSettlementRequest**](docs/PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request
+*PaymentApi* | [**createSubscriptionAction**](docs/PaymentApi.md#createSubscriptionAction) | **POST** /payments/subscription_actions | Create a subscription action
+*PaymentApi* | [**createSubscriptionPlan**](docs/PaymentApi.md#createSubscriptionPlan) | **POST** /payments/subscription_plans | Create subscription plan
 *PaymentApi* | [**deleteCryptoAddress**](docs/PaymentApi.md#deleteCryptoAddress) | **POST** /payments/crypto_addresses/{crypto_address_id}/delete | Delete crypto address
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
+*PaymentApi* | [**getPayerBalanceByAddress**](docs/PaymentApi.md#getPayerBalanceByAddress) | **GET** /payments/balance/payer/address | Get payer balance by address
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
 *PaymentApi* | [**getPspBalance**](docs/PaymentApi.md#getPspBalance) | **GET** /payments/balance/psp | Get psp balance
 *PaymentApi* | [**getRefundDetailById**](docs/PaymentApi.md#getRefundDetailById) | **GET** /payments/refunds/{refund_id} | Get refund order information
 *PaymentApi* | [**getRefunds**](docs/PaymentApi.md#getRefunds) | **GET** /payments/refunds | List all refund orders
 *PaymentApi* | [**getSettlementById**](docs/PaymentApi.md#getSettlementById) | **GET** /payments/settlement_requests/{settlement_request_id} | Get settlement request information
 *PaymentApi* | [**getSettlementInfoByIds**](docs/PaymentApi.md#getSettlementInfoByIds) | **GET** /payments/settlement_info | Get withdrawable balances
+*PaymentApi* | [**getSubscriptionById**](docs/PaymentApi.md#getSubscriptionById) | **GET** /payments/subscriptions/{subscription_id} | Get subscription by id
+*PaymentApi* | [**getSubscriptionPlanById**](docs/PaymentApi.md#getSubscriptionPlanById) | **GET** /payments/subscription_plans/{subscription_plan_id} | Get subscription plan by id
 *PaymentApi* | [**getTopUpAddress**](docs/PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Get top-up address
 *PaymentApi* | [**listBankAccounts**](docs/PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts
 *PaymentApi* | [**listCryptoAddresses**](docs/PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
@@ -259,8 +278,12 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**listPaymentWalletBalances**](docs/PaymentApi.md#listPaymentWalletBalances) | **GET** /payments/balance/payment_wallets | List payment wallet balances
 *PaymentApi* | [**listSettlementDetails**](docs/PaymentApi.md#listSettlementDetails) | **GET** /payments/settlement_details | List all settlement details
 *PaymentApi* | [**listSettlementRequests**](docs/PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests
+*PaymentApi* | [**listSubscriptionActions**](docs/PaymentApi.md#listSubscriptionActions) | **GET** /payments/subscription_actions | List subscription actions
+*PaymentApi* | [**listSubscriptionPlans**](docs/PaymentApi.md#listSubscriptionPlans) | **GET** /payments/subscription_plans | List subscription plans
+*PaymentApi* | [**listSubscriptions**](docs/PaymentApi.md#listSubscriptions) | **GET** /payments/subscriptions | List subscriptions
 *PaymentApi* | [**listTopUpPayerAccounts**](docs/PaymentApi.md#listTopUpPayerAccounts) | **GET** /payments/topup/payer_accounts | List top-up payer accounts
 *PaymentApi* | [**listTopUpPayers**](docs/PaymentApi.md#listTopUpPayers) | **GET** /payments/topup/payers | List top-up payers
+*PaymentApi* | [**paymentEstimateFee**](docs/PaymentApi.md#paymentEstimateFee) | **POST** /payments/estimate_fee | Payment estimate fee
 *PaymentApi* | [**updateBankAccountById**](docs/PaymentApi.md#updateBankAccountById) | **PUT** /payments/bank_accounts/{bank_account_id} | Update bank account
 *PaymentApi* | [**updateMerchantById**](docs/PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant
 *PaymentApi* | [**updatePaymentOrder**](docs/PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order
@@ -273,6 +296,7 @@ Class | Method | HTTP request | Description
 *PrimeBrokerApi* | [**queryApprovalStatement**](docs/PrimeBrokerApi.md#queryApprovalStatement) | **GET** /prime_broker/approval_statement/{statement_id} | Query approval statement
 *PrimeBrokerApi* | [**queryGuardPubkey**](docs/PrimeBrokerApi.md#queryGuardPubkey) | **GET** /prime_broker/user/{user_id}/guard_pubkey | Query a Guard pubkey
 *StakingsApi* | [**createBabylonAirdropRegistration**](docs/StakingsApi.md#createBabylonAirdropRegistration) | **POST** /stakings/protocols/babylon/airdrops/registrations | Register for Babylon airdrop
+*StakingsApi* | [**createBabylonStakingExpansion**](docs/StakingsApi.md#createBabylonStakingExpansion) | **POST** /stakings/protocols/babylon/stakings/expansions | Expand Babylon BTC staking
 *StakingsApi* | [**createBabylonStakingRegistration**](docs/StakingsApi.md#createBabylonStakingRegistration) | **POST** /stakings/protocols/babylon/stakings/registrations | Register for Babylon Phase-2
 *StakingsApi* | [**createClaimActivity**](docs/StakingsApi.md#createClaimActivity) | **POST** /stakings/activities/claim | Create claim activity
 *StakingsApi* | [**createStakeActivity**](docs/StakingsApi.md#createStakeActivity) | **POST** /stakings/activities/stake | Create stake activity
@@ -309,14 +333,16 @@ Class | Method | HTTP request | Description
 *TokenizationApi* | [**listTokenizationAllowlistAddresses**](docs/TokenizationApi.md#listTokenizationAllowlistAddresses) | **GET** /tokenization/tokens/{token_id}/allowlist/addresses | List allowlist addresses
 *TokenizationApi* | [**listTokenizationBlocklistAddresses**](docs/TokenizationApi.md#listTokenizationBlocklistAddresses) | **GET** /tokenization/tokens/{token_id}/blocklist/addresses | List tokenization blocklist addresses
 *TokenizationApi* | [**listTokenizationHoldings**](docs/TokenizationApi.md#listTokenizationHoldings) | **GET** /tokenization/tokens/{token_id}/holdings | Get token holdings information
-*TokenizationApi* | [**listTokenizationSupportedChains**](docs/TokenizationApi.md#listTokenizationSupportedChains) | **GET** /tokenization/enabled_chains | List tokenization supported chains
+*TokenizationApi* | [**listTokenizationPermissions**](docs/TokenizationApi.md#listTokenizationPermissions) | **GET** /tokenization/tokens/{token_id}/permissions | List permissions of the token
+*TokenizationApi* | [**listTokenizationSupportedChains**](docs/TokenizationApi.md#listTokenizationSupportedChains) | **GET** /tokenization/enabled_chains | List supported chains for tokenization
 *TokenizationApi* | [**mintTokenization**](docs/TokenizationApi.md#mintTokenization) | **POST** /tokenization/tokens/{token_id}/mint | Mint tokens
-*TokenizationApi* | [**pauseTokenization**](docs/TokenizationApi.md#pauseTokenization) | **POST** /tokenization/tokens/{token_id}/pause | Pause tokenization
-*TokenizationApi* | [**tokenizationContractCall**](docs/TokenizationApi.md#tokenizationContractCall) | **POST** /tokenization/tokens/{token_id}/contract_call | Contract call
-*TokenizationApi* | [**unpauseTokenization**](docs/TokenizationApi.md#unpauseTokenization) | **POST** /tokenization/tokens/{token_id}/unpause | Unpause tokenization
-*TokenizationApi* | [**updateAllowlistAddresses**](docs/TokenizationApi.md#updateAllowlistAddresses) | **POST** /tokenization/tokens/{token_id}/allowlist/addresses | Update allowlist addresses
-*TokenizationApi* | [**updateTokenizationAllowlistActivation**](docs/TokenizationApi.md#updateTokenizationAllowlistActivation) | **POST** /tokenization/tokens/{token_id}/allowlist/activation | Update allowlist activation
+*TokenizationApi* | [**pauseTokenization**](docs/TokenizationApi.md#pauseTokenization) | **POST** /tokenization/tokens/{token_id}/pause | Pause token contract
+*TokenizationApi* | [**tokenizationContractCall**](docs/TokenizationApi.md#tokenizationContractCall) | **POST** /tokenization/tokens/{token_id}/contract_call | Call token contract
+*TokenizationApi* | [**unpauseTokenization**](docs/TokenizationApi.md#unpauseTokenization) | **POST** /tokenization/tokens/{token_id}/unpause | Unpause token contract
+*TokenizationApi* | [**updateTokenizationAllowlistActivation**](docs/TokenizationApi.md#updateTokenizationAllowlistActivation) | **POST** /tokenization/tokens/{token_id}/allowlist/activation | Activate or deactivate the allowlist
+*TokenizationApi* | [**updateTokenizationAllowlistAddresses**](docs/TokenizationApi.md#updateTokenizationAllowlistAddresses) | **POST** /tokenization/tokens/{token_id}/allowlist/addresses | Update allowlist addresses
 *TokenizationApi* | [**updateTokenizationBlocklistAddresses**](docs/TokenizationApi.md#updateTokenizationBlocklistAddresses) | **POST** /tokenization/tokens/{token_id}/blocklist/addresses | Update tokenization blocklist addresses
+*TokenizationApi* | [**updateTokenizationPermissions**](docs/TokenizationApi.md#updateTokenizationPermissions) | **POST** /tokenization/tokens/{token_id}/permissions | Update permissions of the token
 *TransactionsApi* | [**broadcastSignedTransactions**](docs/TransactionsApi.md#broadcastSignedTransactions) | **POST** /transactions/broadcast | Broadcast signed transactions
 *TransactionsApi* | [**cancelTransactionById**](docs/TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction
 *TransactionsApi* | [**checkLoopTransfers**](docs/TransactionsApi.md#checkLoopTransfers) | **GET** /transactions/check_loop_transfers | Check Cobo Loop transfers
@@ -426,7 +452,6 @@ Class | Method | HTTP request | Description
  - [ApprovalRequest](docs/ApprovalRequest.md)
  - [ApprovalRequestDetail](docs/ApprovalRequestDetail.md)
  - [ApprovalResult](docs/ApprovalResult.md)
- - [ApprovalShowInfo](docs/ApprovalShowInfo.md)
  - [ApprovalStatementStatus](docs/ApprovalStatementStatus.md)
  - [ApprovalStatus](docs/ApprovalStatus.md)
  - [ApprovalTemplate](docs/ApprovalTemplate.md)
@@ -436,11 +461,13 @@ Class | Method | HTTP request | Description
  - [AssetBalance](docs/AssetBalance.md)
  - [AssetInfo](docs/AssetInfo.md)
  - [AutoFuelType](docs/AutoFuelType.md)
+ - [AutoSweepTask](docs/AutoSweepTask.md)
+ - [AutoSweepTaskStatus](docs/AutoSweepTaskStatus.md)
  - [BTCBIP137MessageSignDestination](docs/BTCBIP137MessageSignDestination.md)
  - [BTCBIP322MessageSignDestination](docs/BTCBIP322MessageSignDestination.md)
- - [BTCEIP191MessageSignDestination](docs/BTCEIP191MessageSignDestination.md)
  - [BabylonAirdropPop](docs/BabylonAirdropPop.md)
  - [BabylonAirdropRegistration](docs/BabylonAirdropRegistration.md)
+ - [BabylonCreateStakingExpansion](docs/BabylonCreateStakingExpansion.md)
  - [BabylonEligibleAirdrop](docs/BabylonEligibleAirdrop.md)
  - [BabylonRegistrationRequestStatus](docs/BabylonRegistrationRequestStatus.md)
  - [BabylonRegistrationStatus](docs/BabylonRegistrationStatus.md)
@@ -461,6 +488,7 @@ Class | Method | HTTP request | Description
  - [BatchCheckUtxo201Response](docs/BatchCheckUtxo201Response.md)
  - [BatchCheckUtxoRequest](docs/BatchCheckUtxoRequest.md)
  - [BatchUTXOParam](docs/BatchUTXOParam.md)
+ - [BridgingFee](docs/BridgingFee.md)
  - [BroadcastSignedTransactions201ResponseInner](docs/BroadcastSignedTransactions201ResponseInner.md)
  - [BroadcastSignedTransactionsRequest](docs/BroadcastSignedTransactionsRequest.md)
  - [CallbackMessage](docs/CallbackMessage.md)
@@ -473,6 +501,9 @@ Class | Method | HTTP request | Description
  - [CheckLoopTransfers200ResponseInner](docs/CheckLoopTransfers200ResponseInner.md)
  - [CoboSafeDelegate](docs/CoboSafeDelegate.md)
  - [CoboSafeDelegateType](docs/CoboSafeDelegateType.md)
+ - [CommissionFee](docs/CommissionFee.md)
+ - [ComplianceDispositionUpdateEventData](docs/ComplianceDispositionUpdateEventData.md)
+ - [ComplianceKytScreeningsUpdateEventData](docs/ComplianceKytScreeningsUpdateEventData.md)
  - [ContractCallDestination](docs/ContractCallDestination.md)
  - [ContractCallDestinationType](docs/ContractCallDestinationType.md)
  - [ContractCallParams](docs/ContractCallParams.md)
@@ -484,8 +515,12 @@ Class | Method | HTTP request | Description
  - [CosmosAdr36MessageSignDestination](docs/CosmosAdr36MessageSignDestination.md)
  - [CosmosContractCallDestination](docs/CosmosContractCallDestination.md)
  - [CosmosContractCallMessage](docs/CosmosContractCallMessage.md)
+ - [CreateAddressBookParam](docs/CreateAddressBookParam.md)
+ - [CreateAddressBooks201Response](docs/CreateAddressBooks201Response.md)
+ - [CreateAddressBooksParam](docs/CreateAddressBooksParam.md)
  - [CreateAddressRequest](docs/CreateAddressRequest.md)
  - [CreateApprovalRequest201Response](docs/CreateApprovalRequest201Response.md)
+ - [CreateAutoSweepTask](docs/CreateAutoSweepTask.md)
  - [CreateBabylonAirdropRegistration201Response](docs/CreateBabylonAirdropRegistration201Response.md)
  - [CreateBabylonAirdropRegistrationRequest](docs/CreateBabylonAirdropRegistrationRequest.md)
  - [CreateBabylonStakingRegistration201Response](docs/CreateBabylonStakingRegistration201Response.md)
@@ -536,11 +571,17 @@ Class | Method | HTTP request | Description
  - [CustodialWeb3ContractCallSource](docs/CustodialWeb3ContractCallSource.md)
  - [CustodialWeb3MessageSignSource](docs/CustodialWeb3MessageSignSource.md)
  - [CustodialWeb3TransferSource](docs/CustodialWeb3TransferSource.md)
+ - [DeleteAddressBookById201Response](docs/DeleteAddressBookById201Response.md)
  - [DeleteCryptoAddress201Response](docs/DeleteCryptoAddress201Response.md)
  - [DeleteGuardPubkey201Response](docs/DeleteGuardPubkey201Response.md)
  - [DeleteKeyShareHolderGroupById201Response](docs/DeleteKeyShareHolderGroupById201Response.md)
  - [DeleteWalletById201Response](docs/DeleteWalletById201Response.md)
  - [DestinationWalletType](docs/DestinationWalletType.md)
+ - [DispositionEventData](docs/DispositionEventData.md)
+ - [DispositionQueryResponse](docs/DispositionQueryResponse.md)
+ - [DispositionResponse](docs/DispositionResponse.md)
+ - [DispositionStatus](docs/DispositionStatus.md)
+ - [DispositionType](docs/DispositionType.md)
  - [EigenLayerLstStakeExtra](docs/EigenLayerLstStakeExtra.md)
  - [EigenLayerNativeStakeExtra](docs/EigenLayerNativeStakeExtra.md)
  - [EigenlayerValidator](docs/EigenlayerValidator.md)
@@ -599,6 +640,7 @@ Class | Method | HTTP request | Description
  - [ForcedSweep](docs/ForcedSweep.md)
  - [ForcedSweepRequest](docs/ForcedSweepRequest.md)
  - [ForcedSweepStatus](docs/ForcedSweepStatus.md)
+ - [FundsStatusType](docs/FundsStatusType.md)
  - [GetApiKeyInfo200Response](docs/GetApiKeyInfo200Response.md)
  - [GetExchangeRate200Response](docs/GetExchangeRate200Response.md)
  - [GetMaxTransferableValueWithFeeModelRequest](docs/GetMaxTransferableValueWithFeeModelRequest.md)
@@ -615,17 +657,24 @@ Class | Method | HTTP request | Description
  - [GraphQLRequest](docs/GraphQLRequest.md)
  - [GraphQLResponse](docs/GraphQLResponse.md)
  - [GuardPubkeyStatus](docs/GuardPubkeyStatus.md)
+ - [IsolateDisposition](docs/IsolateDisposition.md)
  - [KeyShareHolder](docs/KeyShareHolder.md)
  - [KeyShareHolderGroup](docs/KeyShareHolderGroup.md)
  - [KeyShareHolderGroupStatus](docs/KeyShareHolderGroupStatus.md)
  - [KeyShareHolderGroupType](docs/KeyShareHolderGroupType.md)
  - [KeyShareHolderStatus](docs/KeyShareHolderStatus.md)
  - [KeyShareHolderType](docs/KeyShareHolderType.md)
+ - [KytScreeningsDecisionsType](docs/KytScreeningsDecisionsType.md)
+ - [KytScreeningsEventData](docs/KytScreeningsEventData.md)
+ - [KytScreeningsReviewType](docs/KytScreeningsReviewType.md)
+ - [KytScreeningsTransaction](docs/KytScreeningsTransaction.md)
+ - [KytScreeningsTransactionType](docs/KytScreeningsTransactionType.md)
  - [ListAddressBalancesByToken200Response](docs/ListAddressBalancesByToken200Response.md)
  - [ListAddressBooks200Response](docs/ListAddressBooks200Response.md)
  - [ListAddresses200Response](docs/ListAddresses200Response.md)
  - [ListApprovalRequests200Response](docs/ListApprovalRequests200Response.md)
  - [ListAssetBalancesForExchangeWallet200Response](docs/ListAssetBalancesForExchangeWallet200Response.md)
+ - [ListAutoSweepTask200Response](docs/ListAutoSweepTask200Response.md)
  - [ListBabylonAirdropRegistrations200Response](docs/ListBabylonAirdropRegistrations200Response.md)
  - [ListBabylonEligibleAirdrops200Response](docs/ListBabylonEligibleAirdrops200Response.md)
  - [ListBabylonEligibleStakings200Response](docs/ListBabylonEligibleStakings200Response.md)
@@ -647,6 +696,9 @@ Class | Method | HTTP request | Description
  - [ListStakingActivities200Response](docs/ListStakingActivities200Response.md)
  - [ListStakingPools200Response](docs/ListStakingPools200Response.md)
  - [ListStakings200Response](docs/ListStakings200Response.md)
+ - [ListSubscriptionActions200Response](docs/ListSubscriptionActions200Response.md)
+ - [ListSubscriptionPlans200Response](docs/ListSubscriptionPlans200Response.md)
+ - [ListSubscriptions200Response](docs/ListSubscriptions200Response.md)
  - [ListSupportedAssetsForExchange200Response](docs/ListSupportedAssetsForExchange200Response.md)
  - [ListSupportedChains200Response](docs/ListSupportedChains200Response.md)
  - [ListSupportedCountries200ResponseInner](docs/ListSupportedCountries200ResponseInner.md)
@@ -697,14 +749,38 @@ Class | Method | HTTP request | Description
  - [Order](docs/Order.md)
  - [OrderStatus](docs/OrderStatus.md)
  - [OrgInfo](docs/OrgInfo.md)
+ - [OtcFee](docs/OtcFee.md)
  - [Pagination](docs/Pagination.md)
  - [PayerAccount](docs/PayerAccount.md)
  - [PaymentAddressUpdateEventData](docs/PaymentAddressUpdateEventData.md)
+ - [PaymentApproveSubscriptionActionData](docs/PaymentApproveSubscriptionActionData.md)
+ - [PaymentBaseSubscriptionActionData](docs/PaymentBaseSubscriptionActionData.md)
+ - [PaymentCreateSubscriptionAction](docs/PaymentCreateSubscriptionAction.md)
+ - [PaymentCreateSubscriptionActionData](docs/PaymentCreateSubscriptionActionData.md)
+ - [PaymentCreateSubscriptionPlan](docs/PaymentCreateSubscriptionPlan.md)
+ - [PaymentDeveloperSubscriptionActionData](docs/PaymentDeveloperSubscriptionActionData.md)
+ - [PaymentEstimateFee](docs/PaymentEstimateFee.md)
+ - [PaymentEstimateFee201Response](docs/PaymentEstimateFee201Response.md)
+ - [PaymentEstimateFeeRequest](docs/PaymentEstimateFeeRequest.md)
+ - [PaymentEstimatedFee](docs/PaymentEstimatedFee.md)
+ - [PaymentExtendPeriodSubscriptionActionData](docs/PaymentExtendPeriodSubscriptionActionData.md)
+ - [PaymentFeeType](docs/PaymentFeeType.md)
  - [PaymentOrderEventData](docs/PaymentOrderEventData.md)
  - [PaymentRefundEventData](docs/PaymentRefundEventData.md)
  - [PaymentSettlementEvent](docs/PaymentSettlementEvent.md)
+ - [PaymentSubscription](docs/PaymentSubscription.md)
+ - [PaymentSubscriptionAction](docs/PaymentSubscriptionAction.md)
+ - [PaymentSubscriptionActionData](docs/PaymentSubscriptionActionData.md)
+ - [PaymentSubscriptionActionStatus](docs/PaymentSubscriptionActionStatus.md)
+ - [PaymentSubscriptionActionType](docs/PaymentSubscriptionActionType.md)
+ - [PaymentSubscriptionDetail](docs/PaymentSubscriptionDetail.md)
+ - [PaymentSubscriptionPeriodType](docs/PaymentSubscriptionPeriodType.md)
+ - [PaymentSubscriptionPlan](docs/PaymentSubscriptionPlan.md)
+ - [PaymentSubscriptionPlanDetail](docs/PaymentSubscriptionPlanDetail.md)
+ - [PaymentSubscriptionStatus](docs/PaymentSubscriptionStatus.md)
  - [PaymentTransaction](docs/PaymentTransaction.md)
  - [PaymentTransactionEventData](docs/PaymentTransactionEventData.md)
+ - [PaymentUpdateAmountSubscriptionActionData](docs/PaymentUpdateAmountSubscriptionActionData.md)
  - [PaymentWalletBalance](docs/PaymentWalletBalance.md)
  - [PayoutChannel](docs/PayoutChannel.md)
  - [PolicyAction](docs/PolicyAction.md)
@@ -720,19 +796,21 @@ Class | Method | HTTP request | Description
  - [QueryApprovalStatement200Response](docs/QueryApprovalStatement200Response.md)
  - [QueryGuardPubkey200Response](docs/QueryGuardPubkey200Response.md)
  - [QueryGuardPubkey200ResponseAddressesInner](docs/QueryGuardPubkey200ResponseAddressesInner.md)
- - [RawMessageSignDestination](docs/RawMessageSignDestination.md)
+ - [ReceivedAmountPerAddress](docs/ReceivedAmountPerAddress.md)
  - [RefreshAddressBalancesByToken200Response](docs/RefreshAddressBalancesByToken200Response.md)
  - [RefreshAddressBalancesByTokenRequest](docs/RefreshAddressBalancesByTokenRequest.md)
  - [RefreshPermissionTokenRequest](docs/RefreshPermissionTokenRequest.md)
  - [RefreshToken2XXResponse](docs/RefreshToken2XXResponse.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [Refund](docs/Refund.md)
+ - [RefundDisposition](docs/RefundDisposition.md)
  - [RefundStatus](docs/RefundStatus.md)
  - [RefundType](docs/RefundType.md)
  - [ReplaceType](docs/ReplaceType.md)
  - [RequestApproval](docs/RequestApproval.md)
  - [RetryCallbackMessage201Response](docs/RetryCallbackMessage201Response.md)
  - [RetryWebhookEventById201Response](docs/RetryWebhookEventById201Response.md)
+ - [ReviewStatusType](docs/ReviewStatusType.md)
  - [RevokeApprovalRequest201Response](docs/RevokeApprovalRequest201Response.md)
  - [RevokeApprovalRequestRequest](docs/RevokeApprovalRequestRequest.md)
  - [RoleDetail](docs/RoleDetail.md)
@@ -773,8 +851,16 @@ Class | Method | HTTP request | Description
  - [StakingSource](docs/StakingSource.md)
  - [Stakings](docs/Stakings.md)
  - [StakingsExtra](docs/StakingsExtra.md)
+ - [StellarContractCallContractParam](docs/StellarContractCallContractParam.md)
+ - [StellarContractCallContractType](docs/StellarContractCallContractType.md)
+ - [StellarContractCallDestination](docs/StellarContractCallDestination.md)
+ - [StellarContractCallTrustLineOperationType](docs/StellarContractCallTrustLineOperationType.md)
+ - [StellarContractCallTrustLineParam](docs/StellarContractCallTrustLineParam.md)
  - [SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
  - [SubmitDepositTravelRuleInfo201Response](docs/SubmitDepositTravelRuleInfo201Response.md)
+ - [SubmitKytResponse](docs/SubmitKytResponse.md)
+ - [SubmitKytScreeningsDecisionsBody](docs/SubmitKytScreeningsDecisionsBody.md)
+ - [SubmitKytScreeningsReviewBody](docs/SubmitKytScreeningsReviewBody.md)
  - [SupportedToken](docs/SupportedToken.md)
  - [SuspendedTokenEventData](docs/SuspendedTokenEventData.md)
  - [SuspendedTokenOperationType](docs/SuspendedTokenOperationType.md)
@@ -787,6 +873,7 @@ Class | Method | HTTP request | Description
  - [SwapApproversStatus](docs/SwapApproversStatus.md)
  - [SwapEstimateFee](docs/SwapEstimateFee.md)
  - [SwapQuote](docs/SwapQuote.md)
+ - [SwapReceivingTransaction](docs/SwapReceivingTransaction.md)
  - [SwapSingingStatus](docs/SwapSingingStatus.md)
  - [SwapToken](docs/SwapToken.md)
  - [SwapType](docs/SwapType.md)
@@ -858,6 +945,9 @@ Class | Method | HTTP request | Description
  - [TokenizationContractCallRequest](docs/TokenizationContractCallRequest.md)
  - [TokenizationContractCallType](docs/TokenizationContractCallType.md)
  - [TokenizationERC20TokenParams](docs/TokenizationERC20TokenParams.md)
+ - [TokenizationERC20TokenPermissionParams](docs/TokenizationERC20TokenPermissionParams.md)
+ - [TokenizationERC20WrappedTokenParams](docs/TokenizationERC20WrappedTokenParams.md)
+ - [TokenizationERC20WrappedTokenPermissionParams](docs/TokenizationERC20WrappedTokenPermissionParams.md)
  - [TokenizationEstimateFeeRequest](docs/TokenizationEstimateFeeRequest.md)
  - [TokenizationEstimateFeeRequestOperationParams](docs/TokenizationEstimateFeeRequestOperationParams.md)
  - [TokenizationEvmContractCallParams](docs/TokenizationEvmContractCallParams.md)
@@ -869,6 +959,8 @@ Class | Method | HTTP request | Description
  - [TokenizationListActivitiesResponse](docs/TokenizationListActivitiesResponse.md)
  - [TokenizationListEnabledChainsResponse](docs/TokenizationListEnabledChainsResponse.md)
  - [TokenizationListHoldingsResponse](docs/TokenizationListHoldingsResponse.md)
+ - [TokenizationListPermissionsResponse](docs/TokenizationListPermissionsResponse.md)
+ - [TokenizationListPermissionsResponseDataInner](docs/TokenizationListPermissionsResponseDataInner.md)
  - [TokenizationListTokenInfoResponse](docs/TokenizationListTokenInfoResponse.md)
  - [TokenizationMintEstimateFeeParams](docs/TokenizationMintEstimateFeeParams.md)
  - [TokenizationMintTokenParams](docs/TokenizationMintTokenParams.md)
@@ -881,6 +973,7 @@ Class | Method | HTTP request | Description
  - [TokenizationPauseEstimateFeeParams](docs/TokenizationPauseEstimateFeeParams.md)
  - [TokenizationPauseTokenParams](docs/TokenizationPauseTokenParams.md)
  - [TokenizationPauseTokenRequest](docs/TokenizationPauseTokenRequest.md)
+ - [TokenizationPermissionAction](docs/TokenizationPermissionAction.md)
  - [TokenizationSOLTokenParams](docs/TokenizationSOLTokenParams.md)
  - [TokenizationSolContractCallParams](docs/TokenizationSolContractCallParams.md)
  - [TokenizationSolTokenPermissionParams](docs/TokenizationSolTokenPermissionParams.md)
@@ -890,9 +983,7 @@ Class | Method | HTTP request | Description
  - [TokenizationTokenInfo](docs/TokenizationTokenInfo.md)
  - [TokenizationTokenOperationSource](docs/TokenizationTokenOperationSource.md)
  - [TokenizationTokenPermission](docs/TokenizationTokenPermission.md)
- - [TokenizationTokenPermissionParams](docs/TokenizationTokenPermissionParams.md)
  - [TokenizationTokenPermissionType](docs/TokenizationTokenPermissionType.md)
- - [TokenizationTokenPermissionsResponse](docs/TokenizationTokenPermissionsResponse.md)
  - [TokenizationTokenStandard](docs/TokenizationTokenStandard.md)
  - [TokenizationUnpauseEstimateFeeParams](docs/TokenizationUnpauseEstimateFeeParams.md)
  - [TokenizationUnpauseTokenParams](docs/TokenizationUnpauseTokenParams.md)
@@ -906,6 +997,9 @@ Class | Method | HTTP request | Description
  - [TokenizationUpdateBlocklistAddressesParams](docs/TokenizationUpdateBlocklistAddressesParams.md)
  - [TokenizationUpdateBlocklistAddressesParamsAddressesInner](docs/TokenizationUpdateBlocklistAddressesParamsAddressesInner.md)
  - [TokenizationUpdateBlocklistAddressesRequest](docs/TokenizationUpdateBlocklistAddressesRequest.md)
+ - [TokenizationUpdatePermissionsEstimateFeeParams](docs/TokenizationUpdatePermissionsEstimateFeeParams.md)
+ - [TokenizationUpdatePermissionsParams](docs/TokenizationUpdatePermissionsParams.md)
+ - [TokenizationUpdatePermissionsRequest](docs/TokenizationUpdatePermissionsRequest.md)
  - [TokenizationWeb3OperationSource](docs/TokenizationWeb3OperationSource.md)
  - [TokensEventData](docs/TokensEventData.md)
  - [TopUpAddress](docs/TopUpAddress.md)
@@ -980,6 +1074,11 @@ Class | Method | HTTP request | Description
  - [TransactionSource](docs/TransactionSource.md)
  - [TransactionSourceType](docs/TransactionSourceType.md)
  - [TransactionStatus](docs/TransactionStatus.md)
+ - [TransactionStellarContractParam](docs/TransactionStellarContractParam.md)
+ - [TransactionStellarContractType](docs/TransactionStellarContractType.md)
+ - [TransactionStellarDestination](docs/TransactionStellarDestination.md)
+ - [TransactionStellarTrustLineOperationType](docs/TransactionStellarTrustLineOperationType.md)
+ - [TransactionStellarTrustLineParam](docs/TransactionStellarTrustLineParam.md)
  - [TransactionSubStatus](docs/TransactionSubStatus.md)
  - [TransactionTimeline](docs/TransactionTimeline.md)
  - [TransactionTokeApproval](docs/TransactionTokeApproval.md)
@@ -1013,6 +1112,9 @@ Class | Method | HTTP request | Description
  - [TriggerTestWebhookEvent201Response](docs/TriggerTestWebhookEvent201Response.md)
  - [TriggerTestWebhookEventRequest](docs/TriggerTestWebhookEventRequest.md)
  - [UTXO](docs/UTXO.md)
+ - [UnfreezeDisposition](docs/UnfreezeDisposition.md)
+ - [UpdateAddressBookParam](docs/UpdateAddressBookParam.md)
+ - [UpdateBankAccountByIdRequest](docs/UpdateBankAccountByIdRequest.md)
  - [UpdateCustodialWalletParams](docs/UpdateCustodialWalletParams.md)
  - [UpdateExchangeWalletParams](docs/UpdateExchangeWalletParams.md)
  - [UpdateGroupAction](docs/UpdateGroupAction.md)
@@ -1032,6 +1134,7 @@ Class | Method | HTTP request | Description
  - [Vasp](docs/Vasp.md)
  - [WalletInfo](docs/WalletInfo.md)
  - [WalletInfoEventData](docs/WalletInfoEventData.md)
+ - [WalletSetup](docs/WalletSetup.md)
  - [WalletSubtype](docs/WalletSubtype.md)
  - [WalletType](docs/WalletType.md)
  - [WebhookEndpoint](docs/WebhookEndpoint.md)
@@ -1124,6 +1227,13 @@ Authentication schemes defined for the API:
   - payment_merchant.update: Update payment merchant
   - payment_forced_sweep.create: Create payment force sweep request
   - payment_forced_sweep.read: Read payment force sweep request information
+  - compliance_funds.refund: Refund compliance funds request
+  - compliance_funds.isolate: Isolate compliance funds request
+  - compliance_funds.unfreeze: Unfreeze compliance funds request
+  - compliance_funds.read: Read compliance funds request information
+  - compliance_kyt_review.update: Update KYT review status
+  - compliance_kyt_decisions.update: Update KYT decision status
+  - compliance_kyt_status.read: Read KYT screening status
 
 
 ## Recommendation

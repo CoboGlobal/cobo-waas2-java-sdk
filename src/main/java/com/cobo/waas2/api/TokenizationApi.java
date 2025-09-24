@@ -40,6 +40,7 @@ import com.cobo.waas2.model.TokenizationIssuedTokenRequest;
 import com.cobo.waas2.model.TokenizationListActivitiesResponse;
 import com.cobo.waas2.model.TokenizationListEnabledChainsResponse;
 import com.cobo.waas2.model.TokenizationListHoldingsResponse;
+import com.cobo.waas2.model.TokenizationListPermissionsResponse;
 import com.cobo.waas2.model.TokenizationListTokenInfoResponse;
 import com.cobo.waas2.model.TokenizationMintTokenRequest;
 import com.cobo.waas2.model.TokenizationOperationResponse;
@@ -51,6 +52,7 @@ import com.cobo.waas2.model.TokenizationTokenStandard;
 import com.cobo.waas2.model.TokenizationUnpauseTokenRequest;
 import com.cobo.waas2.model.TokenizationUpdateAllowlistAddressesRequest;
 import com.cobo.waas2.model.TokenizationUpdateBlocklistAddressesRequest;
+import com.cobo.waas2.model.TokenizationUpdatePermissionsRequest;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -81,7 +83,7 @@ public class TokenizationApi {
     /**
      * Build call for burnTokenization
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationBurnTokenRequest Request body for burning tokens (optional)
+     * @param tokenizationBurnTokenRequest The request body for burning tokens. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -141,7 +143,7 @@ public class TokenizationApi {
      * Burn tokens
      * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationBurnTokenRequest Request body for burning tokens (optional)
+     * @param tokenizationBurnTokenRequest The request body for burning tokens. (optional)
      * @return TokenizationOperationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -161,7 +163,7 @@ public class TokenizationApi {
      * Burn tokens
      * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationBurnTokenRequest Request body for burning tokens (optional)
+     * @param tokenizationBurnTokenRequest The request body for burning tokens. (optional)
      * @return ApiResponse&lt;TokenizationOperationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -182,7 +184,7 @@ public class TokenizationApi {
      * Burn tokens (asynchronously)
      * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationBurnTokenRequest Request body for burning tokens (optional)
+     * @param tokenizationBurnTokenRequest The request body for burning tokens. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -328,7 +330,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Activity details retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved Activity details. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -385,7 +387,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Activity details retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved Activity details. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -404,7 +406,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Activity details retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved Activity details. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -425,7 +427,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Activity details retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved Activity details. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -446,7 +448,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the allowlist activation status. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the allowlist activation status. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -503,7 +505,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the allowlist activation status. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the allowlist activation status. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -522,7 +524,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the allowlist activation status. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the allowlist activation status. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -543,7 +545,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the allowlist activation status. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the allowlist activation status. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -564,7 +566,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved token information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved token information. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -621,7 +623,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved token information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved token information. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -640,7 +642,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved token information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved token information. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -661,7 +663,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved token information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved token information. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -795,8 +797,8 @@ public class TokenizationApi {
      * Build call for listIssuedTokens
      * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
-     * @param tokenStandard Filter by token standard (optional)
-     * @param status Filter by token status (optional)
+     * @param tokenStandard Filter by token standard. (optional)
+     * @param status Filter by token status. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -881,8 +883,8 @@ public class TokenizationApi {
      * This operation retrieves a list of tokens issued by the organization. Returns issued token information including total supply, holdings, and token status. 
      * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
-     * @param tokenStandard Filter by token standard (optional)
-     * @param status Filter by token status (optional)
+     * @param tokenStandard Filter by token standard. (optional)
+     * @param status Filter by token status. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -906,8 +908,8 @@ public class TokenizationApi {
      * This operation retrieves a list of tokens issued by the organization. Returns issued token information including total supply, holdings, and token status. 
      * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
-     * @param tokenStandard Filter by token standard (optional)
-     * @param status Filter by token status (optional)
+     * @param tokenStandard Filter by token standard. (optional)
+     * @param status Filter by token status. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -932,8 +934,8 @@ public class TokenizationApi {
      * This operation retrieves a list of tokens issued by the organization. Returns issued token information including total supply, holdings, and token status. 
      * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (optional)
-     * @param tokenStandard Filter by token standard (optional)
-     * @param status Filter by token status (optional)
+     * @param tokenStandard Filter by token standard. (optional)
+     * @param status Filter by token status. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -970,7 +972,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of tokenization activities retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of tokenization activities. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1055,7 +1057,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of tokenization activities retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of tokenization activities. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1080,7 +1082,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of tokenization activities retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of tokenization activities. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1107,7 +1109,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of tokenization activities retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of tokenization activities. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1132,7 +1134,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the list of allowlist addresses. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of allowlist addresses. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1209,7 +1211,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the list of allowlist addresses. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of allowlist addresses. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1232,7 +1234,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the list of allowlist addresses. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of allowlist addresses. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1257,7 +1259,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the list of allowlist addresses. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of allowlist addresses. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1282,7 +1284,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the list of blocklist addresses. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of blocklist addresses. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1359,7 +1361,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the list of blocklist addresses. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of blocklist addresses. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1382,7 +1384,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the list of blocklist addresses. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of blocklist addresses. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1407,7 +1409,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response with the list of blocklist addresses. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of blocklist addresses. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1431,7 +1433,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved token holdings information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved token holdings information. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1503,7 +1505,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved token holdings information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved token holdings information. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1525,7 +1527,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved token holdings information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved token holdings information. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1549,7 +1551,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved token holdings information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved token holdings information. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1558,6 +1560,164 @@ public class TokenizationApi {
 
         okhttp3.Call localVarCall = listTokenizationHoldingsValidateBeforeCall(tokenId, limit, before, after, _callback);
         Type localVarReturnType = new TypeToken<TokenizationListHoldingsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listTokenizationPermissions
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param address The address to query permissions for. If not provided, returns all addresses with permissions. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to ASC)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved permissions </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTokenizationPermissionsCall(String tokenId, String address, Integer limit, String after, String before, String direction, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tokenization/tokens/{token_id}/permissions"
+            .replace("{" + "token_id" + "}", localVarApiClient.escapeString(tokenId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (address != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("address", address));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (direction != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("direction", direction));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listTokenizationPermissionsValidateBeforeCall(String tokenId, String address, Integer limit, String after, String before, String direction, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tokenId' is set
+        if (tokenId == null) {
+            throw new ApiException("Missing the required parameter 'tokenId' when calling listTokenizationPermissions(Async)");
+        }
+
+        return listTokenizationPermissionsCall(tokenId, address, limit, after, before, direction, _callback);
+
+    }
+
+    /**
+     * List permissions of the token
+     * This operation retrieves the permissions for a tokenization contract. 
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param address The address to query permissions for. If not provided, returns all addresses with permissions. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to ASC)
+     * @return TokenizationListPermissionsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved permissions </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TokenizationListPermissionsResponse listTokenizationPermissions(String tokenId, String address, Integer limit, String after, String before, String direction) throws ApiException {
+        ApiResponse<TokenizationListPermissionsResponse> localVarResp = listTokenizationPermissionsWithHttpInfo(tokenId, address, limit, after, before, direction);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List permissions of the token
+     * This operation retrieves the permissions for a tokenization contract. 
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param address The address to query permissions for. If not provided, returns all addresses with permissions. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to ASC)
+     * @return ApiResponse&lt;TokenizationListPermissionsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved permissions </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TokenizationListPermissionsResponse> listTokenizationPermissionsWithHttpInfo(String tokenId, String address, Integer limit, String after, String before, String direction) throws ApiException {
+        okhttp3.Call localVarCall = listTokenizationPermissionsValidateBeforeCall(tokenId, address, limit, after, before, direction, null);
+        Type localVarReturnType = new TypeToken<TokenizationListPermissionsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List permissions of the token (asynchronously)
+     * This operation retrieves the permissions for a tokenization contract. 
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param address The address to query permissions for. If not provided, returns all addresses with permissions. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param direction The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  (optional, default to ASC)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved permissions </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTokenizationPermissionsAsync(String tokenId, String address, Integer limit, String after, String before, String direction, final ApiCallback<TokenizationListPermissionsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listTokenizationPermissionsValidateBeforeCall(tokenId, address, limit, after, before, direction, _callback);
+        Type localVarReturnType = new TypeToken<TokenizationListPermissionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1572,7 +1732,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of tokenization supported chains retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of tokenization supported chains. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1627,7 +1787,7 @@ public class TokenizationApi {
     }
 
     /**
-     * List tokenization supported chains
+     * List supported chains for tokenization
      * This operation retrieves a list of tokenization supported chains. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -1637,7 +1797,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of tokenization supported chains retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of tokenization supported chains. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1648,7 +1808,7 @@ public class TokenizationApi {
     }
 
     /**
-     * List tokenization supported chains
+     * List supported chains for tokenization
      * This operation retrieves a list of tokenization supported chains. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -1658,7 +1818,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of tokenization supported chains retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of tokenization supported chains. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1670,7 +1830,7 @@ public class TokenizationApi {
     }
 
     /**
-     * List tokenization supported chains (asynchronously)
+     * List supported chains for tokenization (asynchronously)
      * This operation retrieves a list of tokenization supported chains. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -1681,7 +1841,7 @@ public class TokenizationApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List of tokenization supported chains retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of tokenization supported chains. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -1696,7 +1856,7 @@ public class TokenizationApi {
     /**
      * Build call for mintTokenization
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationMintTokenRequest The request body for minting tokens (required)
+     * @param tokenizationMintTokenRequest The request body for minting tokens. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1761,7 +1921,7 @@ public class TokenizationApi {
      * Mint tokens
      * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationMintTokenRequest The request body for minting tokens (required)
+     * @param tokenizationMintTokenRequest The request body for minting tokens. (required)
      * @return TokenizationOperationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1781,7 +1941,7 @@ public class TokenizationApi {
      * Mint tokens
      * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationMintTokenRequest The request body for minting tokens (required)
+     * @param tokenizationMintTokenRequest The request body for minting tokens. (required)
      * @return ApiResponse&lt;TokenizationOperationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1802,7 +1962,7 @@ public class TokenizationApi {
      * Mint tokens (asynchronously)
      * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationMintTokenRequest The request body for minting tokens (required)
+     * @param tokenizationMintTokenRequest The request body for minting tokens. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1824,7 +1984,7 @@ public class TokenizationApi {
     /**
      * Build call for pauseTokenization
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationPauseTokenRequest Request body for pausing tokens (optional)
+     * @param tokenizationPauseTokenRequest The request body for pausing tokens. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1881,10 +2041,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Pause tokenization
-     * This operation pauses the token contract. Creates a pause transaction that will stop the token contract. 
+     * Pause token contract
+     * This operation pauses the token contract, temporarily halting token operations and transfers. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationPauseTokenRequest Request body for pausing tokens (optional)
+     * @param tokenizationPauseTokenRequest The request body for pausing tokens. (optional)
      * @return TokenizationOperationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1901,10 +2061,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Pause tokenization
-     * This operation pauses the token contract. Creates a pause transaction that will stop the token contract. 
+     * Pause token contract
+     * This operation pauses the token contract, temporarily halting token operations and transfers. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationPauseTokenRequest Request body for pausing tokens (optional)
+     * @param tokenizationPauseTokenRequest The request body for pausing tokens. (optional)
      * @return ApiResponse&lt;TokenizationOperationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1922,10 +2082,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Pause tokenization (asynchronously)
-     * This operation pauses the token contract. Creates a pause transaction that will stop the token contract. 
+     * Pause token contract (asynchronously)
+     * This operation pauses the token contract, temporarily halting token operations and transfers. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationPauseTokenRequest Request body for pausing tokens (optional)
+     * @param tokenizationPauseTokenRequest The request body for pausing tokens. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1947,7 +2107,7 @@ public class TokenizationApi {
     /**
      * Build call for tokenizationContractCall
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationContractCallRequest Request body for contract call (optional)
+     * @param tokenizationContractCallRequest The request body for contract call. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2004,10 +2164,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Contract call
-     * This operation calls a smart contract. 
+     * Call token contract
+     * This operation performs a contract call on the token contract. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationContractCallRequest Request body for contract call (optional)
+     * @param tokenizationContractCallRequest The request body for contract call. (optional)
      * @return TokenizationOperationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2024,10 +2184,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Contract call
-     * This operation calls a smart contract. 
+     * Call token contract
+     * This operation performs a contract call on the token contract. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationContractCallRequest Request body for contract call (optional)
+     * @param tokenizationContractCallRequest The request body for contract call. (optional)
      * @return ApiResponse&lt;TokenizationOperationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2045,10 +2205,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Contract call (asynchronously)
-     * This operation calls a smart contract. 
+     * Call token contract (asynchronously)
+     * This operation performs a contract call on the token contract. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationContractCallRequest Request body for contract call (optional)
+     * @param tokenizationContractCallRequest The request body for contract call. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2070,7 +2230,7 @@ public class TokenizationApi {
     /**
      * Build call for unpauseTokenization
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUnpauseTokenRequest Request body for unpausing tokens (optional)
+     * @param tokenizationUnpauseTokenRequest The request body for unpausing tokens. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2127,10 +2287,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Unpause tokenization
-     * This operation unpauses the token contract. Creates an unpause transaction that will resume the token contract. 
+     * Unpause token contract
+     * This operation unpauses the token contract, resuming token operations and transfers. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUnpauseTokenRequest Request body for unpausing tokens (optional)
+     * @param tokenizationUnpauseTokenRequest The request body for unpausing tokens. (optional)
      * @return TokenizationOperationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2147,10 +2307,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Unpause tokenization
-     * This operation unpauses the token contract. Creates an unpause transaction that will resume the token contract. 
+     * Unpause token contract
+     * This operation unpauses the token contract, resuming token operations and transfers. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUnpauseTokenRequest Request body for unpausing tokens (optional)
+     * @param tokenizationUnpauseTokenRequest The request body for unpausing tokens. (optional)
      * @return ApiResponse&lt;TokenizationOperationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2168,10 +2328,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Unpause tokenization (asynchronously)
-     * This operation unpauses the token contract. Creates an unpause transaction that will resume the token contract. 
+     * Unpause token contract (asynchronously)
+     * This operation unpauses the token contract, resuming token operations and transfers. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUnpauseTokenRequest Request body for unpausing tokens (optional)
+     * @param tokenizationUnpauseTokenRequest The request body for unpausing tokens. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2191,132 +2351,9 @@ public class TokenizationApi {
         return localVarCall;
     }
     /**
-     * Build call for updateAllowlistAddresses
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUpdateAllowlistAddressesRequest Request body for managing multiple allowlist addresses (adding or removing). (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateAllowlistAddressesCall(String tokenId, TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = tokenizationUpdateAllowlistAddressesRequest;
-
-        // create path and map variables
-        String localVarPath = "/tokenization/tokens/{token_id}/allowlist/addresses"
-            .replace("{" + "token_id" + "}", localVarApiClient.escapeString(tokenId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAllowlistAddressesValidateBeforeCall(String tokenId, TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'tokenId' is set
-        if (tokenId == null) {
-            throw new ApiException("Missing the required parameter 'tokenId' when calling updateAllowlistAddresses(Async)");
-        }
-
-        return updateAllowlistAddressesCall(tokenId, tokenizationUpdateAllowlistAddressesRequest, _callback);
-
-    }
-
-    /**
-     * Update allowlist addresses
-     * This operation updates the allowlist addresses of the token contract. 
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUpdateAllowlistAddressesRequest Request body for managing multiple allowlist addresses (adding or removing). (optional)
-     * @return TokenizationOperationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public TokenizationOperationResponse updateAllowlistAddresses(String tokenId, TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest) throws ApiException {
-        ApiResponse<TokenizationOperationResponse> localVarResp = updateAllowlistAddressesWithHttpInfo(tokenId, tokenizationUpdateAllowlistAddressesRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update allowlist addresses
-     * This operation updates the allowlist addresses of the token contract. 
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUpdateAllowlistAddressesRequest Request body for managing multiple allowlist addresses (adding or removing). (optional)
-     * @return ApiResponse&lt;TokenizationOperationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<TokenizationOperationResponse> updateAllowlistAddressesWithHttpInfo(String tokenId, TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateAllowlistAddressesValidateBeforeCall(tokenId, tokenizationUpdateAllowlistAddressesRequest, null);
-        Type localVarReturnType = new TypeToken<TokenizationOperationResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Update allowlist addresses (asynchronously)
-     * This operation updates the allowlist addresses of the token contract. 
-     * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUpdateAllowlistAddressesRequest Request body for managing multiple allowlist addresses (adding or removing). (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateAllowlistAddressesAsync(String tokenId, TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest, final ApiCallback<TokenizationOperationResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateAllowlistAddressesValidateBeforeCall(tokenId, tokenizationUpdateAllowlistAddressesRequest, _callback);
-        Type localVarReturnType = new TypeToken<TokenizationOperationResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for updateTokenizationAllowlistActivation
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationAllowlistActivationRequest Request body for updating the allowlist activation setting. (optional)
+     * @param tokenizationAllowlistActivationRequest The request body for activating or deactivating the allowlist. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2373,10 +2410,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Update allowlist activation
-     * This operation updates the allowlist activation setting of the token contract. 
+     * Activate or deactivate the allowlist
+     * This operation activates or deactivates the allowlist. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationAllowlistActivationRequest Request body for updating the allowlist activation setting. (optional)
+     * @param tokenizationAllowlistActivationRequest The request body for activating or deactivating the allowlist. (optional)
      * @return TokenizationOperationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2393,10 +2430,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Update allowlist activation
-     * This operation updates the allowlist activation setting of the token contract. 
+     * Activate or deactivate the allowlist
+     * This operation activates or deactivates the allowlist. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationAllowlistActivationRequest Request body for updating the allowlist activation setting. (optional)
+     * @param tokenizationAllowlistActivationRequest The request body for activating or deactivating the allowlist. (optional)
      * @return ApiResponse&lt;TokenizationOperationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2414,10 +2451,10 @@ public class TokenizationApi {
     }
 
     /**
-     * Update allowlist activation (asynchronously)
-     * This operation updates the allowlist activation setting of the token contract. 
+     * Activate or deactivate the allowlist (asynchronously)
+     * This operation activates or deactivates the allowlist. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationAllowlistActivationRequest Request body for updating the allowlist activation setting. (optional)
+     * @param tokenizationAllowlistActivationRequest The request body for activating or deactivating the allowlist. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2437,9 +2474,132 @@ public class TokenizationApi {
         return localVarCall;
     }
     /**
+     * Build call for updateTokenizationAllowlistAddresses
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenizationUpdateAllowlistAddressesRequest The request body for managing multiple allowlist addresses (adding or removing). (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateTokenizationAllowlistAddressesCall(String tokenId, TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = tokenizationUpdateAllowlistAddressesRequest;
+
+        // create path and map variables
+        String localVarPath = "/tokenization/tokens/{token_id}/allowlist/addresses"
+            .replace("{" + "token_id" + "}", localVarApiClient.escapeString(tokenId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateTokenizationAllowlistAddressesValidateBeforeCall(String tokenId, TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tokenId' is set
+        if (tokenId == null) {
+            throw new ApiException("Missing the required parameter 'tokenId' when calling updateTokenizationAllowlistAddresses(Async)");
+        }
+
+        return updateTokenizationAllowlistAddressesCall(tokenId, tokenizationUpdateAllowlistAddressesRequest, _callback);
+
+    }
+
+    /**
+     * Update allowlist addresses
+     * This operation updates the allowlist addresses of the token contract. 
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenizationUpdateAllowlistAddressesRequest The request body for managing multiple allowlist addresses (adding or removing). (optional)
+     * @return TokenizationOperationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TokenizationOperationResponse updateTokenizationAllowlistAddresses(String tokenId, TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest) throws ApiException {
+        ApiResponse<TokenizationOperationResponse> localVarResp = updateTokenizationAllowlistAddressesWithHttpInfo(tokenId, tokenizationUpdateAllowlistAddressesRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update allowlist addresses
+     * This operation updates the allowlist addresses of the token contract. 
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenizationUpdateAllowlistAddressesRequest The request body for managing multiple allowlist addresses (adding or removing). (optional)
+     * @return ApiResponse&lt;TokenizationOperationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TokenizationOperationResponse> updateTokenizationAllowlistAddressesWithHttpInfo(String tokenId, TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateTokenizationAllowlistAddressesValidateBeforeCall(tokenId, tokenizationUpdateAllowlistAddressesRequest, null);
+        Type localVarReturnType = new TypeToken<TokenizationOperationResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update allowlist addresses (asynchronously)
+     * This operation updates the allowlist addresses of the token contract. 
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenizationUpdateAllowlistAddressesRequest The request body for managing multiple allowlist addresses (adding or removing). (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateTokenizationAllowlistAddressesAsync(String tokenId, TokenizationUpdateAllowlistAddressesRequest tokenizationUpdateAllowlistAddressesRequest, final ApiCallback<TokenizationOperationResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateTokenizationAllowlistAddressesValidateBeforeCall(tokenId, tokenizationUpdateAllowlistAddressesRequest, _callback);
+        Type localVarReturnType = new TypeToken<TokenizationOperationResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for updateTokenizationBlocklistAddresses
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUpdateBlocklistAddressesRequest Request body for managing multiple blocklist addresses (adding or removing). (optional)
+     * @param tokenizationUpdateBlocklistAddressesRequest The request body for managing multiple blocklist addresses (adding or removing). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2499,7 +2659,7 @@ public class TokenizationApi {
      * Update tokenization blocklist addresses
      * This operation updates the tokenization blocklist addresses. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUpdateBlocklistAddressesRequest Request body for managing multiple blocklist addresses (adding or removing). (optional)
+     * @param tokenizationUpdateBlocklistAddressesRequest The request body for managing multiple blocklist addresses (adding or removing). (optional)
      * @return TokenizationOperationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2519,7 +2679,7 @@ public class TokenizationApi {
      * Update tokenization blocklist addresses
      * This operation updates the tokenization blocklist addresses. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUpdateBlocklistAddressesRequest Request body for managing multiple blocklist addresses (adding or removing). (optional)
+     * @param tokenizationUpdateBlocklistAddressesRequest The request body for managing multiple blocklist addresses (adding or removing). (optional)
      * @return ApiResponse&lt;TokenizationOperationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2540,7 +2700,7 @@ public class TokenizationApi {
      * Update tokenization blocklist addresses (asynchronously)
      * This operation updates the tokenization blocklist addresses. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
-     * @param tokenizationUpdateBlocklistAddressesRequest Request body for managing multiple blocklist addresses (adding or removing). (optional)
+     * @param tokenizationUpdateBlocklistAddressesRequest The request body for managing multiple blocklist addresses (adding or removing). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2555,6 +2715,134 @@ public class TokenizationApi {
     public okhttp3.Call updateTokenizationBlocklistAddressesAsync(String tokenId, TokenizationUpdateBlocklistAddressesRequest tokenizationUpdateBlocklistAddressesRequest, final ApiCallback<TokenizationOperationResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTokenizationBlocklistAddressesValidateBeforeCall(tokenId, tokenizationUpdateBlocklistAddressesRequest, _callback);
+        Type localVarReturnType = new TypeToken<TokenizationOperationResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateTokenizationPermissions
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenizationUpdatePermissionsRequest The request body for managing permissions. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateTokenizationPermissionsCall(String tokenId, TokenizationUpdatePermissionsRequest tokenizationUpdatePermissionsRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = tokenizationUpdatePermissionsRequest;
+
+        // create path and map variables
+        String localVarPath = "/tokenization/tokens/{token_id}/permissions"
+            .replace("{" + "token_id" + "}", localVarApiClient.escapeString(tokenId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateTokenizationPermissionsValidateBeforeCall(String tokenId, TokenizationUpdatePermissionsRequest tokenizationUpdatePermissionsRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tokenId' is set
+        if (tokenId == null) {
+            throw new ApiException("Missing the required parameter 'tokenId' when calling updateTokenizationPermissions(Async)");
+        }
+
+        // verify the required parameter 'tokenizationUpdatePermissionsRequest' is set
+        if (tokenizationUpdatePermissionsRequest == null) {
+            throw new ApiException("Missing the required parameter 'tokenizationUpdatePermissionsRequest' when calling updateTokenizationPermissions(Async)");
+        }
+
+        return updateTokenizationPermissionsCall(tokenId, tokenizationUpdatePermissionsRequest, _callback);
+
+    }
+
+    /**
+     * Update permissions of the token
+     * This operation updates permissions for tokenization contracts.  **For Ethereum-based tokens:** Use &#x60;add&#x60; to grant permissions or &#x60;remove&#x60; to revoke permissions. Multiple permissions can be assigned to the same address.  **For Solana tokens:** Use &#x60;set&#x60; to define the complete list of permissions for an address. This replaces any existing permissions. 
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenizationUpdatePermissionsRequest The request body for managing permissions. (required)
+     * @return TokenizationOperationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TokenizationOperationResponse updateTokenizationPermissions(String tokenId, TokenizationUpdatePermissionsRequest tokenizationUpdatePermissionsRequest) throws ApiException {
+        ApiResponse<TokenizationOperationResponse> localVarResp = updateTokenizationPermissionsWithHttpInfo(tokenId, tokenizationUpdatePermissionsRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update permissions of the token
+     * This operation updates permissions for tokenization contracts.  **For Ethereum-based tokens:** Use &#x60;add&#x60; to grant permissions or &#x60;remove&#x60; to revoke permissions. Multiple permissions can be assigned to the same address.  **For Solana tokens:** Use &#x60;set&#x60; to define the complete list of permissions for an address. This replaces any existing permissions. 
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenizationUpdatePermissionsRequest The request body for managing permissions. (required)
+     * @return ApiResponse&lt;TokenizationOperationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TokenizationOperationResponse> updateTokenizationPermissionsWithHttpInfo(String tokenId, TokenizationUpdatePermissionsRequest tokenizationUpdatePermissionsRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateTokenizationPermissionsValidateBeforeCall(tokenId, tokenizationUpdatePermissionsRequest, null);
+        Type localVarReturnType = new TypeToken<TokenizationOperationResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update permissions of the token (asynchronously)
+     * This operation updates permissions for tokenization contracts.  **For Ethereum-based tokens:** Use &#x60;add&#x60; to grant permissions or &#x60;remove&#x60; to revoke permissions. Multiple permissions can be assigned to the same address.  **For Solana tokens:** Use &#x60;set&#x60; to define the complete list of permissions for an address. This replaces any existing permissions. 
+     * @param tokenId The token ID, which is the unique identifier of a token. (required)
+     * @param tokenizationUpdatePermissionsRequest The request body for managing permissions. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Tokenization operation transaction created successfully </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateTokenizationPermissionsAsync(String tokenId, TokenizationUpdatePermissionsRequest tokenizationUpdatePermissionsRequest, final ApiCallback<TokenizationOperationResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateTokenizationPermissionsValidateBeforeCall(tokenId, tokenizationUpdatePermissionsRequest, _callback);
         Type localVarReturnType = new TypeToken<TokenizationOperationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.RefundStatus;
 import com.cobo.waas2.model.RefundType;
@@ -174,6 +175,14 @@ public class RefundTest {
     @Test
     public void merchantFeeTokenIdTest() {
         // TODO: test merchantFeeTokenId
+    }
+
+    /**
+     * Test the property 'commissionFee'
+     */
+    @Test
+    public void commissionFeeTest() {
+        // TODO: test commissionFee
     }
 
 }

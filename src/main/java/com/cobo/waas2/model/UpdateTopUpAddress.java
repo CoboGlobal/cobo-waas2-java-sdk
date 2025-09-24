@@ -76,7 +76,7 @@ public class UpdateTopUpAddress {
    * The merchant ID.
    * @return merchantId
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getMerchantId() {
     return merchantId;
   }
@@ -225,7 +225,6 @@ public class UpdateTopUpAddress {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("merchant_id");
     openapiRequiredFields.add("token_id");
     openapiRequiredFields.add("custom_payer_id");
   }
@@ -250,7 +249,7 @@ public class UpdateTopUpAddress {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("merchant_id").isJsonPrimitive()) {
+      if ((jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()) && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
       if (!jsonObj.get("token_id").isJsonPrimitive()) {
