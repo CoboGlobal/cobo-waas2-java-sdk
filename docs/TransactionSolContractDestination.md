@@ -10,6 +10,7 @@ The information about the transaction destination type `SOL_Contract`. Refer to 
 |------------ | ------------- | ------------- | -------------|
 |**destinationType** | **TransactionDestinationType** |  |  |
 |**instructions** | [**List&lt;TransactionSolContractInstruction&gt;**](TransactionSolContractInstruction.md) |  |  [optional] |
+|**addressLookupTableAccounts** | [**List&lt;TransactionSolContractAddressLookupTableAccount&gt;**](TransactionSolContractAddressLookupTableAccount.md) |  |  [optional] |
 
 
 

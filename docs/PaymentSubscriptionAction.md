@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**requestId** | **String** | The action request id. |  |
-|**subscriptionActionId** | **String** | The action id. |  |
+|**actionId** | **String** | The action id. |  |
 |**planId** | **String** | The plan id in cobo. |  |
 |**subscriptionId** | **String** | The subscription id in cobo. |  |
 |**merchantId** | **String** | The merchant id in cobo. |  |

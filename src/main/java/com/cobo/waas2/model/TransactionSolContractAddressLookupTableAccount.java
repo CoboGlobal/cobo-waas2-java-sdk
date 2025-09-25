@@ -12,14 +12,15 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.PaymentSubscriptionActionType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,82 +47,67 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * PaymentApproveSubscriptionActionData
+ * The information about the Solana address lookup table account.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class PaymentApproveSubscriptionActionData {
-  public static final String SERIALIZED_NAME_ACTION_TYPE = "action_type";
-  @SerializedName(SERIALIZED_NAME_ACTION_TYPE)
-  private PaymentSubscriptionActionType actionType;
+public class TransactionSolContractAddressLookupTableAccount {
+  public static final String SERIALIZED_NAME_ALT_ACCOUNT_KEY = "alt_account_key";
+  @SerializedName(SERIALIZED_NAME_ALT_ACCOUNT_KEY)
+  private String altAccountKey;
 
-  public static final String SERIALIZED_NAME_SUBSCRIPTION_ID = "subscription_id";
-  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ID)
-  private String subscriptionId;
+  public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
+  @SerializedName(SERIALIZED_NAME_ADDRESSES)
+  private List<String> addresses = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_PERMIT_DATA = "permit_data";
-  @SerializedName(SERIALIZED_NAME_PERMIT_DATA)
-  private String permitData;
-
-  public PaymentApproveSubscriptionActionData() {
+  public TransactionSolContractAddressLookupTableAccount() {
   }
 
-  public PaymentApproveSubscriptionActionData actionType(PaymentSubscriptionActionType actionType) {
-    this.actionType = actionType;
+  public TransactionSolContractAddressLookupTableAccount altAccountKey(String altAccountKey) {
+    this.altAccountKey = altAccountKey;
     return this;
   }
 
    /**
-   * Get actionType
-   * @return actionType
+   * The on-chain public key of the address lookup table account (ALT), identifying the specific lookup table.
+   * @return altAccountKey
   **/
   @javax.annotation.Nonnull
-  public PaymentSubscriptionActionType getActionType() {
-    return actionType;
+  public String getAltAccountKey() {
+    return altAccountKey;
   }
 
-  public void setActionType(PaymentSubscriptionActionType actionType) {
-    this.actionType = actionType;
+  public void setAltAccountKey(String altAccountKey) {
+    this.altAccountKey = altAccountKey;
   }
 
 
-  public PaymentApproveSubscriptionActionData subscriptionId(String subscriptionId) {
-    this.subscriptionId = subscriptionId;
+  public TransactionSolContractAddressLookupTableAccount addresses(List<String> addresses) {
+    this.addresses = addresses;
+    return this;
+  }
+
+  public TransactionSolContractAddressLookupTableAccount addAddressesItem(String addressesItem) {
+    if (this.addresses == null) {
+      this.addresses = new ArrayList<>();
+    }
+    this.addresses.add(addressesItem);
     return this;
   }
 
    /**
-   * The subscription id in cobo.
-   * @return subscriptionId
+   * An array of stored account addresses within the lookup table, which can be referenced in the transaction by index.
+   * @return addresses
   **/
   @javax.annotation.Nonnull
-  public String getSubscriptionId() {
-    return subscriptionId;
+  public List<String> getAddresses() {
+    return addresses;
   }
 
-  public void setSubscriptionId(String subscriptionId) {
-    this.subscriptionId = subscriptionId;
-  }
-
-
-  public PaymentApproveSubscriptionActionData permitData(String permitData) {
-    this.permitData = permitData;
-    return this;
-  }
-
-   /**
-   * The signature of permit.
-   * @return permitData
-  **/
-  @javax.annotation.Nullable
-  public String getPermitData() {
-    return permitData;
-  }
-
-  public void setPermitData(String permitData) {
-    this.permitData = permitData;
+  public void setAddresses(List<String> addresses) {
+    this.addresses = addresses;
   }
 
   /**
@@ -137,9 +123,9 @@ public class PaymentApproveSubscriptionActionData {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the PaymentApproveSubscriptionActionData instance itself
+   * @return the TransactionSolContractAddressLookupTableAccount instance itself
    */
-  public PaymentApproveSubscriptionActionData putAdditionalProperty(String key, Object value) {
+  public TransactionSolContractAddressLookupTableAccount putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -178,25 +164,23 @@ public class PaymentApproveSubscriptionActionData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentApproveSubscriptionActionData paymentApproveSubscriptionActionData = (PaymentApproveSubscriptionActionData) o;
-    return Objects.equals(this.actionType, paymentApproveSubscriptionActionData.actionType) &&
-        Objects.equals(this.subscriptionId, paymentApproveSubscriptionActionData.subscriptionId) &&
-        Objects.equals(this.permitData, paymentApproveSubscriptionActionData.permitData)&&
-        Objects.equals(this.additionalProperties, paymentApproveSubscriptionActionData.additionalProperties);
+    TransactionSolContractAddressLookupTableAccount transactionSolContractAddressLookupTableAccount = (TransactionSolContractAddressLookupTableAccount) o;
+    return Objects.equals(this.altAccountKey, transactionSolContractAddressLookupTableAccount.altAccountKey) &&
+        Objects.equals(this.addresses, transactionSolContractAddressLookupTableAccount.addresses)&&
+        Objects.equals(this.additionalProperties, transactionSolContractAddressLookupTableAccount.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionType, subscriptionId, permitData, additionalProperties);
+    return Objects.hash(altAccountKey, addresses, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentApproveSubscriptionActionData {\n");
-    sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
-    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
-    sb.append("    permitData: ").append(toIndentedString(permitData)).append("\n");
+    sb.append("class TransactionSolContractAddressLookupTableAccount {\n");
+    sb.append("    altAccountKey: ").append(toIndentedString(altAccountKey)).append("\n");
+    sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -220,43 +204,43 @@ public class PaymentApproveSubscriptionActionData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("action_type");
-    openapiFields.add("subscription_id");
-    openapiFields.add("permit_data");
+    openapiFields.add("alt_account_key");
+    openapiFields.add("addresses");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("action_type");
-    openapiRequiredFields.add("subscription_id");
+    openapiRequiredFields.add("alt_account_key");
+    openapiRequiredFields.add("addresses");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to PaymentApproveSubscriptionActionData
+  * @throws IOException if the JSON Element is invalid with respect to TransactionSolContractAddressLookupTableAccount
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!PaymentApproveSubscriptionActionData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentApproveSubscriptionActionData is not found in the empty JSON string", PaymentApproveSubscriptionActionData.openapiRequiredFields.toString()));
+        if (!TransactionSolContractAddressLookupTableAccount.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionSolContractAddressLookupTableAccount is not found in the empty JSON string", TransactionSolContractAddressLookupTableAccount.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaymentApproveSubscriptionActionData.openapiRequiredFields) {
+      for (String requiredField : TransactionSolContractAddressLookupTableAccount.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `action_type`
-      PaymentSubscriptionActionType.validateJsonElement(jsonObj.get("action_type"));
-      if (!jsonObj.get("subscription_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subscription_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_id").toString()));
+      if (!jsonObj.get("alt_account_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `alt_account_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alt_account_key").toString()));
       }
-      if ((jsonObj.get("permit_data") != null && !jsonObj.get("permit_data").isJsonNull()) && !jsonObj.get("permit_data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `permit_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("permit_data").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("addresses") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("addresses").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `addresses` to be an array in the JSON string but got `%s`", jsonObj.get("addresses").toString()));
       }
   }
 
@@ -264,16 +248,16 @@ public class PaymentApproveSubscriptionActionData {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentApproveSubscriptionActionData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentApproveSubscriptionActionData' and its subtypes
+       if (!TransactionSolContractAddressLookupTableAccount.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TransactionSolContractAddressLookupTableAccount' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentApproveSubscriptionActionData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentApproveSubscriptionActionData.class));
+       final TypeAdapter<TransactionSolContractAddressLookupTableAccount> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionSolContractAddressLookupTableAccount.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PaymentApproveSubscriptionActionData>() {
+       return (TypeAdapter<T>) new TypeAdapter<TransactionSolContractAddressLookupTableAccount>() {
            @Override
-           public void write(JsonWriter out, PaymentApproveSubscriptionActionData value) throws IOException {
+           public void write(JsonWriter out, TransactionSolContractAddressLookupTableAccount value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -303,12 +287,12 @@ public class PaymentApproveSubscriptionActionData {
            }
 
            @Override
-           public PaymentApproveSubscriptionActionData read(JsonReader in) throws IOException {
+           public TransactionSolContractAddressLookupTableAccount read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             PaymentApproveSubscriptionActionData instance = thisAdapter.fromJsonTree(jsonObj);
+             TransactionSolContractAddressLookupTableAccount instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -335,18 +319,18 @@ public class PaymentApproveSubscriptionActionData {
   }
 
  /**
-  * Create an instance of PaymentApproveSubscriptionActionData given an JSON string
+  * Create an instance of TransactionSolContractAddressLookupTableAccount given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of PaymentApproveSubscriptionActionData
-  * @throws IOException if the JSON string is invalid with respect to PaymentApproveSubscriptionActionData
+  * @return An instance of TransactionSolContractAddressLookupTableAccount
+  * @throws IOException if the JSON string is invalid with respect to TransactionSolContractAddressLookupTableAccount
   */
-  public static PaymentApproveSubscriptionActionData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentApproveSubscriptionActionData.class);
+  public static TransactionSolContractAddressLookupTableAccount fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TransactionSolContractAddressLookupTableAccount.class);
   }
 
  /**
-  * Convert an instance of PaymentApproveSubscriptionActionData to an JSON string
+  * Convert an instance of TransactionSolContractAddressLookupTableAccount to an JSON string
   *
   * @return JSON string
   */

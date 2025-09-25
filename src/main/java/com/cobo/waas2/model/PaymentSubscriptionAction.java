@@ -58,9 +58,9 @@ public class PaymentSubscriptionAction {
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
   private String requestId;
 
-  public static final String SERIALIZED_NAME_SUBSCRIPTION_ACTION_ID = "subscription_action_id";
-  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ACTION_ID)
-  private String subscriptionActionId;
+  public static final String SERIALIZED_NAME_ACTION_ID = "action_id";
+  @SerializedName(SERIALIZED_NAME_ACTION_ID)
+  private String actionId;
 
   public static final String SERIALIZED_NAME_PLAN_ID = "plan_id";
   @SerializedName(SERIALIZED_NAME_PLAN_ID)
@@ -116,22 +116,22 @@ public class PaymentSubscriptionAction {
   }
 
 
-  public PaymentSubscriptionAction subscriptionActionId(String subscriptionActionId) {
-    this.subscriptionActionId = subscriptionActionId;
+  public PaymentSubscriptionAction actionId(String actionId) {
+    this.actionId = actionId;
     return this;
   }
 
    /**
    * The action id.
-   * @return subscriptionActionId
+   * @return actionId
   **/
   @javax.annotation.Nonnull
-  public String getSubscriptionActionId() {
-    return subscriptionActionId;
+  public String getActionId() {
+    return actionId;
   }
 
-  public void setSubscriptionActionId(String subscriptionActionId) {
-    this.subscriptionActionId = subscriptionActionId;
+  public void setActionId(String actionId) {
+    this.actionId = actionId;
   }
 
 
@@ -342,7 +342,7 @@ public class PaymentSubscriptionAction {
     }
     PaymentSubscriptionAction paymentSubscriptionAction = (PaymentSubscriptionAction) o;
     return Objects.equals(this.requestId, paymentSubscriptionAction.requestId) &&
-        Objects.equals(this.subscriptionActionId, paymentSubscriptionAction.subscriptionActionId) &&
+        Objects.equals(this.actionId, paymentSubscriptionAction.actionId) &&
         Objects.equals(this.planId, paymentSubscriptionAction.planId) &&
         Objects.equals(this.subscriptionId, paymentSubscriptionAction.subscriptionId) &&
         Objects.equals(this.merchantId, paymentSubscriptionAction.merchantId) &&
@@ -356,7 +356,7 @@ public class PaymentSubscriptionAction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, subscriptionActionId, planId, subscriptionId, merchantId, merchantAddress, data, status, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(requestId, actionId, planId, subscriptionId, merchantId, merchantAddress, data, status, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -364,7 +364,7 @@ public class PaymentSubscriptionAction {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentSubscriptionAction {\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    subscriptionActionId: ").append(toIndentedString(subscriptionActionId)).append("\n");
+    sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
     sb.append("    planId: ").append(toIndentedString(planId)).append("\n");
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
@@ -397,7 +397,7 @@ public class PaymentSubscriptionAction {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("request_id");
-    openapiFields.add("subscription_action_id");
+    openapiFields.add("action_id");
     openapiFields.add("plan_id");
     openapiFields.add("subscription_id");
     openapiFields.add("merchant_id");
@@ -410,7 +410,7 @@ public class PaymentSubscriptionAction {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("request_id");
-    openapiRequiredFields.add("subscription_action_id");
+    openapiRequiredFields.add("action_id");
     openapiRequiredFields.add("plan_id");
     openapiRequiredFields.add("subscription_id");
     openapiRequiredFields.add("merchant_id");
@@ -442,8 +442,8 @@ public class PaymentSubscriptionAction {
       if (!jsonObj.get("request_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
-      if (!jsonObj.get("subscription_action_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subscription_action_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_action_id").toString()));
+      if (!jsonObj.get("action_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `action_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action_id").toString()));
       }
       if (!jsonObj.get("plan_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `plan_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("plan_id").toString()));

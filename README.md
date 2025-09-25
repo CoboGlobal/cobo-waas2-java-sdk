@@ -266,7 +266,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**getSettlementById**](docs/PaymentApi.md#getSettlementById) | **GET** /payments/settlement_requests/{settlement_request_id} | Get settlement request information
 *PaymentApi* | [**getSettlementInfoByIds**](docs/PaymentApi.md#getSettlementInfoByIds) | **GET** /payments/settlement_info | Get withdrawable balances
 *PaymentApi* | [**getSubscriptionById**](docs/PaymentApi.md#getSubscriptionById) | **GET** /payments/subscriptions/{subscription_id} | Get subscription by id
-*PaymentApi* | [**getSubscriptionPlanById**](docs/PaymentApi.md#getSubscriptionPlanById) | **GET** /payments/subscription_plans/{subscription_plan_id} | Get subscription plan by id
+*PaymentApi* | [**getSubscriptionPlanById**](docs/PaymentApi.md#getSubscriptionPlanById) | **GET** /payments/subscription_plans/{plan_id} | Get subscription plan by id
 *PaymentApi* | [**getTopUpAddress**](docs/PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Get top-up address
 *PaymentApi* | [**listBankAccounts**](docs/PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts
 *PaymentApi* | [**listCryptoAddresses**](docs/PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
@@ -842,6 +842,7 @@ Class | Method | HTTP request | Description
  - [SmartContractWalletOperationType](docs/SmartContractWalletOperationType.md)
  - [SmartContractWalletType](docs/SmartContractWalletType.md)
  - [SolContractCallAccount](docs/SolContractCallAccount.md)
+ - [SolContractCallAddressLookupTableAccount](docs/SolContractCallAddressLookupTableAccount.md)
  - [SolContractCallDestination](docs/SolContractCallDestination.md)
  - [SolContractCallInstruction](docs/SolContractCallInstruction.md)
  - [SourceGroup](docs/SourceGroup.md)
@@ -1069,6 +1070,7 @@ Class | Method | HTTP request | Description
  - [TransactionSigner](docs/TransactionSigner.md)
  - [TransactionSmartContractSafeWalletSource](docs/TransactionSmartContractSafeWalletSource.md)
  - [TransactionSolContractAccount](docs/TransactionSolContractAccount.md)
+ - [TransactionSolContractAddressLookupTableAccount](docs/TransactionSolContractAddressLookupTableAccount.md)
  - [TransactionSolContractDestination](docs/TransactionSolContractDestination.md)
  - [TransactionSolContractInstruction](docs/TransactionSolContractInstruction.md)
  - [TransactionSource](docs/TransactionSource.md)

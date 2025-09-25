@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ContractCallDestinationType;
 import com.cobo.waas2.model.EvmContractCallDestination;
+import com.cobo.waas2.model.SolContractCallAddressLookupTableAccount;
 import com.cobo.waas2.model.SolContractCallDestination;
 import com.cobo.waas2.model.SolContractCallInstruction;
 import com.cobo.waas2.model.StellarContractCallContractParam;
@@ -81,6 +82,14 @@ public class ContractCallDestinationTest {
     @Test
     public void instructionsTest() {
         // TODO: test instructions
+    }
+
+    /**
+     * Test the property 'addressLookupTableAccounts'
+     */
+    @Test
+    public void addressLookupTableAccountsTest() {
+        // TODO: test addressLookupTableAccounts
     }
 
     /**

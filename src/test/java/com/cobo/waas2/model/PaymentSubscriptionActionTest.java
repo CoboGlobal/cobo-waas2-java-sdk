@@ -46,11 +46,11 @@ public class PaymentSubscriptionActionTest {
     }
 
     /**
-     * Test the property 'subscriptionActionId'
+     * Test the property 'actionId'
      */
     @Test
-    public void subscriptionActionIdTest() {
-        // TODO: test subscriptionActionId
+    public void actionIdTest() {
+        // TODO: test actionId
     }
 
     /**

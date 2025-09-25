@@ -11,45 +11,46 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.PaymentSubscriptionActionType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for PaymentDeveloperSubscriptionActionData
+ * Model tests for SolContractCallAddressLookupTableAccount
  */
-public class PaymentDeveloperSubscriptionActionDataTest {
-    private final PaymentDeveloperSubscriptionActionData model = new PaymentDeveloperSubscriptionActionData();
+public class SolContractCallAddressLookupTableAccountTest {
+    private final SolContractCallAddressLookupTableAccount model = new SolContractCallAddressLookupTableAccount();
 
     /**
-     * Model tests for PaymentDeveloperSubscriptionActionData
+     * Model tests for SolContractCallAddressLookupTableAccount
      */
     @Test
-    public void testPaymentDeveloperSubscriptionActionData() {
-        // TODO: test PaymentDeveloperSubscriptionActionData
+    public void testSolContractCallAddressLookupTableAccount() {
+        // TODO: test SolContractCallAddressLookupTableAccount
     }
 
     /**
-     * Test the property 'actionType'
+     * Test the property 'altAccountKey'
      */
     @Test
-    public void actionTypeTest() {
-        // TODO: test actionType
+    public void altAccountKeyTest() {
+        // TODO: test altAccountKey
     }
 
     /**
-     * Test the property 'subscriptionId'
+     * Test the property 'addresses'
      */
     @Test
-    public void subscriptionIdTest() {
-        // TODO: test subscriptionId
+    public void addressesTest() {
+        // TODO: test addresses
     }
 
 }

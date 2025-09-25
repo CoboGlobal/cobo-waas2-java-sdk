@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.PaymentSubscriptionAction;
+import com.cobo.waas2.model.PaymentSubscriptionActionType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -59,7 +59,7 @@ public class PaymentUpdateAmountSubscriptionActionData {
 
   public static final String SERIALIZED_NAME_ACTION_TYPE = "action_type";
   @SerializedName(SERIALIZED_NAME_ACTION_TYPE)
-  private PaymentSubscriptionAction actionType;
+  private PaymentSubscriptionActionType actionType;
 
   public static final String SERIALIZED_NAME_SUBSCRIPTION_ID = "subscription_id";
   @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ID)
@@ -81,7 +81,7 @@ public class PaymentUpdateAmountSubscriptionActionData {
    * The new plan id in cobo.
    * @return newPlanId
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getNewPlanId() {
     return newPlanId;
   }
@@ -91,7 +91,7 @@ public class PaymentUpdateAmountSubscriptionActionData {
   }
 
 
-  public PaymentUpdateAmountSubscriptionActionData actionType(PaymentSubscriptionAction actionType) {
+  public PaymentUpdateAmountSubscriptionActionData actionType(PaymentSubscriptionActionType actionType) {
     this.actionType = actionType;
     return this;
   }
@@ -101,11 +101,11 @@ public class PaymentUpdateAmountSubscriptionActionData {
    * @return actionType
   **/
   @javax.annotation.Nonnull
-  public PaymentSubscriptionAction getActionType() {
+  public PaymentSubscriptionActionType getActionType() {
     return actionType;
   }
 
-  public void setActionType(PaymentSubscriptionAction actionType) {
+  public void setActionType(PaymentSubscriptionActionType actionType) {
     this.actionType = actionType;
   }
 
@@ -251,6 +251,7 @@ public class PaymentUpdateAmountSubscriptionActionData {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("new_plan_id");
     openapiRequiredFields.add("action_type");
     openapiRequiredFields.add("subscription_id");
     openapiRequiredFields.add("signature");
@@ -276,11 +277,11 @@ public class PaymentUpdateAmountSubscriptionActionData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("new_plan_id") != null && !jsonObj.get("new_plan_id").isJsonNull()) && !jsonObj.get("new_plan_id").isJsonPrimitive()) {
+      if (!jsonObj.get("new_plan_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `new_plan_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_plan_id").toString()));
       }
       // validate the required field `action_type`
-      PaymentSubscriptionAction.validateJsonElement(jsonObj.get("action_type"));
+      PaymentSubscriptionActionType.validateJsonElement(jsonObj.get("action_type"));
       if (!jsonObj.get("subscription_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subscription_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_id").toString()));
       }

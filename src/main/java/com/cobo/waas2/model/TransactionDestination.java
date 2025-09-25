@@ -28,6 +28,7 @@ import com.cobo.waas2.model.TransactionEvmContractDestination;
 import com.cobo.waas2.model.TransactionMessageSignEIP191Destination;
 import com.cobo.waas2.model.TransactionMessageSignEIP712Destination;
 import com.cobo.waas2.model.TransactionRawMessageSignDestination;
+import com.cobo.waas2.model.TransactionSolContractAddressLookupTableAccount;
 import com.cobo.waas2.model.TransactionSolContractDestination;
 import com.cobo.waas2.model.TransactionSolContractInstruction;
 import com.cobo.waas2.model.TransactionStellarContractParam;

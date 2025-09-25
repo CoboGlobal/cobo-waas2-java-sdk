@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.PaymentSubscriptionAction;
+import com.cobo.waas2.model.PaymentSubscriptionActionType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,7 +55,7 @@ import com.cobo.waas2.JSON;
 public class PaymentBaseSubscriptionActionData {
   public static final String SERIALIZED_NAME_ACTION_TYPE = "action_type";
   @SerializedName(SERIALIZED_NAME_ACTION_TYPE)
-  private PaymentSubscriptionAction actionType;
+  private PaymentSubscriptionActionType actionType;
 
   public static final String SERIALIZED_NAME_SUBSCRIPTION_ID = "subscription_id";
   @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ID)
@@ -68,7 +68,7 @@ public class PaymentBaseSubscriptionActionData {
   public PaymentBaseSubscriptionActionData() {
   }
 
-  public PaymentBaseSubscriptionActionData actionType(PaymentSubscriptionAction actionType) {
+  public PaymentBaseSubscriptionActionData actionType(PaymentSubscriptionActionType actionType) {
     this.actionType = actionType;
     return this;
   }
@@ -78,11 +78,11 @@ public class PaymentBaseSubscriptionActionData {
    * @return actionType
   **/
   @javax.annotation.Nonnull
-  public PaymentSubscriptionAction getActionType() {
+  public PaymentSubscriptionActionType getActionType() {
     return actionType;
   }
 
-  public void setActionType(PaymentSubscriptionAction actionType) {
+  public void setActionType(PaymentSubscriptionActionType actionType) {
     this.actionType = actionType;
   }
 
@@ -252,7 +252,7 @@ public class PaymentBaseSubscriptionActionData {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `action_type`
-      PaymentSubscriptionAction.validateJsonElement(jsonObj.get("action_type"));
+      PaymentSubscriptionActionType.validateJsonElement(jsonObj.get("action_type"));
       if (!jsonObj.get("subscription_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subscription_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_id").toString()));
       }

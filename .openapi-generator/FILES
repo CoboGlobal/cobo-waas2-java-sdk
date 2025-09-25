@@ -440,6 +440,7 @@ docs/SmartContractWalletInfo.md
 docs/SmartContractWalletOperationType.md
 docs/SmartContractWalletType.md
 docs/SolContractCallAccount.md
+docs/SolContractCallAddressLookupTableAccount.md
 docs/SolContractCallDestination.md
 docs/SolContractCallInstruction.md
 docs/SourceGroup.md
@@ -670,6 +671,7 @@ docs/TransactionSignatureResult.md
 docs/TransactionSigner.md
 docs/TransactionSmartContractSafeWalletSource.md
 docs/TransactionSolContractAccount.md
+docs/TransactionSolContractAddressLookupTableAccount.md
 docs/TransactionSolContractDestination.md
 docs/TransactionSolContractInstruction.md
 docs/TransactionSource.md
@@ -1233,6 +1235,7 @@ src/main/java/com/cobo/waas2/model/SmartContractWalletInfo.java
 src/main/java/com/cobo/waas2/model/SmartContractWalletOperationType.java
 src/main/java/com/cobo/waas2/model/SmartContractWalletType.java
 src/main/java/com/cobo/waas2/model/SolContractCallAccount.java
+src/main/java/com/cobo/waas2/model/SolContractCallAddressLookupTableAccount.java
 src/main/java/com/cobo/waas2/model/SolContractCallDestination.java
 src/main/java/com/cobo/waas2/model/SolContractCallInstruction.java
 src/main/java/com/cobo/waas2/model/SourceGroup.java
@@ -1460,6 +1463,7 @@ src/main/java/com/cobo/waas2/model/TransactionSignatureResult.java
 src/main/java/com/cobo/waas2/model/TransactionSigner.java
 src/main/java/com/cobo/waas2/model/TransactionSmartContractSafeWalletSource.java
 src/main/java/com/cobo/waas2/model/TransactionSolContractAccount.java
+src/main/java/com/cobo/waas2/model/TransactionSolContractAddressLookupTableAccount.java
 src/main/java/com/cobo/waas2/model/TransactionSolContractDestination.java
 src/main/java/com/cobo/waas2/model/TransactionSolContractInstruction.java
 src/main/java/com/cobo/waas2/model/TransactionSource.java
@@ -1977,6 +1981,7 @@ src/test/java/com/cobo/waas2/model/SmartContractWalletInfoTest.java
 src/test/java/com/cobo/waas2/model/SmartContractWalletOperationTypeTest.java
 src/test/java/com/cobo/waas2/model/SmartContractWalletTypeTest.java
 src/test/java/com/cobo/waas2/model/SolContractCallAccountTest.java
+src/test/java/com/cobo/waas2/model/SolContractCallAddressLookupTableAccountTest.java
 src/test/java/com/cobo/waas2/model/SolContractCallDestinationTest.java
 src/test/java/com/cobo/waas2/model/SolContractCallInstructionTest.java
 src/test/java/com/cobo/waas2/model/SourceGroupTest.java
@@ -2203,6 +2208,7 @@ src/test/java/com/cobo/waas2/model/TransactionSignatureResultTest.java
 src/test/java/com/cobo/waas2/model/TransactionSignerTest.java
 src/test/java/com/cobo/waas2/model/TransactionSmartContractSafeWalletSourceTest.java
 src/test/java/com/cobo/waas2/model/TransactionSolContractAccountTest.java
+src/test/java/com/cobo/waas2/model/TransactionSolContractAddressLookupTableAccountTest.java
 src/test/java/com/cobo/waas2/model/TransactionSolContractDestinationTest.java
 src/test/java/com/cobo/waas2/model/TransactionSolContractInstructionTest.java
 src/test/java/com/cobo/waas2/model/TransactionSourceTest.java
