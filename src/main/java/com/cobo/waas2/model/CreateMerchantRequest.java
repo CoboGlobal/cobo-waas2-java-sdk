@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,6 +58,10 @@ public class CreateMerchantRequest {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_WALLET_ID = "wallet_id";
+  @SerializedName(SERIALIZED_NAME_WALLET_ID)
+  private UUID walletId;
+
   public static final String SERIALIZED_NAME_DEVELOPER_FEE_RATE = "developer_fee_rate";
   @SerializedName(SERIALIZED_NAME_DEVELOPER_FEE_RATE)
   private String developerFeeRate;
@@ -84,6 +89,25 @@ public class CreateMerchantRequest {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateMerchantRequest walletId(UUID walletId) {
+    this.walletId = walletId;
+    return this;
+  }
+
+   /**
+   * The ID of the wallet linked to the merchant.
+   * @return walletId
+  **/
+  @javax.annotation.Nullable
+  public UUID getWalletId() {
+    return walletId;
+  }
+
+  public void setWalletId(UUID walletId) {
+    this.walletId = walletId;
   }
 
 
@@ -180,6 +204,7 @@ public class CreateMerchantRequest {
     }
     CreateMerchantRequest createMerchantRequest = (CreateMerchantRequest) o;
     return Objects.equals(this.name, createMerchantRequest.name) &&
+        Objects.equals(this.walletId, createMerchantRequest.walletId) &&
         Objects.equals(this.developerFeeRate, createMerchantRequest.developerFeeRate) &&
         Objects.equals(this.walletSetup, createMerchantRequest.walletSetup)&&
         Objects.equals(this.additionalProperties, createMerchantRequest.additionalProperties);
@@ -187,7 +212,7 @@ public class CreateMerchantRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, developerFeeRate, walletSetup, additionalProperties);
+    return Objects.hash(name, walletId, developerFeeRate, walletSetup, additionalProperties);
   }
 
   @Override
@@ -195,6 +220,7 @@ public class CreateMerchantRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateMerchantRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    developerFeeRate: ").append(toIndentedString(developerFeeRate)).append("\n");
     sb.append("    walletSetup: ").append(toIndentedString(walletSetup)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -221,6 +247,7 @@ public class CreateMerchantRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
+    openapiFields.add("wallet_id");
     openapiFields.add("developer_fee_rate");
     openapiFields.add("wallet_setup");
 
@@ -251,6 +278,9 @@ public class CreateMerchantRequest {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("wallet_id") != null && !jsonObj.get("wallet_id").isJsonNull()) && !jsonObj.get("wallet_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
       }
       if ((jsonObj.get("developer_fee_rate") != null && !jsonObj.get("developer_fee_rate").isJsonNull()) && !jsonObj.get("developer_fee_rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `developer_fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("developer_fee_rate").toString()));

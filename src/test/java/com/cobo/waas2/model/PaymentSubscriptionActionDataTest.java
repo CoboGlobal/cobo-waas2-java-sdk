@@ -16,7 +16,7 @@ import com.cobo.waas2.model.PaymentBaseSubscriptionActionData;
 import com.cobo.waas2.model.PaymentCreateSubscriptionActionData;
 import com.cobo.waas2.model.PaymentDeveloperSubscriptionActionData;
 import com.cobo.waas2.model.PaymentExtendPeriodSubscriptionActionData;
-import com.cobo.waas2.model.PaymentSubscriptionAction;
+import com.cobo.waas2.model.PaymentSubscriptionActionType;
 import com.cobo.waas2.model.PaymentUpdateAmountSubscriptionActionData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

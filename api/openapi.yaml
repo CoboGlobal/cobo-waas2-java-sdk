@@ -11576,7 +11576,7 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
-  /payments/subscription_plans/{subscription_plan_id}:
+  /payments/subscription_plans/{plan_id}:
     get:
       description: |
         This operation retrieves the information of subscription plan detail. You can filter the result by subscription_id.
@@ -11586,7 +11586,7 @@ paths:
         example: 123e457-e89b-12d3-a456-426614174004
         explode: false
         in: path
-        name: subscription_id
+        name: plan_id
         required: true
         schema:
           type: string
@@ -11860,7 +11860,7 @@ paths:
         example: 123e457-e89b-12d3-a456-426614174004
         explode: true
         in: query
-        name: subscription_action_id
+        name: action_id
         required: false
         schema:
           type: string
@@ -15839,7 +15839,7 @@ components:
       example: 123e457-e89b-12d3-a456-426614174004
       explode: true
       in: query
-      name: subscription_action_id
+      name: action_id
       required: false
       schema:
         type: string
@@ -15860,6 +15860,16 @@ components:
       explode: false
       in: path
       name: subscription_id
+      required: true
+      schema:
+        type: string
+      style: simple
+    SubscriptionPlanIdPathParam:
+      description: A unique identifier subscription.
+      example: 123e457-e89b-12d3-a456-426614174004
+      explode: false
+      in: path
+      name: plan_id
       required: true
       schema:
         type: string
@@ -21011,6 +21021,10 @@ components:
           items:
             $ref: '#/components/schemas/TransactionSolContractInstruction'
           type: array
+        address_lookup_table_accounts:
+          items:
+            $ref: '#/components/schemas/TransactionSolContractAddressLookupTableAccount'
+          type: array
       required:
       - destination_type
       title: SOL_Contract
@@ -21146,6 +21160,26 @@ components:
           example: MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr
           type: string
       title: SOL Instruction
+      type: object
+    TransactionSolContractAddressLookupTableAccount:
+      description: The information about the Solana address lookup table account.
+      properties:
+        alt_account_key:
+          description: "The on-chain public key of the address lookup table account\
+            \ (ALT), identifying the specific lookup table."
+          example: ALT1Xyz9A1b2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q
+          type: string
+        addresses:
+          description: "An array of stored account addresses within the lookup table,\
+            \ which can be referenced in the transaction by index."
+          items:
+            example: G7a1b2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9
+            type: string
+          type: array
+      required:
+      - addresses
+      - alt_account_key
+      title: SOL Address Lookup Table Account
       type: object
     TransactionMessageSignEIP191Destination:
       description: |
@@ -23443,6 +23477,10 @@ components:
           items:
             $ref: '#/components/schemas/SolContractCallInstruction'
           type: array
+        address_lookup_table_accounts:
+          items:
+            $ref: '#/components/schemas/SolContractCallAddressLookupTableAccount'
+          type: array
       required:
       - destination_type
       - instructions
@@ -23497,6 +23535,26 @@ components:
       - data
       - program_id
       title: SOL Instruction
+      type: object
+    SolContractCallAddressLookupTableAccount:
+      description: The information about the Solana address lookup table account.
+      properties:
+        alt_account_key:
+          description: "The on-chain public key of the address lookup table account\
+            \ (ALT), identifying the specific lookup table."
+          example: ALT1Xyz9A1b2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q
+          type: string
+        addresses:
+          description: "An array of stored account addresses within the lookup table,\
+            \ which can be referenced in the transaction by index."
+          items:
+            example: G7a1b2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9
+            type: string
+          type: array
+      required:
+      - addresses
+      - alt_account_key
+      title: SOL Address Lookup Table Account
       type: object
     StellarContractCallDestination:
       description: "The information about the transaction destination. Refer to [Transaction\
@@ -29618,7 +29676,7 @@ components:
     PaymentApproveSubscriptionActionData:
       properties:
         action_type:
-          $ref: '#/components/schemas/PaymentSubscriptionAction'
+          $ref: '#/components/schemas/PaymentSubscriptionActionType'
         subscription_id:
           description: The subscription id in cobo.
           example: 123e457-e89b-12d3-a456-426614174004
@@ -29844,13 +29902,13 @@ components:
     PaymentSubscriptionAction:
       example:
         subscription_id: 123e457-e89b-12d3-a456-426614174004
-        subscription_action_id: 123e457-e89b-12d3-a456-426614174004
         data:
           amount: "500.00"
           token_id: ETH_USDT
           action_type: Create
           user_address: 0x8a73abedb3053b17204b887af6231a8ac35fc2cc
           discount_rate: 99000
+        action_id: 123e457-e89b-12d3-a456-426614174004
         updated_timestamp: 1744689600
         created_timestamp: 1744689600
         merchant_id: 123e457-e89b-12d3-a456-426614174004
@@ -29863,7 +29921,7 @@ components:
           description: The action request id.
           example: 123e457-e89b-12d3-a456-426614174004
           type: string
-        subscription_action_id:
+        action_id:
           description: The action id.
           example: 123e457-e89b-12d3-a456-426614174004
           type: string
@@ -29898,13 +29956,13 @@ components:
           example: 1744689600
           type: integer
       required:
+      - action_id
       - data
       - merchant_address
       - merchant_id
       - plan_id
       - request_id
       - status
-      - subscription_action_id
       - subscription_id
       type: object
     PaymentSubscriptionActionData:
@@ -30169,13 +30227,13 @@ components:
             request_id: gas_760a1955-e212-4dfb-a8d0-e66312a1a051
         actions:
         - subscription_id: 123e457-e89b-12d3-a456-426614174004
-          subscription_action_id: 123e457-e89b-12d3-a456-426614174004
           data:
             amount: "500.00"
             token_id: ETH_USDT
             action_type: Create
             user_address: 0x8a73abedb3053b17204b887af6231a8ac35fc2cc
             discount_rate: 99000
+          action_id: 123e457-e89b-12d3-a456-426614174004
           updated_timestamp: 1744689600
           created_timestamp: 1744689600
           merchant_id: 123e457-e89b-12d3-a456-426614174004
@@ -30184,13 +30242,13 @@ components:
           plan_id: 123e457-e89b-12d3-a456-426614174004
           status: Pending
         - subscription_id: 123e457-e89b-12d3-a456-426614174004
-          subscription_action_id: 123e457-e89b-12d3-a456-426614174004
           data:
             amount: "500.00"
             token_id: ETH_USDT
             action_type: Create
             user_address: 0x8a73abedb3053b17204b887af6231a8ac35fc2cc
             discount_rate: 99000
+          action_id: 123e457-e89b-12d3-a456-426614174004
           updated_timestamp: 1744689600
           created_timestamp: 1744689600
           merchant_id: 123e457-e89b-12d3-a456-426614174004
@@ -30316,7 +30374,7 @@ components:
     PaymentDeveloperSubscriptionActionData:
       properties:
         action_type:
-          $ref: '#/components/schemas/PaymentSubscriptionAction'
+          $ref: '#/components/schemas/PaymentSubscriptionActionType'
         subscription_id:
           description: The subscription id in cobo.
           example: 123e457-e89b-12d3-a456-426614174004
@@ -30328,7 +30386,7 @@ components:
     PaymentBaseSubscriptionActionData:
       properties:
         action_type:
-          $ref: '#/components/schemas/PaymentSubscriptionAction'
+          $ref: '#/components/schemas/PaymentSubscriptionActionType'
         subscription_id:
           description: The subscription id in cobo.
           example: 123e457-e89b-12d3-a456-426614174004
@@ -30349,6 +30407,8 @@ components:
           description: The new plan id in cobo.
           example: 123e457-e89b-12d3-a456-426614174004
           type: string
+      required:
+      - new_plan_id
       type: object
     PaymentExtendPeriodSubscriptionActionData:
       allOf:
@@ -32118,6 +32178,7 @@ components:
           total_supply: "133399"
           decimals: 18
           token_name: CUSD
+          token_standard: ERC20
           token_address: 0x1234567890123456789012345678901234567890
           token_symbol: CUSD
           holdings: "12399"
@@ -32128,6 +32189,7 @@ components:
           total_supply: "133399"
           decimals: 18
           token_name: CUSD
+          token_standard: ERC20
           token_address: 0x1234567890123456789012345678901234567890
           token_symbol: CUSD
           holdings: "12399"
@@ -32326,6 +32388,7 @@ components:
           created_timestamp: 1610445878970
         decimals: 18
         token_name: CUSD
+        token_standard: ERC20
         token_address: 0x1234567890123456789012345678901234567890
         token_symbol: CUSD
         holdings: "12399"
@@ -32338,6 +32401,7 @@ components:
         total_supply: "133399"
         decimals: 18
         token_name: CUSD
+        token_standard: ERC20
         token_address: 0x1234567890123456789012345678901234567890
         token_symbol: CUSD
         holdings: "12399"
@@ -32363,6 +32427,8 @@ components:
           description: The unique token symbol.
           example: CUSD
           type: string
+        token_standard:
+          $ref: '#/components/schemas/TokenizationTokenStandard'
         decimals:
           description: The number of decimals of the token.
           example: 18
@@ -32386,6 +32452,7 @@ components:
       - decimals
       - status
       - token_id
+      - token_standard
       - token_symbol
       type: object
     TokenizationTokenOperationSource:
@@ -36974,6 +37041,11 @@ components:
           description: The merchant name.
           example: Merchant A
           type: string
+        wallet_id:
+          description: The ID of the wallet linked to the merchant.
+          example: 123e4567-e89b-12d3-a456-426614174001
+          format: uuid
+          type: string
         developer_fee_rate:
           description: "The fee rate applied when topping up the merchant account.\
             \ Represented as a string percentage (e.g., \"0.1\" means 10%)."
@@ -38250,13 +38322,13 @@ components:
           after: RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk
         data:
         - subscription_id: 123e457-e89b-12d3-a456-426614174004
-          subscription_action_id: 123e457-e89b-12d3-a456-426614174004
           data:
             amount: "500.00"
             token_id: ETH_USDT
             action_type: Create
             user_address: 0x8a73abedb3053b17204b887af6231a8ac35fc2cc
             discount_rate: 99000
+          action_id: 123e457-e89b-12d3-a456-426614174004
           updated_timestamp: 1744689600
           created_timestamp: 1744689600
           merchant_id: 123e457-e89b-12d3-a456-426614174004
@@ -38265,13 +38337,13 @@ components:
           plan_id: 123e457-e89b-12d3-a456-426614174004
           status: Pending
         - subscription_id: 123e457-e89b-12d3-a456-426614174004
-          subscription_action_id: 123e457-e89b-12d3-a456-426614174004
           data:
             amount: "500.00"
             token_id: ETH_USDT
             action_type: Create
             user_address: 0x8a73abedb3053b17204b887af6231a8ac35fc2cc
             discount_rate: 99000
+          action_id: 123e457-e89b-12d3-a456-426614174004
           updated_timestamp: 1744689600
           created_timestamp: 1744689600
           merchant_id: 123e457-e89b-12d3-a456-426614174004

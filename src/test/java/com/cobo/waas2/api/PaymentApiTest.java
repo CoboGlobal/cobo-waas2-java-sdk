@@ -386,9 +386,9 @@ public class PaymentApiTest {
      */
     @Test
     public void getSubscriptionPlanByIdTest() throws ApiException {
-        String subscriptionId = null;
+        String planId = null;
         String tokenId = null;
-        PaymentSubscriptionPlanDetail response = api.getSubscriptionPlanById(subscriptionId, tokenId);
+        PaymentSubscriptionPlanDetail response = api.getSubscriptionPlanById(planId, tokenId);
         // TODO: test validations
     }
 
@@ -620,8 +620,8 @@ public class PaymentApiTest {
         String after = null;
         String planId = null;
         String merchantId = null;
-        String subscriptionActionId = null;
-        ListSubscriptions200Response response = api.listSubscriptions(limit, before, after, planId, merchantId, subscriptionActionId);
+        String actionId = null;
+        ListSubscriptions200Response response = api.listSubscriptions(limit, before, after, planId, merchantId, actionId);
         // TODO: test validations
     }
 

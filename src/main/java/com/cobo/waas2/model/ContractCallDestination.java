@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.ContractCallDestinationType;
 import com.cobo.waas2.model.EvmContractCallDestination;
+import com.cobo.waas2.model.SolContractCallAddressLookupTableAccount;
 import com.cobo.waas2.model.SolContractCallDestination;
 import com.cobo.waas2.model.SolContractCallInstruction;
 import com.cobo.waas2.model.StellarContractCallContractParam;

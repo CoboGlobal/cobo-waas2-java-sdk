@@ -24,7 +24,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**getSettlementById**](PaymentApi.md#getSettlementById) | **GET** /payments/settlement_requests/{settlement_request_id} | Get settlement request information |
 | [**getSettlementInfoByIds**](PaymentApi.md#getSettlementInfoByIds) | **GET** /payments/settlement_info | Get withdrawable balances |
 | [**getSubscriptionById**](PaymentApi.md#getSubscriptionById) | **GET** /payments/subscriptions/{subscription_id} | Get subscription by id |
-| [**getSubscriptionPlanById**](PaymentApi.md#getSubscriptionPlanById) | **GET** /payments/subscription_plans/{subscription_plan_id} | Get subscription plan by id |
+| [**getSubscriptionPlanById**](PaymentApi.md#getSubscriptionPlanById) | **GET** /payments/subscription_plans/{plan_id} | Get subscription plan by id |
 | [**getTopUpAddress**](PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Get top-up address |
 | [**listBankAccounts**](PaymentApi.md#listBankAccounts) | **GET** /payments/bank_accounts | List all bank accounts |
 | [**listCryptoAddresses**](PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses |
@@ -1432,7 +1432,7 @@ public class Example {
 
 <a id="getSubscriptionPlanById"></a>
 # **getSubscriptionPlanById**
-> PaymentSubscriptionPlanDetail getSubscriptionPlanById(subscriptionId, tokenId)
+> PaymentSubscriptionPlanDetail getSubscriptionPlanById(planId, tokenId)
 
 Get subscription plan by id
 
@@ -1457,10 +1457,10 @@ public class Example {
     // Replace `<YOUR_PRIVATE_KEY>` with your private key
     defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     PaymentApi apiInstance = new PaymentApi();
-    String subscriptionId = "123e457-e89b-12d3-a456-426614174004";
+    String planId = "123e457-e89b-12d3-a456-426614174004";
     String tokenId = "ETH_USDT";
     try {
-      PaymentSubscriptionPlanDetail result = apiInstance.getSubscriptionPlanById(subscriptionId, tokenId);
+      PaymentSubscriptionPlanDetail result = apiInstance.getSubscriptionPlanById(planId, tokenId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentApi#getSubscriptionPlanById");
@@ -1477,7 +1477,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **subscriptionId** | **String**| A unique identifier subscription. | |
+| **planId** | **String**| A unique identifier subscription. | |
 | **tokenId** | **String**| The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  | |
 
 ### Return type
@@ -2446,7 +2446,7 @@ public class Example {
 
 <a id="listSubscriptions"></a>
 # **listSubscriptions**
-> ListSubscriptions200Response listSubscriptions(limit, before, after, planId, merchantId, subscriptionActionId)
+> ListSubscriptions200Response listSubscriptions(limit, before, after, planId, merchantId, actionId)
 
 List subscriptions
 
@@ -2476,9 +2476,9 @@ public class Example {
     String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
     String planId = "123e457-e89b-12d3-a456-426614174004";
     String merchantId = "M1001";
-    String subscriptionActionId = "123e457-e89b-12d3-a456-426614174004";
+    String actionId = "123e457-e89b-12d3-a456-426614174004";
     try {
-      ListSubscriptions200Response result = apiInstance.listSubscriptions(limit, before, after, planId, merchantId, subscriptionActionId);
+      ListSubscriptions200Response result = apiInstance.listSubscriptions(limit, before, after, planId, merchantId, actionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentApi#listSubscriptions");
@@ -2500,7 +2500,7 @@ public class Example {
 | **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
 | **planId** | **String**| A unique identifier plan. | [optional] |
 | **merchantId** | **String**| The merchant ID. | [optional] |
-| **subscriptionActionId** | **String**| A unique identifier subscription action. | [optional] |
+| **actionId** | **String**| A unique identifier subscription action. | [optional] |
 
 ### Return type
 

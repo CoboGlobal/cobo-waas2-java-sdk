@@ -2513,7 +2513,7 @@ public class PaymentApi {
     }
     /**
      * Build call for getSubscriptionPlanById
-     * @param subscriptionId A unique identifier subscription. (required)
+     * @param planId A unique identifier subscription. (required)
      * @param tokenId The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2526,12 +2526,12 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionPlanByIdCall(String subscriptionId, String tokenId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionPlanByIdCall(String planId, String tokenId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/payments/subscription_plans/{subscription_plan_id}"
-            .replace("{" + "subscription_id" + "}", localVarApiClient.escapeString(subscriptionId.toString()));
+        String localVarPath = "/payments/subscription_plans/{plan_id}"
+            .replace("{" + "plan_id" + "}", localVarApiClient.escapeString(planId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<>();
@@ -2563,10 +2563,10 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubscriptionPlanByIdValidateBeforeCall(String subscriptionId, String tokenId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'subscriptionId' is set
-        if (subscriptionId == null) {
-            throw new ApiException("Missing the required parameter 'subscriptionId' when calling getSubscriptionPlanById(Async)");
+    private okhttp3.Call getSubscriptionPlanByIdValidateBeforeCall(String planId, String tokenId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'planId' is set
+        if (planId == null) {
+            throw new ApiException("Missing the required parameter 'planId' when calling getSubscriptionPlanById(Async)");
         }
 
         // verify the required parameter 'tokenId' is set
@@ -2574,14 +2574,14 @@ public class PaymentApi {
             throw new ApiException("Missing the required parameter 'tokenId' when calling getSubscriptionPlanById(Async)");
         }
 
-        return getSubscriptionPlanByIdCall(subscriptionId, tokenId, _callback);
+        return getSubscriptionPlanByIdCall(planId, tokenId, _callback);
 
     }
 
     /**
      * Get subscription plan by id
      * This operation retrieves the information of subscription plan detail. You can filter the result by subscription_id. 
-     * @param subscriptionId A unique identifier subscription. (required)
+     * @param planId A unique identifier subscription. (required)
      * @param tokenId The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @return PaymentSubscriptionPlanDetail
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2593,15 +2593,15 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentSubscriptionPlanDetail getSubscriptionPlanById(String subscriptionId, String tokenId) throws ApiException {
-        ApiResponse<PaymentSubscriptionPlanDetail> localVarResp = getSubscriptionPlanByIdWithHttpInfo(subscriptionId, tokenId);
+    public PaymentSubscriptionPlanDetail getSubscriptionPlanById(String planId, String tokenId) throws ApiException {
+        ApiResponse<PaymentSubscriptionPlanDetail> localVarResp = getSubscriptionPlanByIdWithHttpInfo(planId, tokenId);
         return localVarResp.getData();
     }
 
     /**
      * Get subscription plan by id
      * This operation retrieves the information of subscription plan detail. You can filter the result by subscription_id. 
-     * @param subscriptionId A unique identifier subscription. (required)
+     * @param planId A unique identifier subscription. (required)
      * @param tokenId The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @return ApiResponse&lt;PaymentSubscriptionPlanDetail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2613,8 +2613,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentSubscriptionPlanDetail> getSubscriptionPlanByIdWithHttpInfo(String subscriptionId, String tokenId) throws ApiException {
-        okhttp3.Call localVarCall = getSubscriptionPlanByIdValidateBeforeCall(subscriptionId, tokenId, null);
+    public ApiResponse<PaymentSubscriptionPlanDetail> getSubscriptionPlanByIdWithHttpInfo(String planId, String tokenId) throws ApiException {
+        okhttp3.Call localVarCall = getSubscriptionPlanByIdValidateBeforeCall(planId, tokenId, null);
         Type localVarReturnType = new TypeToken<PaymentSubscriptionPlanDetail>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2622,7 +2622,7 @@ public class PaymentApi {
     /**
      * Get subscription plan by id (asynchronously)
      * This operation retrieves the information of subscription plan detail. You can filter the result by subscription_id. 
-     * @param subscriptionId A unique identifier subscription. (required)
+     * @param planId A unique identifier subscription. (required)
      * @param tokenId The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2635,9 +2635,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionPlanByIdAsync(String subscriptionId, String tokenId, final ApiCallback<PaymentSubscriptionPlanDetail> _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionPlanByIdAsync(String planId, String tokenId, final ApiCallback<PaymentSubscriptionPlanDetail> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubscriptionPlanByIdValidateBeforeCall(subscriptionId, tokenId, _callback);
+        okhttp3.Call localVarCall = getSubscriptionPlanByIdValidateBeforeCall(planId, tokenId, _callback);
         Type localVarReturnType = new TypeToken<PaymentSubscriptionPlanDetail>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4438,7 +4438,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param planId A unique identifier plan. (optional)
      * @param merchantId The merchant ID. (optional)
-     * @param subscriptionActionId A unique identifier subscription action. (optional)
+     * @param actionId A unique identifier subscription action. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4450,7 +4450,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listSubscriptionsCall(Integer limit, String before, String after, String planId, String merchantId, String subscriptionActionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listSubscriptionsCall(Integer limit, String before, String after, String planId, String merchantId, String actionId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4482,8 +4482,8 @@ public class PaymentApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_id", merchantId));
         }
 
-        if (subscriptionActionId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("subscription_action_id", subscriptionActionId));
+        if (actionId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("action_id", actionId));
         }
 
         final String[] localVarAccepts = {
@@ -4506,8 +4506,8 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSubscriptionsValidateBeforeCall(Integer limit, String before, String after, String planId, String merchantId, String subscriptionActionId, final ApiCallback _callback) throws ApiException {
-        return listSubscriptionsCall(limit, before, after, planId, merchantId, subscriptionActionId, _callback);
+    private okhttp3.Call listSubscriptionsValidateBeforeCall(Integer limit, String before, String after, String planId, String merchantId, String actionId, final ApiCallback _callback) throws ApiException {
+        return listSubscriptionsCall(limit, before, after, planId, merchantId, actionId, _callback);
 
     }
 
@@ -4519,7 +4519,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param planId A unique identifier plan. (optional)
      * @param merchantId The merchant ID. (optional)
-     * @param subscriptionActionId A unique identifier subscription action. (optional)
+     * @param actionId A unique identifier subscription action. (optional)
      * @return ListSubscriptions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4530,8 +4530,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListSubscriptions200Response listSubscriptions(Integer limit, String before, String after, String planId, String merchantId, String subscriptionActionId) throws ApiException {
-        ApiResponse<ListSubscriptions200Response> localVarResp = listSubscriptionsWithHttpInfo(limit, before, after, planId, merchantId, subscriptionActionId);
+    public ListSubscriptions200Response listSubscriptions(Integer limit, String before, String after, String planId, String merchantId, String actionId) throws ApiException {
+        ApiResponse<ListSubscriptions200Response> localVarResp = listSubscriptionsWithHttpInfo(limit, before, after, planId, merchantId, actionId);
         return localVarResp.getData();
     }
 
@@ -4543,7 +4543,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param planId A unique identifier plan. (optional)
      * @param merchantId The merchant ID. (optional)
-     * @param subscriptionActionId A unique identifier subscription action. (optional)
+     * @param actionId A unique identifier subscription action. (optional)
      * @return ApiResponse&lt;ListSubscriptions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4554,8 +4554,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListSubscriptions200Response> listSubscriptionsWithHttpInfo(Integer limit, String before, String after, String planId, String merchantId, String subscriptionActionId) throws ApiException {
-        okhttp3.Call localVarCall = listSubscriptionsValidateBeforeCall(limit, before, after, planId, merchantId, subscriptionActionId, null);
+    public ApiResponse<ListSubscriptions200Response> listSubscriptionsWithHttpInfo(Integer limit, String before, String after, String planId, String merchantId, String actionId) throws ApiException {
+        okhttp3.Call localVarCall = listSubscriptionsValidateBeforeCall(limit, before, after, planId, merchantId, actionId, null);
         Type localVarReturnType = new TypeToken<ListSubscriptions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4568,7 +4568,7 @@ public class PaymentApi {
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param planId A unique identifier plan. (optional)
      * @param merchantId The merchant ID. (optional)
-     * @param subscriptionActionId A unique identifier subscription action. (optional)
+     * @param actionId A unique identifier subscription action. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4580,9 +4580,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listSubscriptionsAsync(Integer limit, String before, String after, String planId, String merchantId, String subscriptionActionId, final ApiCallback<ListSubscriptions200Response> _callback) throws ApiException {
+    public okhttp3.Call listSubscriptionsAsync(Integer limit, String before, String after, String planId, String merchantId, String actionId, final ApiCallback<ListSubscriptions200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listSubscriptionsValidateBeforeCall(limit, before, after, planId, merchantId, subscriptionActionId, _callback);
+        okhttp3.Call localVarCall = listSubscriptionsValidateBeforeCall(limit, before, after, planId, merchantId, actionId, _callback);
         Type localVarReturnType = new TypeToken<ListSubscriptions200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
