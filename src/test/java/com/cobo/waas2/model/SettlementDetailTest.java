@@ -13,6 +13,8 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
+import com.cobo.waas2.model.BridgingFee;
+import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.SettleStatus;
@@ -168,6 +170,22 @@ public class SettlementDetailTest {
     @Test
     public void orderIdsTest() {
         // TODO: test orderIds
+    }
+
+    /**
+     * Test the property 'commissionFee'
+     */
+    @Test
+    public void commissionFeeTest() {
+        // TODO: test commissionFee
+    }
+
+    /**
+     * Test the property 'bridgingFee'
+     */
+    @Test
+    public void bridgingFeeTest() {
+        // TODO: test bridgingFee
     }
 
 }

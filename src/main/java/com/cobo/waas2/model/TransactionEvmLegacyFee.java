@@ -147,7 +147,7 @@ public class TransactionEvmLegacyFee {
   }
 
    /**
-   * The token used to pay the transaction fee.
+   * The token ID of the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -166,7 +166,7 @@ public class TransactionEvmLegacyFee {
   }
 
    /**
-   * The actually charged transaction fee.
+   * The transaction fee.
    * @return feeUsed
   **/
   @javax.annotation.Nullable

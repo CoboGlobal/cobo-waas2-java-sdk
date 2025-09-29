@@ -113,7 +113,7 @@ public class TokenizationWeb3OperationSource {
   }
 
    /**
-   * The wallet address used to interact with the token contract.
+   * The wallet address to interact with the token contract from.
    * @return address
   **/
   @javax.annotation.Nonnull

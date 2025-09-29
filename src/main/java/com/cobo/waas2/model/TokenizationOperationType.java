@@ -44,7 +44,9 @@ public enum TokenizationOperationType {
   
   TOGGLEALLOWLIST("ToggleAllowlist"),
   
-  CONTRACTCALL("ContractCall");
+  CONTRACTCALL("ContractCall"),
+  
+  UPDATEPERMISSIONS("UpdatePermissions");
 
   private String value;
 

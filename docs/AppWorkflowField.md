@@ -2,15 +2,15 @@
 
 # AppWorkflowField
 
-The information of a workflow field.
+The information of an app workflow field.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**field** | **String** | The workflow field name. |  |
+|**field** | **String** | The app workflow field name. |  |
 |**valueType** | **PolicyFieldValueType** |  |  |
-|**value** | **String** | The workflow field value. |  |
+|**value** | **String** | The app workflow field value. |  |
 
 
 

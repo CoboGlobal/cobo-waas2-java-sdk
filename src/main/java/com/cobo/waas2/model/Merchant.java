@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.WalletSetup;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -68,6 +69,10 @@ public class Merchant {
   public static final String SERIALIZED_NAME_DEVELOPER_FEE_RATE = "developer_fee_rate";
   @SerializedName(SERIALIZED_NAME_DEVELOPER_FEE_RATE)
   private String developerFeeRate;
+
+  public static final String SERIALIZED_NAME_WALLET_SETUP = "wallet_setup";
+  @SerializedName(SERIALIZED_NAME_WALLET_SETUP)
+  private WalletSetup walletSetup;
 
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
@@ -143,7 +148,7 @@ public class Merchant {
   }
 
    /**
-   * The developer fee rate applied to this merchant. Expressed as a string in decimal format where \&quot;0.1\&quot; represents 10%. This fee is deducted from the payment amount and only applies to top-up transactions. If you are a merchant (directly serving the payer), you do not need to configure the developer fee rate.
+   * Developer fee rate for this token. For example, 0.01 represents a 1% fee. 
    * @return developerFeeRate
   **/
   @javax.annotation.Nullable
@@ -156,13 +161,32 @@ public class Merchant {
   }
 
 
+  public Merchant walletSetup(WalletSetup walletSetup) {
+    this.walletSetup = walletSetup;
+    return this;
+  }
+
+   /**
+   * Get walletSetup
+   * @return walletSetup
+  **/
+  @javax.annotation.Nullable
+  public WalletSetup getWalletSetup() {
+    return walletSetup;
+  }
+
+  public void setWalletSetup(WalletSetup walletSetup) {
+    this.walletSetup = walletSetup;
+  }
+
+
   public Merchant createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
   }
 
    /**
-   * The creation time of the merchant, represented as a UNIX timestamp in seconds.
+   * The created time of the merchant, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -181,7 +205,7 @@ public class Merchant {
   }
 
    /**
-   * The last update time of the merchant, represented as a UNIX timestamp in seconds.
+   * The updated time of the merchant, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable
@@ -252,6 +276,7 @@ public class Merchant {
         Objects.equals(this.name, merchant.name) &&
         Objects.equals(this.walletId, merchant.walletId) &&
         Objects.equals(this.developerFeeRate, merchant.developerFeeRate) &&
+        Objects.equals(this.walletSetup, merchant.walletSetup) &&
         Objects.equals(this.createdTimestamp, merchant.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, merchant.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, merchant.additionalProperties);
@@ -259,7 +284,7 @@ public class Merchant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, name, walletId, developerFeeRate, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(merchantId, name, walletId, developerFeeRate, walletSetup, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -270,6 +295,7 @@ public class Merchant {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    developerFeeRate: ").append(toIndentedString(developerFeeRate)).append("\n");
+    sb.append("    walletSetup: ").append(toIndentedString(walletSetup)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -299,6 +325,7 @@ public class Merchant {
     openapiFields.add("name");
     openapiFields.add("wallet_id");
     openapiFields.add("developer_fee_rate");
+    openapiFields.add("wallet_setup");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -340,6 +367,10 @@ public class Merchant {
       }
       if ((jsonObj.get("developer_fee_rate") != null && !jsonObj.get("developer_fee_rate").isJsonNull()) && !jsonObj.get("developer_fee_rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `developer_fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("developer_fee_rate").toString()));
+      }
+      // validate the optional field `wallet_setup`
+      if (jsonObj.get("wallet_setup") != null && !jsonObj.get("wallet_setup").isJsonNull()) {
+        WalletSetup.validateJsonElement(jsonObj.get("wallet_setup"));
       }
   }
 

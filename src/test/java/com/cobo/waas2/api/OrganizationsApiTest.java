@@ -40,7 +40,7 @@ public class OrganizationsApiTest {
     /**
      * Get organization information
      *
-     * This operation retrieves the detailed information about the organization associated with the current API key. 
+     * This operation retrieves the detailed information about the organization linked with current APIKey. 
      *
      * @throws ApiException if the Api call fails
      */

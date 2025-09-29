@@ -4,20 +4,20 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createAddressBooks**](AddressBooksApi.md#createAddressBooks) | **POST** /address_books | Create Address Book entries |
-| [**deleteAddressBookById**](AddressBooksApi.md#deleteAddressBookById) | **POST** /address_books/{entry_id}/delete | Delete Address Book entry |
-| [**getAddressBookById**](AddressBooksApi.md#getAddressBookById) | **GET** /address_books/{entry_id} | Get Address Book entry |
-| [**listAddressBooks**](AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List Address Book entries |
-| [**updateAddressBookById**](AddressBooksApi.md#updateAddressBookById) | **PUT** /address_books/{entry_id} | Update Address Book entry |
+| [**createAddressBooks**](AddressBooksApi.md#createAddressBooks) | **POST** /address_books | Create address books |
+| [**deleteAddressBookById**](AddressBooksApi.md#deleteAddressBookById) | **POST** /address_books/{entry_id}/delete | Delete address book |
+| [**getAddressBookById**](AddressBooksApi.md#getAddressBookById) | **GET** /address_books/{entry_id} | Get address book information |
+| [**listAddressBooks**](AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List address book entries |
+| [**updateAddressBookById**](AddressBooksApi.md#updateAddressBookById) | **PUT** /address_books/{entry_id} | Update address book |
 
 
 <a id="createAddressBooks"></a>
 # **createAddressBooks**
 > CreateAddressBooks201Response createAddressBooks(createAddressBooksParam)
 
-Create Address Book entries
+Create address books
 
-This operation adds new entries (records) to your Address Book. 
+This operation add addresses to your address book. 
 
 ### Example
 ```java
@@ -57,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createAddressBooksParam** | [**CreateAddressBooksParam**](CreateAddressBooksParam.md)| The request body of the create Address Books operation. | [optional] |
+| **createAddressBooksParam** | [**CreateAddressBooksParam**](CreateAddressBooksParam.md)| The request body of the create address books operation. | [optional] |
 
 ### Return type
 
@@ -75,7 +75,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | The information about created Address Books. |  -  |
+| **201** | The information about created address books. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -83,9 +83,9 @@ public class Example {
 # **deleteAddressBookById**
 > DeleteAddressBookById201Response deleteAddressBookById(entryId)
 
-Delete Address Book entry
+Delete address book
 
-This operation deletes a specified Address Book entry (record). 
+This operation deletes a specified address book. 
 
 ### Example
 ```java
@@ -125,7 +125,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entryId** | **UUID**| The Address Book entry ID. | |
+| **entryId** | **UUID**| The address book ID. | |
 
 ### Return type
 
@@ -151,9 +151,9 @@ public class Example {
 # **getAddressBookById**
 > AddressBook getAddressBookById(entryId)
 
-Get Address Book entry
+Get address book information
 
-This operation retrieves the detailed information about a specified Address Book entry (record). 
+This operation retrieves the detailed information about a specified address book. 
 
 ### Example
 ```java
@@ -193,7 +193,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entryId** | **UUID**| The Address Book entry ID. | |
+| **entryId** | **UUID**| The address book ID. | |
 
 ### Return type
 
@@ -211,7 +211,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The information about an Address Book. |  -  |
+| **200** | The information about an address book. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -219,9 +219,9 @@ public class Example {
 # **listAddressBooks**
 > ListAddressBooks200Response listAddressBooks(chainId, address, label, limit, before, after)
 
-List Address Book entries
+List address book entries
 
-This operation retrieves all entries (records) from your Address Book. You can filter the entries by chain ID, address, and label. 
+This operation retrieves a list of addresses from your address book. 
 
 ### Example
 ```java
@@ -268,10 +268,10 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **chainId** | **String**| The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). | [optional] |
 | **address** | **String**| The wallet address. | [optional] |
-| **label** | **String**| A user-defined label for the address. | [optional] |
+| **label** | **String**| The address label. | [optional] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
-| **before** | **String**| A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  | [optional] |
-| **after** | **String**| A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  | [optional] |
+| **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
+| **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
 
 ### Return type
 
@@ -289,7 +289,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The information about an Address Book. |  -  |
+| **200** | The information about an address book. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -297,9 +297,9 @@ public class Example {
 # **updateAddressBookById**
 > AddressBook updateAddressBookById(entryId, updateAddressBookParam)
 
-Update Address Book entry
+Update address book
 
-This operation updates the information of a specified Address Book entry (record). 
+This operation updates the information of a specified address book. 
 
 ### Example
 ```java
@@ -340,8 +340,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **entryId** | **UUID**| The Address Book entry ID. | |
-| **updateAddressBookParam** | [**UpdateAddressBookParam**](UpdateAddressBookParam.md)| The request body of the update Address Book operation. | [optional] |
+| **entryId** | **UUID**| The address book ID. | |
+| **updateAddressBookParam** | [**UpdateAddressBookParam**](UpdateAddressBookParam.md)| The request body of the update address book operation. | [optional] |
 
 ### Return type
 
@@ -359,7 +359,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully updated Address Book. |  -  |
+| **200** | Successfully updated address book. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 

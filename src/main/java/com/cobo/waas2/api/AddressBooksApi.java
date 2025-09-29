@@ -61,14 +61,14 @@ public class AddressBooksApi {
 
     /**
      * Build call for createAddressBooks
-     * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
+     * @param createAddressBooksParam The request body of the create address books operation. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The information about created Address Books. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The information about created address books. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -112,15 +112,15 @@ public class AddressBooksApi {
     }
 
     /**
-     * Create Address Book entries
-     * This operation adds new entries (records) to your Address Book. 
-     * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
+     * Create address books
+     * This operation add addresses to your address book. 
+     * @param createAddressBooksParam The request body of the create address books operation. (optional)
      * @return CreateAddressBooks201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The information about created Address Books. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The information about created address books. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -131,15 +131,15 @@ public class AddressBooksApi {
     }
 
     /**
-     * Create Address Book entries
-     * This operation adds new entries (records) to your Address Book. 
-     * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
+     * Create address books
+     * This operation add addresses to your address book. 
+     * @param createAddressBooksParam The request body of the create address books operation. (optional)
      * @return ApiResponse&lt;CreateAddressBooks201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The information about created Address Books. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The information about created address books. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -151,16 +151,16 @@ public class AddressBooksApi {
     }
 
     /**
-     * Create Address Book entries (asynchronously)
-     * This operation adds new entries (records) to your Address Book. 
-     * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
+     * Create address books (asynchronously)
+     * This operation add addresses to your address book. 
+     * @param createAddressBooksParam The request body of the create address books operation. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The information about created Address Books. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The information about created address books. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -174,7 +174,7 @@ public class AddressBooksApi {
     }
     /**
      * Build call for deleteAddressBookById
-     * @param entryId The Address Book entry ID. (required)
+     * @param entryId The address book ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -230,9 +230,9 @@ public class AddressBooksApi {
     }
 
     /**
-     * Delete Address Book entry
-     * This operation deletes a specified Address Book entry (record). 
-     * @param entryId The Address Book entry ID. (required)
+     * Delete address book
+     * This operation deletes a specified address book. 
+     * @param entryId The address book ID. (required)
      * @return DeleteAddressBookById201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -249,9 +249,9 @@ public class AddressBooksApi {
     }
 
     /**
-     * Delete Address Book entry
-     * This operation deletes a specified Address Book entry (record). 
-     * @param entryId The Address Book entry ID. (required)
+     * Delete address book
+     * This operation deletes a specified address book. 
+     * @param entryId The address book ID. (required)
      * @return ApiResponse&lt;DeleteAddressBookById201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -269,9 +269,9 @@ public class AddressBooksApi {
     }
 
     /**
-     * Delete Address Book entry (asynchronously)
-     * This operation deletes a specified Address Book entry (record). 
-     * @param entryId The Address Book entry ID. (required)
+     * Delete address book (asynchronously)
+     * This operation deletes a specified address book. 
+     * @param entryId The address book ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -292,14 +292,14 @@ public class AddressBooksApi {
     }
     /**
      * Build call for getAddressBookById
-     * @param entryId The Address Book entry ID. (required)
+     * @param entryId The address book ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -348,15 +348,15 @@ public class AddressBooksApi {
     }
 
     /**
-     * Get Address Book entry
-     * This operation retrieves the detailed information about a specified Address Book entry (record). 
-     * @param entryId The Address Book entry ID. (required)
+     * Get address book information
+     * This operation retrieves the detailed information about a specified address book. 
+     * @param entryId The address book ID. (required)
      * @return AddressBook
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -367,15 +367,15 @@ public class AddressBooksApi {
     }
 
     /**
-     * Get Address Book entry
-     * This operation retrieves the detailed information about a specified Address Book entry (record). 
-     * @param entryId The Address Book entry ID. (required)
+     * Get address book information
+     * This operation retrieves the detailed information about a specified address book. 
+     * @param entryId The address book ID. (required)
      * @return ApiResponse&lt;AddressBook&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -387,16 +387,16 @@ public class AddressBooksApi {
     }
 
     /**
-     * Get Address Book entry (asynchronously)
-     * This operation retrieves the detailed information about a specified Address Book entry (record). 
-     * @param entryId The Address Book entry ID. (required)
+     * Get address book information (asynchronously)
+     * This operation retrieves the detailed information about a specified address book. 
+     * @param entryId The address book ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -412,17 +412,17 @@ public class AddressBooksApi {
      * Build call for listAddressBooks
      * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param address The wallet address. (optional)
-     * @param label A user-defined label for the address. (optional)
+     * @param label The address label. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
-     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -489,20 +489,20 @@ public class AddressBooksApi {
     }
 
     /**
-     * List Address Book entries
-     * This operation retrieves all entries (records) from your Address Book. You can filter the entries by chain ID, address, and label. 
+     * List address book entries
+     * This operation retrieves a list of addresses from your address book. 
      * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param address The wallet address. (optional)
-     * @param label A user-defined label for the address. (optional)
+     * @param label The address label. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
-     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @return ListAddressBooks200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -513,20 +513,20 @@ public class AddressBooksApi {
     }
 
     /**
-     * List Address Book entries
-     * This operation retrieves all entries (records) from your Address Book. You can filter the entries by chain ID, address, and label. 
+     * List address book entries
+     * This operation retrieves a list of addresses from your address book. 
      * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param address The wallet address. (optional)
-     * @param label A user-defined label for the address. (optional)
+     * @param label The address label. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
-     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @return ApiResponse&lt;ListAddressBooks200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -538,21 +538,21 @@ public class AddressBooksApi {
     }
 
     /**
-     * List Address Book entries (asynchronously)
-     * This operation retrieves all entries (records) from your Address Book. You can filter the entries by chain ID, address, and label. 
+     * List address book entries (asynchronously)
+     * This operation retrieves a list of addresses from your address book. 
      * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (optional)
      * @param address The wallet address. (optional)
-     * @param label A user-defined label for the address. (optional)
+     * @param label The address label. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
-     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The information about an Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The information about an address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -566,15 +566,15 @@ public class AddressBooksApi {
     }
     /**
      * Build call for updateAddressBookById
-     * @param entryId The Address Book entry ID. (required)
-     * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
+     * @param entryId The address book ID. (required)
+     * @param updateAddressBookParam The request body of the update address book operation. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully updated Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully updated address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -624,16 +624,16 @@ public class AddressBooksApi {
     }
 
     /**
-     * Update Address Book entry
-     * This operation updates the information of a specified Address Book entry (record). 
-     * @param entryId The Address Book entry ID. (required)
-     * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
+     * Update address book
+     * This operation updates the information of a specified address book. 
+     * @param entryId The address book ID. (required)
+     * @param updateAddressBookParam The request body of the update address book operation. (optional)
      * @return AddressBook
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully updated Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully updated address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -644,16 +644,16 @@ public class AddressBooksApi {
     }
 
     /**
-     * Update Address Book entry
-     * This operation updates the information of a specified Address Book entry (record). 
-     * @param entryId The Address Book entry ID. (required)
-     * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
+     * Update address book
+     * This operation updates the information of a specified address book. 
+     * @param entryId The address book ID. (required)
+     * @param updateAddressBookParam The request body of the update address book operation. (optional)
      * @return ApiResponse&lt;AddressBook&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully updated Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully updated address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -665,17 +665,17 @@ public class AddressBooksApi {
     }
 
     /**
-     * Update Address Book entry (asynchronously)
-     * This operation updates the information of a specified Address Book entry (record). 
-     * @param entryId The Address Book entry ID. (required)
-     * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
+     * Update address book (asynchronously)
+     * This operation updates the information of a specified address book. 
+     * @param entryId The address book ID. (required)
+     * @param updateAddressBookParam The request body of the update address book operation. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully updated Address Book. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully updated address book. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>

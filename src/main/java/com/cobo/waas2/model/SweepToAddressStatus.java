@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The status of the sweep-to address:  - &#x60;Valid&#x60;: The sweep-to address is active and used for auto token sweeping. - &#x60;Invalid&#x60;: The sweep-to address is no longer used for auto token sweeping. 
+ * Gets or Sets SweepToAddressStatus
  */
 @JsonAdapter(SweepToAddressStatus.Adapter.class)
 public enum SweepToAddressStatus {

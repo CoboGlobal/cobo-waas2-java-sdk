@@ -23,5 +23,7 @@
 
 * `CONTRACTCALL` (value: `"ContractCall"`)
 
+* `UPDATEPERMISSIONS` (value: `"UpdatePermissions"`)
+
 
 

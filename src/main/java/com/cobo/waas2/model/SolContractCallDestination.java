@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.ContractCallDestinationType;
+import com.cobo.waas2.model.SolContractCallAddressLookupTableAccount;
 import com.cobo.waas2.model.SolContractCallInstruction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -64,6 +65,10 @@ public class SolContractCallDestination {
   @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
   private List<SolContractCallInstruction> instructions = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_ADDRESS_LOOKUP_TABLE_ACCOUNTS = "address_lookup_table_accounts";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_LOOKUP_TABLE_ACCOUNTS)
+  private List<SolContractCallAddressLookupTableAccount> addressLookupTableAccounts = new ArrayList<>();
+
   public SolContractCallDestination() {
   }
 
@@ -110,6 +115,33 @@ public class SolContractCallDestination {
 
   public void setInstructions(List<SolContractCallInstruction> instructions) {
     this.instructions = instructions;
+  }
+
+
+  public SolContractCallDestination addressLookupTableAccounts(List<SolContractCallAddressLookupTableAccount> addressLookupTableAccounts) {
+    this.addressLookupTableAccounts = addressLookupTableAccounts;
+    return this;
+  }
+
+  public SolContractCallDestination addAddressLookupTableAccountsItem(SolContractCallAddressLookupTableAccount addressLookupTableAccountsItem) {
+    if (this.addressLookupTableAccounts == null) {
+      this.addressLookupTableAccounts = new ArrayList<>();
+    }
+    this.addressLookupTableAccounts.add(addressLookupTableAccountsItem);
+    return this;
+  }
+
+   /**
+   * Get addressLookupTableAccounts
+   * @return addressLookupTableAccounts
+  **/
+  @javax.annotation.Nullable
+  public List<SolContractCallAddressLookupTableAccount> getAddressLookupTableAccounts() {
+    return addressLookupTableAccounts;
+  }
+
+  public void setAddressLookupTableAccounts(List<SolContractCallAddressLookupTableAccount> addressLookupTableAccounts) {
+    this.addressLookupTableAccounts = addressLookupTableAccounts;
   }
 
   /**
@@ -168,13 +200,14 @@ public class SolContractCallDestination {
     }
     SolContractCallDestination solContractCallDestination = (SolContractCallDestination) o;
     return Objects.equals(this.destinationType, solContractCallDestination.destinationType) &&
-        Objects.equals(this.instructions, solContractCallDestination.instructions)&&
+        Objects.equals(this.instructions, solContractCallDestination.instructions) &&
+        Objects.equals(this.addressLookupTableAccounts, solContractCallDestination.addressLookupTableAccounts)&&
         Objects.equals(this.additionalProperties, solContractCallDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, instructions, additionalProperties);
+    return Objects.hash(destinationType, instructions, addressLookupTableAccounts, additionalProperties);
   }
 
   @Override
@@ -183,6 +216,7 @@ public class SolContractCallDestination {
     sb.append("class SolContractCallDestination {\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
+    sb.append("    addressLookupTableAccounts: ").append(toIndentedString(addressLookupTableAccounts)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -208,6 +242,7 @@ public class SolContractCallDestination {
     openapiFields = new HashSet<String>();
     openapiFields.add("destination_type");
     openapiFields.add("instructions");
+    openapiFields.add("address_lookup_table_accounts");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -247,6 +282,20 @@ public class SolContractCallDestination {
       for (int i = 0; i < jsonArrayinstructions.size(); i++) {
         SolContractCallInstruction.validateJsonElement(jsonArrayinstructions.get(i));
       };
+      if (jsonObj.get("address_lookup_table_accounts") != null && !jsonObj.get("address_lookup_table_accounts").isJsonNull()) {
+        JsonArray jsonArrayaddressLookupTableAccounts = jsonObj.getAsJsonArray("address_lookup_table_accounts");
+        if (jsonArrayaddressLookupTableAccounts != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("address_lookup_table_accounts").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `address_lookup_table_accounts` to be an array in the JSON string but got `%s`", jsonObj.get("address_lookup_table_accounts").toString()));
+          }
+
+          // validate the optional field `address_lookup_table_accounts` (array)
+          for (int i = 0; i < jsonArrayaddressLookupTableAccounts.size(); i++) {
+            SolContractCallAddressLookupTableAccount.validateJsonElement(jsonArrayaddressLookupTableAccounts.get(i));
+          };
+        }
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -38,6 +38,8 @@ public enum TransactionDestinationType {
   
   SOL_CONTRACT("SOL_Contract"),
   
+  STELLAR_CONTRACT("STELLAR_Contract"),
+  
   COSMOS_CONTRACT("COSMOS_Contract"),
   
   EVM_EIP_191_SIGNATURE("EVM_EIP_191_Signature"),

@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Information of the new sweep-to address to be created.
+ * The information of create sweep to address.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

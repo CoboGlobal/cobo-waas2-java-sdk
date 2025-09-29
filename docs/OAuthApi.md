@@ -4,9 +4,9 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**exchangePermissionToken**](OAuthApi.md#exchangePermissionToken) | **POST** /oauth/permission_token/exchange | Get Access Token |
+| [**exchangePermissionToken**](OAuthApi.md#exchangePermissionToken) | **POST** /oauth/permission_token/exchange | Exchange Permission Access Token by API Key |
 | [**getToken**](OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token |
-| [**refreshPermissionToken**](OAuthApi.md#refreshPermissionToken) | **POST** /oauth/permission_token/refresh | Refresh Access Token |
+| [**refreshPermissionToken**](OAuthApi.md#refreshPermissionToken) | **POST** /oauth/permission_token/refresh | Refresh Permission Access Token by Permission Refresh Token |
 | [**refreshToken**](OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token |
 
 
@@ -14,9 +14,9 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 # **exchangePermissionToken**
 > ExchangePermissionToken201Response exchangePermissionToken(exchangePermissionTokenRequest)
 
-Get Access Token
+Exchange Permission Access Token by API Key
 
-This operation acquires an Access Token and a Refresh Token for the [Checkout SDK](https://www.cobo.com/developers/v2_cn/payments/checkout-sdk).  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](https://www.cobo.com/developers/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
+&lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
 
 ### Example
 ```java
@@ -56,7 +56,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **exchangePermissionTokenRequest** | [**ExchangePermissionTokenRequest**](ExchangePermissionTokenRequest.md)| The request body to acquire an Access Token. | |
+| **exchangePermissionTokenRequest** | [**ExchangePermissionTokenRequest**](ExchangePermissionTokenRequest.md)| The request body for exchanging an Permission Access Token. | |
 
 ### Return type
 
@@ -154,9 +154,9 @@ public class Example {
 # **refreshPermissionToken**
 > ExchangePermissionToken201Response refreshPermissionToken(refreshPermissionTokenRequest)
 
-Refresh Access Token
+Refresh Permission Access Token by Permission Refresh Token
 
-This operation refreshes the Access Token and Refresh Token for the [Checkout SDK](https://www.cobo.com/developers/v2_cn/payments/checkout-sdk).  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call this operation to get a new Access Token and Refresh Token. 
+&lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
 
 ### Example
 ```java
@@ -196,7 +196,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **refreshPermissionTokenRequest** | [**RefreshPermissionTokenRequest**](RefreshPermissionTokenRequest.md)| The request body to refresh the Access Token and the Refresh Token. | |
+| **refreshPermissionTokenRequest** | [**RefreshPermissionTokenRequest**](RefreshPermissionTokenRequest.md)| The request body for refreshing an Permission Access Token. | |
 
 ### Return type
 

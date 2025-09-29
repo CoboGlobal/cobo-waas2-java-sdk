@@ -13,6 +13,8 @@
 
 * `BURNTOKENS` (value: `"BurnTokens"`)
 
+* `WRAPTOKENS` (value: `"WrapTokens"`)
+
 * `RECOVERTOKENS` (value: `"RecoverTokens"`)
 
 * `UPGRADECONTRACT` (value: `"UpgradeContract"`)
