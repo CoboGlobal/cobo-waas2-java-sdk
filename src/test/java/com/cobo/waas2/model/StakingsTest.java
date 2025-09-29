@@ -122,6 +122,14 @@ public class StakingsTest {
     }
 
     /**
+     * Test the property 'validators'
+     */
+    @Test
+    public void validatorsTest() {
+        // TODO: test validators
+    }
+
+    /**
      * Test the property 'extra'
      */
     @Test

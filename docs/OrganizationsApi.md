@@ -13,7 +13,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Get organization information
 
-This operation retrieves the detailed information about the organization associated with the current API key. 
+This operation retrieves the detailed information about the organization linked with current APIKey. 
 
 ### Example
 ```java

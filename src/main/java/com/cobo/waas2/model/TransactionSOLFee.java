@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The transaction fee actually charged by the chain that uses the Solana fee model.  In this model, the fee is calculated as: fee &#x3D; base fee + (compute unit price * compute unit limit) + rent (if applicable). For more details, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
+ * The transaction fee actually charged by the chain that uses the SOL fee model.  In the SOL fee model, the calculation method for the fee is: fee &#x3D; base_fee + compute_unit_price * compute_unit_limit + rent_amount, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -94,7 +94,7 @@ public class TransactionSOLFee {
   }
 
    /**
-   * A fixed fee charged per signature. The default is 5,000 lamports per signature.
+   * The fundamental fee required for each transaction. It is charged to prevent spam transactions and network congestion, ensuring that only meaningful transactions consume network resources.
    * @return baseFee
   **/
   @javax.annotation.Nullable
@@ -113,7 +113,7 @@ public class TransactionSOLFee {
   }
 
    /**
-   * The rent fee charged by the network to store non–rent-exempt accounts on-chain. It is deducted periodically until the account maintains the minimum balance required for rent exemption.
+   * The fee charged as rent for maintaining the state of accounts on the blockchain. This rent ensures accounts are stored on-chain over the long term and that there&#39;s sufficient balance to sustain the account state.
    * @return rentAmount
   **/
   @javax.annotation.Nullable
@@ -132,7 +132,7 @@ public class TransactionSOLFee {
   }
 
    /**
-   * The price paid per compute unit. This value determines the priority fee for the transaction, allowing you to increase inclusion probability in congested conditions.
+   * The cost per compute unit. Transactions consume computational resources measured in compute units, and this price helps determine the cost of executing transactions, especially complex ones involving smart contracts.
    * @return computeUnitPrice
   **/
   @javax.annotation.Nullable
@@ -151,7 +151,7 @@ public class TransactionSOLFee {
   }
 
    /**
-   * The maximum number of compute units your transaction is allowed to consume. It sets an upper bound on computational resource usage to prevent overload.
+   * The maximum number of compute units allowed for a transaction. This limits the resources any single transaction can consume, preventing excessive resource usage that could impact network performance negatively.
    * @return computeUnitLimit
   **/
   @javax.annotation.Nullable
@@ -189,7 +189,7 @@ public class TransactionSOLFee {
   }
 
    /**
-   * The token used to pay the transaction fee.
+   * The token ID of the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -208,7 +208,7 @@ public class TransactionSOLFee {
   }
 
    /**
-   * The actually charged transaction fee.
+   * The transaction fee.
    * @return feeUsed
   **/
   @javax.annotation.Nullable

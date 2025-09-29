@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of permission for token operations.
+ * The type of permission for token operations. Each permission grants specific capabilities:  - &#x60;ManagePermissions&#x60;: Ability to grant and revoke permissions to addresses.  - &#x60;ManageAccessAndControls&#x60;: Ability to manage access control mechanisms including allowlist and blocklist operations.  - &#x60;MintTokens&#x60;: Ability to mint tokens and increase the total supply.  - &#x60;BurnTokens&#x60;: Ability to burn tokens and decrease the total supply.  - &#x60;RecoverTokens&#x60;: Ability to recover tokens from specified addresses.  - &#x60;UpgradeContract&#x60;: Ability to upgrade the smart contract implementation.  - &#x60;PauseContract&#x60;: Ability to pause and unpause the contract.  - &#x60;FreezeAccounts&#x60;: Ability to freeze and unfreeze addresses.  - &#x60;UpdateMetadata&#x60;: Ability to update token metadata.  - &#x60;WrapTokens&#x60;: Ability to wrap and unwrap tokens for wrapped token implementations.  - &#x60;PermanentDelegate&#x60;: An immutable delegate authority that cannot be changed once set. Has unlimited control over all token accounts including transfer and burn operations.  Supported permissions by chain: - **EVM (CoboERC20)**: ManagePermissions, ManageAccessAndControls, MintTokens, BurnTokens, RecoverTokens, UpgradeContract, PauseContract - **EVM (CoboERC20Wrapper)**: ManagePermissions, ManageAccessAndControls, MintTokens, WrapTokens, RecoverTokens, UpgradeContract, PauseContract - **Solana (SPL Token 2022)**: MintTokens, PauseContract, FreezeAccounts, UpdateMetadata, PermanentDelegate 
  */
 @JsonAdapter(TokenizationTokenPermissionType.Adapter.class)
 public enum TokenizationTokenPermissionType {
@@ -35,6 +35,8 @@ public enum TokenizationTokenPermissionType {
   MINTTOKENS("MintTokens"),
   
   BURNTOKENS("BurnTokens"),
+  
+  WRAPTOKENS("WrapTokens"),
   
   RECOVERTOKENS("RecoverTokens"),
   

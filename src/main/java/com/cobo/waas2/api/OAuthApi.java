@@ -61,7 +61,7 @@ public class OAuthApi {
 
     /**
      * Build call for exchangePermissionToken
-     * @param exchangePermissionTokenRequest The request body to acquire an Access Token. (required)
+     * @param exchangePermissionTokenRequest The request body for exchanging an Permission Access Token. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -117,9 +117,9 @@ public class OAuthApi {
     }
 
     /**
-     * Get Access Token
-     * This operation acquires an Access Token and a Refresh Token for the [Checkout SDK](https://www.cobo.com/developers/v2_cn/payments/checkout-sdk).  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](https://www.cobo.com/developers/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
-     * @param exchangePermissionTokenRequest The request body to acquire an Access Token. (required)
+     * Exchange Permission Access Token by API Key
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param exchangePermissionTokenRequest The request body for exchanging an Permission Access Token. (required)
      * @return ExchangePermissionToken201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -136,9 +136,9 @@ public class OAuthApi {
     }
 
     /**
-     * Get Access Token
-     * This operation acquires an Access Token and a Refresh Token for the [Checkout SDK](https://www.cobo.com/developers/v2_cn/payments/checkout-sdk).  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](https://www.cobo.com/developers/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
-     * @param exchangePermissionTokenRequest The request body to acquire an Access Token. (required)
+     * Exchange Permission Access Token by API Key
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param exchangePermissionTokenRequest The request body for exchanging an Permission Access Token. (required)
      * @return ApiResponse&lt;ExchangePermissionToken201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -156,9 +156,9 @@ public class OAuthApi {
     }
 
     /**
-     * Get Access Token (asynchronously)
-     * This operation acquires an Access Token and a Refresh Token for the [Checkout SDK](https://www.cobo.com/developers/v2_cn/payments/checkout-sdk).  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call the [Refresh Access Token](https://www.cobo.com/developers/v2/api-references/oauth/refresh-access-token) operation to get a new Access Token and a new Refresh Token. 
-     * @param exchangePermissionTokenRequest The request body to acquire an Access Token. (required)
+     * Exchange Permission Access Token by API Key (asynchronously)
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to obtain a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param exchangePermissionTokenRequest The request body for exchanging an Permission Access Token. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -326,7 +326,7 @@ public class OAuthApi {
     }
     /**
      * Build call for refreshPermissionToken
-     * @param refreshPermissionTokenRequest The request body to refresh the Access Token and the Refresh Token. (required)
+     * @param refreshPermissionTokenRequest The request body for refreshing an Permission Access Token. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -382,9 +382,9 @@ public class OAuthApi {
     }
 
     /**
-     * Refresh Access Token
-     * This operation refreshes the Access Token and Refresh Token for the [Checkout SDK](https://www.cobo.com/developers/v2_cn/payments/checkout-sdk).  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call this operation to get a new Access Token and Refresh Token. 
-     * @param refreshPermissionTokenRequest The request body to refresh the Access Token and the Refresh Token. (required)
+     * Refresh Permission Access Token by Permission Refresh Token
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param refreshPermissionTokenRequest The request body for refreshing an Permission Access Token. (required)
      * @return ExchangePermissionToken201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -401,9 +401,9 @@ public class OAuthApi {
     }
 
     /**
-     * Refresh Access Token
-     * This operation refreshes the Access Token and Refresh Token for the [Checkout SDK](https://www.cobo.com/developers/v2_cn/payments/checkout-sdk).  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call this operation to get a new Access Token and Refresh Token. 
-     * @param refreshPermissionTokenRequest The request body to refresh the Access Token and the Refresh Token. (required)
+     * Refresh Permission Access Token by Permission Refresh Token
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param refreshPermissionTokenRequest The request body for refreshing an Permission Access Token. (required)
      * @return ApiResponse&lt;ExchangePermissionToken201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -421,9 +421,9 @@ public class OAuthApi {
     }
 
     /**
-     * Refresh Access Token (asynchronously)
-     * This operation refreshes the Access Token and Refresh Token for the [Checkout SDK](https://www.cobo.com/developers/v2_cn/payments/checkout-sdk).  For security purposes, an Access Token expires after a certain period. Once it expires, you need to call this operation to get a new Access Token and Refresh Token. 
-     * @param refreshPermissionTokenRequest The request body to refresh the Access Token and the Refresh Token. (required)
+     * Refresh Permission Access Token by Permission Refresh Token (asynchronously)
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Checkout SDK developers. To call this operation, you need to use the Cobo OAuth authentication method that requires an api key.&lt;/Note&gt; This operation allows Portal Checkout SDK to refresh a new Permission Access Token with a specified client ID, grant type and a Permission Refresh Token.   For security purposes, Permission Access Tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new Permission Access Token and a new Permission Refresh Token. 
+     * @param refreshPermissionTokenRequest The request body for refreshing an Permission Access Token. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

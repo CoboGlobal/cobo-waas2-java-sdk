@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.TransactionDestinationType;
+import com.cobo.waas2.model.TransactionSolContractAddressLookupTableAccount;
 import com.cobo.waas2.model.TransactionSolContractInstruction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -49,7 +50,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the transaction destination type &#x60;SOL_Contract&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
+ * The information about the transaction destination type &#x60;SOL_Contract&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -63,6 +64,10 @@ public class TransactionSolContractDestination {
   public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
   @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
   private List<TransactionSolContractInstruction> instructions = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_ADDRESS_LOOKUP_TABLE_ACCOUNTS = "address_lookup_table_accounts";
+  @SerializedName(SERIALIZED_NAME_ADDRESS_LOOKUP_TABLE_ACCOUNTS)
+  private List<TransactionSolContractAddressLookupTableAccount> addressLookupTableAccounts = new ArrayList<>();
 
   public TransactionSolContractDestination() {
   }
@@ -110,6 +115,33 @@ public class TransactionSolContractDestination {
 
   public void setInstructions(List<TransactionSolContractInstruction> instructions) {
     this.instructions = instructions;
+  }
+
+
+  public TransactionSolContractDestination addressLookupTableAccounts(List<TransactionSolContractAddressLookupTableAccount> addressLookupTableAccounts) {
+    this.addressLookupTableAccounts = addressLookupTableAccounts;
+    return this;
+  }
+
+  public TransactionSolContractDestination addAddressLookupTableAccountsItem(TransactionSolContractAddressLookupTableAccount addressLookupTableAccountsItem) {
+    if (this.addressLookupTableAccounts == null) {
+      this.addressLookupTableAccounts = new ArrayList<>();
+    }
+    this.addressLookupTableAccounts.add(addressLookupTableAccountsItem);
+    return this;
+  }
+
+   /**
+   * Get addressLookupTableAccounts
+   * @return addressLookupTableAccounts
+  **/
+  @javax.annotation.Nullable
+  public List<TransactionSolContractAddressLookupTableAccount> getAddressLookupTableAccounts() {
+    return addressLookupTableAccounts;
+  }
+
+  public void setAddressLookupTableAccounts(List<TransactionSolContractAddressLookupTableAccount> addressLookupTableAccounts) {
+    this.addressLookupTableAccounts = addressLookupTableAccounts;
   }
 
   /**
@@ -168,13 +200,14 @@ public class TransactionSolContractDestination {
     }
     TransactionSolContractDestination transactionSolContractDestination = (TransactionSolContractDestination) o;
     return Objects.equals(this.destinationType, transactionSolContractDestination.destinationType) &&
-        Objects.equals(this.instructions, transactionSolContractDestination.instructions)&&
+        Objects.equals(this.instructions, transactionSolContractDestination.instructions) &&
+        Objects.equals(this.addressLookupTableAccounts, transactionSolContractDestination.addressLookupTableAccounts)&&
         Objects.equals(this.additionalProperties, transactionSolContractDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, instructions, additionalProperties);
+    return Objects.hash(destinationType, instructions, addressLookupTableAccounts, additionalProperties);
   }
 
   @Override
@@ -183,6 +216,7 @@ public class TransactionSolContractDestination {
     sb.append("class TransactionSolContractDestination {\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
+    sb.append("    addressLookupTableAccounts: ").append(toIndentedString(addressLookupTableAccounts)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -208,6 +242,7 @@ public class TransactionSolContractDestination {
     openapiFields = new HashSet<String>();
     openapiFields.add("destination_type");
     openapiFields.add("instructions");
+    openapiFields.add("address_lookup_table_accounts");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -247,6 +282,20 @@ public class TransactionSolContractDestination {
           // validate the optional field `instructions` (array)
           for (int i = 0; i < jsonArrayinstructions.size(); i++) {
             TransactionSolContractInstruction.validateJsonElement(jsonArrayinstructions.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("address_lookup_table_accounts") != null && !jsonObj.get("address_lookup_table_accounts").isJsonNull()) {
+        JsonArray jsonArrayaddressLookupTableAccounts = jsonObj.getAsJsonArray("address_lookup_table_accounts");
+        if (jsonArrayaddressLookupTableAccounts != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("address_lookup_table_accounts").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `address_lookup_table_accounts` to be an array in the JSON string but got `%s`", jsonObj.get("address_lookup_table_accounts").toString()));
+          }
+
+          // validate the optional field `address_lookup_table_accounts` (array)
+          for (int i = 0; i < jsonArrayaddressLookupTableAccounts.size(); i++) {
+            TransactionSolContractAddressLookupTableAccount.validateJsonElement(jsonArrayaddressLookupTableAccounts.get(i));
           };
         }
       }

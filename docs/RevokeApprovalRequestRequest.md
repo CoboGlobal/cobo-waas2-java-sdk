@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**initiatorEmail** | **String** | The email of the user who requested the approval. |  |
+|**initiatorEmail** | **String** | The initiator email of workflow approval request. |  |
 
 
 

@@ -112,7 +112,7 @@ public class TransactionRequestFixedFee {
   }
 
    /**
-   * The token used to pay the transaction fee.
+   * The token ID of the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nonnull

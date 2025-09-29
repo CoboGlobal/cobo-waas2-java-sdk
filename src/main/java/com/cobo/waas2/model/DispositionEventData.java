@@ -145,7 +145,7 @@ public class DispositionEventData {
   }
 
    /**
-   * The blockchain address to receive the refunded/isolated funds.
+   * The blockchain address where the refund/isolated funds will be sent.
    * @return destinationAddress
   **/
   @javax.annotation.Nullable
@@ -164,7 +164,7 @@ public class DispositionEventData {
   }
 
    /**
-   * The amount to be refunded/isolated from the original transaction, specified as a numeric string. This value cannot exceed the total amount of the original transaction. 
+   * The amount to be refund/isolated from the original transaction, specified as a numeric string. This value cannot exceed the total amount of the original transaction. 
    * @return dispositionAmount
   **/
   @javax.annotation.Nullable

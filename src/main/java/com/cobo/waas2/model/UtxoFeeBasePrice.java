@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * UtxoFeeBasePrice
+ * The transaction fee rate for UTXO-based chains (such as Bitcoin).
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

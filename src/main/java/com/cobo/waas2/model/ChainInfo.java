@@ -116,7 +116,7 @@ public class ChainInfo {
   }
 
    /**
-   * The chain symbol for display purposes, which is the abbreviated name of a chain.
+   * The chain symbol, which is the abbreviated name of a chain.
    * @return symbol
   **/
   @javax.annotation.Nullable
@@ -154,7 +154,7 @@ public class ChainInfo {
   }
 
    /**
-   * A functional identifier used to group blockchains with similar execution logic. For example, &#x60;ETH&#x60; for all EVM-compatible chains (Ethereum, BNB Smart Chain, Polygon).
+   * The chain identifier, which is the identifier of a blockchain for similar function, such as ETH for ETH, BSC_BNB eth.
    * @return chainIdentifier
   **/
   @javax.annotation.Nullable
@@ -249,7 +249,7 @@ public class ChainInfo {
   }
 
    /**
-   * The number of confirmations required before a coinbase transaction is considered mature and can be spent, for example, 100 confirmations for BTC.
+   * The number of confirmations required for a coinbase transaction to be mature, such as 100 for BTC.
    * @return coinbaseMaturity
   **/
   @javax.annotation.Nullable

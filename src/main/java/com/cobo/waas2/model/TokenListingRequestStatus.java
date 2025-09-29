@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The status of the token listing request. - &#x60;Submitted&#x60;: The request has been submitted and is pending processing. - &#x60;Succeeded&#x60;: The token has been successfully listed. - &#x60;Failed&#x60;: The token listing request was rejected or failed to process. 
+ * Gets or Sets TokenListingRequestStatus
  */
 @JsonAdapter(TokenListingRequestStatus.Adapter.class)
 public enum TokenListingRequestStatus {

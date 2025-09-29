@@ -73,5 +73,7 @@
 
 * `COMPLIANCE_DISPOSITION_STATUS_UPDATED` (value: `"compliance.disposition.status.updated"`)
 
+* `COMPLIANCE_KYT_SCREENINGS_STATUS_UPDATED` (value: `"compliance.kyt.screenings.status.updated"`)
+
 
 

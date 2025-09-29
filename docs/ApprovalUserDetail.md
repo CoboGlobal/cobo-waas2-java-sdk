@@ -2,27 +2,27 @@
 
 # ApprovalUserDetail
 
-Details about a user involved in a transaction approval workflow. 
+The user detail for a transaction approval. This includes the user's email, public key, signature, statement UUID, result of the approval, creation time, template version, header title, whether it is for signing, and additional information to show. 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | Name of the user who approved the transaction. |  [optional] |
-|**email** | **String** | Email of the user. |  [optional] |
-|**pubkey** | **String** | Public key of the user. |  [optional] |
-|**signature** | **String** | Signature produced by the user for this approval. |  [optional] |
-|**statementUuid** | **UUID** | UUID of the statement associated with this approval. |  [optional] |
+|**name** | **String** | The name of the user who approved the transaction. |  [optional] |
+|**email** | **String** | The email address of the user who approved the transaction. |  [optional] |
+|**pubkey** | **String** | The public key of the user who approved the transaction. |  [optional] |
+|**signature** | **String** | The signature of the transaction approval. |  [optional] |
+|**statementUuid** | **UUID** | The UUID of the statement associated with the transaction approval. |  [optional] |
 |**result** | **ApprovalResult** |  |  [optional] |
-|**approvalResultCode** | **Integer** | Integer value representing the result of the approval. |  [optional] |
-|**createdTime** | **Integer** | Timestamp when the approval was created. |  [optional] |
-|**templateVersion** | **String** | Version of the template used for the transaction approval. |  [optional] |
-|**headerTitle** | **String** | Display title used in the transaction approval. |  [optional] |
-|**isForSign** | **Boolean** | Indicates whether this approval requires signing: - &#x60;true&#x60;: The user must sign the transaction. - &#x60;false&#x60;: The user only needs to approve or reject without signing.  |  [optional] |
+|**approvalResultCode** | **Integer** | The integer value representing the result of the approval. |  [optional] |
+|**createdTime** | **Integer** | The timestamp when the approval was created. |  [optional] |
+|**templateVersion** | **String** | The version of the template used for the transaction approval. |  [optional] |
+|**headerTitle** | **String** | The title of the header for the transaction approval. |  [optional] |
+|**isForSign** | **Boolean** | Indicates whether the approval is for signing. |  [optional] |
 |**showInfo** | **String** | Additional information to show for the transaction approval. |  [optional] |
-|**language** | **String** | Language used for the transaction approval. |  [optional] |
-|**messageVersion** | **String** | Version of the message format used for the transaction approval. |  [optional] |
-|**message** | **String** | Message associated with the transaction approval. |  [optional] |
+|**language** | **String** | The language used for the transaction approval. |  [optional] |
+|**messageVersion** | **String** | The version of the message format used for the transaction approval. |  [optional] |
+|**message** | **String** | The message associated with the transaction approval. |  [optional] |
 |**extraMessage** | **String** | Any additional message or information related to the transaction approval. |  [optional] |
 
 

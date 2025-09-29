@@ -2,20 +2,21 @@
 
 # TransactionFILFee
 
-The transaction fee actually charged by the chain that uses the Filecoin fee model.  In this model, the fee is calculated as: fee = base fee * gas used + gas premium * gas limit. For more details, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
+The transaction fee actually charged by the chain that uses the FIL fee model.  In the Fil fee model, the calculation method for the fee is: fee = gas_fee_cap * gas_limit, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**gasBase** | **String** | The minimum fee required for a transaction to be included in a block. The base fee is dynamically adjusted based on network congestion to maintain target block utilization. It is burned rather than paid to miners, reducing the total Filecoin supply over time. |  [optional] |
-|**gasPremium** | **String** | An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee. |  [optional] |
-|**gasFeeCap** | **String** | The maximum gas price you are willing to pay per unit of gas. |  [optional] |
-|**gasLimit** | **String** | The maximum amount of gas your transaction is allowed to consume. |  [optional] |
+|**gasBase** | **String** | This is the minimum fee required to include a transaction in a block. It is determined by the network&#39;s congestion level, which adjusts to maintain a target block utilization rate. The base fee is burned, reducing the total supply of Filecoin over time. |  [optional] |
+|**gasPremium** | **String** | An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee. |  [optional] |
+|**gasFeeCap** | **String** | The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas. |  [optional] |
+|**gasLimit** | **String** | This defines the maximum amount of computational effort that a transaction is allowed to consume. It&#39;s a way to cap the resources that a transaction can use, ensuring it doesn&#39;t consume excessive network resources. |  [optional] |
 |**feeType** | **FeeType** |  |  |
-|**tokenId** | **String** | The token used to pay the transaction fee. |  [optional] |
-|**feeUsed** | **String** | The actually charged transaction fee. |  [optional] |
+|**tokenId** | **String** | The token ID of the transaction fee. |  [optional] |
+|**feeUsed** | **String** | The transaction fee. |  [optional] |
 |**estimatedFeeUsed** | **String** | The estimated transaction fee. |  [optional] |
+|**gasUsed** | **String** | The gas units used in the transaction. |  [optional] |
 
 
 

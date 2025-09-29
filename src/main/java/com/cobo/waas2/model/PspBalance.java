@@ -85,7 +85,7 @@ public class PspBalance {
   }
 
    /**
-   * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;.
+   * The ID of the cryptocurrency.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -104,7 +104,7 @@ public class PspBalance {
   }
 
    /**
-   * The total amount of the token that has been received as developer fee.
+   * The psp developer fee amount.
    * @return developerFeeAmount
   **/
   @javax.annotation.Nullable
@@ -123,7 +123,7 @@ public class PspBalance {
   }
 
    /**
-   * The total amount of the token that has been settled from the developer&#39;s balance.
+   * The psp settled amount.
    * @return settledAmount
   **/
   @javax.annotation.Nullable
@@ -142,7 +142,7 @@ public class PspBalance {
   }
 
    /**
-   * The total amount of the token that has been refunded from the developer&#39;s balance.
+   * The psp total refunded amount.
    * @return refundedAmount
   **/
   @javax.annotation.Nullable
@@ -161,7 +161,7 @@ public class PspBalance {
   }
 
    /**
-   * The total balance of the token for the developer.
+   * The psp total balance.
    * @return totalBalance
   **/
   @javax.annotation.Nullable
@@ -180,7 +180,7 @@ public class PspBalance {
   }
 
    /**
-   * The balance available for settlement or refund, in the specified cryptocurrency.
+   * The psp available balance.
    * @return availableBalance
   **/
   @javax.annotation.Nullable
