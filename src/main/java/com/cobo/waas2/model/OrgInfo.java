@@ -96,7 +96,7 @@ public class OrgInfo {
   }
 
    /**
-   * An internal business ID assigned by Cobo. Used mainly by Cobo&#39;s customer support to locate the organization.
+   * The organization biz ID.
    * @return bizOrgId
   **/
   @javax.annotation.Nullable

@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The maximum transferable value from the wallet or the specified address, along with the estimated transaction fee.
+ * The maximum amount you can transfer from the wallet or the specified wallet address, along with the corresponding transaction fee.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -93,7 +93,7 @@ public class MaxTransferableValue {
   }
 
    /**
-   * The maximum transferable value from the wallet or the specified address.
+   * The maximum amount you can transfer from the wallet or the specified wallet address.
    * @return maxTransferableValue
   **/
   @javax.annotation.Nullable

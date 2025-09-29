@@ -29,6 +29,7 @@ import com.cobo.waas2.model.TokenizationIssuedTokenRequest;
 import com.cobo.waas2.model.TokenizationListActivitiesResponse;
 import com.cobo.waas2.model.TokenizationListEnabledChainsResponse;
 import com.cobo.waas2.model.TokenizationListHoldingsResponse;
+import com.cobo.waas2.model.TokenizationListPermissionsResponse;
 import com.cobo.waas2.model.TokenizationListTokenInfoResponse;
 import com.cobo.waas2.model.TokenizationMintTokenRequest;
 import com.cobo.waas2.model.TokenizationOperationResponse;
@@ -40,6 +41,7 @@ import com.cobo.waas2.model.TokenizationTokenStandard;
 import com.cobo.waas2.model.TokenizationUnpauseTokenRequest;
 import com.cobo.waas2.model.TokenizationUpdateAllowlistAddressesRequest;
 import com.cobo.waas2.model.TokenizationUpdateBlocklistAddressesRequest;
+import com.cobo.waas2.model.TokenizationUpdatePermissionsRequest;
 import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -134,7 +136,7 @@ public class TokenizationApiTest {
     }
 
     /**
-     * Issue token
+     * Issue a new token
      *
      * This operation issues a new token contract. It supports various blockchain platforms.  For EVM-based chains, this involves issuing a new smart contract from a template. 
      *
@@ -188,9 +190,9 @@ public class TokenizationApiTest {
     }
 
     /**
-     * List addresses on allowlist
+     * List allowlist addresses
      *
-     * This operation lists addresses on the allowlist. 
+     * This operation lists the allowlist addresses of the token contract. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -206,9 +208,9 @@ public class TokenizationApiTest {
     }
 
     /**
-     * List addresses on blocklist
+     * List tokenization blocklist addresses
      *
-     * This operation lists addresses on the blocklist. 
+     * This operation lists the tokenization blocklist addresses. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -237,6 +239,25 @@ public class TokenizationApiTest {
         String before = null;
         String after = null;
         TokenizationListHoldingsResponse response = api.listTokenizationHoldings(tokenId, limit, before, after);
+        // TODO: test validations
+    }
+
+    /**
+     * List permissions of the token
+     *
+     * This operation retrieves the permissions for a tokenization contract. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listTokenizationPermissionsTest() throws ApiException {
+        String tokenId = null;
+        String address = null;
+        Integer limit = null;
+        String after = null;
+        String before = null;
+        String direction = null;
+        TokenizationListPermissionsResponse response = api.listTokenizationPermissions(tokenId, address, limit, after, before, direction);
         // TODO: test validations
     }
 
@@ -317,7 +338,7 @@ public class TokenizationApiTest {
     }
 
     /**
-     * Activate or deactivate allowlist
+     * Activate or deactivate the allowlist
      *
      * This operation activates or deactivates the allowlist. 
      *
@@ -332,9 +353,9 @@ public class TokenizationApiTest {
     }
 
     /**
-     * Update addresses on allowlist
+     * Update allowlist addresses
      *
-     * This operation updates addresses on the allowlist. 
+     * This operation updates the allowlist addresses of the token contract. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -347,9 +368,9 @@ public class TokenizationApiTest {
     }
 
     /**
-     * Update addresses on blocklist
+     * Update tokenization blocklist addresses
      *
-     * This operation updates addresses on the blocklist. 
+     * This operation updates the tokenization blocklist addresses. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -358,6 +379,21 @@ public class TokenizationApiTest {
         String tokenId = null;
         TokenizationUpdateBlocklistAddressesRequest tokenizationUpdateBlocklistAddressesRequest = null;
         TokenizationOperationResponse response = api.updateTokenizationBlocklistAddresses(tokenId, tokenizationUpdateBlocklistAddressesRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Update permissions of the token
+     *
+     * This operation updates permissions for tokenization contracts.  **For Ethereum-based tokens:** Use &#x60;add&#x60; to grant permissions or &#x60;remove&#x60; to revoke permissions. Multiple permissions can be assigned to the same address.  **For Solana tokens:** Use &#x60;set&#x60; to define the complete list of permissions for an address. This replaces any existing permissions. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateTokenizationPermissionsTest() throws ApiException {
+        String tokenId = null;
+        TokenizationUpdatePermissionsRequest tokenizationUpdatePermissionsRequest = null;
+        TokenizationOperationResponse response = api.updateTokenizationPermissions(tokenId, tokenizationUpdatePermissionsRequest);
         // TODO: test validations
     }
 

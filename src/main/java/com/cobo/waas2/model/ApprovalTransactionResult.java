@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Result of transaction approval. Possible values include:    - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is pending approval.   - &#x60;Approved&#x60;: The transaction is approved. 
+ * The transaction approval result. Possible values include:    - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is pending approval.   - &#x60;Approved&#x60;: The transaction is approved. 
  */
 @JsonAdapter(ApprovalTransactionResult.Adapter.class)
 public enum ApprovalTransactionResult {

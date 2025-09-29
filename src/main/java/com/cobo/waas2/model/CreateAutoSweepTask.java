@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Wallet and token information required to create an auto-sweep task.
+ * The sweep to address information.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -69,7 +69,7 @@ public class CreateAutoSweepTask {
   }
 
    /**
-   * ID of the wallet where the token will be swept.
+   * The wallet ID.
    * @return walletId
   **/
   @javax.annotation.Nonnull
@@ -88,7 +88,7 @@ public class CreateAutoSweepTask {
   }
 
    /**
-   * ID of the token to be swept. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
+   * The token ID of the swept token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
   @javax.annotation.Nonnull

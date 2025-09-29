@@ -108,4 +108,12 @@ public class SupportedTokenTest {
         // TODO: test tokenIconUrl
     }
 
+    /**
+     * Test the property 'canOffRamp'
+     */
+    @Test
+    public void canOffRampTest() {
+        // TODO: test canOffRamp
+    }
+
 }

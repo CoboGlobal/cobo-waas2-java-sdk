@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The request body to update Address Book.
+ * The request body to update address book.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -106,7 +106,7 @@ public class UpdateAddressBookParam {
   }
 
    /**
-   * Optional memo or tag required by some chains.
+   * The memo.
    * @return memo
   **/
   @javax.annotation.Nullable
@@ -125,7 +125,7 @@ public class UpdateAddressBookParam {
   }
 
    /**
-   * A user-defined label for the address.
+   * The address label.
    * @return label
   **/
   @javax.annotation.Nullable
@@ -144,7 +144,7 @@ public class UpdateAddressBookParam {
   }
 
    /**
-   * Email of the address owner.
+   * The email of the address owner.
    * @return email
   **/
   @javax.annotation.Nullable

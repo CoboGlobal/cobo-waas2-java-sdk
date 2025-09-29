@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.TokenizationTokenPermissionParams;
+import com.cobo.waas2.model.TokenizationERC20TokenPermissionParams;
 import com.cobo.waas2.model.TokenizationTokenStandard;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -76,7 +76,7 @@ public class TokenizationERC20TokenParams {
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-  private TokenizationTokenPermissionParams permissions;
+  private TokenizationERC20TokenPermissionParams permissions;
 
   public TokenizationERC20TokenParams() {
   }
@@ -178,7 +178,7 @@ public class TokenizationERC20TokenParams {
   }
 
 
-  public TokenizationERC20TokenParams permissions(TokenizationTokenPermissionParams permissions) {
+  public TokenizationERC20TokenParams permissions(TokenizationERC20TokenPermissionParams permissions) {
     this.permissions = permissions;
     return this;
   }
@@ -188,11 +188,11 @@ public class TokenizationERC20TokenParams {
    * @return permissions
   **/
   @javax.annotation.Nullable
-  public TokenizationTokenPermissionParams getPermissions() {
+  public TokenizationERC20TokenPermissionParams getPermissions() {
     return permissions;
   }
 
-  public void setPermissions(TokenizationTokenPermissionParams permissions) {
+  public void setPermissions(TokenizationERC20TokenPermissionParams permissions) {
     this.permissions = permissions;
   }
 
@@ -343,7 +343,7 @@ public class TokenizationERC20TokenParams {
       }
       // validate the optional field `permissions`
       if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
-        TokenizationTokenPermissionParams.validateJsonElement(jsonObj.get("permissions"));
+        TokenizationERC20TokenPermissionParams.validateJsonElement(jsonObj.get("permissions"));
       }
   }
 

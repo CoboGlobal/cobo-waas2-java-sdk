@@ -12,6 +12,7 @@
 |**tokenAddress** | **String** | The address of the token contract. |  [optional] |
 |**tokenName** | **String** | The name of the token. |  [optional] |
 |**tokenSymbol** | **String** | The unique token symbol. |  |
+|**tokenStandard** | **TokenizationTokenStandard** |  |  |
 |**decimals** | **Integer** | The number of decimals of the token. |  |
 |**tokenAccessActivated** | **Boolean** | Whether the allowlist feature is activated for the token. |  [optional] |
 |**status** | **TokenizationStatus** |  |  |

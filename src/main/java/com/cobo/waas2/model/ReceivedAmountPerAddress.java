@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The total amount of the token that has been received at a given address.
+ * Total amount of a specific token received at a given address.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -69,7 +69,7 @@ public class ReceivedAmountPerAddress {
   }
 
    /**
-   * The receiving address.
+   * Receiving address.
    * @return address
   **/
   @javax.annotation.Nonnull
@@ -88,7 +88,7 @@ public class ReceivedAmountPerAddress {
   }
 
    /**
-   * The total amount of the token that has been received at this address.
+   * Total tokens received at this address, as a decimal string.
    * @return totalReceivedAmount
   **/
   @javax.annotation.Nonnull

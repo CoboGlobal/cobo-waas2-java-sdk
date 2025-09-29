@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The current status of the forced sweep: - &#x60;Pending&#x60;: The forced sweep has been created and is awaiting processing. - &#x60;Processing&#x60;: The forced sweep is currently being processed. - &#x60;Completed&#x60;: The requested forced sweep has been completed. 
+ * The current status of the force sweep request: - &#x60;Pending&#x60;: The force sweep request has been created and is awaiting processing. - &#x60;Processing&#x60;: The force sweep request is currently being processed. - &#x60;Completed&#x60;: All requested force sweep have been completed. 
  */
 @JsonAdapter(ForcedSweepStatus.Adapter.class)
 public enum ForcedSweepStatus {

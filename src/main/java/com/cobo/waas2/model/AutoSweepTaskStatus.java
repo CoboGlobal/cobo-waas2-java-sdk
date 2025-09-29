@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Auto-sweep task status: - &#x60;Submitted&#x60;: The auto-sweep task has been submitted. - &#x60;TransactionCreated&#x60;: The auto-sweep task triggered one or more token sweeping transactions. 
+ * Gets or Sets AutoSweepTaskStatus
  */
 @JsonAdapter(AutoSweepTaskStatus.Adapter.class)
 public enum AutoSweepTaskStatus {

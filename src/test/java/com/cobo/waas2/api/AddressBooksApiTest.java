@@ -44,9 +44,9 @@ public class AddressBooksApiTest {
     private final AddressBooksApi api = new AddressBooksApi();
 
     /**
-     * Create Address Book entries
+     * Create address books
      *
-     * This operation adds new entries (records) to your Address Book. 
+     * This operation add addresses to your address book. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -58,9 +58,9 @@ public class AddressBooksApiTest {
     }
 
     /**
-     * Delete Address Book entry
+     * Delete address book
      *
-     * This operation deletes a specified Address Book entry (record). 
+     * This operation deletes a specified address book. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -72,9 +72,9 @@ public class AddressBooksApiTest {
     }
 
     /**
-     * Get Address Book entry
+     * Get address book information
      *
-     * This operation retrieves the detailed information about a specified Address Book entry (record). 
+     * This operation retrieves the detailed information about a specified address book. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -86,9 +86,9 @@ public class AddressBooksApiTest {
     }
 
     /**
-     * List Address Book entries
+     * List address book entries
      *
-     * This operation retrieves all entries (records) from your Address Book. You can filter the entries by chain ID, address, and label. 
+     * This operation retrieves a list of addresses from your address book. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -105,9 +105,9 @@ public class AddressBooksApiTest {
     }
 
     /**
-     * Update Address Book entry
+     * Update address book
      *
-     * This operation updates the information of a specified Address Book entry (record). 
+     * This operation updates the information of a specified address book. 
      *
      * @throws ApiException if the Api call fails
      */

@@ -44,9 +44,9 @@ public class FeeStationApiTest {
     private final FeeStationApi api = new FeeStationApi();
 
     /**
-     * Estimate fee for Fee Station transaction
+     * Estimate transaction fee
      *
-     * This operation estimates the gas fee required for a top-up transaction sent by [Fee Station](https://manuals.cobo.com/en/portal/fee-station/introduction) to provide gas to the sender of the original transaction.  You need to provide the token ID and transfer amount.  For more information about transaction fee models and how fees are calculated, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -60,7 +60,7 @@ public class FeeStationApiTest {
     /**
      * Get Fee Station transaction information
      *
-     * This operation retrieves detailed information about a specified Fee Station transaction record, such as the transaction status, source address, destination address, and timestamp. 
+     * This operation retrieves detailed information about a specified Fee Station transaction, such as the transaction status, source address, destination address, and timestamp. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -74,7 +74,7 @@ public class FeeStationApiTest {
     /**
      * List Fee Station addresses
      *
-     * This operation retrieves a list of deposit addresses of your Fee Station, including the chain ID, address, and additional information. You can filter the result by chain ID and address. 
+     * This operation retrieves a list of addresses within your Fee Station. 
      *
      * @throws ApiException if the Api call fails
      */

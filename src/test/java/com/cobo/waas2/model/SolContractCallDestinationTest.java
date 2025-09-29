@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ContractCallDestinationType;
+import com.cobo.waas2.model.SolContractCallAddressLookupTableAccount;
 import com.cobo.waas2.model.SolContractCallInstruction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -53,6 +54,14 @@ public class SolContractCallDestinationTest {
     @Test
     public void instructionsTest() {
         // TODO: test instructions
+    }
+
+    /**
+     * Test the property 'addressLookupTableAccounts'
+     */
+    @Test
+    public void addressLookupTableAccountsTest() {
+        // TODO: test addressLookupTableAccounts
     }
 
 }

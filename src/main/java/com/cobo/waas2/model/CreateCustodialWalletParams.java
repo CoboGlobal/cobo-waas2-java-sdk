@@ -136,7 +136,7 @@ public class CreateCustodialWalletParams {
   }
 
    /**
-   * Enable the auto-sweep feature for the wallet. This parameter only applies to MPC Wallets and Web3 Wallets.
+   * Enable the auto sweep feature for the wallet. This parameter only applies to MPC and Web3 wallets.
    * @return enableAutoSweep
   **/
   @javax.annotation.Nullable

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The approval action type. Possible values include:    - &#x60;Reject&#x60;: The action rejects the request.   - &#x60;Accept&#x60;: The action approves the request.   - &#x60;Quorum&#x60;: The action requires approval from multiple participants. 
+ * The app policy action type. Possible values include:    - &#x60;Reject&#x60;: The action is reject.   - &#x60;Accept&#x60;: The action is accept.    - &#x60;Quorum&#x60;: The action is multiple people approval. 
  */
 @JsonAdapter(PolicyActionType.Adapter.class)
 public enum PolicyActionType {

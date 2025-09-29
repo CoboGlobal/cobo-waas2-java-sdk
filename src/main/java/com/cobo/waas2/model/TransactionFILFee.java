@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The transaction fee actually charged by the chain that uses the Filecoin fee model.  In this model, the fee is calculated as: fee &#x3D; base fee * gas used + gas premium * gas limit. For more details, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
+ * The transaction fee actually charged by the chain that uses the FIL fee model.  In the Fil fee model, the calculation method for the fee is: fee &#x3D; gas_fee_cap * gas_limit, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -85,6 +85,10 @@ public class TransactionFILFee {
   @SerializedName(SERIALIZED_NAME_ESTIMATED_FEE_USED)
   private String estimatedFeeUsed;
 
+  public static final String SERIALIZED_NAME_GAS_USED = "gas_used";
+  @SerializedName(SERIALIZED_NAME_GAS_USED)
+  private String gasUsed;
+
   public TransactionFILFee() {
   }
 
@@ -94,7 +98,7 @@ public class TransactionFILFee {
   }
 
    /**
-   * The minimum fee required for a transaction to be included in a block. The base fee is dynamically adjusted based on network congestion to maintain target block utilization. It is burned rather than paid to miners, reducing the total Filecoin supply over time.
+   * This is the minimum fee required to include a transaction in a block. It is determined by the network&#39;s congestion level, which adjusts to maintain a target block utilization rate. The base fee is burned, reducing the total supply of Filecoin over time.
    * @return gasBase
   **/
   @javax.annotation.Nullable
@@ -113,7 +117,7 @@ public class TransactionFILFee {
   }
 
    /**
-   * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
+   * An optional additional fee that users can include to prioritize their transactions over others. It acts like a tip to incentivize miners to select and include your transaction over transactions with only the base fee.
    * @return gasPremium
   **/
   @javax.annotation.Nullable
@@ -132,7 +136,7 @@ public class TransactionFILFee {
   }
 
    /**
-   * The maximum gas price you are willing to pay per unit of gas.
+   * The gas_fee_cap is a user-defined limit on how much they are willing to pay per unit of gas.
    * @return gasFeeCap
   **/
   @javax.annotation.Nullable
@@ -151,7 +155,7 @@ public class TransactionFILFee {
   }
 
    /**
-   * The maximum amount of gas your transaction is allowed to consume.
+   * This defines the maximum amount of computational effort that a transaction is allowed to consume. It&#39;s a way to cap the resources that a transaction can use, ensuring it doesn&#39;t consume excessive network resources.
    * @return gasLimit
   **/
   @javax.annotation.Nullable
@@ -189,7 +193,7 @@ public class TransactionFILFee {
   }
 
    /**
-   * The token used to pay the transaction fee.
+   * The token ID of the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -208,7 +212,7 @@ public class TransactionFILFee {
   }
 
    /**
-   * The actually charged transaction fee.
+   * The transaction fee.
    * @return feeUsed
   **/
   @javax.annotation.Nullable
@@ -237,6 +241,25 @@ public class TransactionFILFee {
 
   public void setEstimatedFeeUsed(String estimatedFeeUsed) {
     this.estimatedFeeUsed = estimatedFeeUsed;
+  }
+
+
+  public TransactionFILFee gasUsed(String gasUsed) {
+    this.gasUsed = gasUsed;
+    return this;
+  }
+
+   /**
+   * The gas units used in the transaction.
+   * @return gasUsed
+  **/
+  @javax.annotation.Nullable
+  public String getGasUsed() {
+    return gasUsed;
+  }
+
+  public void setGasUsed(String gasUsed) {
+    this.gasUsed = gasUsed;
   }
 
   /**
@@ -301,13 +324,14 @@ public class TransactionFILFee {
         Objects.equals(this.feeType, transactionFILFee.feeType) &&
         Objects.equals(this.tokenId, transactionFILFee.tokenId) &&
         Objects.equals(this.feeUsed, transactionFILFee.feeUsed) &&
-        Objects.equals(this.estimatedFeeUsed, transactionFILFee.estimatedFeeUsed)&&
+        Objects.equals(this.estimatedFeeUsed, transactionFILFee.estimatedFeeUsed) &&
+        Objects.equals(this.gasUsed, transactionFILFee.gasUsed)&&
         Objects.equals(this.additionalProperties, transactionFILFee.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gasBase, gasPremium, gasFeeCap, gasLimit, feeType, tokenId, feeUsed, estimatedFeeUsed, additionalProperties);
+    return Objects.hash(gasBase, gasPremium, gasFeeCap, gasLimit, feeType, tokenId, feeUsed, estimatedFeeUsed, gasUsed, additionalProperties);
   }
 
   @Override
@@ -322,6 +346,7 @@ public class TransactionFILFee {
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    feeUsed: ").append(toIndentedString(feeUsed)).append("\n");
     sb.append("    estimatedFeeUsed: ").append(toIndentedString(estimatedFeeUsed)).append("\n");
+    sb.append("    gasUsed: ").append(toIndentedString(gasUsed)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -353,6 +378,7 @@ public class TransactionFILFee {
     openapiFields.add("token_id");
     openapiFields.add("fee_used");
     openapiFields.add("estimated_fee_used");
+    openapiFields.add("gas_used");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -401,6 +427,9 @@ public class TransactionFILFee {
       }
       if ((jsonObj.get("estimated_fee_used") != null && !jsonObj.get("estimated_fee_used").isJsonNull()) && !jsonObj.get("estimated_fee_used").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `estimated_fee_used` to be a primitive type in the JSON string but got `%s`", jsonObj.get("estimated_fee_used").toString()));
+      }
+      if ((jsonObj.get("gas_used") != null && !jsonObj.get("gas_used").isJsonNull()) && !jsonObj.get("gas_used").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `gas_used` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gas_used").toString()));
       }
   }
 
