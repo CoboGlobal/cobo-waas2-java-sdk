@@ -48,7 +48,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about a request to refund funds.
+ * The information about a fund refund disposition request.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -84,7 +84,7 @@ public class RefundDisposition {
   }
 
    /**
-   * The UUID of the transaction whose funds are to be refunded. This identifies the original transaction that requires refund processing.
+   * The UUID of the transaction to be refunded. This identifies the original transaction that requires refund processing.
    * @return transactionId
   **/
   @javax.annotation.Nonnull
@@ -103,7 +103,7 @@ public class RefundDisposition {
   }
 
    /**
-   * The blockchain address to receive the refunded funds.
+   * The blockchain address where the refunded funds will be sent.
    * @return destinationAddress
   **/
   @javax.annotation.Nonnull
@@ -168,7 +168,7 @@ public class RefundDisposition {
   }
 
    /**
-   * Additional notes or description for the refund.
+   * Additional notes or description for this refund disposition.
    * @return description
   **/
   @javax.annotation.Nullable

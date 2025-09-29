@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The request body to update top-up address.
+ * The request body to update top up address.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -76,7 +76,7 @@ public class UpdateTopUpAddress {
    * The merchant ID.
    * @return merchantId
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getMerchantId() {
     return merchantId;
   }
@@ -92,7 +92,7 @@ public class UpdateTopUpAddress {
   }
 
    /**
-   * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
+   * The token ID, which identifies the cryptocurrency. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -111,7 +111,7 @@ public class UpdateTopUpAddress {
   }
 
    /**
-   * A unique identifier assigned by the developer to track and identify individual payers in their system.
+   * Unique customer identifier on the merchant side, used to allocate a dedicated top-up address 
    * @return customPayerId
   **/
   @javax.annotation.Nonnull
@@ -225,7 +225,6 @@ public class UpdateTopUpAddress {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("merchant_id");
     openapiRequiredFields.add("token_id");
     openapiRequiredFields.add("custom_payer_id");
   }
@@ -250,7 +249,7 @@ public class UpdateTopUpAddress {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("merchant_id").isJsonPrimitive()) {
+      if ((jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()) && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
       if (!jsonObj.get("token_id").isJsonPrimitive()) {

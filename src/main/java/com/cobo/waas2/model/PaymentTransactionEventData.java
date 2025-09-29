@@ -69,7 +69,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentTransactionEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -103,7 +103,9 @@ public class PaymentTransactionEventData {
     
     SUSPENDEDTOKEN("SuspendedToken"),
     
-    COMPLIANCEDISPOSITION("ComplianceDisposition");
+    COMPLIANCEDISPOSITION("ComplianceDisposition"),
+    
+    COMPLIANCEKYTSCREENINGS("ComplianceKytScreenings");
 
     private String value;
 
@@ -296,6 +298,10 @@ public class PaymentTransactionEventData {
   @SerializedName(SERIALIZED_NAME_CUSTOM_PAYER_ID)
   private String customPayerId;
 
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_ID = "subscription_id";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ID)
+  private String subscriptionId;
+
   public PaymentTransactionEventData() {
   }
 
@@ -305,7 +311,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -861,7 +867,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   * A list of JSON-encoded strings containing structured, business-specific extra information for the transaction. Each item corresponds to a specific data type, indicated by the &#x60;extra_type&#x60; field in the JSON object (for example, \&quot;BabylonBusinessInfo\&quot;, \&quot;BtcAddressInfo\&quot;). 
+   * The transaction extra information.
    * @return extra
   **/
   @javax.annotation.Nullable
@@ -956,7 +962,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   * The pay-in order ID.
+   * Unique identifier of a single order
    * @return orderId
   **/
   @javax.annotation.Nullable
@@ -994,7 +1000,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   * A unique identifier assigned by Cobo to track and identify individual payers.
+   * Unique payer identifier on the Cobo side, auto-generated by the system. 
    * @return payerId
   **/
   @javax.annotation.Nullable
@@ -1013,7 +1019,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   * A unique identifier assigned by the developer to track and identify individual payers in their system.
+   * Unique user identifier on the merchant side, used to assign a dedicated deposit address. 
    * @return customPayerId
   **/
   @javax.annotation.Nullable
@@ -1023,6 +1029,25 @@ public class PaymentTransactionEventData {
 
   public void setCustomPayerId(String customPayerId) {
     this.customPayerId = customPayerId;
+  }
+
+
+  public PaymentTransactionEventData subscriptionId(String subscriptionId) {
+    this.subscriptionId = subscriptionId;
+    return this;
+  }
+
+   /**
+   * A unique identifier assigned by Cobo to track and identify subscription.
+   * @return subscriptionId
+  **/
+  @javax.annotation.Nullable
+  public String getSubscriptionId() {
+    return subscriptionId;
+  }
+
+  public void setSubscriptionId(String subscriptionId) {
+    this.subscriptionId = subscriptionId;
   }
 
   /**
@@ -1116,13 +1141,14 @@ public class PaymentTransactionEventData {
         Objects.equals(this.orderId, paymentTransactionEventData.orderId) &&
         Objects.equals(this.pspOrderCode, paymentTransactionEventData.pspOrderCode) &&
         Objects.equals(this.payerId, paymentTransactionEventData.payerId) &&
-        Objects.equals(this.customPayerId, paymentTransactionEventData.customPayerId)&&
+        Objects.equals(this.customPayerId, paymentTransactionEventData.customPayerId) &&
+        Objects.equals(this.subscriptionId, paymentTransactionEventData.subscriptionId)&&
         Objects.equals(this.additionalProperties, paymentTransactionEventData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, coboCategory, extra, fuelingInfo, createdTimestamp, updatedTimestamp, acquiringType, orderId, pspOrderCode, payerId, customPayerId, additionalProperties);
+    return Objects.hash(dataType, transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, coboCategory, extra, fuelingInfo, createdTimestamp, updatedTimestamp, acquiringType, orderId, pspOrderCode, payerId, customPayerId, subscriptionId, additionalProperties);
   }
 
   @Override
@@ -1166,6 +1192,7 @@ public class PaymentTransactionEventData {
     sb.append("    pspOrderCode: ").append(toIndentedString(pspOrderCode)).append("\n");
     sb.append("    payerId: ").append(toIndentedString(payerId)).append("\n");
     sb.append("    customPayerId: ").append(toIndentedString(customPayerId)).append("\n");
+    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1226,6 +1253,7 @@ public class PaymentTransactionEventData {
     openapiFields.add("psp_order_code");
     openapiFields.add("payer_id");
     openapiFields.add("custom_payer_id");
+    openapiFields.add("subscription_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1364,6 +1392,9 @@ public class PaymentTransactionEventData {
       }
       if ((jsonObj.get("custom_payer_id") != null && !jsonObj.get("custom_payer_id").isJsonNull()) && !jsonObj.get("custom_payer_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_payer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_payer_id").toString()));
+      }
+      if ((jsonObj.get("subscription_id") != null && !jsonObj.get("subscription_id").isJsonNull()) && !jsonObj.get("subscription_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subscription_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_id").toString()));
       }
   }
 

@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -62,6 +64,10 @@ public class BabylonStakeExtra {
   @SerializedName(SERIALIZED_NAME_FINALITY_PROVIDER_PUBLIC_KEY)
   private String finalityProviderPublicKey;
 
+  public static final String SERIALIZED_NAME_FINALITY_PROVIDER_PUBLIC_KEYS = "finality_provider_public_keys";
+  @SerializedName(SERIALIZED_NAME_FINALITY_PROVIDER_PUBLIC_KEYS)
+  private List<String> finalityProviderPublicKeys = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_STAKE_BLOCK_TIME = "stake_block_time";
   @SerializedName(SERIALIZED_NAME_STAKE_BLOCK_TIME)
   private Long stakeBlockTime;
@@ -73,6 +79,10 @@ public class BabylonStakeExtra {
   public static final String SERIALIZED_NAME_BABYLON_ADDRESS = "babylon_address";
   @SerializedName(SERIALIZED_NAME_BABYLON_ADDRESS)
   private StakingSource babylonAddress;
+
+  public static final String SERIALIZED_NAME_ORIGINAL_STAKING_ID = "original_staking_id";
+  @SerializedName(SERIALIZED_NAME_ORIGINAL_STAKING_ID)
+  private String originalStakingId;
 
   public BabylonStakeExtra() {
   }
@@ -105,13 +115,40 @@ public class BabylonStakeExtra {
    * The public key of the finality provider.
    * @return finalityProviderPublicKey
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getFinalityProviderPublicKey() {
     return finalityProviderPublicKey;
   }
 
   public void setFinalityProviderPublicKey(String finalityProviderPublicKey) {
     this.finalityProviderPublicKey = finalityProviderPublicKey;
+  }
+
+
+  public BabylonStakeExtra finalityProviderPublicKeys(List<String> finalityProviderPublicKeys) {
+    this.finalityProviderPublicKeys = finalityProviderPublicKeys;
+    return this;
+  }
+
+  public BabylonStakeExtra addFinalityProviderPublicKeysItem(String finalityProviderPublicKeysItem) {
+    if (this.finalityProviderPublicKeys == null) {
+      this.finalityProviderPublicKeys = new ArrayList<>();
+    }
+    this.finalityProviderPublicKeys.add(finalityProviderPublicKeysItem);
+    return this;
+  }
+
+   /**
+   * The public keys of the finality providers(each key for a BSN chain).
+   * @return finalityProviderPublicKeys
+  **/
+  @javax.annotation.Nullable
+  public List<String> getFinalityProviderPublicKeys() {
+    return finalityProviderPublicKeys;
+  }
+
+  public void setFinalityProviderPublicKeys(List<String> finalityProviderPublicKeys) {
+    this.finalityProviderPublicKeys = finalityProviderPublicKeys;
   }
 
 
@@ -124,7 +161,7 @@ public class BabylonStakeExtra {
    * The number of blocks that need to be processed before the locked tokens are unlocked and become accessible.
    * @return stakeBlockTime
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Long getStakeBlockTime() {
     return stakeBlockTime;
   }
@@ -169,6 +206,25 @@ public class BabylonStakeExtra {
 
   public void setBabylonAddress(StakingSource babylonAddress) {
     this.babylonAddress = babylonAddress;
+  }
+
+
+  public BabylonStakeExtra originalStakingId(String originalStakingId) {
+    this.originalStakingId = originalStakingId;
+    return this;
+  }
+
+   /**
+   * The original staking ID to expand. Only set this when you want to expand existing staking.
+   * @return originalStakingId
+  **/
+  @javax.annotation.Nullable
+  public String getOriginalStakingId() {
+    return originalStakingId;
+  }
+
+  public void setOriginalStakingId(String originalStakingId) {
+    this.originalStakingId = originalStakingId;
   }
 
   /**
@@ -228,15 +284,17 @@ public class BabylonStakeExtra {
     BabylonStakeExtra babylonStakeExtra = (BabylonStakeExtra) o;
     return Objects.equals(this.poolType, babylonStakeExtra.poolType) &&
         Objects.equals(this.finalityProviderPublicKey, babylonStakeExtra.finalityProviderPublicKey) &&
+        Objects.equals(this.finalityProviderPublicKeys, babylonStakeExtra.finalityProviderPublicKeys) &&
         Objects.equals(this.stakeBlockTime, babylonStakeExtra.stakeBlockTime) &&
         Objects.equals(this.autoBroadcast, babylonStakeExtra.autoBroadcast) &&
-        Objects.equals(this.babylonAddress, babylonStakeExtra.babylonAddress)&&
+        Objects.equals(this.babylonAddress, babylonStakeExtra.babylonAddress) &&
+        Objects.equals(this.originalStakingId, babylonStakeExtra.originalStakingId)&&
         Objects.equals(this.additionalProperties, babylonStakeExtra.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, autoBroadcast, babylonAddress, additionalProperties);
+    return Objects.hash(poolType, finalityProviderPublicKey, finalityProviderPublicKeys, stakeBlockTime, autoBroadcast, babylonAddress, originalStakingId, additionalProperties);
   }
 
   @Override
@@ -245,9 +303,11 @@ public class BabylonStakeExtra {
     sb.append("class BabylonStakeExtra {\n");
     sb.append("    poolType: ").append(toIndentedString(poolType)).append("\n");
     sb.append("    finalityProviderPublicKey: ").append(toIndentedString(finalityProviderPublicKey)).append("\n");
+    sb.append("    finalityProviderPublicKeys: ").append(toIndentedString(finalityProviderPublicKeys)).append("\n");
     sb.append("    stakeBlockTime: ").append(toIndentedString(stakeBlockTime)).append("\n");
     sb.append("    autoBroadcast: ").append(toIndentedString(autoBroadcast)).append("\n");
     sb.append("    babylonAddress: ").append(toIndentedString(babylonAddress)).append("\n");
+    sb.append("    originalStakingId: ").append(toIndentedString(originalStakingId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -273,15 +333,15 @@ public class BabylonStakeExtra {
     openapiFields = new HashSet<String>();
     openapiFields.add("pool_type");
     openapiFields.add("finality_provider_public_key");
+    openapiFields.add("finality_provider_public_keys");
     openapiFields.add("stake_block_time");
     openapiFields.add("auto_broadcast");
     openapiFields.add("babylon_address");
+    openapiFields.add("original_staking_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("pool_type");
-    openapiRequiredFields.add("finality_provider_public_key");
-    openapiRequiredFields.add("stake_block_time");
   }
 
  /**
@@ -306,12 +366,19 @@ public class BabylonStakeExtra {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `pool_type`
       StakingPoolType.validateJsonElement(jsonObj.get("pool_type"));
-      if (!jsonObj.get("finality_provider_public_key").isJsonPrimitive()) {
+      if ((jsonObj.get("finality_provider_public_key") != null && !jsonObj.get("finality_provider_public_key").isJsonNull()) && !jsonObj.get("finality_provider_public_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `finality_provider_public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("finality_provider_public_key").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("finality_provider_public_keys") != null && !jsonObj.get("finality_provider_public_keys").isJsonNull() && !jsonObj.get("finality_provider_public_keys").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `finality_provider_public_keys` to be an array in the JSON string but got `%s`", jsonObj.get("finality_provider_public_keys").toString()));
       }
       // validate the optional field `babylon_address`
       if (jsonObj.get("babylon_address") != null && !jsonObj.get("babylon_address").isJsonNull()) {
         StakingSource.validateJsonElement(jsonObj.get("babylon_address"));
+      }
+      if ((jsonObj.get("original_staking_id") != null && !jsonObj.get("original_staking_id").isJsonNull()) && !jsonObj.get("original_staking_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `original_staking_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original_staking_id").toString()));
       }
   }
 

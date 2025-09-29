@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.AcquiringType;
+import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.SettleRequestStatus;
 import com.cobo.waas2.model.SettlementDetail;
@@ -128,6 +129,30 @@ public class PaymentSettlementEventTest {
     @Test
     public void settlementTypeTest() {
         // TODO: test settlementType
+    }
+
+    /**
+     * Test the property 'currency'
+     */
+    @Test
+    public void currencyTest() {
+        // TODO: test currency
+    }
+
+    /**
+     * Test the property 'receivedAmountFiat'
+     */
+    @Test
+    public void receivedAmountFiatTest() {
+        // TODO: test receivedAmountFiat
+    }
+
+    /**
+     * Test the property 'bankAccount'
+     */
+    @Test
+    public void bankAccountTest() {
+        // TODO: test bankAccount
     }
 
 }

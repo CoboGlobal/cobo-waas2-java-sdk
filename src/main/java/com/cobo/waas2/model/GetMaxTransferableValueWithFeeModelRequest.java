@@ -135,7 +135,7 @@ public class GetMaxTransferableValueWithFeeModelRequest {
   }
 
    /**
-   * The sender&#39;s address. This property is required when using an EVM address in an MPC Wallet.
+   * The sender&#39;s address. For EVM addresses in MPC Wallets, this parameter is required.
    * @return fromAddress
   **/
   @javax.annotation.Nullable

@@ -9,7 +9,7 @@ The estimated transaction fee for UTXO-based chains.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**feeType** | **FeeType** |  |  |
-|**tokenId** | **String** | The token used to pay the transaction fee. |  |
+|**tokenId** | **String** | The token ID of the transaction fee. |  |
 |**slow** | [**EstimatedUtxoFeeSlow**](EstimatedUtxoFeeSlow.md) |  |  [optional] |
 |**recommended** | [**EstimatedUtxoFeeSlow**](EstimatedUtxoFeeSlow.md) |  |  |
 |**fast** | [**EstimatedUtxoFeeSlow**](EstimatedUtxoFeeSlow.md) |  |  [optional] |

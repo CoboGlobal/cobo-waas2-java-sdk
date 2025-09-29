@@ -44,9 +44,9 @@ public class AutoSweepApiTest {
     private final AutoSweepApi api = new AutoSweepApi();
 
     /**
-     * Create auto-sweep task
+     * create auto sweep task
      *
-     * This operation creates an auto-sweep task for the specified wallet and token. The task triggers transactions to sweep the full balance of the specified token to the configured sweep-to address. 
+     * This operation create a new auto sweep task. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -58,9 +58,9 @@ public class AutoSweepApiTest {
     }
 
     /**
-     * create sweep-to address
+     * create wallet sweep to addresses
      *
-     * This operation creates a new sweep-to address for the specified wallet. The previously sweep-to address for the same token becomes invalid once the new one is created.  Use this operation to change the sweep-to address when your setup changes, you switch networks, or the current address is compromised or tainted by suspicious funds. You can withdraw any remaining balances from the old sweep-to addresses to the new address or another designated destination.  &lt;Note&gt;Sweep-to addresses are only applicable to MPC Wallets and Web3 Wallets with the auto-sweep feature enabled.&lt;/Note&gt; 
+     * This operation create a new sweep to address for the wallet. The old sweep to address will become invalid. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -72,9 +72,9 @@ public class AutoSweepApiTest {
     }
 
     /**
-     * Get auto-sweep task details
+     * Get auto sweep task information
      *
-     * This operation retrieves detailed information about a specified auto-sweep task. 
+     * This operation retrieves detailed information about a specified auto sweep task. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -86,9 +86,9 @@ public class AutoSweepApiTest {
     }
 
     /**
-     * List auto-sweep tasks
+     * List wallet auto sweep task
      *
-     * This operation retrieves a list of auto-sweep tasks for the specified wallet. You can filter the results by token ID, task IDs, or a created-time range. 
+     * This operation retrieves a list of auto sweep task. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -108,9 +108,9 @@ public class AutoSweepApiTest {
     }
 
     /**
-     * List sweep-to addresses
+     * List wallet sweep to addresses
      *
-     * This operation retrieves a list of sweep-to addresses within your wallet. &lt;Note&gt;Sweep-to addresses are only applicable to MPC Wallets and Web3 Wallets with the auto-sweep feature enabled.&lt;/Note&gt; 
+     * This operation retrieves a list of sweep to addresses within your wallet. 
      *
      * @throws ApiException if the Api call fails
      */

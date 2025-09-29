@@ -9,7 +9,7 @@ The estimated transaction fee based on the legacy fee model.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**feeType** | **FeeType** |  |  |
-|**tokenId** | **String** | The token used to pay the transaction fee. |  |
+|**tokenId** | **String** | The token ID of the transaction fee. |  |
 |**slow** | [**EstimatedEvmLegacyFeeSlow**](EstimatedEvmLegacyFeeSlow.md) |  |  [optional] |
 |**recommended** | [**EstimatedEvmLegacyFeeSlow**](EstimatedEvmLegacyFeeSlow.md) |  |  |
 |**fast** | [**EstimatedEvmLegacyFeeSlow**](EstimatedEvmLegacyFeeSlow.md) |  |  [optional] |

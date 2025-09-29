@@ -94,7 +94,9 @@ public enum WebhookEventType {
   
   PAYMENT_ADDRESS_UPDATED("payment.address.updated"),
   
-  COMPLIANCE_DISPOSITION_STATUS_UPDATED("compliance.disposition.status.updated");
+  COMPLIANCE_DISPOSITION_STATUS_UPDATED("compliance.disposition.status.updated"),
+  
+  COMPLIANCE_KYT_SCREENINGS_STATUS_UPDATED("compliance.kyt.screenings.status.updated");
 
   private String value;
 
