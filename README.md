@@ -235,6 +235,7 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *DevelopersWebhooksApi* | [**triggerTestWebhookEvent**](docs/DevelopersWebhooksApi.md#triggerTestWebhookEvent) | **POST** /webhooks/events/trigger | Trigger test event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
+*FeeStationApi* | [**checkFeeStationUsage**](docs/FeeStationApi.md#checkFeeStationUsage) | **POST** /fee_station/check_fee_station_usage | fee station pre check
 *FeeStationApi* | [**estimateFeeStationFee**](docs/FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate transaction fee
 *FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information
 *FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses
@@ -251,6 +252,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**createCryptoAddress**](docs/PaymentApi.md#createCryptoAddress) | **POST** /payments/crypto_addresses | Create crypto address
 *PaymentApi* | [**createForcedSweepRequest**](docs/PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create force sweep request
 *PaymentApi* | [**createMerchant**](docs/PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant
+*PaymentApi* | [**createOrderLink**](docs/PaymentApi.md#createOrderLink) | **POST** /payments/links/orders | Create order link
 *PaymentApi* | [**createPaymentOrder**](docs/PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
 *PaymentApi* | [**createSettlementRequest**](docs/PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request
@@ -537,6 +539,7 @@ Class | Method | HTTP request | Description
  - [CreateMpcProjectRequest](docs/CreateMpcProjectRequest.md)
  - [CreateMpcVaultRequest](docs/CreateMpcVaultRequest.md)
  - [CreateMpcWalletParams](docs/CreateMpcWalletParams.md)
+ - [CreateOrderLinkRequest](docs/CreateOrderLinkRequest.md)
  - [CreatePaymentOrderRequest](docs/CreatePaymentOrderRequest.md)
  - [CreatePrimeBrokerAddress201Response](docs/CreatePrimeBrokerAddress201Response.md)
  - [CreatePrimeBrokerAddressRequest](docs/CreatePrimeBrokerAddressRequest.md)
@@ -632,7 +635,10 @@ Class | Method | HTTP request | Description
  - [FeeGasLimit](docs/FeeGasLimit.md)
  - [FeeRate](docs/FeeRate.md)
  - [FeeReserved](docs/FeeReserved.md)
+ - [FeeStationCheckFeeStationUsage](docs/FeeStationCheckFeeStationUsage.md)
+ - [FeeStationCheckFeeStationUsageResponse](docs/FeeStationCheckFeeStationUsageResponse.md)
  - [FeeStationDestination](docs/FeeStationDestination.md)
+ - [FeeStationGasStationType](docs/FeeStationGasStationType.md)
  - [FeeStationTransactionType](docs/FeeStationTransactionType.md)
  - [FeeStationTransfer](docs/FeeStationTransfer.md)
  - [FeeType](docs/FeeType.md)
@@ -669,6 +675,8 @@ Class | Method | HTTP request | Description
  - [KytScreeningsReviewType](docs/KytScreeningsReviewType.md)
  - [KytScreeningsTransaction](docs/KytScreeningsTransaction.md)
  - [KytScreeningsTransactionType](docs/KytScreeningsTransactionType.md)
+ - [Link](docs/Link.md)
+ - [LinkDisplayInfo](docs/LinkDisplayInfo.md)
  - [ListAddressBalancesByToken200Response](docs/ListAddressBalancesByToken200Response.md)
  - [ListAddressBooks200Response](docs/ListAddressBooks200Response.md)
  - [ListAddresses200Response](docs/ListAddresses200Response.md)
@@ -747,6 +755,8 @@ Class | Method | HTTP request | Description
  - [MpcStakeSource](docs/MpcStakeSource.md)
  - [MpcTransferSource](docs/MpcTransferSource.md)
  - [Order](docs/Order.md)
+ - [OrderLinkBusinessInfo](docs/OrderLinkBusinessInfo.md)
+ - [OrderLinkBusinessInfoCustomExchangeRatesInner](docs/OrderLinkBusinessInfoCustomExchangeRatesInner.md)
  - [OrderStatus](docs/OrderStatus.md)
  - [OrgInfo](docs/OrgInfo.md)
  - [OtcFee](docs/OtcFee.md)
@@ -976,8 +986,10 @@ Class | Method | HTTP request | Description
  - [TokenizationPauseTokenRequest](docs/TokenizationPauseTokenRequest.md)
  - [TokenizationPermissionAction](docs/TokenizationPermissionAction.md)
  - [TokenizationSOLTokenParams](docs/TokenizationSOLTokenParams.md)
+ - [TokenizationSOLWrappedTokenParams](docs/TokenizationSOLWrappedTokenParams.md)
  - [TokenizationSolContractCallParams](docs/TokenizationSolContractCallParams.md)
  - [TokenizationSolTokenPermissionParams](docs/TokenizationSolTokenPermissionParams.md)
+ - [TokenizationSolWrappedTokenPermissionParams](docs/TokenizationSolWrappedTokenPermissionParams.md)
  - [TokenizationStatus](docs/TokenizationStatus.md)
  - [TokenizationToggleAllowlistEstimateFeeParams](docs/TokenizationToggleAllowlistEstimateFeeParams.md)
  - [TokenizationTokenDetailInfo](docs/TokenizationTokenDetailInfo.md)

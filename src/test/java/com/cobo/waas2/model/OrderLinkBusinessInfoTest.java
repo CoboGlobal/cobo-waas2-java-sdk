@@ -11,44 +11,47 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.OrderLinkBusinessInfoCustomExchangeRatesInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CreatePaymentOrderRequest
+ * Model tests for OrderLinkBusinessInfo
  */
-public class CreatePaymentOrderRequestTest {
-    private final CreatePaymentOrderRequest model = new CreatePaymentOrderRequest();
+public class OrderLinkBusinessInfoTest {
+    private final OrderLinkBusinessInfo model = new OrderLinkBusinessInfo();
 
     /**
-     * Model tests for CreatePaymentOrderRequest
+     * Model tests for OrderLinkBusinessInfo
      */
     @Test
-    public void testCreatePaymentOrderRequest() {
-        // TODO: test CreatePaymentOrderRequest
+    public void testOrderLinkBusinessInfo() {
+        // TODO: test OrderLinkBusinessInfo
     }
 
     /**
-     * Test the property 'merchantId'
+     * Test the property 'tokenIds'
      */
     @Test
-    public void merchantIdTest() {
-        // TODO: test merchantId
+    public void tokenIdsTest() {
+        // TODO: test tokenIds
     }
 
     /**
-     * Test the property 'tokenId'
+     * Test the property 'customExchangeRates'
      */
     @Test
-    public void tokenIdTest() {
-        // TODO: test tokenId
+    public void customExchangeRatesTest() {
+        // TODO: test customExchangeRates
     }
 
     /**
@@ -60,19 +63,27 @@ public class CreatePaymentOrderRequestTest {
     }
 
     /**
-     * Test the property 'orderAmount'
-     */
-    @Test
-    public void orderAmountTest() {
-        // TODO: test orderAmount
-    }
-
-    /**
      * Test the property 'feeAmount'
      */
     @Test
     public void feeAmountTest() {
         // TODO: test feeAmount
+    }
+
+    /**
+     * Test the property 'merchantId'
+     */
+    @Test
+    public void merchantIdTest() {
+        // TODO: test merchantId
+    }
+
+    /**
+     * Test the property 'orderAmount'
+     */
+    @Test
+    public void orderAmountTest() {
+        // TODO: test orderAmount
     }
 
     /**
@@ -105,14 +116,6 @@ public class CreatePaymentOrderRequestTest {
     @Test
     public void useDedicatedAddressTest() {
         // TODO: test useDedicatedAddress
-    }
-
-    /**
-     * Test the property 'customExchangeRate'
-     */
-    @Test
-    public void customExchangeRateTest() {
-        // TODO: test customExchangeRate
     }
 
 }

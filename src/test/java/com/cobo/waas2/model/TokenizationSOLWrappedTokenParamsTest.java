@@ -11,10 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.TokenizationERC20TokenParams;
-import com.cobo.waas2.model.TokenizationERC20WrappedTokenParams;
-import com.cobo.waas2.model.TokenizationSOLTokenParams;
-import com.cobo.waas2.model.TokenizationSOLWrappedTokenParams;
 import com.cobo.waas2.model.TokenizationSolWrappedTokenPermissionParams;
 import com.cobo.waas2.model.TokenizationTokenStandard;
 import com.google.gson.TypeAdapter;
@@ -28,17 +24,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TokenizationIssueTokenParamsTokenParams
+ * Model tests for TokenizationSOLWrappedTokenParams
  */
-public class TokenizationIssueTokenParamsTokenParamsTest {
-    private final TokenizationIssueTokenParamsTokenParams model = new TokenizationIssueTokenParamsTokenParams();
+public class TokenizationSOLWrappedTokenParamsTest {
+    private final TokenizationSOLWrappedTokenParams model = new TokenizationSOLWrappedTokenParams();
 
     /**
-     * Model tests for TokenizationIssueTokenParamsTokenParams
+     * Model tests for TokenizationSOLWrappedTokenParams
      */
     @Test
-    public void testTokenizationIssueTokenParamsTokenParams() {
-        // TODO: test TokenizationIssueTokenParamsTokenParams
+    public void testTokenizationSOLWrappedTokenParams() {
+        // TODO: test TokenizationSOLWrappedTokenParams
     }
 
     /**
@@ -63,22 +59,6 @@ public class TokenizationIssueTokenParamsTokenParamsTest {
     @Test
     public void symbolTest() {
         // TODO: test symbol
-    }
-
-    /**
-     * Test the property 'decimals'
-     */
-    @Test
-    public void decimalsTest() {
-        // TODO: test decimals
-    }
-
-    /**
-     * Test the property 'tokenAccessActivated'
-     */
-    @Test
-    public void tokenAccessActivatedTest() {
-        // TODO: test tokenAccessActivated
     }
 
     /**

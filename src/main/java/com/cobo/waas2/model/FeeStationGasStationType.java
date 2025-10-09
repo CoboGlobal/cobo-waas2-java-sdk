@@ -22,23 +22,19 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The standard of token to create.
+ * The fee station mode used for automatic gas payment: - &#x60;FeeStation&#x60;: The client uses their own Fee Station balance to cover the gas fee.  - &#x60;CoboOperationStation&#x60;: Cobo covers the gas fee on behalf of the client. 
  */
-@JsonAdapter(TokenizationTokenStandard.Adapter.class)
-public enum TokenizationTokenStandard {
+@JsonAdapter(FeeStationGasStationType.Adapter.class)
+public enum FeeStationGasStationType {
   UNKNOWN(null),
   
-  ERC20("ERC20"),
+  FEESTATION("FeeStation"),
   
-  SPLTOKEN2022("SPLToken2022"),
-  
-  ERC20WRAPPER("ERC20Wrapper"),
-  
-  SOLWRAPPER("SOLWrapper");
+  COBOOPERATIONSTATION("CoboOperationStation");
 
   private String value;
 
-  TokenizationTokenStandard(String value) {
+  FeeStationGasStationType(String value) {
     this.value = value;
   }
 
@@ -51,8 +47,8 @@ public enum TokenizationTokenStandard {
     return String.valueOf(value);
   }
 
-  public static TokenizationTokenStandard fromValue(String value) {
-    for (TokenizationTokenStandard b : TokenizationTokenStandard.values()) {
+  public static FeeStationGasStationType fromValue(String value) {
+    for (FeeStationGasStationType b : FeeStationGasStationType.values()) {
       if (b == UNKNOWN) continue;
       if (b.value.equals(value)) {
         return b;
@@ -62,22 +58,22 @@ public enum TokenizationTokenStandard {
     // throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<TokenizationTokenStandard> {
+  public static class Adapter extends TypeAdapter<FeeStationGasStationType> {
     @Override
-    public void write(final JsonWriter jsonWriter, final TokenizationTokenStandard enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final FeeStationGasStationType enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public TokenizationTokenStandard read(final JsonReader jsonReader) throws IOException {
+    public FeeStationGasStationType read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return TokenizationTokenStandard.fromValue(value);
+      return FeeStationGasStationType.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     String value = jsonElement.getAsString();
-    TokenizationTokenStandard.fromValue(value);
+    FeeStationGasStationType.fromValue(value);
   }
 }
 

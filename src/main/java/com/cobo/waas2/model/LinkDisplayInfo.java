@@ -18,8 +18,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,82 +46,59 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Details of the auto-fueling transaction that provides gas for the current transaction.
+ * LinkDisplayInfo
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class TransactionFuelingInfo {
-  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
-  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  private String requestId;
+public class LinkDisplayInfo {
+  public static final String SERIALIZED_NAME_DEVELOPER_NAME = "developer_name";
+  @SerializedName(SERIALIZED_NAME_DEVELOPER_NAME)
+  private String developerName;
 
-  public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
-  @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
-  private UUID transactionId;
+  public static final String SERIALIZED_NAME_LOGO = "logo";
+  @SerializedName(SERIALIZED_NAME_LOGO)
+  private URI logo;
 
-  public static final String SERIALIZED_NAME_MAIN_TRANSACTION_ID = "main_transaction_id";
-  @SerializedName(SERIALIZED_NAME_MAIN_TRANSACTION_ID)
-  private UUID mainTransactionId;
-
-  public TransactionFuelingInfo() {
+  public LinkDisplayInfo() {
   }
 
-  public TransactionFuelingInfo requestId(String requestId) {
-    this.requestId = requestId;
+  public LinkDisplayInfo developerName(String developerName) {
+    this.developerName = developerName;
     return this;
   }
 
    /**
-   * The request ID of the transaction.
-   * @return requestId
+   * Optional display name for the developer/platform. This name may be shown to end users during the payment process. 
+   * @return developerName
   **/
   @javax.annotation.Nullable
-  public String getRequestId() {
-    return requestId;
+  public String getDeveloperName() {
+    return developerName;
   }
 
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
+  public void setDeveloperName(String developerName) {
+    this.developerName = developerName;
   }
 
 
-  public TransactionFuelingInfo transactionId(UUID transactionId) {
-    this.transactionId = transactionId;
+  public LinkDisplayInfo logo(URI logo) {
+    this.logo = logo;
     return this;
   }
 
    /**
-   * The transaction ID.
-   * @return transactionId
+   * Optional URL to the developer&#39;s logo image. The logo may be displayed to end users during the payment process.  Supported formats: PNG, JPG, SVG. Maximum file size: 2MB. 
+   * @return logo
   **/
   @javax.annotation.Nullable
-  public UUID getTransactionId() {
-    return transactionId;
+  public URI getLogo() {
+    return logo;
   }
 
-  public void setTransactionId(UUID transactionId) {
-    this.transactionId = transactionId;
-  }
-
-
-  public TransactionFuelingInfo mainTransactionId(UUID mainTransactionId) {
-    this.mainTransactionId = mainTransactionId;
-    return this;
-  }
-
-   /**
-   * The UUID of the parent (main) transaction that this record is associated with. Set only when the current record is a gas/fee transaction initiated by FeeStation; omit for main transactions.
-   * @return mainTransactionId
-  **/
-  @javax.annotation.Nullable
-  public UUID getMainTransactionId() {
-    return mainTransactionId;
-  }
-
-  public void setMainTransactionId(UUID mainTransactionId) {
-    this.mainTransactionId = mainTransactionId;
+  public void setLogo(URI logo) {
+    this.logo = logo;
   }
 
   /**
@@ -137,9 +114,9 @@ public class TransactionFuelingInfo {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TransactionFuelingInfo instance itself
+   * @return the LinkDisplayInfo instance itself
    */
-  public TransactionFuelingInfo putAdditionalProperty(String key, Object value) {
+  public LinkDisplayInfo putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -178,25 +155,23 @@ public class TransactionFuelingInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TransactionFuelingInfo transactionFuelingInfo = (TransactionFuelingInfo) o;
-    return Objects.equals(this.requestId, transactionFuelingInfo.requestId) &&
-        Objects.equals(this.transactionId, transactionFuelingInfo.transactionId) &&
-        Objects.equals(this.mainTransactionId, transactionFuelingInfo.mainTransactionId)&&
-        Objects.equals(this.additionalProperties, transactionFuelingInfo.additionalProperties);
+    LinkDisplayInfo linkDisplayInfo = (LinkDisplayInfo) o;
+    return Objects.equals(this.developerName, linkDisplayInfo.developerName) &&
+        Objects.equals(this.logo, linkDisplayInfo.logo)&&
+        Objects.equals(this.additionalProperties, linkDisplayInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, transactionId, mainTransactionId, additionalProperties);
+    return Objects.hash(developerName, logo, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TransactionFuelingInfo {\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
-    sb.append("    mainTransactionId: ").append(toIndentedString(mainTransactionId)).append("\n");
+    sb.append("class LinkDisplayInfo {\n");
+    sb.append("    developerName: ").append(toIndentedString(developerName)).append("\n");
+    sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -220,9 +195,8 @@ public class TransactionFuelingInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("request_id");
-    openapiFields.add("transaction_id");
-    openapiFields.add("main_transaction_id");
+    openapiFields.add("developer_name");
+    openapiFields.add("logo");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -232,23 +206,20 @@ public class TransactionFuelingInfo {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TransactionFuelingInfo
+  * @throws IOException if the JSON Element is invalid with respect to LinkDisplayInfo
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TransactionFuelingInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionFuelingInfo is not found in the empty JSON string", TransactionFuelingInfo.openapiRequiredFields.toString()));
+        if (!LinkDisplayInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in LinkDisplayInfo is not found in the empty JSON string", LinkDisplayInfo.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      if ((jsonObj.get("developer_name") != null && !jsonObj.get("developer_name").isJsonNull()) && !jsonObj.get("developer_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `developer_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("developer_name").toString()));
       }
-      if ((jsonObj.get("transaction_id") != null && !jsonObj.get("transaction_id").isJsonNull()) && !jsonObj.get("transaction_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transaction_id").toString()));
-      }
-      if ((jsonObj.get("main_transaction_id") != null && !jsonObj.get("main_transaction_id").isJsonNull()) && !jsonObj.get("main_transaction_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `main_transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("main_transaction_id").toString()));
+      if ((jsonObj.get("logo") != null && !jsonObj.get("logo").isJsonNull()) && !jsonObj.get("logo").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `logo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logo").toString()));
       }
   }
 
@@ -256,16 +227,16 @@ public class TransactionFuelingInfo {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TransactionFuelingInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TransactionFuelingInfo' and its subtypes
+       if (!LinkDisplayInfo.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'LinkDisplayInfo' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TransactionFuelingInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionFuelingInfo.class));
+       final TypeAdapter<LinkDisplayInfo> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(LinkDisplayInfo.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TransactionFuelingInfo>() {
+       return (TypeAdapter<T>) new TypeAdapter<LinkDisplayInfo>() {
            @Override
-           public void write(JsonWriter out, TransactionFuelingInfo value) throws IOException {
+           public void write(JsonWriter out, LinkDisplayInfo value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -295,12 +266,12 @@ public class TransactionFuelingInfo {
            }
 
            @Override
-           public TransactionFuelingInfo read(JsonReader in) throws IOException {
+           public LinkDisplayInfo read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TransactionFuelingInfo instance = thisAdapter.fromJsonTree(jsonObj);
+             LinkDisplayInfo instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -327,18 +298,18 @@ public class TransactionFuelingInfo {
   }
 
  /**
-  * Create an instance of TransactionFuelingInfo given an JSON string
+  * Create an instance of LinkDisplayInfo given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of TransactionFuelingInfo
-  * @throws IOException if the JSON string is invalid with respect to TransactionFuelingInfo
+  * @return An instance of LinkDisplayInfo
+  * @throws IOException if the JSON string is invalid with respect to LinkDisplayInfo
   */
-  public static TransactionFuelingInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TransactionFuelingInfo.class);
+  public static LinkDisplayInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, LinkDisplayInfo.class);
   }
 
  /**
-  * Convert an instance of TransactionFuelingInfo to an JSON string
+  * Convert an instance of LinkDisplayInfo to an JSON string
   *
   * @return JSON string
   */

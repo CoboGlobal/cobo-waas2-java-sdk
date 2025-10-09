@@ -30,6 +30,7 @@ import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.CreateBankAccountRequest;
 import com.cobo.waas2.model.CreateCryptoAddressRequest;
 import com.cobo.waas2.model.CreateMerchantRequest;
+import com.cobo.waas2.model.CreateOrderLinkRequest;
 import com.cobo.waas2.model.CreatePaymentOrderRequest;
 import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
@@ -41,6 +42,7 @@ import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
+import com.cobo.waas2.model.Link;
 import com.cobo.waas2.model.ListForcedSweepRequests200Response;
 import com.cobo.waas2.model.ListMerchantBalances200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
@@ -670,6 +672,119 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = createMerchantValidateBeforeCall(createMerchantRequest, _callback);
         Type localVarReturnType = new TypeToken<Merchant>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createOrderLink
+     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createOrderLinkCall(CreateOrderLinkRequest createOrderLinkRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createOrderLinkRequest;
+
+        // create path and map variables
+        String localVarPath = "/payments/links/orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createOrderLinkValidateBeforeCall(CreateOrderLinkRequest createOrderLinkRequest, final ApiCallback _callback) throws ApiException {
+        return createOrderLinkCall(createOrderLinkRequest, _callback);
+
+    }
+
+    /**
+     * Create order link
+     * This operation creates a payment link of a pay-in order. 
+     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * @return Link
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Link createOrderLink(CreateOrderLinkRequest createOrderLinkRequest) throws ApiException {
+        ApiResponse<Link> localVarResp = createOrderLinkWithHttpInfo(createOrderLinkRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create order link
+     * This operation creates a payment link of a pay-in order. 
+     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * @return ApiResponse&lt;Link&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Link> createOrderLinkWithHttpInfo(CreateOrderLinkRequest createOrderLinkRequest) throws ApiException {
+        okhttp3.Call localVarCall = createOrderLinkValidateBeforeCall(createOrderLinkRequest, null);
+        Type localVarReturnType = new TypeToken<Link>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create order link (asynchronously)
+     * This operation creates a payment link of a pay-in order. 
+     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createOrderLinkAsync(CreateOrderLinkRequest createOrderLinkRequest, final ApiCallback<Link> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createOrderLinkValidateBeforeCall(createOrderLinkRequest, _callback);
+        Type localVarReturnType = new TypeToken<Link>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3296,6 +3411,7 @@ public class PaymentApi {
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
+     * @param walletId The wallet ID. (optional)
      * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3308,7 +3424,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listMerchantsCall(Integer limit, String before, String after, String keyword, WalletSetup walletSetup, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listMerchantsCall(Integer limit, String before, String after, String keyword, UUID walletId, WalletSetup walletSetup, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3336,6 +3452,10 @@ public class PaymentApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("keyword", keyword));
         }
 
+        if (walletId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("wallet_id", walletId));
+        }
+
         if (walletSetup != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("wallet_setup", walletSetup));
         }
@@ -3360,8 +3480,8 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMerchantsValidateBeforeCall(Integer limit, String before, String after, String keyword, WalletSetup walletSetup, final ApiCallback _callback) throws ApiException {
-        return listMerchantsCall(limit, before, after, keyword, walletSetup, _callback);
+    private okhttp3.Call listMerchantsValidateBeforeCall(Integer limit, String before, String after, String keyword, UUID walletId, WalletSetup walletSetup, final ApiCallback _callback) throws ApiException {
+        return listMerchantsCall(limit, before, after, keyword, walletId, walletSetup, _callback);
 
     }
 
@@ -3372,6 +3492,7 @@ public class PaymentApi {
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
+     * @param walletId The wallet ID. (optional)
      * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
      * @return ListMerchants200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3383,8 +3504,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListMerchants200Response listMerchants(Integer limit, String before, String after, String keyword, WalletSetup walletSetup) throws ApiException {
-        ApiResponse<ListMerchants200Response> localVarResp = listMerchantsWithHttpInfo(limit, before, after, keyword, walletSetup);
+    public ListMerchants200Response listMerchants(Integer limit, String before, String after, String keyword, UUID walletId, WalletSetup walletSetup) throws ApiException {
+        ApiResponse<ListMerchants200Response> localVarResp = listMerchantsWithHttpInfo(limit, before, after, keyword, walletId, walletSetup);
         return localVarResp.getData();
     }
 
@@ -3395,6 +3516,7 @@ public class PaymentApi {
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
+     * @param walletId The wallet ID. (optional)
      * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
      * @return ApiResponse&lt;ListMerchants200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3406,8 +3528,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListMerchants200Response> listMerchantsWithHttpInfo(Integer limit, String before, String after, String keyword, WalletSetup walletSetup) throws ApiException {
-        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(limit, before, after, keyword, walletSetup, null);
+    public ApiResponse<ListMerchants200Response> listMerchantsWithHttpInfo(Integer limit, String before, String after, String keyword, UUID walletId, WalletSetup walletSetup) throws ApiException {
+        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(limit, before, after, keyword, walletId, walletSetup, null);
         Type localVarReturnType = new TypeToken<ListMerchants200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3419,6 +3541,7 @@ public class PaymentApi {
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
+     * @param walletId The wallet ID. (optional)
      * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3431,9 +3554,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listMerchantsAsync(Integer limit, String before, String after, String keyword, WalletSetup walletSetup, final ApiCallback<ListMerchants200Response> _callback) throws ApiException {
+    public okhttp3.Call listMerchantsAsync(Integer limit, String before, String after, String keyword, UUID walletId, WalletSetup walletSetup, final ApiCallback<ListMerchants200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(limit, before, after, keyword, walletSetup, _callback);
+        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(limit, before, after, keyword, walletId, walletSetup, _callback);
         Type localVarReturnType = new TypeToken<ListMerchants200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -16,6 +16,7 @@
 |**pspOrderCode** | **String** | A unique reference code assigned by the developer to identify this order in their system. |  |
 |**expiredIn** | **Integer** | The pay-in order will expire after approximately a certain number of seconds: - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event.  |  [optional] |
 |**useDedicatedAddress** | **Boolean** | Indicates whether to allocate a dedicated address for this order.  If false, a shared address from the address pool will be used.  |  [optional] |
+|**customExchangeRate** | **String** | A custom exchange rate specified by the merchant.   - Only effective when &#x60;currency&#x60; is &#x60;\&quot;USD\&quot;&#x60;.   - Expressed as the amount of USD per 1 unit of the specified cryptocurrency.   - If not provided, the system will use the default internal rate.   Example: If the cryptocurrency is USDT and &#x60;custom_exchange_rate&#x60; &#x3D; &#x60;\&quot;0.99\&quot;&#x60;, it means 1 USDT &#x3D; 0.99 USD.  |  [optional] |
 
 
 

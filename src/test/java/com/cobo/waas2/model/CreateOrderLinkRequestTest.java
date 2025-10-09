@@ -11,6 +11,8 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.LinkDisplayInfo;
+import com.cobo.waas2.model.OrderLinkBusinessInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -18,46 +20,37 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TransactionFuelingInfo
+ * Model tests for CreateOrderLinkRequest
  */
-public class TransactionFuelingInfoTest {
-    private final TransactionFuelingInfo model = new TransactionFuelingInfo();
+public class CreateOrderLinkRequestTest {
+    private final CreateOrderLinkRequest model = new CreateOrderLinkRequest();
 
     /**
-     * Model tests for TransactionFuelingInfo
+     * Model tests for CreateOrderLinkRequest
      */
     @Test
-    public void testTransactionFuelingInfo() {
-        // TODO: test TransactionFuelingInfo
+    public void testCreateOrderLinkRequest() {
+        // TODO: test CreateOrderLinkRequest
     }
 
     /**
-     * Test the property 'requestId'
+     * Test the property 'businessInfo'
      */
     @Test
-    public void requestIdTest() {
-        // TODO: test requestId
+    public void businessInfoTest() {
+        // TODO: test businessInfo
     }
 
     /**
-     * Test the property 'transactionId'
+     * Test the property 'displayInfo'
      */
     @Test
-    public void transactionIdTest() {
-        // TODO: test transactionId
-    }
-
-    /**
-     * Test the property 'mainTransactionId'
-     */
-    @Test
-    public void mainTransactionIdTest() {
-        // TODO: test mainTransactionId
+    public void displayInfoTest() {
+        // TODO: test displayInfo
     }
 
 }

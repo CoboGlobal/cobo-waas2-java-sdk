@@ -18,8 +18,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.UUID;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,82 +47,75 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Details of the auto-fueling transaction that provides gas for the current transaction.
+ * Role-based permission settings for Solana wrapped token. The owner is automatically set to the address that calls the initialize function (typically the issuance wallet) and cannot be specified here. Only wrapper and pauser roles can be configured during initialization.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class TransactionFuelingInfo {
-  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
-  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  private String requestId;
+public class TokenizationSolWrappedTokenPermissionParams {
+  public static final String SERIALIZED_NAME_WRAPPER = "wrapper";
+  @SerializedName(SERIALIZED_NAME_WRAPPER)
+  private List<String> wrapper = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
-  @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
-  private UUID transactionId;
+  public static final String SERIALIZED_NAME_PAUSER = "pauser";
+  @SerializedName(SERIALIZED_NAME_PAUSER)
+  private List<String> pauser = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_MAIN_TRANSACTION_ID = "main_transaction_id";
-  @SerializedName(SERIALIZED_NAME_MAIN_TRANSACTION_ID)
-  private UUID mainTransactionId;
-
-  public TransactionFuelingInfo() {
+  public TokenizationSolWrappedTokenPermissionParams() {
   }
 
-  public TransactionFuelingInfo requestId(String requestId) {
-    this.requestId = requestId;
+  public TokenizationSolWrappedTokenPermissionParams wrapper(List<String> wrapper) {
+    this.wrapper = wrapper;
+    return this;
+  }
+
+  public TokenizationSolWrappedTokenPermissionParams addWrapperItem(String wrapperItem) {
+    if (this.wrapper == null) {
+      this.wrapper = new ArrayList<>();
+    }
+    this.wrapper.add(wrapperItem);
     return this;
   }
 
    /**
-   * The request ID of the transaction.
-   * @return requestId
+   * List of Solana wallet addresses that can perform wrap/unwrap operations. Multiple addresses can be assigned this role.
+   * @return wrapper
   **/
   @javax.annotation.Nullable
-  public String getRequestId() {
-    return requestId;
+  public List<String> getWrapper() {
+    return wrapper;
   }
 
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
+  public void setWrapper(List<String> wrapper) {
+    this.wrapper = wrapper;
   }
 
 
-  public TransactionFuelingInfo transactionId(UUID transactionId) {
-    this.transactionId = transactionId;
+  public TokenizationSolWrappedTokenPermissionParams pauser(List<String> pauser) {
+    this.pauser = pauser;
+    return this;
+  }
+
+  public TokenizationSolWrappedTokenPermissionParams addPauserItem(String pauserItem) {
+    if (this.pauser == null) {
+      this.pauser = new ArrayList<>();
+    }
+    this.pauser.add(pauserItem);
     return this;
   }
 
    /**
-   * The transaction ID.
-   * @return transactionId
+   * List of Solana wallet addresses that can pause/unpause the contract. Multiple addresses can be assigned this role.
+   * @return pauser
   **/
   @javax.annotation.Nullable
-  public UUID getTransactionId() {
-    return transactionId;
+  public List<String> getPauser() {
+    return pauser;
   }
 
-  public void setTransactionId(UUID transactionId) {
-    this.transactionId = transactionId;
-  }
-
-
-  public TransactionFuelingInfo mainTransactionId(UUID mainTransactionId) {
-    this.mainTransactionId = mainTransactionId;
-    return this;
-  }
-
-   /**
-   * The UUID of the parent (main) transaction that this record is associated with. Set only when the current record is a gas/fee transaction initiated by FeeStation; omit for main transactions.
-   * @return mainTransactionId
-  **/
-  @javax.annotation.Nullable
-  public UUID getMainTransactionId() {
-    return mainTransactionId;
-  }
-
-  public void setMainTransactionId(UUID mainTransactionId) {
-    this.mainTransactionId = mainTransactionId;
+  public void setPauser(List<String> pauser) {
+    this.pauser = pauser;
   }
 
   /**
@@ -137,9 +131,9 @@ public class TransactionFuelingInfo {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TransactionFuelingInfo instance itself
+   * @return the TokenizationSolWrappedTokenPermissionParams instance itself
    */
-  public TransactionFuelingInfo putAdditionalProperty(String key, Object value) {
+  public TokenizationSolWrappedTokenPermissionParams putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -178,25 +172,23 @@ public class TransactionFuelingInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TransactionFuelingInfo transactionFuelingInfo = (TransactionFuelingInfo) o;
-    return Objects.equals(this.requestId, transactionFuelingInfo.requestId) &&
-        Objects.equals(this.transactionId, transactionFuelingInfo.transactionId) &&
-        Objects.equals(this.mainTransactionId, transactionFuelingInfo.mainTransactionId)&&
-        Objects.equals(this.additionalProperties, transactionFuelingInfo.additionalProperties);
+    TokenizationSolWrappedTokenPermissionParams tokenizationSolWrappedTokenPermissionParams = (TokenizationSolWrappedTokenPermissionParams) o;
+    return Objects.equals(this.wrapper, tokenizationSolWrappedTokenPermissionParams.wrapper) &&
+        Objects.equals(this.pauser, tokenizationSolWrappedTokenPermissionParams.pauser)&&
+        Objects.equals(this.additionalProperties, tokenizationSolWrappedTokenPermissionParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, transactionId, mainTransactionId, additionalProperties);
+    return Objects.hash(wrapper, pauser, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TransactionFuelingInfo {\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
-    sb.append("    mainTransactionId: ").append(toIndentedString(mainTransactionId)).append("\n");
+    sb.append("class TokenizationSolWrappedTokenPermissionParams {\n");
+    sb.append("    wrapper: ").append(toIndentedString(wrapper)).append("\n");
+    sb.append("    pauser: ").append(toIndentedString(pauser)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -220,9 +212,8 @@ public class TransactionFuelingInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("request_id");
-    openapiFields.add("transaction_id");
-    openapiFields.add("main_transaction_id");
+    openapiFields.add("wrapper");
+    openapiFields.add("pauser");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -232,23 +223,22 @@ public class TransactionFuelingInfo {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TransactionFuelingInfo
+  * @throws IOException if the JSON Element is invalid with respect to TokenizationSolWrappedTokenPermissionParams
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TransactionFuelingInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionFuelingInfo is not found in the empty JSON string", TransactionFuelingInfo.openapiRequiredFields.toString()));
+        if (!TokenizationSolWrappedTokenPermissionParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenizationSolWrappedTokenPermissionParams is not found in the empty JSON string", TokenizationSolWrappedTokenPermissionParams.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("wrapper") != null && !jsonObj.get("wrapper").isJsonNull() && !jsonObj.get("wrapper").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wrapper` to be an array in the JSON string but got `%s`", jsonObj.get("wrapper").toString()));
       }
-      if ((jsonObj.get("transaction_id") != null && !jsonObj.get("transaction_id").isJsonNull()) && !jsonObj.get("transaction_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transaction_id").toString()));
-      }
-      if ((jsonObj.get("main_transaction_id") != null && !jsonObj.get("main_transaction_id").isJsonNull()) && !jsonObj.get("main_transaction_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `main_transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("main_transaction_id").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("pauser") != null && !jsonObj.get("pauser").isJsonNull() && !jsonObj.get("pauser").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pauser` to be an array in the JSON string but got `%s`", jsonObj.get("pauser").toString()));
       }
   }
 
@@ -256,16 +246,16 @@ public class TransactionFuelingInfo {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TransactionFuelingInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TransactionFuelingInfo' and its subtypes
+       if (!TokenizationSolWrappedTokenPermissionParams.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TokenizationSolWrappedTokenPermissionParams' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TransactionFuelingInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionFuelingInfo.class));
+       final TypeAdapter<TokenizationSolWrappedTokenPermissionParams> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TokenizationSolWrappedTokenPermissionParams.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TransactionFuelingInfo>() {
+       return (TypeAdapter<T>) new TypeAdapter<TokenizationSolWrappedTokenPermissionParams>() {
            @Override
-           public void write(JsonWriter out, TransactionFuelingInfo value) throws IOException {
+           public void write(JsonWriter out, TokenizationSolWrappedTokenPermissionParams value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -295,12 +285,12 @@ public class TransactionFuelingInfo {
            }
 
            @Override
-           public TransactionFuelingInfo read(JsonReader in) throws IOException {
+           public TokenizationSolWrappedTokenPermissionParams read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TransactionFuelingInfo instance = thisAdapter.fromJsonTree(jsonObj);
+             TokenizationSolWrappedTokenPermissionParams instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -327,18 +317,18 @@ public class TransactionFuelingInfo {
   }
 
  /**
-  * Create an instance of TransactionFuelingInfo given an JSON string
+  * Create an instance of TokenizationSolWrappedTokenPermissionParams given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of TransactionFuelingInfo
-  * @throws IOException if the JSON string is invalid with respect to TransactionFuelingInfo
+  * @return An instance of TokenizationSolWrappedTokenPermissionParams
+  * @throws IOException if the JSON string is invalid with respect to TokenizationSolWrappedTokenPermissionParams
   */
-  public static TransactionFuelingInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TransactionFuelingInfo.class);
+  public static TokenizationSolWrappedTokenPermissionParams fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TokenizationSolWrappedTokenPermissionParams.class);
   }
 
  /**
-  * Convert an instance of TransactionFuelingInfo to an JSON string
+  * Convert an instance of TokenizationSolWrappedTokenPermissionParams to an JSON string
   *
   * @return JSON string
   */

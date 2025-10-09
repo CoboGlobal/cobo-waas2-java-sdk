@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.TokenizationERC20WrappedTokenPermissionParams;
+import com.cobo.waas2.model.TokenizationSolWrappedTokenPermissionParams;
 import com.cobo.waas2.model.TokenizationTokenStandard;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -47,13 +47,13 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * TokenizationERC20WrappedTokenParams
+ * TokenizationSOLWrappedTokenParams
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class TokenizationERC20WrappedTokenParams {
+public class TokenizationSOLWrappedTokenParams {
   public static final String SERIALIZED_NAME_STANDARD = "standard";
   @SerializedName(SERIALIZED_NAME_STANDARD)
   private TokenizationTokenStandard standard;
@@ -68,20 +68,16 @@ public class TokenizationERC20WrappedTokenParams {
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-  private TokenizationERC20WrappedTokenPermissionParams permissions;
-
-  public static final String SERIALIZED_NAME_TOKEN_ACCESS_ACTIVATED = "token_access_activated";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ACCESS_ACTIVATED)
-  private Boolean tokenAccessActivated = false;
+  private TokenizationSolWrappedTokenPermissionParams permissions;
 
   public static final String SERIALIZED_NAME_UNDERLYING_TOKEN = "underlying_token";
   @SerializedName(SERIALIZED_NAME_UNDERLYING_TOKEN)
   private String underlyingToken;
 
-  public TokenizationERC20WrappedTokenParams() {
+  public TokenizationSOLWrappedTokenParams() {
   }
 
-  public TokenizationERC20WrappedTokenParams standard(TokenizationTokenStandard standard) {
+  public TokenizationSOLWrappedTokenParams standard(TokenizationTokenStandard standard) {
     this.standard = standard;
     return this;
   }
@@ -100,7 +96,7 @@ public class TokenizationERC20WrappedTokenParams {
   }
 
 
-  public TokenizationERC20WrappedTokenParams name(String name) {
+  public TokenizationSOLWrappedTokenParams name(String name) {
     this.name = name;
     return this;
   }
@@ -119,7 +115,7 @@ public class TokenizationERC20WrappedTokenParams {
   }
 
 
-  public TokenizationERC20WrappedTokenParams symbol(String symbol) {
+  public TokenizationSOLWrappedTokenParams symbol(String symbol) {
     this.symbol = symbol;
     return this;
   }
@@ -138,7 +134,7 @@ public class TokenizationERC20WrappedTokenParams {
   }
 
 
-  public TokenizationERC20WrappedTokenParams permissions(TokenizationERC20WrappedTokenPermissionParams permissions) {
+  public TokenizationSOLWrappedTokenParams permissions(TokenizationSolWrappedTokenPermissionParams permissions) {
     this.permissions = permissions;
     return this;
   }
@@ -148,35 +144,16 @@ public class TokenizationERC20WrappedTokenParams {
    * @return permissions
   **/
   @javax.annotation.Nullable
-  public TokenizationERC20WrappedTokenPermissionParams getPermissions() {
+  public TokenizationSolWrappedTokenPermissionParams getPermissions() {
     return permissions;
   }
 
-  public void setPermissions(TokenizationERC20WrappedTokenPermissionParams permissions) {
+  public void setPermissions(TokenizationSolWrappedTokenPermissionParams permissions) {
     this.permissions = permissions;
   }
 
 
-  public TokenizationERC20WrappedTokenParams tokenAccessActivated(Boolean tokenAccessActivated) {
-    this.tokenAccessActivated = tokenAccessActivated;
-    return this;
-  }
-
-   /**
-   * Whether the allowlist feature is activated for the token. When activated, only addresses in the allowlist can perform token operations.
-   * @return tokenAccessActivated
-  **/
-  @javax.annotation.Nullable
-  public Boolean getTokenAccessActivated() {
-    return tokenAccessActivated;
-  }
-
-  public void setTokenAccessActivated(Boolean tokenAccessActivated) {
-    this.tokenAccessActivated = tokenAccessActivated;
-  }
-
-
-  public TokenizationERC20WrappedTokenParams underlyingToken(String underlyingToken) {
+  public TokenizationSOLWrappedTokenParams underlyingToken(String underlyingToken) {
     this.underlyingToken = underlyingToken;
     return this;
   }
@@ -207,9 +184,9 @@ public class TokenizationERC20WrappedTokenParams {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TokenizationERC20WrappedTokenParams instance itself
+   * @return the TokenizationSOLWrappedTokenParams instance itself
    */
-  public TokenizationERC20WrappedTokenParams putAdditionalProperty(String key, Object value) {
+  public TokenizationSOLWrappedTokenParams putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -248,30 +225,28 @@ public class TokenizationERC20WrappedTokenParams {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TokenizationERC20WrappedTokenParams tokenizationERC20WrappedTokenParams = (TokenizationERC20WrappedTokenParams) o;
-    return Objects.equals(this.standard, tokenizationERC20WrappedTokenParams.standard) &&
-        Objects.equals(this.name, tokenizationERC20WrappedTokenParams.name) &&
-        Objects.equals(this.symbol, tokenizationERC20WrappedTokenParams.symbol) &&
-        Objects.equals(this.permissions, tokenizationERC20WrappedTokenParams.permissions) &&
-        Objects.equals(this.tokenAccessActivated, tokenizationERC20WrappedTokenParams.tokenAccessActivated) &&
-        Objects.equals(this.underlyingToken, tokenizationERC20WrappedTokenParams.underlyingToken)&&
-        Objects.equals(this.additionalProperties, tokenizationERC20WrappedTokenParams.additionalProperties);
+    TokenizationSOLWrappedTokenParams tokenizationSOLWrappedTokenParams = (TokenizationSOLWrappedTokenParams) o;
+    return Objects.equals(this.standard, tokenizationSOLWrappedTokenParams.standard) &&
+        Objects.equals(this.name, tokenizationSOLWrappedTokenParams.name) &&
+        Objects.equals(this.symbol, tokenizationSOLWrappedTokenParams.symbol) &&
+        Objects.equals(this.permissions, tokenizationSOLWrappedTokenParams.permissions) &&
+        Objects.equals(this.underlyingToken, tokenizationSOLWrappedTokenParams.underlyingToken)&&
+        Objects.equals(this.additionalProperties, tokenizationSOLWrappedTokenParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(standard, name, symbol, permissions, tokenAccessActivated, underlyingToken, additionalProperties);
+    return Objects.hash(standard, name, symbol, permissions, underlyingToken, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TokenizationERC20WrappedTokenParams {\n");
+    sb.append("class TokenizationSOLWrappedTokenParams {\n");
     sb.append("    standard: ").append(toIndentedString(standard)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    tokenAccessActivated: ").append(toIndentedString(tokenAccessActivated)).append("\n");
     sb.append("    underlyingToken: ").append(toIndentedString(underlyingToken)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -300,7 +275,6 @@ public class TokenizationERC20WrappedTokenParams {
     openapiFields.add("name");
     openapiFields.add("symbol");
     openapiFields.add("permissions");
-    openapiFields.add("token_access_activated");
     openapiFields.add("underlying_token");
 
     // a set of required properties/fields (JSON key names)
@@ -315,17 +289,17 @@ public class TokenizationERC20WrappedTokenParams {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TokenizationERC20WrappedTokenParams
+  * @throws IOException if the JSON Element is invalid with respect to TokenizationSOLWrappedTokenParams
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TokenizationERC20WrappedTokenParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenizationERC20WrappedTokenParams is not found in the empty JSON string", TokenizationERC20WrappedTokenParams.openapiRequiredFields.toString()));
+        if (!TokenizationSOLWrappedTokenParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenizationSOLWrappedTokenParams is not found in the empty JSON string", TokenizationSOLWrappedTokenParams.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TokenizationERC20WrappedTokenParams.openapiRequiredFields) {
+      for (String requiredField : TokenizationSOLWrappedTokenParams.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -341,7 +315,7 @@ public class TokenizationERC20WrappedTokenParams {
       }
       // validate the optional field `permissions`
       if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
-        TokenizationERC20WrappedTokenPermissionParams.validateJsonElement(jsonObj.get("permissions"));
+        TokenizationSolWrappedTokenPermissionParams.validateJsonElement(jsonObj.get("permissions"));
       }
       if (!jsonObj.get("underlying_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `underlying_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("underlying_token").toString()));
@@ -352,16 +326,16 @@ public class TokenizationERC20WrappedTokenParams {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TokenizationERC20WrappedTokenParams.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TokenizationERC20WrappedTokenParams' and its subtypes
+       if (!TokenizationSOLWrappedTokenParams.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TokenizationSOLWrappedTokenParams' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TokenizationERC20WrappedTokenParams> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TokenizationERC20WrappedTokenParams.class));
+       final TypeAdapter<TokenizationSOLWrappedTokenParams> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TokenizationSOLWrappedTokenParams.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TokenizationERC20WrappedTokenParams>() {
+       return (TypeAdapter<T>) new TypeAdapter<TokenizationSOLWrappedTokenParams>() {
            @Override
-           public void write(JsonWriter out, TokenizationERC20WrappedTokenParams value) throws IOException {
+           public void write(JsonWriter out, TokenizationSOLWrappedTokenParams value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -391,12 +365,12 @@ public class TokenizationERC20WrappedTokenParams {
            }
 
            @Override
-           public TokenizationERC20WrappedTokenParams read(JsonReader in) throws IOException {
+           public TokenizationSOLWrappedTokenParams read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TokenizationERC20WrappedTokenParams instance = thisAdapter.fromJsonTree(jsonObj);
+             TokenizationSOLWrappedTokenParams instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -423,18 +397,18 @@ public class TokenizationERC20WrappedTokenParams {
   }
 
  /**
-  * Create an instance of TokenizationERC20WrappedTokenParams given an JSON string
+  * Create an instance of TokenizationSOLWrappedTokenParams given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of TokenizationERC20WrappedTokenParams
-  * @throws IOException if the JSON string is invalid with respect to TokenizationERC20WrappedTokenParams
+  * @return An instance of TokenizationSOLWrappedTokenParams
+  * @throws IOException if the JSON string is invalid with respect to TokenizationSOLWrappedTokenParams
   */
-  public static TokenizationERC20WrappedTokenParams fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TokenizationERC20WrappedTokenParams.class);
+  public static TokenizationSOLWrappedTokenParams fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TokenizationSOLWrappedTokenParams.class);
   }
 
  /**
-  * Convert an instance of TokenizationERC20WrappedTokenParams to an JSON string
+  * Convert an instance of TokenizationSOLWrappedTokenParams to an JSON string
   *
   * @return JSON string
   */
