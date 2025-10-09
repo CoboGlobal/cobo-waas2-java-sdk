@@ -87,6 +87,10 @@ public class CreateSettlementRequestRequest {
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
+  public static final String SERIALIZED_NAME_REMARK = "remark";
+  @SerializedName(SERIALIZED_NAME_REMARK)
+  private String remark;
+
   public CreateSettlementRequestRequest() {
   }
 
@@ -230,6 +234,25 @@ public class CreateSettlementRequestRequest {
     this.currency = currency;
   }
 
+
+  public CreateSettlementRequestRequest remark(String remark) {
+    this.remark = remark;
+    return this;
+  }
+
+   /**
+   * The remark for the settlement request.
+   * @return remark
+  **/
+  @javax.annotation.Nullable
+  public String getRemark() {
+    return remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -291,13 +314,14 @@ public class CreateSettlementRequestRequest {
         Objects.equals(this.settlementType, createSettlementRequestRequest.settlementType) &&
         Objects.equals(this.settlements, createSettlementRequestRequest.settlements) &&
         Objects.equals(this.bankAccountId, createSettlementRequestRequest.bankAccountId) &&
-        Objects.equals(this.currency, createSettlementRequestRequest.currency)&&
+        Objects.equals(this.currency, createSettlementRequestRequest.currency) &&
+        Objects.equals(this.remark, createSettlementRequestRequest.remark)&&
         Objects.equals(this.additionalProperties, createSettlementRequestRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, acquiringType, payoutChannel, settlementType, settlements, bankAccountId, currency, additionalProperties);
+    return Objects.hash(requestId, acquiringType, payoutChannel, settlementType, settlements, bankAccountId, currency, remark, additionalProperties);
   }
 
   @Override
@@ -311,6 +335,7 @@ public class CreateSettlementRequestRequest {
     sb.append("    settlements: ").append(toIndentedString(settlements)).append("\n");
     sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    remark: ").append(toIndentedString(remark)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -341,6 +366,7 @@ public class CreateSettlementRequestRequest {
     openapiFields.add("settlements");
     openapiFields.add("bank_account_id");
     openapiFields.add("currency");
+    openapiFields.add("remark");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -398,6 +424,9 @@ public class CreateSettlementRequestRequest {
       }
       if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
+      if ((jsonObj.get("remark") != null && !jsonObj.get("remark").isJsonNull()) && !jsonObj.get("remark").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `remark` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remark").toString()));
       }
   }
 

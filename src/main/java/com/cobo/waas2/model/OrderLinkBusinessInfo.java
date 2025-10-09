@@ -12,13 +12,16 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.OrderLinkBusinessInfoCustomExchangeRatesInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,32 +48,36 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * CreatePaymentOrderRequest
+ * OrderLinkBusinessInfo
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class CreatePaymentOrderRequest {
-  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
-  private String merchantId;
+public class OrderLinkBusinessInfo {
+  public static final String SERIALIZED_NAME_TOKEN_IDS = "token_ids";
+  @SerializedName(SERIALIZED_NAME_TOKEN_IDS)
+  private List<String> tokenIds = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
+  public static final String SERIALIZED_NAME_CUSTOM_EXCHANGE_RATES = "custom_exchange_rates";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_EXCHANGE_RATES)
+  private List<OrderLinkBusinessInfoCustomExchangeRatesInner> customExchangeRates = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency = "";
 
-  public static final String SERIALIZED_NAME_ORDER_AMOUNT = "order_amount";
-  @SerializedName(SERIALIZED_NAME_ORDER_AMOUNT)
-  private String orderAmount;
-
   public static final String SERIALIZED_NAME_FEE_AMOUNT = "fee_amount";
   @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
   private String feeAmount;
+
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
+
+  public static final String SERIALIZED_NAME_ORDER_AMOUNT = "order_amount";
+  @SerializedName(SERIALIZED_NAME_ORDER_AMOUNT)
+  private String orderAmount;
 
   public static final String SERIALIZED_NAME_MERCHANT_ORDER_CODE = "merchant_order_code";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ORDER_CODE)
@@ -82,20 +89,108 @@ public class CreatePaymentOrderRequest {
 
   public static final String SERIALIZED_NAME_EXPIRED_IN = "expired_in";
   @SerializedName(SERIALIZED_NAME_EXPIRED_IN)
-  private Integer expiredIn;
+  private Integer expiredIn = 1800;
 
   public static final String SERIALIZED_NAME_USE_DEDICATED_ADDRESS = "use_dedicated_address";
   @SerializedName(SERIALIZED_NAME_USE_DEDICATED_ADDRESS)
   private Boolean useDedicatedAddress;
 
-  public static final String SERIALIZED_NAME_CUSTOM_EXCHANGE_RATE = "custom_exchange_rate";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_EXCHANGE_RATE)
-  private String customExchangeRate;
-
-  public CreatePaymentOrderRequest() {
+  public OrderLinkBusinessInfo() {
   }
 
-  public CreatePaymentOrderRequest merchantId(String merchantId) {
+  public OrderLinkBusinessInfo tokenIds(List<String> tokenIds) {
+    this.tokenIds = tokenIds;
+    return this;
+  }
+
+  public OrderLinkBusinessInfo addTokenIdsItem(String tokenIdsItem) {
+    if (this.tokenIds == null) {
+      this.tokenIds = new ArrayList<>();
+    }
+    this.tokenIds.add(tokenIdsItem);
+    return this;
+  }
+
+   /**
+   * List of supported cryptocurrency token IDs for this payment. Each token ID must be from the supported values. 
+   * @return tokenIds
+  **/
+  @javax.annotation.Nonnull
+  public List<String> getTokenIds() {
+    return tokenIds;
+  }
+
+  public void setTokenIds(List<String> tokenIds) {
+    this.tokenIds = tokenIds;
+  }
+
+
+  public OrderLinkBusinessInfo customExchangeRates(List<OrderLinkBusinessInfoCustomExchangeRatesInner> customExchangeRates) {
+    this.customExchangeRates = customExchangeRates;
+    return this;
+  }
+
+  public OrderLinkBusinessInfo addCustomExchangeRatesItem(OrderLinkBusinessInfoCustomExchangeRatesInner customExchangeRatesItem) {
+    if (this.customExchangeRates == null) {
+      this.customExchangeRates = new ArrayList<>();
+    }
+    this.customExchangeRates.add(customExchangeRatesItem);
+    return this;
+  }
+
+   /**
+   * Optional list of final exchange rates for different tokens. If provided, these rates will be used instead of real-time market rates. 
+   * @return customExchangeRates
+  **/
+  @javax.annotation.Nullable
+  public List<OrderLinkBusinessInfoCustomExchangeRatesInner> getCustomExchangeRates() {
+    return customExchangeRates;
+  }
+
+  public void setCustomExchangeRates(List<OrderLinkBusinessInfoCustomExchangeRatesInner> customExchangeRates) {
+    this.customExchangeRates = customExchangeRates;
+  }
+
+
+  public OrderLinkBusinessInfo currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * The fiat currency for the base order amount and the developer fee. Currently, only &#x60;USD&#x60; is supported.  If left empty, both &#x60;order_amount&#x60; and &#x60;fee_amount&#x60; will be denominated in the cryptocurrency specified by &#x60;token_id&#x60; 
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
+  public OrderLinkBusinessInfo feeAmount(String feeAmount) {
+    this.feeAmount = feeAmount;
+    return this;
+  }
+
+   /**
+   * The developer fee for the order, in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the fee is in the cryptocurrency specified by &#x60;token_id&#x60;.  If you are a merchant directly serving payers, set this field to &#x60;0&#x60;. Developer fees are only relevant for platforms like payment service providers (PSPs) that charge fees to their downstream merchants.  The developer fee is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example: - Base amount (&#x60;order_amount&#x60;): \&quot;100.00\&quot; - Developer fee (&#x60;fee_amount&#x60;): \&quot;2.00\&quot;  - Total charged to customer: \&quot;102.00\&quot;  Values can contain up to two decimal places. 
+   * @return feeAmount
+  **/
+  @javax.annotation.Nonnull
+  public String getFeeAmount() {
+    return feeAmount;
+  }
+
+  public void setFeeAmount(String feeAmount) {
+    this.feeAmount = feeAmount;
+  }
+
+
+  public OrderLinkBusinessInfo merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
@@ -114,51 +209,13 @@ public class CreatePaymentOrderRequest {
   }
 
 
-  public CreatePaymentOrderRequest tokenId(String tokenId) {
-    this.tokenId = tokenId;
-    return this;
-  }
-
-   /**
-   * The ID of the cryptocurrency used for payment. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
-   * @return tokenId
-  **/
-  @javax.annotation.Nonnull
-  public String getTokenId() {
-    return tokenId;
-  }
-
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
-  }
-
-
-  public CreatePaymentOrderRequest currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * The fiat currency of the order.
-   * @return currency
-  **/
-  @javax.annotation.Nullable
-  public String getCurrency() {
-    return currency;
-  }
-
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
-
-
-  public CreatePaymentOrderRequest orderAmount(String orderAmount) {
+  public OrderLinkBusinessInfo orderAmount(String orderAmount) {
     this.orderAmount = orderAmount;
     return this;
   }
 
    /**
-   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;). Values must be greater than &#x60;0&#x60; and contain two decimal places.
+   * The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;), in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the amount is in the cryptocurrency specified by &#x60;token_id&#x60;.   Values must be greater than &#x60;0&#x60; and contain two decimal places.  
    * @return orderAmount
   **/
   @javax.annotation.Nonnull
@@ -171,32 +228,13 @@ public class CreatePaymentOrderRequest {
   }
 
 
-  public CreatePaymentOrderRequest feeAmount(String feeAmount) {
-    this.feeAmount = feeAmount;
-    return this;
-  }
-
-   /**
-   * The developer fee for the order in fiat currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example, if order_amount is \&quot;100.00\&quot; and fee_amount is \&quot;2.00\&quot;, the customer will be charged \&quot;102.00\&quot; in total, with \&quot;100.00\&quot; being settled to the merchant and \&quot;2.00\&quot; settled to the developer. Values must be greater than 0 and contain two decimal places.
-   * @return feeAmount
-  **/
-  @javax.annotation.Nonnull
-  public String getFeeAmount() {
-    return feeAmount;
-  }
-
-  public void setFeeAmount(String feeAmount) {
-    this.feeAmount = feeAmount;
-  }
-
-
-  public CreatePaymentOrderRequest merchantOrderCode(String merchantOrderCode) {
+  public OrderLinkBusinessInfo merchantOrderCode(String merchantOrderCode) {
     this.merchantOrderCode = merchantOrderCode;
     return this;
   }
 
    /**
-   * A unique reference code assigned by the merchant to identify this order in their system.
+   * A unique reference code assigned by the merchant to identify this order in their system. The code should have a maximum length of 128 characters.
    * @return merchantOrderCode
   **/
   @javax.annotation.Nullable
@@ -209,13 +247,13 @@ public class CreatePaymentOrderRequest {
   }
 
 
-  public CreatePaymentOrderRequest pspOrderCode(String pspOrderCode) {
+  public OrderLinkBusinessInfo pspOrderCode(String pspOrderCode) {
     this.pspOrderCode = pspOrderCode;
     return this;
   }
 
    /**
-   * A unique reference code assigned by the developer to identify this order in their system.
+   * A unique reference code assigned by you as a developer to identify this order in your system. This code must be unique across all orders in your system. The code should have a maximum length of 128 characters. 
    * @return pspOrderCode
   **/
   @javax.annotation.Nonnull
@@ -228,13 +266,13 @@ public class CreatePaymentOrderRequest {
   }
 
 
-  public CreatePaymentOrderRequest expiredIn(Integer expiredIn) {
+  public OrderLinkBusinessInfo expiredIn(Integer expiredIn) {
     this.expiredIn = expiredIn;
     return this;
   }
 
    /**
-   * The pay-in order will expire after approximately a certain number of seconds: - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
+   * The number of seconds until the pay-in order expires, counted from when the request is sent. For example, if set to &#x60;1800&#x60;, the order will expire in 30 minutes. Must be greater than zero and cannot exceed 3 hours (10800 seconds). After expiration:  - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
    * @return expiredIn
   **/
   @javax.annotation.Nullable
@@ -247,13 +285,13 @@ public class CreatePaymentOrderRequest {
   }
 
 
-  public CreatePaymentOrderRequest useDedicatedAddress(Boolean useDedicatedAddress) {
+  public OrderLinkBusinessInfo useDedicatedAddress(Boolean useDedicatedAddress) {
     this.useDedicatedAddress = useDedicatedAddress;
     return this;
   }
 
    /**
-   * Indicates whether to allocate a dedicated address for this order.  If false, a shared address from the address pool will be used. 
+   * Whether to allocate a dedicated address for this order.  - &#x60;true&#x60;: A dedicated address will be allocated for this order. - &#x60;false&#x60;: A shared address from the address pool will be used. 
    * @return useDedicatedAddress
   **/
   @javax.annotation.Nullable
@@ -263,25 +301,6 @@ public class CreatePaymentOrderRequest {
 
   public void setUseDedicatedAddress(Boolean useDedicatedAddress) {
     this.useDedicatedAddress = useDedicatedAddress;
-  }
-
-
-  public CreatePaymentOrderRequest customExchangeRate(String customExchangeRate) {
-    this.customExchangeRate = customExchangeRate;
-    return this;
-  }
-
-   /**
-   * A custom exchange rate specified by the merchant.   - Only effective when &#x60;currency&#x60; is &#x60;\&quot;USD\&quot;&#x60;.   - Expressed as the amount of USD per 1 unit of the specified cryptocurrency.   - If not provided, the system will use the default internal rate.   Example: If the cryptocurrency is USDT and &#x60;custom_exchange_rate&#x60; &#x3D; &#x60;\&quot;0.99\&quot;&#x60;, it means 1 USDT &#x3D; 0.99 USD. 
-   * @return customExchangeRate
-  **/
-  @javax.annotation.Nullable
-  public String getCustomExchangeRate() {
-    return customExchangeRate;
-  }
-
-  public void setCustomExchangeRate(String customExchangeRate) {
-    this.customExchangeRate = customExchangeRate;
   }
 
   /**
@@ -297,9 +316,9 @@ public class CreatePaymentOrderRequest {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CreatePaymentOrderRequest instance itself
+   * @return the OrderLinkBusinessInfo instance itself
    */
-  public CreatePaymentOrderRequest putAdditionalProperty(String key, Object value) {
+  public OrderLinkBusinessInfo putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -338,39 +357,39 @@ public class CreatePaymentOrderRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePaymentOrderRequest createPaymentOrderRequest = (CreatePaymentOrderRequest) o;
-    return Objects.equals(this.merchantId, createPaymentOrderRequest.merchantId) &&
-        Objects.equals(this.tokenId, createPaymentOrderRequest.tokenId) &&
-        Objects.equals(this.currency, createPaymentOrderRequest.currency) &&
-        Objects.equals(this.orderAmount, createPaymentOrderRequest.orderAmount) &&
-        Objects.equals(this.feeAmount, createPaymentOrderRequest.feeAmount) &&
-        Objects.equals(this.merchantOrderCode, createPaymentOrderRequest.merchantOrderCode) &&
-        Objects.equals(this.pspOrderCode, createPaymentOrderRequest.pspOrderCode) &&
-        Objects.equals(this.expiredIn, createPaymentOrderRequest.expiredIn) &&
-        Objects.equals(this.useDedicatedAddress, createPaymentOrderRequest.useDedicatedAddress) &&
-        Objects.equals(this.customExchangeRate, createPaymentOrderRequest.customExchangeRate)&&
-        Objects.equals(this.additionalProperties, createPaymentOrderRequest.additionalProperties);
+    OrderLinkBusinessInfo orderLinkBusinessInfo = (OrderLinkBusinessInfo) o;
+    return Objects.equals(this.tokenIds, orderLinkBusinessInfo.tokenIds) &&
+        Objects.equals(this.customExchangeRates, orderLinkBusinessInfo.customExchangeRates) &&
+        Objects.equals(this.currency, orderLinkBusinessInfo.currency) &&
+        Objects.equals(this.feeAmount, orderLinkBusinessInfo.feeAmount) &&
+        Objects.equals(this.merchantId, orderLinkBusinessInfo.merchantId) &&
+        Objects.equals(this.orderAmount, orderLinkBusinessInfo.orderAmount) &&
+        Objects.equals(this.merchantOrderCode, orderLinkBusinessInfo.merchantOrderCode) &&
+        Objects.equals(this.pspOrderCode, orderLinkBusinessInfo.pspOrderCode) &&
+        Objects.equals(this.expiredIn, orderLinkBusinessInfo.expiredIn) &&
+        Objects.equals(this.useDedicatedAddress, orderLinkBusinessInfo.useDedicatedAddress)&&
+        Objects.equals(this.additionalProperties, orderLinkBusinessInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredIn, useDedicatedAddress, customExchangeRate, additionalProperties);
+    return Objects.hash(tokenIds, customExchangeRates, currency, feeAmount, merchantId, orderAmount, merchantOrderCode, pspOrderCode, expiredIn, useDedicatedAddress, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePaymentOrderRequest {\n");
-    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
+    sb.append("class OrderLinkBusinessInfo {\n");
+    sb.append("    tokenIds: ").append(toIndentedString(tokenIds)).append("\n");
+    sb.append("    customExchangeRates: ").append(toIndentedString(customExchangeRates)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    orderAmount: ").append(toIndentedString(orderAmount)).append("\n");
     sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    orderAmount: ").append(toIndentedString(orderAmount)).append("\n");
     sb.append("    merchantOrderCode: ").append(toIndentedString(merchantOrderCode)).append("\n");
     sb.append("    pspOrderCode: ").append(toIndentedString(pspOrderCode)).append("\n");
     sb.append("    expiredIn: ").append(toIndentedString(expiredIn)).append("\n");
     sb.append("    useDedicatedAddress: ").append(toIndentedString(useDedicatedAddress)).append("\n");
-    sb.append("    customExchangeRate: ").append(toIndentedString(customExchangeRate)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -394,23 +413,23 @@ public class CreatePaymentOrderRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("merchant_id");
-    openapiFields.add("token_id");
+    openapiFields.add("token_ids");
+    openapiFields.add("custom_exchange_rates");
     openapiFields.add("currency");
-    openapiFields.add("order_amount");
     openapiFields.add("fee_amount");
+    openapiFields.add("merchant_id");
+    openapiFields.add("order_amount");
     openapiFields.add("merchant_order_code");
     openapiFields.add("psp_order_code");
     openapiFields.add("expired_in");
     openapiFields.add("use_dedicated_address");
-    openapiFields.add("custom_exchange_rate");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("merchant_id");
-    openapiRequiredFields.add("token_id");
-    openapiRequiredFields.add("order_amount");
+    openapiRequiredFields.add("token_ids");
     openapiRequiredFields.add("fee_amount");
+    openapiRequiredFields.add("merchant_id");
+    openapiRequiredFields.add("order_amount");
     openapiRequiredFields.add("psp_order_code");
   }
 
@@ -418,36 +437,53 @@ public class CreatePaymentOrderRequest {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CreatePaymentOrderRequest
+  * @throws IOException if the JSON Element is invalid with respect to OrderLinkBusinessInfo
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CreatePaymentOrderRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePaymentOrderRequest is not found in the empty JSON string", CreatePaymentOrderRequest.openapiRequiredFields.toString()));
+        if (!OrderLinkBusinessInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in OrderLinkBusinessInfo is not found in the empty JSON string", OrderLinkBusinessInfo.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreatePaymentOrderRequest.openapiRequiredFields) {
+      for (String requiredField : OrderLinkBusinessInfo.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("merchant_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("token_ids") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("token_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_ids` to be an array in the JSON string but got `%s`", jsonObj.get("token_ids").toString()));
       }
-      if (!jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      if (jsonObj.get("custom_exchange_rates") != null && !jsonObj.get("custom_exchange_rates").isJsonNull()) {
+        JsonArray jsonArraycustomExchangeRates = jsonObj.getAsJsonArray("custom_exchange_rates");
+        if (jsonArraycustomExchangeRates != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("custom_exchange_rates").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `custom_exchange_rates` to be an array in the JSON string but got `%s`", jsonObj.get("custom_exchange_rates").toString()));
+          }
+
+          // validate the optional field `custom_exchange_rates` (array)
+          for (int i = 0; i < jsonArraycustomExchangeRates.size(); i++) {
+            OrderLinkBusinessInfoCustomExchangeRatesInner.validateJsonElement(jsonArraycustomExchangeRates.get(i));
+          };
+        }
       }
       if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
       }
-      if (!jsonObj.get("order_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `order_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_amount").toString()));
-      }
       if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
+      }
+      if (!jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      if (!jsonObj.get("order_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_amount").toString()));
       }
       if ((jsonObj.get("merchant_order_code") != null && !jsonObj.get("merchant_order_code").isJsonNull()) && !jsonObj.get("merchant_order_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_order_code").toString()));
@@ -455,25 +491,22 @@ public class CreatePaymentOrderRequest {
       if (!jsonObj.get("psp_order_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `psp_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psp_order_code").toString()));
       }
-      if ((jsonObj.get("custom_exchange_rate") != null && !jsonObj.get("custom_exchange_rate").isJsonNull()) && !jsonObj.get("custom_exchange_rate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `custom_exchange_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_exchange_rate").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreatePaymentOrderRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreatePaymentOrderRequest' and its subtypes
+       if (!OrderLinkBusinessInfo.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderLinkBusinessInfo' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreatePaymentOrderRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreatePaymentOrderRequest.class));
+       final TypeAdapter<OrderLinkBusinessInfo> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderLinkBusinessInfo.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreatePaymentOrderRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderLinkBusinessInfo>() {
            @Override
-           public void write(JsonWriter out, CreatePaymentOrderRequest value) throws IOException {
+           public void write(JsonWriter out, OrderLinkBusinessInfo value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -503,12 +536,12 @@ public class CreatePaymentOrderRequest {
            }
 
            @Override
-           public CreatePaymentOrderRequest read(JsonReader in) throws IOException {
+           public OrderLinkBusinessInfo read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CreatePaymentOrderRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             OrderLinkBusinessInfo instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -535,18 +568,18 @@ public class CreatePaymentOrderRequest {
   }
 
  /**
-  * Create an instance of CreatePaymentOrderRequest given an JSON string
+  * Create an instance of OrderLinkBusinessInfo given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreatePaymentOrderRequest
-  * @throws IOException if the JSON string is invalid with respect to CreatePaymentOrderRequest
+  * @return An instance of OrderLinkBusinessInfo
+  * @throws IOException if the JSON string is invalid with respect to OrderLinkBusinessInfo
   */
-  public static CreatePaymentOrderRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreatePaymentOrderRequest.class);
+  public static OrderLinkBusinessInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderLinkBusinessInfo.class);
   }
 
  /**
-  * Convert an instance of CreatePaymentOrderRequest to an JSON string
+  * Convert an instance of OrderLinkBusinessInfo to an JSON string
   *
   * @return JSON string
   */

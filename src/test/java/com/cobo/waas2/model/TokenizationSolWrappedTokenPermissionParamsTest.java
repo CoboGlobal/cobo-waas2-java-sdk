@@ -17,47 +17,40 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.UUID;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TransactionFuelingInfo
+ * Model tests for TokenizationSolWrappedTokenPermissionParams
  */
-public class TransactionFuelingInfoTest {
-    private final TransactionFuelingInfo model = new TransactionFuelingInfo();
+public class TokenizationSolWrappedTokenPermissionParamsTest {
+    private final TokenizationSolWrappedTokenPermissionParams model = new TokenizationSolWrappedTokenPermissionParams();
 
     /**
-     * Model tests for TransactionFuelingInfo
+     * Model tests for TokenizationSolWrappedTokenPermissionParams
      */
     @Test
-    public void testTransactionFuelingInfo() {
-        // TODO: test TransactionFuelingInfo
+    public void testTokenizationSolWrappedTokenPermissionParams() {
+        // TODO: test TokenizationSolWrappedTokenPermissionParams
     }
 
     /**
-     * Test the property 'requestId'
+     * Test the property 'wrapper'
      */
     @Test
-    public void requestIdTest() {
-        // TODO: test requestId
+    public void wrapperTest() {
+        // TODO: test wrapper
     }
 
     /**
-     * Test the property 'transactionId'
+     * Test the property 'pauser'
      */
     @Test
-    public void transactionIdTest() {
-        // TODO: test transactionId
-    }
-
-    /**
-     * Test the property 'mainTransactionId'
-     */
-    @Test
-    public void mainTransactionIdTest() {
-        // TODO: test mainTransactionId
+    public void pauserTest() {
+        // TODO: test pauser
     }
 
 }

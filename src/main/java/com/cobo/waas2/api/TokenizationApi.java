@@ -141,7 +141,7 @@ public class TokenizationApi {
 
     /**
      * Burn tokens
-     * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply. 
+     * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply.  **Note**: This operation is not supported for CoboERC20Wrapper tokens. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
      * @param tokenizationBurnTokenRequest The request body for burning tokens. (optional)
      * @return TokenizationOperationResponse
@@ -161,7 +161,7 @@ public class TokenizationApi {
 
     /**
      * Burn tokens
-     * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply. 
+     * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply.  **Note**: This operation is not supported for CoboERC20Wrapper tokens. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
      * @param tokenizationBurnTokenRequest The request body for burning tokens. (optional)
      * @return ApiResponse&lt;TokenizationOperationResponse&gt;
@@ -182,7 +182,7 @@ public class TokenizationApi {
 
     /**
      * Burn tokens (asynchronously)
-     * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply. 
+     * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply.  **Note**: This operation is not supported for CoboERC20Wrapper tokens. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
      * @param tokenizationBurnTokenRequest The request body for burning tokens. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1919,7 +1919,7 @@ public class TokenizationApi {
 
     /**
      * Mint tokens
-     * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply. 
+     * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply.  **Note**: This operation is not supported for CoboERC20Wrapper tokens. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
      * @param tokenizationMintTokenRequest The request body for minting tokens. (required)
      * @return TokenizationOperationResponse
@@ -1939,7 +1939,7 @@ public class TokenizationApi {
 
     /**
      * Mint tokens
-     * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply. 
+     * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply.  **Note**: This operation is not supported for CoboERC20Wrapper tokens. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
      * @param tokenizationMintTokenRequest The request body for minting tokens. (required)
      * @return ApiResponse&lt;TokenizationOperationResponse&gt;
@@ -1960,7 +1960,7 @@ public class TokenizationApi {
 
     /**
      * Mint tokens (asynchronously)
-     * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply. 
+     * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply.  **Note**: This operation is not supported for CoboERC20Wrapper tokens. 
      * @param tokenId The token ID, which is the unique identifier of a token. (required)
      * @param tokenizationMintTokenRequest The request body for minting tokens. (required)
      * @param _callback The callback to be executed when the API call finishes

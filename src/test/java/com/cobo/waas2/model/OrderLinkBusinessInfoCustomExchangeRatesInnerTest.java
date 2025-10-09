@@ -18,46 +18,37 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TransactionFuelingInfo
+ * Model tests for OrderLinkBusinessInfoCustomExchangeRatesInner
  */
-public class TransactionFuelingInfoTest {
-    private final TransactionFuelingInfo model = new TransactionFuelingInfo();
+public class OrderLinkBusinessInfoCustomExchangeRatesInnerTest {
+    private final OrderLinkBusinessInfoCustomExchangeRatesInner model = new OrderLinkBusinessInfoCustomExchangeRatesInner();
 
     /**
-     * Model tests for TransactionFuelingInfo
+     * Model tests for OrderLinkBusinessInfoCustomExchangeRatesInner
      */
     @Test
-    public void testTransactionFuelingInfo() {
-        // TODO: test TransactionFuelingInfo
+    public void testOrderLinkBusinessInfoCustomExchangeRatesInner() {
+        // TODO: test OrderLinkBusinessInfoCustomExchangeRatesInner
     }
 
     /**
-     * Test the property 'requestId'
+     * Test the property 'tokenId'
      */
     @Test
-    public void requestIdTest() {
-        // TODO: test requestId
+    public void tokenIdTest() {
+        // TODO: test tokenId
     }
 
     /**
-     * Test the property 'transactionId'
+     * Test the property 'exchangeRate'
      */
     @Test
-    public void transactionIdTest() {
-        // TODO: test transactionId
-    }
-
-    /**
-     * Test the property 'mainTransactionId'
-     */
-    @Test
-    public void mainTransactionIdTest() {
-        // TODO: test mainTransactionId
+    public void exchangeRateTest() {
+        // TODO: test exchangeRate
     }
 
 }

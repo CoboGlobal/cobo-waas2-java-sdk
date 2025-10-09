@@ -19,6 +19,7 @@ import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.CreateBankAccountRequest;
 import com.cobo.waas2.model.CreateCryptoAddressRequest;
 import com.cobo.waas2.model.CreateMerchantRequest;
+import com.cobo.waas2.model.CreateOrderLinkRequest;
 import com.cobo.waas2.model.CreatePaymentOrderRequest;
 import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
@@ -30,6 +31,7 @@ import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
+import com.cobo.waas2.model.Link;
 import com.cobo.waas2.model.ListForcedSweepRequests200Response;
 import com.cobo.waas2.model.ListMerchantBalances200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
@@ -154,6 +156,20 @@ public class PaymentApiTest {
     public void createMerchantTest() throws ApiException {
         CreateMerchantRequest createMerchantRequest = null;
         Merchant response = api.createMerchant(createMerchantRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Create order link
+     *
+     * This operation creates a payment link of a pay-in order. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createOrderLinkTest() throws ApiException {
+        CreateOrderLinkRequest createOrderLinkRequest = null;
+        Link response = api.createOrderLink(createOrderLinkRequest);
         // TODO: test validations
     }
 
@@ -481,8 +497,9 @@ public class PaymentApiTest {
         String before = null;
         String after = null;
         String keyword = null;
+        UUID walletId = null;
         WalletSetup walletSetup = null;
-        ListMerchants200Response response = api.listMerchants(limit, before, after, keyword, walletSetup);
+        ListMerchants200Response response = api.listMerchants(limit, before, after, keyword, walletId, walletSetup);
         // TODO: test validations
     }
 
