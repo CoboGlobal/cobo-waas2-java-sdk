@@ -12,13 +12,12 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.PaymentApproveSubscriptionActionData;
 import com.cobo.waas2.model.PaymentBaseSubscriptionActionData;
 import com.cobo.waas2.model.PaymentCreateSubscriptionActionData;
-import com.cobo.waas2.model.PaymentDeveloperSubscriptionActionData;
 import com.cobo.waas2.model.PaymentExtendPeriodSubscriptionActionData;
 import com.cobo.waas2.model.PaymentSubscriptionActionType;
 import com.cobo.waas2.model.PaymentUpdateAmountSubscriptionActionData;
+import com.cobo.waas2.model.PaymentUpdateTokenIdSubscriptionActionData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -78,11 +77,10 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<PaymentCreateSubscriptionActionData> adapterPaymentCreateSubscriptionActionData = gson.getDelegateAdapter(this, TypeToken.get(PaymentCreateSubscriptionActionData.class));
-            final TypeAdapter<PaymentApproveSubscriptionActionData> adapterPaymentApproveSubscriptionActionData = gson.getDelegateAdapter(this, TypeToken.get(PaymentApproveSubscriptionActionData.class));
             final TypeAdapter<PaymentBaseSubscriptionActionData> adapterPaymentBaseSubscriptionActionData = gson.getDelegateAdapter(this, TypeToken.get(PaymentBaseSubscriptionActionData.class));
-            final TypeAdapter<PaymentDeveloperSubscriptionActionData> adapterPaymentDeveloperSubscriptionActionData = gson.getDelegateAdapter(this, TypeToken.get(PaymentDeveloperSubscriptionActionData.class));
             final TypeAdapter<PaymentExtendPeriodSubscriptionActionData> adapterPaymentExtendPeriodSubscriptionActionData = gson.getDelegateAdapter(this, TypeToken.get(PaymentExtendPeriodSubscriptionActionData.class));
             final TypeAdapter<PaymentUpdateAmountSubscriptionActionData> adapterPaymentUpdateAmountSubscriptionActionData = gson.getDelegateAdapter(this, TypeToken.get(PaymentUpdateAmountSubscriptionActionData.class));
+            final TypeAdapter<PaymentUpdateTokenIdSubscriptionActionData> adapterPaymentUpdateTokenIdSubscriptionActionData = gson.getDelegateAdapter(this, TypeToken.get(PaymentUpdateTokenIdSubscriptionActionData.class));
 
             return (TypeAdapter<T>) new TypeAdapter<PaymentSubscriptionActionData>() {
                 @Override
@@ -98,21 +96,9 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `PaymentApproveSubscriptionActionData`
-                    if (value.getActualInstance() instanceof PaymentApproveSubscriptionActionData) {
-                        JsonElement element = adapterPaymentApproveSubscriptionActionData.toJsonTree((PaymentApproveSubscriptionActionData)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
                     // check if the actual instance is of the type `PaymentBaseSubscriptionActionData`
                     if (value.getActualInstance() instanceof PaymentBaseSubscriptionActionData) {
                         JsonElement element = adapterPaymentBaseSubscriptionActionData.toJsonTree((PaymentBaseSubscriptionActionData)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    // check if the actual instance is of the type `PaymentDeveloperSubscriptionActionData`
-                    if (value.getActualInstance() instanceof PaymentDeveloperSubscriptionActionData) {
-                        JsonElement element = adapterPaymentDeveloperSubscriptionActionData.toJsonTree((PaymentDeveloperSubscriptionActionData)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -128,7 +114,13 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: PaymentApproveSubscriptionActionData, PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentDeveloperSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData");
+                    // check if the actual instance is of the type `PaymentUpdateTokenIdSubscriptionActionData`
+                    if (value.getActualInstance() instanceof PaymentUpdateTokenIdSubscriptionActionData) {
+                        JsonElement element = adapterPaymentUpdateTokenIdSubscriptionActionData.toJsonTree((PaymentUpdateTokenIdSubscriptionActionData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData, PaymentUpdateTokenIdSubscriptionActionData");
                 }
 
                 @Override
@@ -158,11 +150,11 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
                                 newPaymentSubscriptionActionData.setActualInstance(deserialized);
                                 return newPaymentSubscriptionActionData;
                             case "DeveloperPause":
-                                deserialized = adapterPaymentDeveloperSubscriptionActionData.fromJsonTree(jsonObject);
+                                deserialized = adapterPaymentBaseSubscriptionActionData.fromJsonTree(jsonObject);
                                 newPaymentSubscriptionActionData.setActualInstance(deserialized);
                                 return newPaymentSubscriptionActionData;
                             case "DeveloperUnpause":
-                                deserialized = adapterPaymentDeveloperSubscriptionActionData.fromJsonTree(jsonObject);
+                                deserialized = adapterPaymentBaseSubscriptionActionData.fromJsonTree(jsonObject);
                                 newPaymentSubscriptionActionData.setActualInstance(deserialized);
                                 return newPaymentSubscriptionActionData;
                             case "Downgrade":
@@ -181,12 +173,12 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
                                 deserialized = adapterPaymentBaseSubscriptionActionData.fromJsonTree(jsonObject);
                                 newPaymentSubscriptionActionData.setActualInstance(deserialized);
                                 return newPaymentSubscriptionActionData;
-                            case "Upgrade":
-                                deserialized = adapterPaymentUpdateAmountSubscriptionActionData.fromJsonTree(jsonObject);
+                            case "UpdateTokenId":
+                                deserialized = adapterPaymentUpdateTokenIdSubscriptionActionData.fromJsonTree(jsonObject);
                                 newPaymentSubscriptionActionData.setActualInstance(deserialized);
                                 return newPaymentSubscriptionActionData;
-                            case "PaymentApproveSubscriptionActionData":
-                                deserialized = adapterPaymentApproveSubscriptionActionData.fromJsonTree(jsonObject);
+                            case "Upgrade":
+                                deserialized = adapterPaymentUpdateAmountSubscriptionActionData.fromJsonTree(jsonObject);
                                 newPaymentSubscriptionActionData.setActualInstance(deserialized);
                                 return newPaymentSubscriptionActionData;
                             case "PaymentBaseSubscriptionActionData":
@@ -197,10 +189,6 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
                                 deserialized = adapterPaymentCreateSubscriptionActionData.fromJsonTree(jsonObject);
                                 newPaymentSubscriptionActionData.setActualInstance(deserialized);
                                 return newPaymentSubscriptionActionData;
-                            case "PaymentDeveloperSubscriptionActionData":
-                                deserialized = adapterPaymentDeveloperSubscriptionActionData.fromJsonTree(jsonObject);
-                                newPaymentSubscriptionActionData.setActualInstance(deserialized);
-                                return newPaymentSubscriptionActionData;
                             case "PaymentExtendPeriodSubscriptionActionData":
                                 deserialized = adapterPaymentExtendPeriodSubscriptionActionData.fromJsonTree(jsonObject);
                                 newPaymentSubscriptionActionData.setActualInstance(deserialized);
@@ -209,8 +197,12 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
                                 deserialized = adapterPaymentUpdateAmountSubscriptionActionData.fromJsonTree(jsonObject);
                                 newPaymentSubscriptionActionData.setActualInstance(deserialized);
                                 return newPaymentSubscriptionActionData;
+                            case "PaymentUpdateTokenIdSubscriptionActionData":
+                                deserialized = adapterPaymentUpdateTokenIdSubscriptionActionData.fromJsonTree(jsonObject);
+                                newPaymentSubscriptionActionData.setActualInstance(deserialized);
+                                return newPaymentSubscriptionActionData;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for PaymentSubscriptionActionData. Possible values: Approve Charge Create DeveloperPause DeveloperUnpause Downgrade ExtendPeriod Subscribe SubscribeAndCharge Upgrade PaymentApproveSubscriptionActionData PaymentBaseSubscriptionActionData PaymentCreateSubscriptionActionData PaymentDeveloperSubscriptionActionData PaymentExtendPeriodSubscriptionActionData PaymentUpdateAmountSubscriptionActionData", jsonObject.get("action_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for PaymentSubscriptionActionData. Possible values: Approve Charge Create DeveloperPause DeveloperUnpause Downgrade ExtendPeriod Subscribe SubscribeAndCharge UpdateTokenId Upgrade PaymentBaseSubscriptionActionData PaymentCreateSubscriptionActionData PaymentExtendPeriodSubscriptionActionData PaymentUpdateAmountSubscriptionActionData PaymentUpdateTokenIdSubscriptionActionData", jsonObject.get("action_type").getAsString()));
                         }
                     }
 
@@ -230,18 +222,6 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for PaymentCreateSubscriptionActionData failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'PaymentCreateSubscriptionActionData'", e);
                     }
-                    // deserialize PaymentApproveSubscriptionActionData
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        PaymentApproveSubscriptionActionData.validateJsonElement(jsonElement);
-                        actualAdapter = adapterPaymentApproveSubscriptionActionData;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'PaymentApproveSubscriptionActionData'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PaymentApproveSubscriptionActionData failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PaymentApproveSubscriptionActionData'", e);
-                    }
                     // deserialize PaymentBaseSubscriptionActionData
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -253,18 +233,6 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for PaymentBaseSubscriptionActionData failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'PaymentBaseSubscriptionActionData'", e);
-                    }
-                    // deserialize PaymentDeveloperSubscriptionActionData
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        PaymentDeveloperSubscriptionActionData.validateJsonElement(jsonElement);
-                        actualAdapter = adapterPaymentDeveloperSubscriptionActionData;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'PaymentDeveloperSubscriptionActionData'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PaymentDeveloperSubscriptionActionData failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PaymentDeveloperSubscriptionActionData'", e);
                     }
                     // deserialize PaymentExtendPeriodSubscriptionActionData
                     try {
@@ -290,6 +258,18 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for PaymentUpdateAmountSubscriptionActionData failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'PaymentUpdateAmountSubscriptionActionData'", e);
                     }
+                    // deserialize PaymentUpdateTokenIdSubscriptionActionData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentUpdateTokenIdSubscriptionActionData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPaymentUpdateTokenIdSubscriptionActionData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentUpdateTokenIdSubscriptionActionData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for PaymentUpdateTokenIdSubscriptionActionData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentUpdateTokenIdSubscriptionActionData'", e);
+                    }
 
                     if (match == 1) {
                         PaymentSubscriptionActionData ret = new PaymentSubscriptionActionData();
@@ -310,22 +290,12 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
-    public PaymentSubscriptionActionData(PaymentApproveSubscriptionActionData o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     public PaymentSubscriptionActionData(PaymentBaseSubscriptionActionData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     public PaymentSubscriptionActionData(PaymentCreateSubscriptionActionData o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public PaymentSubscriptionActionData(PaymentDeveloperSubscriptionActionData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -340,13 +310,17 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public PaymentSubscriptionActionData(PaymentUpdateTokenIdSubscriptionActionData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     static {
         schemas.put("PaymentCreateSubscriptionActionData", PaymentCreateSubscriptionActionData.class);
-        schemas.put("PaymentApproveSubscriptionActionData", PaymentApproveSubscriptionActionData.class);
         schemas.put("PaymentBaseSubscriptionActionData", PaymentBaseSubscriptionActionData.class);
-        schemas.put("PaymentDeveloperSubscriptionActionData", PaymentDeveloperSubscriptionActionData.class);
         schemas.put("PaymentExtendPeriodSubscriptionActionData", PaymentExtendPeriodSubscriptionActionData.class);
         schemas.put("PaymentUpdateAmountSubscriptionActionData", PaymentUpdateAmountSubscriptionActionData.class);
+        schemas.put("PaymentUpdateTokenIdSubscriptionActionData", PaymentUpdateTokenIdSubscriptionActionData.class);
     }
 
     @Override
@@ -357,7 +331,7 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * PaymentApproveSubscriptionActionData, PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentDeveloperSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData
+     * PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData, PaymentUpdateTokenIdSubscriptionActionData
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -368,17 +342,7 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof PaymentApproveSubscriptionActionData) {
-            super.setActualInstance(instance);
-            return;
-        }
-
         if (instance instanceof PaymentBaseSubscriptionActionData) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof PaymentDeveloperSubscriptionActionData) {
             super.setActualInstance(instance);
             return;
         }
@@ -393,14 +357,19 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be PaymentApproveSubscriptionActionData, PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentDeveloperSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData");
+        if (instance instanceof PaymentUpdateTokenIdSubscriptionActionData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData, PaymentUpdateTokenIdSubscriptionActionData");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * PaymentApproveSubscriptionActionData, PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentDeveloperSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData
+     * PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData, PaymentUpdateTokenIdSubscriptionActionData
      *
-     * @return The actual instance (PaymentApproveSubscriptionActionData, PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentDeveloperSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData)
+     * @return The actual instance (PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData, PaymentUpdateTokenIdSubscriptionActionData)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -419,16 +388,6 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
         return (PaymentCreateSubscriptionActionData)super.getActualInstance();
     }
     /**
-     * Get the actual instance of `PaymentApproveSubscriptionActionData`. If the actual instance is not `PaymentApproveSubscriptionActionData`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `PaymentApproveSubscriptionActionData`
-     * @throws ClassCastException if the instance is not `PaymentApproveSubscriptionActionData`
-     */
-    public PaymentApproveSubscriptionActionData getPaymentApproveSubscriptionActionData() throws ClassCastException {
-        return (PaymentApproveSubscriptionActionData)super.getActualInstance();
-    }
-    /**
      * Get the actual instance of `PaymentBaseSubscriptionActionData`. If the actual instance is not `PaymentBaseSubscriptionActionData`,
      * the ClassCastException will be thrown.
      *
@@ -437,16 +396,6 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
      */
     public PaymentBaseSubscriptionActionData getPaymentBaseSubscriptionActionData() throws ClassCastException {
         return (PaymentBaseSubscriptionActionData)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `PaymentDeveloperSubscriptionActionData`. If the actual instance is not `PaymentDeveloperSubscriptionActionData`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `PaymentDeveloperSubscriptionActionData`
-     * @throws ClassCastException if the instance is not `PaymentDeveloperSubscriptionActionData`
-     */
-    public PaymentDeveloperSubscriptionActionData getPaymentDeveloperSubscriptionActionData() throws ClassCastException {
-        return (PaymentDeveloperSubscriptionActionData)super.getActualInstance();
     }
     /**
      * Get the actual instance of `PaymentExtendPeriodSubscriptionActionData`. If the actual instance is not `PaymentExtendPeriodSubscriptionActionData`,
@@ -468,6 +417,16 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
     public PaymentUpdateAmountSubscriptionActionData getPaymentUpdateAmountSubscriptionActionData() throws ClassCastException {
         return (PaymentUpdateAmountSubscriptionActionData)super.getActualInstance();
     }
+    /**
+     * Get the actual instance of `PaymentUpdateTokenIdSubscriptionActionData`. If the actual instance is not `PaymentUpdateTokenIdSubscriptionActionData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentUpdateTokenIdSubscriptionActionData`
+     * @throws ClassCastException if the instance is not `PaymentUpdateTokenIdSubscriptionActionData`
+     */
+    public PaymentUpdateTokenIdSubscriptionActionData getPaymentUpdateTokenIdSubscriptionActionData() throws ClassCastException {
+        return (PaymentUpdateTokenIdSubscriptionActionData)super.getActualInstance();
+    }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
@@ -487,28 +446,12 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for PaymentCreateSubscriptionActionData failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with PaymentApproveSubscriptionActionData
-        try {
-            PaymentApproveSubscriptionActionData.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for PaymentApproveSubscriptionActionData failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         // validate the json string with PaymentBaseSubscriptionActionData
         try {
             PaymentBaseSubscriptionActionData.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(String.format("Deserialization for PaymentBaseSubscriptionActionData failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with PaymentDeveloperSubscriptionActionData
-        try {
-            PaymentDeveloperSubscriptionActionData.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for PaymentDeveloperSubscriptionActionData failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with PaymentExtendPeriodSubscriptionActionData
@@ -527,8 +470,16 @@ public class PaymentSubscriptionActionData extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for PaymentUpdateAmountSubscriptionActionData failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with PaymentUpdateTokenIdSubscriptionActionData
+        try {
+            PaymentUpdateTokenIdSubscriptionActionData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for PaymentUpdateTokenIdSubscriptionActionData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for PaymentSubscriptionActionData with oneOf schemas: PaymentApproveSubscriptionActionData, PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentDeveloperSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for PaymentSubscriptionActionData with oneOf schemas: PaymentBaseSubscriptionActionData, PaymentCreateSubscriptionActionData, PaymentExtendPeriodSubscriptionActionData, PaymentUpdateAmountSubscriptionActionData, PaymentUpdateTokenIdSubscriptionActionData. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

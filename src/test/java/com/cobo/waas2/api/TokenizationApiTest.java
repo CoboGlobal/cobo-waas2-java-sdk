@@ -67,7 +67,7 @@ public class TokenizationApiTest {
     /**
      * Burn tokens
      *
-     * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply. 
+     * This operation burns tokens from a specified address. Creates a burn transaction that will decrease the token supply.  **Note**: This operation is not supported for CoboERC20Wrapper tokens. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -280,7 +280,7 @@ public class TokenizationApiTest {
     /**
      * Mint tokens
      *
-     * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply. 
+     * This operation mints new tokens to a specified address. Creates a mint transaction that will increase the token supply.  **Note**: This operation is not supported for CoboERC20Wrapper tokens. 
      *
      * @throws ApiException if the Api call fails
      */

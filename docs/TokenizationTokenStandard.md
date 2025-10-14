@@ -11,5 +11,7 @@
 
 * `ERC20WRAPPER` (value: `"ERC20Wrapper"`)
 
+* `SOLWRAPPER` (value: `"SOLWrapper"`)
+
 
 

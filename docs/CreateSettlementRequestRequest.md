@@ -14,6 +14,7 @@
 |**settlements** | [**List&lt;CreateSettlement&gt;**](CreateSettlement.md) |  |  |
 |**bankAccountId** | **UUID** | ｜ Only used in OffRamp payout channel. The ID of the bank account where the settled funds will be deposited. |  [optional] |
 |**currency** | **String** | The fiat currency for the settlement request. |  [optional] |
+|**remark** | **String** | The remark for the settlement request. |  [optional] |
 
 
 

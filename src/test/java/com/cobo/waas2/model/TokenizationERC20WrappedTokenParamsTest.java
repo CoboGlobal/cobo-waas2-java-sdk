@@ -62,14 +62,6 @@ public class TokenizationERC20WrappedTokenParamsTest {
     }
 
     /**
-     * Test the property 'decimals'
-     */
-    @Test
-    public void decimalsTest() {
-        // TODO: test decimals
-    }
-
-    /**
      * Test the property 'permissions'
      */
     @Test

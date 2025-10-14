@@ -69,6 +69,10 @@ public class PaymentUpdateAmountSubscriptionActionData {
   @SerializedName(SERIALIZED_NAME_SIGNATURE)
   private String signature;
 
+  public static final String SERIALIZED_NAME_DEADLINE = "deadline";
+  @SerializedName(SERIALIZED_NAME_DEADLINE)
+  private Integer deadline;
+
   public PaymentUpdateAmountSubscriptionActionData() {
   }
 
@@ -135,16 +139,35 @@ public class PaymentUpdateAmountSubscriptionActionData {
   }
 
    /**
-   * The signature for transaction.
+   * The signature for transaction. charge action is not required.
    * @return signature
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSignature() {
     return signature;
   }
 
   public void setSignature(String signature) {
     this.signature = signature;
+  }
+
+
+  public PaymentUpdateAmountSubscriptionActionData deadline(Integer deadline) {
+    this.deadline = deadline;
+    return this;
+  }
+
+   /**
+   * The signature deadline for transaction. charge action is not required.
+   * @return deadline
+  **/
+  @javax.annotation.Nullable
+  public Integer getDeadline() {
+    return deadline;
+  }
+
+  public void setDeadline(Integer deadline) {
+    this.deadline = deadline;
   }
 
   /**
@@ -205,13 +228,14 @@ public class PaymentUpdateAmountSubscriptionActionData {
     return Objects.equals(this.newPlanId, paymentUpdateAmountSubscriptionActionData.newPlanId) &&
         Objects.equals(this.actionType, paymentUpdateAmountSubscriptionActionData.actionType) &&
         Objects.equals(this.subscriptionId, paymentUpdateAmountSubscriptionActionData.subscriptionId) &&
-        Objects.equals(this.signature, paymentUpdateAmountSubscriptionActionData.signature)&&
+        Objects.equals(this.signature, paymentUpdateAmountSubscriptionActionData.signature) &&
+        Objects.equals(this.deadline, paymentUpdateAmountSubscriptionActionData.deadline)&&
         Objects.equals(this.additionalProperties, paymentUpdateAmountSubscriptionActionData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newPlanId, actionType, subscriptionId, signature, additionalProperties);
+    return Objects.hash(newPlanId, actionType, subscriptionId, signature, deadline, additionalProperties);
   }
 
   @Override
@@ -222,6 +246,7 @@ public class PaymentUpdateAmountSubscriptionActionData {
     sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("    deadline: ").append(toIndentedString(deadline)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -248,13 +273,13 @@ public class PaymentUpdateAmountSubscriptionActionData {
     openapiFields.add("action_type");
     openapiFields.add("subscription_id");
     openapiFields.add("signature");
+    openapiFields.add("deadline");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("new_plan_id");
     openapiRequiredFields.add("action_type");
     openapiRequiredFields.add("subscription_id");
-    openapiRequiredFields.add("signature");
   }
 
  /**
@@ -285,7 +310,7 @@ public class PaymentUpdateAmountSubscriptionActionData {
       if (!jsonObj.get("subscription_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subscription_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_id").toString()));
       }
-      if (!jsonObj.get("signature").isJsonPrimitive()) {
+      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
   }

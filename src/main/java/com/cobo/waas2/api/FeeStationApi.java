@@ -27,6 +27,8 @@ import java.io.IOException;
 
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.EstimatedFixedFee;
+import com.cobo.waas2.model.FeeStationCheckFeeStationUsage;
+import com.cobo.waas2.model.FeeStationCheckFeeStationUsageResponse;
 import com.cobo.waas2.model.FeeStationTransfer;
 import com.cobo.waas2.model.ListAddresses200Response;
 import com.cobo.waas2.model.ListTokenBalancesForFeeStation200Response;
@@ -59,6 +61,119 @@ public class FeeStationApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for checkFeeStationUsage
+     * @param feeStationCheckFeeStationUsage The information about a fee station pre transfer. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call checkFeeStationUsageCall(FeeStationCheckFeeStationUsage feeStationCheckFeeStationUsage, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = feeStationCheckFeeStationUsage;
+
+        // create path and map variables
+        String localVarPath = "/fee_station/check_fee_station_usage";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call checkFeeStationUsageValidateBeforeCall(FeeStationCheckFeeStationUsage feeStationCheckFeeStationUsage, final ApiCallback _callback) throws ApiException {
+        return checkFeeStationUsageCall(feeStationCheckFeeStationUsage, _callback);
+
+    }
+
+    /**
+     * fee station pre check
+     * This operation evaluates the fee station usage for the current transaction.   It determines whether the fee station needs to be applied, checks if the available fee station balance is sufficient,   and returns a detailed breakdown of the amounts involved, including any portion that must be covered by the user or sponsored in USDT (U).. 
+     * @param feeStationCheckFeeStationUsage The information about a fee station pre transfer. (optional)
+     * @return FeeStationCheckFeeStationUsageResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public FeeStationCheckFeeStationUsageResponse checkFeeStationUsage(FeeStationCheckFeeStationUsage feeStationCheckFeeStationUsage) throws ApiException {
+        ApiResponse<FeeStationCheckFeeStationUsageResponse> localVarResp = checkFeeStationUsageWithHttpInfo(feeStationCheckFeeStationUsage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * fee station pre check
+     * This operation evaluates the fee station usage for the current transaction.   It determines whether the fee station needs to be applied, checks if the available fee station balance is sufficient,   and returns a detailed breakdown of the amounts involved, including any portion that must be covered by the user or sponsored in USDT (U).. 
+     * @param feeStationCheckFeeStationUsage The information about a fee station pre transfer. (optional)
+     * @return ApiResponse&lt;FeeStationCheckFeeStationUsageResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FeeStationCheckFeeStationUsageResponse> checkFeeStationUsageWithHttpInfo(FeeStationCheckFeeStationUsage feeStationCheckFeeStationUsage) throws ApiException {
+        okhttp3.Call localVarCall = checkFeeStationUsageValidateBeforeCall(feeStationCheckFeeStationUsage, null);
+        Type localVarReturnType = new TypeToken<FeeStationCheckFeeStationUsageResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * fee station pre check (asynchronously)
+     * This operation evaluates the fee station usage for the current transaction.   It determines whether the fee station needs to be applied, checks if the available fee station balance is sufficient,   and returns a detailed breakdown of the amounts involved, including any portion that must be covered by the user or sponsored in USDT (U).. 
+     * @param feeStationCheckFeeStationUsage The information about a fee station pre transfer. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call checkFeeStationUsageAsync(FeeStationCheckFeeStationUsage feeStationCheckFeeStationUsage, final ApiCallback<FeeStationCheckFeeStationUsageResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = checkFeeStationUsageValidateBeforeCall(feeStationCheckFeeStationUsage, _callback);
+        Type localVarReturnType = new TypeToken<FeeStationCheckFeeStationUsageResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for estimateFeeStationFee
      * @param feeStationTransfer The information about a token transfer. (optional)

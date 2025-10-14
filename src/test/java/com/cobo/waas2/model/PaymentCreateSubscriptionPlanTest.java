@@ -84,4 +84,12 @@ public class PaymentCreateSubscriptionPlanTest {
         // TODO: test currency
     }
 
+    /**
+     * Test the property 'trialPeriod'
+     */
+    @Test
+    public void trialPeriodTest() {
+        // TODO: test trialPeriod
+    }
+
 }

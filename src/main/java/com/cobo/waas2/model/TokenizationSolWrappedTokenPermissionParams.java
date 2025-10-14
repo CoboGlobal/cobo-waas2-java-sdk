@@ -12,14 +12,15 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.PaymentSubscriptionActionType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,59 +47,75 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * PaymentDeveloperSubscriptionActionData
+ * Role-based permission settings for Solana wrapped token. The owner is automatically set to the address that calls the initialize function (typically the issuance wallet) and cannot be specified here. Only wrapper and pauser roles can be configured during initialization.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class PaymentDeveloperSubscriptionActionData {
-  public static final String SERIALIZED_NAME_ACTION_TYPE = "action_type";
-  @SerializedName(SERIALIZED_NAME_ACTION_TYPE)
-  private PaymentSubscriptionActionType actionType;
+public class TokenizationSolWrappedTokenPermissionParams {
+  public static final String SERIALIZED_NAME_WRAPPER = "wrapper";
+  @SerializedName(SERIALIZED_NAME_WRAPPER)
+  private List<String> wrapper = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_SUBSCRIPTION_ID = "subscription_id";
-  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ID)
-  private String subscriptionId;
+  public static final String SERIALIZED_NAME_PAUSER = "pauser";
+  @SerializedName(SERIALIZED_NAME_PAUSER)
+  private List<String> pauser = new ArrayList<>();
 
-  public PaymentDeveloperSubscriptionActionData() {
+  public TokenizationSolWrappedTokenPermissionParams() {
   }
 
-  public PaymentDeveloperSubscriptionActionData actionType(PaymentSubscriptionActionType actionType) {
-    this.actionType = actionType;
+  public TokenizationSolWrappedTokenPermissionParams wrapper(List<String> wrapper) {
+    this.wrapper = wrapper;
+    return this;
+  }
+
+  public TokenizationSolWrappedTokenPermissionParams addWrapperItem(String wrapperItem) {
+    if (this.wrapper == null) {
+      this.wrapper = new ArrayList<>();
+    }
+    this.wrapper.add(wrapperItem);
     return this;
   }
 
    /**
-   * Get actionType
-   * @return actionType
+   * List of Solana wallet addresses that can perform wrap/unwrap operations. Multiple addresses can be assigned this role.
+   * @return wrapper
   **/
-  @javax.annotation.Nonnull
-  public PaymentSubscriptionActionType getActionType() {
-    return actionType;
+  @javax.annotation.Nullable
+  public List<String> getWrapper() {
+    return wrapper;
   }
 
-  public void setActionType(PaymentSubscriptionActionType actionType) {
-    this.actionType = actionType;
+  public void setWrapper(List<String> wrapper) {
+    this.wrapper = wrapper;
   }
 
 
-  public PaymentDeveloperSubscriptionActionData subscriptionId(String subscriptionId) {
-    this.subscriptionId = subscriptionId;
+  public TokenizationSolWrappedTokenPermissionParams pauser(List<String> pauser) {
+    this.pauser = pauser;
+    return this;
+  }
+
+  public TokenizationSolWrappedTokenPermissionParams addPauserItem(String pauserItem) {
+    if (this.pauser == null) {
+      this.pauser = new ArrayList<>();
+    }
+    this.pauser.add(pauserItem);
     return this;
   }
 
    /**
-   * The subscription id in cobo.
-   * @return subscriptionId
+   * List of Solana wallet addresses that can pause/unpause the contract. Multiple addresses can be assigned this role.
+   * @return pauser
   **/
-  @javax.annotation.Nonnull
-  public String getSubscriptionId() {
-    return subscriptionId;
+  @javax.annotation.Nullable
+  public List<String> getPauser() {
+    return pauser;
   }
 
-  public void setSubscriptionId(String subscriptionId) {
-    this.subscriptionId = subscriptionId;
+  public void setPauser(List<String> pauser) {
+    this.pauser = pauser;
   }
 
   /**
@@ -114,9 +131,9 @@ public class PaymentDeveloperSubscriptionActionData {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the PaymentDeveloperSubscriptionActionData instance itself
+   * @return the TokenizationSolWrappedTokenPermissionParams instance itself
    */
-  public PaymentDeveloperSubscriptionActionData putAdditionalProperty(String key, Object value) {
+  public TokenizationSolWrappedTokenPermissionParams putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -155,23 +172,23 @@ public class PaymentDeveloperSubscriptionActionData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentDeveloperSubscriptionActionData paymentDeveloperSubscriptionActionData = (PaymentDeveloperSubscriptionActionData) o;
-    return Objects.equals(this.actionType, paymentDeveloperSubscriptionActionData.actionType) &&
-        Objects.equals(this.subscriptionId, paymentDeveloperSubscriptionActionData.subscriptionId)&&
-        Objects.equals(this.additionalProperties, paymentDeveloperSubscriptionActionData.additionalProperties);
+    TokenizationSolWrappedTokenPermissionParams tokenizationSolWrappedTokenPermissionParams = (TokenizationSolWrappedTokenPermissionParams) o;
+    return Objects.equals(this.wrapper, tokenizationSolWrappedTokenPermissionParams.wrapper) &&
+        Objects.equals(this.pauser, tokenizationSolWrappedTokenPermissionParams.pauser)&&
+        Objects.equals(this.additionalProperties, tokenizationSolWrappedTokenPermissionParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionType, subscriptionId, additionalProperties);
+    return Objects.hash(wrapper, pauser, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentDeveloperSubscriptionActionData {\n");
-    sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
-    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
+    sb.append("class TokenizationSolWrappedTokenPermissionParams {\n");
+    sb.append("    wrapper: ").append(toIndentedString(wrapper)).append("\n");
+    sb.append("    pauser: ").append(toIndentedString(pauser)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -195,39 +212,33 @@ public class PaymentDeveloperSubscriptionActionData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("action_type");
-    openapiFields.add("subscription_id");
+    openapiFields.add("wrapper");
+    openapiFields.add("pauser");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("action_type");
-    openapiRequiredFields.add("subscription_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to PaymentDeveloperSubscriptionActionData
+  * @throws IOException if the JSON Element is invalid with respect to TokenizationSolWrappedTokenPermissionParams
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!PaymentDeveloperSubscriptionActionData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentDeveloperSubscriptionActionData is not found in the empty JSON string", PaymentDeveloperSubscriptionActionData.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaymentDeveloperSubscriptionActionData.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!TokenizationSolWrappedTokenPermissionParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenizationSolWrappedTokenPermissionParams is not found in the empty JSON string", TokenizationSolWrappedTokenPermissionParams.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `action_type`
-      PaymentSubscriptionActionType.validateJsonElement(jsonObj.get("action_type"));
-      if (!jsonObj.get("subscription_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subscription_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_id").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("wrapper") != null && !jsonObj.get("wrapper").isJsonNull() && !jsonObj.get("wrapper").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wrapper` to be an array in the JSON string but got `%s`", jsonObj.get("wrapper").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("pauser") != null && !jsonObj.get("pauser").isJsonNull() && !jsonObj.get("pauser").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pauser` to be an array in the JSON string but got `%s`", jsonObj.get("pauser").toString()));
       }
   }
 
@@ -235,16 +246,16 @@ public class PaymentDeveloperSubscriptionActionData {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentDeveloperSubscriptionActionData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentDeveloperSubscriptionActionData' and its subtypes
+       if (!TokenizationSolWrappedTokenPermissionParams.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TokenizationSolWrappedTokenPermissionParams' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentDeveloperSubscriptionActionData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentDeveloperSubscriptionActionData.class));
+       final TypeAdapter<TokenizationSolWrappedTokenPermissionParams> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TokenizationSolWrappedTokenPermissionParams.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PaymentDeveloperSubscriptionActionData>() {
+       return (TypeAdapter<T>) new TypeAdapter<TokenizationSolWrappedTokenPermissionParams>() {
            @Override
-           public void write(JsonWriter out, PaymentDeveloperSubscriptionActionData value) throws IOException {
+           public void write(JsonWriter out, TokenizationSolWrappedTokenPermissionParams value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -274,12 +285,12 @@ public class PaymentDeveloperSubscriptionActionData {
            }
 
            @Override
-           public PaymentDeveloperSubscriptionActionData read(JsonReader in) throws IOException {
+           public TokenizationSolWrappedTokenPermissionParams read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             PaymentDeveloperSubscriptionActionData instance = thisAdapter.fromJsonTree(jsonObj);
+             TokenizationSolWrappedTokenPermissionParams instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -306,18 +317,18 @@ public class PaymentDeveloperSubscriptionActionData {
   }
 
  /**
-  * Create an instance of PaymentDeveloperSubscriptionActionData given an JSON string
+  * Create an instance of TokenizationSolWrappedTokenPermissionParams given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of PaymentDeveloperSubscriptionActionData
-  * @throws IOException if the JSON string is invalid with respect to PaymentDeveloperSubscriptionActionData
+  * @return An instance of TokenizationSolWrappedTokenPermissionParams
+  * @throws IOException if the JSON string is invalid with respect to TokenizationSolWrappedTokenPermissionParams
   */
-  public static PaymentDeveloperSubscriptionActionData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentDeveloperSubscriptionActionData.class);
+  public static TokenizationSolWrappedTokenPermissionParams fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TokenizationSolWrappedTokenPermissionParams.class);
   }
 
  /**
-  * Convert an instance of PaymentDeveloperSubscriptionActionData to an JSON string
+  * Convert an instance of TokenizationSolWrappedTokenPermissionParams to an JSON string
   *
   * @return JSON string
   */

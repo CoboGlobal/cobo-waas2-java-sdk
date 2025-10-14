@@ -16,6 +16,8 @@ import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.EstimatedFixedFee;
+import com.cobo.waas2.model.FeeStationCheckFeeStationUsage;
+import com.cobo.waas2.model.FeeStationCheckFeeStationUsageResponse;
 import com.cobo.waas2.model.FeeStationTransfer;
 import com.cobo.waas2.model.ListAddresses200Response;
 import com.cobo.waas2.model.ListTokenBalancesForFeeStation200Response;
@@ -42,6 +44,20 @@ public class FeeStationApiTest {
         defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     }
     private final FeeStationApi api = new FeeStationApi();
+
+    /**
+     * fee station pre check
+     *
+     * This operation evaluates the fee station usage for the current transaction.   It determines whether the fee station needs to be applied, checks if the available fee station balance is sufficient,   and returns a detailed breakdown of the amounts involved, including any portion that must be covered by the user or sponsored in USDT (U).. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void checkFeeStationUsageTest() throws ApiException {
+        FeeStationCheckFeeStationUsage feeStationCheckFeeStationUsage = null;
+        FeeStationCheckFeeStationUsageResponse response = api.checkFeeStationUsage(feeStationCheckFeeStationUsage);
+        // TODO: test validations
+    }
 
     /**
      * Estimate transaction fee

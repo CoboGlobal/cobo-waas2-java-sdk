@@ -51,4 +51,12 @@ public class UpdateMerchantByIdRequestTest {
         // TODO: test developerFeeRate
     }
 
+    /**
+     * Test the property 'subscriptionDeveloperFeeRate'
+     */
+    @Test
+    public void subscriptionDeveloperFeeRateTest() {
+        // TODO: test subscriptionDeveloperFeeRate
+    }
+
 }

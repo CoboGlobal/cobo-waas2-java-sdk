@@ -107,4 +107,12 @@ public class CreatePaymentOrderRequestTest {
         // TODO: test useDedicatedAddress
     }
 
+    /**
+     * Test the property 'customExchangeRate'
+     */
+    @Test
+    public void customExchangeRateTest() {
+        // TODO: test customExchangeRate
+    }
+
 }
