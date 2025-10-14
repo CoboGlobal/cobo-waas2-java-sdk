@@ -52,4 +52,12 @@ public class TransactionFuelingInfoTest {
         // TODO: test transactionId
     }
 
+    /**
+     * Test the property 'mainTransactionId'
+     */
+    @Test
+    public void mainTransactionIdTest() {
+        // TODO: test mainTransactionId
+    }
+
 }

@@ -23,17 +23,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for PaymentApproveSubscriptionActionData
+ * Model tests for PaymentUpdateTokenIdSubscriptionActionData
  */
-public class PaymentApproveSubscriptionActionDataTest {
-    private final PaymentApproveSubscriptionActionData model = new PaymentApproveSubscriptionActionData();
+public class PaymentUpdateTokenIdSubscriptionActionDataTest {
+    private final PaymentUpdateTokenIdSubscriptionActionData model = new PaymentUpdateTokenIdSubscriptionActionData();
 
     /**
-     * Model tests for PaymentApproveSubscriptionActionData
+     * Model tests for PaymentUpdateTokenIdSubscriptionActionData
      */
     @Test
-    public void testPaymentApproveSubscriptionActionData() {
-        // TODO: test PaymentApproveSubscriptionActionData
+    public void testPaymentUpdateTokenIdSubscriptionActionData() {
+        // TODO: test PaymentUpdateTokenIdSubscriptionActionData
     }
 
     /**
@@ -53,11 +53,19 @@ public class PaymentApproveSubscriptionActionDataTest {
     }
 
     /**
-     * Test the property 'permitData'
+     * Test the property 'signature'
      */
     @Test
-    public void permitDataTest() {
-        // TODO: test permitData
+    public void signatureTest() {
+        // TODO: test signature
+    }
+
+    /**
+     * Test the property 'deadline'
+     */
+    @Test
+    public void deadlineTest() {
+        // TODO: test deadline
     }
 
 }

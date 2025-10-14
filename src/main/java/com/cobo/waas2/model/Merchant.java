@@ -70,6 +70,10 @@ public class Merchant {
   @SerializedName(SERIALIZED_NAME_DEVELOPER_FEE_RATE)
   private String developerFeeRate;
 
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_DEVELOPER_FEE_RATE = "subscription_developer_fee_rate";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_DEVELOPER_FEE_RATE)
+  private String subscriptionDeveloperFeeRate;
+
   public static final String SERIALIZED_NAME_WALLET_SETUP = "wallet_setup";
   @SerializedName(SERIALIZED_NAME_WALLET_SETUP)
   private WalletSetup walletSetup;
@@ -158,6 +162,25 @@ public class Merchant {
 
   public void setDeveloperFeeRate(String developerFeeRate) {
     this.developerFeeRate = developerFeeRate;
+  }
+
+
+  public Merchant subscriptionDeveloperFeeRate(String subscriptionDeveloperFeeRate) {
+    this.subscriptionDeveloperFeeRate = subscriptionDeveloperFeeRate;
+    return this;
+  }
+
+   /**
+   * The fee rate applied when subscribe the merchant account. Represented as a string percentage (e.g., \&quot;0.1\&quot; means 10%).
+   * @return subscriptionDeveloperFeeRate
+  **/
+  @javax.annotation.Nullable
+  public String getSubscriptionDeveloperFeeRate() {
+    return subscriptionDeveloperFeeRate;
+  }
+
+  public void setSubscriptionDeveloperFeeRate(String subscriptionDeveloperFeeRate) {
+    this.subscriptionDeveloperFeeRate = subscriptionDeveloperFeeRate;
   }
 
 
@@ -276,6 +299,7 @@ public class Merchant {
         Objects.equals(this.name, merchant.name) &&
         Objects.equals(this.walletId, merchant.walletId) &&
         Objects.equals(this.developerFeeRate, merchant.developerFeeRate) &&
+        Objects.equals(this.subscriptionDeveloperFeeRate, merchant.subscriptionDeveloperFeeRate) &&
         Objects.equals(this.walletSetup, merchant.walletSetup) &&
         Objects.equals(this.createdTimestamp, merchant.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, merchant.updatedTimestamp)&&
@@ -284,7 +308,7 @@ public class Merchant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, name, walletId, developerFeeRate, walletSetup, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(merchantId, name, walletId, developerFeeRate, subscriptionDeveloperFeeRate, walletSetup, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -295,6 +319,7 @@ public class Merchant {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    developerFeeRate: ").append(toIndentedString(developerFeeRate)).append("\n");
+    sb.append("    subscriptionDeveloperFeeRate: ").append(toIndentedString(subscriptionDeveloperFeeRate)).append("\n");
     sb.append("    walletSetup: ").append(toIndentedString(walletSetup)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
@@ -325,6 +350,7 @@ public class Merchant {
     openapiFields.add("name");
     openapiFields.add("wallet_id");
     openapiFields.add("developer_fee_rate");
+    openapiFields.add("subscription_developer_fee_rate");
     openapiFields.add("wallet_setup");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
@@ -367,6 +393,9 @@ public class Merchant {
       }
       if ((jsonObj.get("developer_fee_rate") != null && !jsonObj.get("developer_fee_rate").isJsonNull()) && !jsonObj.get("developer_fee_rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `developer_fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("developer_fee_rate").toString()));
+      }
+      if ((jsonObj.get("subscription_developer_fee_rate") != null && !jsonObj.get("subscription_developer_fee_rate").isJsonNull()) && !jsonObj.get("subscription_developer_fee_rate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subscription_developer_fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_developer_fee_rate").toString()));
       }
       // validate the optional field `wallet_setup`
       if (jsonObj.get("wallet_setup") != null && !jsonObj.get("wallet_setup").isJsonNull()) {

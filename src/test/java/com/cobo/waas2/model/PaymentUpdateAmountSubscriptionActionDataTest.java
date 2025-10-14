@@ -60,4 +60,12 @@ public class PaymentUpdateAmountSubscriptionActionDataTest {
         // TODO: test signature
     }
 
+    /**
+     * Test the property 'deadline'
+     */
+    @Test
+    public void deadlineTest() {
+        // TODO: test deadline
+    }
+
 }

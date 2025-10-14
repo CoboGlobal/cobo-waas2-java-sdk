@@ -70,6 +70,10 @@ public class CreateMerchantRequest {
   @SerializedName(SERIALIZED_NAME_WALLET_SETUP)
   private WalletSetup walletSetup;
 
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_DEVELOPER_FEE_RATE = "subscription_developer_fee_rate";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_DEVELOPER_FEE_RATE)
+  private String subscriptionDeveloperFeeRate;
+
   public CreateMerchantRequest() {
   }
 
@@ -148,6 +152,25 @@ public class CreateMerchantRequest {
     this.walletSetup = walletSetup;
   }
 
+
+  public CreateMerchantRequest subscriptionDeveloperFeeRate(String subscriptionDeveloperFeeRate) {
+    this.subscriptionDeveloperFeeRate = subscriptionDeveloperFeeRate;
+    return this;
+  }
+
+   /**
+   * The fee rate applied when subscribe the merchant account. Represented as a string percentage (e.g., \&quot;0.1\&quot; means 10%).
+   * @return subscriptionDeveloperFeeRate
+  **/
+  @javax.annotation.Nullable
+  public String getSubscriptionDeveloperFeeRate() {
+    return subscriptionDeveloperFeeRate;
+  }
+
+  public void setSubscriptionDeveloperFeeRate(String subscriptionDeveloperFeeRate) {
+    this.subscriptionDeveloperFeeRate = subscriptionDeveloperFeeRate;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -206,13 +229,14 @@ public class CreateMerchantRequest {
     return Objects.equals(this.name, createMerchantRequest.name) &&
         Objects.equals(this.walletId, createMerchantRequest.walletId) &&
         Objects.equals(this.developerFeeRate, createMerchantRequest.developerFeeRate) &&
-        Objects.equals(this.walletSetup, createMerchantRequest.walletSetup)&&
+        Objects.equals(this.walletSetup, createMerchantRequest.walletSetup) &&
+        Objects.equals(this.subscriptionDeveloperFeeRate, createMerchantRequest.subscriptionDeveloperFeeRate)&&
         Objects.equals(this.additionalProperties, createMerchantRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, walletId, developerFeeRate, walletSetup, additionalProperties);
+    return Objects.hash(name, walletId, developerFeeRate, walletSetup, subscriptionDeveloperFeeRate, additionalProperties);
   }
 
   @Override
@@ -223,6 +247,7 @@ public class CreateMerchantRequest {
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    developerFeeRate: ").append(toIndentedString(developerFeeRate)).append("\n");
     sb.append("    walletSetup: ").append(toIndentedString(walletSetup)).append("\n");
+    sb.append("    subscriptionDeveloperFeeRate: ").append(toIndentedString(subscriptionDeveloperFeeRate)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -250,6 +275,7 @@ public class CreateMerchantRequest {
     openapiFields.add("wallet_id");
     openapiFields.add("developer_fee_rate");
     openapiFields.add("wallet_setup");
+    openapiFields.add("subscription_developer_fee_rate");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -288,6 +314,9 @@ public class CreateMerchantRequest {
       // validate the optional field `wallet_setup`
       if (jsonObj.get("wallet_setup") != null && !jsonObj.get("wallet_setup").isJsonNull()) {
         WalletSetup.validateJsonElement(jsonObj.get("wallet_setup"));
+      }
+      if ((jsonObj.get("subscription_developer_fee_rate") != null && !jsonObj.get("subscription_developer_fee_rate").isJsonNull()) && !jsonObj.get("subscription_developer_fee_rate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subscription_developer_fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_developer_fee_rate").toString()));
       }
   }
 

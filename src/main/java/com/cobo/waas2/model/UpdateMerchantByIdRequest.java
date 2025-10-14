@@ -60,6 +60,10 @@ public class UpdateMerchantByIdRequest {
   @SerializedName(SERIALIZED_NAME_DEVELOPER_FEE_RATE)
   private String developerFeeRate;
 
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_DEVELOPER_FEE_RATE = "subscription_developer_fee_rate";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_DEVELOPER_FEE_RATE)
+  private String subscriptionDeveloperFeeRate;
+
   public UpdateMerchantByIdRequest() {
   }
 
@@ -98,6 +102,25 @@ public class UpdateMerchantByIdRequest {
 
   public void setDeveloperFeeRate(String developerFeeRate) {
     this.developerFeeRate = developerFeeRate;
+  }
+
+
+  public UpdateMerchantByIdRequest subscriptionDeveloperFeeRate(String subscriptionDeveloperFeeRate) {
+    this.subscriptionDeveloperFeeRate = subscriptionDeveloperFeeRate;
+    return this;
+  }
+
+   /**
+   * The fee rate applied when subscribe the merchant account. Represented as a string percentage (e.g., \&quot;0.1\&quot; means 10%).
+   * @return subscriptionDeveloperFeeRate
+  **/
+  @javax.annotation.Nullable
+  public String getSubscriptionDeveloperFeeRate() {
+    return subscriptionDeveloperFeeRate;
+  }
+
+  public void setSubscriptionDeveloperFeeRate(String subscriptionDeveloperFeeRate) {
+    this.subscriptionDeveloperFeeRate = subscriptionDeveloperFeeRate;
   }
 
   /**
@@ -156,13 +179,14 @@ public class UpdateMerchantByIdRequest {
     }
     UpdateMerchantByIdRequest updateMerchantByIdRequest = (UpdateMerchantByIdRequest) o;
     return Objects.equals(this.name, updateMerchantByIdRequest.name) &&
-        Objects.equals(this.developerFeeRate, updateMerchantByIdRequest.developerFeeRate)&&
+        Objects.equals(this.developerFeeRate, updateMerchantByIdRequest.developerFeeRate) &&
+        Objects.equals(this.subscriptionDeveloperFeeRate, updateMerchantByIdRequest.subscriptionDeveloperFeeRate)&&
         Objects.equals(this.additionalProperties, updateMerchantByIdRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, developerFeeRate, additionalProperties);
+    return Objects.hash(name, developerFeeRate, subscriptionDeveloperFeeRate, additionalProperties);
   }
 
   @Override
@@ -171,6 +195,7 @@ public class UpdateMerchantByIdRequest {
     sb.append("class UpdateMerchantByIdRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    developerFeeRate: ").append(toIndentedString(developerFeeRate)).append("\n");
+    sb.append("    subscriptionDeveloperFeeRate: ").append(toIndentedString(subscriptionDeveloperFeeRate)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -196,6 +221,7 @@ public class UpdateMerchantByIdRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("developer_fee_rate");
+    openapiFields.add("subscription_developer_fee_rate");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -219,6 +245,9 @@ public class UpdateMerchantByIdRequest {
       }
       if ((jsonObj.get("developer_fee_rate") != null && !jsonObj.get("developer_fee_rate").isJsonNull()) && !jsonObj.get("developer_fee_rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `developer_fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("developer_fee_rate").toString()));
+      }
+      if ((jsonObj.get("subscription_developer_fee_rate") != null && !jsonObj.get("subscription_developer_fee_rate").isJsonNull()) && !jsonObj.get("subscription_developer_fee_rate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subscription_developer_fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_developer_fee_rate").toString()));
       }
   }
 

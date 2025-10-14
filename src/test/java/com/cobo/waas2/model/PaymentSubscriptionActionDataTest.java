@@ -11,13 +11,12 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.PaymentApproveSubscriptionActionData;
 import com.cobo.waas2.model.PaymentBaseSubscriptionActionData;
 import com.cobo.waas2.model.PaymentCreateSubscriptionActionData;
-import com.cobo.waas2.model.PaymentDeveloperSubscriptionActionData;
 import com.cobo.waas2.model.PaymentExtendPeriodSubscriptionActionData;
 import com.cobo.waas2.model.PaymentSubscriptionActionType;
 import com.cobo.waas2.model.PaymentUpdateAmountSubscriptionActionData;
+import com.cobo.waas2.model.PaymentUpdateTokenIdSubscriptionActionData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -59,14 +58,6 @@ public class PaymentSubscriptionActionDataTest {
     }
 
     /**
-     * Test the property 'amount'
-     */
-    @Test
-    public void amountTest() {
-        // TODO: test amount
-    }
-
-    /**
      * Test the property 'tokenId'
      */
     @Test
@@ -75,11 +66,11 @@ public class PaymentSubscriptionActionDataTest {
     }
 
     /**
-     * Test the property 'discountRate'
+     * Test the property 'discount'
      */
     @Test
-    public void discountRateTest() {
-        // TODO: test discountRate
+    public void discountTest() {
+        // TODO: test discount
     }
 
     /**
@@ -91,19 +82,19 @@ public class PaymentSubscriptionActionDataTest {
     }
 
     /**
-     * Test the property 'permitData'
-     */
-    @Test
-    public void permitDataTest() {
-        // TODO: test permitData
-    }
-
-    /**
      * Test the property 'signature'
      */
     @Test
     public void signatureTest() {
         // TODO: test signature
+    }
+
+    /**
+     * Test the property 'deadline'
+     */
+    @Test
+    public void deadlineTest() {
+        // TODO: test deadline
     }
 
     /**

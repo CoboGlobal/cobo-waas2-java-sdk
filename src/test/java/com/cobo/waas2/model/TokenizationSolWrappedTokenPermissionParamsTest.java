@@ -11,45 +11,46 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.PaymentSubscriptionActionType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for PaymentDeveloperSubscriptionActionData
+ * Model tests for TokenizationSolWrappedTokenPermissionParams
  */
-public class PaymentDeveloperSubscriptionActionDataTest {
-    private final PaymentDeveloperSubscriptionActionData model = new PaymentDeveloperSubscriptionActionData();
+public class TokenizationSolWrappedTokenPermissionParamsTest {
+    private final TokenizationSolWrappedTokenPermissionParams model = new TokenizationSolWrappedTokenPermissionParams();
 
     /**
-     * Model tests for PaymentDeveloperSubscriptionActionData
+     * Model tests for TokenizationSolWrappedTokenPermissionParams
      */
     @Test
-    public void testPaymentDeveloperSubscriptionActionData() {
-        // TODO: test PaymentDeveloperSubscriptionActionData
+    public void testTokenizationSolWrappedTokenPermissionParams() {
+        // TODO: test TokenizationSolWrappedTokenPermissionParams
     }
 
     /**
-     * Test the property 'actionType'
+     * Test the property 'wrapper'
      */
     @Test
-    public void actionTypeTest() {
-        // TODO: test actionType
+    public void wrapperTest() {
+        // TODO: test wrapper
     }
 
     /**
-     * Test the property 'subscriptionId'
+     * Test the property 'pauser'
      */
     @Test
-    public void subscriptionIdTest() {
-        // TODO: test subscriptionId
+    public void pauserTest() {
+        // TODO: test pauser
     }
 
 }

@@ -77,6 +77,14 @@ public class PaymentSubscriptionPlanTest {
     }
 
     /**
+     * Test the property 'trialPeriod'
+     */
+    @Test
+    public void trialPeriodTest() {
+        // TODO: test trialPeriod
+    }
+
+    /**
      * Test the property 'amount'
      */
     @Test

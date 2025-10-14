@@ -66,10 +66,6 @@ public class TokenizationERC20WrappedTokenParams {
   @SerializedName(SERIALIZED_NAME_SYMBOL)
   private String symbol;
 
-  public static final String SERIALIZED_NAME_DECIMALS = "decimals";
-  @SerializedName(SERIALIZED_NAME_DECIMALS)
-  private Integer decimals;
-
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
   private TokenizationERC20WrappedTokenPermissionParams permissions;
@@ -139,25 +135,6 @@ public class TokenizationERC20WrappedTokenParams {
 
   public void setSymbol(String symbol) {
     this.symbol = symbol;
-  }
-
-
-  public TokenizationERC20WrappedTokenParams decimals(Integer decimals) {
-    this.decimals = decimals;
-    return this;
-  }
-
-   /**
-   * The number of decimals for the token.
-   * @return decimals
-  **/
-  @javax.annotation.Nonnull
-  public Integer getDecimals() {
-    return decimals;
-  }
-
-  public void setDecimals(Integer decimals) {
-    this.decimals = decimals;
   }
 
 
@@ -275,7 +252,6 @@ public class TokenizationERC20WrappedTokenParams {
     return Objects.equals(this.standard, tokenizationERC20WrappedTokenParams.standard) &&
         Objects.equals(this.name, tokenizationERC20WrappedTokenParams.name) &&
         Objects.equals(this.symbol, tokenizationERC20WrappedTokenParams.symbol) &&
-        Objects.equals(this.decimals, tokenizationERC20WrappedTokenParams.decimals) &&
         Objects.equals(this.permissions, tokenizationERC20WrappedTokenParams.permissions) &&
         Objects.equals(this.tokenAccessActivated, tokenizationERC20WrappedTokenParams.tokenAccessActivated) &&
         Objects.equals(this.underlyingToken, tokenizationERC20WrappedTokenParams.underlyingToken)&&
@@ -284,7 +260,7 @@ public class TokenizationERC20WrappedTokenParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(standard, name, symbol, decimals, permissions, tokenAccessActivated, underlyingToken, additionalProperties);
+    return Objects.hash(standard, name, symbol, permissions, tokenAccessActivated, underlyingToken, additionalProperties);
   }
 
   @Override
@@ -294,7 +270,6 @@ public class TokenizationERC20WrappedTokenParams {
     sb.append("    standard: ").append(toIndentedString(standard)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
-    sb.append("    decimals: ").append(toIndentedString(decimals)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    tokenAccessActivated: ").append(toIndentedString(tokenAccessActivated)).append("\n");
     sb.append("    underlyingToken: ").append(toIndentedString(underlyingToken)).append("\n");
@@ -324,7 +299,6 @@ public class TokenizationERC20WrappedTokenParams {
     openapiFields.add("standard");
     openapiFields.add("name");
     openapiFields.add("symbol");
-    openapiFields.add("decimals");
     openapiFields.add("permissions");
     openapiFields.add("token_access_activated");
     openapiFields.add("underlying_token");
@@ -334,7 +308,6 @@ public class TokenizationERC20WrappedTokenParams {
     openapiRequiredFields.add("standard");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("symbol");
-    openapiRequiredFields.add("decimals");
     openapiRequiredFields.add("underlying_token");
   }
 

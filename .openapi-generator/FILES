@@ -127,6 +127,7 @@ docs/CreateMerchantRequest.md
 docs/CreateMpcProjectRequest.md
 docs/CreateMpcVaultRequest.md
 docs/CreateMpcWalletParams.md
+docs/CreateOrderLinkRequest.md
 docs/CreatePaymentOrderRequest.md
 docs/CreatePrimeBrokerAddress201Response.md
 docs/CreatePrimeBrokerAddressRequest.md
@@ -225,7 +226,10 @@ docs/FeeGasLimit.md
 docs/FeeRate.md
 docs/FeeReserved.md
 docs/FeeStationApi.md
+docs/FeeStationCheckFeeStationUsage.md
+docs/FeeStationCheckFeeStationUsageResponse.md
 docs/FeeStationDestination.md
+docs/FeeStationGasStationType.md
 docs/FeeStationTransactionType.md
 docs/FeeStationTransfer.md
 docs/FeeType.md
@@ -263,6 +267,8 @@ docs/KytScreeningsEventData.md
 docs/KytScreeningsReviewType.md
 docs/KytScreeningsTransaction.md
 docs/KytScreeningsTransactionType.md
+docs/Link.md
+docs/LinkDisplayInfo.md
 docs/ListAddressBalancesByToken200Response.md
 docs/ListAddressBooks200Response.md
 docs/ListAddresses200Response.md
@@ -342,6 +348,8 @@ docs/MpcStakeSource.md
 docs/MpcTransferSource.md
 docs/OAuthApi.md
 docs/Order.md
+docs/OrderLinkBusinessInfo.md
+docs/OrderLinkBusinessInfoCustomExchangeRatesInner.md
 docs/OrderStatus.md
 docs/OrgInfo.md
 docs/OrganizationsApi.md
@@ -350,12 +358,10 @@ docs/Pagination.md
 docs/PayerAccount.md
 docs/PaymentAddressUpdateEventData.md
 docs/PaymentApi.md
-docs/PaymentApproveSubscriptionActionData.md
 docs/PaymentBaseSubscriptionActionData.md
 docs/PaymentCreateSubscriptionAction.md
 docs/PaymentCreateSubscriptionActionData.md
 docs/PaymentCreateSubscriptionPlan.md
-docs/PaymentDeveloperSubscriptionActionData.md
 docs/PaymentEstimateFee.md
 docs/PaymentEstimateFee201Response.md
 docs/PaymentEstimateFeeRequest.md
@@ -378,6 +384,7 @@ docs/PaymentSubscriptionStatus.md
 docs/PaymentTransaction.md
 docs/PaymentTransactionEventData.md
 docs/PaymentUpdateAmountSubscriptionActionData.md
+docs/PaymentUpdateTokenIdSubscriptionActionData.md
 docs/PaymentWalletBalance.md
 docs/PayoutChannel.md
 docs/PolicyAction.md
@@ -577,8 +584,10 @@ docs/TokenizationPauseTokenParams.md
 docs/TokenizationPauseTokenRequest.md
 docs/TokenizationPermissionAction.md
 docs/TokenizationSOLTokenParams.md
+docs/TokenizationSOLWrappedTokenParams.md
 docs/TokenizationSolContractCallParams.md
 docs/TokenizationSolTokenPermissionParams.md
+docs/TokenizationSolWrappedTokenPermissionParams.md
 docs/TokenizationStatus.md
 docs/TokenizationToggleAllowlistEstimateFeeParams.md
 docs/TokenizationTokenDetailInfo.md
@@ -930,6 +939,7 @@ src/main/java/com/cobo/waas2/model/CreateMerchantRequest.java
 src/main/java/com/cobo/waas2/model/CreateMpcProjectRequest.java
 src/main/java/com/cobo/waas2/model/CreateMpcVaultRequest.java
 src/main/java/com/cobo/waas2/model/CreateMpcWalletParams.java
+src/main/java/com/cobo/waas2/model/CreateOrderLinkRequest.java
 src/main/java/com/cobo/waas2/model/CreatePaymentOrderRequest.java
 src/main/java/com/cobo/waas2/model/CreatePrimeBrokerAddress201Response.java
 src/main/java/com/cobo/waas2/model/CreatePrimeBrokerAddressRequest.java
@@ -1025,7 +1035,10 @@ src/main/java/com/cobo/waas2/model/FeeAmount.java
 src/main/java/com/cobo/waas2/model/FeeGasLimit.java
 src/main/java/com/cobo/waas2/model/FeeRate.java
 src/main/java/com/cobo/waas2/model/FeeReserved.java
+src/main/java/com/cobo/waas2/model/FeeStationCheckFeeStationUsage.java
+src/main/java/com/cobo/waas2/model/FeeStationCheckFeeStationUsageResponse.java
 src/main/java/com/cobo/waas2/model/FeeStationDestination.java
+src/main/java/com/cobo/waas2/model/FeeStationGasStationType.java
 src/main/java/com/cobo/waas2/model/FeeStationTransactionType.java
 src/main/java/com/cobo/waas2/model/FeeStationTransfer.java
 src/main/java/com/cobo/waas2/model/FeeType.java
@@ -1062,6 +1075,8 @@ src/main/java/com/cobo/waas2/model/KytScreeningsEventData.java
 src/main/java/com/cobo/waas2/model/KytScreeningsReviewType.java
 src/main/java/com/cobo/waas2/model/KytScreeningsTransaction.java
 src/main/java/com/cobo/waas2/model/KytScreeningsTransactionType.java
+src/main/java/com/cobo/waas2/model/Link.java
+src/main/java/com/cobo/waas2/model/LinkDisplayInfo.java
 src/main/java/com/cobo/waas2/model/ListAddressBalancesByToken200Response.java
 src/main/java/com/cobo/waas2/model/ListAddressBooks200Response.java
 src/main/java/com/cobo/waas2/model/ListAddresses200Response.java
@@ -1140,18 +1155,18 @@ src/main/java/com/cobo/waas2/model/MpcSigningGroup.java
 src/main/java/com/cobo/waas2/model/MpcStakeSource.java
 src/main/java/com/cobo/waas2/model/MpcTransferSource.java
 src/main/java/com/cobo/waas2/model/Order.java
+src/main/java/com/cobo/waas2/model/OrderLinkBusinessInfo.java
+src/main/java/com/cobo/waas2/model/OrderLinkBusinessInfoCustomExchangeRatesInner.java
 src/main/java/com/cobo/waas2/model/OrderStatus.java
 src/main/java/com/cobo/waas2/model/OrgInfo.java
 src/main/java/com/cobo/waas2/model/OtcFee.java
 src/main/java/com/cobo/waas2/model/Pagination.java
 src/main/java/com/cobo/waas2/model/PayerAccount.java
 src/main/java/com/cobo/waas2/model/PaymentAddressUpdateEventData.java
-src/main/java/com/cobo/waas2/model/PaymentApproveSubscriptionActionData.java
 src/main/java/com/cobo/waas2/model/PaymentBaseSubscriptionActionData.java
 src/main/java/com/cobo/waas2/model/PaymentCreateSubscriptionAction.java
 src/main/java/com/cobo/waas2/model/PaymentCreateSubscriptionActionData.java
 src/main/java/com/cobo/waas2/model/PaymentCreateSubscriptionPlan.java
-src/main/java/com/cobo/waas2/model/PaymentDeveloperSubscriptionActionData.java
 src/main/java/com/cobo/waas2/model/PaymentEstimateFee.java
 src/main/java/com/cobo/waas2/model/PaymentEstimateFee201Response.java
 src/main/java/com/cobo/waas2/model/PaymentEstimateFeeRequest.java
@@ -1174,6 +1189,7 @@ src/main/java/com/cobo/waas2/model/PaymentSubscriptionStatus.java
 src/main/java/com/cobo/waas2/model/PaymentTransaction.java
 src/main/java/com/cobo/waas2/model/PaymentTransactionEventData.java
 src/main/java/com/cobo/waas2/model/PaymentUpdateAmountSubscriptionActionData.java
+src/main/java/com/cobo/waas2/model/PaymentUpdateTokenIdSubscriptionActionData.java
 src/main/java/com/cobo/waas2/model/PaymentWalletBalance.java
 src/main/java/com/cobo/waas2/model/PayoutChannel.java
 src/main/java/com/cobo/waas2/model/PolicyAction.java
@@ -1369,8 +1385,10 @@ src/main/java/com/cobo/waas2/model/TokenizationPauseTokenParams.java
 src/main/java/com/cobo/waas2/model/TokenizationPauseTokenRequest.java
 src/main/java/com/cobo/waas2/model/TokenizationPermissionAction.java
 src/main/java/com/cobo/waas2/model/TokenizationSOLTokenParams.java
+src/main/java/com/cobo/waas2/model/TokenizationSOLWrappedTokenParams.java
 src/main/java/com/cobo/waas2/model/TokenizationSolContractCallParams.java
 src/main/java/com/cobo/waas2/model/TokenizationSolTokenPermissionParams.java
+src/main/java/com/cobo/waas2/model/TokenizationSolWrappedTokenPermissionParams.java
 src/main/java/com/cobo/waas2/model/TokenizationStatus.java
 src/main/java/com/cobo/waas2/model/TokenizationToggleAllowlistEstimateFeeParams.java
 src/main/java/com/cobo/waas2/model/TokenizationTokenDetailInfo.java
@@ -1676,6 +1694,7 @@ src/test/java/com/cobo/waas2/model/CreateMerchantRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateMpcProjectRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateMpcVaultRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateMpcWalletParamsTest.java
+src/test/java/com/cobo/waas2/model/CreateOrderLinkRequestTest.java
 src/test/java/com/cobo/waas2/model/CreatePaymentOrderRequestTest.java
 src/test/java/com/cobo/waas2/model/CreatePrimeBrokerAddress201ResponseTest.java
 src/test/java/com/cobo/waas2/model/CreatePrimeBrokerAddressRequestTest.java
@@ -1771,7 +1790,10 @@ src/test/java/com/cobo/waas2/model/FeeAmountTest.java
 src/test/java/com/cobo/waas2/model/FeeGasLimitTest.java
 src/test/java/com/cobo/waas2/model/FeeRateTest.java
 src/test/java/com/cobo/waas2/model/FeeReservedTest.java
+src/test/java/com/cobo/waas2/model/FeeStationCheckFeeStationUsageResponseTest.java
+src/test/java/com/cobo/waas2/model/FeeStationCheckFeeStationUsageTest.java
 src/test/java/com/cobo/waas2/model/FeeStationDestinationTest.java
+src/test/java/com/cobo/waas2/model/FeeStationGasStationTypeTest.java
 src/test/java/com/cobo/waas2/model/FeeStationTransactionTypeTest.java
 src/test/java/com/cobo/waas2/model/FeeStationTransferTest.java
 src/test/java/com/cobo/waas2/model/FeeTypeTest.java
@@ -1808,6 +1830,8 @@ src/test/java/com/cobo/waas2/model/KytScreeningsEventDataTest.java
 src/test/java/com/cobo/waas2/model/KytScreeningsReviewTypeTest.java
 src/test/java/com/cobo/waas2/model/KytScreeningsTransactionTest.java
 src/test/java/com/cobo/waas2/model/KytScreeningsTransactionTypeTest.java
+src/test/java/com/cobo/waas2/model/LinkDisplayInfoTest.java
+src/test/java/com/cobo/waas2/model/LinkTest.java
 src/test/java/com/cobo/waas2/model/ListAddressBalancesByToken200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListAddressBooks200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListAddresses200ResponseTest.java
@@ -1885,6 +1909,8 @@ src/test/java/com/cobo/waas2/model/MpcMessageSignSourceTest.java
 src/test/java/com/cobo/waas2/model/MpcSigningGroupTest.java
 src/test/java/com/cobo/waas2/model/MpcStakeSourceTest.java
 src/test/java/com/cobo/waas2/model/MpcTransferSourceTest.java
+src/test/java/com/cobo/waas2/model/OrderLinkBusinessInfoCustomExchangeRatesInnerTest.java
+src/test/java/com/cobo/waas2/model/OrderLinkBusinessInfoTest.java
 src/test/java/com/cobo/waas2/model/OrderStatusTest.java
 src/test/java/com/cobo/waas2/model/OrderTest.java
 src/test/java/com/cobo/waas2/model/OrgInfoTest.java
@@ -1892,12 +1918,10 @@ src/test/java/com/cobo/waas2/model/OtcFeeTest.java
 src/test/java/com/cobo/waas2/model/PaginationTest.java
 src/test/java/com/cobo/waas2/model/PayerAccountTest.java
 src/test/java/com/cobo/waas2/model/PaymentAddressUpdateEventDataTest.java
-src/test/java/com/cobo/waas2/model/PaymentApproveSubscriptionActionDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentBaseSubscriptionActionDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentCreateSubscriptionActionDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentCreateSubscriptionActionTest.java
 src/test/java/com/cobo/waas2/model/PaymentCreateSubscriptionPlanTest.java
-src/test/java/com/cobo/waas2/model/PaymentDeveloperSubscriptionActionDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentEstimateFee201ResponseTest.java
 src/test/java/com/cobo/waas2/model/PaymentEstimateFeeRequestTest.java
 src/test/java/com/cobo/waas2/model/PaymentEstimateFeeTest.java
@@ -1920,6 +1944,7 @@ src/test/java/com/cobo/waas2/model/PaymentSubscriptionTest.java
 src/test/java/com/cobo/waas2/model/PaymentTransactionEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentTransactionTest.java
 src/test/java/com/cobo/waas2/model/PaymentUpdateAmountSubscriptionActionDataTest.java
+src/test/java/com/cobo/waas2/model/PaymentUpdateTokenIdSubscriptionActionDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentWalletBalanceTest.java
 src/test/java/com/cobo/waas2/model/PayoutChannelTest.java
 src/test/java/com/cobo/waas2/model/PolicyActionContentTest.java
@@ -2115,8 +2140,10 @@ src/test/java/com/cobo/waas2/model/TokenizationPauseTokenParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationPauseTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/TokenizationPermissionActionTest.java
 src/test/java/com/cobo/waas2/model/TokenizationSOLTokenParamsTest.java
+src/test/java/com/cobo/waas2/model/TokenizationSOLWrappedTokenParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationSolContractCallParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationSolTokenPermissionParamsTest.java
+src/test/java/com/cobo/waas2/model/TokenizationSolWrappedTokenPermissionParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationStatusTest.java
 src/test/java/com/cobo/waas2/model/TokenizationToggleAllowlistEstimateFeeParamsTest.java
 src/test/java/com/cobo/waas2/model/TokenizationTokenDetailInfoTest.java

@@ -77,6 +77,10 @@ public class PaymentCreateSubscriptionPlan {
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
+  public static final String SERIALIZED_NAME_TRIAL_PERIOD = "trial_period";
+  @SerializedName(SERIALIZED_NAME_TRIAL_PERIOD)
+  private Integer trialPeriod;
+
   public PaymentCreateSubscriptionPlan() {
   }
 
@@ -193,6 +197,25 @@ public class PaymentCreateSubscriptionPlan {
     this.currency = currency;
   }
 
+
+  public PaymentCreateSubscriptionPlan trialPeriod(Integer trialPeriod) {
+    this.trialPeriod = trialPeriod;
+    return this;
+  }
+
+   /**
+   * probation period
+   * @return trialPeriod
+  **/
+  @javax.annotation.Nullable
+  public Integer getTrialPeriod() {
+    return trialPeriod;
+  }
+
+  public void setTrialPeriod(Integer trialPeriod) {
+    this.trialPeriod = trialPeriod;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -253,13 +276,14 @@ public class PaymentCreateSubscriptionPlan {
         Objects.equals(this.periods, paymentCreateSubscriptionPlan.periods) &&
         Objects.equals(this.amount, paymentCreateSubscriptionPlan.amount) &&
         Objects.equals(this.tokenId, paymentCreateSubscriptionPlan.tokenId) &&
-        Objects.equals(this.currency, paymentCreateSubscriptionPlan.currency)&&
+        Objects.equals(this.currency, paymentCreateSubscriptionPlan.currency) &&
+        Objects.equals(this.trialPeriod, paymentCreateSubscriptionPlan.trialPeriod)&&
         Objects.equals(this.additionalProperties, paymentCreateSubscriptionPlan.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(developerPlanId, periodType, periods, amount, tokenId, currency, additionalProperties);
+    return Objects.hash(developerPlanId, periodType, periods, amount, tokenId, currency, trialPeriod, additionalProperties);
   }
 
   @Override
@@ -272,6 +296,7 @@ public class PaymentCreateSubscriptionPlan {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    trialPeriod: ").append(toIndentedString(trialPeriod)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -301,6 +326,7 @@ public class PaymentCreateSubscriptionPlan {
     openapiFields.add("amount");
     openapiFields.add("token_id");
     openapiFields.add("currency");
+    openapiFields.add("trial_period");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

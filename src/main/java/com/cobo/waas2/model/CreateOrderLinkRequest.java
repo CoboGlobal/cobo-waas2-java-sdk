@@ -12,7 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.PaymentSubscriptionActionType;
+import com.cobo.waas2.model.LinkDisplayInfo;
+import com.cobo.waas2.model.OrderLinkBusinessInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,82 +47,59 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * PaymentApproveSubscriptionActionData
+ * CreateOrderLinkRequest
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class PaymentApproveSubscriptionActionData {
-  public static final String SERIALIZED_NAME_ACTION_TYPE = "action_type";
-  @SerializedName(SERIALIZED_NAME_ACTION_TYPE)
-  private PaymentSubscriptionActionType actionType;
+public class CreateOrderLinkRequest {
+  public static final String SERIALIZED_NAME_BUSINESS_INFO = "business_info";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_INFO)
+  private OrderLinkBusinessInfo businessInfo;
 
-  public static final String SERIALIZED_NAME_SUBSCRIPTION_ID = "subscription_id";
-  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ID)
-  private String subscriptionId;
+  public static final String SERIALIZED_NAME_DISPLAY_INFO = "display_info";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_INFO)
+  private LinkDisplayInfo displayInfo;
 
-  public static final String SERIALIZED_NAME_PERMIT_DATA = "permit_data";
-  @SerializedName(SERIALIZED_NAME_PERMIT_DATA)
-  private String permitData;
-
-  public PaymentApproveSubscriptionActionData() {
+  public CreateOrderLinkRequest() {
   }
 
-  public PaymentApproveSubscriptionActionData actionType(PaymentSubscriptionActionType actionType) {
-    this.actionType = actionType;
+  public CreateOrderLinkRequest businessInfo(OrderLinkBusinessInfo businessInfo) {
+    this.businessInfo = businessInfo;
     return this;
   }
 
    /**
-   * Get actionType
-   * @return actionType
+   * Get businessInfo
+   * @return businessInfo
   **/
   @javax.annotation.Nonnull
-  public PaymentSubscriptionActionType getActionType() {
-    return actionType;
+  public OrderLinkBusinessInfo getBusinessInfo() {
+    return businessInfo;
   }
 
-  public void setActionType(PaymentSubscriptionActionType actionType) {
-    this.actionType = actionType;
+  public void setBusinessInfo(OrderLinkBusinessInfo businessInfo) {
+    this.businessInfo = businessInfo;
   }
 
 
-  public PaymentApproveSubscriptionActionData subscriptionId(String subscriptionId) {
-    this.subscriptionId = subscriptionId;
+  public CreateOrderLinkRequest displayInfo(LinkDisplayInfo displayInfo) {
+    this.displayInfo = displayInfo;
     return this;
   }
 
    /**
-   * The subscription id in cobo.
-   * @return subscriptionId
-  **/
-  @javax.annotation.Nonnull
-  public String getSubscriptionId() {
-    return subscriptionId;
-  }
-
-  public void setSubscriptionId(String subscriptionId) {
-    this.subscriptionId = subscriptionId;
-  }
-
-
-  public PaymentApproveSubscriptionActionData permitData(String permitData) {
-    this.permitData = permitData;
-    return this;
-  }
-
-   /**
-   * The signature of permit.
-   * @return permitData
+   * Get displayInfo
+   * @return displayInfo
   **/
   @javax.annotation.Nullable
-  public String getPermitData() {
-    return permitData;
+  public LinkDisplayInfo getDisplayInfo() {
+    return displayInfo;
   }
 
-  public void setPermitData(String permitData) {
-    this.permitData = permitData;
+  public void setDisplayInfo(LinkDisplayInfo displayInfo) {
+    this.displayInfo = displayInfo;
   }
 
   /**
@@ -137,9 +115,9 @@ public class PaymentApproveSubscriptionActionData {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the PaymentApproveSubscriptionActionData instance itself
+   * @return the CreateOrderLinkRequest instance itself
    */
-  public PaymentApproveSubscriptionActionData putAdditionalProperty(String key, Object value) {
+  public CreateOrderLinkRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -178,25 +156,23 @@ public class PaymentApproveSubscriptionActionData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentApproveSubscriptionActionData paymentApproveSubscriptionActionData = (PaymentApproveSubscriptionActionData) o;
-    return Objects.equals(this.actionType, paymentApproveSubscriptionActionData.actionType) &&
-        Objects.equals(this.subscriptionId, paymentApproveSubscriptionActionData.subscriptionId) &&
-        Objects.equals(this.permitData, paymentApproveSubscriptionActionData.permitData)&&
-        Objects.equals(this.additionalProperties, paymentApproveSubscriptionActionData.additionalProperties);
+    CreateOrderLinkRequest createOrderLinkRequest = (CreateOrderLinkRequest) o;
+    return Objects.equals(this.businessInfo, createOrderLinkRequest.businessInfo) &&
+        Objects.equals(this.displayInfo, createOrderLinkRequest.displayInfo)&&
+        Objects.equals(this.additionalProperties, createOrderLinkRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionType, subscriptionId, permitData, additionalProperties);
+    return Objects.hash(businessInfo, displayInfo, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentApproveSubscriptionActionData {\n");
-    sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
-    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
-    sb.append("    permitData: ").append(toIndentedString(permitData)).append("\n");
+    sb.append("class CreateOrderLinkRequest {\n");
+    sb.append("    businessInfo: ").append(toIndentedString(businessInfo)).append("\n");
+    sb.append("    displayInfo: ").append(toIndentedString(displayInfo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -220,43 +196,39 @@ public class PaymentApproveSubscriptionActionData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("action_type");
-    openapiFields.add("subscription_id");
-    openapiFields.add("permit_data");
+    openapiFields.add("business_info");
+    openapiFields.add("display_info");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("action_type");
-    openapiRequiredFields.add("subscription_id");
+    openapiRequiredFields.add("business_info");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to PaymentApproveSubscriptionActionData
+  * @throws IOException if the JSON Element is invalid with respect to CreateOrderLinkRequest
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!PaymentApproveSubscriptionActionData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentApproveSubscriptionActionData is not found in the empty JSON string", PaymentApproveSubscriptionActionData.openapiRequiredFields.toString()));
+        if (!CreateOrderLinkRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateOrderLinkRequest is not found in the empty JSON string", CreateOrderLinkRequest.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaymentApproveSubscriptionActionData.openapiRequiredFields) {
+      for (String requiredField : CreateOrderLinkRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `action_type`
-      PaymentSubscriptionActionType.validateJsonElement(jsonObj.get("action_type"));
-      if (!jsonObj.get("subscription_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subscription_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_id").toString()));
-      }
-      if ((jsonObj.get("permit_data") != null && !jsonObj.get("permit_data").isJsonNull()) && !jsonObj.get("permit_data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `permit_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("permit_data").toString()));
+      // validate the required field `business_info`
+      OrderLinkBusinessInfo.validateJsonElement(jsonObj.get("business_info"));
+      // validate the optional field `display_info`
+      if (jsonObj.get("display_info") != null && !jsonObj.get("display_info").isJsonNull()) {
+        LinkDisplayInfo.validateJsonElement(jsonObj.get("display_info"));
       }
   }
 
@@ -264,16 +236,16 @@ public class PaymentApproveSubscriptionActionData {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentApproveSubscriptionActionData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentApproveSubscriptionActionData' and its subtypes
+       if (!CreateOrderLinkRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateOrderLinkRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentApproveSubscriptionActionData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentApproveSubscriptionActionData.class));
+       final TypeAdapter<CreateOrderLinkRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateOrderLinkRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PaymentApproveSubscriptionActionData>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateOrderLinkRequest>() {
            @Override
-           public void write(JsonWriter out, PaymentApproveSubscriptionActionData value) throws IOException {
+           public void write(JsonWriter out, CreateOrderLinkRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -303,12 +275,12 @@ public class PaymentApproveSubscriptionActionData {
            }
 
            @Override
-           public PaymentApproveSubscriptionActionData read(JsonReader in) throws IOException {
+           public CreateOrderLinkRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             PaymentApproveSubscriptionActionData instance = thisAdapter.fromJsonTree(jsonObj);
+             CreateOrderLinkRequest instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -335,18 +307,18 @@ public class PaymentApproveSubscriptionActionData {
   }
 
  /**
-  * Create an instance of PaymentApproveSubscriptionActionData given an JSON string
+  * Create an instance of CreateOrderLinkRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of PaymentApproveSubscriptionActionData
-  * @throws IOException if the JSON string is invalid with respect to PaymentApproveSubscriptionActionData
+  * @return An instance of CreateOrderLinkRequest
+  * @throws IOException if the JSON string is invalid with respect to CreateOrderLinkRequest
   */
-  public static PaymentApproveSubscriptionActionData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentApproveSubscriptionActionData.class);
+  public static CreateOrderLinkRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateOrderLinkRequest.class);
   }
 
  /**
-  * Convert an instance of PaymentApproveSubscriptionActionData to an JSON string
+  * Convert an instance of CreateOrderLinkRequest to an JSON string
   *
   * @return JSON string
   */

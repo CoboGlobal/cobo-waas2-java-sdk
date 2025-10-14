@@ -98,4 +98,12 @@ public class CreateSettlementRequestRequestTest {
         // TODO: test currency
     }
 
+    /**
+     * Test the property 'remark'
+     */
+    @Test
+    public void remarkTest() {
+        // TODO: test remark
+    }
+
 }

@@ -53,14 +53,6 @@ public class PaymentCreateSubscriptionActionDataTest {
     }
 
     /**
-     * Test the property 'amount'
-     */
-    @Test
-    public void amountTest() {
-        // TODO: test amount
-    }
-
-    /**
      * Test the property 'tokenId'
      */
     @Test
@@ -69,11 +61,11 @@ public class PaymentCreateSubscriptionActionDataTest {
     }
 
     /**
-     * Test the property 'discountRate'
+     * Test the property 'discount'
      */
     @Test
-    public void discountRateTest() {
-        // TODO: test discountRate
+    public void discountTest() {
+        // TODO: test discount
     }
 
 }

@@ -65,6 +65,10 @@ public class PaymentBaseSubscriptionActionData {
   @SerializedName(SERIALIZED_NAME_SIGNATURE)
   private String signature;
 
+  public static final String SERIALIZED_NAME_DEADLINE = "deadline";
+  @SerializedName(SERIALIZED_NAME_DEADLINE)
+  private Integer deadline;
+
   public PaymentBaseSubscriptionActionData() {
   }
 
@@ -112,16 +116,35 @@ public class PaymentBaseSubscriptionActionData {
   }
 
    /**
-   * The signature for transaction.
+   * The signature for transaction. charge action is not required.
    * @return signature
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSignature() {
     return signature;
   }
 
   public void setSignature(String signature) {
     this.signature = signature;
+  }
+
+
+  public PaymentBaseSubscriptionActionData deadline(Integer deadline) {
+    this.deadline = deadline;
+    return this;
+  }
+
+   /**
+   * The signature deadline for transaction. charge action is not required.
+   * @return deadline
+  **/
+  @javax.annotation.Nullable
+  public Integer getDeadline() {
+    return deadline;
+  }
+
+  public void setDeadline(Integer deadline) {
+    this.deadline = deadline;
   }
 
   /**
@@ -181,13 +204,14 @@ public class PaymentBaseSubscriptionActionData {
     PaymentBaseSubscriptionActionData paymentBaseSubscriptionActionData = (PaymentBaseSubscriptionActionData) o;
     return Objects.equals(this.actionType, paymentBaseSubscriptionActionData.actionType) &&
         Objects.equals(this.subscriptionId, paymentBaseSubscriptionActionData.subscriptionId) &&
-        Objects.equals(this.signature, paymentBaseSubscriptionActionData.signature)&&
+        Objects.equals(this.signature, paymentBaseSubscriptionActionData.signature) &&
+        Objects.equals(this.deadline, paymentBaseSubscriptionActionData.deadline)&&
         Objects.equals(this.additionalProperties, paymentBaseSubscriptionActionData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionType, subscriptionId, signature, additionalProperties);
+    return Objects.hash(actionType, subscriptionId, signature, deadline, additionalProperties);
   }
 
   @Override
@@ -197,6 +221,7 @@ public class PaymentBaseSubscriptionActionData {
     sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("    deadline: ").append(toIndentedString(deadline)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -223,12 +248,12 @@ public class PaymentBaseSubscriptionActionData {
     openapiFields.add("action_type");
     openapiFields.add("subscription_id");
     openapiFields.add("signature");
+    openapiFields.add("deadline");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("action_type");
     openapiRequiredFields.add("subscription_id");
-    openapiRequiredFields.add("signature");
   }
 
  /**
@@ -256,7 +281,7 @@ public class PaymentBaseSubscriptionActionData {
       if (!jsonObj.get("subscription_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subscription_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_id").toString()));
       }
-      if (!jsonObj.get("signature").isJsonPrimitive()) {
+      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
   }

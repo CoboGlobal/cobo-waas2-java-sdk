@@ -73,6 +73,10 @@ public class PaymentSubscriptionPlan {
   @SerializedName(SERIALIZED_NAME_INTERVAL)
   private Integer interval;
 
+  public static final String SERIALIZED_NAME_TRIAL_PERIOD = "trial_period";
+  @SerializedName(SERIALIZED_NAME_TRIAL_PERIOD)
+  private Integer trialPeriod;
+
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
@@ -180,6 +184,25 @@ public class PaymentSubscriptionPlan {
 
   public void setInterval(Integer interval) {
     this.interval = interval;
+  }
+
+
+  public PaymentSubscriptionPlan trialPeriod(Integer trialPeriod) {
+    this.trialPeriod = trialPeriod;
+    return this;
+  }
+
+   /**
+   * probation period
+   * @return trialPeriod
+  **/
+  @javax.annotation.Nullable
+  public Integer getTrialPeriod() {
+    return trialPeriod;
+  }
+
+  public void setTrialPeriod(Integer trialPeriod) {
+    this.trialPeriod = trialPeriod;
   }
 
 
@@ -299,6 +322,7 @@ public class PaymentSubscriptionPlan {
         Objects.equals(this.periodType, paymentSubscriptionPlan.periodType) &&
         Objects.equals(this.periods, paymentSubscriptionPlan.periods) &&
         Objects.equals(this.interval, paymentSubscriptionPlan.interval) &&
+        Objects.equals(this.trialPeriod, paymentSubscriptionPlan.trialPeriod) &&
         Objects.equals(this.amount, paymentSubscriptionPlan.amount) &&
         Objects.equals(this.tokenId, paymentSubscriptionPlan.tokenId) &&
         Objects.equals(this.currency, paymentSubscriptionPlan.currency)&&
@@ -307,7 +331,7 @@ public class PaymentSubscriptionPlan {
 
   @Override
   public int hashCode() {
-    return Objects.hash(planId, developerPlanId, periodType, periods, interval, amount, tokenId, currency, additionalProperties);
+    return Objects.hash(planId, developerPlanId, periodType, periods, interval, trialPeriod, amount, tokenId, currency, additionalProperties);
   }
 
   @Override
@@ -319,6 +343,7 @@ public class PaymentSubscriptionPlan {
     sb.append("    periodType: ").append(toIndentedString(periodType)).append("\n");
     sb.append("    periods: ").append(toIndentedString(periods)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("    trialPeriod: ").append(toIndentedString(trialPeriod)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
@@ -350,6 +375,7 @@ public class PaymentSubscriptionPlan {
     openapiFields.add("period_type");
     openapiFields.add("periods");
     openapiFields.add("interval");
+    openapiFields.add("trial_period");
     openapiFields.add("amount");
     openapiFields.add("token_id");
     openapiFields.add("currency");
