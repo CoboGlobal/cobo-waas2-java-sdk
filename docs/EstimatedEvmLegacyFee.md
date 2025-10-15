@@ -2,7 +2,7 @@
 
 # EstimatedEvmLegacyFee
 
-The estimated transaction fee based on the legacy fee model.
+The estimated transaction fee based on the Legacy fee model.  For more details about the Legacy fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models). 
 
 ## Properties
 

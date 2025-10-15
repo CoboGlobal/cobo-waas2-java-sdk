@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.WalletSetup;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -65,6 +66,10 @@ public class CreateMerchantRequest {
   @SerializedName(SERIALIZED_NAME_DEVELOPER_FEE_RATE)
   private String developerFeeRate;
 
+  public static final String SERIALIZED_NAME_WALLET_SETUP = "wallet_setup";
+  @SerializedName(SERIALIZED_NAME_WALLET_SETUP)
+  private WalletSetup walletSetup;
+
   public CreateMerchantRequest() {
   }
 
@@ -96,7 +101,7 @@ public class CreateMerchantRequest {
    * The ID of the wallet linked to the merchant.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public UUID getWalletId() {
     return walletId;
   }
@@ -122,6 +127,25 @@ public class CreateMerchantRequest {
 
   public void setDeveloperFeeRate(String developerFeeRate) {
     this.developerFeeRate = developerFeeRate;
+  }
+
+
+  public CreateMerchantRequest walletSetup(WalletSetup walletSetup) {
+    this.walletSetup = walletSetup;
+    return this;
+  }
+
+   /**
+   * Get walletSetup
+   * @return walletSetup
+  **/
+  @javax.annotation.Nullable
+  public WalletSetup getWalletSetup() {
+    return walletSetup;
+  }
+
+  public void setWalletSetup(WalletSetup walletSetup) {
+    this.walletSetup = walletSetup;
   }
 
   /**
@@ -181,13 +205,14 @@ public class CreateMerchantRequest {
     CreateMerchantRequest createMerchantRequest = (CreateMerchantRequest) o;
     return Objects.equals(this.name, createMerchantRequest.name) &&
         Objects.equals(this.walletId, createMerchantRequest.walletId) &&
-        Objects.equals(this.developerFeeRate, createMerchantRequest.developerFeeRate)&&
+        Objects.equals(this.developerFeeRate, createMerchantRequest.developerFeeRate) &&
+        Objects.equals(this.walletSetup, createMerchantRequest.walletSetup)&&
         Objects.equals(this.additionalProperties, createMerchantRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, walletId, developerFeeRate, additionalProperties);
+    return Objects.hash(name, walletId, developerFeeRate, walletSetup, additionalProperties);
   }
 
   @Override
@@ -197,6 +222,7 @@ public class CreateMerchantRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    developerFeeRate: ").append(toIndentedString(developerFeeRate)).append("\n");
+    sb.append("    walletSetup: ").append(toIndentedString(walletSetup)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -223,11 +249,11 @@ public class CreateMerchantRequest {
     openapiFields.add("name");
     openapiFields.add("wallet_id");
     openapiFields.add("developer_fee_rate");
+    openapiFields.add("wallet_setup");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
-    openapiRequiredFields.add("wallet_id");
   }
 
  /**
@@ -253,11 +279,15 @@ public class CreateMerchantRequest {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
+      if ((jsonObj.get("wallet_id") != null && !jsonObj.get("wallet_id").isJsonNull()) && !jsonObj.get("wallet_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
       }
       if ((jsonObj.get("developer_fee_rate") != null && !jsonObj.get("developer_fee_rate").isJsonNull()) && !jsonObj.get("developer_fee_rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `developer_fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("developer_fee_rate").toString()));
+      }
+      // validate the optional field `wallet_setup`
+      if (jsonObj.get("wallet_setup") != null && !jsonObj.get("wallet_setup").isJsonNull()) {
+        WalletSetup.validateJsonElement(jsonObj.get("wallet_setup"));
       }
   }
 

@@ -16,6 +16,7 @@ import com.cobo.waas2.model.SwapActivityApprovers;
 import com.cobo.waas2.model.SwapActivitySigners;
 import com.cobo.waas2.model.SwapActivityStatus;
 import com.cobo.waas2.model.SwapActivityTimeline;
+import com.cobo.waas2.model.SwapReceivingTransaction;
 import com.cobo.waas2.model.SwapType;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRequestFee;
@@ -147,6 +148,10 @@ public class SwapActivityDetail {
   @SerializedName(SERIALIZED_NAME_SIGNERS)
   private List<SwapActivitySigners> signers = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_RECEIVING_TRANSACTION = "receiving_transaction";
+  @SerializedName(SERIALIZED_NAME_RECEIVING_TRANSACTION)
+  private SwapReceivingTransaction receivingTransaction;
+
   public SwapActivityDetail() {
   }
 
@@ -213,7 +218,7 @@ public class SwapActivityDetail {
   }
 
    /**
-   * The request id of the swap activity.
+   * The request ID of the swap transaction.
    * @return requestId
   **/
   @javax.annotation.Nullable
@@ -232,7 +237,7 @@ public class SwapActivityDetail {
   }
 
    /**
-   * The unique identifier of the wallet.
+   * The ID of the wallet used to pay.
    * @return walletId
   **/
   @javax.annotation.Nullable
@@ -251,7 +256,7 @@ public class SwapActivityDetail {
   }
 
    /**
-   * The token ID to pay.
+   * The ID of the token to pay.
    * @return payTokenId
   **/
   @javax.annotation.Nullable
@@ -270,7 +275,7 @@ public class SwapActivityDetail {
   }
 
    /**
-   * The token ID to receive.
+   * The ID of the token to receive.
    * @return receiveTokenId
   **/
   @javax.annotation.Nullable
@@ -289,7 +294,7 @@ public class SwapActivityDetail {
   }
 
    /**
-   * The amount of tokens to bridge.
+   * The amount of the token to pay.
    * @return payAmount
   **/
   @javax.annotation.Nullable
@@ -308,7 +313,7 @@ public class SwapActivityDetail {
   }
 
    /**
-   * The amount of tokens to receive.
+   * The amount of the token to receive.
    * @return receiveAmount
   **/
   @javax.annotation.Nullable
@@ -327,7 +332,7 @@ public class SwapActivityDetail {
   }
 
    /**
-   * The fee token ID.
+   * The ID of the token used for paying the service fee.
    * @return feeTokenId
   **/
   @javax.annotation.Nullable
@@ -346,7 +351,7 @@ public class SwapActivityDetail {
   }
 
    /**
-   * The amount of fee.
+   * The amount of the service fee.
    * @return feeAmount
   **/
   @javax.annotation.Nullable
@@ -479,7 +484,7 @@ public class SwapActivityDetail {
   }
 
    /**
-   * the destination address of web3/mpc wallets.
+   * The address of an MPC Wallet or Web3 Wallet that receives the swapped or bridged assets.
    * @return destinationAddress
   **/
   @javax.annotation.Nullable
@@ -572,6 +577,25 @@ public class SwapActivityDetail {
     this.signers = signers;
   }
 
+
+  public SwapActivityDetail receivingTransaction(SwapReceivingTransaction receivingTransaction) {
+    this.receivingTransaction = receivingTransaction;
+    return this;
+  }
+
+   /**
+   * Get receivingTransaction
+   * @return receivingTransaction
+  **/
+  @javax.annotation.Nullable
+  public SwapReceivingTransaction getReceivingTransaction() {
+    return receivingTransaction;
+  }
+
+  public void setReceivingTransaction(SwapReceivingTransaction receivingTransaction) {
+    this.receivingTransaction = receivingTransaction;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -647,7 +671,8 @@ public class SwapActivityDetail {
         Objects.equals(this.destinationAddress, swapActivityDetail.destinationAddress) &&
         Objects.equals(this.timeline, swapActivityDetail.timeline) &&
         Objects.equals(this.approvers, swapActivityDetail.approvers) &&
-        Objects.equals(this.signers, swapActivityDetail.signers)&&
+        Objects.equals(this.signers, swapActivityDetail.signers) &&
+        Objects.equals(this.receivingTransaction, swapActivityDetail.receivingTransaction)&&
         Objects.equals(this.additionalProperties, swapActivityDetail.additionalProperties);
   }
 
@@ -657,7 +682,7 @@ public class SwapActivityDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activityId, swapType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeTokenId, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, networkFee, destinationAddress, timeline, approvers, signers, additionalProperties);
+    return Objects.hash(activityId, swapType, status, requestId, walletId, payTokenId, receiveTokenId, payAmount, receiveAmount, feeTokenId, feeAmount, initiator, initiatorType, description, createdTimestamp, updatedTimestamp, networkFee, destinationAddress, timeline, approvers, signers, receivingTransaction, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -692,6 +717,7 @@ public class SwapActivityDetail {
     sb.append("    timeline: ").append(toIndentedString(timeline)).append("\n");
     sb.append("    approvers: ").append(toIndentedString(approvers)).append("\n");
     sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
+    sb.append("    receivingTransaction: ").append(toIndentedString(receivingTransaction)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -736,6 +762,7 @@ public class SwapActivityDetail {
     openapiFields.add("timeline");
     openapiFields.add("approvers");
     openapiFields.add("signers");
+    openapiFields.add("receiving_transaction");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -847,6 +874,10 @@ public class SwapActivityDetail {
             SwapActivitySigners.validateJsonElement(jsonArraysigners.get(i));
           };
         }
+      }
+      // validate the optional field `receiving_transaction`
+      if (jsonObj.get("receiving_transaction") != null && !jsonObj.get("receiving_transaction").isJsonNull()) {
+        SwapReceivingTransaction.validateJsonElement(jsonObj.get("receiving_transaction"));
       }
   }
 

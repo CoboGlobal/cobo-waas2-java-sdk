@@ -30,7 +30,9 @@ public enum ContractCallDestinationType {
   
   EVM_CONTRACT("EVM_Contract"),
   
-  SOL_CONTRACT("SOL_Contract");
+  SOL_CONTRACT("SOL_Contract"),
+  
+  STELLAR_CONTRACT("STELLAR_Contract");
 
   private String value;
 

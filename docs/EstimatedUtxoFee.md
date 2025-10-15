@@ -2,7 +2,7 @@
 
 # EstimatedUtxoFee
 
-The estimated transaction fee for UTXO-based chains.
+The estimated transaction fee for UTXO-based chains.  For more details about the UTXO fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models). 
 
 ## Properties
 

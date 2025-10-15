@@ -123,7 +123,7 @@ public class PspBalance {
   }
 
    /**
-   * The total amount of the token that has been settled from the developer&#39;s balance.
+   * The total amount of the token that has been paid out from the developer&#39;s balance.
    * @return settledAmount
   **/
   @javax.annotation.Nullable
@@ -161,7 +161,7 @@ public class PspBalance {
   }
 
    /**
-   * The total balance of the token for the developer.
+   *  The total balance of the token available for payout or refund for the developer.  &#x60;total_balance&#x60; &#x3D; &#x60;developer_fee_amount&#x60; - &#x60;settled_amount&#x60; - &#x60;refunded_amount&#x60;  For more information, please refer to [Amounts and Balances](/v2_cn/payments/amounts-and-balances) 
    * @return totalBalance
   **/
   @javax.annotation.Nullable
@@ -180,7 +180,7 @@ public class PspBalance {
   }
 
    /**
-   * The balance available for settlement or refund, in the specified cryptocurrency.
+   * This field has been deprecated.
    * @return availableBalance
   **/
   @javax.annotation.Nullable

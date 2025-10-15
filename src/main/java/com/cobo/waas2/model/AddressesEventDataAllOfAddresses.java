@@ -19,7 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -92,6 +94,10 @@ public class AddressesEventDataAllOfAddresses {
   public static final String SERIALIZED_NAME_TAPROOT_INTERNAL_ADDRESS = "taproot_internal_address";
   @SerializedName(SERIALIZED_NAME_TAPROOT_INTERNAL_ADDRESS)
   private String taprootInternalAddress;
+
+  public static final String SERIALIZED_NAME_STELLAR_TRUSTED_TOKEN_IDS = "stellar_trusted_token_ids";
+  @SerializedName(SERIALIZED_NAME_STELLAR_TRUSTED_TOKEN_IDS)
+  private List<String> stellarTrustedTokenIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WALLET_ID = "wallet_id";
   @SerializedName(SERIALIZED_NAME_WALLET_ID)
@@ -290,6 +296,33 @@ public class AddressesEventDataAllOfAddresses {
   }
 
 
+  public AddressesEventDataAllOfAddresses stellarTrustedTokenIds(List<String> stellarTrustedTokenIds) {
+    this.stellarTrustedTokenIds = stellarTrustedTokenIds;
+    return this;
+  }
+
+  public AddressesEventDataAllOfAddresses addStellarTrustedTokenIdsItem(String stellarTrustedTokenIdsItem) {
+    if (this.stellarTrustedTokenIds == null) {
+      this.stellarTrustedTokenIds = new ArrayList<>();
+    }
+    this.stellarTrustedTokenIds.add(stellarTrustedTokenIdsItem);
+    return this;
+  }
+
+   /**
+   * The list of token IDs for which this address has already established trustlines on the Stellar network.
+   * @return stellarTrustedTokenIds
+  **/
+  @javax.annotation.Nullable
+  public List<String> getStellarTrustedTokenIds() {
+    return stellarTrustedTokenIds;
+  }
+
+  public void setStellarTrustedTokenIds(List<String> stellarTrustedTokenIds) {
+    this.stellarTrustedTokenIds = stellarTrustedTokenIds;
+  }
+
+
   public AddressesEventDataAllOfAddresses walletId(String walletId) {
     this.walletId = walletId;
     return this;
@@ -373,13 +406,14 @@ public class AddressesEventDataAllOfAddresses {
         Objects.equals(this.rootPubkey, addressesEventDataAllOfAddresses.rootPubkey) &&
         Objects.equals(this.taprootScriptTreeHash, addressesEventDataAllOfAddresses.taprootScriptTreeHash) &&
         Objects.equals(this.taprootInternalAddress, addressesEventDataAllOfAddresses.taprootInternalAddress) &&
+        Objects.equals(this.stellarTrustedTokenIds, addressesEventDataAllOfAddresses.stellarTrustedTokenIds) &&
         Objects.equals(this.walletId, addressesEventDataAllOfAddresses.walletId)&&
         Objects.equals(this.additionalProperties, addressesEventDataAllOfAddresses.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, chainId, memo, path, encoding, pubkey, xOnlyPubkey, rootPubkey, taprootScriptTreeHash, taprootInternalAddress, walletId, additionalProperties);
+    return Objects.hash(address, chainId, memo, path, encoding, pubkey, xOnlyPubkey, rootPubkey, taprootScriptTreeHash, taprootInternalAddress, stellarTrustedTokenIds, walletId, additionalProperties);
   }
 
   @Override
@@ -396,6 +430,7 @@ public class AddressesEventDataAllOfAddresses {
     sb.append("    rootPubkey: ").append(toIndentedString(rootPubkey)).append("\n");
     sb.append("    taprootScriptTreeHash: ").append(toIndentedString(taprootScriptTreeHash)).append("\n");
     sb.append("    taprootInternalAddress: ").append(toIndentedString(taprootInternalAddress)).append("\n");
+    sb.append("    stellarTrustedTokenIds: ").append(toIndentedString(stellarTrustedTokenIds)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -430,6 +465,7 @@ public class AddressesEventDataAllOfAddresses {
     openapiFields.add("root_pubkey");
     openapiFields.add("taproot_script_tree_hash");
     openapiFields.add("taproot_internal_address");
+    openapiFields.add("stellar_trusted_token_ids");
     openapiFields.add("wallet_id");
 
     // a set of required properties/fields (JSON key names)
@@ -489,6 +525,10 @@ public class AddressesEventDataAllOfAddresses {
       }
       if ((jsonObj.get("taproot_internal_address") != null && !jsonObj.get("taproot_internal_address").isJsonNull()) && !jsonObj.get("taproot_internal_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `taproot_internal_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taproot_internal_address").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("stellar_trusted_token_ids") != null && !jsonObj.get("stellar_trusted_token_ids").isJsonNull() && !jsonObj.get("stellar_trusted_token_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `stellar_trusted_token_ids` to be an array in the JSON string but got `%s`", jsonObj.get("stellar_trusted_token_ids").toString()));
       }
       if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));

@@ -10,6 +10,7 @@ The information about the transaction destination. Refer to [Transaction sources
 |------------ | ------------- | ------------- | -------------|
 |**destinationType** | **ContractCallDestinationType** |  |  |
 |**instructions** | [**List&lt;SolContractCallInstruction&gt;**](SolContractCallInstruction.md) |  |  |
+|**addressLookupTableAccounts** | [**List&lt;SolContractCallAddressLookupTableAccount&gt;**](SolContractCallAddressLookupTableAccount.md) |  |  [optional] |
 
 
 

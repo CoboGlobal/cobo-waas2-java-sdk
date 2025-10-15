@@ -12,7 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.MessageSignDestinationType;
+import com.cobo.waas2.model.ContractCallDestinationType;
+import com.cobo.waas2.model.StellarContractCallContractParam;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,25 +47,25 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the destination &#x60;Raw_Message_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
+ * The information about the transaction destination. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class RawMessageSignDestination {
+public class StellarContractCallDestination {
   public static final String SERIALIZED_NAME_DESTINATION_TYPE = "destination_type";
   @SerializedName(SERIALIZED_NAME_DESTINATION_TYPE)
-  private MessageSignDestinationType destinationType;
+  private ContractCallDestinationType destinationType;
 
-  public static final String SERIALIZED_NAME_MSG_HASH = "msg_hash";
-  @SerializedName(SERIALIZED_NAME_MSG_HASH)
-  private String msgHash;
+  public static final String SERIALIZED_NAME_CONTRACT_PARAM = "contract_param";
+  @SerializedName(SERIALIZED_NAME_CONTRACT_PARAM)
+  private StellarContractCallContractParam contractParam;
 
-  public RawMessageSignDestination() {
+  public StellarContractCallDestination() {
   }
 
-  public RawMessageSignDestination destinationType(MessageSignDestinationType destinationType) {
+  public StellarContractCallDestination destinationType(ContractCallDestinationType destinationType) {
     this.destinationType = destinationType;
     return this;
   }
@@ -74,31 +75,31 @@ public class RawMessageSignDestination {
    * @return destinationType
   **/
   @javax.annotation.Nonnull
-  public MessageSignDestinationType getDestinationType() {
+  public ContractCallDestinationType getDestinationType() {
     return destinationType;
   }
 
-  public void setDestinationType(MessageSignDestinationType destinationType) {
+  public void setDestinationType(ContractCallDestinationType destinationType) {
     this.destinationType = destinationType;
   }
 
 
-  public RawMessageSignDestination msgHash(String msgHash) {
-    this.msgHash = msgHash;
+  public StellarContractCallDestination contractParam(StellarContractCallContractParam contractParam) {
+    this.contractParam = contractParam;
     return this;
   }
 
    /**
-   * Message hash to be signed, in hexadecimal format.
-   * @return msgHash
+   * Get contractParam
+   * @return contractParam
   **/
   @javax.annotation.Nonnull
-  public String getMsgHash() {
-    return msgHash;
+  public StellarContractCallContractParam getContractParam() {
+    return contractParam;
   }
 
-  public void setMsgHash(String msgHash) {
-    this.msgHash = msgHash;
+  public void setContractParam(StellarContractCallContractParam contractParam) {
+    this.contractParam = contractParam;
   }
 
   /**
@@ -114,9 +115,9 @@ public class RawMessageSignDestination {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the RawMessageSignDestination instance itself
+   * @return the StellarContractCallDestination instance itself
    */
-  public RawMessageSignDestination putAdditionalProperty(String key, Object value) {
+  public StellarContractCallDestination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -155,23 +156,23 @@ public class RawMessageSignDestination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RawMessageSignDestination rawMessageSignDestination = (RawMessageSignDestination) o;
-    return Objects.equals(this.destinationType, rawMessageSignDestination.destinationType) &&
-        Objects.equals(this.msgHash, rawMessageSignDestination.msgHash)&&
-        Objects.equals(this.additionalProperties, rawMessageSignDestination.additionalProperties);
+    StellarContractCallDestination stellarContractCallDestination = (StellarContractCallDestination) o;
+    return Objects.equals(this.destinationType, stellarContractCallDestination.destinationType) &&
+        Objects.equals(this.contractParam, stellarContractCallDestination.contractParam)&&
+        Objects.equals(this.additionalProperties, stellarContractCallDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, msgHash, additionalProperties);
+    return Objects.hash(destinationType, contractParam, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RawMessageSignDestination {\n");
+    sb.append("class StellarContractCallDestination {\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
-    sb.append("    msgHash: ").append(toIndentedString(msgHash)).append("\n");
+    sb.append("    contractParam: ").append(toIndentedString(contractParam)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -196,55 +197,54 @@ public class RawMessageSignDestination {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("destination_type");
-    openapiFields.add("msg_hash");
+    openapiFields.add("contract_param");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("destination_type");
-    openapiRequiredFields.add("msg_hash");
+    openapiRequiredFields.add("contract_param");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to RawMessageSignDestination
+  * @throws IOException if the JSON Element is invalid with respect to StellarContractCallDestination
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!RawMessageSignDestination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RawMessageSignDestination is not found in the empty JSON string", RawMessageSignDestination.openapiRequiredFields.toString()));
+        if (!StellarContractCallDestination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StellarContractCallDestination is not found in the empty JSON string", StellarContractCallDestination.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RawMessageSignDestination.openapiRequiredFields) {
+      for (String requiredField : StellarContractCallDestination.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `destination_type`
-      MessageSignDestinationType.validateJsonElement(jsonObj.get("destination_type"));
-      if (!jsonObj.get("msg_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `msg_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("msg_hash").toString()));
-      }
+      ContractCallDestinationType.validateJsonElement(jsonObj.get("destination_type"));
+      // validate the required field `contract_param`
+      StellarContractCallContractParam.validateJsonElement(jsonObj.get("contract_param"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RawMessageSignDestination.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RawMessageSignDestination' and its subtypes
+       if (!StellarContractCallDestination.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StellarContractCallDestination' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RawMessageSignDestination> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RawMessageSignDestination.class));
+       final TypeAdapter<StellarContractCallDestination> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StellarContractCallDestination.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RawMessageSignDestination>() {
+       return (TypeAdapter<T>) new TypeAdapter<StellarContractCallDestination>() {
            @Override
-           public void write(JsonWriter out, RawMessageSignDestination value) throws IOException {
+           public void write(JsonWriter out, StellarContractCallDestination value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -274,12 +274,12 @@ public class RawMessageSignDestination {
            }
 
            @Override
-           public RawMessageSignDestination read(JsonReader in) throws IOException {
+           public StellarContractCallDestination read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             RawMessageSignDestination instance = thisAdapter.fromJsonTree(jsonObj);
+             StellarContractCallDestination instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -306,18 +306,18 @@ public class RawMessageSignDestination {
   }
 
  /**
-  * Create an instance of RawMessageSignDestination given an JSON string
+  * Create an instance of StellarContractCallDestination given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RawMessageSignDestination
-  * @throws IOException if the JSON string is invalid with respect to RawMessageSignDestination
+  * @return An instance of StellarContractCallDestination
+  * @throws IOException if the JSON string is invalid with respect to StellarContractCallDestination
   */
-  public static RawMessageSignDestination fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RawMessageSignDestination.class);
+  public static StellarContractCallDestination fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StellarContractCallDestination.class);
   }
 
  /**
-  * Convert an instance of RawMessageSignDestination to an JSON string
+  * Convert an instance of StellarContractCallDestination to an JSON string
   *
   * @return JSON string
   */

@@ -196,7 +196,7 @@ public class SwapActivity {
   }
 
    /**
-   * The request id of the swap activity.
+   * The request ID of the swap transaction.
    * @return requestId
   **/
   @javax.annotation.Nullable
@@ -215,7 +215,7 @@ public class SwapActivity {
   }
 
    /**
-   * The unique identifier of the wallet.
+   * The ID of the wallet used to pay.
    * @return walletId
   **/
   @javax.annotation.Nullable
@@ -234,7 +234,7 @@ public class SwapActivity {
   }
 
    /**
-   * The token ID to pay.
+   * The ID of the token to pay.
    * @return payTokenId
   **/
   @javax.annotation.Nullable
@@ -253,7 +253,7 @@ public class SwapActivity {
   }
 
    /**
-   * The token ID to receive.
+   * The ID of the token to receive.
    * @return receiveTokenId
   **/
   @javax.annotation.Nullable
@@ -272,7 +272,7 @@ public class SwapActivity {
   }
 
    /**
-   * The amount of tokens to bridge.
+   * The amount of the token to pay.
    * @return payAmount
   **/
   @javax.annotation.Nullable
@@ -291,7 +291,7 @@ public class SwapActivity {
   }
 
    /**
-   * The amount of tokens to receive.
+   * The amount of the token to receive.
    * @return receiveAmount
   **/
   @javax.annotation.Nullable
@@ -310,7 +310,7 @@ public class SwapActivity {
   }
 
    /**
-   * The fee token ID.
+   * The ID of the token used for paying the service fee.
    * @return feeTokenId
   **/
   @javax.annotation.Nullable
@@ -329,7 +329,7 @@ public class SwapActivity {
   }
 
    /**
-   * The amount of fee.
+   * The amount of the service fee.
    * @return feeAmount
   **/
   @javax.annotation.Nullable
@@ -462,7 +462,7 @@ public class SwapActivity {
   }
 
    /**
-   * the destination address of web3/mpc wallets.
+   * The address of an MPC Wallet or Web3 Wallet that receives the swapped or bridged assets.
    * @return destinationAddress
   **/
   @javax.annotation.Nullable

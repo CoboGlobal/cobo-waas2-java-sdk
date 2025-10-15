@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The transaction signing result. Possible values include:    - &#x60;Pending&#x60;: Waiting for signing from the signer.   - &#x60;Approved&#x60;: The signer has signed to the signing request.   - &#x60;Timeout&#x60;: The signing request has expired due to no response from the signer.   - &#x60;Rejected&#x60;: The signer has rejected the signing request. 
+ * The result of the swap transaction signing. Possible values include:   - &#x60;Pending&#x60;: The transaction is awaiting the signer&#39;s signature.   - &#x60;Signed&#x60;: The transaction has been signed by the signer.   - &#x60;Timeout&#x60;: The signature request has expired due to no response from the signer.   - &#x60;Rejected&#x60;: The transaction has been rejected by the signer. 
  */
 @JsonAdapter(SwapSingingStatus.Adapter.class)
 public enum SwapSingingStatus {

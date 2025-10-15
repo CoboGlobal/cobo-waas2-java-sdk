@@ -11,7 +11,8 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.MessageSignDestinationType;
+import com.cobo.waas2.model.ContractCallDestinationType;
+import com.cobo.waas2.model.StellarContractCallContractParam;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,17 +24,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for RawMessageSignDestination
+ * Model tests for StellarContractCallDestination
  */
-public class RawMessageSignDestinationTest {
-    private final RawMessageSignDestination model = new RawMessageSignDestination();
+public class StellarContractCallDestinationTest {
+    private final StellarContractCallDestination model = new StellarContractCallDestination();
 
     /**
-     * Model tests for RawMessageSignDestination
+     * Model tests for StellarContractCallDestination
      */
     @Test
-    public void testRawMessageSignDestination() {
-        // TODO: test RawMessageSignDestination
+    public void testStellarContractCallDestination() {
+        // TODO: test StellarContractCallDestination
     }
 
     /**
@@ -45,11 +46,11 @@ public class RawMessageSignDestinationTest {
     }
 
     /**
-     * Test the property 'msgHash'
+     * Test the property 'contractParam'
      */
     @Test
-    public void msgHashTest() {
-        // TODO: test msgHash
+    public void contractParamTest() {
+        // TODO: test contractParam
     }
 
 }

@@ -46,7 +46,7 @@ public class AddressBooksApiTest {
     /**
      * Create Address Book entries
      *
-     * This operation adds new entries (records) to your Address Book. 
+     * This operation adds new entries (records) to your Address Book. &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -60,7 +60,7 @@ public class AddressBooksApiTest {
     /**
      * Delete Address Book entry
      *
-     * This operation deletes a specified Address Book entry (record). 
+     * This operation deletes a specified Address Book entry (record). &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -107,7 +107,7 @@ public class AddressBooksApiTest {
     /**
      * Update Address Book entry
      *
-     * This operation updates the information of a specified Address Book entry (record). 
+     * This operation updates the information of a specified Address Book entry (record). &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

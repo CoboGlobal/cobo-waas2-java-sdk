@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The status of the swap activity. Possible values include: - &#x60;Success&#x60;: The activity is successfully completed. - &#x60;Processing&#x60;: The activity is being processed. - &#x60;Failed&#x60;: The activity has failed. 
+ * The status of the swap activity. Possible values include: - &#x60;Success&#x60;: The activity completed successfully. - &#x60;Processing&#x60;: The activity is being processed. - &#x60;Failed&#x60;: The activity failed. 
  */
 @JsonAdapter(SwapActivityStatus.Adapter.class)
 public enum SwapActivityStatus {

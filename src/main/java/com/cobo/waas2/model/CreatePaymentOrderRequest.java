@@ -88,6 +88,10 @@ public class CreatePaymentOrderRequest {
   @SerializedName(SERIALIZED_NAME_USE_DEDICATED_ADDRESS)
   private Boolean useDedicatedAddress;
 
+  public static final String SERIALIZED_NAME_CUSTOM_EXCHANGE_RATE = "custom_exchange_rate";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_EXCHANGE_RATE)
+  private String customExchangeRate;
+
   public CreatePaymentOrderRequest() {
   }
 
@@ -249,7 +253,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * Whether to allocate a dedicated address for this order.  - &#x60;true&#x60;: A dedicated address will be allocated for this order. - &#x60;false&#x60;: A shared address from the address pool will be used. 
+   * This field has been deprecated. 
    * @return useDedicatedAddress
   **/
   @javax.annotation.Nullable
@@ -259,6 +263,25 @@ public class CreatePaymentOrderRequest {
 
   public void setUseDedicatedAddress(Boolean useDedicatedAddress) {
     this.useDedicatedAddress = useDedicatedAddress;
+  }
+
+
+  public CreatePaymentOrderRequest customExchangeRate(String customExchangeRate) {
+    this.customExchangeRate = customExchangeRate;
+    return this;
+  }
+
+   /**
+   * A custom exchange rate specified by the merchant.   - Only effective when &#x60;currency&#x60; is &#x60;\&quot;USD\&quot;&#x60;.   - Expressed as the amount of USD per 1 unit of the specified cryptocurrency.   - If not provided, the system will use the default internal rate.   Example: If the cryptocurrency is USDT and &#x60;custom_exchange_rate&#x60; &#x3D; &#x60;\&quot;0.99\&quot;&#x60;, it means 1 USDT &#x3D; 0.99 USD. 
+   * @return customExchangeRate
+  **/
+  @javax.annotation.Nullable
+  public String getCustomExchangeRate() {
+    return customExchangeRate;
+  }
+
+  public void setCustomExchangeRate(String customExchangeRate) {
+    this.customExchangeRate = customExchangeRate;
   }
 
   /**
@@ -324,13 +347,14 @@ public class CreatePaymentOrderRequest {
         Objects.equals(this.merchantOrderCode, createPaymentOrderRequest.merchantOrderCode) &&
         Objects.equals(this.pspOrderCode, createPaymentOrderRequest.pspOrderCode) &&
         Objects.equals(this.expiredIn, createPaymentOrderRequest.expiredIn) &&
-        Objects.equals(this.useDedicatedAddress, createPaymentOrderRequest.useDedicatedAddress)&&
+        Objects.equals(this.useDedicatedAddress, createPaymentOrderRequest.useDedicatedAddress) &&
+        Objects.equals(this.customExchangeRate, createPaymentOrderRequest.customExchangeRate)&&
         Objects.equals(this.additionalProperties, createPaymentOrderRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredIn, useDedicatedAddress, additionalProperties);
+    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredIn, useDedicatedAddress, customExchangeRate, additionalProperties);
   }
 
   @Override
@@ -346,6 +370,7 @@ public class CreatePaymentOrderRequest {
     sb.append("    pspOrderCode: ").append(toIndentedString(pspOrderCode)).append("\n");
     sb.append("    expiredIn: ").append(toIndentedString(expiredIn)).append("\n");
     sb.append("    useDedicatedAddress: ").append(toIndentedString(useDedicatedAddress)).append("\n");
+    sb.append("    customExchangeRate: ").append(toIndentedString(customExchangeRate)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -378,6 +403,7 @@ public class CreatePaymentOrderRequest {
     openapiFields.add("psp_order_code");
     openapiFields.add("expired_in");
     openapiFields.add("use_dedicated_address");
+    openapiFields.add("custom_exchange_rate");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -428,6 +454,9 @@ public class CreatePaymentOrderRequest {
       }
       if (!jsonObj.get("psp_order_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `psp_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psp_order_code").toString()));
+      }
+      if ((jsonObj.get("custom_exchange_rate") != null && !jsonObj.get("custom_exchange_rate").isJsonNull()) && !jsonObj.get("custom_exchange_rate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_exchange_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_exchange_rate").toString()));
       }
   }
 

@@ -61,6 +61,10 @@ public class TransactionFuelingInfo {
   @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
   private UUID transactionId;
 
+  public static final String SERIALIZED_NAME_MAIN_TRANSACTION_ID = "main_transaction_id";
+  @SerializedName(SERIALIZED_NAME_MAIN_TRANSACTION_ID)
+  private UUID mainTransactionId;
+
   public TransactionFuelingInfo() {
   }
 
@@ -99,6 +103,25 @@ public class TransactionFuelingInfo {
 
   public void setTransactionId(UUID transactionId) {
     this.transactionId = transactionId;
+  }
+
+
+  public TransactionFuelingInfo mainTransactionId(UUID mainTransactionId) {
+    this.mainTransactionId = mainTransactionId;
+    return this;
+  }
+
+   /**
+   * The UUID of the parent (main) transaction that this record is associated with. Set only when the current record is a gas/fee transaction initiated by Fee Station; omit for main transactions.
+   * @return mainTransactionId
+  **/
+  @javax.annotation.Nullable
+  public UUID getMainTransactionId() {
+    return mainTransactionId;
+  }
+
+  public void setMainTransactionId(UUID mainTransactionId) {
+    this.mainTransactionId = mainTransactionId;
   }
 
   /**
@@ -157,13 +180,14 @@ public class TransactionFuelingInfo {
     }
     TransactionFuelingInfo transactionFuelingInfo = (TransactionFuelingInfo) o;
     return Objects.equals(this.requestId, transactionFuelingInfo.requestId) &&
-        Objects.equals(this.transactionId, transactionFuelingInfo.transactionId)&&
+        Objects.equals(this.transactionId, transactionFuelingInfo.transactionId) &&
+        Objects.equals(this.mainTransactionId, transactionFuelingInfo.mainTransactionId)&&
         Objects.equals(this.additionalProperties, transactionFuelingInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, transactionId, additionalProperties);
+    return Objects.hash(requestId, transactionId, mainTransactionId, additionalProperties);
   }
 
   @Override
@@ -172,6 +196,7 @@ public class TransactionFuelingInfo {
     sb.append("class TransactionFuelingInfo {\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
+    sb.append("    mainTransactionId: ").append(toIndentedString(mainTransactionId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -197,6 +222,7 @@ public class TransactionFuelingInfo {
     openapiFields = new HashSet<String>();
     openapiFields.add("request_id");
     openapiFields.add("transaction_id");
+    openapiFields.add("main_transaction_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -220,6 +246,9 @@ public class TransactionFuelingInfo {
       }
       if ((jsonObj.get("transaction_id") != null && !jsonObj.get("transaction_id").isJsonNull()) && !jsonObj.get("transaction_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transaction_id").toString()));
+      }
+      if ((jsonObj.get("main_transaction_id") != null && !jsonObj.get("main_transaction_id").isJsonNull()) && !jsonObj.get("main_transaction_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `main_transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("main_transaction_id").toString()));
       }
   }
 

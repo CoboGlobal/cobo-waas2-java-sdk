@@ -80,10 +80,6 @@ public class SwapQuote {
   @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
   private String feeAmount;
 
-  public static final String SERIALIZED_NAME_ESTIMATED_NETWORK_FEE_AMOUNT = "estimated_network_fee_amount";
-  @SerializedName(SERIALIZED_NAME_ESTIMATED_NETWORK_FEE_AMOUNT)
-  private String estimatedNetworkFeeAmount;
-
   public static final String SERIALIZED_NAME_MIN_RECEIVE_AMOUNT = "min_receive_amount";
   @SerializedName(SERIALIZED_NAME_MIN_RECEIVE_AMOUNT)
   private String minReceiveAmount;
@@ -105,7 +101,7 @@ public class SwapQuote {
   }
 
    /**
-   * The unique id of quote.
+   * The unique identifier of the swap quote.
    * @return quoteId
   **/
   @javax.annotation.Nonnull
@@ -124,7 +120,7 @@ public class SwapQuote {
   }
 
    /**
-   * The token ID to pay.
+   * The ID of the token to pay.
    * @return payTokenId
   **/
   @javax.annotation.Nonnull
@@ -143,7 +139,7 @@ public class SwapQuote {
   }
 
    /**
-   * The amount of tokens to pay.
+   * The amount of the token to pay.
    * @return payAmount
   **/
   @javax.annotation.Nonnull
@@ -162,7 +158,7 @@ public class SwapQuote {
   }
 
    /**
-   * The token ID to receive.
+   * The ID of the token to receive.
    * @return receiveTokenId
   **/
   @javax.annotation.Nonnull
@@ -181,7 +177,7 @@ public class SwapQuote {
   }
 
    /**
-   * The amount of tokens to receive.
+   * The amount of the token to receive.
    * @return receiveAmount
   **/
   @javax.annotation.Nonnull
@@ -200,7 +196,7 @@ public class SwapQuote {
   }
 
    /**
-   * The token ID for the service fee.
+   * The ID of the token for the service fee.
    * @return feeTokenId
   **/
   @javax.annotation.Nonnull
@@ -219,7 +215,7 @@ public class SwapQuote {
   }
 
    /**
-   * The amount of tokens for the service fee.
+   * The amount of the token for the service fee.
    * @return feeAmount
   **/
   @javax.annotation.Nonnull
@@ -232,32 +228,13 @@ public class SwapQuote {
   }
 
 
-  public SwapQuote estimatedNetworkFeeAmount(String estimatedNetworkFeeAmount) {
-    this.estimatedNetworkFeeAmount = estimatedNetworkFeeAmount;
-    return this;
-  }
-
-   /**
-   * The estimated amount of tokens for the network fee.
-   * @return estimatedNetworkFeeAmount
-  **/
-  @javax.annotation.Nullable
-  public String getEstimatedNetworkFeeAmount() {
-    return estimatedNetworkFeeAmount;
-  }
-
-  public void setEstimatedNetworkFeeAmount(String estimatedNetworkFeeAmount) {
-    this.estimatedNetworkFeeAmount = estimatedNetworkFeeAmount;
-  }
-
-
   public SwapQuote minReceiveAmount(String minReceiveAmount) {
     this.minReceiveAmount = minReceiveAmount;
     return this;
   }
 
    /**
-   * The minimum amount of tokens to receive if the pay amount is specified.
+   * The minimum amount of the token to receive if &#x60;pay_amount&#x60; is specified.
    * @return minReceiveAmount
   **/
   @javax.annotation.Nullable
@@ -276,7 +253,7 @@ public class SwapQuote {
   }
 
    /**
-   * The maximum amount of tokens to pay if the receive amount is specified.
+   * The maximum amount of the token to pay if &#x60;receive_amount&#x60; is specified.
    * @return maxPayAmount
   **/
   @javax.annotation.Nullable
@@ -295,7 +272,7 @@ public class SwapQuote {
   }
 
    /**
-   * The time when the quote will expire, in Unix timestamp format, measured in milliseconds.
+   * The time when the swap quote expires, in Unix timestamp format, measured in milliseconds.
    * @return quoteExpiredTimestamp
   **/
   @javax.annotation.Nonnull
@@ -369,7 +346,6 @@ public class SwapQuote {
         Objects.equals(this.receiveAmount, swapQuote.receiveAmount) &&
         Objects.equals(this.feeTokenId, swapQuote.feeTokenId) &&
         Objects.equals(this.feeAmount, swapQuote.feeAmount) &&
-        Objects.equals(this.estimatedNetworkFeeAmount, swapQuote.estimatedNetworkFeeAmount) &&
         Objects.equals(this.minReceiveAmount, swapQuote.minReceiveAmount) &&
         Objects.equals(this.maxPayAmount, swapQuote.maxPayAmount) &&
         Objects.equals(this.quoteExpiredTimestamp, swapQuote.quoteExpiredTimestamp)&&
@@ -378,7 +354,7 @@ public class SwapQuote {
 
   @Override
   public int hashCode() {
-    return Objects.hash(quoteId, payTokenId, payAmount, receiveTokenId, receiveAmount, feeTokenId, feeAmount, estimatedNetworkFeeAmount, minReceiveAmount, maxPayAmount, quoteExpiredTimestamp, additionalProperties);
+    return Objects.hash(quoteId, payTokenId, payAmount, receiveTokenId, receiveAmount, feeTokenId, feeAmount, minReceiveAmount, maxPayAmount, quoteExpiredTimestamp, additionalProperties);
   }
 
   @Override
@@ -392,7 +368,6 @@ public class SwapQuote {
     sb.append("    receiveAmount: ").append(toIndentedString(receiveAmount)).append("\n");
     sb.append("    feeTokenId: ").append(toIndentedString(feeTokenId)).append("\n");
     sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
-    sb.append("    estimatedNetworkFeeAmount: ").append(toIndentedString(estimatedNetworkFeeAmount)).append("\n");
     sb.append("    minReceiveAmount: ").append(toIndentedString(minReceiveAmount)).append("\n");
     sb.append("    maxPayAmount: ").append(toIndentedString(maxPayAmount)).append("\n");
     sb.append("    quoteExpiredTimestamp: ").append(toIndentedString(quoteExpiredTimestamp)).append("\n");
@@ -426,7 +401,6 @@ public class SwapQuote {
     openapiFields.add("receive_amount");
     openapiFields.add("fee_token_id");
     openapiFields.add("fee_amount");
-    openapiFields.add("estimated_network_fee_amount");
     openapiFields.add("min_receive_amount");
     openapiFields.add("max_pay_amount");
     openapiFields.add("quote_expired_timestamp");
@@ -483,9 +457,6 @@ public class SwapQuote {
       }
       if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
-      }
-      if ((jsonObj.get("estimated_network_fee_amount") != null && !jsonObj.get("estimated_network_fee_amount").isJsonNull()) && !jsonObj.get("estimated_network_fee_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `estimated_network_fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("estimated_network_fee_amount").toString()));
       }
       if ((jsonObj.get("min_receive_amount") != null && !jsonObj.get("min_receive_amount").isJsonNull()) && !jsonObj.get("min_receive_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `min_receive_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("min_receive_amount").toString()));

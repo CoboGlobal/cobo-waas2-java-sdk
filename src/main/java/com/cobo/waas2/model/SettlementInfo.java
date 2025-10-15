@@ -148,7 +148,7 @@ public class SettlementInfo {
   }
 
    /**
-   * This field is no longer in use and can be ignored.
+   * This field has been deprecated.
    * @return availableAmount
   **/
   @javax.annotation.Nonnull
@@ -167,7 +167,7 @@ public class SettlementInfo {
   }
 
    /**
-   * This field is no longer in use and can be ignored.
+   * This field has been deprecated.
    * @return availableCurrencyBalance
   **/
   @javax.annotation.Nullable
@@ -186,7 +186,7 @@ public class SettlementInfo {
   }
 
    /**
-   * This field is no longer in use and can be ignored.
+   * This field has been deprecated.
    * @return pendingAmount
   **/
   @javax.annotation.Nullable
@@ -205,7 +205,7 @@ public class SettlementInfo {
   }
 
    /**
-   * This field is no longer in use and can be ignored.
+   * This field has been deprecated.
    * @return pendingCurrencyBalance
   **/
   @javax.annotation.Nullable
@@ -243,7 +243,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The balance available for settlement or refund, in the specified cryptocurrency.
+   * This field has been deprecated.
    * @return availableBalance
   **/
   @javax.annotation.Nullable
@@ -262,7 +262,7 @@ public class SettlementInfo {
   }
 
    /**
-   *  The total unsettled balance in the specified cryptocurrency, including: - Available balance that can be settled immediately - Amounts below the sweep threshold that require forced sweep before settlement 
+   * The total balance in the specified cryptocurrency.
    * @return totalBalance
   **/
   @javax.annotation.Nullable
