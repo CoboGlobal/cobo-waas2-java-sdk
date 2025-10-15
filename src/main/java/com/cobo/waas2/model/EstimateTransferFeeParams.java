@@ -94,7 +94,7 @@ public class EstimateTransferFeeParams {
   }
 
    /**
-   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. It is recommended to use the same request ID as the transaction for which you want to estimate the transaction fee.
+   * The request ID that is used to track a transaction request.
    * @return requestId
   **/
   @javax.annotation.Nullable

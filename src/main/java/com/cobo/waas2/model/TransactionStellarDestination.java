@@ -12,7 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.MessageSignDestinationType;
+import com.cobo.waas2.model.TransactionDestinationType;
+import com.cobo.waas2.model.TransactionStellarContractParam;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,25 +47,25 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the destination &#x60;BTC_EIP_191_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
+ * The information about the transaction destination type &#x60;STELLAR_Contract&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class BTCEIP191MessageSignDestination {
+public class TransactionStellarDestination {
   public static final String SERIALIZED_NAME_DESTINATION_TYPE = "destination_type";
   @SerializedName(SERIALIZED_NAME_DESTINATION_TYPE)
-  private MessageSignDestinationType destinationType;
+  private TransactionDestinationType destinationType;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
+  public static final String SERIALIZED_NAME_CONTRACT_PARAM = "contract_param";
+  @SerializedName(SERIALIZED_NAME_CONTRACT_PARAM)
+  private TransactionStellarContractParam contractParam;
 
-  public BTCEIP191MessageSignDestination() {
+  public TransactionStellarDestination() {
   }
 
-  public BTCEIP191MessageSignDestination destinationType(MessageSignDestinationType destinationType) {
+  public TransactionStellarDestination destinationType(TransactionDestinationType destinationType) {
     this.destinationType = destinationType;
     return this;
   }
@@ -74,31 +75,31 @@ public class BTCEIP191MessageSignDestination {
    * @return destinationType
   **/
   @javax.annotation.Nonnull
-  public MessageSignDestinationType getDestinationType() {
+  public TransactionDestinationType getDestinationType() {
     return destinationType;
   }
 
-  public void setDestinationType(MessageSignDestinationType destinationType) {
+  public void setDestinationType(TransactionDestinationType destinationType) {
     this.destinationType = destinationType;
   }
 
 
-  public BTCEIP191MessageSignDestination message(String message) {
-    this.message = message;
+  public TransactionStellarDestination contractParam(TransactionStellarContractParam contractParam) {
+    this.contractParam = contractParam;
     return this;
   }
 
    /**
-   * The raw data of the message to be signed, encoded in Base64 format.
-   * @return message
+   * Get contractParam
+   * @return contractParam
   **/
   @javax.annotation.Nonnull
-  public String getMessage() {
-    return message;
+  public TransactionStellarContractParam getContractParam() {
+    return contractParam;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setContractParam(TransactionStellarContractParam contractParam) {
+    this.contractParam = contractParam;
   }
 
   /**
@@ -114,9 +115,9 @@ public class BTCEIP191MessageSignDestination {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the BTCEIP191MessageSignDestination instance itself
+   * @return the TransactionStellarDestination instance itself
    */
-  public BTCEIP191MessageSignDestination putAdditionalProperty(String key, Object value) {
+  public TransactionStellarDestination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -155,23 +156,23 @@ public class BTCEIP191MessageSignDestination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BTCEIP191MessageSignDestination btCEIP191MessageSignDestination = (BTCEIP191MessageSignDestination) o;
-    return Objects.equals(this.destinationType, btCEIP191MessageSignDestination.destinationType) &&
-        Objects.equals(this.message, btCEIP191MessageSignDestination.message)&&
-        Objects.equals(this.additionalProperties, btCEIP191MessageSignDestination.additionalProperties);
+    TransactionStellarDestination transactionStellarDestination = (TransactionStellarDestination) o;
+    return Objects.equals(this.destinationType, transactionStellarDestination.destinationType) &&
+        Objects.equals(this.contractParam, transactionStellarDestination.contractParam)&&
+        Objects.equals(this.additionalProperties, transactionStellarDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, message, additionalProperties);
+    return Objects.hash(destinationType, contractParam, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BTCEIP191MessageSignDestination {\n");
+    sb.append("class TransactionStellarDestination {\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    contractParam: ").append(toIndentedString(contractParam)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -196,55 +197,54 @@ public class BTCEIP191MessageSignDestination {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("destination_type");
-    openapiFields.add("message");
+    openapiFields.add("contract_param");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("destination_type");
-    openapiRequiredFields.add("message");
+    openapiRequiredFields.add("contract_param");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to BTCEIP191MessageSignDestination
+  * @throws IOException if the JSON Element is invalid with respect to TransactionStellarDestination
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!BTCEIP191MessageSignDestination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BTCEIP191MessageSignDestination is not found in the empty JSON string", BTCEIP191MessageSignDestination.openapiRequiredFields.toString()));
+        if (!TransactionStellarDestination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionStellarDestination is not found in the empty JSON string", TransactionStellarDestination.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : BTCEIP191MessageSignDestination.openapiRequiredFields) {
+      for (String requiredField : TransactionStellarDestination.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `destination_type`
-      MessageSignDestinationType.validateJsonElement(jsonObj.get("destination_type"));
-      if (!jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
+      TransactionDestinationType.validateJsonElement(jsonObj.get("destination_type"));
+      // validate the required field `contract_param`
+      TransactionStellarContractParam.validateJsonElement(jsonObj.get("contract_param"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BTCEIP191MessageSignDestination.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BTCEIP191MessageSignDestination' and its subtypes
+       if (!TransactionStellarDestination.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TransactionStellarDestination' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BTCEIP191MessageSignDestination> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BTCEIP191MessageSignDestination.class));
+       final TypeAdapter<TransactionStellarDestination> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionStellarDestination.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BTCEIP191MessageSignDestination>() {
+       return (TypeAdapter<T>) new TypeAdapter<TransactionStellarDestination>() {
            @Override
-           public void write(JsonWriter out, BTCEIP191MessageSignDestination value) throws IOException {
+           public void write(JsonWriter out, TransactionStellarDestination value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -274,12 +274,12 @@ public class BTCEIP191MessageSignDestination {
            }
 
            @Override
-           public BTCEIP191MessageSignDestination read(JsonReader in) throws IOException {
+           public TransactionStellarDestination read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             BTCEIP191MessageSignDestination instance = thisAdapter.fromJsonTree(jsonObj);
+             TransactionStellarDestination instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -306,18 +306,18 @@ public class BTCEIP191MessageSignDestination {
   }
 
  /**
-  * Create an instance of BTCEIP191MessageSignDestination given an JSON string
+  * Create an instance of TransactionStellarDestination given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of BTCEIP191MessageSignDestination
-  * @throws IOException if the JSON string is invalid with respect to BTCEIP191MessageSignDestination
+  * @return An instance of TransactionStellarDestination
+  * @throws IOException if the JSON string is invalid with respect to TransactionStellarDestination
   */
-  public static BTCEIP191MessageSignDestination fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BTCEIP191MessageSignDestination.class);
+  public static TransactionStellarDestination fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TransactionStellarDestination.class);
   }
 
  /**
-  * Convert an instance of BTCEIP191MessageSignDestination to an JSON string
+  * Convert an instance of TransactionStellarDestination to an JSON string
   *
   * @return JSON string
   */

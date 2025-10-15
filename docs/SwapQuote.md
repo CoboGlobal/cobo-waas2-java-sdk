@@ -7,17 +7,16 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**quoteId** | **String** | The unique id of quote. |  |
-|**payTokenId** | **String** | The token ID to pay. |  |
-|**payAmount** | **String** | The amount of tokens to pay. |  |
-|**receiveTokenId** | **String** | The token ID to receive. |  |
-|**receiveAmount** | **String** | The amount of tokens to receive. |  |
-|**feeTokenId** | **String** | The token ID for the service fee. |  |
-|**feeAmount** | **String** | The amount of tokens for the service fee. |  |
-|**estimatedNetworkFeeAmount** | **String** | The estimated amount of tokens for the network fee. |  [optional] |
-|**minReceiveAmount** | **String** | The minimum amount of tokens to receive if the pay amount is specified. |  [optional] |
-|**maxPayAmount** | **String** | The maximum amount of tokens to pay if the receive amount is specified. |  [optional] |
-|**quoteExpiredTimestamp** | **Integer** | The time when the quote will expire, in Unix timestamp format, measured in milliseconds. |  |
+|**quoteId** | **String** | The unique identifier of the swap quote. |  |
+|**payTokenId** | **String** | The ID of the token to pay. |  |
+|**payAmount** | **String** | The amount of the token to pay. |  |
+|**receiveTokenId** | **String** | The ID of the token to receive. |  |
+|**receiveAmount** | **String** | The amount of the token to receive. |  |
+|**feeTokenId** | **String** | The ID of the token for the service fee. |  |
+|**feeAmount** | **String** | The amount of the token for the service fee. |  |
+|**minReceiveAmount** | **String** | The minimum amount of the token to receive if &#x60;pay_amount&#x60; is specified. |  [optional] |
+|**maxPayAmount** | **String** | The maximum amount of the token to pay if &#x60;receive_amount&#x60; is specified. |  [optional] |
+|**quoteExpiredTimestamp** | **Integer** | The time when the swap quote expires, in Unix timestamp format, measured in milliseconds. |  |
 
 
 

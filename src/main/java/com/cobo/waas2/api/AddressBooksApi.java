@@ -113,7 +113,7 @@ public class AddressBooksApi {
 
     /**
      * Create Address Book entries
-     * This operation adds new entries (records) to your Address Book. 
+     * This operation adds new entries (records) to your Address Book. &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
      * @return CreateAddressBooks201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -132,7 +132,7 @@ public class AddressBooksApi {
 
     /**
      * Create Address Book entries
-     * This operation adds new entries (records) to your Address Book. 
+     * This operation adds new entries (records) to your Address Book. &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
      * @return ApiResponse&lt;CreateAddressBooks201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -152,7 +152,7 @@ public class AddressBooksApi {
 
     /**
      * Create Address Book entries (asynchronously)
-     * This operation adds new entries (records) to your Address Book. 
+     * This operation adds new entries (records) to your Address Book. &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      * @param createAddressBooksParam The request body of the create Address Books operation. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -231,7 +231,7 @@ public class AddressBooksApi {
 
     /**
      * Delete Address Book entry
-     * This operation deletes a specified Address Book entry (record). 
+     * This operation deletes a specified Address Book entry (record). &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      * @param entryId The Address Book entry ID. (required)
      * @return DeleteAddressBookById201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -250,7 +250,7 @@ public class AddressBooksApi {
 
     /**
      * Delete Address Book entry
-     * This operation deletes a specified Address Book entry (record). 
+     * This operation deletes a specified Address Book entry (record). &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      * @param entryId The Address Book entry ID. (required)
      * @return ApiResponse&lt;DeleteAddressBookById201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -270,7 +270,7 @@ public class AddressBooksApi {
 
     /**
      * Delete Address Book entry (asynchronously)
-     * This operation deletes a specified Address Book entry (record). 
+     * This operation deletes a specified Address Book entry (record). &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      * @param entryId The Address Book entry ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -625,7 +625,7 @@ public class AddressBooksApi {
 
     /**
      * Update Address Book entry
-     * This operation updates the information of a specified Address Book entry (record). 
+     * This operation updates the information of a specified Address Book entry (record). &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      * @param entryId The Address Book entry ID. (required)
      * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
      * @return AddressBook
@@ -645,7 +645,7 @@ public class AddressBooksApi {
 
     /**
      * Update Address Book entry
-     * This operation updates the information of a specified Address Book entry (record). 
+     * This operation updates the information of a specified Address Book entry (record). &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      * @param entryId The Address Book entry ID. (required)
      * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
      * @return ApiResponse&lt;AddressBook&gt;
@@ -666,7 +666,7 @@ public class AddressBooksApi {
 
     /**
      * Update Address Book entry (asynchronously)
-     * This operation updates the information of a specified Address Book entry (record). 
+     * This operation updates the information of a specified Address Book entry (record). &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      * @param entryId The Address Book entry ID. (required)
      * @param updateAddressBookParam The request body of the update Address Book operation. (optional)
      * @param _callback The callback to be executed when the API call finishes

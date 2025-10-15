@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.RefundStatus;
 import com.cobo.waas2.model.RefundType;
@@ -208,6 +209,10 @@ public class PaymentRefundEventData {
   public static final String SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID = "merchant_fee_token_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_FEE_TOKEN_ID)
   private String merchantFeeTokenId;
+
+  public static final String SERIALIZED_NAME_COMMISSION_FEE = "commission_fee";
+  @SerializedName(SERIALIZED_NAME_COMMISSION_FEE)
+  private CommissionFee commissionFee;
 
   public PaymentRefundEventData() {
   }
@@ -465,7 +470,7 @@ public class PaymentRefundEventData {
   }
 
    /**
-   *  The initiator of this settlement request. Can return either an API key or the Payment Management App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payment API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payment Management App using the App ID. 
+   *  The initiator of this settlement request. Can return either an API key or the Payments App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payments API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payments App using the App ID. 
    * @return initiator
   **/
   @javax.annotation.Nullable
@@ -561,6 +566,25 @@ public class PaymentRefundEventData {
     this.merchantFeeTokenId = merchantFeeTokenId;
   }
 
+
+  public PaymentRefundEventData commissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+    return this;
+  }
+
+   /**
+   * Get commissionFee
+   * @return commissionFee
+  **/
+  @javax.annotation.Nullable
+  public CommissionFee getCommissionFee() {
+    return commissionFee;
+  }
+
+  public void setCommissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -633,13 +657,14 @@ public class PaymentRefundEventData {
         Objects.equals(this.transactions, paymentRefundEventData.transactions) &&
         Objects.equals(this.chargeMerchantFee, paymentRefundEventData.chargeMerchantFee) &&
         Objects.equals(this.merchantFeeAmount, paymentRefundEventData.merchantFeeAmount) &&
-        Objects.equals(this.merchantFeeTokenId, paymentRefundEventData.merchantFeeTokenId)&&
+        Objects.equals(this.merchantFeeTokenId, paymentRefundEventData.merchantFeeTokenId) &&
+        Objects.equals(this.commissionFee, paymentRefundEventData.commissionFee)&&
         Objects.equals(this.additionalProperties, paymentRefundEventData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, additionalProperties);
+    return Objects.hash(dataType, requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, commissionFee, additionalProperties);
   }
 
   @Override
@@ -664,6 +689,7 @@ public class PaymentRefundEventData {
     sb.append("    chargeMerchantFee: ").append(toIndentedString(chargeMerchantFee)).append("\n");
     sb.append("    merchantFeeAmount: ").append(toIndentedString(merchantFeeAmount)).append("\n");
     sb.append("    merchantFeeTokenId: ").append(toIndentedString(merchantFeeTokenId)).append("\n");
+    sb.append("    commissionFee: ").append(toIndentedString(commissionFee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -705,6 +731,7 @@ public class PaymentRefundEventData {
     openapiFields.add("charge_merchant_fee");
     openapiFields.add("merchant_fee_amount");
     openapiFields.add("merchant_fee_token_id");
+    openapiFields.add("commission_fee");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -794,6 +821,10 @@ public class PaymentRefundEventData {
       }
       if ((jsonObj.get("merchant_fee_token_id") != null && !jsonObj.get("merchant_fee_token_id").isJsonNull()) && !jsonObj.get("merchant_fee_token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_fee_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_fee_token_id").toString()));
+      }
+      // validate the optional field `commission_fee`
+      if (jsonObj.get("commission_fee") != null && !jsonObj.get("commission_fee").isJsonNull()) {
+        CommissionFee.validateJsonElement(jsonObj.get("commission_fee"));
       }
   }
 

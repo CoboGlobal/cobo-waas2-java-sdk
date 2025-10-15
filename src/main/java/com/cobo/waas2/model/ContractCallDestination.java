@@ -14,8 +14,11 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.ContractCallDestinationType;
 import com.cobo.waas2.model.EvmContractCallDestination;
+import com.cobo.waas2.model.SolContractCallAddressLookupTableAccount;
 import com.cobo.waas2.model.SolContractCallDestination;
 import com.cobo.waas2.model.SolContractCallInstruction;
+import com.cobo.waas2.model.StellarContractCallContractParam;
+import com.cobo.waas2.model.StellarContractCallDestination;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -78,6 +81,7 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<EvmContractCallDestination> adapterEvmContractCallDestination = gson.getDelegateAdapter(this, TypeToken.get(EvmContractCallDestination.class));
             final TypeAdapter<SolContractCallDestination> adapterSolContractCallDestination = gson.getDelegateAdapter(this, TypeToken.get(SolContractCallDestination.class));
+            final TypeAdapter<StellarContractCallDestination> adapterStellarContractCallDestination = gson.getDelegateAdapter(this, TypeToken.get(StellarContractCallDestination.class));
 
             return (TypeAdapter<T>) new TypeAdapter<ContractCallDestination>() {
                 @Override
@@ -99,7 +103,13 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EvmContractCallDestination, SolContractCallDestination");
+                    // check if the actual instance is of the type `StellarContractCallDestination`
+                    if (value.getActualInstance() instanceof StellarContractCallDestination) {
+                        JsonElement element = adapterStellarContractCallDestination.toJsonTree((StellarContractCallDestination)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EvmContractCallDestination, SolContractCallDestination, StellarContractCallDestination");
                 }
 
                 @Override
@@ -124,6 +134,10 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
                                 deserialized = adapterSolContractCallDestination.fromJsonTree(jsonObject);
                                 newContractCallDestination.setActualInstance(deserialized);
                                 return newContractCallDestination;
+                            case "STELLAR_Contract":
+                                deserialized = adapterStellarContractCallDestination.fromJsonTree(jsonObject);
+                                newContractCallDestination.setActualInstance(deserialized);
+                                return newContractCallDestination;
                             case "EvmContractCallDestination":
                                 deserialized = adapterEvmContractCallDestination.fromJsonTree(jsonObject);
                                 newContractCallDestination.setActualInstance(deserialized);
@@ -132,8 +146,12 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
                                 deserialized = adapterSolContractCallDestination.fromJsonTree(jsonObject);
                                 newContractCallDestination.setActualInstance(deserialized);
                                 return newContractCallDestination;
+                            case "StellarContractCallDestination":
+                                deserialized = adapterStellarContractCallDestination.fromJsonTree(jsonObject);
+                                newContractCallDestination.setActualInstance(deserialized);
+                                return newContractCallDestination;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for ContractCallDestination. Possible values: EVM_Contract SOL_Contract EvmContractCallDestination SolContractCallDestination", jsonObject.get("destination_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for ContractCallDestination. Possible values: EVM_Contract SOL_Contract STELLAR_Contract EvmContractCallDestination SolContractCallDestination StellarContractCallDestination", jsonObject.get("destination_type").getAsString()));
                         }
                     }
 
@@ -165,6 +183,18 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for SolContractCallDestination failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'SolContractCallDestination'", e);
                     }
+                    // deserialize StellarContractCallDestination
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        StellarContractCallDestination.validateJsonElement(jsonElement);
+                        actualAdapter = adapterStellarContractCallDestination;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'StellarContractCallDestination'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for StellarContractCallDestination failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'StellarContractCallDestination'", e);
+                    }
 
                     if (match == 1) {
                         ContractCallDestination ret = new ContractCallDestination();
@@ -195,9 +225,15 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public ContractCallDestination(StellarContractCallDestination o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     static {
         schemas.put("EvmContractCallDestination", EvmContractCallDestination.class);
         schemas.put("SolContractCallDestination", SolContractCallDestination.class);
+        schemas.put("StellarContractCallDestination", StellarContractCallDestination.class);
     }
 
     @Override
@@ -208,7 +244,7 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * EvmContractCallDestination, SolContractCallDestination
+     * EvmContractCallDestination, SolContractCallDestination, StellarContractCallDestination
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -224,14 +260,19 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be EvmContractCallDestination, SolContractCallDestination");
+        if (instance instanceof StellarContractCallDestination) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be EvmContractCallDestination, SolContractCallDestination, StellarContractCallDestination");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * EvmContractCallDestination, SolContractCallDestination
+     * EvmContractCallDestination, SolContractCallDestination, StellarContractCallDestination
      *
-     * @return The actual instance (EvmContractCallDestination, SolContractCallDestination)
+     * @return The actual instance (EvmContractCallDestination, SolContractCallDestination, StellarContractCallDestination)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -258,6 +299,16 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
      */
     public SolContractCallDestination getSolContractCallDestination() throws ClassCastException {
         return (SolContractCallDestination)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `StellarContractCallDestination`. If the actual instance is not `StellarContractCallDestination`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `StellarContractCallDestination`
+     * @throws ClassCastException if the instance is not `StellarContractCallDestination`
+     */
+    public StellarContractCallDestination getStellarContractCallDestination() throws ClassCastException {
+        return (StellarContractCallDestination)super.getActualInstance();
     }
 
     /**
@@ -286,8 +337,16 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for SolContractCallDestination failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with StellarContractCallDestination
+        try {
+            StellarContractCallDestination.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for StellarContractCallDestination failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for ContractCallDestination with oneOf schemas: EvmContractCallDestination, SolContractCallDestination. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for ContractCallDestination with oneOf schemas: EvmContractCallDestination, SolContractCallDestination, StellarContractCallDestination. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

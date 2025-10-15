@@ -67,5 +67,7 @@
 
 * `COMPLIANCEISOLATE` (value: `"ComplianceIsolate"`)
 
+* `STELLARCHANGETRUST` (value: `"StellarChangeTrust"`)
+
 
 

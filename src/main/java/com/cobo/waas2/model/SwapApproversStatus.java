@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The status of the approval. Possible values include:   - &#x60;Pending&#x60;: Waiting for approval from the approver.   - &#x60;Approved&#x60;: The approver has agreed to the approval.   - &#x60;Rejected&#x60;: The approver has rejected the approval. 
+ * The status of the approver. Possible values include:   - &#x60;Pending&#x60;: Waiting for the approver&#39;s decision.   - &#x60;Approved&#x60;: The approver has approved the swap request.   - &#x60;Rejected&#x60;: The approver has rejected the swap request. 
  */
 @JsonAdapter(SwapApproversStatus.Adapter.class)
 public enum SwapApproversStatus {

@@ -16,8 +16,10 @@ import com.cobo.waas2.model.AddressesEventData;
 import com.cobo.waas2.model.AddressesEventDataAllOfAddresses;
 import com.cobo.waas2.model.Balance;
 import com.cobo.waas2.model.BalanceUpdateInfoEventData;
+import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.ChainsEventData;
+import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.ComplianceDispositionUpdateEventData;
 import com.cobo.waas2.model.DispositionStatus;
 import com.cobo.waas2.model.DispositionType;
@@ -686,6 +688,14 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'commissionFee'
+     */
+    @Test
+    public void commissionFeeTest() {
+        // TODO: test commissionFee
+    }
+
+    /**
      * Test the property 'settlementRequestId'
      */
     @Test
@@ -723,6 +733,22 @@ public class WebhookEventDataTest {
     @Test
     public void settlementTypeTest() {
         // TODO: test settlementType
+    }
+
+    /**
+     * Test the property 'receivedAmountFiat'
+     */
+    @Test
+    public void receivedAmountFiatTest() {
+        // TODO: test receivedAmountFiat
+    }
+
+    /**
+     * Test the property 'bankAccount'
+     */
+    @Test
+    public void bankAccountTest() {
+        // TODO: test bankAccount
     }
 
     /**

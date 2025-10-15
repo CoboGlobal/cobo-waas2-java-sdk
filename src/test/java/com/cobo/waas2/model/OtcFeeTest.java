@@ -11,7 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.MessageSignDestinationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,33 +22,33 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for BTCEIP191MessageSignDestination
+ * Model tests for OtcFee
  */
-public class BTCEIP191MessageSignDestinationTest {
-    private final BTCEIP191MessageSignDestination model = new BTCEIP191MessageSignDestination();
+public class OtcFeeTest {
+    private final OtcFee model = new OtcFee();
 
     /**
-     * Model tests for BTCEIP191MessageSignDestination
+     * Model tests for OtcFee
      */
     @Test
-    public void testBTCEIP191MessageSignDestination() {
-        // TODO: test BTCEIP191MessageSignDestination
+    public void testOtcFee() {
+        // TODO: test OtcFee
     }
 
     /**
-     * Test the property 'destinationType'
+     * Test the property 'feeRate'
      */
     @Test
-    public void destinationTypeTest() {
-        // TODO: test destinationType
+    public void feeRateTest() {
+        // TODO: test feeRate
     }
 
     /**
-     * Test the property 'message'
+     * Test the property 'tokenId'
      */
     @Test
-    public void messageTest() {
-        // TODO: test message
+    public void tokenIdTest() {
+        // TODO: test tokenId
     }
 
 }

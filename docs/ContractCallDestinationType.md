@@ -9,5 +9,7 @@
 
 * `SOL_CONTRACT` (value: `"SOL_Contract"`)
 
+* `STELLAR_CONTRACT` (value: `"STELLAR_Contract"`)
+
 
 

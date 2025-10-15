@@ -47,9 +47,12 @@ import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListPaymentWalletBalances200Response;
 import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
+import com.cobo.waas2.model.ListTopUpPayerAccounts200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
+import com.cobo.waas2.model.PaymentEstimateFee201Response;
+import com.cobo.waas2.model.PaymentEstimateFeeRequest;
 import com.cobo.waas2.model.PspBalance;
 import com.cobo.waas2.model.ReceivedAmountPerAddress;
 import com.cobo.waas2.model.Refund;
@@ -57,10 +60,12 @@ import com.cobo.waas2.model.Settlement;
 import com.cobo.waas2.model.SupportedToken;
 import com.cobo.waas2.model.TopUpAddress;
 import java.util.UUID;
+import com.cobo.waas2.model.UpdateBankAccountByIdRequest;
 import com.cobo.waas2.model.UpdateMerchantByIdRequest;
 import com.cobo.waas2.model.UpdatePaymentOrderRequest;
 import com.cobo.waas2.model.UpdateRefundByIdRequest;
 import com.cobo.waas2.model.UpdateTopUpAddress;
+import com.cobo.waas2.model.WalletSetup;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -259,7 +264,7 @@ public class PaymentApi {
 
     /**
      * Create crypto address
-     * This operation registers a crypto address for crypto withdrawal.  The registered address can later be referenced by its ID when creating settlement requests. 
+     * This operation registers a crypto address for crypto payouts.  The registered address can later be referenced by its ID when creating settlement requests. 
      * @param createCryptoAddressRequest The request body to register a crypto address. (optional)
      * @return CryptoAddress
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -278,7 +283,7 @@ public class PaymentApi {
 
     /**
      * Create crypto address
-     * This operation registers a crypto address for crypto withdrawal.  The registered address can later be referenced by its ID when creating settlement requests. 
+     * This operation registers a crypto address for crypto payouts.  The registered address can later be referenced by its ID when creating settlement requests. 
      * @param createCryptoAddressRequest The request body to register a crypto address. (optional)
      * @return ApiResponse&lt;CryptoAddress&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -298,7 +303,7 @@ public class PaymentApi {
 
     /**
      * Create crypto address (asynchronously)
-     * This operation registers a crypto address for crypto withdrawal.  The registered address can later be referenced by its ID when creating settlement requests. 
+     * This operation registers a crypto address for crypto payouts.  The registered address can later be referenced by its ID when creating settlement requests. 
      * @param createCryptoAddressRequest The request body to register a crypto address. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -372,7 +377,7 @@ public class PaymentApi {
 
     /**
      * Create forced sweep
-     * This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
      * @param forcedSweepRequest The request body for forced sweep. (optional)
      * @return ForcedSweep
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -391,7 +396,7 @@ public class PaymentApi {
 
     /**
      * Create forced sweep
-     * This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
      * @param forcedSweepRequest The request body for forced sweep. (optional)
      * @return ApiResponse&lt;ForcedSweep&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -411,7 +416,7 @@ public class PaymentApi {
 
     /**
      * Create forced sweep (asynchronously)
-     * This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
      * @param forcedSweepRequest The request body for forced sweep. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1135,9 +1140,9 @@ public class PaymentApi {
     }
     /**
      * Build call for getPayerBalanceByAddress
-     * @param merchantId The merchant ID. (required)
      * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (required)
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param merchantId The merchant ID. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1149,7 +1154,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPayerBalanceByAddressCall(String merchantId, String payerId, String tokenId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPayerBalanceByAddressCall(String payerId, String tokenId, String merchantId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1193,12 +1198,7 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPayerBalanceByAddressValidateBeforeCall(String merchantId, String payerId, String tokenId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'merchantId' is set
-        if (merchantId == null) {
-            throw new ApiException("Missing the required parameter 'merchantId' when calling getPayerBalanceByAddress(Async)");
-        }
-
+    private okhttp3.Call getPayerBalanceByAddressValidateBeforeCall(String payerId, String tokenId, String merchantId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'payerId' is set
         if (payerId == null) {
             throw new ApiException("Missing the required parameter 'payerId' when calling getPayerBalanceByAddress(Async)");
@@ -1209,16 +1209,16 @@ public class PaymentApi {
             throw new ApiException("Missing the required parameter 'tokenId' when calling getPayerBalanceByAddress(Async)");
         }
 
-        return getPayerBalanceByAddressCall(merchantId, payerId, tokenId, _callback);
+        return getPayerBalanceByAddressCall(payerId, tokenId, merchantId, _callback);
 
     }
 
     /**
      * Get payer balance
      * This operation retrieves the total amount received for a specific payer. The information is grouped by token and receiving address. 
-     * @param merchantId The merchant ID. (required)
      * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (required)
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param merchantId The merchant ID. (optional)
      * @return List&lt;ReceivedAmountPerAddress&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1229,17 +1229,17 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public List<ReceivedAmountPerAddress> getPayerBalanceByAddress(String merchantId, String payerId, String tokenId) throws ApiException {
-        ApiResponse<List<ReceivedAmountPerAddress>> localVarResp = getPayerBalanceByAddressWithHttpInfo(merchantId, payerId, tokenId);
+    public List<ReceivedAmountPerAddress> getPayerBalanceByAddress(String payerId, String tokenId, String merchantId) throws ApiException {
+        ApiResponse<List<ReceivedAmountPerAddress>> localVarResp = getPayerBalanceByAddressWithHttpInfo(payerId, tokenId, merchantId);
         return localVarResp.getData();
     }
 
     /**
      * Get payer balance
      * This operation retrieves the total amount received for a specific payer. The information is grouped by token and receiving address. 
-     * @param merchantId The merchant ID. (required)
      * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (required)
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param merchantId The merchant ID. (optional)
      * @return ApiResponse&lt;List&lt;ReceivedAmountPerAddress&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1250,8 +1250,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ReceivedAmountPerAddress>> getPayerBalanceByAddressWithHttpInfo(String merchantId, String payerId, String tokenId) throws ApiException {
-        okhttp3.Call localVarCall = getPayerBalanceByAddressValidateBeforeCall(merchantId, payerId, tokenId, null);
+    public ApiResponse<List<ReceivedAmountPerAddress>> getPayerBalanceByAddressWithHttpInfo(String payerId, String tokenId, String merchantId) throws ApiException {
+        okhttp3.Call localVarCall = getPayerBalanceByAddressValidateBeforeCall(payerId, tokenId, merchantId, null);
         Type localVarReturnType = new TypeToken<List<ReceivedAmountPerAddress>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1259,9 +1259,9 @@ public class PaymentApi {
     /**
      * Get payer balance (asynchronously)
      * This operation retrieves the total amount received for a specific payer. The information is grouped by token and receiving address. 
-     * @param merchantId The merchant ID. (required)
      * @param payerId Unique payer identifier on the Cobo side, auto-generated by the system. (required)
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
+     * @param merchantId The merchant ID. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1273,9 +1273,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPayerBalanceByAddressAsync(String merchantId, String payerId, String tokenId, final ApiCallback<List<ReceivedAmountPerAddress>> _callback) throws ApiException {
+    public okhttp3.Call getPayerBalanceByAddressAsync(String payerId, String tokenId, String merchantId, final ApiCallback<List<ReceivedAmountPerAddress>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPayerBalanceByAddressValidateBeforeCall(merchantId, payerId, tokenId, _callback);
+        okhttp3.Call localVarCall = getPayerBalanceByAddressValidateBeforeCall(payerId, tokenId, merchantId, _callback);
         Type localVarReturnType = new TypeToken<List<ReceivedAmountPerAddress>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1460,7 +1460,7 @@ public class PaymentApi {
 
     /**
      * Get developer balance
-     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token. 
+     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @return PspBalance
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1479,7 +1479,7 @@ public class PaymentApi {
 
     /**
      * Get developer balance
-     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token. 
+     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @return ApiResponse&lt;PspBalance&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1499,7 +1499,7 @@ public class PaymentApi {
 
     /**
      * Get developer balance (asynchronously)
-     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token. 
+     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1978,7 +1978,7 @@ public class PaymentApi {
 
     /**
      * Get withdrawable balances
-     * This operation retrieves the balances of specified merchants or the developer. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the balances of specified merchants or the developer. 
      * @param merchantIds A list of merchant IDs to query. (optional)
      * @param currency The currency for the operation. Currently, only &#x60;USD&#x60; is supported. (optional, default to USD)
      * @param acquiringType  (optional)
@@ -1999,7 +1999,7 @@ public class PaymentApi {
 
     /**
      * Get withdrawable balances
-     * This operation retrieves the balances of specified merchants or the developer. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the balances of specified merchants or the developer. 
      * @param merchantIds A list of merchant IDs to query. (optional)
      * @param currency The currency for the operation. Currently, only &#x60;USD&#x60; is supported. (optional, default to USD)
      * @param acquiringType  (optional)
@@ -2021,7 +2021,7 @@ public class PaymentApi {
 
     /**
      * Get withdrawable balances (asynchronously)
-     * This operation retrieves the balances of specified merchants or the developer. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the balances of specified merchants or the developer. 
      * @param merchantIds A list of merchant IDs to query. (optional)
      * @param currency The currency for the operation. Currently, only &#x60;USD&#x60; is supported. (optional, default to USD)
      * @param acquiringType  (optional)
@@ -2045,9 +2045,9 @@ public class PaymentApi {
     }
     /**
      * Build call for getTopUpAddress
-     * @param merchantId The merchant ID. (required)
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param customPayerId A unique identifier assigned by the developer to track and identify individual payers in their system. (required)
+     * @param merchantId The merchant ID. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2059,7 +2059,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTopUpAddressCall(String merchantId, String tokenId, String customPayerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTopUpAddressCall(String tokenId, String customPayerId, String merchantId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2103,12 +2103,7 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTopUpAddressValidateBeforeCall(String merchantId, String tokenId, String customPayerId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'merchantId' is set
-        if (merchantId == null) {
-            throw new ApiException("Missing the required parameter 'merchantId' when calling getTopUpAddress(Async)");
-        }
-
+    private okhttp3.Call getTopUpAddressValidateBeforeCall(String tokenId, String customPayerId, String merchantId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tokenId' is set
         if (tokenId == null) {
             throw new ApiException("Missing the required parameter 'tokenId' when calling getTopUpAddress(Async)");
@@ -2119,16 +2114,16 @@ public class PaymentApi {
             throw new ApiException("Missing the required parameter 'customPayerId' when calling getTopUpAddress(Async)");
         }
 
-        return getTopUpAddressCall(merchantId, tokenId, customPayerId, _callback);
+        return getTopUpAddressCall(tokenId, customPayerId, merchantId, _callback);
 
     }
 
     /**
      * Get top-up address
      * This operation retrieves the information of the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
-     * @param merchantId The merchant ID. (required)
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param customPayerId A unique identifier assigned by the developer to track and identify individual payers in their system. (required)
+     * @param merchantId The merchant ID. (optional)
      * @return TopUpAddress
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2139,17 +2134,17 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public TopUpAddress getTopUpAddress(String merchantId, String tokenId, String customPayerId) throws ApiException {
-        ApiResponse<TopUpAddress> localVarResp = getTopUpAddressWithHttpInfo(merchantId, tokenId, customPayerId);
+    public TopUpAddress getTopUpAddress(String tokenId, String customPayerId, String merchantId) throws ApiException {
+        ApiResponse<TopUpAddress> localVarResp = getTopUpAddressWithHttpInfo(tokenId, customPayerId, merchantId);
         return localVarResp.getData();
     }
 
     /**
      * Get top-up address
      * This operation retrieves the information of the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
-     * @param merchantId The merchant ID. (required)
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param customPayerId A unique identifier assigned by the developer to track and identify individual payers in their system. (required)
+     * @param merchantId The merchant ID. (optional)
      * @return ApiResponse&lt;TopUpAddress&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2160,8 +2155,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TopUpAddress> getTopUpAddressWithHttpInfo(String merchantId, String tokenId, String customPayerId) throws ApiException {
-        okhttp3.Call localVarCall = getTopUpAddressValidateBeforeCall(merchantId, tokenId, customPayerId, null);
+    public ApiResponse<TopUpAddress> getTopUpAddressWithHttpInfo(String tokenId, String customPayerId, String merchantId) throws ApiException {
+        okhttp3.Call localVarCall = getTopUpAddressValidateBeforeCall(tokenId, customPayerId, merchantId, null);
         Type localVarReturnType = new TypeToken<TopUpAddress>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2169,9 +2164,9 @@ public class PaymentApi {
     /**
      * Get top-up address (asynchronously)
      * This operation retrieves the information of the dedicated top-up address assigned to a specific payer under a merchant on a specified chain. 
-     * @param merchantId The merchant ID. (required)
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param customPayerId A unique identifier assigned by the developer to track and identify individual payers in their system. (required)
+     * @param merchantId The merchant ID. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2183,9 +2178,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTopUpAddressAsync(String merchantId, String tokenId, String customPayerId, final ApiCallback<TopUpAddress> _callback) throws ApiException {
+    public okhttp3.Call getTopUpAddressAsync(String tokenId, String customPayerId, String merchantId, final ApiCallback<TopUpAddress> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTopUpAddressValidateBeforeCall(merchantId, tokenId, customPayerId, _callback);
+        okhttp3.Call localVarCall = getTopUpAddressValidateBeforeCall(tokenId, customPayerId, merchantId, _callback);
         Type localVarReturnType = new TypeToken<TopUpAddress>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2355,7 +2350,7 @@ public class PaymentApi {
 
     /**
      * List crypto addresses
-     * This operation retrieves a list of crypto addresses registered for crypto withdrawal.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
+     * This operation retrieves a list of crypto addresses registered for crypto payouts.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
      * @return List&lt;CryptoAddress&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2374,7 +2369,7 @@ public class PaymentApi {
 
     /**
      * List crypto addresses
-     * This operation retrieves a list of crypto addresses registered for crypto withdrawal.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
+     * This operation retrieves a list of crypto addresses registered for crypto payouts.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
      * @return ApiResponse&lt;List&lt;CryptoAddress&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2394,7 +2389,7 @@ public class PaymentApi {
 
     /**
      * List crypto addresses (asynchronously)
-     * This operation retrieves a list of crypto addresses registered for crypto withdrawal.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
+     * This operation retrieves a list of crypto addresses registered for crypto payouts.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2486,7 +2481,7 @@ public class PaymentApi {
 
     /**
      * List forced sweeps
-     * This operation retrieves the information of all forced sweeps. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the information of all forced sweeps. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -2508,7 +2503,7 @@ public class PaymentApi {
 
     /**
      * List forced sweeps
-     * This operation retrieves the information of all forced sweeps. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the information of all forced sweeps. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -2531,7 +2526,7 @@ public class PaymentApi {
 
     /**
      * List forced sweeps (asynchronously)
-     * This operation retrieves the information of all forced sweeps. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the information of all forced sweeps. 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
@@ -2631,7 +2626,7 @@ public class PaymentApi {
 
     /**
      * List merchant balances
-     * This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned. 
+     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param acquiringType The payment acquisition type. - &#x60;Order&#x60;: Payers pay by fixed-amount orders. Ideal for specific purchases and one-time transactions. - &#x60;TopUp&#x60;: Account recharge flow where payers deposit funds to their dedicated top-up addresses. Ideal for flexible or usage-based payment models.  (required)
      * @param merchantIds A list of merchant IDs to query. (optional)
@@ -2652,7 +2647,7 @@ public class PaymentApi {
 
     /**
      * List merchant balances
-     * This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned. 
+     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param acquiringType The payment acquisition type. - &#x60;Order&#x60;: Payers pay by fixed-amount orders. Ideal for specific purchases and one-time transactions. - &#x60;TopUp&#x60;: Account recharge flow where payers deposit funds to their dedicated top-up addresses. Ideal for flexible or usage-based payment models.  (required)
      * @param merchantIds A list of merchant IDs to query. (optional)
@@ -2674,7 +2669,7 @@ public class PaymentApi {
 
     /**
      * List merchant balances (asynchronously)
-     * This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned. 
+     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param acquiringType The payment acquisition type. - &#x60;Order&#x60;: Payers pay by fixed-amount orders. Ideal for specific purchases and one-time transactions. - &#x60;TopUp&#x60;: Account recharge flow where payers deposit funds to their dedicated top-up addresses. Ideal for flexible or usage-based payment models.  (required)
      * @param merchantIds A list of merchant IDs to query. (optional)
@@ -2703,6 +2698,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
      * @param walletId The wallet ID. (optional)
+     * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2714,7 +2710,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listMerchantsCall(Integer limit, String before, String after, String keyword, UUID walletId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listMerchantsCall(Integer limit, String before, String after, String keyword, UUID walletId, WalletSetup walletSetup, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2746,6 +2742,10 @@ public class PaymentApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("wallet_id", walletId));
         }
 
+        if (walletSetup != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("wallet_setup", walletSetup));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2766,8 +2766,8 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMerchantsValidateBeforeCall(Integer limit, String before, String after, String keyword, UUID walletId, final ApiCallback _callback) throws ApiException {
-        return listMerchantsCall(limit, before, after, keyword, walletId, _callback);
+    private okhttp3.Call listMerchantsValidateBeforeCall(Integer limit, String before, String after, String keyword, UUID walletId, WalletSetup walletSetup, final ApiCallback _callback) throws ApiException {
+        return listMerchantsCall(limit, before, after, keyword, walletId, walletSetup, _callback);
 
     }
 
@@ -2779,6 +2779,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
      * @param walletId The wallet ID. (optional)
+     * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
      * @return ListMerchants200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2789,8 +2790,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListMerchants200Response listMerchants(Integer limit, String before, String after, String keyword, UUID walletId) throws ApiException {
-        ApiResponse<ListMerchants200Response> localVarResp = listMerchantsWithHttpInfo(limit, before, after, keyword, walletId);
+    public ListMerchants200Response listMerchants(Integer limit, String before, String after, String keyword, UUID walletId, WalletSetup walletSetup) throws ApiException {
+        ApiResponse<ListMerchants200Response> localVarResp = listMerchantsWithHttpInfo(limit, before, after, keyword, walletId, walletSetup);
         return localVarResp.getData();
     }
 
@@ -2802,6 +2803,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
      * @param walletId The wallet ID. (optional)
+     * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
      * @return ApiResponse&lt;ListMerchants200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2812,8 +2814,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListMerchants200Response> listMerchantsWithHttpInfo(Integer limit, String before, String after, String keyword, UUID walletId) throws ApiException {
-        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(limit, before, after, keyword, walletId, null);
+    public ApiResponse<ListMerchants200Response> listMerchantsWithHttpInfo(Integer limit, String before, String after, String keyword, UUID walletId, WalletSetup walletSetup) throws ApiException {
+        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(limit, before, after, keyword, walletId, walletSetup, null);
         Type localVarReturnType = new TypeToken<ListMerchants200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2826,6 +2828,7 @@ public class PaymentApi {
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
      * @param walletId The wallet ID. (optional)
+     * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2837,9 +2840,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listMerchantsAsync(Integer limit, String before, String after, String keyword, UUID walletId, final ApiCallback<ListMerchants200Response> _callback) throws ApiException {
+    public okhttp3.Call listMerchantsAsync(Integer limit, String before, String after, String keyword, UUID walletId, WalletSetup walletSetup, final ApiCallback<ListMerchants200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(limit, before, after, keyword, walletId, _callback);
+        okhttp3.Call localVarCall = listMerchantsValidateBeforeCall(limit, before, after, keyword, walletId, walletSetup, _callback);
         Type localVarReturnType = new TypeToken<ListMerchants200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3175,7 +3178,7 @@ public class PaymentApi {
 
     /**
      * List payment wallet balances
-     * This operation retrieves the balance information for specified payment wallets. The balance information is grouped by token. If you do not specify the &#x60;wallet_ids&#x60; parameter, the balance information for all payment wallets will be returned. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the balance information for specified payment wallets. The balance information is grouped by token. If you do not specify the &#x60;wallet_ids&#x60; parameter, the balance information for all payment wallets will be returned. 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param walletIds A list of wallet IDs to query. (optional)
      * @return ListPaymentWalletBalances200Response
@@ -3195,7 +3198,7 @@ public class PaymentApi {
 
     /**
      * List payment wallet balances
-     * This operation retrieves the balance information for specified payment wallets. The balance information is grouped by token. If you do not specify the &#x60;wallet_ids&#x60; parameter, the balance information for all payment wallets will be returned. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the balance information for specified payment wallets. The balance information is grouped by token. If you do not specify the &#x60;wallet_ids&#x60; parameter, the balance information for all payment wallets will be returned. 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param walletIds A list of wallet IDs to query. (optional)
      * @return ApiResponse&lt;ListPaymentWalletBalances200Response&gt;
@@ -3216,7 +3219,7 @@ public class PaymentApi {
 
     /**
      * List payment wallet balances (asynchronously)
-     * This operation retrieves the balance information for specified payment wallets. The balance information is grouped by token. If you do not specify the &#x60;wallet_ids&#x60; parameter, the balance information for all payment wallets will be returned. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the balance information for specified payment wallets. The balance information is grouped by token. If you do not specify the &#x60;wallet_ids&#x60; parameter, the balance information for all payment wallets will be returned. 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param walletIds A list of wallet IDs to query. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3526,11 +3529,11 @@ public class PaymentApi {
         return localVarCall;
     }
     /**
-     * Build call for listTopUpPayers
-     * @param merchantId The merchant ID. (required)
+     * Build call for listTopUpPayerAccounts
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
      * @param payerId A unique identifier assigned by Cobo to track and identify individual payers. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3543,7 +3546,155 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTopUpPayersCall(String merchantId, Integer limit, String before, String after, String payerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listTopUpPayerAccountsCall(Integer limit, String before, String after, String merchantId, String payerId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/topup/payer_accounts";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (merchantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_id", merchantId));
+        }
+
+        if (payerId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("payer_id", payerId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listTopUpPayerAccountsValidateBeforeCall(Integer limit, String before, String after, String merchantId, String payerId, final ApiCallback _callback) throws ApiException {
+        return listTopUpPayerAccountsCall(limit, before, after, merchantId, payerId, _callback);
+
+    }
+
+    /**
+     * List top-up payer accounts
+     * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param payerId A unique identifier assigned by Cobo to track and identify individual payers. (optional)
+     * @return ListTopUpPayerAccounts200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListTopUpPayerAccounts200Response listTopUpPayerAccounts(Integer limit, String before, String after, String merchantId, String payerId) throws ApiException {
+        ApiResponse<ListTopUpPayerAccounts200Response> localVarResp = listTopUpPayerAccountsWithHttpInfo(limit, before, after, merchantId, payerId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List top-up payer accounts
+     * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param payerId A unique identifier assigned by Cobo to track and identify individual payers. (optional)
+     * @return ApiResponse&lt;ListTopUpPayerAccounts200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListTopUpPayerAccounts200Response> listTopUpPayerAccountsWithHttpInfo(Integer limit, String before, String after, String merchantId, String payerId) throws ApiException {
+        okhttp3.Call localVarCall = listTopUpPayerAccountsValidateBeforeCall(limit, before, after, merchantId, payerId, null);
+        Type localVarReturnType = new TypeToken<ListTopUpPayerAccounts200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List top-up payer accounts (asynchronously)
+     * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param payerId A unique identifier assigned by Cobo to track and identify individual payers. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTopUpPayerAccountsAsync(Integer limit, String before, String after, String merchantId, String payerId, final ApiCallback<ListTopUpPayerAccounts200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listTopUpPayerAccountsValidateBeforeCall(limit, before, after, merchantId, payerId, _callback);
+        Type localVarReturnType = new TypeToken<ListTopUpPayerAccounts200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listTopUpPayers
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
+     * @param payerId A unique identifier assigned by Cobo to track and identify individual payers. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTopUpPayersCall(Integer limit, String before, String after, String merchantId, String payerId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3595,23 +3746,18 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listTopUpPayersValidateBeforeCall(String merchantId, Integer limit, String before, String after, String payerId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'merchantId' is set
-        if (merchantId == null) {
-            throw new ApiException("Missing the required parameter 'merchantId' when calling listTopUpPayers(Async)");
-        }
-
-        return listTopUpPayersCall(merchantId, limit, before, after, payerId, _callback);
+    private okhttp3.Call listTopUpPayersValidateBeforeCall(Integer limit, String before, String after, String merchantId, String payerId, final ApiCallback _callback) throws ApiException {
+        return listTopUpPayersCall(limit, before, after, merchantId, payerId, _callback);
 
     }
 
     /**
      * List payers
      * This operation retrieves the information of all payers under a merchant.   You can filter the result by the payer ID. 
-     * @param merchantId The merchant ID. (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
      * @param payerId A unique identifier assigned by Cobo to track and identify individual payers. (optional)
      * @return ListTopUpPayers200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3623,18 +3769,18 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListTopUpPayers200Response listTopUpPayers(String merchantId, Integer limit, String before, String after, String payerId) throws ApiException {
-        ApiResponse<ListTopUpPayers200Response> localVarResp = listTopUpPayersWithHttpInfo(merchantId, limit, before, after, payerId);
+    public ListTopUpPayers200Response listTopUpPayers(Integer limit, String before, String after, String merchantId, String payerId) throws ApiException {
+        ApiResponse<ListTopUpPayers200Response> localVarResp = listTopUpPayersWithHttpInfo(limit, before, after, merchantId, payerId);
         return localVarResp.getData();
     }
 
     /**
      * List payers
      * This operation retrieves the information of all payers under a merchant.   You can filter the result by the payer ID. 
-     * @param merchantId The merchant ID. (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
      * @param payerId A unique identifier assigned by Cobo to track and identify individual payers. (optional)
      * @return ApiResponse&lt;ListTopUpPayers200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3646,8 +3792,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListTopUpPayers200Response> listTopUpPayersWithHttpInfo(String merchantId, Integer limit, String before, String after, String payerId) throws ApiException {
-        okhttp3.Call localVarCall = listTopUpPayersValidateBeforeCall(merchantId, limit, before, after, payerId, null);
+    public ApiResponse<ListTopUpPayers200Response> listTopUpPayersWithHttpInfo(Integer limit, String before, String after, String merchantId, String payerId) throws ApiException {
+        okhttp3.Call localVarCall = listTopUpPayersValidateBeforeCall(limit, before, after, merchantId, payerId, null);
         Type localVarReturnType = new TypeToken<ListTopUpPayers200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3655,10 +3801,10 @@ public class PaymentApi {
     /**
      * List payers (asynchronously)
      * This operation retrieves the information of all payers under a merchant.   You can filter the result by the payer ID. 
-     * @param merchantId The merchant ID. (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param merchantId The merchant ID. (optional)
      * @param payerId A unique identifier assigned by Cobo to track and identify individual payers. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3671,10 +3817,246 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTopUpPayersAsync(String merchantId, Integer limit, String before, String after, String payerId, final ApiCallback<ListTopUpPayers200Response> _callback) throws ApiException {
+    public okhttp3.Call listTopUpPayersAsync(Integer limit, String before, String after, String merchantId, String payerId, final ApiCallback<ListTopUpPayers200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listTopUpPayersValidateBeforeCall(merchantId, limit, before, after, payerId, _callback);
+        okhttp3.Call localVarCall = listTopUpPayersValidateBeforeCall(limit, before, after, merchantId, payerId, _callback);
         Type localVarReturnType = new TypeToken<ListTopUpPayers200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for paymentEstimateFee
+     * @param paymentEstimateFeeRequest The request body to create a estimated fee request. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call paymentEstimateFeeCall(PaymentEstimateFeeRequest paymentEstimateFeeRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = paymentEstimateFeeRequest;
+
+        // create path and map variables
+        String localVarPath = "/payments/estimate_fee";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call paymentEstimateFeeValidateBeforeCall(PaymentEstimateFeeRequest paymentEstimateFeeRequest, final ApiCallback _callback) throws ApiException {
+        return paymentEstimateFeeCall(paymentEstimateFeeRequest, _callback);
+
+    }
+
+    /**
+     * Payment estimate fee
+     * This operation to payment estimate fee. 
+     * @param paymentEstimateFeeRequest The request body to create a estimated fee request. (optional)
+     * @return PaymentEstimateFee201Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public PaymentEstimateFee201Response paymentEstimateFee(PaymentEstimateFeeRequest paymentEstimateFeeRequest) throws ApiException {
+        ApiResponse<PaymentEstimateFee201Response> localVarResp = paymentEstimateFeeWithHttpInfo(paymentEstimateFeeRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Payment estimate fee
+     * This operation to payment estimate fee. 
+     * @param paymentEstimateFeeRequest The request body to create a estimated fee request. (optional)
+     * @return ApiResponse&lt;PaymentEstimateFee201Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PaymentEstimateFee201Response> paymentEstimateFeeWithHttpInfo(PaymentEstimateFeeRequest paymentEstimateFeeRequest) throws ApiException {
+        okhttp3.Call localVarCall = paymentEstimateFeeValidateBeforeCall(paymentEstimateFeeRequest, null);
+        Type localVarReturnType = new TypeToken<PaymentEstimateFee201Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Payment estimate fee (asynchronously)
+     * This operation to payment estimate fee. 
+     * @param paymentEstimateFeeRequest The request body to create a estimated fee request. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call paymentEstimateFeeAsync(PaymentEstimateFeeRequest paymentEstimateFeeRequest, final ApiCallback<PaymentEstimateFee201Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = paymentEstimateFeeValidateBeforeCall(paymentEstimateFeeRequest, _callback);
+        Type localVarReturnType = new TypeToken<PaymentEstimateFee201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateBankAccountById
+     * @param bankAccountId The bank account ID. (required)
+     * @param updateBankAccountByIdRequest The request body for updating an existing bank account. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateBankAccountByIdCall(UUID bankAccountId, UpdateBankAccountByIdRequest updateBankAccountByIdRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = updateBankAccountByIdRequest;
+
+        // create path and map variables
+        String localVarPath = "/payments/bank_accounts/{bank_account_id}"
+            .replace("{" + "bank_account_id" + "}", localVarApiClient.escapeString(bankAccountId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateBankAccountByIdValidateBeforeCall(UUID bankAccountId, UpdateBankAccountByIdRequest updateBankAccountByIdRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'bankAccountId' is set
+        if (bankAccountId == null) {
+            throw new ApiException("Missing the required parameter 'bankAccountId' when calling updateBankAccountById(Async)");
+        }
+
+        return updateBankAccountByIdCall(bankAccountId, updateBankAccountByIdRequest, _callback);
+
+    }
+
+    /**
+     * Update bank account
+     * This operation updates the information of an existing bank account. 
+     * @param bankAccountId The bank account ID. (required)
+     * @param updateBankAccountByIdRequest The request body for updating an existing bank account. (optional)
+     * @return BankAccount
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public BankAccount updateBankAccountById(UUID bankAccountId, UpdateBankAccountByIdRequest updateBankAccountByIdRequest) throws ApiException {
+        ApiResponse<BankAccount> localVarResp = updateBankAccountByIdWithHttpInfo(bankAccountId, updateBankAccountByIdRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update bank account
+     * This operation updates the information of an existing bank account. 
+     * @param bankAccountId The bank account ID. (required)
+     * @param updateBankAccountByIdRequest The request body for updating an existing bank account. (optional)
+     * @return ApiResponse&lt;BankAccount&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BankAccount> updateBankAccountByIdWithHttpInfo(UUID bankAccountId, UpdateBankAccountByIdRequest updateBankAccountByIdRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateBankAccountByIdValidateBeforeCall(bankAccountId, updateBankAccountByIdRequest, null);
+        Type localVarReturnType = new TypeToken<BankAccount>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update bank account (asynchronously)
+     * This operation updates the information of an existing bank account. 
+     * @param bankAccountId The bank account ID. (required)
+     * @param updateBankAccountByIdRequest The request body for updating an existing bank account. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateBankAccountByIdAsync(UUID bankAccountId, UpdateBankAccountByIdRequest updateBankAccountByIdRequest, final ApiCallback<BankAccount> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateBankAccountByIdValidateBeforeCall(bankAccountId, updateBankAccountByIdRequest, _callback);
+        Type localVarReturnType = new TypeToken<BankAccount>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

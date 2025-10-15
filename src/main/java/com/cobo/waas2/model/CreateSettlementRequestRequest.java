@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -77,6 +78,18 @@ public class CreateSettlementRequestRequest {
   public static final String SERIALIZED_NAME_SETTLEMENTS = "settlements";
   @SerializedName(SERIALIZED_NAME_SETTLEMENTS)
   private List<CreateSettlement> settlements = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_BANK_ACCOUNT_ID = "bank_account_id";
+  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_ID)
+  private UUID bankAccountId;
+
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private String currency;
+
+  public static final String SERIALIZED_NAME_REMARK = "remark";
+  @SerializedName(SERIALIZED_NAME_REMARK)
+  private String remark;
 
   public CreateSettlementRequestRequest() {
   }
@@ -183,6 +196,63 @@ public class CreateSettlementRequestRequest {
     this.settlements = settlements;
   }
 
+
+  public CreateSettlementRequestRequest bankAccountId(UUID bankAccountId) {
+    this.bankAccountId = bankAccountId;
+    return this;
+  }
+
+   /**
+   * ｜ Only used in OffRamp payout channel. The ID of the bank account where the settled funds will be deposited.
+   * @return bankAccountId
+  **/
+  @javax.annotation.Nullable
+  public UUID getBankAccountId() {
+    return bankAccountId;
+  }
+
+  public void setBankAccountId(UUID bankAccountId) {
+    this.bankAccountId = bankAccountId;
+  }
+
+
+  public CreateSettlementRequestRequest currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * The fiat currency for the settlement request.
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
+  public CreateSettlementRequestRequest remark(String remark) {
+    this.remark = remark;
+    return this;
+  }
+
+   /**
+   * The remark for the settlement request.
+   * @return remark
+  **/
+  @javax.annotation.Nullable
+  public String getRemark() {
+    return remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -242,13 +312,16 @@ public class CreateSettlementRequestRequest {
         Objects.equals(this.acquiringType, createSettlementRequestRequest.acquiringType) &&
         Objects.equals(this.payoutChannel, createSettlementRequestRequest.payoutChannel) &&
         Objects.equals(this.settlementType, createSettlementRequestRequest.settlementType) &&
-        Objects.equals(this.settlements, createSettlementRequestRequest.settlements)&&
+        Objects.equals(this.settlements, createSettlementRequestRequest.settlements) &&
+        Objects.equals(this.bankAccountId, createSettlementRequestRequest.bankAccountId) &&
+        Objects.equals(this.currency, createSettlementRequestRequest.currency) &&
+        Objects.equals(this.remark, createSettlementRequestRequest.remark)&&
         Objects.equals(this.additionalProperties, createSettlementRequestRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, acquiringType, payoutChannel, settlementType, settlements, additionalProperties);
+    return Objects.hash(requestId, acquiringType, payoutChannel, settlementType, settlements, bankAccountId, currency, remark, additionalProperties);
   }
 
   @Override
@@ -260,6 +333,9 @@ public class CreateSettlementRequestRequest {
     sb.append("    payoutChannel: ").append(toIndentedString(payoutChannel)).append("\n");
     sb.append("    settlementType: ").append(toIndentedString(settlementType)).append("\n");
     sb.append("    settlements: ").append(toIndentedString(settlements)).append("\n");
+    sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    remark: ").append(toIndentedString(remark)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -288,6 +364,9 @@ public class CreateSettlementRequestRequest {
     openapiFields.add("payout_channel");
     openapiFields.add("settlement_type");
     openapiFields.add("settlements");
+    openapiFields.add("bank_account_id");
+    openapiFields.add("currency");
+    openapiFields.add("remark");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -340,6 +419,15 @@ public class CreateSettlementRequestRequest {
       for (int i = 0; i < jsonArraysettlements.size(); i++) {
         CreateSettlement.validateJsonElement(jsonArraysettlements.get(i));
       };
+      if ((jsonObj.get("bank_account_id") != null && !jsonObj.get("bank_account_id").isJsonNull()) && !jsonObj.get("bank_account_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bank_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_account_id").toString()));
+      }
+      if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
+      if ((jsonObj.get("remark") != null && !jsonObj.get("remark").isJsonNull()) && !jsonObj.get("remark").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `remark` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remark").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

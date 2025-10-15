@@ -17,6 +17,7 @@
 |**rootPubkey** | **String** | The root public key of the address. This property applies to MPC Wallets only. |  [optional] |
 |**taprootScriptTreeHash** | **String** | The information about the new address. |  [optional] |
 |**taprootInternalAddress** | **String** | The Taproot address before tweaking. |  [optional] |
+|**stellarTrustedTokenIds** | **List&lt;String&gt;** | The list of token IDs for which this address has already established trustlines on the Stellar network. |  [optional] |
 |**walletId** | **String** | The wallet ID. |  |
 
 

@@ -22,6 +22,7 @@
 |**calldata** | **String** | The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters.  |  |
 |**calldataInfo** | [**TransactionEvmCalldataInfo**](TransactionEvmCalldataInfo.md) |  |  [optional] |
 |**instructions** | [**List&lt;TransactionSolContractInstruction&gt;**](TransactionSolContractInstruction.md) |  |  [optional] |
+|**addressLookupTableAccounts** | [**List&lt;TransactionSolContractAddressLookupTableAccount&gt;**](TransactionSolContractAddressLookupTableAccount.md) |  |  [optional] |
 |**cosmosMessages** | [**List&lt;TransactionCosmosMessage&gt;**](TransactionCosmosMessage.md) |  |  |
 |**message** | **String** | The raw data of the message to be signed, encoded in Base64 format. |  |
 |**rawStructuredData** | **String** | The raw structured data to be signed, formatted as a JSON string. |  [optional] |
@@ -35,6 +36,7 @@
 |**messageBip137** | **String** | Message to be signed, in hexadecimal format. |  |
 |**messageBip322** | **String** | Message to be signed, in hexadecimal format. |  |
 |**messageCosmosAdr36** | **String** | Message to be signed, in hexadecimal format. |  |
+|**contractParam** | [**TransactionStellarContractParam**](TransactionStellarContractParam.md) |  |  |
 
 
 
