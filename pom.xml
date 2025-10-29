@@ -5,7 +5,7 @@
     <artifactId>cobo-waas2</artifactId>
     <packaging>jar</packaging>
     <name>cobo-waas2</name>
-    <version>1.24.0</version>
+    <version>1.25.0</version>
     <url>https://github.com/CoboGlobal/cobo-waas2-java-sdk</url>
     <description>Cobo WaaS 2.0 Java SDK</description>
     <scm>
@@ -68,7 +68,7 @@
                 <configuration>
                     <fork>true</fork>
                     <meminitial>128m</meminitial>
-                    <maxmem>512m</maxmem>
+                    <maxmem>1024m</maxmem>
                     <compilerArgs>
                         <arg>-Xlint:all</arg>
                         <arg>-J-Xss4m</arg><!-- Compiling the generated JSON.java file may require larger stack size. -->

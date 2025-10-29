@@ -18,6 +18,7 @@ import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.CreateCryptoAddressRequest;
 import com.cobo.waas2.model.CreateMerchantRequest;
+import com.cobo.waas2.model.CreateOrderLinkRequest;
 import com.cobo.waas2.model.CreatePaymentOrderRequest;
 import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
@@ -29,6 +30,7 @@ import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
+import com.cobo.waas2.model.Link;
 import com.cobo.waas2.model.ListForcedSweepRequests200Response;
 import com.cobo.waas2.model.ListMerchantBalances200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
@@ -121,7 +123,7 @@ public class PaymentApiTest {
     /**
      * Create merchant
      *
-     * This operation creates a merchant and links it to a specified wallet. Payments to the merchant will be deposited into the linked wallet.  Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information.  If you are a merchant (directly serving the payer), you only need to create one merchant and do not need to configure the developer fee rate. The developer fee rate only applies to platforms such as payment service providers (PSPs) that charge fees to their downstream merchants. 
+     * This operation creates a merchant. Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information. For more information on merchant creation, please refer to [Preparation](https://www.cobo.com/developers/v2/payments/preparation#create-merchant). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -129,6 +131,20 @@ public class PaymentApiTest {
     public void createMerchantTest() throws ApiException {
         CreateMerchantRequest createMerchantRequest = null;
         Merchant response = api.createMerchant(createMerchantRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Create order link
+     *
+     * This operation creates a payment link of a pay-in order. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createOrderLinkTest() throws ApiException {
+        CreateOrderLinkRequest createOrderLinkRequest = null;
+        Link response = api.createOrderLink(createOrderLinkRequest);
         // TODO: test validations
     }
 
@@ -177,7 +193,7 @@ public class PaymentApiTest {
     /**
      * Delete crypto address
      *
-     * This operation unregisters a crypto address from being used for crypto withdrawals. 
+     * This operation unregisters a crypto address from being used for crypto payouts. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -191,7 +207,7 @@ public class PaymentApiTest {
     /**
      * Get exchange rate
      *
-     * This operation retrieves the current exchange rate between a specified currency pair. 
+     * This operation retrieves the current exchange rate between a specified currency pair. The exchange rate is updated approximately every 10 minutes.  &lt;Note&gt;This operation returns the exchange rate for reference only. The actual exchange rate may vary due to market fluctuations and other factors.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -236,7 +252,7 @@ public class PaymentApiTest {
     /**
      * Get developer balance
      *
-     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
+     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -373,7 +389,7 @@ public class PaymentApiTest {
     /**
      * List merchant balances
      *
-     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
+     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -524,9 +540,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Payment estimate fee
+     * Estimate fees
      *
-     * This operation to payment estimate fee. 
+     * This operation calculates fees for payment-related operations, including: - **Pay-in**: Fees for accepting payments - **Refunds**: Fees for refunding the payment - **Crypto payouts**: Fees for payouts in crypto - **Fiat off-ramp**: Fees for fiat currency transfers via off-ramp.    The returned fees represent the charges that would apply if the operation were executed immediately. Note that actual fees may vary over time based on your usage volume and applicable fee rates. 
      *
      * @throws ApiException if the Api call fails
      */

@@ -133,6 +133,10 @@ public class Order {
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_STATUS)
   private SettleStatus settlementStatus;
 
+  public static final String SERIALIZED_NAME_AMOUNT_TOLERANCE = "amount_tolerance";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_TOLERANCE)
+  private String amountTolerance;
+
   public Order() {
   }
 
@@ -504,6 +508,25 @@ public class Order {
     this.settlementStatus = settlementStatus;
   }
 
+
+  public Order amountTolerance(String amountTolerance) {
+    this.amountTolerance = amountTolerance;
+    return this;
+  }
+
+   /**
+   * Allowed amount deviation.
+   * @return amountTolerance
+  **/
+  @javax.annotation.Nullable
+  public String getAmountTolerance() {
+    return amountTolerance;
+  }
+
+  public void setAmountTolerance(String amountTolerance) {
+    this.amountTolerance = amountTolerance;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -577,13 +600,14 @@ public class Order {
         Objects.equals(this.createdTimestamp, order.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, order.updatedTimestamp) &&
         Objects.equals(this.transactions, order.transactions) &&
-        Objects.equals(this.settlementStatus, order.settlementStatus)&&
+        Objects.equals(this.settlementStatus, order.settlementStatus) &&
+        Objects.equals(this.amountTolerance, order.amountTolerance)&&
         Objects.equals(this.additionalProperties, order.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, createdTimestamp, updatedTimestamp, transactions, settlementStatus, additionalProperties);
+    return Objects.hash(orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, createdTimestamp, updatedTimestamp, transactions, settlementStatus, amountTolerance, additionalProperties);
   }
 
   @Override
@@ -609,6 +633,7 @@ public class Order {
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
     sb.append("    settlementStatus: ").append(toIndentedString(settlementStatus)).append("\n");
+    sb.append("    amountTolerance: ").append(toIndentedString(amountTolerance)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -651,6 +676,7 @@ public class Order {
     openapiFields.add("updated_timestamp");
     openapiFields.add("transactions");
     openapiFields.add("settlement_status");
+    openapiFields.add("amount_tolerance");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -746,6 +772,9 @@ public class Order {
       // validate the optional field `settlement_status`
       if (jsonObj.get("settlement_status") != null && !jsonObj.get("settlement_status").isJsonNull()) {
         SettleStatus.validateJsonElement(jsonObj.get("settlement_status"));
+      }
+      if ((jsonObj.get("amount_tolerance") != null && !jsonObj.get("amount_tolerance").isJsonNull()) && !jsonObj.get("amount_tolerance").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `amount_tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount_tolerance").toString()));
       }
   }
 

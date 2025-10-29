@@ -192,4 +192,12 @@ public class OrderTest {
         // TODO: test settlementStatus
     }
 
+    /**
+     * Test the property 'amountTolerance'
+     */
+    @Test
+    public void amountToleranceTest() {
+        // TODO: test amountTolerance
+    }
+
 }

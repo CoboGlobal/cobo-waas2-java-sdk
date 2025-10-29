@@ -69,7 +69,7 @@ public class PaymentEstimateFee {
   }
 
    /**
-   * The ID of the cryptocurrency you want to OffRamp settle.
+   * The token ID for which fees will be calculated.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -88,7 +88,7 @@ public class PaymentEstimateFee {
   }
 
    /**
-   * The OffRamp settlement amount. 
+   * The transaction amount for which fees will be calculated.
    * @return amount
   **/
   @javax.annotation.Nonnull

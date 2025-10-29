@@ -73,7 +73,7 @@ public class BridgingFee {
   }
 
    /**
-   * The bridging fee amount.
+   * The fee charged for bridging tokens to another blockchain during an off-ramp operation. Bridging fees apply when tokens are on a blockchain not directly supported by the off-ramp service. 
    * @return feeAmount
   **/
   @javax.annotation.Nonnull
@@ -92,7 +92,7 @@ public class BridgingFee {
   }
 
    /**
-   * The received token id after bridge.
+   * The ID of the destination token received after bridging.
    * @return receivedTokenId
   **/
   @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class BridgingFee {
   }
 
    /**
-   * The received amount after bridge.
+   * The final amount of destination tokens received after bridging.
    * @return receivedAmount
   **/
   @javax.annotation.Nullable

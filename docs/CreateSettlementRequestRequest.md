@@ -12,9 +12,9 @@
 |**payoutChannel** | **PayoutChannel** |  |  [optional] |
 |**settlementType** | **SettlementType** |  |  [optional] |
 |**settlements** | [**List&lt;CreateSettlement&gt;**](CreateSettlement.md) |  |  |
-|**bankAccountId** | **UUID** | ｜ Only used in OffRamp payout channel. The ID of the bank account where the settled funds will be deposited. |  [optional] |
-|**currency** | **String** | The fiat currency for the settlement request. |  [optional] |
-|**remark** | **String** | The remark for the settlement request. |  [optional] |
+|**bankAccountId** | **UUID** |  The ID of the bank account where the funds will be deposited. You can call [List all bank accounts](https://www.cobo.com/developers/v2/api-references/payment/list-all-bank-accounts) to retrieve the IDs of registered bank accounts.  This field is only applicable for off-ramp.  |  [optional] |
+|**currency** | **String** | The fiat currency to receive after off-ramping. Currently, only &#x60;USD&#x60; is supported. Specify this field when &#x60;payout_channel&#x60; is set to &#x60;OffRamp&#x60;. |  [optional] |
+|**remark** | **String** | The remark for the payout request. |  [optional] |
 
 
 

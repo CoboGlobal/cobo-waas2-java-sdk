@@ -17,8 +17,8 @@
 |**acquiringType** | **AcquiringType** |  |  [optional] |
 |**payoutChannel** | **PayoutChannel** |  |  [optional] |
 |**settlementType** | **SettlementType** |  |  [optional] |
-|**currency** | **String** | The fiat currency for the settlement request. |  [optional] |
-|**receivedAmountFiat** | **String** | The received fiat amount of this settlement request.  |  [optional] |
+|**currency** | **String** | The fiat currency for the off-ramp. |  [optional] |
+|**receivedAmountFiat** | **String** | The estimated amount of the fiat currency to receive after off-ramping. This amount is subject to change due to bank transfer fees. |  [optional] |
 |**bankAccount** | [**BankAccount**](BankAccount.md) |  |  [optional] |
 
 

@@ -319,7 +319,7 @@ public class Settlement {
   }
 
    /**
-   * The fiat currency for the settlement request.
+   * The fiat currency for the off-ramp.
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -338,7 +338,7 @@ public class Settlement {
   }
 
    /**
-   * The received fiat amount of this settlement request. 
+   * The estimated amount of the fiat currency to receive after off-ramping. This amount is subject to change due to bank transfer fees.
    * @return receivedAmountFiat
   **/
   @javax.annotation.Nullable

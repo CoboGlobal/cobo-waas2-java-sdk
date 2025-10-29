@@ -1174,7 +1174,7 @@ public class DevelopersWebhooksApi {
 
     /**
      * Trigger test event
-     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event. The test event will be sent to all the endpoints you have registered on Cobo Portal.  You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload. 
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event. The test event will be sent to all the endpoints you have registered on Cobo Portal.  You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload.  &lt;Note&gt;Currently, you can only trigger test webhook events with the event data types &#x60;Transaction&#x60; and &#x60;TSSRequest&#x60;.&lt;/Note&gt; 
      * @param triggerTestWebhookEventRequest The request body used to trigger a test webhook event.  (optional)
      * @return TriggerTestWebhookEvent201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1193,7 +1193,7 @@ public class DevelopersWebhooksApi {
 
     /**
      * Trigger test event
-     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event. The test event will be sent to all the endpoints you have registered on Cobo Portal.  You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload. 
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event. The test event will be sent to all the endpoints you have registered on Cobo Portal.  You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload.  &lt;Note&gt;Currently, you can only trigger test webhook events with the event data types &#x60;Transaction&#x60; and &#x60;TSSRequest&#x60;.&lt;/Note&gt; 
      * @param triggerTestWebhookEventRequest The request body used to trigger a test webhook event.  (optional)
      * @return ApiResponse&lt;TriggerTestWebhookEvent201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1213,7 +1213,7 @@ public class DevelopersWebhooksApi {
 
     /**
      * Trigger test event (asynchronously)
-     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event. The test event will be sent to all the endpoints you have registered on Cobo Portal.  You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload. 
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event. The test event will be sent to all the endpoints you have registered on Cobo Portal.  You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload.  &lt;Note&gt;Currently, you can only trigger test webhook events with the event data types &#x60;Transaction&#x60; and &#x60;TSSRequest&#x60;.&lt;/Note&gt; 
      * @param triggerTestWebhookEventRequest The request body used to trigger a test webhook event.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

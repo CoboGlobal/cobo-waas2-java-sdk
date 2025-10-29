@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**tokenId** | **String** | The ID of the cryptocurrency you want to payment. |  |
-|**amount** | **String** | The payment amount.  |  |
+|**tokenId** | **String** | The token ID for which fees will be calculated. |  |
+|**amount** | **String** | The transaction amount for which fees will be calculated. |  |
 |**commissionFee** | [**CommissionFee**](CommissionFee.md) |  |  [optional] |
 |**bridgingFee** | [**BridgingFee**](BridgingFee.md) |  |  [optional] |
 |**otcFee** | [**OtcFee**](OtcFee.md) |  |  [optional] |

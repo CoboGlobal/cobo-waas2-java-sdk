@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The current status of the force sweep request: - &#x60;Order&#x60;: The order fee type. - &#x60;Refund&#x60;: The refund fee type. - &#x60;CryptoSettlement&#x60;: The crypto settlement fee type. - &#x60;OffRampSettlement&#x60;: The off ramp settlement fee type. 
+ * The type of fee to estimate: - &#x60;Order&#x60;: Fee for accepting a payment. - &#x60;Refund&#x60;: Fee for processing a refund. - &#x60;CryptoSettlement&#x60;: Fee for crypto payouts. - &#x60;OffRampSettlement&#x60;: Fee for fiat off-ramp. 
  */
 @JsonAdapter(PaymentFeeType.Adapter.class)
 public enum PaymentFeeType {

@@ -273,7 +273,7 @@ public class SupportedToken {
   }
 
    /**
-   * Whether the token can by off ramp settlement
+   * Whether the token is supported by the off-ramp service.
    * @return canOffRamp
   **/
   @javax.annotation.Nullable

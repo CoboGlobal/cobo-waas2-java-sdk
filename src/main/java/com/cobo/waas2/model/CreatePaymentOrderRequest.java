@@ -92,6 +92,10 @@ public class CreatePaymentOrderRequest {
   @SerializedName(SERIALIZED_NAME_CUSTOM_EXCHANGE_RATE)
   private String customExchangeRate;
 
+  public static final String SERIALIZED_NAME_AMOUNT_TOLERANCE = "amount_tolerance";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_TOLERANCE)
+  private String amountTolerance;
+
   public CreatePaymentOrderRequest() {
   }
 
@@ -272,7 +276,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * A custom exchange rate specified by the merchant.   - Only effective when &#x60;currency&#x60; is &#x60;\&quot;USD\&quot;&#x60;.   - Expressed as the amount of USD per 1 unit of the specified cryptocurrency.   - If not provided, the system will use the default internal rate.   Example: If the cryptocurrency is USDT and &#x60;custom_exchange_rate&#x60; &#x3D; &#x60;\&quot;0.99\&quot;&#x60;, it means 1 USDT &#x3D; 0.99 USD. 
+   *  A custom exchange rate that defines how much fiat currency equals 1 unit of cryptocurrency. If not provided, the system&#39;s default exchange rate will be used.  For example, if the fiat currency is USD and the cryptocurrency is USDT, setting &#x60;custom_exchange_rate&#x60; to &#x60;\&quot;0.99\&quot;&#x60; means that 1 USDT will be valued at 0.99 USD. 
    * @return customExchangeRate
   **/
   @javax.annotation.Nullable
@@ -282,6 +286,25 @@ public class CreatePaymentOrderRequest {
 
   public void setCustomExchangeRate(String customExchangeRate) {
     this.customExchangeRate = customExchangeRate;
+  }
+
+
+  public CreatePaymentOrderRequest amountTolerance(String amountTolerance) {
+    this.amountTolerance = amountTolerance;
+    return this;
+  }
+
+   /**
+   * Allowed amount deviation, precision to 1 decimal place.
+   * @return amountTolerance
+  **/
+  @javax.annotation.Nullable
+  public String getAmountTolerance() {
+    return amountTolerance;
+  }
+
+  public void setAmountTolerance(String amountTolerance) {
+    this.amountTolerance = amountTolerance;
   }
 
   /**
@@ -348,13 +371,14 @@ public class CreatePaymentOrderRequest {
         Objects.equals(this.pspOrderCode, createPaymentOrderRequest.pspOrderCode) &&
         Objects.equals(this.expiredIn, createPaymentOrderRequest.expiredIn) &&
         Objects.equals(this.useDedicatedAddress, createPaymentOrderRequest.useDedicatedAddress) &&
-        Objects.equals(this.customExchangeRate, createPaymentOrderRequest.customExchangeRate)&&
+        Objects.equals(this.customExchangeRate, createPaymentOrderRequest.customExchangeRate) &&
+        Objects.equals(this.amountTolerance, createPaymentOrderRequest.amountTolerance)&&
         Objects.equals(this.additionalProperties, createPaymentOrderRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredIn, useDedicatedAddress, customExchangeRate, additionalProperties);
+    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredIn, useDedicatedAddress, customExchangeRate, amountTolerance, additionalProperties);
   }
 
   @Override
@@ -371,6 +395,7 @@ public class CreatePaymentOrderRequest {
     sb.append("    expiredIn: ").append(toIndentedString(expiredIn)).append("\n");
     sb.append("    useDedicatedAddress: ").append(toIndentedString(useDedicatedAddress)).append("\n");
     sb.append("    customExchangeRate: ").append(toIndentedString(customExchangeRate)).append("\n");
+    sb.append("    amountTolerance: ").append(toIndentedString(amountTolerance)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -404,6 +429,7 @@ public class CreatePaymentOrderRequest {
     openapiFields.add("expired_in");
     openapiFields.add("use_dedicated_address");
     openapiFields.add("custom_exchange_rate");
+    openapiFields.add("amount_tolerance");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -457,6 +483,9 @@ public class CreatePaymentOrderRequest {
       }
       if ((jsonObj.get("custom_exchange_rate") != null && !jsonObj.get("custom_exchange_rate").isJsonNull()) && !jsonObj.get("custom_exchange_rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom_exchange_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_exchange_rate").toString()));
+      }
+      if ((jsonObj.get("amount_tolerance") != null && !jsonObj.get("amount_tolerance").isJsonNull()) && !jsonObj.get("amount_tolerance").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `amount_tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount_tolerance").toString()));
       }
   }
 
