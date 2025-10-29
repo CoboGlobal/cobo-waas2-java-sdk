@@ -235,7 +235,7 @@ public class CreateRefundRequest {
   }
 
    /**
-   * Whether to charge developer fee to the merchant.     - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance    - &#x60;false&#x60;: The merchant is not charged any developer fee  When enabled, ensure both &#x60;merchant_fee_amount&#x60; and &#x60;merchant_fee_token_id&#x60; are properly specified. 
+   * Whether to charge developer fee to the merchant. This field is only valid when &#x60;refund_type&#x60; is &#x60;Merchant&#x60;. For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances).     - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance    - &#x60;false&#x60;: The merchant is not charged any developer fee  When enabled, ensure both &#x60;merchant_fee_amount&#x60; and &#x60;merchant_fee_token_id&#x60; are properly specified. 
    * @return chargeMerchantFee
   **/
   @javax.annotation.Nullable
@@ -254,7 +254,7 @@ public class CreateRefundRequest {
   }
 
    /**
-   * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. Required when &#x60;charge_merchant_fee&#x60; is &#x60;true&#x60;. Must be:   - A positive integer with up to two decimal places.   - Less than the refund amount 
+   * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. This field is only valid when &#x60;refund_type&#x60; is &#x60;Merchant&#x60;. For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances).  This field is required when &#x60;charge_merchant_fee&#x60; is &#x60;true&#x60;. Must be:   - A positive integer with up to two decimal places.   - Less than the refund amount 
    * @return merchantFeeAmount
   **/
   @javax.annotation.Nullable

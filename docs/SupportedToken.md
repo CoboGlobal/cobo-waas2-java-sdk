@@ -16,7 +16,7 @@
 |**chainSymbol** | **String** | Symbol of the underlying blockchain |  |
 |**chainIconUrl** | **String** | URL to the blockchain&#39;s icon image |  [optional] |
 |**tokenIconUrl** | **String** | URL to the token&#39;s icon image |  [optional] |
-|**canOffRamp** | **Boolean** | Whether the token can by off ramp settlement |  [optional] |
+|**canOffRamp** | **Boolean** | Whether the token is supported by the off-ramp service. |  [optional] |
 
 
 

@@ -21,8 +21,11 @@ import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.ChainsEventData;
 import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.ComplianceDispositionUpdateEventData;
+import com.cobo.waas2.model.ComplianceKytScreeningsUpdateEventData;
 import com.cobo.waas2.model.DispositionStatus;
 import com.cobo.waas2.model.DispositionType;
+import com.cobo.waas2.model.FundsStatusType;
+import com.cobo.waas2.model.KytScreeningsTransactionType;
 import com.cobo.waas2.model.MPCVaultEventData;
 import com.cobo.waas2.model.PaymentAddressUpdateEventData;
 import com.cobo.waas2.model.PaymentOrderEventData;
@@ -32,6 +35,7 @@ import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.PaymentTransactionEventData;
 import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.RefundType;
+import com.cobo.waas2.model.ReviewStatusType;
 import com.cobo.waas2.model.RootPubkey;
 import com.cobo.waas2.model.SettleStatus;
 import com.cobo.waas2.model.SettlementDetail;
@@ -632,6 +636,14 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'amountTolerance'
+     */
+    @Test
+    public void amountToleranceTest() {
+        // TODO: test amountTolerance
+    }
+
+    /**
      * Test the property 'refundId'
      */
     @Test
@@ -821,6 +833,30 @@ public class WebhookEventDataTest {
     @Test
     public void dispositionAmountTest() {
         // TODO: test dispositionAmount
+    }
+
+    /**
+     * Test the property 'transactionType'
+     */
+    @Test
+    public void transactionTypeTest() {
+        // TODO: test transactionType
+    }
+
+    /**
+     * Test the property 'reviewStatus'
+     */
+    @Test
+    public void reviewStatusTest() {
+        // TODO: test reviewStatus
+    }
+
+    /**
+     * Test the property 'fundsStatus'
+     */
+    @Test
+    public void fundsStatusTest() {
+        // TODO: test fundsStatus
     }
 
 }

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The event type. To learn the trigger condition of each event type, refer to [Webhook event types and event data](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/webhook-event-type).
+ * The event type. To learn the trigger condition of each event type, refer to [Webhook event types and event data](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/webhook-event-type).   **Currently, you can only trigger test webhook events with the event data types &#x60;Transaction&#x60; and &#x60;TSSRequest&#x60;.** 
  */
 @JsonAdapter(WebhookEventType.Adapter.class)
 public enum WebhookEventType {
@@ -86,6 +86,8 @@ public enum WebhookEventType {
   
   PAYMENT_TRANSACTION_HELD("payment.transaction.held"),
   
+  PAYMENT_TRANSACTION_FAILED("payment.transaction.failed"),
+  
   PAYMENT_STATUS_UPDATED("payment.status.updated"),
   
   PAYMENT_REFUND_STATUS_UPDATED("payment.refund.status.updated"),
@@ -94,7 +96,9 @@ public enum WebhookEventType {
   
   PAYMENT_ADDRESS_UPDATED("payment.address.updated"),
   
-  COMPLIANCE_DISPOSITION_STATUS_UPDATED("compliance.disposition.status.updated");
+  COMPLIANCE_DISPOSITION_STATUS_UPDATED("compliance.disposition.status.updated"),
+  
+  COMPLIANCE_KYT_SCREENINGS_STATUS_UPDATED("compliance.kyt.screenings.status.updated");
 
   private String value;
 

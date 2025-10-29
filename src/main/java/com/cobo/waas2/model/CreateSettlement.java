@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -63,17 +62,9 @@ public class CreateSettlement {
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
   private String tokenId;
 
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private String currency;
-
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
-
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT_ID = "bank_account_id";
-  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_ID)
-  private UUID bankAccountId;
 
   public static final String SERIALIZED_NAME_CRYPTO_ADDRESS_ID = "crypto_address_id";
   @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS_ID)
@@ -111,7 +102,7 @@ public class CreateSettlement {
   }
 
    /**
-   * The ID of the cryptocurrency you want to settle. Specify this field when &#x60;payout_channel&#x60; is set to &#x60;Crypto&#x60;. Supported values:  - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60; - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
+   * The ID of the cryptocurrency you want to settle. Specify this field when &#x60;payout_channel&#x60; is set to &#x60;Crypto&#x60;. Supported values: - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60; - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -121,25 +112,6 @@ public class CreateSettlement {
 
   public void setTokenId(String tokenId) {
     this.tokenId = tokenId;
-  }
-
-
-  public CreateSettlement currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * The fiat currency for settling the cryptocurrency. Currently, only &#x60;USD&#x60; is supported. Specify this field when &#x60;payout_channel&#x60; is set to &#x60;OffRamp&#x60;.
-   * @return currency
-  **/
-  @javax.annotation.Nullable
-  public String getCurrency() {
-    return currency;
-  }
-
-  public void setCurrency(String currency) {
-    this.currency = currency;
   }
 
 
@@ -159,25 +131,6 @@ public class CreateSettlement {
 
   public void setAmount(String amount) {
     this.amount = amount;
-  }
-
-
-  public CreateSettlement bankAccountId(UUID bankAccountId) {
-    this.bankAccountId = bankAccountId;
-    return this;
-  }
-
-   /**
-   * The ID of the bank account where the settled funds will be deposited. This field is only applicable when &#x60;payout_channel&#x60; is set to &#x60;OffRamp&#x60;. Call [List all bank accounts](https://www.cobo.com/developers/v2/api-references/payment/list-all-bank-accounts) to retrieve the IDs of registered bank accounts. 
-   * @return bankAccountId
-  **/
-  @javax.annotation.Nullable
-  public UUID getBankAccountId() {
-    return bankAccountId;
-  }
-
-  public void setBankAccountId(UUID bankAccountId) {
-    this.bankAccountId = bankAccountId;
   }
 
 
@@ -283,9 +236,7 @@ public class CreateSettlement {
     CreateSettlement createSettlement = (CreateSettlement) o;
     return Objects.equals(this.merchantId, createSettlement.merchantId) &&
         Objects.equals(this.tokenId, createSettlement.tokenId) &&
-        Objects.equals(this.currency, createSettlement.currency) &&
         Objects.equals(this.amount, createSettlement.amount) &&
-        Objects.equals(this.bankAccountId, createSettlement.bankAccountId) &&
         Objects.equals(this.cryptoAddressId, createSettlement.cryptoAddressId) &&
         Objects.equals(this.orderIds, createSettlement.orderIds)&&
         Objects.equals(this.additionalProperties, createSettlement.additionalProperties);
@@ -293,7 +244,7 @@ public class CreateSettlement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, currency, amount, bankAccountId, cryptoAddressId, orderIds, additionalProperties);
+    return Objects.hash(merchantId, tokenId, amount, cryptoAddressId, orderIds, additionalProperties);
   }
 
   @Override
@@ -302,9 +253,7 @@ public class CreateSettlement {
     sb.append("class CreateSettlement {\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
     sb.append("    cryptoAddressId: ").append(toIndentedString(cryptoAddressId)).append("\n");
     sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -332,9 +281,7 @@ public class CreateSettlement {
     openapiFields = new HashSet<String>();
     openapiFields.add("merchant_id");
     openapiFields.add("token_id");
-    openapiFields.add("currency");
     openapiFields.add("amount");
-    openapiFields.add("bank_account_id");
     openapiFields.add("crypto_address_id");
     openapiFields.add("order_ids");
 
@@ -369,14 +316,8 @@ public class CreateSettlement {
       if (!jsonObj.get("token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
       }
-      if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
       if ((jsonObj.get("amount") != null && !jsonObj.get("amount").isJsonNull()) && !jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
-      }
-      if ((jsonObj.get("bank_account_id") != null && !jsonObj.get("bank_account_id").isJsonNull()) && !jsonObj.get("bank_account_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bank_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_account_id").toString()));
       }
       if ((jsonObj.get("crypto_address_id") != null && !jsonObj.get("crypto_address_id").isJsonNull()) && !jsonObj.get("crypto_address_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address_id").toString()));

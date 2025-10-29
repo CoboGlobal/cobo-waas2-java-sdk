@@ -65,7 +65,7 @@ public class CommissionFee {
   }
 
    /**
-   * The commission fee amount.
+   * The amount of the commission fee charged by Cobo for pay-ins and payouts, in USD.
    * @return feeAmount
   **/
   @javax.annotation.Nonnull

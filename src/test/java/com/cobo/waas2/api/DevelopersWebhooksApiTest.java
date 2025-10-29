@@ -180,7 +180,7 @@ public class DevelopersWebhooksApiTest {
     /**
      * Trigger test event
      *
-     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event. The test event will be sent to all the endpoints you have registered on Cobo Portal.  You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload. 
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event. The test event will be sent to all the endpoints you have registered on Cobo Portal.  You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload.  &lt;Note&gt;Currently, you can only trigger test webhook events with the event data types &#x60;Transaction&#x60; and &#x60;TSSRequest&#x60;.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

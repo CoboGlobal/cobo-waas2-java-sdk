@@ -203,7 +203,7 @@ public class CreateSettlementRequestRequest {
   }
 
    /**
-   * ｜ Only used in OffRamp payout channel. The ID of the bank account where the settled funds will be deposited.
+   *  The ID of the bank account where the funds will be deposited. You can call [List all bank accounts](https://www.cobo.com/developers/v2/api-references/payment/list-all-bank-accounts) to retrieve the IDs of registered bank accounts.  This field is only applicable for off-ramp. 
    * @return bankAccountId
   **/
   @javax.annotation.Nullable
@@ -222,7 +222,7 @@ public class CreateSettlementRequestRequest {
   }
 
    /**
-   * The fiat currency for the settlement request.
+   * The fiat currency to receive after off-ramping. Currently, only &#x60;USD&#x60; is supported. Specify this field when &#x60;payout_channel&#x60; is set to &#x60;OffRamp&#x60;.
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -241,7 +241,7 @@ public class CreateSettlementRequestRequest {
   }
 
    /**
-   * The remark for the settlement request.
+   * The remark for the payout request.
    * @return remark
   **/
   @javax.annotation.Nullable

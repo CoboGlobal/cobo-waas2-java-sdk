@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.24.0</version>
+  <version>1.25.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.24.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.25.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.24.0.jar`
+* `target/cobo-waas2-1.25.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -216,8 +216,11 @@ Class | Method | HTTP request | Description
 *AutoSweepApi* | [**listAutoSweepTask**](docs/AutoSweepApi.md#listAutoSweepTask) | **GET** /auto_sweep/tasks | List auto-sweep tasks
 *AutoSweepApi* | [**listWalletSweepToAddresses**](docs/AutoSweepApi.md#listWalletSweepToAddresses) | **GET** /auto_sweep/sweep_to_addresses | List sweep-to addresses
 *ComplianceApi* | [**getDispositionStatus**](docs/ComplianceApi.md#getDispositionStatus) | **GET** /compliance/funds/disposition | Get disposition status
+*ComplianceApi* | [**getKytScreeningStatus**](docs/ComplianceApi.md#getKytScreeningStatus) | **GET** /compliance/kyt/screenings/status | Get KYT screening status
 *ComplianceApi* | [**isolateFunds**](docs/ComplianceApi.md#isolateFunds) | **POST** /compliance/funds/disposition/isolate | Isolate funds
 *ComplianceApi* | [**refundFunds**](docs/ComplianceApi.md#refundFunds) | **POST** /compliance/funds/disposition/refund | Refund funds
+*ComplianceApi* | [**submitKytManualReview**](docs/ComplianceApi.md#submitKytManualReview) | **POST** /compliance/kyt/screenings/manual_review | Submit KYT manual review result
+*ComplianceApi* | [**submitKytScreeningDecisions**](docs/ComplianceApi.md#submitKytScreeningDecisions) | **POST** /compliance/kyt/screenings/decisions | Submit KYT screening decision
 *ComplianceApi* | [**unfreezeFunds**](docs/ComplianceApi.md#unfreezeFunds) | **POST** /compliance/funds/disposition/unfreeze | Unfreeze frozen funds
 *DevelopersApi* | [**getApiKeyInfo**](docs/DevelopersApi.md#getApiKeyInfo) | **GET** /developers/api_key_info | Get API key information
 *DevelopersApi* | [**listCallbackMessages**](docs/DevelopersApi.md#listCallbackMessages) | **GET** /developers/callback_messages | List all callback messages
@@ -247,6 +250,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**createCryptoAddress**](docs/PaymentApi.md#createCryptoAddress) | **POST** /payments/crypto_addresses | Create crypto address
 *PaymentApi* | [**createForcedSweepRequest**](docs/PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create forced sweep
 *PaymentApi* | [**createMerchant**](docs/PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant
+*PaymentApi* | [**createOrderLink**](docs/PaymentApi.md#createOrderLink) | **POST** /payments/links/orders | Create order link
 *PaymentApi* | [**createPaymentOrder**](docs/PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
 *PaymentApi* | [**createSettlementRequest**](docs/PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request
@@ -272,7 +276,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**listSettlementRequests**](docs/PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests
 *PaymentApi* | [**listTopUpPayerAccounts**](docs/PaymentApi.md#listTopUpPayerAccounts) | **GET** /payments/topup/payer_accounts | List top-up payer accounts
 *PaymentApi* | [**listTopUpPayers**](docs/PaymentApi.md#listTopUpPayers) | **GET** /payments/topup/payers | List payers
-*PaymentApi* | [**paymentEstimateFee**](docs/PaymentApi.md#paymentEstimateFee) | **POST** /payments/estimate_fee | Payment estimate fee
+*PaymentApi* | [**paymentEstimateFee**](docs/PaymentApi.md#paymentEstimateFee) | **POST** /payments/estimate_fee | Estimate fees
 *PaymentApi* | [**updateBankAccountById**](docs/PaymentApi.md#updateBankAccountById) | **PUT** /payments/bank_accounts/{bank_account_id} | Update bank account
 *PaymentApi* | [**updateMerchantById**](docs/PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant
 *PaymentApi* | [**updatePaymentOrder**](docs/PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order
@@ -488,6 +492,7 @@ Class | Method | HTTP request | Description
  - [CoboSafeDelegateType](docs/CoboSafeDelegateType.md)
  - [CommissionFee](docs/CommissionFee.md)
  - [ComplianceDispositionUpdateEventData](docs/ComplianceDispositionUpdateEventData.md)
+ - [ComplianceKytScreeningsUpdateEventData](docs/ComplianceKytScreeningsUpdateEventData.md)
  - [ContractCallDestination](docs/ContractCallDestination.md)
  - [ContractCallDestinationType](docs/ContractCallDestinationType.md)
  - [ContractCallParams](docs/ContractCallParams.md)
@@ -520,6 +525,7 @@ Class | Method | HTTP request | Description
  - [CreateMpcProjectRequest](docs/CreateMpcProjectRequest.md)
  - [CreateMpcVaultRequest](docs/CreateMpcVaultRequest.md)
  - [CreateMpcWalletParams](docs/CreateMpcWalletParams.md)
+ - [CreateOrderLinkRequest](docs/CreateOrderLinkRequest.md)
  - [CreatePaymentOrderRequest](docs/CreatePaymentOrderRequest.md)
  - [CreatePrimeBrokerAddress201Response](docs/CreatePrimeBrokerAddress201Response.md)
  - [CreatePrimeBrokerAddressRequest](docs/CreatePrimeBrokerAddressRequest.md)
@@ -626,6 +632,7 @@ Class | Method | HTTP request | Description
  - [ForcedSweep](docs/ForcedSweep.md)
  - [ForcedSweepRequest](docs/ForcedSweepRequest.md)
  - [ForcedSweepStatus](docs/ForcedSweepStatus.md)
+ - [FundsStatusType](docs/FundsStatusType.md)
  - [GetApiKeyInfo200Response](docs/GetApiKeyInfo200Response.md)
  - [GetExchangeRate200Response](docs/GetExchangeRate200Response.md)
  - [GetMaxTransferableValueWithFeeModelRequest](docs/GetMaxTransferableValueWithFeeModelRequest.md)
@@ -649,6 +656,13 @@ Class | Method | HTTP request | Description
  - [KeyShareHolderGroupType](docs/KeyShareHolderGroupType.md)
  - [KeyShareHolderStatus](docs/KeyShareHolderStatus.md)
  - [KeyShareHolderType](docs/KeyShareHolderType.md)
+ - [KytScreeningsDecisionsType](docs/KytScreeningsDecisionsType.md)
+ - [KytScreeningsEventData](docs/KytScreeningsEventData.md)
+ - [KytScreeningsReviewType](docs/KytScreeningsReviewType.md)
+ - [KytScreeningsTransaction](docs/KytScreeningsTransaction.md)
+ - [KytScreeningsTransactionType](docs/KytScreeningsTransactionType.md)
+ - [Link](docs/Link.md)
+ - [LinkDisplayInfo](docs/LinkDisplayInfo.md)
  - [ListAddressBalancesByToken200Response](docs/ListAddressBalancesByToken200Response.md)
  - [ListAddressBooks200Response](docs/ListAddressBooks200Response.md)
  - [ListAddresses200Response](docs/ListAddresses200Response.md)
@@ -724,6 +738,8 @@ Class | Method | HTTP request | Description
  - [MpcStakeSource](docs/MpcStakeSource.md)
  - [MpcTransferSource](docs/MpcTransferSource.md)
  - [Order](docs/Order.md)
+ - [OrderLinkBusinessInfo](docs/OrderLinkBusinessInfo.md)
+ - [OrderLinkBusinessInfoCustomExchangeRatesInner](docs/OrderLinkBusinessInfoCustomExchangeRatesInner.md)
  - [OrderStatus](docs/OrderStatus.md)
  - [OrgInfo](docs/OrgInfo.md)
  - [OtcFee](docs/OtcFee.md)
@@ -769,6 +785,7 @@ Class | Method | HTTP request | Description
  - [RequestApproval](docs/RequestApproval.md)
  - [RetryCallbackMessage201Response](docs/RetryCallbackMessage201Response.md)
  - [RetryWebhookEventById201Response](docs/RetryWebhookEventById201Response.md)
+ - [ReviewStatusType](docs/ReviewStatusType.md)
  - [RevokeApprovalRequest201Response](docs/RevokeApprovalRequest201Response.md)
  - [RevokeApprovalRequestRequest](docs/RevokeApprovalRequestRequest.md)
  - [RoleDetail](docs/RoleDetail.md)
@@ -817,6 +834,9 @@ Class | Method | HTTP request | Description
  - [StellarContractCallTrustLineParam](docs/StellarContractCallTrustLineParam.md)
  - [SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
  - [SubmitDepositTravelRuleInfo201Response](docs/SubmitDepositTravelRuleInfo201Response.md)
+ - [SubmitKytResponse](docs/SubmitKytResponse.md)
+ - [SubmitKytScreeningsDecisionsBody](docs/SubmitKytScreeningsDecisionsBody.md)
+ - [SubmitKytScreeningsReviewBody](docs/SubmitKytScreeningsReviewBody.md)
  - [SupportedToken](docs/SupportedToken.md)
  - [SuspendedTokenEventData](docs/SuspendedTokenEventData.md)
  - [SuspendedTokenOperationType](docs/SuspendedTokenOperationType.md)
@@ -1181,6 +1201,9 @@ Authentication schemes defined for the API:
   - compliance_funds.isolate: Isolate compliance funds request
   - compliance_funds.unfreeze: Unfreeze compliance funds request
   - compliance_funds.read: Read compliance funds request information
+  - compliance_kyt_review.update: Update KYT review status
+  - compliance_kyt_decisions.update: Update KYT decision status
+  - compliance_kyt_status.read: Read KYT screening status
 
 
 ## Recommendation

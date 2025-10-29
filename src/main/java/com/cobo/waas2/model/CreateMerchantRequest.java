@@ -98,7 +98,7 @@ public class CreateMerchantRequest {
   }
 
    /**
-   * The ID of the wallet linked to the merchant.
+   * This field has been deprecated.
    * @return walletId
   **/
   @javax.annotation.Nullable
@@ -117,7 +117,7 @@ public class CreateMerchantRequest {
   }
 
    /**
-   * The developer fee rate applied to this merchant. Expressed as a string in decimal format where \&quot;0.1\&quot; represents 10%. This fee is deducted from the payment amount and only applies to top-up transactions. If you are a merchant (directly serving the payer), you do not need to configure the developer fee rate.
+   * The developer fee rate applied to this merchant. Expressed as a string in decimal format where \&quot;0.1\&quot; represents 10%. For more information on developer fee rate, please refer to [Amounts and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances).
    * @return developerFeeRate
   **/
   @javax.annotation.Nullable

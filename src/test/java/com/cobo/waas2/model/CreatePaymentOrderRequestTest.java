@@ -115,4 +115,12 @@ public class CreatePaymentOrderRequestTest {
         // TODO: test customExchangeRate
     }
 
+    /**
+     * Test the property 'amountTolerance'
+     */
+    @Test
+    public void amountToleranceTest() {
+        // TODO: test amountTolerance
+    }
+
 }

@@ -58,7 +58,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentOrderEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -92,7 +92,9 @@ public class PaymentOrderEventData {
     
     SUSPENDEDTOKEN("SuspendedToken"),
     
-    COMPLIANCEDISPOSITION("ComplianceDisposition");
+    COMPLIANCEDISPOSITION("ComplianceDisposition"),
+    
+    COMPLIANCEKYTSCREENINGS("ComplianceKytScreenings");
 
     private String value;
 
@@ -217,6 +219,10 @@ public class PaymentOrderEventData {
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_STATUS)
   private SettleStatus settlementStatus;
 
+  public static final String SERIALIZED_NAME_AMOUNT_TOLERANCE = "amount_tolerance";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_TOLERANCE)
+  private String amountTolerance;
+
   public PaymentOrderEventData() {
   }
 
@@ -226,7 +232,7 @@ public class PaymentOrderEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -607,6 +613,25 @@ public class PaymentOrderEventData {
     this.settlementStatus = settlementStatus;
   }
 
+
+  public PaymentOrderEventData amountTolerance(String amountTolerance) {
+    this.amountTolerance = amountTolerance;
+    return this;
+  }
+
+   /**
+   * Allowed amount deviation.
+   * @return amountTolerance
+  **/
+  @javax.annotation.Nullable
+  public String getAmountTolerance() {
+    return amountTolerance;
+  }
+
+  public void setAmountTolerance(String amountTolerance) {
+    this.amountTolerance = amountTolerance;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -681,13 +706,14 @@ public class PaymentOrderEventData {
         Objects.equals(this.createdTimestamp, paymentOrderEventData.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, paymentOrderEventData.updatedTimestamp) &&
         Objects.equals(this.transactions, paymentOrderEventData.transactions) &&
-        Objects.equals(this.settlementStatus, paymentOrderEventData.settlementStatus)&&
+        Objects.equals(this.settlementStatus, paymentOrderEventData.settlementStatus) &&
+        Objects.equals(this.amountTolerance, paymentOrderEventData.amountTolerance)&&
         Objects.equals(this.additionalProperties, paymentOrderEventData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, createdTimestamp, updatedTimestamp, transactions, settlementStatus, additionalProperties);
+    return Objects.hash(dataType, orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, createdTimestamp, updatedTimestamp, transactions, settlementStatus, amountTolerance, additionalProperties);
   }
 
   @Override
@@ -714,6 +740,7 @@ public class PaymentOrderEventData {
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
     sb.append("    settlementStatus: ").append(toIndentedString(settlementStatus)).append("\n");
+    sb.append("    amountTolerance: ").append(toIndentedString(amountTolerance)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -757,6 +784,7 @@ public class PaymentOrderEventData {
     openapiFields.add("updated_timestamp");
     openapiFields.add("transactions");
     openapiFields.add("settlement_status");
+    openapiFields.add("amount_tolerance");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -858,6 +886,9 @@ public class PaymentOrderEventData {
       // validate the optional field `settlement_status`
       if (jsonObj.get("settlement_status") != null && !jsonObj.get("settlement_status").isJsonNull()) {
         SettleStatus.validateJsonElement(jsonObj.get("settlement_status"));
+      }
+      if ((jsonObj.get("amount_tolerance") != null && !jsonObj.get("amount_tolerance").isJsonNull()) && !jsonObj.get("amount_tolerance").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `amount_tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount_tolerance").toString()));
       }
   }
 

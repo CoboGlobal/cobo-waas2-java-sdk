@@ -29,6 +29,7 @@ import com.cobo.waas2.model.AcquiringType;
 import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.CreateCryptoAddressRequest;
 import com.cobo.waas2.model.CreateMerchantRequest;
+import com.cobo.waas2.model.CreateOrderLinkRequest;
 import com.cobo.waas2.model.CreatePaymentOrderRequest;
 import com.cobo.waas2.model.CreateRefundRequest;
 import com.cobo.waas2.model.CreateSettlementRequestRequest;
@@ -40,6 +41,7 @@ import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetExchangeRate200Response;
 import com.cobo.waas2.model.GetRefunds200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
+import com.cobo.waas2.model.Link;
 import com.cobo.waas2.model.ListForcedSweepRequests200Response;
 import com.cobo.waas2.model.ListMerchantBalances200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
@@ -490,7 +492,7 @@ public class PaymentApi {
 
     /**
      * Create merchant
-     * This operation creates a merchant and links it to a specified wallet. Payments to the merchant will be deposited into the linked wallet.  Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information.  If you are a merchant (directly serving the payer), you only need to create one merchant and do not need to configure the developer fee rate. The developer fee rate only applies to platforms such as payment service providers (PSPs) that charge fees to their downstream merchants. 
+     * This operation creates a merchant. Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information. For more information on merchant creation, please refer to [Preparation](https://www.cobo.com/developers/v2/payments/preparation#create-merchant). 
      * @param createMerchantRequest The request body to create a merchant. (optional)
      * @return Merchant
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -509,7 +511,7 @@ public class PaymentApi {
 
     /**
      * Create merchant
-     * This operation creates a merchant and links it to a specified wallet. Payments to the merchant will be deposited into the linked wallet.  Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information.  If you are a merchant (directly serving the payer), you only need to create one merchant and do not need to configure the developer fee rate. The developer fee rate only applies to platforms such as payment service providers (PSPs) that charge fees to their downstream merchants. 
+     * This operation creates a merchant. Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information. For more information on merchant creation, please refer to [Preparation](https://www.cobo.com/developers/v2/payments/preparation#create-merchant). 
      * @param createMerchantRequest The request body to create a merchant. (optional)
      * @return ApiResponse&lt;Merchant&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -529,7 +531,7 @@ public class PaymentApi {
 
     /**
      * Create merchant (asynchronously)
-     * This operation creates a merchant and links it to a specified wallet. Payments to the merchant will be deposited into the linked wallet.  Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information.  If you are a merchant (directly serving the payer), you only need to create one merchant and do not need to configure the developer fee rate. The developer fee rate only applies to platforms such as payment service providers (PSPs) that charge fees to their downstream merchants. 
+     * This operation creates a merchant. Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information. For more information on merchant creation, please refer to [Preparation](https://www.cobo.com/developers/v2/payments/preparation#create-merchant). 
      * @param createMerchantRequest The request body to create a merchant. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -546,6 +548,119 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = createMerchantValidateBeforeCall(createMerchantRequest, _callback);
         Type localVarReturnType = new TypeToken<Merchant>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createOrderLink
+     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createOrderLinkCall(CreateOrderLinkRequest createOrderLinkRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createOrderLinkRequest;
+
+        // create path and map variables
+        String localVarPath = "/payments/links/orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createOrderLinkValidateBeforeCall(CreateOrderLinkRequest createOrderLinkRequest, final ApiCallback _callback) throws ApiException {
+        return createOrderLinkCall(createOrderLinkRequest, _callback);
+
+    }
+
+    /**
+     * Create order link
+     * This operation creates a payment link of a pay-in order. 
+     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * @return Link
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Link createOrderLink(CreateOrderLinkRequest createOrderLinkRequest) throws ApiException {
+        ApiResponse<Link> localVarResp = createOrderLinkWithHttpInfo(createOrderLinkRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create order link
+     * This operation creates a payment link of a pay-in order. 
+     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * @return ApiResponse&lt;Link&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Link> createOrderLinkWithHttpInfo(CreateOrderLinkRequest createOrderLinkRequest) throws ApiException {
+        okhttp3.Call localVarCall = createOrderLinkValidateBeforeCall(createOrderLinkRequest, null);
+        Type localVarReturnType = new TypeToken<Link>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create order link (asynchronously)
+     * This operation creates a payment link of a pay-in order. 
+     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createOrderLinkAsync(CreateOrderLinkRequest createOrderLinkRequest, final ApiCallback<Link> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createOrderLinkValidateBeforeCall(createOrderLinkRequest, _callback);
+        Type localVarReturnType = new TypeToken<Link>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -948,7 +1063,7 @@ public class PaymentApi {
 
     /**
      * Delete crypto address
-     * This operation unregisters a crypto address from being used for crypto withdrawals. 
+     * This operation unregisters a crypto address from being used for crypto payouts. 
      * @param cryptoAddressId The crypto address ID. (required)
      * @return DeleteCryptoAddress201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -968,7 +1083,7 @@ public class PaymentApi {
 
     /**
      * Delete crypto address
-     * This operation unregisters a crypto address from being used for crypto withdrawals. 
+     * This operation unregisters a crypto address from being used for crypto payouts. 
      * @param cryptoAddressId The crypto address ID. (required)
      * @return ApiResponse&lt;DeleteCryptoAddress201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -989,7 +1104,7 @@ public class PaymentApi {
 
     /**
      * Delete crypto address (asynchronously)
-     * This operation unregisters a crypto address from being used for crypto withdrawals. 
+     * This operation unregisters a crypto address from being used for crypto payouts. 
      * @param cryptoAddressId The crypto address ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1076,7 +1191,7 @@ public class PaymentApi {
 
     /**
      * Get exchange rate
-     * This operation retrieves the current exchange rate between a specified currency pair. 
+     * This operation retrieves the current exchange rate between a specified currency pair. The exchange rate is updated approximately every 10 minutes.  &lt;Note&gt;This operation returns the exchange rate for reference only. The actual exchange rate may vary due to market fluctuations and other factors.&lt;/Note&gt; 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param currency The fiat currency. Currently, only &#x60;USD&#x60; is supported. (required)
      * @return GetExchangeRate200Response
@@ -1096,7 +1211,7 @@ public class PaymentApi {
 
     /**
      * Get exchange rate
-     * This operation retrieves the current exchange rate between a specified currency pair. 
+     * This operation retrieves the current exchange rate between a specified currency pair. The exchange rate is updated approximately every 10 minutes.  &lt;Note&gt;This operation returns the exchange rate for reference only. The actual exchange rate may vary due to market fluctuations and other factors.&lt;/Note&gt; 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param currency The fiat currency. Currently, only &#x60;USD&#x60; is supported. (required)
      * @return ApiResponse&lt;GetExchangeRate200Response&gt;
@@ -1117,7 +1232,7 @@ public class PaymentApi {
 
     /**
      * Get exchange rate (asynchronously)
-     * This operation retrieves the current exchange rate between a specified currency pair. 
+     * This operation retrieves the current exchange rate between a specified currency pair. The exchange rate is updated approximately every 10 minutes.  &lt;Note&gt;This operation returns the exchange rate for reference only. The actual exchange rate may vary due to market fluctuations and other factors.&lt;/Note&gt; 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param currency The fiat currency. Currently, only &#x60;USD&#x60; is supported. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1460,7 +1575,7 @@ public class PaymentApi {
 
     /**
      * Get developer balance
-     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
+     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances). 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @return PspBalance
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1479,7 +1594,7 @@ public class PaymentApi {
 
     /**
      * Get developer balance
-     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
+     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances). 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @return ApiResponse&lt;PspBalance&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1499,7 +1614,7 @@ public class PaymentApi {
 
     /**
      * Get developer balance (asynchronously)
-     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
+     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances). 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2071,16 +2186,16 @@ public class PaymentApi {
         Map<String, String> localVarCookieParams = new HashMap<>();
         Map<String, Object> localVarFormParams = new HashMap<>();
 
-        if (merchantId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_id", merchantId));
-        }
-
         if (tokenId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("token_id", tokenId));
         }
 
         if (customPayerId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("custom_payer_id", customPayerId));
+        }
+
+        if (merchantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_id", merchantId));
         }
 
         final String[] localVarAccepts = {
@@ -2626,7 +2741,7 @@ public class PaymentApi {
 
     /**
      * List merchant balances
-     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
+     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances). 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param acquiringType The payment acquisition type. - &#x60;Order&#x60;: Payers pay by fixed-amount orders. Ideal for specific purchases and one-time transactions. - &#x60;TopUp&#x60;: Account recharge flow where payers deposit funds to their dedicated top-up addresses. Ideal for flexible or usage-based payment models.  (required)
      * @param merchantIds A list of merchant IDs to query. (optional)
@@ -2647,7 +2762,7 @@ public class PaymentApi {
 
     /**
      * List merchant balances
-     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
+     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances). 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param acquiringType The payment acquisition type. - &#x60;Order&#x60;: Payers pay by fixed-amount orders. Ideal for specific purchases and one-time transactions. - &#x60;TopUp&#x60;: Account recharge flow where payers deposit funds to their dedicated top-up addresses. Ideal for flexible or usage-based payment models.  (required)
      * @param merchantIds A list of merchant IDs to query. (optional)
@@ -2669,7 +2784,7 @@ public class PaymentApi {
 
     /**
      * List merchant balances (asynchronously)
-     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Amounts and Balances](/v2/payments/amounts-and-balances) 
+     *  This operation retrieves the balance information for specified merchants. The balance information is grouped by token and acquiring type. If you do not specify the &#x60;merchant_ids&#x60; parameter, the balance information for all merchants will be returned.  For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances). 
      * @param tokenId The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;. Supported values include:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60;  (required)
      * @param acquiringType The payment acquisition type. - &#x60;Order&#x60;: Payers pay by fixed-amount orders. Ideal for specific purchases and one-time transactions. - &#x60;TopUp&#x60;: Account recharge flow where payers deposit funds to their dedicated top-up addresses. Ideal for flexible or usage-based payment models.  (required)
      * @param merchantIds A list of merchant IDs to query. (optional)
@@ -2697,8 +2812,8 @@ public class PaymentApi {
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
-     * @param walletId The wallet ID. (optional)
-     * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
+     * @param walletId This parameter has been deprecated. (optional)
+     * @param walletSetup The type of wallet setup for the merchant. Each wallet contains multiple cryptocurrency addresses that serve as the merchant’s receiving addresses.  - &#x60;Shared&#x60;: Multiple merchants share the same wallet. The wallet’s addresses may be used to receive payments for multiple merchants simultaneously. - &#x60;Separate&#x60;: Create a dedicated wallet for the merchant to achieve complete fund isolation. All addresses in this wallet are only used to receive payments for this merchant. - &#x60;Default&#x60;: The default wallet automatically created by the system for the default merchant (the merchant that shares the same name as your organization).  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2778,8 +2893,8 @@ public class PaymentApi {
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
-     * @param walletId The wallet ID. (optional)
-     * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
+     * @param walletId This parameter has been deprecated. (optional)
+     * @param walletSetup The type of wallet setup for the merchant. Each wallet contains multiple cryptocurrency addresses that serve as the merchant’s receiving addresses.  - &#x60;Shared&#x60;: Multiple merchants share the same wallet. The wallet’s addresses may be used to receive payments for multiple merchants simultaneously. - &#x60;Separate&#x60;: Create a dedicated wallet for the merchant to achieve complete fund isolation. All addresses in this wallet are only used to receive payments for this merchant. - &#x60;Default&#x60;: The default wallet automatically created by the system for the default merchant (the merchant that shares the same name as your organization).  (optional)
      * @return ListMerchants200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2802,8 +2917,8 @@ public class PaymentApi {
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
-     * @param walletId The wallet ID. (optional)
-     * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
+     * @param walletId This parameter has been deprecated. (optional)
+     * @param walletSetup The type of wallet setup for the merchant. Each wallet contains multiple cryptocurrency addresses that serve as the merchant’s receiving addresses.  - &#x60;Shared&#x60;: Multiple merchants share the same wallet. The wallet’s addresses may be used to receive payments for multiple merchants simultaneously. - &#x60;Separate&#x60;: Create a dedicated wallet for the merchant to achieve complete fund isolation. All addresses in this wallet are only used to receive payments for this merchant. - &#x60;Default&#x60;: The default wallet automatically created by the system for the default merchant (the merchant that shares the same name as your organization).  (optional)
      * @return ApiResponse&lt;ListMerchants200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2827,8 +2942,8 @@ public class PaymentApi {
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
      * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
      * @param keyword A search term used for fuzzy matching of merchant names. (optional)
-     * @param walletId The wallet ID. (optional)
-     * @param walletSetup WalletSetup defines the type of funds used in the merchant account, either \&quot;Shared\&quot; or \&quot;Separate\&quot; is allowed when creating a merchant: - &#x60;Default&#x60;: Wallet of psp owned default merchant. - &#x60;Shared&#x60;: Shared wallet of non-psp owned merchants. - &#x60;Separate&#x60;: Separate wallet of non-psp owned merchants.  (optional)
+     * @param walletId This parameter has been deprecated. (optional)
+     * @param walletSetup The type of wallet setup for the merchant. Each wallet contains multiple cryptocurrency addresses that serve as the merchant’s receiving addresses.  - &#x60;Shared&#x60;: Multiple merchants share the same wallet. The wallet’s addresses may be used to receive payments for multiple merchants simultaneously. - &#x60;Separate&#x60;: Create a dedicated wallet for the merchant to achieve complete fund isolation. All addresses in this wallet are only used to receive payments for this merchant. - &#x60;Default&#x60;: The default wallet automatically created by the system for the default merchant (the merchant that shares the same name as your organization).  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3826,7 +3941,7 @@ public class PaymentApi {
     }
     /**
      * Build call for paymentEstimateFee
-     * @param paymentEstimateFeeRequest The request body to create a estimated fee request. (optional)
+     * @param paymentEstimateFeeRequest The request body for fee estimation. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3877,9 +3992,9 @@ public class PaymentApi {
     }
 
     /**
-     * Payment estimate fee
-     * This operation to payment estimate fee. 
-     * @param paymentEstimateFeeRequest The request body to create a estimated fee request. (optional)
+     * Estimate fees
+     * This operation calculates fees for payment-related operations, including: - **Pay-in**: Fees for accepting payments - **Refunds**: Fees for refunding the payment - **Crypto payouts**: Fees for payouts in crypto - **Fiat off-ramp**: Fees for fiat currency transfers via off-ramp.    The returned fees represent the charges that would apply if the operation were executed immediately. Note that actual fees may vary over time based on your usage volume and applicable fee rates. 
+     * @param paymentEstimateFeeRequest The request body for fee estimation. (optional)
      * @return PaymentEstimateFee201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3896,9 +4011,9 @@ public class PaymentApi {
     }
 
     /**
-     * Payment estimate fee
-     * This operation to payment estimate fee. 
-     * @param paymentEstimateFeeRequest The request body to create a estimated fee request. (optional)
+     * Estimate fees
+     * This operation calculates fees for payment-related operations, including: - **Pay-in**: Fees for accepting payments - **Refunds**: Fees for refunding the payment - **Crypto payouts**: Fees for payouts in crypto - **Fiat off-ramp**: Fees for fiat currency transfers via off-ramp.    The returned fees represent the charges that would apply if the operation were executed immediately. Note that actual fees may vary over time based on your usage volume and applicable fee rates. 
+     * @param paymentEstimateFeeRequest The request body for fee estimation. (optional)
      * @return ApiResponse&lt;PaymentEstimateFee201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3916,9 +4031,9 @@ public class PaymentApi {
     }
 
     /**
-     * Payment estimate fee (asynchronously)
-     * This operation to payment estimate fee. 
-     * @param paymentEstimateFeeRequest The request body to create a estimated fee request. (optional)
+     * Estimate fees (asynchronously)
+     * This operation calculates fees for payment-related operations, including: - **Pay-in**: Fees for accepting payments - **Refunds**: Fees for refunding the payment - **Crypto payouts**: Fees for payouts in crypto - **Fiat off-ramp**: Fees for fiat currency transfers via off-ramp.    The returned fees represent the charges that would apply if the operation were executed immediately. Note that actual fees may vary over time based on your usage volume and applicable fee rates. 
+     * @param paymentEstimateFeeRequest The request body for fee estimation. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

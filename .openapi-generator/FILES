@@ -92,6 +92,7 @@ docs/CoboSafeDelegateType.md
 docs/CommissionFee.md
 docs/ComplianceApi.md
 docs/ComplianceDispositionUpdateEventData.md
+docs/ComplianceKytScreeningsUpdateEventData.md
 docs/ContractCallDestination.md
 docs/ContractCallDestinationType.md
 docs/ContractCallParams.md
@@ -124,6 +125,7 @@ docs/CreateMerchantRequest.md
 docs/CreateMpcProjectRequest.md
 docs/CreateMpcVaultRequest.md
 docs/CreateMpcWalletParams.md
+docs/CreateOrderLinkRequest.md
 docs/CreatePaymentOrderRequest.md
 docs/CreatePrimeBrokerAddress201Response.md
 docs/CreatePrimeBrokerAddressRequest.md
@@ -233,6 +235,7 @@ docs/FixedFeeRate.md
 docs/ForcedSweep.md
 docs/ForcedSweepRequest.md
 docs/ForcedSweepStatus.md
+docs/FundsStatusType.md
 docs/GetApiKeyInfo200Response.md
 docs/GetExchangeRate200Response.md
 docs/GetMaxTransferableValueWithFeeModelRequest.md
@@ -256,6 +259,13 @@ docs/KeyShareHolderGroupStatus.md
 docs/KeyShareHolderGroupType.md
 docs/KeyShareHolderStatus.md
 docs/KeyShareHolderType.md
+docs/KytScreeningsDecisionsType.md
+docs/KytScreeningsEventData.md
+docs/KytScreeningsReviewType.md
+docs/KytScreeningsTransaction.md
+docs/KytScreeningsTransactionType.md
+docs/Link.md
+docs/LinkDisplayInfo.md
 docs/ListAddressBalancesByToken200Response.md
 docs/ListAddressBooks200Response.md
 docs/ListAddresses200Response.md
@@ -332,6 +342,8 @@ docs/MpcStakeSource.md
 docs/MpcTransferSource.md
 docs/OAuthApi.md
 docs/Order.md
+docs/OrderLinkBusinessInfo.md
+docs/OrderLinkBusinessInfoCustomExchangeRatesInner.md
 docs/OrderStatus.md
 docs/OrgInfo.md
 docs/OrganizationsApi.md
@@ -380,6 +392,7 @@ docs/ReplaceType.md
 docs/RequestApproval.md
 docs/RetryCallbackMessage201Response.md
 docs/RetryWebhookEventById201Response.md
+docs/ReviewStatusType.md
 docs/RevokeApprovalRequest201Response.md
 docs/RevokeApprovalRequestRequest.md
 docs/RoleDetail.md
@@ -429,6 +442,9 @@ docs/StellarContractCallTrustLineOperationType.md
 docs/StellarContractCallTrustLineParam.md
 docs/SubWalletAssetBalance.md
 docs/SubmitDepositTravelRuleInfo201Response.md
+docs/SubmitKytResponse.md
+docs/SubmitKytScreeningsDecisionsBody.md
+docs/SubmitKytScreeningsReviewBody.md
 docs/SupportedToken.md
 docs/SuspendedTokenEventData.md
 docs/SuspendedTokenOperationType.md
@@ -855,6 +871,7 @@ src/main/java/com/cobo/waas2/model/CoboSafeDelegate.java
 src/main/java/com/cobo/waas2/model/CoboSafeDelegateType.java
 src/main/java/com/cobo/waas2/model/CommissionFee.java
 src/main/java/com/cobo/waas2/model/ComplianceDispositionUpdateEventData.java
+src/main/java/com/cobo/waas2/model/ComplianceKytScreeningsUpdateEventData.java
 src/main/java/com/cobo/waas2/model/ContractCallDestination.java
 src/main/java/com/cobo/waas2/model/ContractCallDestinationType.java
 src/main/java/com/cobo/waas2/model/ContractCallParams.java
@@ -887,6 +904,7 @@ src/main/java/com/cobo/waas2/model/CreateMerchantRequest.java
 src/main/java/com/cobo/waas2/model/CreateMpcProjectRequest.java
 src/main/java/com/cobo/waas2/model/CreateMpcVaultRequest.java
 src/main/java/com/cobo/waas2/model/CreateMpcWalletParams.java
+src/main/java/com/cobo/waas2/model/CreateOrderLinkRequest.java
 src/main/java/com/cobo/waas2/model/CreatePaymentOrderRequest.java
 src/main/java/com/cobo/waas2/model/CreatePrimeBrokerAddress201Response.java
 src/main/java/com/cobo/waas2/model/CreatePrimeBrokerAddressRequest.java
@@ -993,6 +1011,7 @@ src/main/java/com/cobo/waas2/model/FixedFeeRate.java
 src/main/java/com/cobo/waas2/model/ForcedSweep.java
 src/main/java/com/cobo/waas2/model/ForcedSweepRequest.java
 src/main/java/com/cobo/waas2/model/ForcedSweepStatus.java
+src/main/java/com/cobo/waas2/model/FundsStatusType.java
 src/main/java/com/cobo/waas2/model/GetApiKeyInfo200Response.java
 src/main/java/com/cobo/waas2/model/GetExchangeRate200Response.java
 src/main/java/com/cobo/waas2/model/GetMaxTransferableValueWithFeeModelRequest.java
@@ -1016,6 +1035,13 @@ src/main/java/com/cobo/waas2/model/KeyShareHolderGroupStatus.java
 src/main/java/com/cobo/waas2/model/KeyShareHolderGroupType.java
 src/main/java/com/cobo/waas2/model/KeyShareHolderStatus.java
 src/main/java/com/cobo/waas2/model/KeyShareHolderType.java
+src/main/java/com/cobo/waas2/model/KytScreeningsDecisionsType.java
+src/main/java/com/cobo/waas2/model/KytScreeningsEventData.java
+src/main/java/com/cobo/waas2/model/KytScreeningsReviewType.java
+src/main/java/com/cobo/waas2/model/KytScreeningsTransaction.java
+src/main/java/com/cobo/waas2/model/KytScreeningsTransactionType.java
+src/main/java/com/cobo/waas2/model/Link.java
+src/main/java/com/cobo/waas2/model/LinkDisplayInfo.java
 src/main/java/com/cobo/waas2/model/ListAddressBalancesByToken200Response.java
 src/main/java/com/cobo/waas2/model/ListAddressBooks200Response.java
 src/main/java/com/cobo/waas2/model/ListAddresses200Response.java
@@ -1091,6 +1117,8 @@ src/main/java/com/cobo/waas2/model/MpcSigningGroup.java
 src/main/java/com/cobo/waas2/model/MpcStakeSource.java
 src/main/java/com/cobo/waas2/model/MpcTransferSource.java
 src/main/java/com/cobo/waas2/model/Order.java
+src/main/java/com/cobo/waas2/model/OrderLinkBusinessInfo.java
+src/main/java/com/cobo/waas2/model/OrderLinkBusinessInfoCustomExchangeRatesInner.java
 src/main/java/com/cobo/waas2/model/OrderStatus.java
 src/main/java/com/cobo/waas2/model/OrgInfo.java
 src/main/java/com/cobo/waas2/model/OtcFee.java
@@ -1136,6 +1164,7 @@ src/main/java/com/cobo/waas2/model/ReplaceType.java
 src/main/java/com/cobo/waas2/model/RequestApproval.java
 src/main/java/com/cobo/waas2/model/RetryCallbackMessage201Response.java
 src/main/java/com/cobo/waas2/model/RetryWebhookEventById201Response.java
+src/main/java/com/cobo/waas2/model/ReviewStatusType.java
 src/main/java/com/cobo/waas2/model/RevokeApprovalRequest201Response.java
 src/main/java/com/cobo/waas2/model/RevokeApprovalRequestRequest.java
 src/main/java/com/cobo/waas2/model/RoleDetail.java
@@ -1184,6 +1213,9 @@ src/main/java/com/cobo/waas2/model/StellarContractCallTrustLineOperationType.jav
 src/main/java/com/cobo/waas2/model/StellarContractCallTrustLineParam.java
 src/main/java/com/cobo/waas2/model/SubWalletAssetBalance.java
 src/main/java/com/cobo/waas2/model/SubmitDepositTravelRuleInfo201Response.java
+src/main/java/com/cobo/waas2/model/SubmitKytResponse.java
+src/main/java/com/cobo/waas2/model/SubmitKytScreeningsDecisionsBody.java
+src/main/java/com/cobo/waas2/model/SubmitKytScreeningsReviewBody.java
 src/main/java/com/cobo/waas2/model/SupportedToken.java
 src/main/java/com/cobo/waas2/model/SuspendedTokenEventData.java
 src/main/java/com/cobo/waas2/model/SuspendedTokenOperationType.java
@@ -1562,6 +1594,7 @@ src/test/java/com/cobo/waas2/model/CoboSafeDelegateTest.java
 src/test/java/com/cobo/waas2/model/CoboSafeDelegateTypeTest.java
 src/test/java/com/cobo/waas2/model/CommissionFeeTest.java
 src/test/java/com/cobo/waas2/model/ComplianceDispositionUpdateEventDataTest.java
+src/test/java/com/cobo/waas2/model/ComplianceKytScreeningsUpdateEventDataTest.java
 src/test/java/com/cobo/waas2/model/ContractCallDestinationTest.java
 src/test/java/com/cobo/waas2/model/ContractCallDestinationTypeTest.java
 src/test/java/com/cobo/waas2/model/ContractCallParamsTest.java
@@ -1594,6 +1627,7 @@ src/test/java/com/cobo/waas2/model/CreateMerchantRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateMpcProjectRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateMpcVaultRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateMpcWalletParamsTest.java
+src/test/java/com/cobo/waas2/model/CreateOrderLinkRequestTest.java
 src/test/java/com/cobo/waas2/model/CreatePaymentOrderRequestTest.java
 src/test/java/com/cobo/waas2/model/CreatePrimeBrokerAddress201ResponseTest.java
 src/test/java/com/cobo/waas2/model/CreatePrimeBrokerAddressRequestTest.java
@@ -1700,6 +1734,7 @@ src/test/java/com/cobo/waas2/model/FixedFeeRateTest.java
 src/test/java/com/cobo/waas2/model/ForcedSweepRequestTest.java
 src/test/java/com/cobo/waas2/model/ForcedSweepStatusTest.java
 src/test/java/com/cobo/waas2/model/ForcedSweepTest.java
+src/test/java/com/cobo/waas2/model/FundsStatusTypeTest.java
 src/test/java/com/cobo/waas2/model/GetApiKeyInfo200ResponseTest.java
 src/test/java/com/cobo/waas2/model/GetExchangeRate200ResponseTest.java
 src/test/java/com/cobo/waas2/model/GetMaxTransferableValueWithFeeModelRequestTest.java
@@ -1723,6 +1758,13 @@ src/test/java/com/cobo/waas2/model/KeyShareHolderGroupTypeTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderStatusTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderTypeTest.java
+src/test/java/com/cobo/waas2/model/KytScreeningsDecisionsTypeTest.java
+src/test/java/com/cobo/waas2/model/KytScreeningsEventDataTest.java
+src/test/java/com/cobo/waas2/model/KytScreeningsReviewTypeTest.java
+src/test/java/com/cobo/waas2/model/KytScreeningsTransactionTest.java
+src/test/java/com/cobo/waas2/model/KytScreeningsTransactionTypeTest.java
+src/test/java/com/cobo/waas2/model/LinkDisplayInfoTest.java
+src/test/java/com/cobo/waas2/model/LinkTest.java
 src/test/java/com/cobo/waas2/model/ListAddressBalancesByToken200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListAddressBooks200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListAddresses200ResponseTest.java
@@ -1797,6 +1839,8 @@ src/test/java/com/cobo/waas2/model/MpcMessageSignSourceTest.java
 src/test/java/com/cobo/waas2/model/MpcSigningGroupTest.java
 src/test/java/com/cobo/waas2/model/MpcStakeSourceTest.java
 src/test/java/com/cobo/waas2/model/MpcTransferSourceTest.java
+src/test/java/com/cobo/waas2/model/OrderLinkBusinessInfoCustomExchangeRatesInnerTest.java
+src/test/java/com/cobo/waas2/model/OrderLinkBusinessInfoTest.java
 src/test/java/com/cobo/waas2/model/OrderStatusTest.java
 src/test/java/com/cobo/waas2/model/OrderTest.java
 src/test/java/com/cobo/waas2/model/OrgInfoTest.java
@@ -1843,6 +1887,7 @@ src/test/java/com/cobo/waas2/model/ReplaceTypeTest.java
 src/test/java/com/cobo/waas2/model/RequestApprovalTest.java
 src/test/java/com/cobo/waas2/model/RetryCallbackMessage201ResponseTest.java
 src/test/java/com/cobo/waas2/model/RetryWebhookEventById201ResponseTest.java
+src/test/java/com/cobo/waas2/model/ReviewStatusTypeTest.java
 src/test/java/com/cobo/waas2/model/RevokeApprovalRequest201ResponseTest.java
 src/test/java/com/cobo/waas2/model/RevokeApprovalRequestRequestTest.java
 src/test/java/com/cobo/waas2/model/RoleDetailTest.java
@@ -1891,6 +1936,9 @@ src/test/java/com/cobo/waas2/model/StellarContractCallTrustLineOperationTypeTest
 src/test/java/com/cobo/waas2/model/StellarContractCallTrustLineParamTest.java
 src/test/java/com/cobo/waas2/model/SubWalletAssetBalanceTest.java
 src/test/java/com/cobo/waas2/model/SubmitDepositTravelRuleInfo201ResponseTest.java
+src/test/java/com/cobo/waas2/model/SubmitKytResponseTest.java
+src/test/java/com/cobo/waas2/model/SubmitKytScreeningsDecisionsBodyTest.java
+src/test/java/com/cobo/waas2/model/SubmitKytScreeningsReviewBodyTest.java
 src/test/java/com/cobo/waas2/model/SupportedTokenTest.java
 src/test/java/com/cobo/waas2/model/SuspendedTokenEventDataTest.java
 src/test/java/com/cobo/waas2/model/SuspendedTokenOperationTypeTest.java
