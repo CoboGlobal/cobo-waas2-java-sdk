@@ -53,7 +53,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the transaction source types &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  - For UTXO-based chains: both &#x60;address&#x60; and &#x60;included_utxos&#x60; are optional. If both &#x60;address&#x60; and &#x60;included_utxos&#x60; are provided, the UTXOs must belong to the specified address. If neither &#x60;address&#x60; nor &#x60;included_utxos&#x60; is provided, the system will select UTXOs from the wallet associated with &#x60;wallet_id&#x60;. - For account-based chains: You need to provide &#x60;address&#x60; otherwise the token transfer will fail. However, when estimating fees for a transfer, &#x60;address&#x60; is not required.  For detailed rules on &#x60;address&#x60; and &#x60;included_utxos&#x60; in both regular and RBF transactions, see [Address and included_utxos usage](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations#address-and-included-utxos-usage).  Switch between the tabs to display the properties for different transaction sources. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -94,7 +94,7 @@ public class MpcTransferSource {
    * Get sourceType
    * @return sourceType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletSubtype getSourceType() {
     return sourceType;
   }
@@ -113,7 +113,7 @@ public class MpcTransferSource {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -132,7 +132,7 @@ public class MpcTransferSource {
    * Indicates the wallet address to be used as the source of funds. - For UTXO-based chains: both &#x60;address&#x60; and &#x60;included_utxos&#x60; are optional. If both &#x60;address&#x60; and &#x60;included_utxos&#x60; are provided, the UTXOs must belong to the specified address. If neither &#x60;address&#x60; nor &#x60;included_utxos&#x60; is provided, the system will select UTXOs from the wallet associated with &#x60;wallet_id&#x60;. - For account-based chains: You need to provide &#x60;address&#x60; otherwise the token transfer will fail. However, when estimating fees for a transfer, &#x60;address&#x60; is not required.  For detailed rules on &#x60;address&#x60; and &#x60;included_utxos&#x60; in both regular and RBF transactions, see [Address and included_utxos usage](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations#address-and-included-utxos-usage). 
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -159,7 +159,7 @@ public class MpcTransferSource {
    * Get includedUtxos
    * @return includedUtxos
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TransactionUtxo> getIncludedUtxos() {
     return includedUtxos;
   }
@@ -186,7 +186,7 @@ public class MpcTransferSource {
    * Get excludedUtxos
    * @return excludedUtxos
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TransactionUtxo> getExcludedUtxos() {
     return excludedUtxos;
   }
@@ -205,7 +205,7 @@ public class MpcTransferSource {
    * Get mpcUsedKeyShareHolderGroup
    * @return mpcUsedKeyShareHolderGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public MpcSigningGroup getMpcUsedKeyShareHolderGroup() {
     return mpcUsedKeyShareHolderGroup;
   }

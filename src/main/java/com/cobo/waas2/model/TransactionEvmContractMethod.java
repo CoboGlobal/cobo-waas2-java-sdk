@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about a method in a smart contract.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -84,7 +84,7 @@ public class TransactionEvmContractMethod {
    * The method name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -103,7 +103,7 @@ public class TransactionEvmContractMethod {
    * The signature of the method, which includes the method name and parameter types.
    * @return sig
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSig() {
     return sig;
   }
@@ -122,7 +122,7 @@ public class TransactionEvmContractMethod {
    * The method type.
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getType() {
     return type;
   }
@@ -141,7 +141,7 @@ public class TransactionEvmContractMethod {
    * Whether the method is payable, which means it can receive tokens along with the transaction. - &#x60;true&#x60;: The method is payable. - &#x60;false&#x60;: The method is not payable. 
    * @return payable
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getPayable() {
     return payable;
   }
@@ -160,7 +160,7 @@ public class TransactionEvmContractMethod {
    * The method selector, a four-byte identifier derived from the method&#39;s signature, used to invoke the method in a transaction.
    * @return selector
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSelector() {
     return selector;
   }

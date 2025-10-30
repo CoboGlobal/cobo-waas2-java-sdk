@@ -54,7 +54,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateSettlementRequestRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -103,7 +103,7 @@ public class CreateSettlementRequestRequest {
    * The request ID that is used to track a settlement request. The request ID is provided by you and must be unique.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -122,7 +122,7 @@ public class CreateSettlementRequestRequest {
    * Get acquiringType
    * @return acquiringType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public AcquiringType getAcquiringType() {
     return acquiringType;
   }
@@ -141,7 +141,7 @@ public class CreateSettlementRequestRequest {
    * Get payoutChannel
    * @return payoutChannel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public PayoutChannel getPayoutChannel() {
     return payoutChannel;
   }
@@ -160,7 +160,7 @@ public class CreateSettlementRequestRequest {
    * Get settlementType
    * @return settlementType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public SettlementType getSettlementType() {
     return settlementType;
   }
@@ -187,7 +187,7 @@ public class CreateSettlementRequestRequest {
    * Get settlements
    * @return settlements
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<CreateSettlement> getSettlements() {
     return settlements;
   }
@@ -206,7 +206,7 @@ public class CreateSettlementRequestRequest {
    *  The ID of the bank account where the funds will be deposited. You can call [List all bank accounts](https://www.cobo.com/developers/v2/api-references/payment/list-all-bank-accounts) to retrieve the IDs of registered bank accounts.  This field is only applicable for off-ramp. 
    * @return bankAccountId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getBankAccountId() {
     return bankAccountId;
   }
@@ -225,7 +225,7 @@ public class CreateSettlementRequestRequest {
    * The fiat currency to receive after off-ramping. Currently, only &#x60;USD&#x60; is supported. Specify this field when &#x60;payout_channel&#x60; is set to &#x60;OffRamp&#x60;.
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
@@ -244,7 +244,7 @@ public class CreateSettlementRequestRequest {
    * The remark for the payout request.
    * @return remark
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRemark() {
     return remark;
   }

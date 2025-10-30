@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The approver data for transaction.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -126,7 +126,7 @@ public class TransactionApprover {
    * The approver name of the transaction.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -145,7 +145,7 @@ public class TransactionApprover {
    * The approval status.
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StatusEnum getStatus() {
     return status;
   }

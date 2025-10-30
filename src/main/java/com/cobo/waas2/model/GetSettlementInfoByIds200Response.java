@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * GetSettlementInfoByIds200Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -83,7 +83,7 @@ public class GetSettlementInfoByIds200Response {
    * Get pspTokenBalances
    * @return pspTokenBalances
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<SettlementInfo> getPspTokenBalances() {
     return pspTokenBalances;
   }
@@ -110,7 +110,7 @@ public class GetSettlementInfoByIds200Response {
    * Get tokenBalances
    * @return tokenBalances
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<SettlementInfo> getTokenBalances() {
     return tokenBalances;
   }

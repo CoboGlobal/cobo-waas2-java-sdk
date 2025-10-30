@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationTokenPermission
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class TokenizationTokenPermission {
    * Get permissionType
    * @return permissionType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationTokenPermissionType getPermissionType() {
     return permissionType;
   }
@@ -100,7 +100,7 @@ public class TokenizationTokenPermission {
    * The display name of the permission.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -119,7 +119,7 @@ public class TokenizationTokenPermission {
    * Detailed description of what this permission allows.
    * @return description
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getDescription() {
     return description;
   }
@@ -138,7 +138,7 @@ public class TokenizationTokenPermission {
    * Whether this permission is currently enabled.
    * @return enabled
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getEnabled() {
     return enabled;
   }

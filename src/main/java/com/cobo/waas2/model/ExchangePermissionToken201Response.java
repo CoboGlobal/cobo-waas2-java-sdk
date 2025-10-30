@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * ExchangePermissionToken201Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -80,7 +80,7 @@ public class ExchangePermissionToken201Response {
    * The Access Token.
    * @return accessToken
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAccessToken() {
     return accessToken;
   }
@@ -99,7 +99,7 @@ public class ExchangePermissionToken201Response {
    * The token type. This is always &#x60;Bearer&#x60;.
    * @return tokenType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenType() {
     return tokenType;
   }
@@ -118,7 +118,7 @@ public class ExchangePermissionToken201Response {
    * The time in seconds until the Access Token expires. This is always &#x60;3600&#x60;, indicating the token expires 1 hour after issuance.
    * @return expiresIn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getExpiresIn() {
     return expiresIn;
   }
@@ -137,7 +137,7 @@ public class ExchangePermissionToken201Response {
    * The Refresh Token. Use it to obtain a new Access Token when the current one expires. The Refresh Token is valid for 7 days.
    * @return refreshToken
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRefreshToken() {
     return refreshToken;
   }

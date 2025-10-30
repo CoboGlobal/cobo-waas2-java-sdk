@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * EthUnstakeExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -75,7 +75,7 @@ public class EthUnstakeExtra {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -102,7 +102,7 @@ public class EthUnstakeExtra {
    * A list of public keys identifying the validators to unstake from the Ethereum Beacon Chain.
    * @return validatorPubkeys
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<String> getValidatorPubkeys() {
     return validatorPubkeys;
   }

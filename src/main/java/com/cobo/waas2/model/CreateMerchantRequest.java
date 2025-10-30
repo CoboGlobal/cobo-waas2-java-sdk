@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateMerchantRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -82,7 +82,7 @@ public class CreateMerchantRequest {
    * The merchant name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -101,7 +101,7 @@ public class CreateMerchantRequest {
    * This field has been deprecated.
    * @return walletId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getWalletId() {
     return walletId;
   }
@@ -120,7 +120,7 @@ public class CreateMerchantRequest {
    * The developer fee rate applied to this merchant. Expressed as a string in decimal format where \&quot;0.1\&quot; represents 10%. For more information on developer fee rate, please refer to [Amounts and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances).
    * @return developerFeeRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDeveloperFeeRate() {
     return developerFeeRate;
   }
@@ -139,7 +139,7 @@ public class CreateMerchantRequest {
    * Get walletSetup
    * @return walletSetup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public WalletSetup getWalletSetup() {
     return walletSetup;
   }

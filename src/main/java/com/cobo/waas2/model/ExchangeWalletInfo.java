@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * ExchangeWalletInfo
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -104,7 +104,7 @@ public class ExchangeWalletInfo {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -123,7 +123,7 @@ public class ExchangeWalletInfo {
    * Get walletType
    * @return walletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletType getWalletType() {
     return walletType;
   }
@@ -142,7 +142,7 @@ public class ExchangeWalletInfo {
    * Get walletSubtype
    * @return walletSubtype
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletSubtype getWalletSubtype() {
     return walletSubtype;
   }
@@ -161,7 +161,7 @@ public class ExchangeWalletInfo {
    * The wallet name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -180,7 +180,7 @@ public class ExchangeWalletInfo {
    * The ID of the owning organization.
    * @return orgId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getOrgId() {
     return orgId;
   }
@@ -199,7 +199,7 @@ public class ExchangeWalletInfo {
    * Enable the auto sweep feature for the wallet
    * @return enableAutoSweep
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getEnableAutoSweep() {
     return enableAutoSweep;
   }
@@ -218,7 +218,7 @@ public class ExchangeWalletInfo {
    * The API key of your exchange account.
    * @return apikey
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getApikey() {
     return apikey;
   }
@@ -237,7 +237,7 @@ public class ExchangeWalletInfo {
    * Get exchangeId
    * @return exchangeId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ExchangeId getExchangeId() {
     return exchangeId;
   }
@@ -256,7 +256,7 @@ public class ExchangeWalletInfo {
    * The wallet ID of the Main Account associated with the Sub Account. This property is returned only if you are creating or querying an Exchange Wallet (Sub Account).
    * @return mainWalletId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getMainWalletId() {
     return mainWalletId;
   }

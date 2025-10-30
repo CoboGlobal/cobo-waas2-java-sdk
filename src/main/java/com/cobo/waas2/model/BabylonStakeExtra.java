@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * BabylonStakeExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -86,7 +86,7 @@ public class BabylonStakeExtra {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -105,7 +105,7 @@ public class BabylonStakeExtra {
    * The public key of the finality provider.
    * @return finalityProviderPublicKey
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getFinalityProviderPublicKey() {
     return finalityProviderPublicKey;
   }
@@ -124,7 +124,7 @@ public class BabylonStakeExtra {
    * The number of blocks that need to be processed before the locked tokens are unlocked and become accessible.
    * @return stakeBlockTime
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getStakeBlockTime() {
     return stakeBlockTime;
   }
@@ -143,7 +143,7 @@ public class BabylonStakeExtra {
    * Whether to automatically broadcast the transaction. The default value is &#x60;true&#x60;.  - &#x60;true&#x60;: Automatically broadcast the transaction. - &#x60;false&#x60;: The transaction will not be submitted to the blockchain automatically. You can call [Broadcast signed transactions](https://www.cobo.com/developers/v2/api-references/transactions/broadcast-signed-transactions) to broadcast the transaction to the blockchain, or retrieve the signed raw transaction data &#x60;raw_tx&#x60; by calling [Get transaction information](https://www.cobo.com/developers/v2/api-references/transactions/get-transaction-information) and broadcast it yourself. 
    * @return autoBroadcast
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getAutoBroadcast() {
     return autoBroadcast;
   }
@@ -162,7 +162,7 @@ public class BabylonStakeExtra {
    * Get babylonAddress
    * @return babylonAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingSource getBabylonAddress() {
     return babylonAddress;
   }

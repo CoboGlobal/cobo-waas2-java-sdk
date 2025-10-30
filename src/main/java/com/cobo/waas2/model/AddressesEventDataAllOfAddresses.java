@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * AddressesEventDataAllOfAddresses
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -115,7 +115,7 @@ public class AddressesEventDataAllOfAddresses {
    * The wallet address.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -134,7 +134,7 @@ public class AddressesEventDataAllOfAddresses {
    * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -153,7 +153,7 @@ public class AddressesEventDataAllOfAddresses {
    * The memo code.
    * @return memo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMemo() {
     return memo;
   }
@@ -172,7 +172,7 @@ public class AddressesEventDataAllOfAddresses {
    * The derivation path of the address. This property applies to MPC Wallets only. To learn the meaning of each level in the path, see [Path levels](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#path-levels).
    * @return path
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPath() {
     return path;
   }
@@ -191,7 +191,7 @@ public class AddressesEventDataAllOfAddresses {
    * Get encoding
    * @return encoding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public AddressEncoding getEncoding() {
     return encoding;
   }
@@ -210,7 +210,7 @@ public class AddressesEventDataAllOfAddresses {
    * The public key of the address. This property applies to MPC Wallets only.
    * @return pubkey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPubkey() {
     return pubkey;
   }
@@ -229,7 +229,7 @@ public class AddressesEventDataAllOfAddresses {
    * The 32-byte x-only public key in hexadecimal format after tweaking.
    * @return xOnlyPubkey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getxOnlyPubkey() {
     return xOnlyPubkey;
   }
@@ -248,7 +248,7 @@ public class AddressesEventDataAllOfAddresses {
    * The root public key of the address. This property applies to MPC Wallets only.
    * @return rootPubkey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRootPubkey() {
     return rootPubkey;
   }
@@ -267,7 +267,7 @@ public class AddressesEventDataAllOfAddresses {
    * The information about the new address.
    * @return taprootScriptTreeHash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTaprootScriptTreeHash() {
     return taprootScriptTreeHash;
   }
@@ -286,7 +286,7 @@ public class AddressesEventDataAllOfAddresses {
    * The Taproot address before tweaking.
    * @return taprootInternalAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTaprootInternalAddress() {
     return taprootInternalAddress;
   }
@@ -313,7 +313,7 @@ public class AddressesEventDataAllOfAddresses {
    * The list of token IDs for which this address has already established trustlines on the Stellar network.
    * @return stellarTrustedTokenIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getStellarTrustedTokenIds() {
     return stellarTrustedTokenIds;
   }
@@ -332,7 +332,7 @@ public class AddressesEventDataAllOfAddresses {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getWalletId() {
     return walletId;
   }

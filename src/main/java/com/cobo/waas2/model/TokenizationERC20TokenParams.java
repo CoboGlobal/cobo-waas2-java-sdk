@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationERC20TokenParams
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -90,7 +90,7 @@ public class TokenizationERC20TokenParams {
    * Get standard
    * @return standard
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationTokenStandard getStandard() {
     return standard;
   }
@@ -109,7 +109,7 @@ public class TokenizationERC20TokenParams {
    * The name of the token.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -128,7 +128,7 @@ public class TokenizationERC20TokenParams {
    * The symbol of the token.
    * @return symbol
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getSymbol() {
     return symbol;
   }
@@ -149,7 +149,7 @@ public class TokenizationERC20TokenParams {
    * maximum: 18
    * @return decimals
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Integer getDecimals() {
     return decimals;
   }
@@ -168,7 +168,7 @@ public class TokenizationERC20TokenParams {
    * Whether the allowlist feature is activated for the token. When activated, only addresses in the allowlist can perform token operations.
    * @return tokenAccessActivated
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getTokenAccessActivated() {
     return tokenAccessActivated;
   }
@@ -187,7 +187,7 @@ public class TokenizationERC20TokenParams {
    * Get permissions
    * @return permissions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TokenizationTokenPermissionParams getPermissions() {
     return permissions;
   }

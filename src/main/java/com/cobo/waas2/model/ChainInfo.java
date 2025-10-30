@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The chain information.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -100,7 +100,7 @@ public class ChainInfo {
    * The chain ID, which is the unique identifier of a blockchain.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -119,7 +119,7 @@ public class ChainInfo {
    * The chain symbol for display purposes, which is the abbreviated name of a chain.
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSymbol() {
     return symbol;
   }
@@ -138,7 +138,7 @@ public class ChainInfo {
    * The URL of the chain icon.
    * @return iconUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getIconUrl() {
     return iconUrl;
   }
@@ -157,7 +157,7 @@ public class ChainInfo {
    * A functional identifier used to group blockchains with similar execution logic. For example, &#x60;ETH&#x60; for all EVM-compatible chains (Ethereum, BNB Smart Chain, Polygon).
    * @return chainIdentifier
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getChainIdentifier() {
     return chainIdentifier;
   }
@@ -176,7 +176,7 @@ public class ChainInfo {
    * The transaction URL pattern on the blockchain explorer. You can use it to concatenate the transaction URLs.
    * @return explorerTxUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getExplorerTxUrl() {
     return explorerTxUrl;
   }
@@ -195,7 +195,7 @@ public class ChainInfo {
    * The address URL pattern on the blockchain explorer. You can use it to concatenate the address URLs.
    * @return explorerAddressUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getExplorerAddressUrl() {
     return explorerAddressUrl;
   }
@@ -214,7 +214,7 @@ public class ChainInfo {
    * Whether the chain requires a memo.
    * @return requireMemo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getRequireMemo() {
     return requireMemo;
   }
@@ -233,7 +233,7 @@ public class ChainInfo {
    * The number of confirmations required for an on-chain transaction, such as 64 for Ethereum.
    * @return confirmingThreshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getConfirmingThreshold() {
     return confirmingThreshold;
   }
@@ -252,7 +252,7 @@ public class ChainInfo {
    * The number of confirmations required before a coinbase transaction is considered mature and can be spent, for example, 100 confirmations for BTC.
    * @return coinbaseMaturity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getCoinbaseMaturity() {
     return coinbaseMaturity;
   }

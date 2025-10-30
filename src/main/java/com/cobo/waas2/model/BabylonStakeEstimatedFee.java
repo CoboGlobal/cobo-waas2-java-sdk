@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * BabylonStakeEstimatedFee
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -82,7 +82,7 @@ public class BabylonStakeEstimatedFee {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -101,7 +101,7 @@ public class BabylonStakeEstimatedFee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public FeeType getFeeType() {
     return feeType;
   }
@@ -120,7 +120,7 @@ public class BabylonStakeEstimatedFee {
    * The amount of the estimated fee.
    * @return feeAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeAmount() {
     return feeAmount;
   }
@@ -139,7 +139,7 @@ public class BabylonStakeEstimatedFee {
    * The token ID of the staking fee.
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }

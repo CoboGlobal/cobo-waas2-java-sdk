@@ -53,7 +53,7 @@ import com.cobo.waas2.JSON;
 /**
  * Refund
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -142,7 +142,7 @@ public class Refund {
    * The request ID provided by you when creating the refund request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -161,7 +161,7 @@ public class Refund {
    * The refund order ID.
    * @return refundId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRefundId() {
     return refundId;
   }
@@ -180,7 +180,7 @@ public class Refund {
    * The ID of the pay-in order corresponding to this refund.
    * @return orderId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getOrderId() {
     return orderId;
   }
@@ -199,7 +199,7 @@ public class Refund {
    * The merchant ID.
    * @return merchantId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantId() {
     return merchantId;
   }
@@ -218,7 +218,7 @@ public class Refund {
    * The ID of the cryptocurrency used for refund.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -237,7 +237,7 @@ public class Refund {
    * The ID of the blockchain network on which the refund transaction occurs.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -256,7 +256,7 @@ public class Refund {
    * The amount in cryptocurrency to be returned for this refund order.
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAmount() {
     return amount;
   }
@@ -275,7 +275,7 @@ public class Refund {
    * The recipient&#39;s wallet address where the refund will be sent.
    * @return toAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getToAddress() {
     return toAddress;
   }
@@ -294,7 +294,7 @@ public class Refund {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public RefundStatus getStatus() {
     return status;
   }
@@ -313,7 +313,7 @@ public class Refund {
    * Get refundType
    * @return refundType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public RefundType getRefundType() {
     return refundType;
   }
@@ -332,7 +332,7 @@ public class Refund {
    * The creation time of the refund order, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -351,7 +351,7 @@ public class Refund {
    * The last update time of the refund order, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -370,7 +370,7 @@ public class Refund {
    *  The initiator of this settlement request. Can return either an API key or the Payments App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payments API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payments App using the App ID. 
    * @return initiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getInitiator() {
     return initiator;
   }
@@ -397,7 +397,7 @@ public class Refund {
    * An array of transactions associated with this refund order. Each transaction represents a separate blockchain operation related to the refund process.
    * @return transactions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<PaymentTransaction> getTransactions() {
     return transactions;
   }
@@ -416,7 +416,7 @@ public class Refund {
    * Whether to charge developer fee to the merchant for the refund.    - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance    - &#x60;false&#x60;: The merchant is not charged any developer fee. 
    * @return chargeMerchantFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getChargeMerchantFee() {
     return chargeMerchantFee;
   }
@@ -435,7 +435,7 @@ public class Refund {
    * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to &#x60;true&#x60;.
    * @return merchantFeeAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantFeeAmount() {
     return merchantFeeAmount;
   }
@@ -454,7 +454,7 @@ public class Refund {
    * The ID of the cryptocurrency used for the developer fee. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true.
    * @return merchantFeeTokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantFeeTokenId() {
     return merchantFeeTokenId;
   }
@@ -473,7 +473,7 @@ public class Refund {
    * Get commissionFee
    * @return commissionFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public CommissionFee getCommissionFee() {
     return commissionFee;
   }

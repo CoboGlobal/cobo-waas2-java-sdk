@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The details of a Babylon airdrop registration.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -98,7 +98,7 @@ public class BabylonAirdropRegistration {
    * The registration ID, a unique identifier for tracking the airdrop registration.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getId() {
     return id;
   }
@@ -117,7 +117,7 @@ public class BabylonAirdropRegistration {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public BabylonRegistrationRequestStatus getStatus() {
     return status;
   }
@@ -136,7 +136,7 @@ public class BabylonAirdropRegistration {
    * Get btcAddress
    * @return btcAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingSource getBtcAddress() {
     return btcAddress;
   }
@@ -155,7 +155,7 @@ public class BabylonAirdropRegistration {
    * Get babylonAddress
    * @return babylonAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingSource getBabylonAddress() {
     return babylonAddress;
   }
@@ -174,7 +174,7 @@ public class BabylonAirdropRegistration {
    * The actual airdrop amount allocated for this BTC address.
    * @return airdropAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAirdropAmount() {
     return airdropAmount;
   }
@@ -193,7 +193,7 @@ public class BabylonAirdropRegistration {
    * The detailed error message if the registration failed.
    * @return errorMessage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getErrorMessage() {
     return errorMessage;
   }
@@ -212,7 +212,7 @@ public class BabylonAirdropRegistration {
    * The time when the registration was created, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -231,7 +231,7 @@ public class BabylonAirdropRegistration {
    * The time when the registration was updated, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }

@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * EthStakeEstimatedFee
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -84,7 +84,7 @@ public class EthStakeEstimatedFee {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -103,7 +103,7 @@ public class EthStakeEstimatedFee {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public EstimatedFee getFee() {
     return fee;
   }
@@ -130,7 +130,7 @@ public class EthStakeEstimatedFee {
    * A list of public keys associated with the Ethereum validators for this staking operation.
    * @return validatorPubkeys
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getValidatorPubkeys() {
     return validatorPubkeys;
   }
@@ -149,7 +149,7 @@ public class EthStakeEstimatedFee {
    * The P2WSH address generated for this staking operation (only applicable if the estimated fee is for CORE staking).
    * @return coreBtcStakingAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCoreBtcStakingAddress() {
     return coreBtcStakingAddress;
   }

@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * BabylonStakingExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -89,7 +89,7 @@ public class BabylonStakingExtra {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -108,7 +108,7 @@ public class BabylonStakingExtra {
    * The Proof-of-Stake (PoS) chain.
    * @return posChain
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPosChain() {
     return posChain;
   }
@@ -127,7 +127,7 @@ public class BabylonStakingExtra {
    * The estimated time when the bitcoins will be unlocked, in Unix timestamp format, measured in milliseconds.
    * @return unlockTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getUnlockTimestamp() {
     return unlockTimestamp;
   }
@@ -146,7 +146,7 @@ public class BabylonStakingExtra {
    * The block height at which the bitcoins will be unlocked.
    * @return unlockBlockHeight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getUnlockBlockHeight() {
     return unlockBlockHeight;
   }
@@ -165,7 +165,7 @@ public class BabylonStakingExtra {
    * The address receiving the staked bitcoins.
    * @return stakeAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getStakeAddress() {
     return stakeAddress;
   }
@@ -184,7 +184,7 @@ public class BabylonStakingExtra {
    * The address receiving the unlocked bitcoins.
    * @return unbondAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getUnbondAddress() {
     return unbondAddress;
   }

@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * Information about the transaction source type &#x60;Org-Controlled&#x60; and &#x60;User-Controlled&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction sources. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -93,7 +93,7 @@ public class TransactionMPCWalletSource {
    * Get sourceType
    * @return sourceType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionSourceType getSourceType() {
     return sourceType;
   }
@@ -112,7 +112,7 @@ public class TransactionMPCWalletSource {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -131,7 +131,7 @@ public class TransactionMPCWalletSource {
    * The wallet address.
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -158,7 +158,7 @@ public class TransactionMPCWalletSource {
    * Get includedUtxos
    * @return includedUtxos
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TransactionUtxo> getIncludedUtxos() {
     return includedUtxos;
   }
@@ -185,7 +185,7 @@ public class TransactionMPCWalletSource {
    * Get excludedUtxos
    * @return excludedUtxos
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TransactionUtxo> getExcludedUtxos() {
     return excludedUtxos;
   }
@@ -204,7 +204,7 @@ public class TransactionMPCWalletSource {
    * The ID of the key share holder group that is selected to sign the transaction.
    * @return signerKeyShareHolderGroupId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSignerKeyShareHolderGroupId() {
     return signerKeyShareHolderGroupId;
   }

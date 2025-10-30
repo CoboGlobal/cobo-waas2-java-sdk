@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * GetTransactionLimitation200Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -91,7 +91,7 @@ public class GetTransactionLimitation200Response {
    * A list of virtual asset service providers (VASP) you can select as the transaction source or destination.
    * @return vaspList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<Vasp> getVaspList() {
     return vaspList;
   }
@@ -110,7 +110,7 @@ public class GetTransactionLimitation200Response {
    * Indicates whether the transaction amount exceeds a predefined threshold. If exceeded, additional information is required when filling Travel Rule details. - &#x60;true&#x60;: Threshold exceeded. - &#x60;false&#x60;: Threshold not exceeded. 
    * @return isThresholdReached
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getIsThresholdReached() {
     return isThresholdReached;
   }
@@ -129,7 +129,7 @@ public class GetTransactionLimitation200Response {
    * A human-readable, time-sensitive message to be signed by the wallet owner. The message contains key information including the wallet address, a unique nonce, and a timestamp. Signing this message confirms ownership of the wallet and allows the operation to proceed. 
    * @return selfCustodyWalletChallenge
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSelfCustodyWalletChallenge() {
     return selfCustodyWalletChallenge;
   }
@@ -156,7 +156,7 @@ public class GetTransactionLimitation200Response {
    * A list of self-custody wallet providers you can select as the transaction source or destination.
    * @return connectWalletList
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getConnectWalletList() {
     return connectWalletList;
   }

@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * UpdateWebhookEndpointByIdRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -137,7 +137,7 @@ public class UpdateWebhookEndpointByIdRequest {
    * The new event types you want to subscribe to for this webhook endpoint. You can call [Get webhook event types](https://www.cobo.com/developers/v2/api-references/developers--webhooks/get-webhook-event-types) to retrieve all available event types.
    * @return subscribedEvents
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<WebhookEventType> getSubscribedEvents() {
     return subscribedEvents;
   }
@@ -156,7 +156,7 @@ public class UpdateWebhookEndpointByIdRequest {
    * The new status you want to set the webhook endpoint to. If you set &#x60;status&#x60; to &#x60;STATUS_INACTIVE&#x60;, the endpoint will be revoked, meaning it will no longer receive any webhook events.
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StatusEnum getStatus() {
     return status;
   }
@@ -175,7 +175,7 @@ public class UpdateWebhookEndpointByIdRequest {
    * The webhook endpoint description.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }

@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The signer information of the swap activity.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -77,7 +77,7 @@ public class SwapActivitySigners {
    * The signer name.
    * @return signer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSigner() {
     return signer;
   }
@@ -96,7 +96,7 @@ public class SwapActivitySigners {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public SwapSingingStatus getStatus() {
     return status;
   }
@@ -115,7 +115,7 @@ public class SwapActivitySigners {
    * The reason for the signing failure.
    * @return failedReason
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFailedReason() {
     return failedReason;
   }

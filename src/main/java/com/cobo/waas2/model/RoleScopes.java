@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * RoleScopes
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -73,7 +73,7 @@ public class RoleScopes {
    * The user role associated with this API key.
    * @return roleName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRoleName() {
     return roleName;
   }
@@ -92,7 +92,7 @@ public class RoleScopes {
    * Get scopes
    * @return scopes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Scopes getScopes() {
     return scopes;
   }

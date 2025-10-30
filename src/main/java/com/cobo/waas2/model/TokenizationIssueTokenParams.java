@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationIssueTokenParams
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -78,7 +78,7 @@ public class TokenizationIssueTokenParams {
    * The chain ID where the token will be issued.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -97,7 +97,7 @@ public class TokenizationIssueTokenParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationTokenOperationSource getSource() {
     return source;
   }
@@ -116,7 +116,7 @@ public class TokenizationIssueTokenParams {
    * Get tokenParams
    * @return tokenParams
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationIssueTokenParamsTokenParams getTokenParams() {
     return tokenParams;
   }

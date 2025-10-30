@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationContractCallRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -87,7 +87,7 @@ public class TokenizationContractCallRequest {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TokenizationTokenOperationSource getSource() {
     return source;
   }
@@ -106,7 +106,7 @@ public class TokenizationContractCallRequest {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TokenizationContractCallParamsData getData() {
     return data;
   }
@@ -125,7 +125,7 @@ public class TokenizationContractCallRequest {
    * The initiator of the tokenization activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.
    * @return appInitiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAppInitiator() {
     return appInitiator;
   }
@@ -144,7 +144,7 @@ public class TokenizationContractCallRequest {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -163,7 +163,7 @@ public class TokenizationContractCallRequest {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }

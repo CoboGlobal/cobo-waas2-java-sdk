@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateStakeActivity
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -92,7 +92,7 @@ public class CreateStakeActivity {
    * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -111,7 +111,7 @@ public class CreateStakeActivity {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingSource getSource() {
     return source;
   }
@@ -130,7 +130,7 @@ public class CreateStakeActivity {
    * Get poolId
    * @return poolId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolId getPoolId() {
     return poolId;
   }
@@ -149,7 +149,7 @@ public class CreateStakeActivity {
    * The amount to stake.
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAmount() {
     return amount;
   }
@@ -168,7 +168,7 @@ public class CreateStakeActivity {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -187,7 +187,7 @@ public class CreateStakeActivity {
    * Get extra
    * @return extra
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public CreateStakeActivityExtra getExtra() {
     return extra;
   }

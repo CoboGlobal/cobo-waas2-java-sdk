@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * EstimatedSOLFeeSlow
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -80,7 +80,7 @@ public class EstimatedSOLFeeSlow {
    * The price paid per compute unit. This value determines the priority fee for the transaction, allowing you to increase inclusion probability in congested conditions.
    * @return computeUnitPrice
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getComputeUnitPrice() {
     return computeUnitPrice;
   }
@@ -99,7 +99,7 @@ public class EstimatedSOLFeeSlow {
    * The maximum number of compute units your transaction is allowed to consume. It sets an upper bound on computational resource usage to prevent overload.
    * @return computeUnitLimit
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getComputeUnitLimit() {
     return computeUnitLimit;
   }
@@ -118,7 +118,7 @@ public class EstimatedSOLFeeSlow {
    * A fixed fee charged per signature. The default is 5,000 lamports per signature.
    * @return baseFee
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getBaseFee() {
     return baseFee;
   }
@@ -137,7 +137,7 @@ public class EstimatedSOLFeeSlow {
    * The rent fee charged by the network to store non–rent-exempt accounts on-chain. It is deducted periodically until the account maintains the minimum balance required for rent exemption.
    * @return rentAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRentAmount() {
     return rentAmount;
   }

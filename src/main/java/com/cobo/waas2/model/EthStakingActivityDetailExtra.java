@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * EthStakingActivityDetailExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -79,7 +79,7 @@ public class EthStakingActivityDetailExtra {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -98,7 +98,7 @@ public class EthStakingActivityDetailExtra {
    * The name of the provider.
    * @return providerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getProviderName() {
     return providerName;
   }
@@ -125,7 +125,7 @@ public class EthStakingActivityDetailExtra {
    * A list of public keys associated with the Ethereum validators for this unstaking operation.
    * @return validatorPubkeys
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getValidatorPubkeys() {
     return validatorPubkeys;
   }

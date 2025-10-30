@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The signer data for transaction.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -132,7 +132,7 @@ public class TransactionSigner {
    * The signer name of the transaction.
    * @return signer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSigner() {
     return signer;
   }
@@ -151,7 +151,7 @@ public class TransactionSigner {
    * The signing status.
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StatusEnum getStatus() {
     return status;
   }
@@ -170,7 +170,7 @@ public class TransactionSigner {
    * Failed reason of signing process.
    * @return failedReason
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFailedReason() {
     return failedReason;
   }

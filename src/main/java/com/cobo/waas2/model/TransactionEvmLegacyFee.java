@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The transaction fee actually charged by the chain that uses the legacy fee model.   For more information about the Legacy fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -93,7 +93,7 @@ public class TransactionEvmLegacyFee {
    * The gas price, in wei. The gas price represents the amount of ETH that must be paid to validators for processing transactions per gas unit used.
    * @return gasPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasPrice() {
     return gasPrice;
   }
@@ -112,7 +112,7 @@ public class TransactionEvmLegacyFee {
    * The gas limit. It represents the maximum number of gas units that you are willing to pay for the execution of a transaction or Ethereum Virtual Machine (EVM) operation. The gas unit cost of each operation varies.
    * @return gasLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasLimit() {
     return gasLimit;
   }
@@ -131,7 +131,7 @@ public class TransactionEvmLegacyFee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -150,7 +150,7 @@ public class TransactionEvmLegacyFee {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }
@@ -169,7 +169,7 @@ public class TransactionEvmLegacyFee {
    * The actually charged transaction fee.
    * @return feeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeUsed() {
     return feeUsed;
   }
@@ -188,7 +188,7 @@ public class TransactionEvmLegacyFee {
    * The estimated transaction fee.
    * @return estimatedFeeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEstimatedFeeUsed() {
     return estimatedFeeUsed;
   }
@@ -207,7 +207,7 @@ public class TransactionEvmLegacyFee {
    * The gas units used in the transaction.
    * @return gasUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasUsed() {
     return gasUsed;
   }

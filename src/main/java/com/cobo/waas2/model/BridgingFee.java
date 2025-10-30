@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * BridgingFee
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class BridgingFee {
    * The fee charged for bridging tokens to another blockchain during an off-ramp operation. Bridging fees apply when tokens are on a blockchain not directly supported by the off-ramp service. 
    * @return feeAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getFeeAmount() {
     return feeAmount;
   }
@@ -95,7 +95,7 @@ public class BridgingFee {
    * The ID of the destination token received after bridging.
    * @return receivedTokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getReceivedTokenId() {
     return receivedTokenId;
   }
@@ -114,7 +114,7 @@ public class BridgingFee {
    * The final amount of destination tokens received after bridging.
    * @return receivedAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getReceivedAmount() {
     return receivedAmount;
   }

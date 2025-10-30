@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The user approval data for transaction.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -101,7 +101,7 @@ public class TransactionUserApprovalDetail {
    * The name of the user who audited this message.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -120,7 +120,7 @@ public class TransactionUserApprovalDetail {
    * The email of the user who audited this message.
    * @return email
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEmail() {
     return email;
   }
@@ -139,7 +139,7 @@ public class TransactionUserApprovalDetail {
    * The Cobo Guard public key of the user who audited this message.
    * @return pubkey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPubkey() {
     return pubkey;
   }
@@ -158,7 +158,7 @@ public class TransactionUserApprovalDetail {
    * Get result
    * @return result
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionApprovalResult getResult() {
     return result;
   }
@@ -177,7 +177,7 @@ public class TransactionUserApprovalDetail {
    * The signature of the audited message.
    * @return signature
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSignature() {
     return signature;
   }
@@ -196,7 +196,7 @@ public class TransactionUserApprovalDetail {
    * The language of the audited message.
    * @return language
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getLanguage() {
     return language;
   }
@@ -215,7 +215,7 @@ public class TransactionUserApprovalDetail {
    * The version of the audited message.
    * @return messageVersion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMessageVersion() {
     return messageVersion;
   }
@@ -234,7 +234,7 @@ public class TransactionUserApprovalDetail {
    * The audited message.
    * @return message
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMessage() {
     return message;
   }
@@ -253,7 +253,7 @@ public class TransactionUserApprovalDetail {
    * The extra audited message.
    * @return extraMessage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getExtraMessage() {
     return extraMessage;
   }

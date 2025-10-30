@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the Solana instruction.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -87,7 +87,7 @@ public class SolContractCallInstruction {
    * Get accounts
    * @return accounts
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<SolContractCallAccount> getAccounts() {
     return accounts;
   }
@@ -106,7 +106,7 @@ public class SolContractCallInstruction {
    * The Base64-encoded instruction data used for interacting with a Solana program. 
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getData() {
     return data;
   }
@@ -125,7 +125,7 @@ public class SolContractCallInstruction {
    * The address of the Solana program (smart contract).  
    * @return programId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getProgramId() {
     return programId;
   }

@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about a transaction that interacts with a smart contract
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -97,7 +97,7 @@ public class EstimateContractCallFeeParams {
    * The request ID that is used to track a transaction request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -116,7 +116,7 @@ public class EstimateContractCallFeeParams {
    * Get requestType
    * @return requestType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public EstimateFeeRequestType getRequestType() {
     return requestType;
   }
@@ -135,7 +135,7 @@ public class EstimateContractCallFeeParams {
    * The chain ID of the chain on which the smart contract is issued. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -154,7 +154,7 @@ public class EstimateContractCallFeeParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ContractCallSource getSource() {
     return source;
   }
@@ -173,7 +173,7 @@ public class EstimateContractCallFeeParams {
    * Get destination
    * @return destination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ContractCallDestination getDestination() {
     return destination;
   }
@@ -192,7 +192,7 @@ public class EstimateContractCallFeeParams {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public FeeType getFeeType() {
     return feeType;
   }
@@ -211,7 +211,7 @@ public class EstimateContractCallFeeParams {
    * The ID of the transaction that this transaction replaced.
    * @return replacedTransactionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getReplacedTransactionId() {
     return replacedTransactionId;
   }

@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateTokenListingRequest201Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class CreateTokenListingRequest201Response {
    * The unique identifier for the token listing request. You can use it to track the request status with the [Get token listing request](https://www.cobo.com/developers/v2/api-references/wallets/get-token-listing-request) operation.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }

@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * RetryCallbackMessage201Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class RetryCallbackMessage201Response {
    * Whether the callback message has been successfully resent: - &#x60;true&#x60;: The callback message has been successfully resent. - &#x60;false&#x60;: The callback message has not been successfully resent. 
    * @return retried
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getRetried() {
     return retried;
   }

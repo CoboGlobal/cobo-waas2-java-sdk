@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * SafeWalletDelegatesContractCall
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class SafeWalletDelegatesContractCall {
    * Get requestType
    * @return requestType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public EstimateFeeRequestType getRequestType() {
     return requestType;
   }
@@ -100,7 +100,7 @@ public class SafeWalletDelegatesContractCall {
    * The destination address.
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -119,7 +119,7 @@ public class SafeWalletDelegatesContractCall {
    * The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;. 
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getValue() {
     return value;
   }
@@ -138,7 +138,7 @@ public class SafeWalletDelegatesContractCall {
    * The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters. 
    * @return calldata
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCalldata() {
     return calldata;
   }

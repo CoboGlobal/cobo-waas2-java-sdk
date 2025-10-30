@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationListEnabledChainsResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -83,7 +83,7 @@ public class TokenizationListEnabledChainsResponse {
    * The list of tokenization supported chains.
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<String> getData() {
     return data;
   }
@@ -102,7 +102,7 @@ public class TokenizationListEnabledChainsResponse {
    * Get pagination
    * @return pagination
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Pagination getPagination() {
     return pagination;
   }

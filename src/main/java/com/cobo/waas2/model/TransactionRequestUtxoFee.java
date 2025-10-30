@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The preset properties to limit transaction fee.  For more information about the UTXO fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  You can specify the maximum fee amount to limit the transaction fee. The transaction will fail if the transaction fee exceeds the specified maximum fee amount.  Switch between the tabs to display the properties for different transaction fee models. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class TransactionRequestUtxoFee {
    * The fee rate in sat/vByte. The fee rate represents the satoshis you are willing to pay for each byte of data that your transaction will consume on the blockchain.
    * @return feeRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeRate() {
     return feeRate;
   }
@@ -100,7 +100,7 @@ public class TransactionRequestUtxoFee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -119,7 +119,7 @@ public class TransactionRequestUtxoFee {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -138,7 +138,7 @@ public class TransactionRequestUtxoFee {
    * The maximum fee that you are willing to pay for the transaction. Provide the value without applying precision. The transaction will fail if the transaction fee exceeds the maximum fee.
    * @return maxFeeAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMaxFeeAmount() {
     return maxFeeAmount;
   }

@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * OrderLinkBusinessInfoCustomExchangeRatesInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -69,10 +69,10 @@ public class OrderLinkBusinessInfoCustomExchangeRatesInner {
   }
 
    /**
-   * The cryptocurrency token ID
+   * The token ID.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -88,10 +88,10 @@ public class OrderLinkBusinessInfoCustomExchangeRatesInner {
   }
 
    /**
-   * The fixed exchange rate to use for this token
+   * The exchange rate to use for this token.
    * @return exchangeRate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getExchangeRate() {
     return exchangeRate;
   }

@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the sub-transaction.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -94,7 +94,7 @@ public class SafeTxSubTransaction {
    * The type of operation in the sub-transaction.
    * @return operation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getOperation() {
     return operation;
   }
@@ -113,7 +113,7 @@ public class SafeTxSubTransaction {
    * The destination address of the sub-transaction.
    * @return to
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTo() {
     return to;
   }
@@ -132,7 +132,7 @@ public class SafeTxSubTransaction {
    * The human-readable transaction value, for example, &#x60;1 ETH&#x60;.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getValue() {
     return value;
   }
@@ -151,7 +151,7 @@ public class SafeTxSubTransaction {
    * The transaction amount in Wei
    * @return wei
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getWei() {
     return wei;
   }
@@ -170,7 +170,7 @@ public class SafeTxSubTransaction {
    * Encoded transaction data
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getData() {
     return data;
   }
@@ -189,7 +189,7 @@ public class SafeTxSubTransaction {
    * Get dataDecoded
    * @return dataDecoded
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public SafeTxDecodedData getDataDecoded() {
     return dataDecoded;
   }
@@ -208,7 +208,7 @@ public class SafeTxSubTransaction {
    * The name of the recipient contract (if available).
    * @return toContractName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getToContractName() {
     return toContractName;
   }

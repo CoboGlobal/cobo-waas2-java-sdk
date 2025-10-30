@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * Details about a user involved in a transaction approval workflow. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -130,7 +130,7 @@ public class ApprovalUserDetail {
    * Name of the user who approved the transaction.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -149,7 +149,7 @@ public class ApprovalUserDetail {
    * Email of the user.
    * @return email
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEmail() {
     return email;
   }
@@ -168,7 +168,7 @@ public class ApprovalUserDetail {
    * Public key of the user.
    * @return pubkey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPubkey() {
     return pubkey;
   }
@@ -187,7 +187,7 @@ public class ApprovalUserDetail {
    * Signature produced by the user for this approval.
    * @return signature
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSignature() {
     return signature;
   }
@@ -206,7 +206,7 @@ public class ApprovalUserDetail {
    * UUID of the statement associated with this approval.
    * @return statementUuid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getStatementUuid() {
     return statementUuid;
   }
@@ -225,7 +225,7 @@ public class ApprovalUserDetail {
    * Get result
    * @return result
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ApprovalResult getResult() {
     return result;
   }
@@ -244,7 +244,7 @@ public class ApprovalUserDetail {
    * Integer value representing the result of the approval.
    * @return approvalResultCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getApprovalResultCode() {
     return approvalResultCode;
   }
@@ -263,7 +263,7 @@ public class ApprovalUserDetail {
    * Timestamp when the approval was created.
    * @return createdTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getCreatedTime() {
     return createdTime;
   }
@@ -282,7 +282,7 @@ public class ApprovalUserDetail {
    * Version of the template used for the transaction approval.
    * @return templateVersion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTemplateVersion() {
     return templateVersion;
   }
@@ -301,7 +301,7 @@ public class ApprovalUserDetail {
    * Display title used in the transaction approval.
    * @return headerTitle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getHeaderTitle() {
     return headerTitle;
   }
@@ -320,7 +320,7 @@ public class ApprovalUserDetail {
    * Indicates whether this approval requires signing: - &#x60;true&#x60;: The user must sign the transaction. - &#x60;false&#x60;: The user only needs to approve or reject without signing. 
    * @return isForSign
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getIsForSign() {
     return isForSign;
   }
@@ -339,7 +339,7 @@ public class ApprovalUserDetail {
    * Additional information to show for the transaction approval.
    * @return showInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getShowInfo() {
     return showInfo;
   }
@@ -358,7 +358,7 @@ public class ApprovalUserDetail {
    * Language used for the transaction approval.
    * @return language
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getLanguage() {
     return language;
   }
@@ -377,7 +377,7 @@ public class ApprovalUserDetail {
    * Version of the message format used for the transaction approval.
    * @return messageVersion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMessageVersion() {
     return messageVersion;
   }
@@ -396,7 +396,7 @@ public class ApprovalUserDetail {
    * Message associated with the transaction approval.
    * @return message
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMessage() {
     return message;
   }
@@ -415,7 +415,7 @@ public class ApprovalUserDetail {
    * Any additional message or information related to the transaction approval.
    * @return extraMessage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getExtraMessage() {
     return extraMessage;
   }

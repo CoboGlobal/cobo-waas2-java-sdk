@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationAddressPermission
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -79,7 +79,7 @@ public class TokenizationAddressPermission {
    * The execution address.
    * @return executionAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getExecutionAddress() {
     return executionAddress;
   }
@@ -106,7 +106,7 @@ public class TokenizationAddressPermission {
    * List of permissions granted to this address.
    * @return permissions
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<TokenizationTokenPermissionType> getPermissions() {
     return permissions;
   }
@@ -125,7 +125,7 @@ public class TokenizationAddressPermission {
    * The time when the permission was created, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }

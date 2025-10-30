@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * BankAccount
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -83,7 +83,7 @@ public class BankAccount {
    * The bank account ID.
    * @return bankAccountId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getBankAccountId() {
     return bankAccountId;
   }
@@ -110,7 +110,7 @@ public class BankAccount {
    * JSON-formatted bank account details.
    * @return info
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Map<String, Object> getInfo() {
     return info;
   }
@@ -129,7 +129,7 @@ public class BankAccount {
    * The creation time of the bank account, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -148,7 +148,7 @@ public class BankAccount {
    * The last update time of the bank account, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getUpdatedTimestamp() {
     return updatedTimestamp;
   }

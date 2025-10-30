@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * UtxoFeeBasePrice
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class UtxoFeeBasePrice {
    * The fee rate in sat/vByte. The fee rate represents the satoshis you are willing to pay for each byte of data that your transaction will consume on the blockchain.
    * @return feeRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeRate() {
     return feeRate;
   }

@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information of an approval workflow
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -83,7 +83,7 @@ public class AppWorkflow {
    * The unique ID distinguishing the approval workflow instance among organizations.
    * @return workflowId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getWorkflowId() {
     return workflowId;
   }
@@ -102,7 +102,7 @@ public class AppWorkflow {
    * The unique ID of the approval workflow.
    * @return operationId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getOperationId() {
     return operationId;
   }
@@ -121,7 +121,7 @@ public class AppWorkflow {
    * The name of the approval workflow.
    * @return operationName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getOperationName() {
     return operationName;
   }
@@ -148,7 +148,7 @@ public class AppWorkflow {
    * Get currentPolicies
    * @return currentPolicies
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<AppWorkflowPolicy> getCurrentPolicies() {
     return currentPolicies;
   }

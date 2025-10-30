@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateBabylonStakingRegistration201Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class CreateBabylonStakingRegistration201Response {
    * The registration ID, a unique identifier for tracking the Babylon Phase-2 registration request. You can use it with the [Get Babylon Phase-2 registration details operation](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-phase-2-registration-details) to check the registration status.
    * @return registrationId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRegistrationId() {
     return registrationId;
   }

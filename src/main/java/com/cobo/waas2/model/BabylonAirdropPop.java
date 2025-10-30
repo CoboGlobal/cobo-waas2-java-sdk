@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * Proof of Participation (PoP) details used for airdrop registration.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -88,7 +88,7 @@ public class BabylonAirdropPop {
    * The Babylon (BABY) address used to receive BABY rewards.
    * @return babyAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getBabyAddress() {
     return babyAddress;
   }
@@ -107,7 +107,7 @@ public class BabylonAirdropPop {
    * The Bitcoin (BTC) address used for staking.
    * @return btcAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getBtcAddress() {
     return btcAddress;
   }
@@ -126,7 +126,7 @@ public class BabylonAirdropPop {
    * The public key corresponding to the &#x60;btc_address&#x60;, represented in hex format.
    * @return btcPublicKey
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getBtcPublicKey() {
     return btcPublicKey;
   }
@@ -145,7 +145,7 @@ public class BabylonAirdropPop {
    * A BTC signature that signs the &#x60;baby_address&#x60;.
    * @return btcSignBaby
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getBtcSignBaby() {
     return btcSignBaby;
   }
@@ -164,7 +164,7 @@ public class BabylonAirdropPop {
    * A BABY signature that signs the &#x60;btc_address&#x60;.
    * @return babySignBtc
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getBabySignBtc() {
     return babySignBtc;
   }
@@ -183,7 +183,7 @@ public class BabylonAirdropPop {
    * The public key corresponding to the &#x60;baby_address&#x60;, represented in base64 format.
    * @return babyPublicKey
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getBabyPublicKey() {
     return babyPublicKey;
   }

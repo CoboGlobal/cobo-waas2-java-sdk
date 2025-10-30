@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The token balance for a specific wallet address.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -73,7 +73,7 @@ public class AddressBalance {
    * The wallet address.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -92,7 +92,7 @@ public class AddressBalance {
    * Get balance
    * @return balance
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Balance getBalance() {
     return balance;
   }

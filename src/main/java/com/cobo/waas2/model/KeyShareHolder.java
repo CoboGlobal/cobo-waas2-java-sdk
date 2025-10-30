@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The data for MPC Wallets&#39; key share holder information.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -94,7 +94,7 @@ public class KeyShareHolder {
    * The key share holder name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -113,7 +113,7 @@ public class KeyShareHolder {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public KeyShareHolderType getType() {
     return type;
   }
@@ -132,7 +132,7 @@ public class KeyShareHolder {
    * The key share holder&#39;s TSS Node ID.
    * @return tssNodeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTssNodeId() {
     return tssNodeId;
   }
@@ -151,7 +151,7 @@ public class KeyShareHolder {
    * Whether the key share holder&#39;s TSS Node is online. - &#x60;true&#x60;: The TSS Node is online.  - &#x60;false&#x60;: The TSS Node is offline. 
    * @return online
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getOnline() {
     return online;
   }
@@ -170,7 +170,7 @@ public class KeyShareHolder {
    * Whether the key share holder has been selected as the designated transaction signer. For example, in a 2-3 [Threshold Signature Scheme (TSS)](https://manuals.cobo.com/en/portal/mpc-wallets/introduction#threshold-signature-scheme-tss), Cobo will serve as one signer, and you can choose one of the other two key share holders to act as the second transaction signer. - &#x60;true&#x60;: The key share holder is a designated transaction signer.  - &#x60;false&#x60;: The key share holder is not a designated transaction signer. 
    * @return signer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getSigner() {
     return signer;
   }
@@ -189,7 +189,7 @@ public class KeyShareHolder {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public KeyShareHolderStatus getStatus() {
     return status;
   }
@@ -208,7 +208,7 @@ public class KeyShareHolder {
    * The key share holder&#39;s Cobo Portal account ID.
    * @return accountId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAccountId() {
     return accountId;
   }

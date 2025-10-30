@@ -58,7 +58,7 @@ import com.google.gson.JsonParseException;
 
 import com.cobo.waas2.JSON;
 
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )

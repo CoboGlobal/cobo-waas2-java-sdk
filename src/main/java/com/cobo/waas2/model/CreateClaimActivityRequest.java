@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateClaimActivityRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class CreateClaimActivityRequest {
    * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -100,7 +100,7 @@ public class CreateClaimActivityRequest {
    * The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions).
    * @return stakingId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getStakingId() {
     return stakingId;
   }
@@ -119,7 +119,7 @@ public class CreateClaimActivityRequest {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -138,7 +138,7 @@ public class CreateClaimActivityRequest {
    * The initiator of the staking activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.
    * @return appInitiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAppInitiator() {
     return appInitiator;
   }

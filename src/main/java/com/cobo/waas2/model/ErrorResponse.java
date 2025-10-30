@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The response of a failed request.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class ErrorResponse {
    * The error code. Refer to [Error codes and status codes](https://www.cobo.com/developers/v2/api-references/error-codes) for more details.
    * @return errorCode
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Integer getErrorCode() {
     return errorCode;
   }
@@ -95,7 +95,7 @@ public class ErrorResponse {
    * The error description.
    * @return errorMessage
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getErrorMessage() {
     return errorMessage;
   }
@@ -114,7 +114,7 @@ public class ErrorResponse {
    * The error log ID. You can provide the error ID when submitting a ticket to help Cobo to locate the issue.
    * @return errorId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getErrorId() {
     return errorId;
   }

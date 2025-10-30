@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The response of a failed request.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class GetToken4XXResponse {
    * The error name.
    * @return error
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getError() {
     return error;
   }
@@ -91,7 +91,7 @@ public class GetToken4XXResponse {
    * The error description.
    * @return errorDescription
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getErrorDescription() {
     return errorDescription;
   }

@@ -75,7 +75,7 @@
 |**receivedTokenAmount** | **String** | The total cryptocurrency amount received for this order. Updates until the expiration time. Precision matches the token standard (e.g., 6 decimals for USDT). |  |
 |**transactions** | [**List&lt;PaymentTransaction&gt;**](PaymentTransaction.md) | An array of transactions associated with this refund order. Each transaction represents a separate blockchain operation related to the refund process. |  [optional] |
 |**settlementStatus** | **SettleStatus** |  |  [optional] |
-|**amountTolerance** | **String** | Allowed amount deviation. |  [optional] |
+|**amountTolerance** | **String** | The maximum allowed deviation from the payable amount in the case of underpayment, specified as a positive value with up to one decimal place. If you provide more than one decimal place, an error will occur.  When the actual received amount is within this deviation (inclusive) of the payable amount, the order status will be set to &#x60;Completed&#x60; rather than &#x60;Underpaid&#x60;.  |  [optional] |
 |**refundId** | **String** | The refund order ID. |  |
 |**amount** | **String** | The amount in cryptocurrency to be returned for this refund order. |  |
 |**toAddress** | **String** | The recipient&#39;s wallet address where the refund will be sent. |  |

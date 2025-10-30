@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationIssuedTokenRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -91,7 +91,7 @@ public class TokenizationIssuedTokenRequest {
    * The chain ID where the token will be issued.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -110,7 +110,7 @@ public class TokenizationIssuedTokenRequest {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationTokenOperationSource getSource() {
     return source;
   }
@@ -129,7 +129,7 @@ public class TokenizationIssuedTokenRequest {
    * Get tokenParams
    * @return tokenParams
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationIssueTokenParamsTokenParams getTokenParams() {
     return tokenParams;
   }
@@ -148,7 +148,7 @@ public class TokenizationIssuedTokenRequest {
    * The initiator of the tokenization activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.
    * @return appInitiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAppInitiator() {
     return appInitiator;
   }
@@ -167,7 +167,7 @@ public class TokenizationIssuedTokenRequest {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -186,7 +186,7 @@ public class TokenizationIssuedTokenRequest {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }

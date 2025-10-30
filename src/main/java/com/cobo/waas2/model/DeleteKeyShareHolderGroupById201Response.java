@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * DeleteKeyShareHolderGroupById201Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class DeleteKeyShareHolderGroupById201Response {
    * Whether the request to delete the key share holder group has been successfully submitted. - &#x60;true&#x60;: The request to delete the key share holder group has been successfully submitted. - &#x60;false&#x60;: The request to delete the key share holder group has not been submitted. 
    * @return submitted
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getSubmitted() {
     return submitted;
   }

@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The definition of the quorum action. This property is applicable only when &#x60;action_type&#x60; is &#x60;Quorum&#x60;.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -134,7 +134,7 @@ public class PolicyActionContent {
    * The quorum type. Possible values include:    - &#x60;FULL_APPROVAL&#x60;: Requires approval from all participants.   - &#x60;PART_APPROVAL&#x60;: Requires approval from a specified number of participants. 
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TypeEnum getType() {
     return type;
   }
@@ -161,7 +161,7 @@ public class PolicyActionContent {
    * The roles included in the quorum. Possible values include &#x60;admin&#x60;, &#x60;spender&#x60;, &#x60;operator&#x60;, and &#x60;approver&#x60;.
    * @return roles
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getRoles() {
     return roles;
   }
@@ -188,7 +188,7 @@ public class PolicyActionContent {
    * The ID of the users included in the quorum.
    * @return userIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getUserIds() {
     return userIds;
   }
@@ -207,7 +207,7 @@ public class PolicyActionContent {
    * The number of approvers required to meet the quorum.
    * @return threshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getThreshold() {
     return threshold;
   }

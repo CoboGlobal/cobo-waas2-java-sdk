@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * Information about the transaction destination type &#x60;EVM_EIP_712_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -84,7 +84,7 @@ public class TransactionMessageSignEIP712Destination {
    * Get destinationType
    * @return destinationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionDestinationType getDestinationType() {
     return destinationType;
   }
@@ -103,7 +103,7 @@ public class TransactionMessageSignEIP712Destination {
    * The raw structured data to be signed, formatted as a JSON string.
    * @return rawStructuredData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRawStructuredData() {
     return rawStructuredData;
   }
@@ -130,7 +130,7 @@ public class TransactionMessageSignEIP712Destination {
    * The structured data to be signed, formatted as a JSON object according to the EIP-712 standard.
    * @return structuredData
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Map<String, Object> getStructuredData() {
     return structuredData;
   }
@@ -149,7 +149,7 @@ public class TransactionMessageSignEIP712Destination {
    * Get safeTxExtraData
    * @return safeTxExtraData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public SafeTxExtraData getSafeTxExtraData() {
     return safeTxExtraData;
   }

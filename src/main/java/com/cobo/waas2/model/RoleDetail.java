@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * Details of the role in a transaction approval.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -92,7 +92,7 @@ public class RoleDetail {
    * Get result
    * @return result
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ApprovalTransactionResult getResult() {
     return result;
   }
@@ -111,7 +111,7 @@ public class RoleDetail {
    * Minimum number of approvals required for this role.
    * @return reviewThreshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getReviewThreshold() {
     return reviewThreshold;
   }
@@ -130,7 +130,7 @@ public class RoleDetail {
    * The initiator of the transaction.
    * @return initiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getInitiator() {
     return initiator;
   }
@@ -149,7 +149,7 @@ public class RoleDetail {
    * Indicates whether the transaction approval has been upgraded.
    * @return isUpgraded
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getIsUpgraded() {
     return isUpgraded;
   }
@@ -168,7 +168,7 @@ public class RoleDetail {
    * Time when the role completed the approval.
    * @return completeTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCompleteTime() {
     return completeTime;
   }
@@ -195,7 +195,7 @@ public class RoleDetail {
    * Get userDetails
    * @return userDetails
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<ApprovalUserDetail> getUserDetails() {
     return userDetails;
   }

@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The transaction fee that you need to pay based on the fixed fee model for some blockchains. The fee can vary between different chains.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -77,7 +77,7 @@ public class FixedFeeRate {
    * The transaction fee that you need to pay for the transaction.
    * @return feeAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeAmount() {
     return feeAmount;
   }
@@ -96,7 +96,7 @@ public class FixedFeeRate {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -115,7 +115,7 @@ public class FixedFeeRate {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }

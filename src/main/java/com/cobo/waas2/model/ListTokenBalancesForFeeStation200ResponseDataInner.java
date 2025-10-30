@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The balance information.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -77,7 +77,7 @@ public class ListTokenBalancesForFeeStation200ResponseDataInner {
    * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -96,7 +96,7 @@ public class ListTokenBalancesForFeeStation200ResponseDataInner {
    * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
    * @return chainId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getChainId() {
     return chainId;
   }
@@ -115,7 +115,7 @@ public class ListTokenBalancesForFeeStation200ResponseDataInner {
    * Get balance
    * @return balance
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Balance getBalance() {
     return balance;
   }

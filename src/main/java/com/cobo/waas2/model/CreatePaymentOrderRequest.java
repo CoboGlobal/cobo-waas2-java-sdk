@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreatePaymentOrderRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -108,7 +108,7 @@ public class CreatePaymentOrderRequest {
    * The merchant ID.
    * @return merchantId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMerchantId() {
     return merchantId;
   }
@@ -127,7 +127,7 @@ public class CreatePaymentOrderRequest {
    * The ID of the cryptocurrency used for payment. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -146,7 +146,7 @@ public class CreatePaymentOrderRequest {
    * The fiat currency for the base order amount and the developer fee. Currently, only &#x60;USD&#x60; is supported.  If left empty, both &#x60;order_amount&#x60; and &#x60;fee_amount&#x60; will be denominated in the cryptocurrency specified by &#x60;token_id&#x60; 
    * @return currency
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCurrency() {
     return currency;
   }
@@ -165,7 +165,7 @@ public class CreatePaymentOrderRequest {
    *  The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;), in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the amount is in the cryptocurrency specified by &#x60;token_id&#x60;.   Values must be greater than &#x60;0&#x60; and contain two decimal places.  
    * @return orderAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getOrderAmount() {
     return orderAmount;
   }
@@ -184,7 +184,7 @@ public class CreatePaymentOrderRequest {
    *  The developer fee for the order, in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the fee is in the cryptocurrency specified by &#x60;token_id&#x60;.  If you are a merchant directly serving payers, set this field to &#x60;0&#x60;. Developer fees are only relevant for platforms like payment service providers (PSPs) that charge fees to their downstream merchants.  The developer fee is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example: - Base amount (&#x60;order_amount&#x60;): \&quot;100.00\&quot; - Developer fee (&#x60;fee_amount&#x60;): \&quot;2.00\&quot;  - Total charged to customer: \&quot;102.00\&quot;  Values can contain up to two decimal places. 
    * @return feeAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getFeeAmount() {
     return feeAmount;
   }
@@ -203,7 +203,7 @@ public class CreatePaymentOrderRequest {
    * A unique reference code assigned by the merchant to identify this order in their system. The code should have a maximum length of 128 characters.
    * @return merchantOrderCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantOrderCode() {
     return merchantOrderCode;
   }
@@ -222,7 +222,7 @@ public class CreatePaymentOrderRequest {
    * A unique reference code assigned by you as a developer to identify this order in your system. This code must be unique across all orders in your system. The code should have a maximum length of 128 characters. 
    * @return pspOrderCode
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPspOrderCode() {
     return pspOrderCode;
   }
@@ -241,7 +241,7 @@ public class CreatePaymentOrderRequest {
    * The number of seconds until the pay-in order expires, counted from when the request is sent. For example, if set to &#x60;1800&#x60;, the order will expire in 30 minutes. Must be greater than zero and cannot exceed 3 hours (10800 seconds). After expiration:  - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event. 
    * @return expiredIn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getExpiredIn() {
     return expiredIn;
   }
@@ -260,7 +260,7 @@ public class CreatePaymentOrderRequest {
    * This field has been deprecated. 
    * @return useDedicatedAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getUseDedicatedAddress() {
     return useDedicatedAddress;
   }
@@ -279,7 +279,7 @@ public class CreatePaymentOrderRequest {
    *  A custom exchange rate that defines how much fiat currency equals 1 unit of cryptocurrency. If not provided, the system&#39;s default exchange rate will be used.  For example, if the fiat currency is USD and the cryptocurrency is USDT, setting &#x60;custom_exchange_rate&#x60; to &#x60;\&quot;0.99\&quot;&#x60; means that 1 USDT will be valued at 0.99 USD. 
    * @return customExchangeRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCustomExchangeRate() {
     return customExchangeRate;
   }
@@ -295,10 +295,10 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * Allowed amount deviation, precision to 1 decimal place.
+   * The maximum allowed deviation from the payable amount in the case of underpayment, specified as a positive value with up to one decimal place. If you provide more than one decimal place, an error will occur.  When the actual received amount is within this deviation (inclusive) of the payable amount, the order status will be set to &#x60;Completed&#x60; rather than &#x60;Underpaid&#x60;. 
    * @return amountTolerance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAmountTolerance() {
     return amountTolerance;
   }

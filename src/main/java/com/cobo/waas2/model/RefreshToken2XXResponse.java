@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * RefreshToken2XXResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -84,7 +84,7 @@ public class RefreshToken2XXResponse {
    * The new Org Access Token.
    * @return accessToken
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAccessToken() {
     return accessToken;
   }
@@ -103,7 +103,7 @@ public class RefreshToken2XXResponse {
    * The type of the tokens, which is Bearer.
    * @return tokenType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenType() {
     return tokenType;
   }
@@ -122,7 +122,7 @@ public class RefreshToken2XXResponse {
    * The scope of the Org Access Token to limit the app&#39;s access to the organization&#39;s resources. **Note**: Currently this property value is empty. The scope of the Org Access Token is based on the permissions granted when the app user installs the app. 
    * @return scope
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getScope() {
     return scope;
   }
@@ -141,7 +141,7 @@ public class RefreshToken2XXResponse {
    * The time in seconds in which the new Org Access Token expires.
    * @return expiresIn
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getExpiresIn() {
     return expiresIn;
   }
@@ -160,7 +160,7 @@ public class RefreshToken2XXResponse {
    * The Refresh Token, used to obtain another Org Access Token when the new Org Access Token expires. The expiration time for Refresh Tokens is currently set to 30 days and is subject to change.
    * @return refreshToken
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRefreshToken() {
     return refreshToken;
   }

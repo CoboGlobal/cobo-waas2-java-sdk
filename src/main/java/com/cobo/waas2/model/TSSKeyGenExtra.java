@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * TSSKeyGenExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -89,7 +89,7 @@ public class TSSKeyGenExtra {
    * Get org
    * @return org
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public OrgInfo getOrg() {
     return org;
   }
@@ -108,7 +108,7 @@ public class TSSKeyGenExtra {
    * Get project
    * @return project
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public MPCProject getProject() {
     return project;
   }
@@ -127,7 +127,7 @@ public class TSSKeyGenExtra {
    * Get vault
    * @return vault
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public MPCVault getVault() {
     return vault;
   }
@@ -146,7 +146,7 @@ public class TSSKeyGenExtra {
    * Get targetKeyShareHolderGroup
    * @return targetKeyShareHolderGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public KeyShareHolderGroup getTargetKeyShareHolderGroup() {
     return targetKeyShareHolderGroup;
   }
@@ -165,7 +165,7 @@ public class TSSKeyGenExtra {
    * Get tssRequest
    * @return tssRequest
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSRequest getTssRequest() {
     return tssRequest;
   }

@@ -17,7 +17,7 @@
 |**expiredIn** | **Integer** | The number of seconds until the pay-in order expires, counted from when the request is sent. For example, if set to &#x60;1800&#x60;, the order will expire in 30 minutes. Must be greater than zero and cannot exceed 3 hours (10800 seconds). After expiration:  - The order status becomes final and cannot be changed - The &#x60;received_token_amount&#x60; field will no longer be updated - Funds received after expiration will be categorized as late payments and can only be settled from the developer balance. - A late payment will trigger a &#x60;transactionLate&#x60; webhook event.  |  [optional] |
 |**useDedicatedAddress** | **Boolean** | This field has been deprecated.  |  [optional] |
 |**customExchangeRate** | **String** |  A custom exchange rate that defines how much fiat currency equals 1 unit of cryptocurrency. If not provided, the system&#39;s default exchange rate will be used.  For example, if the fiat currency is USD and the cryptocurrency is USDT, setting &#x60;custom_exchange_rate&#x60; to &#x60;\&quot;0.99\&quot;&#x60; means that 1 USDT will be valued at 0.99 USD.  |  [optional] |
-|**amountTolerance** | **String** | Allowed amount deviation, precision to 1 decimal place. |  [optional] |
+|**amountTolerance** | **String** | The maximum allowed deviation from the payable amount in the case of underpayment, specified as a positive value with up to one decimal place. If you provide more than one decimal place, an error will occur.  When the actual received amount is within this deviation (inclusive) of the payable amount, the order status will be set to &#x60;Completed&#x60; rather than &#x60;Underpaid&#x60;.  |  [optional] |
 
 
 

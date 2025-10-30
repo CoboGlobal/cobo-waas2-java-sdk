@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information of a workflow field.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -77,7 +77,7 @@ public class AppWorkflowField {
    * The workflow field name.
    * @return field
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getField() {
     return field;
   }
@@ -96,7 +96,7 @@ public class AppWorkflowField {
    * Get valueType
    * @return valueType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public PolicyFieldValueType getValueType() {
     return valueType;
   }
@@ -115,7 +115,7 @@ public class AppWorkflowField {
    * The workflow field value.
    * @return value
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getValue() {
     return value;
   }

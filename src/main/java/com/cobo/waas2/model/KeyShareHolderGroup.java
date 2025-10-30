@@ -53,7 +53,7 @@ import com.cobo.waas2.JSON;
 /**
  * The data for key share holder group information.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -102,7 +102,7 @@ public class KeyShareHolderGroup {
    * The key share holder group ID.
    * @return keyShareHolderGroupId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getKeyShareHolderGroupId() {
     return keyShareHolderGroupId;
   }
@@ -121,7 +121,7 @@ public class KeyShareHolderGroup {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public KeyShareHolderGroupType getType() {
     return type;
   }
@@ -148,7 +148,7 @@ public class KeyShareHolderGroup {
    * Get tssKeyShareGroups
    * @return tssKeyShareGroups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TSSGroups> getTssKeyShareGroups() {
     return tssKeyShareGroups;
   }
@@ -175,7 +175,7 @@ public class KeyShareHolderGroup {
    * Get keyShareHolders
    * @return keyShareHolders
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<KeyShareHolder> getKeyShareHolders() {
     return keyShareHolders;
   }
@@ -194,7 +194,7 @@ public class KeyShareHolderGroup {
    * The number of key share holders in this key share holder group.
    * @return participants
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getParticipants() {
     return participants;
   }
@@ -213,7 +213,7 @@ public class KeyShareHolderGroup {
    * The number of key share holders required to approve each operation in this key share holder group.
    * @return threshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getThreshold() {
     return threshold;
   }
@@ -232,7 +232,7 @@ public class KeyShareHolderGroup {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public KeyShareHolderGroupStatus getStatus() {
     return status;
   }
@@ -251,7 +251,7 @@ public class KeyShareHolderGroup {
    * The key share holder group&#39;s creation time in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }

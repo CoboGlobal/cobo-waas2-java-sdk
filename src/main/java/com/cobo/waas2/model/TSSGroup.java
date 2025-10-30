@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * TSSGroup
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -113,7 +113,7 @@ public class TSSGroup {
    * The TSS key share group ID.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getId() {
     return id;
   }
@@ -132,7 +132,7 @@ public class TSSGroup {
    * The canonical group ID.
    * @return canonicalGroupId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCanonicalGroupId() {
     return canonicalGroupId;
   }
@@ -151,7 +151,7 @@ public class TSSGroup {
    * The protocol group ID.
    * @return protocolGroupId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getProtocolGroupId() {
     return protocolGroupId;
   }
@@ -170,7 +170,7 @@ public class TSSGroup {
    * The protocol type.
    * @return protocolType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getProtocolType() {
     return protocolType;
   }
@@ -189,7 +189,7 @@ public class TSSGroup {
    * The group creation timestamp, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -208,7 +208,7 @@ public class TSSGroup {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSGroupType getType() {
     return type;
   }
@@ -227,7 +227,7 @@ public class TSSGroup {
    * The root extended public key.
    * @return rootExtendedPublicKey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRootExtendedPublicKey() {
     return rootExtendedPublicKey;
   }
@@ -246,7 +246,7 @@ public class TSSGroup {
    * The chaincode.
    * @return chaincode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getChaincode() {
     return chaincode;
   }
@@ -265,7 +265,7 @@ public class TSSGroup {
    * Get curve
    * @return curve
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSCurveType getCurve() {
     return curve;
   }
@@ -284,7 +284,7 @@ public class TSSGroup {
    * The threshold.
    * @return threshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getThreshold() {
     return threshold;
   }
@@ -311,7 +311,7 @@ public class TSSGroup {
    * Get participants
    * @return participants
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TSSParticipant> getParticipants() {
     return participants;
   }

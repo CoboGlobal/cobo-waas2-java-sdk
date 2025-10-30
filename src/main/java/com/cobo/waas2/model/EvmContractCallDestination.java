@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the transaction destination. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class EvmContractCallDestination {
    * Get destinationType
    * @return destinationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ContractCallDestinationType getDestinationType() {
     return destinationType;
   }
@@ -100,7 +100,7 @@ public class EvmContractCallDestination {
    * The destination address.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -119,7 +119,7 @@ public class EvmContractCallDestination {
    * The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;. 
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getValue() {
     return value;
   }
@@ -138,7 +138,7 @@ public class EvmContractCallDestination {
    * The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters. 
    * @return calldata
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getCalldata() {
     return calldata;
   }

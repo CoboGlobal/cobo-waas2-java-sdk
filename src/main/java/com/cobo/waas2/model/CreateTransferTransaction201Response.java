@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateTransferTransaction201Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -77,7 +77,7 @@ public class CreateTransferTransaction201Response {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -96,7 +96,7 @@ public class CreateTransferTransaction201Response {
    * The transaction ID.
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTransactionId() {
     return transactionId;
   }
@@ -115,7 +115,7 @@ public class CreateTransferTransaction201Response {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionStatus getStatus() {
     return status;
   }

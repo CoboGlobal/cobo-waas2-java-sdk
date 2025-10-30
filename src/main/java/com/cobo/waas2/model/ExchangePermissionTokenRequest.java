@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * ExchangePermissionTokenRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class ExchangePermissionTokenRequest {
    * Set the value to &#x60;payment_orders_payin&#x60;.
    * @return permissionType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPermissionType() {
     return permissionType;
   }

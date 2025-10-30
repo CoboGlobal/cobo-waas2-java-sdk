@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The maximum transferable value from the wallet or the specified address, along with the estimated transaction fee.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -77,7 +77,7 @@ public class MaxTransferableValue {
    * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }
@@ -96,7 +96,7 @@ public class MaxTransferableValue {
    * The maximum transferable value from the wallet or the specified address.
    * @return maxTransferableValue
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMaxTransferableValue() {
     return maxTransferableValue;
   }
@@ -115,7 +115,7 @@ public class MaxTransferableValue {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRequestFee getFee() {
     return fee;
   }

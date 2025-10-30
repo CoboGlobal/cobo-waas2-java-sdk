@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The action to be executed when the policy conditions are satisfied.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -74,7 +74,7 @@ public class PolicyAction {
    * Get actionType
    * @return actionType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public PolicyActionType getActionType() {
     return actionType;
   }
@@ -93,7 +93,7 @@ public class PolicyAction {
    * Get content
    * @return content
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public PolicyActionContent getContent() {
     return content;
   }

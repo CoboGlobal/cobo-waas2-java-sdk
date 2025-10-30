@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * ListPaymentWalletBalances200Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -79,7 +79,7 @@ public class ListPaymentWalletBalances200Response {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<PaymentWalletBalance> getData() {
     return data;
   }

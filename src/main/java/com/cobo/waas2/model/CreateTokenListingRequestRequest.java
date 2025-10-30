@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateTokenListingRequestRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -82,7 +82,7 @@ public class CreateTokenListingRequestRequest {
    * Get walletType
    * @return walletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletType getWalletType() {
     return walletType;
   }
@@ -101,7 +101,7 @@ public class CreateTokenListingRequestRequest {
    * Get walletSubtype
    * @return walletSubtype
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletSubtype getWalletSubtype() {
     return walletSubtype;
   }
@@ -120,7 +120,7 @@ public class CreateTokenListingRequestRequest {
    * The ID of the blockchain where the token is deployed.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -139,7 +139,7 @@ public class CreateTokenListingRequestRequest {
    * The token&#39;s contract address on the specified blockchain.
    * @return contractAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getContractAddress() {
     return contractAddress;
   }

@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationMintEstimateFeeParams
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -89,7 +89,7 @@ public class TokenizationMintEstimateFeeParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationTokenOperationSource getSource() {
     return source;
   }
@@ -116,7 +116,7 @@ public class TokenizationMintEstimateFeeParams {
    * Details for each token mint, including amount and address to mint to.
    * @return mints
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<TokenizationMintTokenParamsMintsInner> getMints() {
     return mints;
   }
@@ -135,7 +135,7 @@ public class TokenizationMintEstimateFeeParams {
    * Get operationType
    * @return operationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationOperationType getOperationType() {
     return operationType;
   }
@@ -154,7 +154,7 @@ public class TokenizationMintEstimateFeeParams {
    * The ID of the token.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -173,7 +173,7 @@ public class TokenizationMintEstimateFeeParams {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }

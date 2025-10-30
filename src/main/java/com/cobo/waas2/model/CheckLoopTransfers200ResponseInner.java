@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * CheckLoopTransfers200ResponseInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class CheckLoopTransfers200ResponseInner {
    * The wallet address.
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -91,7 +91,7 @@ public class CheckLoopTransfers200ResponseInner {
    * Whether the transaction from the given source to the given destination address can be executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer.  - &#x60;true&#x60;: The transaction can be executed as a Cobo Loop transfer. - &#x60;false&#x60;: The transaction cannot be executed as a Cobo Loop transfer. 
    * @return isLoop
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getIsLoop() {
     return isLoop;
   }

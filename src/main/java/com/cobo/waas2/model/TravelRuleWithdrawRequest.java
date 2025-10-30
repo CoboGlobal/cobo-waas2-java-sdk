@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * TravelRuleWithdrawRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -73,7 +73,7 @@ public class TravelRuleWithdrawRequest {
    * The transaction ID.
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTransactionId() {
     return transactionId;
   }
@@ -92,7 +92,7 @@ public class TravelRuleWithdrawRequest {
    * Get travelRuleInfo
    * @return travelRuleInfo
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TravelRuleWithdrawRequestTravelRuleInfo getTravelRuleInfo() {
     return travelRuleInfo;
   }

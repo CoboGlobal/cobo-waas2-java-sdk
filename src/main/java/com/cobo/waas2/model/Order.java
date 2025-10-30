@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * Order
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -149,7 +149,7 @@ public class Order {
    * The order ID.
    * @return orderId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getOrderId() {
     return orderId;
   }
@@ -168,7 +168,7 @@ public class Order {
    * The merchant ID.
    * @return merchantId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantId() {
     return merchantId;
   }
@@ -187,7 +187,7 @@ public class Order {
    *  The ID of the cryptocurrency used for payment. Supported tokens:  - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60; - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -206,7 +206,7 @@ public class Order {
    *  The ID of the blockchain network where the payment transaction should be made. Supported chains:  - USDC: &#x60;ETH&#x60;, &#x60;ARBITRUM&#x60;, &#x60;SOL&#x60;, &#x60;BASE&#x60;, &#x60;MATIC&#x60;, &#x60;BSC&#x60; - USDT: &#x60;TRON&#x60;, &#x60;ETH&#x60;, &#x60;ARBITRUM&#x60;, &#x60;SOL&#x60;, &#x60;BASE&#x60;, &#x60;MATIC&#x60;, &#x60;BSC&#x60; 
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -225,7 +225,7 @@ public class Order {
    * The cryptocurrency amount to be paid for this order.
    * @return payableAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPayableAmount() {
     return payableAmount;
   }
@@ -244,7 +244,7 @@ public class Order {
    * The recipient wallet address to be used for the payment transaction.
    * @return receiveAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getReceiveAddress() {
     return receiveAddress;
   }
@@ -263,7 +263,7 @@ public class Order {
    * The fiat currency of the order.
    * @return currency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getCurrency() {
     return currency;
   }
@@ -282,7 +282,7 @@ public class Order {
    * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;).
    * @return orderAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getOrderAmount() {
     return orderAmount;
   }
@@ -301,7 +301,7 @@ public class Order {
    * The developer fee for the order in fiat currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge.
    * @return feeAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getFeeAmount() {
     return feeAmount;
   }
@@ -320,7 +320,7 @@ public class Order {
    * The exchange rate between a currency pair. Expressed as the amount of fiat currency per one unit of cryptocurrency. For example, if the cryptocurrency is USDT and the fiat currency is USD, a rate of \&quot;0.99\&quot; means 1 USDT &#x3D; 0.99 USD.
    * @return exchangeRate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getExchangeRate() {
     return exchangeRate;
   }
@@ -339,7 +339,7 @@ public class Order {
    * The expiration time of the pay-in order, represented as a UNIX timestamp in seconds.
    * @return expiredAt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getExpiredAt() {
     return expiredAt;
   }
@@ -358,7 +358,7 @@ public class Order {
    * A unique reference code assigned by the merchant to identify this order in their system.
    * @return merchantOrderCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantOrderCode() {
     return merchantOrderCode;
   }
@@ -377,7 +377,7 @@ public class Order {
    * A unique reference code assigned by the developer to identify this order in their system.
    * @return pspOrderCode
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPspOrderCode() {
     return pspOrderCode;
   }
@@ -396,7 +396,7 @@ public class Order {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public OrderStatus getStatus() {
     return status;
   }
@@ -415,7 +415,7 @@ public class Order {
    * The total cryptocurrency amount received for this order. Updates until the expiration time. Precision matches the token standard (e.g., 6 decimals for USDT).
    * @return receivedTokenAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getReceivedTokenAmount() {
     return receivedTokenAmount;
   }
@@ -434,7 +434,7 @@ public class Order {
    * The creation time of the order, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -453,7 +453,7 @@ public class Order {
    * The last update time of the order, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -480,7 +480,7 @@ public class Order {
    * An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the pay-in process.
    * @return transactions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<PaymentTransaction> getTransactions() {
     return transactions;
   }
@@ -499,7 +499,7 @@ public class Order {
    * Get settlementStatus
    * @return settlementStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public SettleStatus getSettlementStatus() {
     return settlementStatus;
   }
@@ -515,10 +515,10 @@ public class Order {
   }
 
    /**
-   * Allowed amount deviation.
+   * The maximum allowed deviation from the payable amount in the case of underpayment, specified as a positive value with up to one decimal place. If you provide more than one decimal place, an error will occur.  When the actual received amount is within this deviation (inclusive) of the payable amount, the order status will be set to &#x60;Completed&#x60; rather than &#x60;Underpaid&#x60;. 
    * @return amountTolerance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAmountTolerance() {
     return amountTolerance;
   }

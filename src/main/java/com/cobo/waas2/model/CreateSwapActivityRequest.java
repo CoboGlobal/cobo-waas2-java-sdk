@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateSwapActivityRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -94,7 +94,7 @@ public class CreateSwapActivityRequest {
    * The ID of the wallet used to pay.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getWalletId() {
     return walletId;
   }
@@ -113,7 +113,7 @@ public class CreateSwapActivityRequest {
    * The address of the wallet used to pay.
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -132,7 +132,7 @@ public class CreateSwapActivityRequest {
    * The unique identifier of the swap quote.
    * @return quoteId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getQuoteId() {
     return quoteId;
   }
@@ -151,7 +151,7 @@ public class CreateSwapActivityRequest {
    * The initiator of the swap activity. It is optional and defaults to your API key if not specified.
    * @return appInitiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAppInitiator() {
     return appInitiator;
   }
@@ -170,7 +170,7 @@ public class CreateSwapActivityRequest {
    * The request ID of the swap activity.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -189,7 +189,7 @@ public class CreateSwapActivityRequest {
    * The destination address of the swap activity. This property is required only when the swap type is &#x60;Bridge&#x60; and the wallet is not a Custodial Wallet (Asset Wallet).
    * @return receiverAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getReceiverAddress() {
     return receiverAddress;
   }
@@ -208,7 +208,7 @@ public class CreateSwapActivityRequest {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRequestFee getFee() {
     return fee;
   }

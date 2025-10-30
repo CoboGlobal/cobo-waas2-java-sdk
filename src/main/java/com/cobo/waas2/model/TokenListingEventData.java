@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenListingEventData
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -199,7 +199,7 @@ public class TokenListingEventData {
    *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    * @return dataType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public DataTypeEnum getDataType() {
     return dataType;
   }
@@ -218,7 +218,7 @@ public class TokenListingEventData {
    * The unique identifier of the token listing request.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -237,7 +237,7 @@ public class TokenListingEventData {
    * The ID of the blockchain where the token is deployed.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -256,7 +256,7 @@ public class TokenListingEventData {
    * The token&#39;s contract address on the specified blockchain.
    * @return contractAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getContractAddress() {
     return contractAddress;
   }
@@ -275,7 +275,7 @@ public class TokenListingEventData {
    * Get walletType
    * @return walletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletType getWalletType() {
     return walletType;
   }
@@ -294,7 +294,7 @@ public class TokenListingEventData {
    * Get walletSubtype
    * @return walletSubtype
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletSubtype getWalletSubtype() {
     return walletSubtype;
   }
@@ -313,7 +313,7 @@ public class TokenListingEventData {
    * Get token
    * @return token
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TokenInfo getToken() {
     return token;
   }
@@ -332,7 +332,7 @@ public class TokenListingEventData {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenListingRequestStatus getStatus() {
     return status;
   }
@@ -351,7 +351,7 @@ public class TokenListingEventData {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TokenListingRequestSource getSource() {
     return source;
   }
@@ -370,7 +370,7 @@ public class TokenListingEventData {
    * The feedback provided by Cobo when a token listing request is rejected.
    * @return feedback
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeedback() {
     return feedback;
   }
@@ -389,7 +389,7 @@ public class TokenListingEventData {
    * The time when the request was created in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -408,7 +408,7 @@ public class TokenListingEventData {
    * The time when the request was last updated in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }

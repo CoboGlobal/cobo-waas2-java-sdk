@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * EstimateUnstakeFee
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -91,7 +91,7 @@ public class EstimateUnstakeFee {
    * Get activityType
    * @return activityType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ActivityType getActivityType() {
     return activityType;
   }
@@ -110,7 +110,7 @@ public class EstimateUnstakeFee {
    * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -129,7 +129,7 @@ public class EstimateUnstakeFee {
    * The ID of the corresponding staking position.
    * @return stakingId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getStakingId() {
     return stakingId;
   }
@@ -148,7 +148,7 @@ public class EstimateUnstakeFee {
    * The amount to unstake. For the Babylon protocol, this property is ignored.
    * @return amount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAmount() {
     return amount;
   }
@@ -167,7 +167,7 @@ public class EstimateUnstakeFee {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -186,7 +186,7 @@ public class EstimateUnstakeFee {
    * Get extra
    * @return extra
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public CreateUnstakeActivityExtra getExtra() {
     return extra;
   }

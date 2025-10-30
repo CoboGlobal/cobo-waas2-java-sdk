@@ -137,7 +137,7 @@ public class PaymentApiTest {
     /**
      * Create order link
      *
-     * This operation creates a payment link of a pay-in order. 
+     * This operation generates a payment link for a pay-in order. The link directs users to a hosted payment page where they can complete their payment for the order. You can share the link directly with users or embed the payment page in your website or application using an iframe.  For more details, see [Payment Link](https://www.cobo.com/developers/v2/payments/payment-link). 
      *
      * @throws ApiException if the Api call fails
      */

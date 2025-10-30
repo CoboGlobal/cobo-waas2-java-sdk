@@ -53,7 +53,7 @@ import com.cobo.waas2.JSON;
 /**
  * PoolDetails
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -134,7 +134,7 @@ public class PoolDetails {
    * The ID of the staking pool. A staking pool is a pairing of a staking protocol and a specific type of token.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getId() {
     return id;
   }
@@ -153,7 +153,7 @@ public class PoolDetails {
    * The chain ID.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -172,7 +172,7 @@ public class PoolDetails {
    * The name of the protocol.
    * @return protocol
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getProtocol() {
     return protocol;
   }
@@ -191,7 +191,7 @@ public class PoolDetails {
    * The URL of the protocol&#39;s icon.
    * @return protocolIconUrl
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getProtocolIconUrl() {
     return protocolIconUrl;
   }
@@ -218,7 +218,7 @@ public class PoolDetails {
    * The wallet type. Possible values include:  - &#x60;Custodial&#x60;: [Custodial Wallets](https://manuals.cobo.com/en/portal/custodial-wallets/introduction)  - &#x60;MPC&#x60;: [MPC Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction)  - &#x60;SmartContract&#x60;: [Smart Contract Wallets](https://manuals.cobo.com/en/portal/smart-contract-wallets/introduction)  - &#x60;Exchange&#x60;: [Exchange Wallets](https://manuals.cobo.com/en/portal/exchange-wallets/introduction) 
    * @return supportedWalletTypes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<WalletType> getSupportedWalletTypes() {
     return supportedWalletTypes;
   }
@@ -245,7 +245,7 @@ public class PoolDetails {
    * The wallet subtype. Possible values include: - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets). - &#x60;Web3&#x60;: Custodial Wallets (Web3  Wallets). - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets). - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets). - &#x60;Safe{Wallet}&#x60;: Smart Contract Wallets (Safe{Wallet}). - &#x60;Main&#x60;: Exchange Wallets (Main Account). - &#x60;Sub&#x60;: Exchange Wallets (Sub Account). 
    * @return supportedWalletSubtypes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<WalletSubtype> getSupportedWalletSubtypes() {
     return supportedWalletSubtypes;
   }
@@ -264,7 +264,7 @@ public class PoolDetails {
    * The token ID.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -283,7 +283,7 @@ public class PoolDetails {
    * The estimated annual percentage rate (APR).
    * @return estApr
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Float getEstApr() {
     return estApr;
   }
@@ -302,7 +302,7 @@ public class PoolDetails {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -321,7 +321,7 @@ public class PoolDetails {
    * The minimum amount that can be staked in one staking request.
    * @return minAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMinAmount() {
     return minAmount;
   }
@@ -340,7 +340,7 @@ public class PoolDetails {
    * The maximum amount that can be staked in one staking request.
    * @return maxAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMaxAmount() {
     return maxAmount;
   }
@@ -359,7 +359,7 @@ public class PoolDetails {
    * The minimum staking period, in days.
    * @return minStakePeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getMinStakePeriod() {
     return minStakePeriod;
   }
@@ -378,7 +378,7 @@ public class PoolDetails {
    * The maximum staking period, in days.
    * @return maxStakePeriod
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getMaxStakePeriod() {
     return maxStakePeriod;
   }
@@ -397,7 +397,7 @@ public class PoolDetails {
    * The minimum block number. A block number indicates the number of blocks that need to be processed before the locked tokens are unlocked and become accessible.
    * @return minStakeBlocks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getMinStakeBlocks() {
     return minStakeBlocks;
   }
@@ -416,7 +416,7 @@ public class PoolDetails {
    * The maximum block number. A block number indicates the number of blocks that need to be processed before the locked tokens are unlocked and become accessible.
    * @return maxStakeBlocks
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getMaxStakeBlocks() {
     return maxStakeBlocks;
   }
@@ -443,7 +443,7 @@ public class PoolDetails {
    * A list of available validators.
    * @return validatorsInfo
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<PoolDetailsAllOfValidatorsInfo> getValidatorsInfo() {
     return validatorsInfo;
   }

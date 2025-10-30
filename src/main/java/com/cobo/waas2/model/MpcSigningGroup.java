@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the Signing Group of an MPC Wallet.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -74,7 +74,7 @@ public class MpcSigningGroup {
    * The ID of the Signing Group.
    * @return usedKeyShareHolderGroupId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getUsedKeyShareHolderGroupId() {
     return usedKeyShareHolderGroupId;
   }
@@ -101,7 +101,7 @@ public class MpcSigningGroup {
    * The ID of the TSS Nodes that are required to participate in the signature.
    * @return usedTssNodeIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getUsedTssNodeIds() {
     return usedTssNodeIds;
   }

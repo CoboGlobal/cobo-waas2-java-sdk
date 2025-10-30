@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * TriggerTestWebhookEventRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -73,7 +73,7 @@ public class TriggerTestWebhookEventRequest {
    * Get eventType
    * @return eventType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WebhookEventType getEventType() {
     return eventType;
   }
@@ -92,7 +92,7 @@ public class TriggerTestWebhookEventRequest {
    * An object for customization of the webhook event payload. You only need to include the fields you want to customize.   The provided fields must match the webhook event data structure, depending on the specified event type. For a complete introduction of the webhook event data structure, refer to the &#x60;data.data&#x60; property in the response of [List all webhook events](https://www.cobo.com/developers/v2/api-references/developers--webhooks/list-all-webhook-events).  If this property is not provided, a default payload will be returned. 
    * @return overrideData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Object getOverrideData() {
     return overrideData;
   }

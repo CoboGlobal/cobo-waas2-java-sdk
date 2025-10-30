@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * The current approval workflow policy, consisting of one or more conditions and an associated action. When the conditions are met, the action is triggered.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class AppWorkflowPolicy {
    * Get action
    * @return action
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public PolicyAction getAction() {
     return action;
   }
@@ -103,7 +103,7 @@ public class AppWorkflowPolicy {
    * Get conditions
    * @return conditions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<PolicyCondition> getConditions() {
     return conditions;
   }

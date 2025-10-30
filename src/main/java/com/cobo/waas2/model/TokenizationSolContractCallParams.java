@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the Solana program call.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class TokenizationSolContractCallParams {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TokenizationContractCallType getType() {
     return type;
   }
@@ -103,7 +103,7 @@ public class TokenizationSolContractCallParams {
    * Get instructions
    * @return instructions
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<SolContractCallInstruction> getInstructions() {
     return instructions;
   }

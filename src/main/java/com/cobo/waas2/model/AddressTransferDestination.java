@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the transaction destination type &#x60;Address&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  **You need to specify either the &#x60;account_output&#x60; property or the &#x60;utxo_outputs&#x60; property.**  You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. To do this, you should use the &#x60;utxo_outputs&#x60; property to specify the destination addresses.  Switch between the tabs to display the properties for different transaction destinations. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -149,7 +149,7 @@ public class AddressTransferDestination {
    * Get destinationType
    * @return destinationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransferDestinationType getDestinationType() {
     return destinationType;
   }
@@ -168,7 +168,7 @@ public class AddressTransferDestination {
    * Get accountOutput
    * @return accountOutput
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public AddressTransferDestinationAccountOutput getAccountOutput() {
     return accountOutput;
   }
@@ -195,7 +195,7 @@ public class AddressTransferDestination {
    * Get utxoOutputs
    * @return utxoOutputs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<AddressTransferDestinationUtxoOutputsInner> getUtxoOutputs() {
     return utxoOutputs;
   }
@@ -214,7 +214,7 @@ public class AddressTransferDestination {
    * The address used to receive the remaining funds or change from the transaction.
    * @return changeAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getChangeAddress() {
     return changeAddress;
   }
@@ -233,7 +233,7 @@ public class AddressTransferDestination {
    * The position of the change output in the transaction&#39;s outputs. Possible values are: - &#x60;Last&#x60;: The change output is placed at the end of the transaction&#39;s outputs.   - &#x60;First&#x60;: The change output is placed at the beginning of the transaction&#39;s outputs. 
    * @return changeOutputType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ChangeOutputTypeEnum getChangeOutputType() {
     return changeOutputType;
   }
@@ -252,7 +252,7 @@ public class AddressTransferDestination {
    * Whether the transaction request must be executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer.   - &#x60;true&#x60;: The transaction request must be executed as a Cobo Loop transfer.   - &#x60;false&#x60;: The transaction request may not be executed as a Cobo Loop transfer.    Please do not set both &#x60;force_internal&#x60; and &#x60;force_external&#x60; as &#x60;true&#x60;. If both are set to &#x60;false&#x60;, the system uses Cobo Loop by default if possible; otherwise, it proceeds with an on-chain transfer. 
    * @return forceInternal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getForceInternal() {
     return forceInternal;
   }
@@ -271,7 +271,7 @@ public class AddressTransferDestination {
    * Whether the transaction request must not be executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer.   - &#x60;true&#x60;: The transaction request must not be executed as a Cobo Loop transfer.   - &#x60;false&#x60;: The transaction request can be executed as a Cobo Loop transfer.  Please do not set both &#x60;force_internal&#x60; and &#x60;force_external&#x60; as &#x60;true&#x60;. If both are set to &#x60;false&#x60;, the system uses Cobo Loop by default if possible; otherwise, it proceeds with an on-chain transfer. 
    * @return forceExternal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getForceExternal() {
     return forceExternal;
   }

@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The Fee Station usage evaluation result for the transfer request.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -97,7 +97,7 @@ public class FeeStationCheckFeeStationUsageResponse {
    * The token used to pay the gas fee for this specific transaction. You can retrieve the IDs of all supported tokens by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -116,7 +116,7 @@ public class FeeStationCheckFeeStationUsageResponse {
    * Get gasStationType
    * @return gasStationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeStationGasStationType getGasStationType() {
     return gasStationType;
   }
@@ -135,7 +135,7 @@ public class FeeStationCheckFeeStationUsageResponse {
    * Indicates whether Fee Station is applied for this transfer request.
    * @return isFeeStationApplicable
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getIsFeeStationApplicable() {
     return isFeeStationApplicable;
   }
@@ -154,7 +154,7 @@ public class FeeStationCheckFeeStationUsageResponse {
    * If Fee Station is used, indicates whether its balance is sufficient to cover the required gas fee.
    * @return isBalanceSufficient
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getIsBalanceSufficient() {
     return isBalanceSufficient;
   }
@@ -173,7 +173,7 @@ public class FeeStationCheckFeeStationUsageResponse {
    * The current token balance available in Fee Station.
    * @return balance
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getBalance() {
     return balance;
   }
@@ -192,7 +192,7 @@ public class FeeStationCheckFeeStationUsageResponse {
    * The total gas amount required for this transfer request.
    * @return totalFeeAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTotalFeeAmount() {
     return totalFeeAmount;
   }
@@ -211,7 +211,7 @@ public class FeeStationCheckFeeStationUsageResponse {
    * Indicates whether USDT (U) sponsorship is applied when Fee Station balance is insufficient.
    * @return isSponsorApplicable
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getIsSponsorApplicable() {
     return isSponsorApplicable;
   }
@@ -230,7 +230,7 @@ public class FeeStationCheckFeeStationUsageResponse {
    * The amount of gas fee sponsored by USDT (U) when applicable.
    * @return sponsoredFeeAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getSponsoredFeeAmount() {
     return sponsoredFeeAmount;
   }

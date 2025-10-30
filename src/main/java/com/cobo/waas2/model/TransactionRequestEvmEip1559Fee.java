@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The preset properties to limit transaction fee.  For more information about the EIP-1559 fee model, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  You can specify the maximum gas fee per gas unit, maximum priority fee per gas unit, and the gas limit to limit the gas price, priority fee per gas unit, gas units used in the transaction.   Switch between the tabs to display the properties for different transaction fee models. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -85,7 +85,7 @@ public class TransactionRequestEvmEip1559Fee {
    * The maximum gas fee per gas unit used on the chain, in wei.
    * @return maxFeePerGas
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMaxFeePerGas() {
     return maxFeePerGas;
   }
@@ -104,7 +104,7 @@ public class TransactionRequestEvmEip1559Fee {
    * The maximum priority fee per gas unit used, in wei. The maximum priority fee represents the highest amount of miner tips that you are willing to pay for your transaction.
    * @return maxPriorityFeePerGas
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMaxPriorityFeePerGas() {
     return maxPriorityFeePerGas;
   }
@@ -123,7 +123,7 @@ public class TransactionRequestEvmEip1559Fee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -142,7 +142,7 @@ public class TransactionRequestEvmEip1559Fee {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -161,7 +161,7 @@ public class TransactionRequestEvmEip1559Fee {
    * The gas limit. It represents the maximum number of gas units that you are willing to pay for the execution of a transaction or Ethereum Virtual Machine (EVM) operation. The gas unit cost of each operation varies.
    * @return gasLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasLimit() {
     return gasLimit;
   }

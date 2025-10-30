@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the MPC Wallet as the Delegate. You can call the [List Delegates](https://www.cobo.com/developers/v2/api-references/wallets--smart-contract-wallets/list-delegates) operation to retrieve the applicable Delegates.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -78,7 +78,7 @@ public class MPCDelegate {
    * Get delegateType
    * @return delegateType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public CoboSafeDelegateType getDelegateType() {
     return delegateType;
   }
@@ -97,7 +97,7 @@ public class MPCDelegate {
    * The wallet ID of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -116,7 +116,7 @@ public class MPCDelegate {
    * The wallet address of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }

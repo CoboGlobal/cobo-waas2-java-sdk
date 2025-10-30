@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * UpdatePaymentOrderRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class UpdatePaymentOrderRequest {
    * Whether to manually expire the order. If set to &#x60;true&#x60;, the order status will be updated to &#x60;Expired&#x60;.
    * @return expired
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getExpired() {
     return expired;
   }

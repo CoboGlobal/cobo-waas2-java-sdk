@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * BalanceUpdateInfoEventData
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -172,7 +172,7 @@ public class BalanceUpdateInfoEventData {
    *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    * @return dataType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public DataTypeEnum getDataType() {
     return dataType;
   }
@@ -191,7 +191,7 @@ public class BalanceUpdateInfoEventData {
    * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -210,7 +210,7 @@ public class BalanceUpdateInfoEventData {
    * The wallet address.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -229,7 +229,7 @@ public class BalanceUpdateInfoEventData {
    * The wallet ID.
    * @return walletUuid
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletUuid() {
     return walletUuid;
   }
@@ -248,7 +248,7 @@ public class BalanceUpdateInfoEventData {
    * The time when the balance updated, in Unix timestamp format, measured in milliseconds. 
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -267,7 +267,7 @@ public class BalanceUpdateInfoEventData {
    * Get balance
    * @return balance
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Balance getBalance() {
     return balance;
   }

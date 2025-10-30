@@ -63,7 +63,7 @@ import com.cobo.waas2.JSON;
 /**
  * PaymentTransactionEventData
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -310,7 +310,7 @@ public class PaymentTransactionEventData {
    *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    * @return dataType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public DataTypeEnum getDataType() {
     return dataType;
   }
@@ -329,7 +329,7 @@ public class PaymentTransactionEventData {
    * The transaction ID.
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getTransactionId() {
     return transactionId;
   }
@@ -348,7 +348,7 @@ public class PaymentTransactionEventData {
    * The Cobo ID, which can be used to track a transaction.
    * @return coboId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCoboId() {
     return coboId;
   }
@@ -367,7 +367,7 @@ public class PaymentTransactionEventData {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -386,7 +386,7 @@ public class PaymentTransactionEventData {
    * For deposit transactions, this property represents the wallet ID of the transaction destination. For transactions of other types, this property represents the wallet ID of the transaction source.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getWalletId() {
     return walletId;
   }
@@ -405,7 +405,7 @@ public class PaymentTransactionEventData {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionType getType() {
     return type;
   }
@@ -424,7 +424,7 @@ public class PaymentTransactionEventData {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionStatus getStatus() {
     return status;
   }
@@ -443,7 +443,7 @@ public class PaymentTransactionEventData {
    * Get subStatus
    * @return subStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionSubStatus getSubStatus() {
     return subStatus;
   }
@@ -462,7 +462,7 @@ public class PaymentTransactionEventData {
    * (This property is applicable to approval failures and signature failures only) The reason why the transaction failed.
    * @return failedReason
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFailedReason() {
     return failedReason;
   }
@@ -481,7 +481,7 @@ public class PaymentTransactionEventData {
    * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
    * @return chainId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getChainId() {
     return chainId;
   }
@@ -500,7 +500,7 @@ public class PaymentTransactionEventData {
    * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }
@@ -519,7 +519,7 @@ public class PaymentTransactionEventData {
    * (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
    * @return assetId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAssetId() {
     return assetId;
   }
@@ -538,7 +538,7 @@ public class PaymentTransactionEventData {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionSource getSource() {
     return source;
   }
@@ -557,7 +557,7 @@ public class PaymentTransactionEventData {
    * Get destination
    * @return destination
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionDestination getDestination() {
     return destination;
   }
@@ -576,7 +576,7 @@ public class PaymentTransactionEventData {
    * Get result
    * @return result
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionResult getResult() {
     return result;
   }
@@ -595,7 +595,7 @@ public class PaymentTransactionEventData {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionFee getFee() {
     return fee;
   }
@@ -614,7 +614,7 @@ public class PaymentTransactionEventData {
    * The transaction initiator.
    * @return initiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getInitiator() {
     return initiator;
   }
@@ -633,7 +633,7 @@ public class PaymentTransactionEventData {
    * Get initiatorType
    * @return initiatorType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionInitiatorType getInitiatorType() {
     return initiatorType;
   }
@@ -652,7 +652,7 @@ public class PaymentTransactionEventData {
    * The number of confirmations this transaction has received.
    * @return confirmedNum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getConfirmedNum() {
     return confirmedNum;
   }
@@ -671,7 +671,7 @@ public class PaymentTransactionEventData {
    * The minimum number of confirmations required to deem a transaction secure. The common threshold is 6 for a Bitcoin transaction.
    * @return confirmingThreshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getConfirmingThreshold() {
     return confirmingThreshold;
   }
@@ -690,7 +690,7 @@ public class PaymentTransactionEventData {
    * The transaction hash.
    * @return transactionHash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTransactionHash() {
     return transactionHash;
   }
@@ -709,7 +709,7 @@ public class PaymentTransactionEventData {
    * Get blockInfo
    * @return blockInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionBlockInfo getBlockInfo() {
     return blockInfo;
   }
@@ -728,7 +728,7 @@ public class PaymentTransactionEventData {
    * Get rawTxInfo
    * @return rawTxInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRawTxInfo getRawTxInfo() {
     return rawTxInfo;
   }
@@ -747,7 +747,7 @@ public class PaymentTransactionEventData {
    * Get replacement
    * @return replacement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionReplacement getReplacement() {
     return replacement;
   }
@@ -774,7 +774,7 @@ public class PaymentTransactionEventData {
    * A custom transaction category for you to identify your transfers more easily.
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getCategory() {
     return category;
   }
@@ -793,7 +793,7 @@ public class PaymentTransactionEventData {
    * The description for your transaction.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }
@@ -812,7 +812,7 @@ public class PaymentTransactionEventData {
    * Whether the transaction was executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer. - &#x60;true&#x60;: The transaction was executed as a Cobo Loop transfer. - &#x60;false&#x60;: The transaction was not executed as a Cobo Loop transfer. 
    * @return isLoop
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getIsLoop() {
     return isLoop;
   }
@@ -839,7 +839,7 @@ public class PaymentTransactionEventData {
    * The transaction category defined by Cobo. Possible values include:  - &#x60;AutoSweep&#x60;: An auto-sweep transaction. - &#x60;AutoFueling&#x60;: A transaction where Fee Station pays transaction fees to an address within your wallet. - &#x60;AutoFuelingRefund&#x60;: A refund for an auto-fueling transaction. - &#x60;SafeTxMessage&#x60;: A message signing transaction to authorize a Smart Contract Wallet (Safe\\{Wallet\\}) transaction. - &#x60;BillPayment&#x60;: A transaction to pay Cobo bills through Fee Station. - &#x60;BillRefund&#x60;: A refund for a previously made bill payment. - &#x60;CommissionFeeCharge&#x60;: A transaction to charge commission fees via Fee Station. - &#x60;CommissionFeeRefund&#x60;: A refund of previously charged commission fees. 
    * @return coboCategory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getCoboCategory() {
     return coboCategory;
   }
@@ -866,7 +866,7 @@ public class PaymentTransactionEventData {
    * A list of JSON-encoded strings containing structured, business-specific extra information for the transaction. Each item corresponds to a specific data type, indicated by the &#x60;extra_type&#x60; field in the JSON object (for example, \&quot;BabylonBusinessInfo\&quot;, \&quot;BtcAddressInfo\&quot;). 
    * @return extra
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getExtra() {
     return extra;
   }
@@ -885,7 +885,7 @@ public class PaymentTransactionEventData {
    * Get fuelingInfo
    * @return fuelingInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionFuelingInfo getFuelingInfo() {
     return fuelingInfo;
   }
@@ -904,7 +904,7 @@ public class PaymentTransactionEventData {
    * The time when the transaction was created, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -923,7 +923,7 @@ public class PaymentTransactionEventData {
    * The time when the transaction was updated, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -942,7 +942,7 @@ public class PaymentTransactionEventData {
    * Get acquiringType
    * @return acquiringType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public AcquiringType getAcquiringType() {
     return acquiringType;
   }
@@ -961,7 +961,7 @@ public class PaymentTransactionEventData {
    * The pay-in order ID.
    * @return orderId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getOrderId() {
     return orderId;
   }
@@ -980,7 +980,7 @@ public class PaymentTransactionEventData {
    * A unique reference code assigned by the developer to identify this order in their system.
    * @return pspOrderCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPspOrderCode() {
     return pspOrderCode;
   }
@@ -999,7 +999,7 @@ public class PaymentTransactionEventData {
    * A unique identifier assigned by Cobo to track and identify individual payers.
    * @return payerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPayerId() {
     return payerId;
   }
@@ -1018,7 +1018,7 @@ public class PaymentTransactionEventData {
    * A unique identifier assigned by the developer to track and identify individual payers in their system.
    * @return customPayerId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCustomPayerId() {
     return customPayerId;
   }

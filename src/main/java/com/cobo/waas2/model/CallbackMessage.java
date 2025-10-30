@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about a callback message.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -212,7 +212,7 @@ public class CallbackMessage {
    * The callback message ID.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getId() {
     return id;
   }
@@ -231,7 +231,7 @@ public class CallbackMessage {
    * The time when the callback message was created, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -250,7 +250,7 @@ public class CallbackMessage {
    * The time when the callback message was updated, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -269,7 +269,7 @@ public class CallbackMessage {
    * The request ID of the transaction.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -288,7 +288,7 @@ public class CallbackMessage {
    * The transaction ID.
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTransactionId() {
     return transactionId;
   }
@@ -307,7 +307,7 @@ public class CallbackMessage {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getWalletId() {
     return walletId;
   }
@@ -326,7 +326,7 @@ public class CallbackMessage {
    * The callback endpoint URL.
    * @return url
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getUrl() {
     return url;
   }
@@ -345,7 +345,7 @@ public class CallbackMessage {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Transaction getData() {
     return data;
   }
@@ -364,7 +364,7 @@ public class CallbackMessage {
    * The callback message status. Possible values include &#x60;Denied&#x60;, &#x60;Approved&#x60;, and &#x60;Failed&#x60;. 
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StatusEnum getStatus() {
     return status;
   }
@@ -383,7 +383,7 @@ public class CallbackMessage {
    * The callback message result. Possible values include &#x60;ok&#x60; and &#x60;deny&#x60;. 
    * @return result
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ResultEnum getResult() {
     return result;
   }

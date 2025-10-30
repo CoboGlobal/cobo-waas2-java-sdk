@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * TSSKeyShareSignRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -83,7 +83,7 @@ public class TSSKeyShareSignRequest {
    * The node ID of the key share holder.
    * @return nodeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getNodeId() {
     return nodeId;
   }
@@ -102,7 +102,7 @@ public class TSSKeyShareSignRequest {
    * The task ID.
    * @return taskId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTaskId() {
     return taskId;
   }
@@ -129,7 +129,7 @@ public class TSSKeyShareSignRequest {
    * Get details
    * @return details
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TSSKeyShareSignDetail> getDetails() {
     return details;
   }
@@ -148,7 +148,7 @@ public class TSSKeyShareSignRequest {
    * The business task ID. This field contains the key share sign request ID.
    * @return bizTaskId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getBizTaskId() {
     return bizTaskId;
   }

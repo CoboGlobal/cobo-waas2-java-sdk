@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * GetApiKeyInfo200Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -155,7 +155,7 @@ public class GetApiKeyInfo200Response {
    * The API key name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -174,7 +174,7 @@ public class GetApiKeyInfo200Response {
    * The curve type used for the API key, which determines the cryptographic algorithm for key generation and signing. Possible values include: - &#x60;ED25519&#x60;: Ed25519 - &#x60;SECP256K1&#x60;: Secp256k1 
    * @return curveType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public CurveTypeEnum getCurveType() {
     return curveType;
   }
@@ -193,7 +193,7 @@ public class GetApiKeyInfo200Response {
    * The API key value.
    * @return key
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getKey() {
     return key;
   }
@@ -212,7 +212,7 @@ public class GetApiKeyInfo200Response {
    * The URL of the callback endpoint that receives callback messages triggered by this API key.
    * @return callbackUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCallbackUrl() {
     return callbackUrl;
   }
@@ -239,7 +239,7 @@ public class GetApiKeyInfo200Response {
    * (Applicable to permanent API keys only) The list of IP addresses that are allowed to use this API key.
    * @return validIps
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getValidIps() {
     return validIps;
   }
@@ -258,7 +258,7 @@ public class GetApiKeyInfo200Response {
    * The time when the API key was registered, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -277,7 +277,7 @@ public class GetApiKeyInfo200Response {
    * The time when the API key information was last updated, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -296,7 +296,7 @@ public class GetApiKeyInfo200Response {
    * The time when the API key expires, in Unix timestamp format, measured in milliseconds. For permanent API keys, this property value is &#x60;null&#x60;.
    * @return expiredTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getExpiredTimestamp() {
     return expiredTimestamp;
   }
@@ -323,7 +323,7 @@ public class GetApiKeyInfo200Response {
    * The list of user roles and wallet scopes associated with the API key.
    * @return roleScopes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<RoleScopes> getRoleScopes() {
     return roleScopes;
   }

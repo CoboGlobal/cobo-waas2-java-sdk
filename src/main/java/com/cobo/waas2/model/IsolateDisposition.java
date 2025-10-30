@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about a request to isolate funds.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -87,7 +87,7 @@ public class IsolateDisposition {
    * The UUID of the transaction whose funds are to be isolated. This identifies the original transaction that requires fund isolation.
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getTransactionId() {
     return transactionId;
   }
@@ -106,7 +106,7 @@ public class IsolateDisposition {
    * The blockchain address to receive the isolated funds.
    * @return destinationAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getDestinationAddress() {
     return destinationAddress;
   }
@@ -125,7 +125,7 @@ public class IsolateDisposition {
    * The amount to be isolated from the original transaction, specified as a numeric string. This value cannot exceed the total amount of the original transaction. 
    * @return dispositionAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getDispositionAmount() {
     return dispositionAmount;
   }
@@ -152,7 +152,7 @@ public class IsolateDisposition {
    * Custom categories to identify and track this isolation transaction. Used for transaction classification and reporting.
    * @return categoryNames
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getCategoryNames() {
     return categoryNames;
   }
@@ -171,7 +171,7 @@ public class IsolateDisposition {
    * Additional notes or description for the isolation.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }

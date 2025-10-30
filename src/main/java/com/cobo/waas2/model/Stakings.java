@@ -53,7 +53,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about a staking position.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -114,7 +114,7 @@ public class Stakings {
    * The ID of the staking position.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getId() {
     return id;
   }
@@ -133,7 +133,7 @@ public class Stakings {
    * The staker&#39;s wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getWalletId() {
     return walletId;
   }
@@ -152,7 +152,7 @@ public class Stakings {
    * The staker&#39;s wallet address.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -179,7 +179,7 @@ public class Stakings {
    * The details about the staking amount.
    * @return amounts
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<AmountDetailsInner> getAmounts() {
     return amounts;
   }
@@ -198,7 +198,7 @@ public class Stakings {
    * Get poolId
    * @return poolId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolId getPoolId() {
     return poolId;
   }
@@ -217,7 +217,7 @@ public class Stakings {
    * The token ID.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -236,7 +236,7 @@ public class Stakings {
    * The information about the staking rewards.
    * @return rewardsInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Object getRewardsInfo() {
     return rewardsInfo;
   }
@@ -255,7 +255,7 @@ public class Stakings {
    * The time when the staking position was created.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -274,7 +274,7 @@ public class Stakings {
    * The time when the staking position was last updated.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -293,7 +293,7 @@ public class Stakings {
    * Get validatorInfo
    * @return validatorInfo
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public BabylonValidator getValidatorInfo() {
     return validatorInfo;
   }
@@ -312,7 +312,7 @@ public class Stakings {
    * Get extra
    * @return extra
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingsExtra getExtra() {
     return extra;
   }

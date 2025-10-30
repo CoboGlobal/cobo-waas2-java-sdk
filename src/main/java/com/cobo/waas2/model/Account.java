@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * Details of a payment account used for top-up operations, including address and balance metadata.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -88,7 +88,7 @@ public class Account {
    * The ID of the cryptocurrency that this account is configured to handle.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -107,7 +107,7 @@ public class Account {
    * The top-up address corresponding to the account.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -126,7 +126,7 @@ public class Account {
    * The amount of merchant funds under this account.
    * @return merchantBalance
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMerchantBalance() {
     return merchantBalance;
   }
@@ -145,7 +145,7 @@ public class Account {
    * The amount of developer funds under this account.
    * @return pspBalance
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPspBalance() {
     return pspBalance;
   }
@@ -164,7 +164,7 @@ public class Account {
    * The creation time of the account, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -183,7 +183,7 @@ public class Account {
    * The last update time of the account, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }

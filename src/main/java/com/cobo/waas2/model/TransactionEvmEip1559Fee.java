@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The transaction fee actually charged by the chain that uses the EIP-1559 fee model.   For more information about the EIP-1559 fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -101,7 +101,7 @@ public class TransactionEvmEip1559Fee {
    * The maximum gas fee per gas unit used on the chain, in wei.
    * @return maxFeePerGas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMaxFeePerGas() {
     return maxFeePerGas;
   }
@@ -120,7 +120,7 @@ public class TransactionEvmEip1559Fee {
    * The maximum priority fee per gas unit used, in wei. The maximum priority fee represents the highest amount of miner tips that you are willing to pay for your transaction.
    * @return maxPriorityFeePerGas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMaxPriorityFeePerGas() {
     return maxPriorityFeePerGas;
   }
@@ -139,7 +139,7 @@ public class TransactionEvmEip1559Fee {
    * The gas limit. It represents the maximum number of gas units that you are willing to pay for the execution of a transaction or Ethereum Virtual Machine (EVM) operation. The gas unit cost of each operation varies.
    * @return gasLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasLimit() {
     return gasLimit;
   }
@@ -158,7 +158,7 @@ public class TransactionEvmEip1559Fee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -177,7 +177,7 @@ public class TransactionEvmEip1559Fee {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }
@@ -196,7 +196,7 @@ public class TransactionEvmEip1559Fee {
    * The gas price (gas fee per gas unit) on the chain, in wei. The gas price represents the amount of ETH that must be paid to validators for processing transactions.
    * @return effectiveGasPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEffectiveGasPrice() {
     return effectiveGasPrice;
   }
@@ -215,7 +215,7 @@ public class TransactionEvmEip1559Fee {
    * The actually charged transaction fee.
    * @return feeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeUsed() {
     return feeUsed;
   }
@@ -234,7 +234,7 @@ public class TransactionEvmEip1559Fee {
    * The estimated transaction fee.
    * @return estimatedFeeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEstimatedFeeUsed() {
     return estimatedFeeUsed;
   }
@@ -253,7 +253,7 @@ public class TransactionEvmEip1559Fee {
    * The number of gas units used in the transaction.
    * @return gasUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasUsed() {
     return gasUsed;
   }

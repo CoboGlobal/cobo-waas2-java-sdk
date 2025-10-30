@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * TSSKeyReshareRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -103,7 +103,7 @@ public class TSSKeyReshareRequest {
    * The old TSS key share group ID.
    * @return oldGroupId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getOldGroupId() {
     return oldGroupId;
   }
@@ -122,7 +122,7 @@ public class TSSKeyReshareRequest {
    * The The old TSS key share group&#39;s root extended public key.
    * @return rootPubKey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRootPubKey() {
     return rootPubKey;
   }
@@ -141,7 +141,7 @@ public class TSSKeyReshareRequest {
    * Get curve
    * @return curve
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSCurve getCurve() {
     return curve;
   }
@@ -168,7 +168,7 @@ public class TSSKeyReshareRequest {
    * Get usedNodeIds
    * @return usedNodeIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getUsedNodeIds() {
     return usedNodeIds;
   }
@@ -187,7 +187,7 @@ public class TSSKeyReshareRequest {
    * The number of key share holders required to approve each operation in the old TSS key share group.
    * @return oldThreshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getOldThreshold() {
     return oldThreshold;
   }
@@ -206,7 +206,7 @@ public class TSSKeyReshareRequest {
    * The number of key share holders required to approve each operation in the new TSS key share group.
    * @return newThreshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getNewThreshold() {
     return newThreshold;
   }
@@ -233,7 +233,7 @@ public class TSSKeyReshareRequest {
    * Get newNodeIds
    * @return newNodeIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getNewNodeIds() {
     return newNodeIds;
   }
@@ -252,7 +252,7 @@ public class TSSKeyReshareRequest {
    * The task ID.
    * @return taskId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTaskId() {
     return taskId;
   }
@@ -271,7 +271,7 @@ public class TSSKeyReshareRequest {
    * The business task ID. This field contains the TSS request ID.
    * @return bizTaskId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getBizTaskId() {
     return bizTaskId;
   }

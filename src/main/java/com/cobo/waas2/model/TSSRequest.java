@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the TSS request.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -95,7 +95,7 @@ public class TSSRequest {
    * The TSS request ID.
    * @return tssRequestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTssRequestId() {
     return tssRequestId;
   }
@@ -114,7 +114,7 @@ public class TSSRequest {
    * Get sourceKeyShareHolderGroup
    * @return sourceKeyShareHolderGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public SourceGroup getSourceKeyShareHolderGroup() {
     return sourceKeyShareHolderGroup;
   }
@@ -133,7 +133,7 @@ public class TSSRequest {
    * The target key share holder group ID.
    * @return targetKeyShareHolderGroupId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTargetKeyShareHolderGroupId() {
     return targetKeyShareHolderGroupId;
   }
@@ -152,7 +152,7 @@ public class TSSRequest {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSRequestType getType() {
     return type;
   }
@@ -171,7 +171,7 @@ public class TSSRequest {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSRequestStatus getStatus() {
     return status;
   }
@@ -190,7 +190,7 @@ public class TSSRequest {
    * The description of the TSS request.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }
@@ -209,7 +209,7 @@ public class TSSRequest {
    * The TSS request&#39;s creation time in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }

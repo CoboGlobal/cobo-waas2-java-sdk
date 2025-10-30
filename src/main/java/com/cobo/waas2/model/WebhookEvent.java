@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * The webhook event payload.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -100,7 +100,7 @@ public class WebhookEvent {
    * The event ID.
    * @return eventId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getEventId() {
     return eventId;
   }
@@ -119,7 +119,7 @@ public class WebhookEvent {
    * The webhook endpoint URL.
    * @return url
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getUrl() {
     return url;
   }
@@ -138,7 +138,7 @@ public class WebhookEvent {
    * The time when the event was triggered, in Unix timestamp format (milliseconds). - The value remains unchanged across retries. - The default webhook timeout is 2 seconds. 
    * @return createdTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -157,7 +157,7 @@ public class WebhookEvent {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WebhookEventType getType() {
     return type;
   }
@@ -176,7 +176,7 @@ public class WebhookEvent {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WebhookEventData getData() {
     return data;
   }
@@ -195,7 +195,7 @@ public class WebhookEvent {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public WebhookEventStatus getStatus() {
     return status;
   }
@@ -214,7 +214,7 @@ public class WebhookEvent {
    * The timestamp indicating the next scheduled retry to deliver this event, in Unix timestamp format, measured in milliseconds. This field is only present if the event status is &#x60;Retrying&#x60;. 
    * @return nextRetryTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getNextRetryTimestamp() {
     return nextRetryTimestamp;
   }
@@ -233,7 +233,7 @@ public class WebhookEvent {
    * The number of retries left. This field is only present if the event status is &#x60;Retrying&#x60;.
    * @return retriesLeft
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getRetriesLeft() {
     return retriesLeft;
   }

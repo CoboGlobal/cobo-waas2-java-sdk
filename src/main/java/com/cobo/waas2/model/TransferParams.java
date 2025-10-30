@@ -54,7 +54,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about a token transfer.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -107,7 +107,7 @@ public class TransferParams {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -126,7 +126,7 @@ public class TransferParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransferSource getSource() {
     return source;
   }
@@ -145,7 +145,7 @@ public class TransferParams {
    * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). For transfers from Exchange Wallets, this property value represents the asset ID.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -164,7 +164,7 @@ public class TransferParams {
    * Get destination
    * @return destination
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransferDestination getDestination() {
     return destination;
   }
@@ -191,7 +191,7 @@ public class TransferParams {
    * The custom category for you to identify your transactions.
    * @return categoryNames
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getCategoryNames() {
     return categoryNames;
   }
@@ -210,7 +210,7 @@ public class TransferParams {
    * The description of the transfer.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }
@@ -229,7 +229,7 @@ public class TransferParams {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -248,7 +248,7 @@ public class TransferParams {
    * Get transactionProcessType
    * @return transactionProcessType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionProcessType getTransactionProcessType() {
     return transactionProcessType;
   }
@@ -267,7 +267,7 @@ public class TransferParams {
    * Get autoFuel
    * @return autoFuel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public AutoFuelType getAutoFuel() {
     return autoFuel;
   }

@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationUpdateBlocklistAddressesParamsAddressesInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class TokenizationUpdateBlocklistAddressesParamsAddressesInner {
    * The address to add or remove.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -91,7 +91,7 @@ public class TokenizationUpdateBlocklistAddressesParamsAddressesInner {
    * An optional note for the address, primarily used when adding addresses.
    * @return note
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getNote() {
     return note;
   }

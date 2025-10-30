@@ -26,7 +26,7 @@
 |**updatedTimestamp** | **Integer** | The last update time of the order, represented as a UNIX timestamp in seconds. |  [optional] |
 |**transactions** | [**List&lt;PaymentTransaction&gt;**](PaymentTransaction.md) | An array of transactions associated with this pay-in order. Each transaction represents a separate blockchain operation related to the pay-in process. |  [optional] |
 |**settlementStatus** | **SettleStatus** |  |  [optional] |
-|**amountTolerance** | **String** | Allowed amount deviation. |  [optional] |
+|**amountTolerance** | **String** | The maximum allowed deviation from the payable amount in the case of underpayment, specified as a positive value with up to one decimal place. If you provide more than one decimal place, an error will occur.  When the actual received amount is within this deviation (inclusive) of the payable amount, the order status will be set to &#x60;Completed&#x60; rather than &#x60;Underpaid&#x60;.  |  [optional] |
 
 
 

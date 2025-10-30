@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The UTXO information.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -100,7 +100,7 @@ public class UTXO {
    * The transaction hash of the UTXO.
    * @return txHash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTxHash() {
     return txHash;
   }
@@ -119,7 +119,7 @@ public class UTXO {
    * The output index of the UTXO.
    * @return voutN
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getVoutN() {
     return voutN;
   }
@@ -138,7 +138,7 @@ public class UTXO {
    * The address of the UTXO.
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -157,7 +157,7 @@ public class UTXO {
    * The token ID, which is the unique identifier of a token.
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }
@@ -176,7 +176,7 @@ public class UTXO {
    * The value of the UTXO.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getValue() {
     return value;
   }
@@ -195,7 +195,7 @@ public class UTXO {
    * Whether the UTXO comes from a coinbase transaction.
    * @return isCoinbase
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getIsCoinbase() {
     return isCoinbase;
   }
@@ -214,7 +214,7 @@ public class UTXO {
    * Whether the UTXO is locked.
    * @return isLocked
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getIsLocked() {
     return isLocked;
   }
@@ -233,7 +233,7 @@ public class UTXO {
    * The number of confirmations for the UTXO.
    * @return confirmedNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getConfirmedNumber() {
     return confirmedNumber;
   }
@@ -252,7 +252,7 @@ public class UTXO {
    * Whether the UTXO is frozen.
    * @return isFrozen
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getIsFrozen() {
     return isFrozen;
   }

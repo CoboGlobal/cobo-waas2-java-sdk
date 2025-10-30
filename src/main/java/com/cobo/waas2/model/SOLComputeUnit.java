@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * SOLComputeUnit
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class SOLComputeUnit {
    * The price paid per compute unit. This value determines the priority fee for the transaction, allowing you to increase inclusion probability in congested conditions.
    * @return computeUnitPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getComputeUnitPrice() {
     return computeUnitPrice;
   }
@@ -91,7 +91,7 @@ public class SOLComputeUnit {
    * The maximum number of compute units your transaction is allowed to consume. It sets an upper bound on computational resource usage to prevent overload.
    * @return computeUnitLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getComputeUnitLimit() {
     return computeUnitLimit;
   }

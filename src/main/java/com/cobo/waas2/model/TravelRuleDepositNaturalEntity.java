@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The required information of a natural person.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -137,7 +137,7 @@ public class TravelRuleDepositNaturalEntity {
    * Specifies the type of entity associated with the transaction. - &#x60;LEGAL&#x60;: Legal entity. - &#x60;NATURAL&#x60;: Natural person. 
    * @return selectedEntityType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public SelectedEntityTypeEnum getSelectedEntityType() {
     return selectedEntityType;
   }
@@ -156,7 +156,7 @@ public class TravelRuleDepositNaturalEntity {
    * The first name of the natural person.
    * @return firstName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getFirstName() {
     return firstName;
   }
@@ -175,7 +175,7 @@ public class TravelRuleDepositNaturalEntity {
    * The last name of the natural person.
    * @return lastName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getLastName() {
     return lastName;
   }
@@ -194,7 +194,7 @@ public class TravelRuleDepositNaturalEntity {
    * The date of birth of the natural person. This field is required when either of the following conditions is met: - &#x60;is_threshold_reached&#x60; is &#x60;true&#x60; in the response of the [Retrieve transaction limitations](https://www.cobo.com/developers/v2/api-references/travelrule/retrieve-transaction-limitations) operation. - &#x60;selected_entity_type&#x60; is &#x60;NATURAL&#x60;. 
    * @return dateOfBirth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
@@ -213,7 +213,7 @@ public class TravelRuleDepositNaturalEntity {
    * The place of birth of the natural person. This field is required when either of the following conditions is met: - &#x60;is_threshold_reached&#x60; is &#x60;true&#x60; in the response of the [Retrieve transaction limitations](https://www.cobo.com/developers/v2/api-references/travelrule/retrieve-transaction-limitations) operation. - &#x60;selected_entity_type&#x60; is &#x60;NATURAL&#x60;. 
    * @return placeOfBirth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPlaceOfBirth() {
     return placeOfBirth;
   }

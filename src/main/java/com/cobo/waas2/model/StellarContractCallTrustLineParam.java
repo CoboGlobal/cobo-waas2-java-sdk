@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * Parameters related to Stellar trustline operations.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -78,7 +78,7 @@ public class StellarContractCallTrustLineParam {
    * Get contractType
    * @return contractType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StellarContractCallContractType getContractType() {
     return contractType;
   }
@@ -97,7 +97,7 @@ public class StellarContractCallTrustLineParam {
    * The token ID, which is the unique identifier of a token.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -116,7 +116,7 @@ public class StellarContractCallTrustLineParam {
    * Get operationType
    * @return operationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StellarContractCallTrustLineOperationType getOperationType() {
     return operationType;
   }

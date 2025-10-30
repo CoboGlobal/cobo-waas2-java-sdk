@@ -66,7 +66,7 @@ import com.cobo.waas2.JSON;
 /**
  * TransactionDetails
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -243,7 +243,7 @@ public class TransactionDetails {
    * The transaction ID.
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getTransactionId() {
     return transactionId;
   }
@@ -262,7 +262,7 @@ public class TransactionDetails {
    * The Cobo ID, which can be used to track a transaction.
    * @return coboId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCoboId() {
     return coboId;
   }
@@ -281,7 +281,7 @@ public class TransactionDetails {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -300,7 +300,7 @@ public class TransactionDetails {
    * For deposit transactions, this property represents the wallet ID of the transaction destination. For transactions of other types, this property represents the wallet ID of the transaction source.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getWalletId() {
     return walletId;
   }
@@ -319,7 +319,7 @@ public class TransactionDetails {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionType getType() {
     return type;
   }
@@ -338,7 +338,7 @@ public class TransactionDetails {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionStatus getStatus() {
     return status;
   }
@@ -357,7 +357,7 @@ public class TransactionDetails {
    * Get subStatus
    * @return subStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionSubStatus getSubStatus() {
     return subStatus;
   }
@@ -376,7 +376,7 @@ public class TransactionDetails {
    * (This property is applicable to approval failures and signature failures only) The reason why the transaction failed.
    * @return failedReason
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFailedReason() {
     return failedReason;
   }
@@ -395,7 +395,7 @@ public class TransactionDetails {
    * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
    * @return chainId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getChainId() {
     return chainId;
   }
@@ -414,7 +414,7 @@ public class TransactionDetails {
    * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }
@@ -433,7 +433,7 @@ public class TransactionDetails {
    * (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
    * @return assetId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAssetId() {
     return assetId;
   }
@@ -452,7 +452,7 @@ public class TransactionDetails {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionSource getSource() {
     return source;
   }
@@ -471,7 +471,7 @@ public class TransactionDetails {
    * Get destination
    * @return destination
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionDestination getDestination() {
     return destination;
   }
@@ -490,7 +490,7 @@ public class TransactionDetails {
    * Get result
    * @return result
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionResult getResult() {
     return result;
   }
@@ -509,7 +509,7 @@ public class TransactionDetails {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -528,7 +528,7 @@ public class TransactionDetails {
    * Transaction initiator
    * @return initiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getInitiator() {
     return initiator;
   }
@@ -547,7 +547,7 @@ public class TransactionDetails {
    * Get initiatorType
    * @return initiatorType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionInitiatorType getInitiatorType() {
     return initiatorType;
   }
@@ -566,7 +566,7 @@ public class TransactionDetails {
    * Transaction confirmed number
    * @return confirmedNum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getConfirmedNum() {
     return confirmedNum;
   }
@@ -585,7 +585,7 @@ public class TransactionDetails {
    * Number of confirmations required for a transaction, such as 15 for ETH chain.
    * @return confirmingThreshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getConfirmingThreshold() {
     return confirmingThreshold;
   }
@@ -604,7 +604,7 @@ public class TransactionDetails {
    * The transaction hash.
    * @return transactionHash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTransactionHash() {
     return transactionHash;
   }
@@ -623,7 +623,7 @@ public class TransactionDetails {
    * Get blockInfo
    * @return blockInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionBlockInfo getBlockInfo() {
     return blockInfo;
   }
@@ -642,7 +642,7 @@ public class TransactionDetails {
    * Get rawTxInfo
    * @return rawTxInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRawTxInfo getRawTxInfo() {
     return rawTxInfo;
   }
@@ -661,7 +661,7 @@ public class TransactionDetails {
    * Get replacement
    * @return replacement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionReplacement getReplacement() {
     return replacement;
   }
@@ -688,7 +688,7 @@ public class TransactionDetails {
    * A custom transaction category for you to identify your transfers more easily.
    * @return category
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getCategory() {
     return category;
   }
@@ -707,7 +707,7 @@ public class TransactionDetails {
    * The description for your transaction.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }
@@ -726,7 +726,7 @@ public class TransactionDetails {
    * Whether the transaction was executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer. - &#x60;true&#x60;: The transaction was executed as a Cobo Loop transfer. - &#x60;false&#x60;: The transaction was not executed as a Cobo Loop transfer. 
    * @return isLoop
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getIsLoop() {
     return isLoop;
   }
@@ -753,7 +753,7 @@ public class TransactionDetails {
    * The transaction category defined by Cobo. Possible values include:  - &#x60;AutoSweep&#x60;: An auto-sweep transaction. - &#x60;AutoFueling&#x60;: A transaction where Fee Station pays transaction fees to an address within your wallet. - &#x60;AutoFuelingRefund&#x60;: A refund for an auto-fueling transaction. - &#x60;SafeTxMessage&#x60;: A message signing transaction to authorize a Smart Contract Wallet (Safe\\{Wallet\\}) transaction. - &#x60;BillPayment&#x60;: A transaction to pay Cobo bills through Fee Station. - &#x60;BillRefund&#x60;: A refund for a previously made bill payment. - &#x60;CommissionFeeCharge&#x60;: A transaction to charge commission fees via Fee Station. - &#x60;CommissionFeeRefund&#x60;: A refund of previously charged commission fees. 
    * @return coboCategory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getCoboCategory() {
     return coboCategory;
   }
@@ -780,7 +780,7 @@ public class TransactionDetails {
    * A list of JSON-encoded strings containing structured, business-specific extra information for the transaction. Each item corresponds to a specific data type, indicated by the &#x60;extra_type&#x60; field in the JSON object (for example, \&quot;BabylonBusinessInfo\&quot;, \&quot;BtcAddressInfo\&quot;). 
    * @return extra
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getExtra() {
     return extra;
   }
@@ -799,7 +799,7 @@ public class TransactionDetails {
    * Get fuelingInfo
    * @return fuelingInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionFuelingInfo getFuelingInfo() {
     return fuelingInfo;
   }
@@ -818,7 +818,7 @@ public class TransactionDetails {
    * The time when the transaction was created, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -837,7 +837,7 @@ public class TransactionDetails {
    * The time when the transaction was updated, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -864,7 +864,7 @@ public class TransactionDetails {
    * Get approvers
    * @return approvers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TransactionApprover> getApprovers() {
     return approvers;
   }
@@ -891,7 +891,7 @@ public class TransactionDetails {
    * Get signers
    * @return signers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TransactionSigner> getSigners() {
     return signers;
   }
@@ -910,7 +910,7 @@ public class TransactionDetails {
    * Transaction nonce
    * @return nonce
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getNonce() {
     return nonce;
   }
@@ -929,7 +929,7 @@ public class TransactionDetails {
    * Replace by transaction hash
    * @return replacedBy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getReplacedBy() {
     return replacedBy;
   }
@@ -948,7 +948,7 @@ public class TransactionDetails {
    * Fueled by address
    * @return fueledBy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFueledBy() {
     return fueledBy;
   }
@@ -967,7 +967,7 @@ public class TransactionDetails {
    * Get tokenApproval
    * @return tokenApproval
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionTokeApproval getTokenApproval() {
     return tokenApproval;
   }
@@ -986,7 +986,7 @@ public class TransactionDetails {
    * Transaction raw message
    * @return message
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMessage() {
     return message;
   }
@@ -1005,7 +1005,7 @@ public class TransactionDetails {
    * Transaction message signing algorithm
    * @return algorithm
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAlgorithm() {
     return algorithm;
   }
@@ -1032,7 +1032,7 @@ public class TransactionDetails {
    * Get timeline
    * @return timeline
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TransactionTimeline> getTimeline() {
     return timeline;
   }

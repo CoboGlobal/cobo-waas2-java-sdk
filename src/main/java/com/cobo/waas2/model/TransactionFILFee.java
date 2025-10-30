@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The transaction fee actually charged by the chain that uses the Filecoin fee model.  For more details about the Filecoin fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -97,7 +97,7 @@ public class TransactionFILFee {
    * The minimum fee required for a transaction to be included in a block. The base fee is dynamically adjusted based on network congestion to maintain target block utilization. It is burned rather than paid to miners, reducing the total Filecoin supply over time.
    * @return gasBase
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasBase() {
     return gasBase;
   }
@@ -116,7 +116,7 @@ public class TransactionFILFee {
    * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
    * @return gasPremium
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasPremium() {
     return gasPremium;
   }
@@ -135,7 +135,7 @@ public class TransactionFILFee {
    * The maximum gas price you are willing to pay per unit of gas.
    * @return gasFeeCap
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasFeeCap() {
     return gasFeeCap;
   }
@@ -154,7 +154,7 @@ public class TransactionFILFee {
    * The maximum amount of gas your transaction is allowed to consume.
    * @return gasLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasLimit() {
     return gasLimit;
   }
@@ -173,7 +173,7 @@ public class TransactionFILFee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -192,7 +192,7 @@ public class TransactionFILFee {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }
@@ -211,7 +211,7 @@ public class TransactionFILFee {
    * The actually charged transaction fee.
    * @return feeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeUsed() {
     return feeUsed;
   }
@@ -230,7 +230,7 @@ public class TransactionFILFee {
    * The estimated transaction fee.
    * @return estimatedFeeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEstimatedFeeUsed() {
     return estimatedFeeUsed;
   }

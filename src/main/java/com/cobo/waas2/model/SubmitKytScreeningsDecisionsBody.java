@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The KYT screening decision submission containing the transaction ID and the screening decision based on an external compliance review.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -74,7 +74,7 @@ public class SubmitKytScreeningsDecisionsBody {
    * The UUID of the transaction for KYT result submission. This identifies the specific transaction that the external KYT result applies to.
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getTransactionId() {
     return transactionId;
   }
@@ -93,7 +93,7 @@ public class SubmitKytScreeningsDecisionsBody {
    * Get result
    * @return result
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public KytScreeningsDecisionsType getResult() {
     return result;
   }

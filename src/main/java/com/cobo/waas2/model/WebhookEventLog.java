@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The webhook event log.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -102,7 +102,7 @@ public class WebhookEventLog {
    * The event log ID.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getId() {
     return id;
   }
@@ -121,7 +121,7 @@ public class WebhookEventLog {
    * The time when the event was triggered, in Unix timestamp format (milliseconds). - The value remains unchanged across retries. - The default webhook timeout is 2 seconds. 
    * @return createdTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -140,7 +140,7 @@ public class WebhookEventLog {
    * The request headers of the webhook event.
    * @return requestHeaders
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Object getRequestHeaders() {
     return requestHeaders;
   }
@@ -159,7 +159,7 @@ public class WebhookEventLog {
    * Get requestBody
    * @return requestBody
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WebhookEvent getRequestBody() {
     return requestBody;
   }
@@ -178,7 +178,7 @@ public class WebhookEventLog {
    * The response body of the webhook event.
    * @return responseBody
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getResponseBody() {
     return responseBody;
   }
@@ -197,7 +197,7 @@ public class WebhookEventLog {
    * The response status code of the webhook event.
    * @return responseStatusCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getResponseStatusCode() {
     return responseStatusCode;
   }
@@ -216,7 +216,7 @@ public class WebhookEventLog {
    * The response time of the webhook event, in milliseconds.
    * @return responseTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getResponseTime() {
     return responseTime;
   }
@@ -235,7 +235,7 @@ public class WebhookEventLog {
    * Whether the webhook event has been successfully delivered.
    * @return success
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getSuccess() {
     return success;
   }
@@ -254,7 +254,7 @@ public class WebhookEventLog {
    * The reason why the webhook event fails to be delivered.
    * @return failureReason
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFailureReason() {
     return failureReason;
   }

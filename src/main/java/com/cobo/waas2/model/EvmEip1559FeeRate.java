@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The transaction fee rate based on the EIP-1559 fee model.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -86,7 +86,7 @@ public class EvmEip1559FeeRate {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -105,7 +105,7 @@ public class EvmEip1559FeeRate {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -124,7 +124,7 @@ public class EvmEip1559FeeRate {
    * Get slow
    * @return slow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public EvmEip1559FeeBasePrice getSlow() {
     return slow;
   }
@@ -143,7 +143,7 @@ public class EvmEip1559FeeRate {
    * Get recommended
    * @return recommended
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public EvmEip1559FeeBasePrice getRecommended() {
     return recommended;
   }
@@ -162,7 +162,7 @@ public class EvmEip1559FeeRate {
    * Get fast
    * @return fast
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public EvmEip1559FeeBasePrice getFast() {
     return fast;
   }

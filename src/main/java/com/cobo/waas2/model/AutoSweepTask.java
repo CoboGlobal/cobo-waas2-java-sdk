@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * Auto-sweep task information.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -100,7 +100,7 @@ public class AutoSweepTask {
    * Auto-sweep task ID.
    * @return taskId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getTaskId() {
     return taskId;
   }
@@ -119,7 +119,7 @@ public class AutoSweepTask {
    * Wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getWalletId() {
     return walletId;
   }
@@ -138,7 +138,7 @@ public class AutoSweepTask {
    * Token ID of the swept token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -157,7 +157,7 @@ public class AutoSweepTask {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public AutoSweepTaskStatus getStatus() {
     return status;
   }
@@ -184,7 +184,7 @@ public class AutoSweepTask {
    * IDs of the transactions triggered by the task.
    * @return transactionIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getTransactionIds() {
     return transactionIds;
   }
@@ -211,7 +211,7 @@ public class AutoSweepTask {
    * Reasons why the task creation failed.
    * @return failedReasons
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getFailedReasons() {
     return failedReasons;
   }
@@ -230,7 +230,7 @@ public class AutoSweepTask {
    * The time when the task was created, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -249,7 +249,7 @@ public class AutoSweepTask {
    * The time when the task was updated, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }

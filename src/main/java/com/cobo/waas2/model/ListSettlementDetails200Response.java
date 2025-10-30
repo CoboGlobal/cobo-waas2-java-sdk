@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * ListSettlementDetails200Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -84,7 +84,7 @@ public class ListSettlementDetails200Response {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<SettlementDetail> getData() {
     return data;
   }
@@ -103,7 +103,7 @@ public class ListSettlementDetails200Response {
    * Get pagination
    * @return pagination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Pagination getPagination() {
     return pagination;
   }
