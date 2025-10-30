@@ -532,7 +532,7 @@ public class ComplianceApi {
     }
     /**
      * Build call for submitKytManualReview
-     * @param submitKytScreeningsReviewBody The request body to submit a manual review result for KYT screening case that requires human analysis. (optional)
+     * @param submitKytScreeningsReviewBody The request body to submit a manual review result for a KYT screening case that requires human analysis. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -585,7 +585,7 @@ public class ComplianceApi {
     /**
      * Submit KYT manual review result
      * This operation submits a manual review result for a KYT (Know Your Transaction) screening case that requires human analysis.  Use this endpoint when transactions flagged for manual review have been analyzed by compliance officers and require submission of review outcomes with detailed comments and justifications.  This endpoint is specifically designed for submitting comprehensive manual review findings rather than automated screening decisions.  &lt;Note&gt;Submitting a manual review result will update the KYT screening status and initiate appropriate compliance workflow actions based on the review outcome.&lt;/Note&gt; 
-     * @param submitKytScreeningsReviewBody The request body to submit a manual review result for KYT screening case that requires human analysis. (optional)
+     * @param submitKytScreeningsReviewBody The request body to submit a manual review result for a KYT screening case that requires human analysis. (optional)
      * @return SubmitKytResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -604,7 +604,7 @@ public class ComplianceApi {
     /**
      * Submit KYT manual review result
      * This operation submits a manual review result for a KYT (Know Your Transaction) screening case that requires human analysis.  Use this endpoint when transactions flagged for manual review have been analyzed by compliance officers and require submission of review outcomes with detailed comments and justifications.  This endpoint is specifically designed for submitting comprehensive manual review findings rather than automated screening decisions.  &lt;Note&gt;Submitting a manual review result will update the KYT screening status and initiate appropriate compliance workflow actions based on the review outcome.&lt;/Note&gt; 
-     * @param submitKytScreeningsReviewBody The request body to submit a manual review result for KYT screening case that requires human analysis. (optional)
+     * @param submitKytScreeningsReviewBody The request body to submit a manual review result for a KYT screening case that requires human analysis. (optional)
      * @return ApiResponse&lt;SubmitKytResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -624,7 +624,7 @@ public class ComplianceApi {
     /**
      * Submit KYT manual review result (asynchronously)
      * This operation submits a manual review result for a KYT (Know Your Transaction) screening case that requires human analysis.  Use this endpoint when transactions flagged for manual review have been analyzed by compliance officers and require submission of review outcomes with detailed comments and justifications.  This endpoint is specifically designed for submitting comprehensive manual review findings rather than automated screening decisions.  &lt;Note&gt;Submitting a manual review result will update the KYT screening status and initiate appropriate compliance workflow actions based on the review outcome.&lt;/Note&gt; 
-     * @param submitKytScreeningsReviewBody The request body to submit a manual review result for KYT screening case that requires human analysis. (optional)
+     * @param submitKytScreeningsReviewBody The request body to submit a manual review result for a KYT screening case that requires human analysis. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
