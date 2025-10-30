@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * SwapEstimateFee
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -82,7 +82,7 @@ public class SwapEstimateFee {
    * The ID of the wallet to pay.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getWalletId() {
     return walletId;
   }
@@ -101,7 +101,7 @@ public class SwapEstimateFee {
    * The wallet address. This property is required when the wallet to pay is not a Custodial Wallet (Asset Wallet).
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -120,7 +120,7 @@ public class SwapEstimateFee {
    * The ID of the swap quote.
    * @return quoteId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getQuoteId() {
     return quoteId;
   }
@@ -139,7 +139,7 @@ public class SwapEstimateFee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public FeeType getFeeType() {
     return feeType;
   }

@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * UpdateMerchantByIdRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class UpdateMerchantByIdRequest {
    * The merchant name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -91,7 +91,7 @@ public class UpdateMerchantByIdRequest {
    * The developer fee rate applied to this merchant. Expressed as a string in decimal format where \&quot;0.1\&quot; represents 10%. This fee is deducted from the payment amount and only applies to top-up transactions. If you are a merchant (directly serving the payer), you do not need to configure the developer fee rate.
    * @return developerFeeRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDeveloperFeeRate() {
     return developerFeeRate;
   }

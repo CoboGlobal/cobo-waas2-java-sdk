@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * EigenLayerLstStakeExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -73,7 +73,7 @@ public class EigenLayerLstStakeExtra {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -92,7 +92,7 @@ public class EigenLayerLstStakeExtra {
    * The operator&#39;s address.
    * @return operator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getOperator() {
     return operator;
   }

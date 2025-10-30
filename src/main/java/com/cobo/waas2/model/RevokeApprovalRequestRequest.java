@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * RevokeApprovalRequestRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class RevokeApprovalRequestRequest {
    * The email of the user who requested the approval.
    * @return initiatorEmail
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getInitiatorEmail() {
     return initiatorEmail;
   }

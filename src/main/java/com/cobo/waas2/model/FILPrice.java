@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * FILPrice
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class FILPrice {
    * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
    * @return gasPremium
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasPremium() {
     return gasPremium;
   }
@@ -95,7 +95,7 @@ public class FILPrice {
    * The maximum gas price you are willing to pay per unit of gas.
    * @return gasFeeCap
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasFeeCap() {
     return gasFeeCap;
   }
@@ -114,7 +114,7 @@ public class FILPrice {
    * The maximum amount of gas your transaction is allowed to consume.
    * @return gasLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasLimit() {
     return gasLimit;
   }

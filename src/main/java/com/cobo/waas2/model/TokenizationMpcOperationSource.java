@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationMpcOperationSource
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -78,7 +78,7 @@ public class TokenizationMpcOperationSource {
    * Get sourceType
    * @return sourceType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationOperationSourceType getSourceType() {
     return sourceType;
   }
@@ -97,7 +97,7 @@ public class TokenizationMpcOperationSource {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -116,7 +116,7 @@ public class TokenizationMpcOperationSource {
    * The wallet address used to interact with the token contract.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }

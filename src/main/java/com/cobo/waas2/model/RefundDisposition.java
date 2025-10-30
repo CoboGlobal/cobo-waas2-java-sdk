@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about a request to refund funds.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -87,7 +87,7 @@ public class RefundDisposition {
    * The UUID of the transaction whose funds are to be refunded. This identifies the original transaction that requires refund processing.
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getTransactionId() {
     return transactionId;
   }
@@ -106,7 +106,7 @@ public class RefundDisposition {
    * The blockchain address to receive the refunded funds.
    * @return destinationAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getDestinationAddress() {
     return destinationAddress;
   }
@@ -125,7 +125,7 @@ public class RefundDisposition {
    * The amount to be refunded from the original transaction, specified as a numeric string. This value cannot exceed the total amount of the original transaction. 
    * @return dispositionAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getDispositionAmount() {
     return dispositionAmount;
   }
@@ -152,7 +152,7 @@ public class RefundDisposition {
    * Custom categories to identify and track this refund transaction. Used for transaction classification and reporting.
    * @return categoryNames
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getCategoryNames() {
     return categoryNames;
   }
@@ -171,7 +171,7 @@ public class RefundDisposition {
    * Additional notes or description for the refund.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }

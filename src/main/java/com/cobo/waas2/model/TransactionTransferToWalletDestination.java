@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * Information about the transaction destination type &#x60;CustodialWallet&#x60; or &#x60;ExchangeWallet&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -87,7 +87,7 @@ public class TransactionTransferToWalletDestination {
    * Get destinationType
    * @return destinationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionDestinationType getDestinationType() {
     return destinationType;
   }
@@ -106,7 +106,7 @@ public class TransactionTransferToWalletDestination {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -125,7 +125,7 @@ public class TransactionTransferToWalletDestination {
    * The trading account type. This field is only applicable when &#x60;destination_type&#x60; is &#x60;ExchangeWallet&#x60;.
    * @return tradingAccountType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTradingAccountType() {
     return tradingAccountType;
   }
@@ -144,7 +144,7 @@ public class TransactionTransferToWalletDestination {
    * Get exchangeId
    * @return exchangeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ExchangeId getExchangeId() {
     return exchangeId;
   }
@@ -163,7 +163,7 @@ public class TransactionTransferToWalletDestination {
    * The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;. 
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAmount() {
     return amount;
   }

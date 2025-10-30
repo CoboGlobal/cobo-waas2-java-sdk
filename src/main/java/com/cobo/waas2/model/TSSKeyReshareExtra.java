@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * TSSKeyReshareExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -93,7 +93,7 @@ public class TSSKeyReshareExtra {
    * Get org
    * @return org
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public OrgInfo getOrg() {
     return org;
   }
@@ -112,7 +112,7 @@ public class TSSKeyReshareExtra {
    * Get project
    * @return project
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public MPCProject getProject() {
     return project;
   }
@@ -131,7 +131,7 @@ public class TSSKeyReshareExtra {
    * Get vault
    * @return vault
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public MPCVault getVault() {
     return vault;
   }
@@ -150,7 +150,7 @@ public class TSSKeyReshareExtra {
    * Get sourceKeyShareHolderGroup
    * @return sourceKeyShareHolderGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public KeyShareHolderGroup getSourceKeyShareHolderGroup() {
     return sourceKeyShareHolderGroup;
   }
@@ -169,7 +169,7 @@ public class TSSKeyReshareExtra {
    * Get targetKeyShareHolderGroup
    * @return targetKeyShareHolderGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public KeyShareHolderGroup getTargetKeyShareHolderGroup() {
     return targetKeyShareHolderGroup;
   }
@@ -188,7 +188,7 @@ public class TSSKeyReshareExtra {
    * Get tssRequest
    * @return tssRequest
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSRequest getTssRequest() {
     return tssRequest;
   }

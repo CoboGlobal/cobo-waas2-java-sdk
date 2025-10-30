@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the staking source.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -78,7 +78,7 @@ public class BaseStakeSource {
    * Get sourceType
    * @return sourceType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakeSourceType getSourceType() {
     return sourceType;
   }
@@ -97,7 +97,7 @@ public class BaseStakeSource {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -116,7 +116,7 @@ public class BaseStakeSource {
    * The wallet address.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }

@@ -10951,7 +10951,9 @@ paths:
   /payments/links/orders:
     post:
       description: |
-        This operation creates a payment link of a pay-in order.
+        This operation generates a payment link for a pay-in order. The link directs users to a hosted payment page where they can complete their payment for the order. You can share the link directly with users or embed the payment page in your website or application using an iframe.
+
+        For more details, see [Payment Link](https://www.cobo.com/developers/v2/payments/payment-link).
       operationId: create_order_link
       requestBody:
         $ref: '#/components/requestBodies/createPaymentOrderLinkRequest'
@@ -10961,7 +10963,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Link'
-          description: Infos of a newly initiated payment link.
+          description: Order link created successfully.
         "4XX":
           content:
             application/json:
@@ -11061,7 +11063,7 @@ paths:
       - CoboAuth: []
       - OAuth2:
         - wallet.create
-      summary: create sweep-to address
+      summary: Create sweep-to address
       tags:
       - AutoSweep
       x-content-type: application/json
@@ -15044,7 +15046,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/create_order_link_request'
-      description: The request body to create a payment link of a pay-in order.
+      description: The request body to create a payment link for a pay-in order.
     estimateFeeStationFeeBody:
       content:
         application/json:
@@ -15159,7 +15161,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/SubmitKytScreeningsReviewBody'
-      description: The request body to submit a manual review result for KYT screening
+      description: The request body to submit a manual review result for a KYT screening
         case that requires human analysis.
     createAddressBooksRequestBody:
       content:
@@ -16128,7 +16130,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Link'
-      description: Infos of a newly initiated payment link.
+      description: Order link created successfully.
     createDispositionResponse:
       content:
         application/json:
@@ -27118,7 +27120,10 @@ components:
         settlement_status:
           $ref: '#/components/schemas/SettleStatus'
         amount_tolerance:
-          description: Allowed amount deviation.
+          description: |
+            The maximum allowed deviation from the payable amount in the case of underpayment, specified as a positive value with up to one decimal place. If you provide more than one decimal place, an error will occur.
+
+            When the actual received amount is within this deviation (inclusive) of the payable amount, the order status will be set to `Completed` rather than `Underpaid`.
           example: "0.5"
           type: string
       required:
@@ -28232,7 +28237,7 @@ components:
 
             `total_balance` = `total_received_amount` - `settled_amount` - `refunded_amount`
 
-            For more information, please refer to [Amounts and Balances](/v2_cn/payments/amounts-and-balances)
+            For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances)
           example: "1.23"
           type: string
         available_balance:
@@ -28279,7 +28284,7 @@ components:
 
             `total_balance` = `developer_fee_amount` - `settled_amount` - `refunded_amount`
 
-            For more information, please refer to [Amounts and Balances](/v2_cn/payments/amounts-and-balances)
+            For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances)
           example: "1.23"
           type: string
         available_balance:
@@ -28442,9 +28447,7 @@ components:
       properties:
         url:
           description: |
-            The base URL of the payment page. This URL should be combined with the token parameter to form the complete payment link.
-
-            Example: `https://checkout.cobo.com/payment`
+            The base URL of the payment page. This URL should be combined with the `token` parameter to form the complete payment link.
           example: https://checkout.cobo.com/payment
           format: uri
           type: string
@@ -28463,14 +28466,13 @@ components:
       properties:
         developer_name:
           description: |
-            Optional display name for the developer/platform. This name may be shown to end users during the payment process.
+            The brand name to display to end users during the payment process.
           example: Acme Payment Solutions
           maxLength: 128
           type: string
         logo:
-          description: "Optional URL to the developer's logo image. The logo may be\
-            \ displayed to end users during the payment process. \nSupported formats:\
-            \ PNG, JPG, SVG. Maximum file size: 2MB.\n"
+          description: |
+            The URL of your logo image to display to end users during the payment process.
           example: https://example.com/logo.png
           format: uri
           type: string
@@ -28479,7 +28481,9 @@ components:
       properties:
         token_ids:
           description: |
-            List of supported cryptocurrency token IDs for this payment. Each token ID must be from the supported values.
+            An array of token IDs representing the cryptocurrencies and chains available for payment. These options will be shown to users on the payment page for them to choose from. Supported token IDs include:
+              - USDC: `ETH_USDC`, `ARBITRUM_USDCOIN`, `SOL_USDC`, `BASE_USDC`, `MATIC_USDC2`, `BSC_USDC`
+              - USDT: `TRON_USDT`, `ETH_USDT`, `ARBITRUM_USDT`, `SOL_USDT`, `BASE_USDT`, `MATIC_USDT`, `BSC_USDT`
           example:
           - ETH_USDT
           - SOL_USDC
@@ -28490,7 +28494,21 @@ components:
           type: array
         custom_exchange_rates:
           description: |
-            Optional list of final exchange rates for different tokens. If provided, these rates will be used instead of real-time market rates.
+            A list of custom exchange rates defining how much one unit of a specific cryptocurrency (`token_id`) is valued in the selected fiat or crypto currency (`currency`). If this field is omitted, the system’s default exchange rates will apply.
+
+            Each item specifies a `token_id` and its corresponding `exchange_rate`. For example, to treat 1 USDT (on Ethereum) as equivalent to 0.99 USD, provide:
+
+            ```json
+            {
+              "custom_exchange_rates": [
+                {
+                  "token_id": "ETH_USDT",
+                  "exchange_rate": "0.99"
+                }
+              ],
+              "currency": "USD"
+            }
+            ```
           example:
           - token_id: ETH_USDT
             exchange_rate: "0.99"
@@ -28501,19 +28519,19 @@ components:
           type: array
         currency:
           description: |
-            The currency for the base order amount and the developer fee. Currently, only `USD`/`USDT`/`USDC` are supported.
+            The currency in which both the order amount (`order_amount`) and the developer fee (`fee_amount`) are denominated. Only the following values are supported: `USD`, `USDT`, or `USDC`.
           example: USD
           type: string
         fee_amount:
-          description: "The developer fee for the order, in the currency specified\
-            \ by `currency`. If `currency` is not specified, the fee is in the cryptocurrency\
-            \ specified by `token_id`.\n\nIf you are a merchant directly serving payers,\
-            \ set this field to `0`. Developer fees are only relevant for platforms\
-            \ like payment service providers (PSPs) that charge fees to their downstream\
-            \ merchants.\n\nThe developer fee is added to the base amount (`order_amount`)\
-            \ to determine the final charge. For example:\n- Base amount (`order_amount`):\
-            \ \"100.00\"\n- Developer fee (`fee_amount`): \"2.00\" \n- Total charged\
-            \ to customer: \"102.00\"\n\nValues can contain up to two decimal places.\n"
+          description: "The developer fee for the order, denominated in the currency\
+            \ specified by `currency`.\n\n\nIf you are a merchant directly serving\
+            \ payers, set this field to `0`. Developer fees are only relevant for\
+            \ platforms like payment service providers (PSPs) that charge fees to\
+            \ their downstream merchants.\n\nThe developer fee is added to the base\
+            \ amount (`order_amount`) to determine the final charge. For example:\n\
+            - Base amount (`order_amount`): \"100.00\"\n- Developer fee (`fee_amount`):\
+            \ \"2.00\" \n- Total charged to customer: \"102.00\"\n\nValues can contain\
+            \ up to two decimal places.\n"
           example: "2.00"
           type: string
         merchant_id:
@@ -28522,10 +28540,9 @@ components:
           type: string
         order_amount:
           description: "The base amount of the order, excluding the developer fee\
-            \ (specified in `fee_amount`), in the currency specified by `currency`.\
-            \ If `currency` is not specified, the amount is in the cryptocurrency\
-            \ specified by `token_id`. \n\nValues must be greater than `0` and contain\
-            \ two decimal places. \n"
+            \ (specified in `fee_amount`), denominated in the currency specified by\
+            \ `currency`.\n\nValues must be greater than `0` and contain two decimal\
+            \ places. \n"
           example: "100.00"
           type: string
         merchant_order_code:
@@ -28551,13 +28568,15 @@ components:
           example: 1800
           type: integer
         use_dedicated_address:
-          description: "Whether to allocate a dedicated address for this order. \n\
-            - `true`: A dedicated address will be allocated for this order.\n- `false`:\
-            \ A shared address from the address pool will be used.\n"
+          description: |
+            This field has been deprecated.
           example: false
           type: boolean
         amount_tolerance:
-          description: "Allowed amount deviation, precision to 1 decimal place."
+          description: |
+            The maximum allowed deviation from the payable amount in the case of underpayment, specified as a positive value with up to one decimal place. If you provide more than one decimal place, an error will occur.
+
+            When the actual received amount is within this deviation (inclusive) of the payable amount, the order status will be set to `Completed` rather than `Underpaid`.
           example: "0.5"
           type: string
       required:
@@ -28939,8 +28958,7 @@ components:
       - transaction_id
       type: object
     SubmitKytScreeningsReviewBody:
-      description: The information about submitting a manual KYT review result for
-        KYT screening cases that require human analysis.
+      description: Submission of a manual KYT review result.
       example:
         transaction_id: f47ac10b-58cc-4372-a567-0e02b2c3d479
         result: Approval
@@ -35309,7 +35327,10 @@ components:
           example: "1.00"
           type: string
         amount_tolerance:
-          description: "Allowed amount deviation, precision to 1 decimal place."
+          description: |
+            The maximum allowed deviation from the payable amount in the case of underpayment, specified as a positive value with up to one decimal place. If you provide more than one decimal place, an error will occur.
+
+            When the actual received amount is within this deviation (inclusive) of the payable amount, the order status will be set to `Completed` rather than `Underpaid`.
           example: "0.5"
           type: string
       required:
@@ -36734,11 +36755,11 @@ components:
     OrderLinkBusinessInfo_custom_exchange_rates_inner:
       properties:
         token_id:
-          description: The cryptocurrency token ID
+          description: The token ID.
           example: ETH_USDT
           type: string
         exchange_rate:
-          description: The fixed exchange rate to use for this token
+          description: The exchange rate to use for this token.
           example: "0.99"
           type: string
       required:

@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The balance details.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -80,7 +80,7 @@ public class Balance {
    * The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
    * @return total
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTotal() {
     return total;
   }
@@ -99,7 +99,7 @@ public class Balance {
    * The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
    * @return available
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAvailable() {
     return available;
   }
@@ -118,7 +118,7 @@ public class Balance {
    * The total amount being sent in a transaction, which is calculated as the withdrawal amount plus the transaction fee. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
    * @return pending
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPending() {
     return pending;
   }
@@ -137,7 +137,7 @@ public class Balance {
    * For UTXO chains, this is the combined value of the selected UTXOs for the transaction. For other chains, it is equal to the Pending amount. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
    * @return locked
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getLocked() {
     return locked;
   }

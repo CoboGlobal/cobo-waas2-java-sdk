@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * TransactionTransferToAddressDestinationUtxoOutputsInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class TransactionTransferToAddressDestinationUtxoOutputsInner {
    * The destination address.
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -91,7 +91,7 @@ public class TransactionTransferToAddressDestinationUtxoOutputsInner {
    * The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;. 
    * @return amount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAmount() {
     return amount;
   }

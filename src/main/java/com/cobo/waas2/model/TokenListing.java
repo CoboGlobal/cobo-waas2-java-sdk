@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * Detailed information about a token listing request.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -113,7 +113,7 @@ public class TokenListing {
    * The unique identifier of the token listing request.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -132,7 +132,7 @@ public class TokenListing {
    * The ID of the blockchain where the token is deployed.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -151,7 +151,7 @@ public class TokenListing {
    * The token&#39;s contract address on the specified blockchain.
    * @return contractAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getContractAddress() {
     return contractAddress;
   }
@@ -170,7 +170,7 @@ public class TokenListing {
    * Get walletType
    * @return walletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletType getWalletType() {
     return walletType;
   }
@@ -189,7 +189,7 @@ public class TokenListing {
    * Get walletSubtype
    * @return walletSubtype
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletSubtype getWalletSubtype() {
     return walletSubtype;
   }
@@ -208,7 +208,7 @@ public class TokenListing {
    * Get token
    * @return token
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TokenInfo getToken() {
     return token;
   }
@@ -227,7 +227,7 @@ public class TokenListing {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenListingRequestStatus getStatus() {
     return status;
   }
@@ -246,7 +246,7 @@ public class TokenListing {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TokenListingRequestSource getSource() {
     return source;
   }
@@ -265,7 +265,7 @@ public class TokenListing {
    * The feedback provided by Cobo when a token listing request is rejected.
    * @return feedback
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeedback() {
     return feedback;
   }
@@ -284,7 +284,7 @@ public class TokenListing {
    * The time when the request was created in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -303,7 +303,7 @@ public class TokenListing {
    * The time when the request was last updated in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }

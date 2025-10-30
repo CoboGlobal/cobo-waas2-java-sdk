@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * The raw transaction information.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -88,7 +88,7 @@ public class TransactionRawTxInfo {
    * The transaction nonce.
    * @return usedNonce
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getUsedNonce() {
     return usedNonce;
   }
@@ -115,7 +115,7 @@ public class TransactionRawTxInfo {
    * The selected UTXOs to be consumed in the transaction.
    * @return selectedUtxos
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TransactionSelectedUtxo> getSelectedUtxos() {
     return selectedUtxos;
   }
@@ -134,7 +134,7 @@ public class TransactionRawTxInfo {
    * The raw transaction data.
    * @return rawTx
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRawTx() {
     return rawTx;
   }
@@ -153,7 +153,7 @@ public class TransactionRawTxInfo {
    * The unsigned raw transaction data.
    * @return unsignedRawTx
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getUnsignedRawTx() {
     return unsignedRawTx;
   }
@@ -172,7 +172,7 @@ public class TransactionRawTxInfo {
    * Get utxoChange
    * @return utxoChange
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionUtxoChange getUtxoChange() {
     return utxoChange;
   }

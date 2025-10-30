@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * CheckAddressChainsValidity200ResponseInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class CheckAddressChainsValidity200ResponseInner {
    * The chain ID, which is the unique identifier of a blockchain.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -91,7 +91,7 @@ public class CheckAddressChainsValidity200ResponseInner {
    * Whether the address is valid for the specified chain.  - &#x60;true&#x60;: The address is valid.  - &#x60;false&#x60;: The address is invalid. 
    * @return validity
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getValidity() {
     return validity;
   }

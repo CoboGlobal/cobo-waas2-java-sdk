@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * A condition that defines under what circumstances the policy’s action should be triggered.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -82,7 +82,7 @@ public class PolicyCondition {
    * The field name.
    * @return field
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getField() {
     return field;
   }
@@ -101,7 +101,7 @@ public class PolicyCondition {
    * Get valueType
    * @return valueType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public PolicyFieldValueType getValueType() {
     return valueType;
   }
@@ -120,7 +120,7 @@ public class PolicyCondition {
    * The field value.
    * @return value
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getValue() {
     return value;
   }
@@ -139,7 +139,7 @@ public class PolicyCondition {
    * Get operator
    * @return operator
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public PolicyFieldOperator getOperator() {
     return operator;
   }

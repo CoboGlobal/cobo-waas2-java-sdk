@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The token information, including whether the token can be deposited or withdrawn.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -121,7 +121,7 @@ public class ExtendedTokenInfo {
    * The token ID, which is the unique identifier of a token.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -140,7 +140,7 @@ public class ExtendedTokenInfo {
    * The ID of the chain on which the token operates.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -159,7 +159,7 @@ public class ExtendedTokenInfo {
    * (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
    * @return assetId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAssetId() {
     return assetId;
   }
@@ -178,7 +178,7 @@ public class ExtendedTokenInfo {
    * The token symbol, which is the abbreviated name of a token.
    * @return symbol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSymbol() {
     return symbol;
   }
@@ -197,7 +197,7 @@ public class ExtendedTokenInfo {
    * The token name, which is the full name of a token.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -216,7 +216,7 @@ public class ExtendedTokenInfo {
    * The token decimal.
    * @return decimal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getDecimal() {
     return decimal;
   }
@@ -235,7 +235,7 @@ public class ExtendedTokenInfo {
    * The URL of the token icon.
    * @return iconUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getIconUrl() {
     return iconUrl;
   }
@@ -254,7 +254,7 @@ public class ExtendedTokenInfo {
    * The token address, if applicable.
    * @return tokenAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenAddress() {
     return tokenAddress;
   }
@@ -273,7 +273,7 @@ public class ExtendedTokenInfo {
    * The fee token ID. A fee token is the token with which you pay transaction fees.
    * @return feeTokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeTokenId() {
     return feeTokenId;
   }
@@ -292,7 +292,7 @@ public class ExtendedTokenInfo {
    * Whether the token can be deposited.  - &#x60;true&#x60;: The token can be deposited.  - &#x60;false&#x60;: The token cannot be deposited. 
    * @return canDeposit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getCanDeposit() {
     return canDeposit;
   }
@@ -311,7 +311,7 @@ public class ExtendedTokenInfo {
    * Whether the token can be withdrawn.  - &#x60;true&#x60;: The token can be withdrawn.  - &#x60;false&#x60;: The token cannot be withdrawn. 
    * @return canWithdraw
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getCanWithdraw() {
     return canWithdraw;
   }
@@ -330,7 +330,7 @@ public class ExtendedTokenInfo {
    * The minimum withdrawal amount for Custodial Wallets. If your withdrawal amount is smaller than this threshold, the withdrawal request will receive an error.  Note: [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfers do not have this limitation. 
    * @return dustThreshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDustThreshold() {
     return dustThreshold;
   }
@@ -349,7 +349,7 @@ public class ExtendedTokenInfo {
    * The minimum deposit amount for Custodial Wallets. If the amount you deposit to a Custodial Wallet is smaller than this threshold, the deposit will not show up on Cobo Portal or trigger any webhook events.  Note: [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop)transfers do not have this limitation. 
    * @return custodialMinimumDepositThreshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCustodialMinimumDepositThreshold() {
     return custodialMinimumDepositThreshold;
   }
@@ -368,7 +368,7 @@ public class ExtendedTokenInfo {
    * Get assetModelType
    * @return assetModelType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TokenAssetModelType getAssetModelType() {
     return assetModelType;
   }

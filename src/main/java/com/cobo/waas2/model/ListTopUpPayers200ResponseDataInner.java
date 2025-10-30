@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * ListTopUpPayers200ResponseDataInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -91,7 +91,7 @@ public class ListTopUpPayers200ResponseDataInner {
    * The merchant ID.
    * @return merchantId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMerchantId() {
     return merchantId;
   }
@@ -110,7 +110,7 @@ public class ListTopUpPayers200ResponseDataInner {
    * A unique identifier assigned by Cobo to track and identify individual payers.
    * @return payerId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPayerId() {
     return payerId;
   }
@@ -129,7 +129,7 @@ public class ListTopUpPayers200ResponseDataInner {
    * The developer fee rate applied to top-up transactions made by this payer. Expressed as a decimal string where \&quot;0.1\&quot; represents 10%.
    * @return developerFeeRate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getDeveloperFeeRate() {
     return developerFeeRate;
   }
@@ -148,7 +148,7 @@ public class ListTopUpPayers200ResponseDataInner {
    * The creation time of the payer, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -167,7 +167,7 @@ public class ListTopUpPayers200ResponseDataInner {
    * The last update time of the payer, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -194,7 +194,7 @@ public class ListTopUpPayers200ResponseDataInner {
    * An array of top-up transactions associated with this payer.
    * @return transactions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<PaymentTransaction> getTransactions() {
     return transactions;
   }

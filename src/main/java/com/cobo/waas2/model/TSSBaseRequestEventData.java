@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * TSSBaseRequestEventData
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -91,7 +91,7 @@ public class TSSBaseRequestEventData {
    * Get dataType
    * @return dataType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TSSEventDataType getDataType() {
     return dataType;
   }
@@ -110,7 +110,7 @@ public class TSSBaseRequestEventData {
    * The request ID.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -129,7 +129,7 @@ public class TSSBaseRequestEventData {
    * Get requestType
    * @return requestType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSRequestTypeEenum getRequestType() {
     return requestType;
   }
@@ -148,7 +148,7 @@ public class TSSBaseRequestEventData {
    * Get requestStatus
    * @return requestStatus
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSStatus getRequestStatus() {
     return requestStatus;
   }
@@ -167,7 +167,7 @@ public class TSSBaseRequestEventData {
    * The extra info.
    * @return extraInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getExtraInfo() {
     return extraInfo;
   }
@@ -186,7 +186,7 @@ public class TSSBaseRequestEventData {
    * The failed reason.
    * @return failedReason
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFailedReason() {
     return failedReason;
   }

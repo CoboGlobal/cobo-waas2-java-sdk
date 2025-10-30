@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The estimated transaction fee based on the SOL fee model.  For more details about the SOL fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models). 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -86,7 +86,7 @@ public class EstimatedSOLFee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -105,7 +105,7 @@ public class EstimatedSOLFee {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -124,7 +124,7 @@ public class EstimatedSOLFee {
    * Get slow
    * @return slow
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public EstimatedSOLFeeSlow getSlow() {
     return slow;
   }
@@ -143,7 +143,7 @@ public class EstimatedSOLFee {
    * Get recommended
    * @return recommended
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public EstimatedSOLFeeSlow getRecommended() {
     return recommended;
   }
@@ -162,7 +162,7 @@ public class EstimatedSOLFee {
    * Get fast
    * @return fast
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public EstimatedSOLFeeSlow getFast() {
     return fast;
   }

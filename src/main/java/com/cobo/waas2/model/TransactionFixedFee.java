@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The transaction fee actually charged by the chain that uses the fixed fee model.   For more information about the fixed fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -85,7 +85,7 @@ public class TransactionFixedFee {
    * The maximum fee that you are willing to pay for the transaction. Provide the value without applying precision. The transaction will fail if the transaction fee exceeds the maximum fee.
    * @return maxFeeAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMaxFeeAmount() {
     return maxFeeAmount;
   }
@@ -104,7 +104,7 @@ public class TransactionFixedFee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -123,7 +123,7 @@ public class TransactionFixedFee {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }
@@ -142,7 +142,7 @@ public class TransactionFixedFee {
    * The actually charged transaction fee.
    * @return feeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeUsed() {
     return feeUsed;
   }
@@ -161,7 +161,7 @@ public class TransactionFixedFee {
    * The estimated transaction fee.
    * @return estimatedFeeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEstimatedFeeUsed() {
     return estimatedFeeUsed;
   }

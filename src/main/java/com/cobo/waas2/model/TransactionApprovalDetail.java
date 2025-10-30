@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The approval detail data for transaction.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -90,7 +90,7 @@ public class TransactionApprovalDetail {
    * The transaction ID.
    * @return transactionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getTransactionId() {
     return transactionId;
   }
@@ -109,7 +109,7 @@ public class TransactionApprovalDetail {
    * The Cobo ID, which can be used to track a transaction.
    * @return coboId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCoboId() {
     return coboId;
   }
@@ -128,7 +128,7 @@ public class TransactionApprovalDetail {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -147,7 +147,7 @@ public class TransactionApprovalDetail {
    * Get spender
    * @return spender
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRoleApprovalDetail getSpender() {
     return spender;
   }
@@ -166,7 +166,7 @@ public class TransactionApprovalDetail {
    * Get approver
    * @return approver
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRoleApprovalDetail getApprover() {
     return approver;
   }
@@ -185,7 +185,7 @@ public class TransactionApprovalDetail {
    * Get addressOwner
    * @return addressOwner
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRoleApprovalDetail getAddressOwner() {
     return addressOwner;
   }

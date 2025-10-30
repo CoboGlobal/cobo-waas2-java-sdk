@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * CommissionFee
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class CommissionFee {
    * The amount of the commission fee charged by Cobo for pay-ins and payouts, in USD.
    * @return feeAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getFeeAmount() {
     return feeAmount;
   }

@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateBabylonAirdropRegistration201Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class CreateBabylonAirdropRegistration201Response {
    * The registration ID, a unique identifier for tracking the airdrop registration request. You can check the registration status with the [Get Babylon airdrop registration details](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-airdrop-registration-details) operation.
    * @return registrationId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRegistrationId() {
     return registrationId;
   }

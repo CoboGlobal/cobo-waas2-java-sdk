@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * PaymentEstimateFee
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class PaymentEstimateFee {
    * The token ID for which fees will be calculated.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -91,7 +91,7 @@ public class PaymentEstimateFee {
    * The transaction amount for which fees will be calculated.
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAmount() {
     return amount;
   }

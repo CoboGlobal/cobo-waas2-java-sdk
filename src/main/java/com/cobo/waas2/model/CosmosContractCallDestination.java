@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the transaction destination. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -80,7 +80,7 @@ public class CosmosContractCallDestination {
    * Get destinationType
    * @return destinationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ContractCallDestinationType getDestinationType() {
     return destinationType;
   }
@@ -107,7 +107,7 @@ public class CosmosContractCallDestination {
    * Get cosmosMessages
    * @return cosmosMessages
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<CosmosContractCallMessage> getCosmosMessages() {
     return cosmosMessages;
   }
@@ -126,7 +126,7 @@ public class CosmosContractCallDestination {
    * The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;. 
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getValue() {
     return value;
   }

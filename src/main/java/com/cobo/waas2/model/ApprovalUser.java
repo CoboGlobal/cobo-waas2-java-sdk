@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information of the user.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class ApprovalUser {
    * The user email.
    * @return email
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getEmail() {
     return email;
   }
@@ -100,7 +100,7 @@ public class ApprovalUser {
    * The user name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -119,7 +119,7 @@ public class ApprovalUser {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ApprovalStatus getStatus() {
     return status;
   }
@@ -138,7 +138,7 @@ public class ApprovalUser {
    * The time when the approval was created, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }

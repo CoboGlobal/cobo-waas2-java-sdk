@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationHoldingInfo
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -84,7 +84,7 @@ public class TokenizationHoldingInfo {
    * The unique identifier of the wallet holding the token.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getWalletId() {
     return walletId;
   }
@@ -103,7 +103,7 @@ public class TokenizationHoldingInfo {
    * The name of the wallet.
    * @return walletName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getWalletName() {
     return walletName;
   }
@@ -122,7 +122,7 @@ public class TokenizationHoldingInfo {
    * The address holding the token.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -141,7 +141,7 @@ public class TokenizationHoldingInfo {
    * The token balance held by this address.
    * @return balance
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getBalance() {
     return balance;
   }
@@ -160,7 +160,7 @@ public class TokenizationHoldingInfo {
    * The label of the address.
    * @return addressLabel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddressLabel() {
     return addressLabel;
   }

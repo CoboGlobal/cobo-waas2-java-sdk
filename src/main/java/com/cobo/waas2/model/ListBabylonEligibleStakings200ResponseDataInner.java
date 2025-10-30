@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The babylon staking position eligible for Phase-2 registration.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -86,7 +86,7 @@ public class ListBabylonEligibleStakings200ResponseDataInner {
    * The ID of the Phase-1 BTC staking position.
    * @return stakingId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getStakingId() {
     return stakingId;
   }
@@ -105,7 +105,7 @@ public class ListBabylonEligibleStakings200ResponseDataInner {
    * Get btcAddress
    * @return btcAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingSource getBtcAddress() {
     return btcAddress;
   }
@@ -124,7 +124,7 @@ public class ListBabylonEligibleStakings200ResponseDataInner {
    * Get babylonAddress
    * @return babylonAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingSource getBabylonAddress() {
     return babylonAddress;
   }
@@ -143,7 +143,7 @@ public class ListBabylonEligibleStakings200ResponseDataInner {
    * The current amount of BTC staked.
    * @return stakedAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getStakedAmount() {
     return stakedAmount;
   }
@@ -162,7 +162,7 @@ public class ListBabylonEligibleStakings200ResponseDataInner {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public BabylonRegistrationStatus getStatus() {
     return status;
   }

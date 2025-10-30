@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * CoreStakingActivityDetailExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -85,7 +85,7 @@ public class CoreStakingActivityDetailExtra {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -104,7 +104,7 @@ public class CoreStakingActivityDetailExtra {
    * The Unix timestamp (in seconds) when the staking position will be unlocked and available for withdrawal.
    * @return timelock
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getTimelock() {
     return timelock;
   }
@@ -123,7 +123,7 @@ public class CoreStakingActivityDetailExtra {
    * The change address on the Bitcoin chain. If not provided, the source wallet&#39;s address will be used as the change address.
    * @return changeAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getChangeAddress() {
     return changeAddress;
   }
@@ -142,7 +142,7 @@ public class CoreStakingActivityDetailExtra {
    * The validator&#39;s EVM address.
    * @return validatorAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getValidatorAddress() {
     return validatorAddress;
   }
@@ -161,7 +161,7 @@ public class CoreStakingActivityDetailExtra {
    * The EVM address to receive staking rewards.
    * @return rewardAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRewardAddress() {
     return rewardAddress;
   }

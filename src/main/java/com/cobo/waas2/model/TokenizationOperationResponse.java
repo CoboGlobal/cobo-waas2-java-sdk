@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationOperationResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -69,7 +69,7 @@ public class TokenizationOperationResponse {
    * The ID of the activity related to the tokenization operation.
    * @return activityId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getActivityId() {
     return activityId;
   }

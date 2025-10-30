@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * Information about the transaction source type &#x60;DepositFromWallet&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction sources. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -88,7 +88,7 @@ public class TransactionDepositFromWalletSource {
    * Get sourceType
    * @return sourceType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionSourceType getSourceType() {
     return sourceType;
   }
@@ -107,7 +107,7 @@ public class TransactionDepositFromWalletSource {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -126,7 +126,7 @@ public class TransactionDepositFromWalletSource {
    * Get walletType
    * @return walletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletType getWalletType() {
     return walletType;
   }
@@ -145,7 +145,7 @@ public class TransactionDepositFromWalletSource {
    * Get walletSubtype
    * @return walletSubtype
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletSubtype getWalletSubtype() {
     return walletSubtype;
   }
@@ -164,7 +164,7 @@ public class TransactionDepositFromWalletSource {
    * The exchange trading account or a sub-wallet ID.
    * @return tradingAccountType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTradingAccountType() {
     return tradingAccountType;
   }

@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the transaction destination type &#x60;ExchangeWallet&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  An Exchange Wallet (Sub Account) can only receive asset transfers from another Exchange Wallet.  Switch between the tabs to display the properties for different transaction destinations. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -82,7 +82,7 @@ public class ExchangeTransferDestination {
    * Get destinationType
    * @return destinationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransferDestinationType getDestinationType() {
     return destinationType;
   }
@@ -101,7 +101,7 @@ public class ExchangeTransferDestination {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -120,7 +120,7 @@ public class ExchangeTransferDestination {
    * The trading account type.
    * @return tradingAccountType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTradingAccountType() {
     return tradingAccountType;
   }
@@ -139,7 +139,7 @@ public class ExchangeTransferDestination {
    * The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;. 
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAmount() {
     return amount;
   }

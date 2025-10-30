@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * Details of the auto-fueling transaction that provides gas for the current transaction.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -77,7 +77,7 @@ public class TransactionFuelingInfo {
    * The request ID of the transaction.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -96,7 +96,7 @@ public class TransactionFuelingInfo {
    * The transaction ID.
    * @return transactionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getTransactionId() {
     return transactionId;
   }
@@ -115,7 +115,7 @@ public class TransactionFuelingInfo {
    * The UUID of the parent (main) transaction that this record is associated with. Set only when the current record is a gas/fee transaction initiated by Fee Station; omit for main transactions.
    * @return mainTransactionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getMainTransactionId() {
     return mainTransactionId;
   }

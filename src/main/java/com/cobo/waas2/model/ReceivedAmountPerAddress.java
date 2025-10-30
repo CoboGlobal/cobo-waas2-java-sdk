@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The total amount of the token that has been received at a given address.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class ReceivedAmountPerAddress {
    * The receiving address.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -91,7 +91,7 @@ public class ReceivedAmountPerAddress {
    * The total amount of the token that has been received at this address.
    * @return totalReceivedAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTotalReceivedAmount() {
     return totalReceivedAmount;
   }

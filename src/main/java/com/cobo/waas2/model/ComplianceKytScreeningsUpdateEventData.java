@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * ComplianceKytScreeningsUpdateEventData
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -174,7 +174,7 @@ public class ComplianceKytScreeningsUpdateEventData {
    *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    * @return dataType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public DataTypeEnum getDataType() {
     return dataType;
   }
@@ -193,7 +193,7 @@ public class ComplianceKytScreeningsUpdateEventData {
    * The transaction ID.
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getTransactionId() {
     return transactionId;
   }
@@ -212,7 +212,7 @@ public class ComplianceKytScreeningsUpdateEventData {
    * Get transactionType
    * @return transactionType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public KytScreeningsTransactionType getTransactionType() {
     return transactionType;
   }
@@ -231,7 +231,7 @@ public class ComplianceKytScreeningsUpdateEventData {
    * Get reviewStatus
    * @return reviewStatus
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ReviewStatusType getReviewStatus() {
     return reviewStatus;
   }
@@ -250,7 +250,7 @@ public class ComplianceKytScreeningsUpdateEventData {
    * Get fundsStatus
    * @return fundsStatus
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FundsStatusType getFundsStatus() {
     return fundsStatus;
   }
@@ -269,7 +269,7 @@ public class ComplianceKytScreeningsUpdateEventData {
    * The time when the KYT screening information was updated, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }

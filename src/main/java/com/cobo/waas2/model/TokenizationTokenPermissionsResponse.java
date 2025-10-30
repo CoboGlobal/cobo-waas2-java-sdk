@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationTokenPermissionsResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -83,7 +83,7 @@ public class TokenizationTokenPermissionsResponse {
    * List of available token permissions.
    * @return permissions
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<TokenizationTokenPermission> getPermissions() {
     return permissions;
   }
@@ -102,7 +102,7 @@ public class TokenizationTokenPermissionsResponse {
    * Total number of permissions.
    * @return totalCount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Integer getTotalCount() {
     return totalCount;
   }

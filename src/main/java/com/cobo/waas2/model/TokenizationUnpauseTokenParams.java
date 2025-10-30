@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationUnpauseTokenParams
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -69,7 +69,7 @@ public class TokenizationUnpauseTokenParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationTokenOperationSource getSource() {
     return source;
   }

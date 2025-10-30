@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * TriggerTestWebhookEvent201Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class TriggerTestWebhookEvent201Response {
    * Whether a test webhook event was successfully triggered. - &#x60;true&#x60;: The test webhook event was successfully triggered. - &#x60;false&#x60;: The test webhook event could not be triggered. 
    * @return triggered
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getTriggered() {
     return triggered;
   }

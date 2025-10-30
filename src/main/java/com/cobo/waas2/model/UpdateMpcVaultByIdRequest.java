@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * UpdateMpcVaultByIdRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class UpdateMpcVaultByIdRequest {
    * The new name of the vault.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }

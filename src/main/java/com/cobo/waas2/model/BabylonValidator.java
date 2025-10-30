@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * BabylonValidator
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -149,7 +149,7 @@ public class BabylonValidator {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -168,7 +168,7 @@ public class BabylonValidator {
    * The URL of the validator&#39;s icon.
    * @return iconUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getIconUrl() {
     return iconUrl;
   }
@@ -187,7 +187,7 @@ public class BabylonValidator {
    * The validator&#39;s name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -206,7 +206,7 @@ public class BabylonValidator {
    * This property can be ignored.
    * @return priority
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getPriority() {
     return priority;
   }
@@ -225,7 +225,7 @@ public class BabylonValidator {
    * The public key of the validator.
    * @return publicKey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPublicKey() {
     return publicKey;
   }
@@ -244,7 +244,7 @@ public class BabylonValidator {
    * The commission rate of the validator.
    * @return commissionRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Float getCommissionRate() {
     return commissionRate;
   }
@@ -271,7 +271,7 @@ public class BabylonValidator {
    * A list of supported Proof-of-Stake (PoS) chains.
    * @return supportedPosChains
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<SupportedPosChainsEnum> getSupportedPosChains() {
     return supportedPosChains;
   }

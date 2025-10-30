@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * EvmLegacyFeeBasePrice
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class EvmLegacyFeeBasePrice {
    * The gas price, in wei. The gas price represents the amount of ETH that must be paid to validators for processing transactions per gas unit used.
    * @return gasPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasPrice() {
     return gasPrice;
   }

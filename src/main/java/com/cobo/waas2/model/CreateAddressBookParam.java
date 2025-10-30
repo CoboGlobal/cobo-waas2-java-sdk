@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The request body to add an address to your Address Book.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -94,7 +94,7 @@ public class CreateAddressBookParam {
    * A list of chain IDs.
    * @return chainIds
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<String> getChainIds() {
     return chainIds;
   }
@@ -113,7 +113,7 @@ public class CreateAddressBookParam {
    * The wallet address.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -132,7 +132,7 @@ public class CreateAddressBookParam {
    * Optional memo or tag required by some chains.
    * @return memo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMemo() {
     return memo;
   }
@@ -151,7 +151,7 @@ public class CreateAddressBookParam {
    * A user-defined label for the address.
    * @return label
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getLabel() {
     return label;
   }
@@ -170,7 +170,7 @@ public class CreateAddressBookParam {
    * The email of the address owner.
    * @return email
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEmail() {
     return email;
   }

@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * TSSCallbackRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class TSSCallbackRequest {
    * he unique ID of the callback request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -100,7 +100,7 @@ public class TSSCallbackRequest {
    * Get requestType
    * @return requestType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSCallbackRequestType getRequestType() {
     return requestType;
   }
@@ -119,7 +119,7 @@ public class TSSCallbackRequest {
    * Details specific to the request type. The structure varies depending on the request type.  The content is a JSON-serialized string.
    * @return requestDetail
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestDetail() {
     return requestDetail;
   }
@@ -138,7 +138,7 @@ public class TSSCallbackRequest {
    * Additional contextual information.  The structure varies depending on the request type. The content is a JSON-serialized string.
    * @return extraInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getExtraInfo() {
     return extraInfo;
   }

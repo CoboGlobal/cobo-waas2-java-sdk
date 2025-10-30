@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The transaction that delivers the swapped or bridged assets to the destination address.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class SwapReceivingTransaction {
    * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -95,7 +95,7 @@ public class SwapReceivingTransaction {
    * The transaction hash.
    * @return transactionHash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTransactionHash() {
     return transactionHash;
   }
@@ -114,7 +114,7 @@ public class SwapReceivingTransaction {
    * Whether the transaction was executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer. - &#x60;true&#x60;: The transaction was executed as a Cobo Loop transfer. - &#x60;false&#x60;: The transaction was not executed as a Cobo Loop transfer. 
    * @return isLoop
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getIsLoop() {
     return isLoop;
   }

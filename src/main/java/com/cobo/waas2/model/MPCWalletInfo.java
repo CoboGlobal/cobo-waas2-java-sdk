@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * MPCWalletInfo
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -107,7 +107,7 @@ public class MPCWalletInfo {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -126,7 +126,7 @@ public class MPCWalletInfo {
    * Get walletType
    * @return walletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletType getWalletType() {
     return walletType;
   }
@@ -145,7 +145,7 @@ public class MPCWalletInfo {
    * Get walletSubtype
    * @return walletSubtype
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletSubtype getWalletSubtype() {
     return walletSubtype;
   }
@@ -164,7 +164,7 @@ public class MPCWalletInfo {
    * The wallet name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -183,7 +183,7 @@ public class MPCWalletInfo {
    * The ID of the owning organization.
    * @return orgId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getOrgId() {
     return orgId;
   }
@@ -202,7 +202,7 @@ public class MPCWalletInfo {
    * Enable the auto sweep feature for the wallet
    * @return enableAutoSweep
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getEnableAutoSweep() {
     return enableAutoSweep;
   }
@@ -221,7 +221,7 @@ public class MPCWalletInfo {
    * The project ID.
    * @return projectId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getProjectId() {
     return projectId;
   }
@@ -240,7 +240,7 @@ public class MPCWalletInfo {
    * The project name.
    * @return projectName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getProjectName() {
     return projectName;
   }
@@ -259,7 +259,7 @@ public class MPCWalletInfo {
    * The ID of the owning vault.
    * @return vaultId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getVaultId() {
     return vaultId;
   }
@@ -278,7 +278,7 @@ public class MPCWalletInfo {
    * The vault name.
    * @return vaultName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getVaultName() {
     return vaultName;
   }

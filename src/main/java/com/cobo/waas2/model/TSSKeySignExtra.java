@@ -56,7 +56,7 @@ import com.cobo.waas2.JSON;
 /**
  * TSSKeySignExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -101,7 +101,7 @@ public class TSSKeySignExtra {
    * Get org
    * @return org
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public OrgInfo getOrg() {
     return org;
   }
@@ -120,7 +120,7 @@ public class TSSKeySignExtra {
    * Get project
    * @return project
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public MPCProject getProject() {
     return project;
   }
@@ -139,7 +139,7 @@ public class TSSKeySignExtra {
    * Get vault
    * @return vault
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public MPCVault getVault() {
     return vault;
   }
@@ -158,7 +158,7 @@ public class TSSKeySignExtra {
    * Get wallet
    * @return wallet
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public MPCWalletInfo getWallet() {
     return wallet;
   }
@@ -177,7 +177,7 @@ public class TSSKeySignExtra {
    * Get signerKeyShareHolderGroup
    * @return signerKeyShareHolderGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public KeyShareHolderGroup getSignerKeyShareHolderGroup() {
     return signerKeyShareHolderGroup;
   }
@@ -204,7 +204,7 @@ public class TSSKeySignExtra {
    * Get sourceAddresses
    * @return sourceAddresses
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<AddressInfo> getSourceAddresses() {
     return sourceAddresses;
   }
@@ -223,7 +223,7 @@ public class TSSKeySignExtra {
    * Get transaction
    * @return transaction
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Transaction getTransaction() {
     return transaction;
   }

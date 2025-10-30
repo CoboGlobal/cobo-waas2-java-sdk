@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information used to construct and sign Safe{Wallet} transactions using the EIP-712 standard.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -138,7 +138,7 @@ public class SafeTxExtraData {
    * The recipient address of the transaction.
    * @return to
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTo() {
     return to;
   }
@@ -157,7 +157,7 @@ public class SafeTxExtraData {
    * The human-readable transaction value, for example, &#x60;1 ETH&#x60;.
    * @return value
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getValue() {
     return value;
   }
@@ -176,7 +176,7 @@ public class SafeTxExtraData {
    * The transaction call data.
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getData() {
     return data;
   }
@@ -195,7 +195,7 @@ public class SafeTxExtraData {
    * The EIP-712 domain separator hash.
    * @return domainHash
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getDomainHash() {
     return domainHash;
   }
@@ -214,7 +214,7 @@ public class SafeTxExtraData {
    * The hash of the structured message to be signed.
    * @return messageHash
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMessageHash() {
     return messageHash;
   }
@@ -233,7 +233,7 @@ public class SafeTxExtraData {
    * The address of the Safe contract.
    * @return safeAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getSafeAddress() {
     return safeAddress;
   }
@@ -252,7 +252,7 @@ public class SafeTxExtraData {
    * The hash of the transaction.
    * @return safeTxHash
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getSafeTxHash() {
     return safeTxHash;
   }
@@ -271,7 +271,7 @@ public class SafeTxExtraData {
    * The nonce of the transaction.
    * @return safeNonce
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Integer getSafeNonce() {
     return safeNonce;
   }
@@ -290,7 +290,7 @@ public class SafeTxExtraData {
    * The operation type for the transaction.
    * @return operation
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getOperation() {
     return operation;
   }
@@ -309,7 +309,7 @@ public class SafeTxExtraData {
    * The address of the token used to pay gas.
    * @return gasTokenAddr
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasTokenAddr() {
     return gasTokenAddr;
   }
@@ -328,7 +328,7 @@ public class SafeTxExtraData {
    * The gas limit used for the transaction.
    * @return safeTxGas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getSafeTxGas() {
     return safeTxGas;
   }
@@ -347,7 +347,7 @@ public class SafeTxExtraData {
    * The base gas for the transaction.
    * @return baseGas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getBaseGas() {
     return baseGas;
   }
@@ -366,7 +366,7 @@ public class SafeTxExtraData {
    * The gas price used in the transaction.
    * @return gasPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasPrice() {
     return gasPrice;
   }
@@ -385,7 +385,7 @@ public class SafeTxExtraData {
    * The address used to receive the gas refund.
    * @return refundReceiver
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRefundReceiver() {
     return refundReceiver;
   }
@@ -404,7 +404,7 @@ public class SafeTxExtraData {
    * The name of the recipient contract (if available).
    * @return toContractName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getToContractName() {
     return toContractName;
   }
@@ -423,7 +423,7 @@ public class SafeTxExtraData {
    * Get decodedData
    * @return decodedData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public SafeTxDecodedData getDecodedData() {
     return decodedData;
   }
@@ -442,7 +442,7 @@ public class SafeTxExtraData {
    * The signature of the transaction (if signed by Cobo Signer).
    * @return signature
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSignature() {
     return signature;
   }
@@ -461,7 +461,7 @@ public class SafeTxExtraData {
    * The transaction amount in Wei.
    * @return wei
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getWei() {
     return wei;
   }

@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * When creating MainKeyGroup and SigningKeyGroup, the Cobo key share holder will be added automatically.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class CreateKeyShareHolder {
    * Key share holder&#39;s name.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -100,7 +100,7 @@ public class CreateKeyShareHolder {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public KeyShareHolderType getType() {
     return type;
   }
@@ -119,7 +119,7 @@ public class CreateKeyShareHolder {
    * Key share holder&#39;s TSS Node ID. You can obtain the TSS Node ID using either mobile co-signer or server co-signer. See the \&quot;Primary Purposes\&quot; row on the table in [Create a Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#create-a-main-group).
    * @return tssNodeId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTssNodeId() {
     return tssNodeId;
   }
@@ -138,7 +138,7 @@ public class CreateKeyShareHolder {
    * Whether the key share holder has been selected as the designated transaction signer. For example, in a 2-3 [Threshold Signature Scheme (TSS)](https://manuals.cobo.com/en/portal/mpc-wallets/introduction#threshold-signature-scheme-tss), Cobo will serve as one signer, and you can choose one of the other two key share holders to act as the second transaction signer. - &#x60;true&#x60;: The key share holder is a designated transaction signer.  - &#x60;false&#x60;: The key share holder is not a designated transaction signer. 
    * @return signer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getSigner() {
     return signer;
   }

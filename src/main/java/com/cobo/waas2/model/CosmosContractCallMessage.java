@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the Cosmos message.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class CosmosContractCallMessage {
    * The type URL of the Cosmos message. 
    * @return typeUrl
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTypeUrl() {
     return typeUrl;
   }
@@ -91,7 +91,7 @@ public class CosmosContractCallMessage {
    * The Base64-encoded Cosmos message. 
    * @return message
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMessage() {
     return message;
   }

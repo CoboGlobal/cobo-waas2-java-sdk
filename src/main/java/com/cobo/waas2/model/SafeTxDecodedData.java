@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the decoded data of the transaction.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -75,7 +75,7 @@ public class SafeTxDecodedData {
    * The name of the method decoded from the transaction data.
    * @return method
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMethod() {
     return method;
   }
@@ -102,7 +102,7 @@ public class SafeTxDecodedData {
    * The list of parameters decoded from the transaction data.
    * @return parameters
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<SafeTxDecodedDataParameters> getParameters() {
     return parameters;
   }

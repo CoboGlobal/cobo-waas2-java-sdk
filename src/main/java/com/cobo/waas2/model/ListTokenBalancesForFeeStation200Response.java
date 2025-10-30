@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * ListTokenBalancesForFeeStation200Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -84,7 +84,7 @@ public class ListTokenBalancesForFeeStation200Response {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<ListTokenBalancesForFeeStation200ResponseDataInner> getData() {
     return data;
   }
@@ -103,7 +103,7 @@ public class ListTokenBalancesForFeeStation200Response {
    * Get pagination
    * @return pagination
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Pagination getPagination() {
     return pagination;
   }

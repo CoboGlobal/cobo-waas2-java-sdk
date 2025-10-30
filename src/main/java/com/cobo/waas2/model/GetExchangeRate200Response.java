@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * GetExchangeRate200Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class GetExchangeRate200Response {
    * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -95,7 +95,7 @@ public class GetExchangeRate200Response {
    * The fiat currency.
    * @return currency
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getCurrency() {
     return currency;
   }
@@ -114,7 +114,7 @@ public class GetExchangeRate200Response {
    * The current exchange rate between the specified currency pair. Expressed as the amount of fiat currency per one unit of cryptocurrency. For example, if the cryptocurrency is USDT and the fiat currency is USD, a rate of \&quot;0.99\&quot; means 1 USDT &#x3D; 0.99 USD.
    * @return rate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRate() {
     return rate;
   }

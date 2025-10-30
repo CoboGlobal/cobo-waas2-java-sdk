@@ -53,7 +53,7 @@ import com.cobo.waas2.JSON;
 /**
  * PaymentRefundEventData
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -228,7 +228,7 @@ public class PaymentRefundEventData {
    *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data.
    * @return dataType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public DataTypeEnum getDataType() {
     return dataType;
   }
@@ -247,7 +247,7 @@ public class PaymentRefundEventData {
    * The request ID provided by you when creating the refund request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -266,7 +266,7 @@ public class PaymentRefundEventData {
    * The refund order ID.
    * @return refundId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRefundId() {
     return refundId;
   }
@@ -285,7 +285,7 @@ public class PaymentRefundEventData {
    * The ID of the pay-in order corresponding to this refund.
    * @return orderId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getOrderId() {
     return orderId;
   }
@@ -304,7 +304,7 @@ public class PaymentRefundEventData {
    * The merchant ID.
    * @return merchantId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantId() {
     return merchantId;
   }
@@ -323,7 +323,7 @@ public class PaymentRefundEventData {
    * The ID of the cryptocurrency used for refund.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -342,7 +342,7 @@ public class PaymentRefundEventData {
    * The ID of the blockchain network on which the refund transaction occurs.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -361,7 +361,7 @@ public class PaymentRefundEventData {
    * The amount in cryptocurrency to be returned for this refund order.
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAmount() {
     return amount;
   }
@@ -380,7 +380,7 @@ public class PaymentRefundEventData {
    * The recipient&#39;s wallet address where the refund will be sent.
    * @return toAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getToAddress() {
     return toAddress;
   }
@@ -399,7 +399,7 @@ public class PaymentRefundEventData {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public RefundStatus getStatus() {
     return status;
   }
@@ -418,7 +418,7 @@ public class PaymentRefundEventData {
    * Get refundType
    * @return refundType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public RefundType getRefundType() {
     return refundType;
   }
@@ -437,7 +437,7 @@ public class PaymentRefundEventData {
    * The creation time of the refund order, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -456,7 +456,7 @@ public class PaymentRefundEventData {
    * The last update time of the refund order, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getUpdatedTimestamp() {
     return updatedTimestamp;
   }
@@ -475,7 +475,7 @@ public class PaymentRefundEventData {
    *  The initiator of this settlement request. Can return either an API key or the Payments App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payments API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payments App using the App ID. 
    * @return initiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getInitiator() {
     return initiator;
   }
@@ -502,7 +502,7 @@ public class PaymentRefundEventData {
    * An array of transactions associated with this refund order. Each transaction represents a separate blockchain operation related to the refund process.
    * @return transactions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<PaymentTransaction> getTransactions() {
     return transactions;
   }
@@ -521,7 +521,7 @@ public class PaymentRefundEventData {
    * Whether to charge developer fee to the merchant for the refund.    - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance    - &#x60;false&#x60;: The merchant is not charged any developer fee. 
    * @return chargeMerchantFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getChargeMerchantFee() {
     return chargeMerchantFee;
   }
@@ -540,7 +540,7 @@ public class PaymentRefundEventData {
    * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to &#x60;true&#x60;.
    * @return merchantFeeAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantFeeAmount() {
     return merchantFeeAmount;
   }
@@ -559,7 +559,7 @@ public class PaymentRefundEventData {
    * The ID of the cryptocurrency used for the developer fee. This is only applicable if &#x60;charge_merchant_fee&#x60; is set to true.
    * @return merchantFeeTokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantFeeTokenId() {
     return merchantFeeTokenId;
   }
@@ -578,7 +578,7 @@ public class PaymentRefundEventData {
    * Get commissionFee
    * @return commissionFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public CommissionFee getCommissionFee() {
     return commissionFee;
   }

@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * TransactionReplacement
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -90,7 +90,7 @@ public class TransactionReplacement {
    * Get replacedByType
    * @return replacedByType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ReplaceType getReplacedByType() {
     return replacedByType;
   }
@@ -109,7 +109,7 @@ public class TransactionReplacement {
    * The ID of the transaction that this transaction was replaced by.
    * @return replacedByTransactionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getReplacedByTransactionId() {
     return replacedByTransactionId;
   }
@@ -128,7 +128,7 @@ public class TransactionReplacement {
    * The hash of the transaction that this transaction was replaced by.
    * @return replacedByTransactionHash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getReplacedByTransactionHash() {
     return replacedByTransactionHash;
   }
@@ -147,7 +147,7 @@ public class TransactionReplacement {
    * Get replacedType
    * @return replacedType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ReplaceType getReplacedType() {
     return replacedType;
   }
@@ -166,7 +166,7 @@ public class TransactionReplacement {
    * The ID of the transaction that this transaction replaced.
    * @return replacedTransactionId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getReplacedTransactionId() {
     return replacedTransactionId;
   }
@@ -185,7 +185,7 @@ public class TransactionReplacement {
    * The hash of the transaction that this transaction replaced.
    * @return replacedTransactionHash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getReplacedTransactionHash() {
     return replacedTransactionHash;
   }

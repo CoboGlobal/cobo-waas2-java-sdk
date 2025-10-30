@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * BroadcastSignedTransactions201ResponseInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class BroadcastSignedTransactions201ResponseInner {
    * The request ID that is used to track a transaction request.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -91,7 +91,7 @@ public class BroadcastSignedTransactions201ResponseInner {
    * The transaction ID of this broadcast transaction.
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTransactionId() {
     return transactionId;
   }

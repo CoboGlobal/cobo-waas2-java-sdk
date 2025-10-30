@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The EigenLayer validator info.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -84,7 +84,7 @@ public class EigenlayerValidator {
    * The URL of the validator&#39;s icon.
    * @return iconUrl
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getIconUrl() {
     return iconUrl;
   }
@@ -103,7 +103,7 @@ public class EigenlayerValidator {
    * The name of validator.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -122,7 +122,7 @@ public class EigenlayerValidator {
    * The priority of validator.
    * @return priority
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getPriority() {
     return priority;
   }
@@ -141,7 +141,7 @@ public class EigenlayerValidator {
    * The address of validator.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -160,7 +160,7 @@ public class EigenlayerValidator {
    * The commission of validator.
    * @return commissionRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Float getCommissionRate() {
     return commissionRate;
   }

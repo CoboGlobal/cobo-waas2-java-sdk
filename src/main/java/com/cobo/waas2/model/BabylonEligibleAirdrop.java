@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * The babylon airdrop eligibility.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -91,7 +91,7 @@ public class BabylonEligibleAirdrop {
    * Get btcAddress
    * @return btcAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingSource getBtcAddress() {
     return btcAddress;
   }
@@ -110,7 +110,7 @@ public class BabylonEligibleAirdrop {
    * Get babylonAddress
    * @return babylonAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingSource getBabylonAddress() {
     return babylonAddress;
   }
@@ -129,7 +129,7 @@ public class BabylonEligibleAirdrop {
    * The current Babylon points balance accumulated by the BTC address.
    * @return babylonPoints
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getBabylonPoints() {
     return babylonPoints;
   }
@@ -148,7 +148,7 @@ public class BabylonEligibleAirdrop {
    * The estimated airdrop amount based on the current Babylon points balance.
    * @return airdropAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAirdropAmount() {
     return airdropAmount;
   }
@@ -167,7 +167,7 @@ public class BabylonEligibleAirdrop {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public BabylonRegistrationStatus getStatus() {
     return status;
   }
@@ -186,7 +186,7 @@ public class BabylonEligibleAirdrop {
    * Get pop
    * @return pop
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public BabylonAirdropPop getPop() {
     return pop;
   }

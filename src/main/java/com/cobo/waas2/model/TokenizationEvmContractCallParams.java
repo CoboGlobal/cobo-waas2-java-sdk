@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the EVM contract call.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -77,7 +77,7 @@ public class TokenizationEvmContractCallParams {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TokenizationContractCallType getType() {
     return type;
   }
@@ -96,7 +96,7 @@ public class TokenizationEvmContractCallParams {
    * The data that is used to invoke a specific function or method within the specified contract at the destination address. 
    * @return calldata
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getCalldata() {
     return calldata;
   }
@@ -115,7 +115,7 @@ public class TokenizationEvmContractCallParams {
    * The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;. 
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getValue() {
     return value;
   }

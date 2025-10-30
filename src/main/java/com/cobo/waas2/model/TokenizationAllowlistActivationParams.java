@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationAllowlistActivationParams
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -73,7 +73,7 @@ public class TokenizationAllowlistActivationParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationTokenOperationSource getSource() {
     return source;
   }
@@ -92,7 +92,7 @@ public class TokenizationAllowlistActivationParams {
    * Whether to activate the allowlist feature for the token.
    * @return activation
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getActivation() {
     return activation;
   }

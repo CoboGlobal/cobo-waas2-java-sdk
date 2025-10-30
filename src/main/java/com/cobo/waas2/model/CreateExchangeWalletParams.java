@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateExchangeWalletParams
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -115,7 +115,7 @@ public class CreateExchangeWalletParams {
    * The wallet name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -134,7 +134,7 @@ public class CreateExchangeWalletParams {
    * Get walletType
    * @return walletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletType getWalletType() {
     return walletType;
   }
@@ -153,7 +153,7 @@ public class CreateExchangeWalletParams {
    * Get walletSubtype
    * @return walletSubtype
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletSubtype getWalletSubtype() {
     return walletSubtype;
   }
@@ -172,7 +172,7 @@ public class CreateExchangeWalletParams {
    * Enable the auto-sweep feature for the wallet. This parameter only applies to MPC Wallets and Web3 Wallets.
    * @return enableAutoSweep
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getEnableAutoSweep() {
     return enableAutoSweep;
   }
@@ -191,7 +191,7 @@ public class CreateExchangeWalletParams {
    * Get exchangeId
    * @return exchangeId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ExchangeId getExchangeId() {
     return exchangeId;
   }
@@ -210,7 +210,7 @@ public class CreateExchangeWalletParams {
    * The API key of your exchange account.
    * @return apikey
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getApikey() {
     return apikey;
   }
@@ -229,7 +229,7 @@ public class CreateExchangeWalletParams {
    * The API secret of your exchange account.
    * @return secret
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getSecret() {
     return secret;
   }
@@ -248,7 +248,7 @@ public class CreateExchangeWalletParams {
    * The passphrase of your exchange account.
    * @return passphrase
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPassphrase() {
     return passphrase;
   }
@@ -267,7 +267,7 @@ public class CreateExchangeWalletParams {
    * The memo you use when applying for the API key of your exchange account.
    * @return memo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMemo() {
     return memo;
   }
@@ -286,7 +286,7 @@ public class CreateExchangeWalletParams {
    * The identifier of your exchange account. - For Binance, this is email address of your exchange account. - For OKX, this is the user name of your exchange account. 
    * @return accountIdentify
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAccountIdentify() {
     return accountIdentify;
   }
@@ -305,7 +305,7 @@ public class CreateExchangeWalletParams {
    * The GA code for the exchange.
    * @return gaCode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGaCode() {
     return gaCode;
   }
@@ -324,7 +324,7 @@ public class CreateExchangeWalletParams {
    * The ID of the Exchange Wallet (Main Account).
    * @return mainWalletId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMainWalletId() {
     return mainWalletId;
   }

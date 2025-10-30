@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The required information of a natural person.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -86,7 +86,7 @@ public class TravelRuleWithdrawNaturalEntity {
    * Get selectedEntityType
    * @return selectedEntityType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public SelectedEntityType getSelectedEntityType() {
     return selectedEntityType;
   }
@@ -105,7 +105,7 @@ public class TravelRuleWithdrawNaturalEntity {
    * The first name of the natural person.
    * @return firstName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getFirstName() {
     return firstName;
   }
@@ -124,7 +124,7 @@ public class TravelRuleWithdrawNaturalEntity {
    * The last name of the natural person.
    * @return lastName
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getLastName() {
     return lastName;
   }
@@ -143,7 +143,7 @@ public class TravelRuleWithdrawNaturalEntity {
    * The date of birth of the natural person.
    * @return dateOfBirth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
@@ -162,7 +162,7 @@ public class TravelRuleWithdrawNaturalEntity {
    * The place of birth of the natural person.
    * @return placeOfBirth
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPlaceOfBirth() {
     return placeOfBirth;
   }

@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * LinkDisplayInfo
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -70,10 +70,10 @@ public class LinkDisplayInfo {
   }
 
    /**
-   * Optional display name for the developer/platform. This name may be shown to end users during the payment process. 
+   * The brand name to display to end users during the payment process. 
    * @return developerName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDeveloperName() {
     return developerName;
   }
@@ -89,10 +89,10 @@ public class LinkDisplayInfo {
   }
 
    /**
-   * Optional URL to the developer&#39;s logo image. The logo may be displayed to end users during the payment process.  Supported formats: PNG, JPG, SVG. Maximum file size: 2MB. 
+   * The URL of your logo image to display to end users during the payment process. 
    * @return logo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public URI getLogo() {
     return logo;
   }

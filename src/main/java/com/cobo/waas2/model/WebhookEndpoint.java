@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about a webhook endpoint.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -93,7 +93,7 @@ public class WebhookEndpoint {
    * The webhook endpoint URL.
    * @return url
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getUrl() {
     return url;
   }
@@ -120,7 +120,7 @@ public class WebhookEndpoint {
    * The event types subscribed by a webhook endpoint.
    * @return subscribedEvents
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<WebhookEventType> getSubscribedEvents() {
     return subscribedEvents;
   }
@@ -139,7 +139,7 @@ public class WebhookEndpoint {
    * The time when the endpoint was registered, in Unix timestamp format, measured in seconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -158,7 +158,7 @@ public class WebhookEndpoint {
    * The webhook endpoint ID.
    * @return endpointId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public UUID getEndpointId() {
     return endpointId;
   }
@@ -177,7 +177,7 @@ public class WebhookEndpoint {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WebhookEndpointStatus getStatus() {
     return status;
   }
@@ -196,7 +196,7 @@ public class WebhookEndpoint {
    * The description of the webhook endpoint.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }

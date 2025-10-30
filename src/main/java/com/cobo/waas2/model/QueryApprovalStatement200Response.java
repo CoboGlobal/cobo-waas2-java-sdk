@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * QueryApprovalStatement200Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class QueryApprovalStatement200Response {
    * The approval statement ID.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getId() {
     return id;
   }
@@ -100,7 +100,7 @@ public class QueryApprovalStatement200Response {
    * The user ID of the approver.
    * @return userId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getUserId() {
     return userId;
   }
@@ -119,7 +119,7 @@ public class QueryApprovalStatement200Response {
    * The Cobo Guard public key of the approver.
    * @return pubkey
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPubkey() {
     return pubkey;
   }
@@ -138,7 +138,7 @@ public class QueryApprovalStatement200Response {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ApprovalStatementStatus getStatus() {
     return status;
   }

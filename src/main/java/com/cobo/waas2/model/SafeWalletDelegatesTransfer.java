@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * SafeWalletDelegatesTransfer
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class SafeWalletDelegatesTransfer {
    * Get requestType
    * @return requestType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public EstimateFeeRequestType getRequestType() {
     return requestType;
   }
@@ -100,7 +100,7 @@ public class SafeWalletDelegatesTransfer {
    * The token ID.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -119,7 +119,7 @@ public class SafeWalletDelegatesTransfer {
    * The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.
    * @return amount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAmount() {
     return amount;
   }
@@ -138,7 +138,7 @@ public class SafeWalletDelegatesTransfer {
    * The address of the recipient.
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }

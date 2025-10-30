@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The transaction fee actually charged by the chain that uses the Solana fee model.  For more details about the Solana fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -97,7 +97,7 @@ public class TransactionSOLFee {
    * A fixed fee charged per signature. The default is 5,000 lamports per signature.
    * @return baseFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getBaseFee() {
     return baseFee;
   }
@@ -116,7 +116,7 @@ public class TransactionSOLFee {
    * The rent fee charged by the network to store non–rent-exempt accounts on-chain. It is deducted periodically until the account maintains the minimum balance required for rent exemption.
    * @return rentAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRentAmount() {
     return rentAmount;
   }
@@ -135,7 +135,7 @@ public class TransactionSOLFee {
    * The price paid per compute unit. This value determines the priority fee for the transaction, allowing you to increase inclusion probability in congested conditions.
    * @return computeUnitPrice
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getComputeUnitPrice() {
     return computeUnitPrice;
   }
@@ -154,7 +154,7 @@ public class TransactionSOLFee {
    * The maximum number of compute units your transaction is allowed to consume. It sets an upper bound on computational resource usage to prevent overload.
    * @return computeUnitLimit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getComputeUnitLimit() {
     return computeUnitLimit;
   }
@@ -173,7 +173,7 @@ public class TransactionSOLFee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -192,7 +192,7 @@ public class TransactionSOLFee {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }
@@ -211,7 +211,7 @@ public class TransactionSOLFee {
    * The actually charged transaction fee.
    * @return feeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeUsed() {
     return feeUsed;
   }
@@ -230,7 +230,7 @@ public class TransactionSOLFee {
    * The estimated transaction fee.
    * @return estimatedFeeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEstimatedFeeUsed() {
     return estimatedFeeUsed;
   }

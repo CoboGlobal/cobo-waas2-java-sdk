@@ -56,7 +56,7 @@ import com.cobo.waas2.JSON;
 /**
  * The staking activity.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -145,7 +145,7 @@ public class Activity {
    * The activity ID.
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getId() {
     return id;
   }
@@ -164,7 +164,7 @@ public class Activity {
    * The initiator of the activity.
    * @return initiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getInitiator() {
     return initiator;
   }
@@ -183,7 +183,7 @@ public class Activity {
    * Get initiatorType
    * @return initiatorType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionInitiatorType getInitiatorType() {
     return initiatorType;
   }
@@ -202,7 +202,7 @@ public class Activity {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ActivityType getType() {
     return type;
   }
@@ -221,7 +221,7 @@ public class Activity {
    * The staker&#39;s wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getWalletId() {
     return walletId;
   }
@@ -240,7 +240,7 @@ public class Activity {
    * The staker&#39;s wallet address.
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -259,7 +259,7 @@ public class Activity {
    * Get poolId
    * @return poolId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolId getPoolId() {
     return poolId;
   }
@@ -278,7 +278,7 @@ public class Activity {
    * The token ID.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -297,7 +297,7 @@ public class Activity {
    * The ID of the corresponding staking position.
    * @return stakingId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getStakingId() {
     return stakingId;
   }
@@ -324,7 +324,7 @@ public class Activity {
    * The request IDs of the corresponding transactions of the activity.
    * @return requestIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getRequestIds() {
     return requestIds;
   }
@@ -343,7 +343,7 @@ public class Activity {
    * The staking amount.
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAmount() {
     return amount;
   }
@@ -370,7 +370,7 @@ public class Activity {
    * The IDs of the corresponding transactions of the activity.
    * @return transactionIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getTransactionIds() {
     return transactionIds;
   }
@@ -397,7 +397,7 @@ public class Activity {
    * The timeline of the activity.
    * @return timeline
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<ActivityTimeline> getTimeline() {
     return timeline;
   }
@@ -416,7 +416,7 @@ public class Activity {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -435,7 +435,7 @@ public class Activity {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ActivityStatus getStatus() {
     return status;
   }
@@ -454,7 +454,7 @@ public class Activity {
    * Get extra
    * @return extra
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public ActivityExtra getExtra() {
     return extra;
   }
@@ -473,7 +473,7 @@ public class Activity {
    * The time when the activity was created.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -492,7 +492,7 @@ public class Activity {
    * The time when the activity was last updated.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Long getUpdatedTimestamp() {
     return updatedTimestamp;
   }

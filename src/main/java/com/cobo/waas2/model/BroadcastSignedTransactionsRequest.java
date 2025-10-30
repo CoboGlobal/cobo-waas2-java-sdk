@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * BroadcastSignedTransactionsRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -78,7 +78,7 @@ public class BroadcastSignedTransactionsRequest {
    * The transaction IDs of the signed transactions to be broadcast. You can retrieve the transactions corresponding to a staking activity by calling [Get staking activity details](https://www.cobo.com/developers/v2/api-references/stakings/get-staking-activity-details).
    * @return transactionIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getTransactionIds() {
     return transactionIds;
   }

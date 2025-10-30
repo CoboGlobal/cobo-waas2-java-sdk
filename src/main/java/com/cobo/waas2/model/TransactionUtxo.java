@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The UTXO information.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class TransactionUtxo {
    * The transaction hash of the UTXO.
    * @return txHash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTxHash() {
     return txHash;
   }
@@ -91,7 +91,7 @@ public class TransactionUtxo {
    * The output index of the UTXO.
    * @return voutN
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getVoutN() {
     return voutN;
   }

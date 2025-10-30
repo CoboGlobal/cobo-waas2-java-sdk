@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * EstimateClaimFee
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -78,7 +78,7 @@ public class EstimateClaimFee {
    * Get activityType
    * @return activityType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ActivityType getActivityType() {
     return activityType;
   }
@@ -97,7 +97,7 @@ public class EstimateClaimFee {
    * The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions).
    * @return stakingId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getStakingId() {
     return stakingId;
   }
@@ -116,7 +116,7 @@ public class EstimateClaimFee {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRequestFee getFee() {
     return fee;
   }

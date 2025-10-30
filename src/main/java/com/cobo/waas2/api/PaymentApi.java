@@ -553,14 +553,14 @@ public class PaymentApi {
     }
     /**
      * Build call for createOrderLink
-     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * @param createOrderLinkRequest The request body to create a payment link for a pay-in order. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order link created successfully. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -605,14 +605,14 @@ public class PaymentApi {
 
     /**
      * Create order link
-     * This operation creates a payment link of a pay-in order. 
-     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * This operation generates a payment link for a pay-in order. The link directs users to a hosted payment page where they can complete their payment for the order. You can share the link directly with users or embed the payment page in your website or application using an iframe.  For more details, see [Payment Link](https://www.cobo.com/developers/v2/payments/payment-link). 
+     * @param createOrderLinkRequest The request body to create a payment link for a pay-in order. (optional)
      * @return Link
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order link created successfully. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -624,14 +624,14 @@ public class PaymentApi {
 
     /**
      * Create order link
-     * This operation creates a payment link of a pay-in order. 
-     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * This operation generates a payment link for a pay-in order. The link directs users to a hosted payment page where they can complete their payment for the order. You can share the link directly with users or embed the payment page in your website or application using an iframe.  For more details, see [Payment Link](https://www.cobo.com/developers/v2/payments/payment-link). 
+     * @param createOrderLinkRequest The request body to create a payment link for a pay-in order. (optional)
      * @return ApiResponse&lt;Link&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order link created successfully. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -644,15 +644,15 @@ public class PaymentApi {
 
     /**
      * Create order link (asynchronously)
-     * This operation creates a payment link of a pay-in order. 
-     * @param createOrderLinkRequest The request body to create a payment link of a pay-in order. (optional)
+     * This operation generates a payment link for a pay-in order. The link directs users to a hosted payment page where they can complete their payment for the order. You can share the link directly with users or embed the payment page in your website or application using an iframe.  For more details, see [Payment Link](https://www.cobo.com/developers/v2/payments/payment-link). 
+     * @param createOrderLinkRequest The request body to create a payment link for a pay-in order. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Infos of a newly initiated payment link. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order link created successfully. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>

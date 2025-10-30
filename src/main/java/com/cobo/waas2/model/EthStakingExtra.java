@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * EthStakingExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -80,7 +80,7 @@ public class EthStakingExtra {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -99,7 +99,7 @@ public class EthStakingExtra {
    * The Proof-of-Stake (PoS) chain.
    * @return posChain
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPosChain() {
     return posChain;
   }
@@ -126,7 +126,7 @@ public class EthStakingExtra {
    * The list of validator information.
    * @return beaconValidators
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<EthStakingExtraAllOfBeaconValidators> getBeaconValidators() {
     return beaconValidators;
   }

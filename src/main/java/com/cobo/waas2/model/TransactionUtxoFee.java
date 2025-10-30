@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The transaction fee actually charged by the chain that uses the UTXO fee model, such as Bitcoin.  For more information about the UTXO fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -89,7 +89,7 @@ public class TransactionUtxoFee {
    * The fee rate in sat/vByte. The fee rate represents the satoshis you are willing to pay for each byte of data that your transaction will consume on the blockchain.
    * @return feeRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeRate() {
     return feeRate;
   }
@@ -108,7 +108,7 @@ public class TransactionUtxoFee {
    * Get feeType
    * @return feeType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public FeeType getFeeType() {
     return feeType;
   }
@@ -127,7 +127,7 @@ public class TransactionUtxoFee {
    * The token used to pay the transaction fee.
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }
@@ -146,7 +146,7 @@ public class TransactionUtxoFee {
    * The actually charged transaction fee.
    * @return feeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFeeUsed() {
     return feeUsed;
   }
@@ -165,7 +165,7 @@ public class TransactionUtxoFee {
    * The estimated transaction fee.
    * @return estimatedFeeUsed
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEstimatedFeeUsed() {
     return estimatedFeeUsed;
   }
@@ -184,7 +184,7 @@ public class TransactionUtxoFee {
    * The maximum fee that you are willing to pay for the transaction. The transaction will fail if the transaction fee exceeds the maximum fee.
    * @return maxFeeAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMaxFeeAmount() {
     return maxFeeAmount;
   }

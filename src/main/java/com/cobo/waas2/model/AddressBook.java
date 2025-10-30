@@ -53,7 +53,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information of an Address Book entry.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -114,7 +114,7 @@ public class AddressBook {
    * Organization ID.
    * @return orgId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getOrgId() {
     return orgId;
   }
@@ -133,7 +133,7 @@ public class AddressBook {
    * Address Book entry ID.
    * @return entryId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getEntryId() {
     return entryId;
   }
@@ -152,7 +152,7 @@ public class AddressBook {
    * Wallet address.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -171,7 +171,7 @@ public class AddressBook {
    * Optional memo or tag required by some chains.
    * @return memo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMemo() {
     return memo;
   }
@@ -190,7 +190,7 @@ public class AddressBook {
    * Wallet name.
    * @return walletName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getWalletName() {
     return walletName;
   }
@@ -209,7 +209,7 @@ public class AddressBook {
    * Get walletType
    * @return walletType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public WalletType getWalletType() {
     return walletType;
   }
@@ -228,7 +228,7 @@ public class AddressBook {
    * Get walletSubtype
    * @return walletSubtype
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public WalletSubtype getWalletSubtype() {
     return walletSubtype;
   }
@@ -247,7 +247,7 @@ public class AddressBook {
    * A user-defined label for the address.
    * @return label
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getLabel() {
     return label;
   }
@@ -274,7 +274,7 @@ public class AddressBook {
    * A list of chain IDs.
    * @return chainIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getChainIds() {
     return chainIds;
   }
@@ -293,7 +293,7 @@ public class AddressBook {
    * Email of the address owner.
    * @return email
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEmail() {
     return email;
   }
@@ -312,7 +312,7 @@ public class AddressBook {
    * Get encoding
    * @return encoding
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public AddressEncoding getEncoding() {
     return encoding;
   }

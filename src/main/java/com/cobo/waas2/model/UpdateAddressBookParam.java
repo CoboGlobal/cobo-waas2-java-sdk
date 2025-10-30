@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The request body to update Address Book.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -90,7 +90,7 @@ public class UpdateAddressBookParam {
    * A list of chain IDs.
    * @return chainIds
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<String> getChainIds() {
     return chainIds;
   }
@@ -109,7 +109,7 @@ public class UpdateAddressBookParam {
    * Optional memo or tag required by some chains.
    * @return memo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMemo() {
     return memo;
   }
@@ -128,7 +128,7 @@ public class UpdateAddressBookParam {
    * A user-defined label for the address.
    * @return label
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getLabel() {
     return label;
   }
@@ -147,7 +147,7 @@ public class UpdateAddressBookParam {
    * Email of the address owner.
    * @return email
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getEmail() {
     return email;
   }

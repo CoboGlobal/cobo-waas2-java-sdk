@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * Role-based permission settings for token contract. If not provided, all permissions will be granted to the issuing wallet by default.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -102,7 +102,7 @@ public class TokenizationTokenPermissionParams {
    * List of addresses for the admin role.
    * @return admin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getAdmin() {
     return admin;
   }
@@ -129,7 +129,7 @@ public class TokenizationTokenPermissionParams {
    * List of addresses for the minter role.
    * @return minter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getMinter() {
     return minter;
   }
@@ -156,7 +156,7 @@ public class TokenizationTokenPermissionParams {
    * List of addresses for the burner role.
    * @return burner
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getBurner() {
     return burner;
   }
@@ -183,7 +183,7 @@ public class TokenizationTokenPermissionParams {
    * List of addresses for the manager role.
    * @return manager
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getManager() {
     return manager;
   }
@@ -210,7 +210,7 @@ public class TokenizationTokenPermissionParams {
    * List of addresses for the pauser role.
    * @return pauser
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getPauser() {
     return pauser;
   }
@@ -237,7 +237,7 @@ public class TokenizationTokenPermissionParams {
    * List of addresses for the salvager role.
    * @return salvager
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getSalvager() {
     return salvager;
   }
@@ -264,7 +264,7 @@ public class TokenizationTokenPermissionParams {
    * List of addresses for the upgrader role.
    * @return upgrader
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getUpgrader() {
     return upgrader;
   }

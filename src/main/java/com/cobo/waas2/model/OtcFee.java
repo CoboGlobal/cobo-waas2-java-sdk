@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * OtcFee
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class OtcFee {
    * The exchange rate used to convert cryptos to fiat currencies during off-ramp. The final fiat amount is calculated using the following formula:  Final Fiat Amount &#x3D; (Token Amount - Bridging Fee) × Exchange Rate  Note: The actual fiat amount received may be lower due to additional bank transfer fees. 
    * @return feeRate
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getFeeRate() {
     return feeRate;
   }
@@ -91,7 +91,7 @@ public class OtcFee {
    * The ID of the token you want to off-ramp.
    * @return tokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenId() {
     return tokenId;
   }

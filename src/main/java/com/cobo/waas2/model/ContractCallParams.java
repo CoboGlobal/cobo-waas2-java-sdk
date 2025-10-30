@@ -54,7 +54,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about a transaction that interacts with a smart contract
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -107,7 +107,7 @@ public class ContractCallParams {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -126,7 +126,7 @@ public class ContractCallParams {
    * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -145,7 +145,7 @@ public class ContractCallParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ContractCallSource getSource() {
     return source;
   }
@@ -164,7 +164,7 @@ public class ContractCallParams {
    * Get destination
    * @return destination
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public ContractCallDestination getDestination() {
     return destination;
   }
@@ -183,7 +183,7 @@ public class ContractCallParams {
    * The description of the contract call transaction.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }
@@ -210,7 +210,7 @@ public class ContractCallParams {
    * The custom category for you to identify your transactions.
    * @return categoryNames
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getCategoryNames() {
     return categoryNames;
   }
@@ -229,7 +229,7 @@ public class ContractCallParams {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -248,7 +248,7 @@ public class ContractCallParams {
    * Get transactionProcessType
    * @return transactionProcessType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionProcessType getTransactionProcessType() {
     return transactionProcessType;
   }
@@ -267,7 +267,7 @@ public class ContractCallParams {
    * Get autoFuel
    * @return autoFuel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public AutoFuelType getAutoFuel() {
     return autoFuel;
   }

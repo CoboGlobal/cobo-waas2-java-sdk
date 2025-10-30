@@ -2,7 +2,7 @@
 
 # SubmitKytScreeningsReviewBody
 
-The information about submitting a manual KYT review result for KYT screening cases that require human analysis.
+Submission of a manual KYT review result.
 
 ## Properties
 

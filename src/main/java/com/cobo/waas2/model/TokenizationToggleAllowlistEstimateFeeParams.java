@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationToggleAllowlistEstimateFeeParams
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -86,7 +86,7 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationTokenOperationSource getSource() {
     return source;
   }
@@ -105,7 +105,7 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
    * Whether to activate the allowlist feature for the token.
    * @return activation
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getActivation() {
     return activation;
   }
@@ -124,7 +124,7 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
    * Get operationType
    * @return operationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationOperationType getOperationType() {
     return operationType;
   }
@@ -143,7 +143,7 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
    * The ID of the token.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -162,7 +162,7 @@ public class TokenizationToggleAllowlistEstimateFeeParams {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }

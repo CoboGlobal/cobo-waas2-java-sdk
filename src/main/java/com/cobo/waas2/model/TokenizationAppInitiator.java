@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationAppInitiator
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class TokenizationAppInitiator {
    * The initiator of the tokenization activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.
    * @return appInitiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAppInitiator() {
     return appInitiator;
   }

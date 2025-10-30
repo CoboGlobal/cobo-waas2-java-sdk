@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The base information about a staking protocol.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -69,7 +69,7 @@ public class BaseStakeExtra {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolType getPoolType() {
     return poolType;
   }

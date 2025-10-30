@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the destination &#x60;COSMOS_ADR_36_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -73,7 +73,7 @@ public class CosmosAdr36MessageSignDestination {
    * Get destinationType
    * @return destinationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public MessageSignDestinationType getDestinationType() {
     return destinationType;
   }
@@ -92,7 +92,7 @@ public class CosmosAdr36MessageSignDestination {
    * Message to be signed, in hexadecimal format.
    * @return messageCosmosAdr36
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMessageCosmosAdr36() {
     return messageCosmosAdr36;
   }

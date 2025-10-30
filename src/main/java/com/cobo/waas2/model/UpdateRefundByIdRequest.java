@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * UpdateRefundByIdRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class UpdateRefundByIdRequest {
    * The address where the refunded cryptocurrency will be sent.
    * @return toAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getToAddress() {
     return toAddress;
   }

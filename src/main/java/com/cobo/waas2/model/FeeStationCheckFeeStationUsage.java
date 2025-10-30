@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information for evaluating Fee Station usage.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -89,7 +89,7 @@ public class FeeStationCheckFeeStationUsage {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -108,7 +108,7 @@ public class FeeStationCheckFeeStationUsage {
    * The amount of tokens to be transferred in this request.
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAmount() {
     return amount;
   }
@@ -127,7 +127,7 @@ public class FeeStationCheckFeeStationUsage {
    * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -146,7 +146,7 @@ public class FeeStationCheckFeeStationUsage {
    * The estimated transaction fee required for this transfer, before applying any Fee Station rules.
    * @return estimatedFeeAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getEstimatedFeeAmount() {
     return estimatedFeeAmount;
   }
@@ -165,7 +165,7 @@ public class FeeStationCheckFeeStationUsage {
    * The blockchain address that initiates the transfer.
    * @return fromAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getFromAddress() {
     return fromAddress;
   }
@@ -184,7 +184,7 @@ public class FeeStationCheckFeeStationUsage {
    * The wallet ID.
    * @return fromWalletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getFromWalletId() {
     return fromWalletId;
   }

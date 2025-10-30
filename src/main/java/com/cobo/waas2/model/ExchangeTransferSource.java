@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Assets in an Exchange Wallet (Sub Account) can only be transferred to another Exchange Wallet.  Switch between the tabs to display the properties for different transaction sources. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -78,7 +78,7 @@ public class ExchangeTransferSource {
    * Get sourceType
    * @return sourceType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletSubtype getSourceType() {
     return sourceType;
   }
@@ -97,7 +97,7 @@ public class ExchangeTransferSource {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -116,7 +116,7 @@ public class ExchangeTransferSource {
    * The trading account type.
    * @return tradingAccountType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTradingAccountType() {
     return tradingAccountType;
   }

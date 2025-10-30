@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateTssRequestRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -82,7 +82,7 @@ public class CreateTssRequestRequest {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TSSRequestType getType() {
     return type;
   }
@@ -101,7 +101,7 @@ public class CreateTssRequestRequest {
    * The target key share holder group ID.
    * @return targetKeyShareHolderGroupId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTargetKeyShareHolderGroupId() {
     return targetKeyShareHolderGroupId;
   }
@@ -120,7 +120,7 @@ public class CreateTssRequestRequest {
    * Get sourceKeyShareHolderGroup
    * @return sourceKeyShareHolderGroup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public SourceGroup getSourceKeyShareHolderGroup() {
     return sourceKeyShareHolderGroup;
   }
@@ -139,7 +139,7 @@ public class CreateTssRequestRequest {
    * The description of the TSS request.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }

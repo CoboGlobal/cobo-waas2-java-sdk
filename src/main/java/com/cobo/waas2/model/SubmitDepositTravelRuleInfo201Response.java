@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * SubmitDepositTravelRuleInfo201Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class SubmitDepositTravelRuleInfo201Response {
    * Whether the Travel Rule information has been successfully submitted. - &#x60;true&#x60;: The information has been successfully submitted. - &#x60;false&#x60;: The information has not been submitted. 
    * @return submitted
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getSubmitted() {
     return submitted;
   }

@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * DeleteCryptoAddress201Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class DeleteCryptoAddress201Response {
    * The ID of the deleted crypto address.
    * @return cryptoAddressId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getCryptoAddressId() {
     return cryptoAddressId;
   }

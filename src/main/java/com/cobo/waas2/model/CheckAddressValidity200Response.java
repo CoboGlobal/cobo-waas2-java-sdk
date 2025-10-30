@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * CheckAddressValidity200Response
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class CheckAddressValidity200Response {
    * Whether the address is valid. - &#x60;true&#x60;: The address is valid. - &#x60;false&#x60;: The address is invalid. 
    * @return validity
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getValidity() {
     return validity;
   }

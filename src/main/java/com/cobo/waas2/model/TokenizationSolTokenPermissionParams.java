@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * Role-based permission settings for the Solana Token-2022 Program. If not provided, all permissions will be granted to the issuing wallet by default.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -84,7 +84,7 @@ public class TokenizationSolTokenPermissionParams {
    * Solana wallet address assigned as the permanent delegate authority. It can perform delegated operations on behalf of token holders.
    * @return permanentDelegate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPermanentDelegate() {
     return permanentDelegate;
   }
@@ -103,7 +103,7 @@ public class TokenizationSolTokenPermissionParams {
    * Solana wallet address assigned as the mint authority. It can mint new tokens.
    * @return minter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMinter() {
     return minter;
   }
@@ -122,7 +122,7 @@ public class TokenizationSolTokenPermissionParams {
    * Solana wallet address assigned as the freeze authority. It can freeze token accounts.
    * @return freezer
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFreezer() {
     return freezer;
   }
@@ -141,7 +141,7 @@ public class TokenizationSolTokenPermissionParams {
    * Solana wallet address assigned as the update authority. It can update token metadata.
    * @return updater
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getUpdater() {
     return updater;
   }
@@ -160,7 +160,7 @@ public class TokenizationSolTokenPermissionParams {
    * Solana wallet address assigned as the pause authority. It can pause or unpause all token activities including transfers, burns, and mints.
    * @return pauser
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getPauser() {
     return pauser;
   }

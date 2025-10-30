@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateClaimActivity
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -77,7 +77,7 @@ public class CreateClaimActivity {
    * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -96,7 +96,7 @@ public class CreateClaimActivity {
    * The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions).
    * @return stakingId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getStakingId() {
     return stakingId;
   }
@@ -115,7 +115,7 @@ public class CreateClaimActivity {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRequestFee getFee() {
     return fee;
   }

@@ -54,7 +54,7 @@ import com.cobo.waas2.JSON;
 /**
  * SafeWallet
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -123,7 +123,7 @@ public class SafeWallet {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -142,7 +142,7 @@ public class SafeWallet {
    * Get walletType
    * @return walletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletType getWalletType() {
     return walletType;
   }
@@ -161,7 +161,7 @@ public class SafeWallet {
    * Get walletSubtype
    * @return walletSubtype
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletSubtype getWalletSubtype() {
     return walletSubtype;
   }
@@ -180,7 +180,7 @@ public class SafeWallet {
    * The wallet name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -199,7 +199,7 @@ public class SafeWallet {
    * The ID of the owning organization.
    * @return orgId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getOrgId() {
     return orgId;
   }
@@ -218,7 +218,7 @@ public class SafeWallet {
    * Enable the auto sweep feature for the wallet
    * @return enableAutoSweep
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getEnableAutoSweep() {
     return enableAutoSweep;
   }
@@ -237,7 +237,7 @@ public class SafeWallet {
    * The ID of the chain on which the wallet operates.
    * @return chainId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getChainId() {
     return chainId;
   }
@@ -256,7 +256,7 @@ public class SafeWallet {
    * Get smartContractWalletType
    * @return smartContractWalletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public SmartContractWalletType getSmartContractWalletType() {
     return smartContractWalletType;
   }
@@ -275,7 +275,7 @@ public class SafeWallet {
    * The Smart Contract Wallet address.
    * @return safeAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSafeAddress() {
     return safeAddress;
   }
@@ -302,7 +302,7 @@ public class SafeWallet {
    * The signers of the Smart Contract Wallet.
    * @return signers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getSigners() {
     return signers;
   }
@@ -322,7 +322,7 @@ public class SafeWallet {
    * minimum: 1
    * @return threshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getThreshold() {
     return threshold;
   }
@@ -341,7 +341,7 @@ public class SafeWallet {
    * The address of Cobo Safe.
    * @return coboSafeAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCoboSafeAddress() {
     return coboSafeAddress;
   }
@@ -360,7 +360,7 @@ public class SafeWallet {
    * Get initiator
    * @return initiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public SmartContractInitiator getInitiator() {
     return initiator;
   }

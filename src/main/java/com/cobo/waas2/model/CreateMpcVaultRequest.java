@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateMpcVaultRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -77,7 +77,7 @@ public class CreateMpcVaultRequest {
    * The project ID, which you can retrieve by calling [List all projects](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-projects).  **Notes:** 1. If you set &#x60;vault_type&#x60; to &#x60;OrgControlled&#x60;, the value of &#x60;project_id&#x60; will be ignored. 2. If you set &#x60;vault_type&#x60; to &#x60;UserControlled&#x60;, then &#x60;project_id&#x60; is required. 
    * @return projectId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getProjectId() {
     return projectId;
   }
@@ -96,7 +96,7 @@ public class CreateMpcVaultRequest {
    * The vault name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -115,7 +115,7 @@ public class CreateMpcVaultRequest {
    * Get vaultType
    * @return vaultType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public MPCVaultType getVaultType() {
     return vaultType;
   }

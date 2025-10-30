@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * Information about the transaction destination type &#x60;DepositToAddress&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -101,7 +101,7 @@ public class TransactionDepositToAddressDestination {
    * Get destinationType
    * @return destinationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionDestinationType getDestinationType() {
     return destinationType;
   }
@@ -120,7 +120,7 @@ public class TransactionDepositToAddressDestination {
    * The wallet ID.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -139,7 +139,7 @@ public class TransactionDepositToAddressDestination {
    * Get walletType
    * @return walletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public WalletType getWalletType() {
     return walletType;
   }
@@ -158,7 +158,7 @@ public class TransactionDepositToAddressDestination {
    * Get walletSubtype
    * @return walletSubtype
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public WalletSubtype getWalletSubtype() {
     return walletSubtype;
   }
@@ -177,7 +177,7 @@ public class TransactionDepositToAddressDestination {
    * The destination address.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -196,7 +196,7 @@ public class TransactionDepositToAddressDestination {
    * The memo that identifies a transaction in order to credit the correct account. For transfers out of Cobo Portal, it is highly recommended to include a memo for the chains such as XRP, EOS, XLM, IOST, BNB_BNB, ATOM, LUNA, and TON.
    * @return memo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMemo() {
     return memo;
   }
@@ -215,7 +215,7 @@ public class TransactionDepositToAddressDestination {
    * The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;. 
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAmount() {
     return amount;
   }
@@ -234,7 +234,7 @@ public class TransactionDepositToAddressDestination {
    * Get txInfo
    * @return txInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionDepositToAddressDestinationTxInfo getTxInfo() {
     return txInfo;
   }

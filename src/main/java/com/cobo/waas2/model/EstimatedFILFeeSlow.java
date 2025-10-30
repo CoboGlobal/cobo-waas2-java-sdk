@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * EstimatedFILFeeSlow
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -80,7 +80,7 @@ public class EstimatedFILFeeSlow {
    * An optional tip you can include to prioritize your transaction. The gas premium incentivizes miners to include your transaction sooner than those offering only the base fee.
    * @return gasPremium
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getGasPremium() {
     return gasPremium;
   }
@@ -99,7 +99,7 @@ public class EstimatedFILFeeSlow {
    * The maximum gas price you are willing to pay per unit of gas.
    * @return gasFeeCap
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getGasFeeCap() {
     return gasFeeCap;
   }
@@ -118,7 +118,7 @@ public class EstimatedFILFeeSlow {
    * The maximum amount of gas your transaction is allowed to consume.
    * @return gasLimit
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getGasLimit() {
     return gasLimit;
   }
@@ -137,7 +137,7 @@ public class EstimatedFILFeeSlow {
    * The minimum fee required for a transaction to be included in a block. The base fee is dynamically adjusted based on network congestion to maintain target block utilization. It is burned rather than paid to miners, reducing the total Filecoin supply over time.
    * @return gasBase
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getGasBase() {
     return gasBase;
   }

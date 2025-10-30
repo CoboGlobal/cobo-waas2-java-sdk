@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * TopUpAddress
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -104,7 +104,7 @@ public class TopUpAddress {
    * The dedicated top-up address assigned to a specific payer under a merchant on a specified chain.
    * @return address
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAddress() {
     return address;
   }
@@ -123,7 +123,7 @@ public class TopUpAddress {
    * A unique identifier assigned by Cobo to track and identify individual payers.
    * @return payerId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPayerId() {
     return payerId;
   }
@@ -142,7 +142,7 @@ public class TopUpAddress {
    * A unique identifier assigned by the developer to track and identify individual payers in their system.
    * @return customPayerId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getCustomPayerId() {
     return customPayerId;
   }
@@ -161,7 +161,7 @@ public class TopUpAddress {
    * The merchant ID.
    * @return merchantId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMerchantId() {
     return merchantId;
   }
@@ -180,7 +180,7 @@ public class TopUpAddress {
    * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -199,7 +199,7 @@ public class TopUpAddress {
    * The chain ID.
    * @return chain
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getChain() {
     return chain;
   }
@@ -218,7 +218,7 @@ public class TopUpAddress {
    * The developer fee rate applied to top-up transactions made to this address. Expressed as a decimal string where \&quot;0.1\&quot; represents 10%.
    * @return developerFeeRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDeveloperFeeRate() {
     return developerFeeRate;
   }
@@ -237,7 +237,7 @@ public class TopUpAddress {
    * The minimum top-up amount allowed for this address. Top-ups below this threshold will not be credited to merchant or developer funds.
    * @return minAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMinAmount() {
     return minAmount;
   }
@@ -256,7 +256,7 @@ public class TopUpAddress {
    * The creation time of the top-up address, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -275,7 +275,7 @@ public class TopUpAddress {
    * The last update time of the top-up address, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getUpdatedTimestamp() {
     return updatedTimestamp;
   }

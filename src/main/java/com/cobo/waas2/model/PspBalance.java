@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * PspBalance
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -88,7 +88,7 @@ public class PspBalance {
    * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -107,7 +107,7 @@ public class PspBalance {
    * The total amount of the token that has been received as developer fee.
    * @return developerFeeAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDeveloperFeeAmount() {
     return developerFeeAmount;
   }
@@ -126,7 +126,7 @@ public class PspBalance {
    * The total amount of the token that has been paid out from the developer&#39;s balance.
    * @return settledAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getSettledAmount() {
     return settledAmount;
   }
@@ -145,7 +145,7 @@ public class PspBalance {
    * The total amount of the token that has been refunded from the developer&#39;s balance.
    * @return refundedAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRefundedAmount() {
     return refundedAmount;
   }
@@ -161,10 +161,10 @@ public class PspBalance {
   }
 
    /**
-   *  The total balance of the token available for payout or refund for the developer.  &#x60;total_balance&#x60; &#x3D; &#x60;developer_fee_amount&#x60; - &#x60;settled_amount&#x60; - &#x60;refunded_amount&#x60;  For more information, please refer to [Amounts and Balances](/v2_cn/payments/amounts-and-balances) 
+   *  The total balance of the token available for payout or refund for the developer.  &#x60;total_balance&#x60; &#x3D; &#x60;developer_fee_amount&#x60; - &#x60;settled_amount&#x60; - &#x60;refunded_amount&#x60;  For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances) 
    * @return totalBalance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTotalBalance() {
     return totalBalance;
   }
@@ -183,7 +183,7 @@ public class PspBalance {
    * This field has been deprecated.
    * @return availableBalance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAvailableBalance() {
     return availableBalance;
   }

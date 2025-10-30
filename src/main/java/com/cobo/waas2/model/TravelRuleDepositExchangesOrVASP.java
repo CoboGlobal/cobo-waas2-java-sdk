@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * Required information when depositing from an exchange or other virtual asset service providers (VASP).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -86,7 +86,7 @@ public class TravelRuleDepositExchangesOrVASP {
    * Get destinationWalletType
    * @return destinationWalletType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public DestinationWalletType getDestinationWalletType() {
     return destinationWalletType;
   }
@@ -105,7 +105,7 @@ public class TravelRuleDepositExchangesOrVASP {
    * The vendor code of the VASP.
    * @return vendorCode
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getVendorCode() {
     return vendorCode;
   }
@@ -124,7 +124,7 @@ public class TravelRuleDepositExchangesOrVASP {
    * The unique identifier of the VASP.
    * @return vendorVaspId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getVendorVaspId() {
     return vendorVaspId;
   }
@@ -143,7 +143,7 @@ public class TravelRuleDepositExchangesOrVASP {
    * The vendor name. Use this field to specify the name of a vendor not listed.
    * @return vendorVaspName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getVendorVaspName() {
     return vendorVaspName;
   }
@@ -162,7 +162,7 @@ public class TravelRuleDepositExchangesOrVASP {
    * Get entityInfo
    * @return entityInfo
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TravelRuleDepositExchangesOrVASPEntityInfo getEntityInfo() {
     return entityInfo;
   }

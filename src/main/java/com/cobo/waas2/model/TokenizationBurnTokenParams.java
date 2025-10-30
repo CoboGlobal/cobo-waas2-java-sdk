@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationBurnTokenParams
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class TokenizationBurnTokenParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationTokenOperationSource getSource() {
     return source;
   }
@@ -103,7 +103,7 @@ public class TokenizationBurnTokenParams {
    * Details for each token burn, including amount and address to burn from.
    * @return burns
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<TokenizationBurnTokenParamsBurnsInner> getBurns() {
     return burns;
   }

@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * Details of an error in the GraphQL operation.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -79,7 +79,7 @@ public class GraphQLError {
    * The error message.
    * @return message
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMessage() {
     return message;
   }
@@ -106,7 +106,7 @@ public class GraphQLError {
    * The locations in the query where the error occurred.
    * @return locations
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<GraphQLErrorLocationsInner> getLocations() {
     return locations;
   }
@@ -133,7 +133,7 @@ public class GraphQLError {
    * The path in the response where the error occurred.
    * @return path
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getPath() {
     return path;
   }

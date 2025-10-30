@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * The extra information related to Babylon business logic.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -78,7 +78,7 @@ public class TransactionBabylonBusinessInfo {
    * Get extraType
    * @return extraType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionExtraType getExtraType() {
     return extraType;
   }
@@ -97,7 +97,7 @@ public class TransactionBabylonBusinessInfo {
    * Get babylonAddressInfo
    * @return babylonAddressInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public AddressInfo getBabylonAddressInfo() {
     return babylonAddressInfo;
   }
@@ -116,7 +116,7 @@ public class TransactionBabylonBusinessInfo {
    * Get btcAddressInfo
    * @return btcAddressInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public AddressInfo getBtcAddressInfo() {
     return btcAddressInfo;
   }

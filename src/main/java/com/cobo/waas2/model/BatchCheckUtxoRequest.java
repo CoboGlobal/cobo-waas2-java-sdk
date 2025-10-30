@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * BatchCheckUtxoRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -75,7 +75,7 @@ public class BatchCheckUtxoRequest {
    * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens).
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -102,7 +102,7 @@ public class BatchCheckUtxoRequest {
    * Get utxos
    * @return utxos
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<BatchUTXOParam> getUtxos() {
     return utxos;
   }

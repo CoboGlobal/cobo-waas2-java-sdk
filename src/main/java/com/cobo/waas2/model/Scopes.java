@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * The wallet scopes associated with this API key.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -96,7 +96,7 @@ public class Scopes {
    * The list of wallet types that this API key can access. Possible values include:   - &#x60;Custodial&#x60;: [Custodial Wallets](https://manuals.cobo.com/en/portal/custodial-wallets/introduction)   - &#x60;MPC&#x60;: [MPC Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction)   - &#x60;SmartContract&#x60;: [Smart Contract Wallets](https://manuals.cobo.com/en/portal/smart-contract-wallets/introduction)   - &#x60;Exchange&#x60;: [Exchange Wallets](https://manuals.cobo.com/en/portal/exchange-wallets/introduction) 
    * @return walletTypes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<WalletType> getWalletTypes() {
     return walletTypes;
   }
@@ -123,7 +123,7 @@ public class Scopes {
    * The list of wallet sub-types that this API key can access. Possible values include:   - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets).   - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets).   - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets).   - &#x60;Safe{Wallet}&#x60;: Smart Contract Wallets (Safe).   - &#x60;Main&#x60;: Exchange Wallets (Main Account).   - &#x60;Sub&#x60;: Exchange Wallets (Sub Account). 
    * @return walletSubtypes
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<WalletSubtype> getWalletSubtypes() {
     return walletSubtypes;
   }
@@ -150,7 +150,7 @@ public class Scopes {
    * The list of wallet IDs that this API key can access.
    * @return walletIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getWalletIds() {
     return walletIds;
   }
@@ -177,7 +177,7 @@ public class Scopes {
    * (Applicable to MPC Wallets only) The list of vault IDs that this API key can access.
    * @return vaultIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getVaultIds() {
     return vaultIds;
   }
@@ -204,7 +204,7 @@ public class Scopes {
    * (Applicable to MPC Wallets only) The list of project IDs that this API key can access.
    * @return projectIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getProjectIds() {
     return projectIds;
   }

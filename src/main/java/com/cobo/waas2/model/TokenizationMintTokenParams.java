@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationMintTokenParams
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class TokenizationMintTokenParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TokenizationTokenOperationSource getSource() {
     return source;
   }
@@ -103,7 +103,7 @@ public class TokenizationMintTokenParams {
    * Details for each token mint, including amount and address to mint to.
    * @return mints
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<TokenizationMintTokenParamsMintsInner> getMints() {
     return mints;
   }

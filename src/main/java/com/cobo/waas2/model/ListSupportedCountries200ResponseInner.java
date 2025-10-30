@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * ListSupportedCountries200ResponseInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class ListSupportedCountries200ResponseInner {
    * The English name of the country.
    * @return en
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getEn() {
     return en;
   }
@@ -95,7 +95,7 @@ public class ListSupportedCountries200ResponseInner {
    * The simplified Chinese name of the country.
    * @return zhHans
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getZhHans() {
     return zhHans;
   }
@@ -114,7 +114,7 @@ public class ListSupportedCountries200ResponseInner {
    * The 2-letter country code (ISO 3166-1 alpha-2).
    * @return code2
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getCode2() {
     return code2;
   }

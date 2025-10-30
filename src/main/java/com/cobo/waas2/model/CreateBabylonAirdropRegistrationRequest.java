@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateBabylonAirdropRegistrationRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -73,7 +73,7 @@ public class CreateBabylonAirdropRegistrationRequest {
    * Get btcAddress
    * @return btcAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingSource getBtcAddress() {
     return btcAddress;
   }
@@ -92,7 +92,7 @@ public class CreateBabylonAirdropRegistrationRequest {
    * Get babylonAddress
    * @return babylonAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public StakingSource getBabylonAddress() {
     return babylonAddress;
   }

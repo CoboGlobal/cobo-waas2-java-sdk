@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * GetMaxTransferableValueWithFeeModelRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class GetMaxTransferableValueWithFeeModelRequest {
    * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). For transfers from Exchange Wallets, this property value represents the asset ID.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -100,7 +100,7 @@ public class GetMaxTransferableValueWithFeeModelRequest {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -119,7 +119,7 @@ public class GetMaxTransferableValueWithFeeModelRequest {
    * The recipient&#39;s address.
    * @return toAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getToAddress() {
     return toAddress;
   }
@@ -138,7 +138,7 @@ public class GetMaxTransferableValueWithFeeModelRequest {
    * The sender&#39;s address. This property is required when using an EVM address in an MPC Wallet.
    * @return fromAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getFromAddress() {
     return fromAddress;
   }

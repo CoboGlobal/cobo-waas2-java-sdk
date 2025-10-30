@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * RefreshTokenRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class RefreshTokenRequest {
    * The client ID, a unique identifier to distinguish Cobo Portal Apps. You can get the client ID by retrieving the manifest file after publishing the app.
    * @return clientId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getClientId() {
     return clientId;
   }
@@ -95,7 +95,7 @@ public class RefreshTokenRequest {
    * The OAuth grant type. Set the value as &#x60;refresh_token&#x60;.
    * @return grantType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGrantType() {
     return grantType;
   }
@@ -114,7 +114,7 @@ public class RefreshTokenRequest {
    * The Refresh Token of the current Org Access Token.
    * @return refreshToken
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRefreshToken() {
     return refreshToken;
   }

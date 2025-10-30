@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the destination &#x60;Raw_Message_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -73,7 +73,7 @@ public class TransactionRawMessageSignDestination {
    * Get destinationType
    * @return destinationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionDestinationType getDestinationType() {
     return destinationType;
   }
@@ -92,7 +92,7 @@ public class TransactionRawMessageSignDestination {
    * Message hash to be signed, in hexadecimal format.
    * @return msgHash
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMsgHash() {
     return msgHash;
   }

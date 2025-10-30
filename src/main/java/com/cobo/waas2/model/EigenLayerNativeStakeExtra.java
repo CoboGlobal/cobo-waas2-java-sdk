@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * EigenLayerNativeStakeExtra
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -74,7 +74,7 @@ public class EigenLayerNativeStakeExtra {
    * Get poolType
    * @return poolType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public StakingPoolType getPoolType() {
     return poolType;
   }
@@ -93,7 +93,7 @@ public class EigenLayerNativeStakeExtra {
    * The fee recipient address, if not provided the staker address will be used.
    * @return feeRecipient
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public BigDecimal getFeeRecipient() {
     return feeRecipient;
   }

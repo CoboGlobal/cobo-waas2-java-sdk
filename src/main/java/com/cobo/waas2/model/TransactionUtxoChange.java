@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The UTXO change output information.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class TransactionUtxoChange {
    * The receiving address of the UTXO change output.
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -91,7 +91,7 @@ public class TransactionUtxoChange {
    * The amount of the UTXO change output.
    * @return value
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getValue() {
     return value;
   }

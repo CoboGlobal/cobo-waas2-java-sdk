@@ -50,7 +50,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the destination &#x60;EVM_EIP_712_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -75,7 +75,7 @@ public class EvmEIP712MessageSignDestination {
    * Get destinationType
    * @return destinationType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public MessageSignDestinationType getDestinationType() {
     return destinationType;
   }
@@ -102,7 +102,7 @@ public class EvmEIP712MessageSignDestination {
    * The structured data to be signed, formatted as a JSON object according to the EIP-712 standard.
    * @return structuredData
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Map<String, Object> getStructuredData() {
     return structuredData;
   }

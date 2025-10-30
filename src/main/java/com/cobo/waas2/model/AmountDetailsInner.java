@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * AmountDetailsInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -73,7 +73,7 @@ public class AmountDetailsInner {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public AmountStatus getStatus() {
     return status;
   }
@@ -92,7 +92,7 @@ public class AmountDetailsInner {
    * The staking amount.
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAmount() {
     return amount;
   }

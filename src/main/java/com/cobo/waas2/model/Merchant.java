@@ -49,7 +49,7 @@ import com.cobo.waas2.JSON;
 /**
  * Merchant
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -94,7 +94,7 @@ public class Merchant {
    * The merchant ID.
    * @return merchantId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getMerchantId() {
     return merchantId;
   }
@@ -113,7 +113,7 @@ public class Merchant {
    * The merchant name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -132,7 +132,7 @@ public class Merchant {
    * This field has been deprecated.
    * @return walletId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UUID getWalletId() {
     return walletId;
   }
@@ -151,7 +151,7 @@ public class Merchant {
    * The developer fee rate applied to this merchant.
    * @return developerFeeRate
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDeveloperFeeRate() {
     return developerFeeRate;
   }
@@ -170,7 +170,7 @@ public class Merchant {
    * Get walletSetup
    * @return walletSetup
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public WalletSetup getWalletSetup() {
     return walletSetup;
   }
@@ -189,7 +189,7 @@ public class Merchant {
    * The creation time of the merchant, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getCreatedTimestamp() {
     return createdTimestamp;
   }
@@ -208,7 +208,7 @@ public class Merchant {
    * The last update time of the merchant, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getUpdatedTimestamp() {
     return updatedTimestamp;
   }

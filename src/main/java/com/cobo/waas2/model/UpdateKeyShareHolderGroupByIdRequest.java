@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * UpdateKeyShareHolderGroupByIdRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -69,7 +69,7 @@ public class UpdateKeyShareHolderGroupByIdRequest {
    * Get updateKeyShareHolderGroupAction
    * @return updateKeyShareHolderGroupAction
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public UpdateGroupAction getUpdateKeyShareHolderGroupAction() {
     return updateKeyShareHolderGroupAction;
   }

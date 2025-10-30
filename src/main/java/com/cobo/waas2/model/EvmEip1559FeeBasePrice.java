@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * EvmEip1559FeeBasePrice
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -72,7 +72,7 @@ public class EvmEip1559FeeBasePrice {
    * The maximum gas fee per gas unit used on the chain, in wei.
    * @return maxFeePerGas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMaxFeePerGas() {
     return maxFeePerGas;
   }
@@ -91,7 +91,7 @@ public class EvmEip1559FeeBasePrice {
    * The maximum priority fee per gas unit used, in wei. The maximum priority fee represents the highest amount of miner tips that you are willing to pay for your transaction.
    * @return maxPriorityFeePerGas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMaxPriorityFeePerGas() {
     return maxPriorityFeePerGas;
   }

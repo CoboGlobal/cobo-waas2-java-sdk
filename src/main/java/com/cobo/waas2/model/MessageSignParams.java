@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about a transaction that signs a message. You can provide the message either as raw data or as structured data.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -92,7 +92,7 @@ public class MessageSignParams {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -111,7 +111,7 @@ public class MessageSignParams {
    * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -130,7 +130,7 @@ public class MessageSignParams {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public MessageSignSource getSource() {
     return source;
   }
@@ -149,7 +149,7 @@ public class MessageSignParams {
    * Get destination
    * @return destination
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public MessageSignDestination getDestination() {
     return destination;
   }
@@ -168,7 +168,7 @@ public class MessageSignParams {
    * The description of the message signing transaction.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }
@@ -195,7 +195,7 @@ public class MessageSignParams {
    * The custom category for you to identify your transactions.
    * @return categoryNames
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getCategoryNames() {
     return categoryNames;
   }

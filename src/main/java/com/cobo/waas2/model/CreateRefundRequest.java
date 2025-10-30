@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * CreateRefundRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -105,7 +105,7 @@ public class CreateRefundRequest {
    * The request ID that is used to track a refund request. The request ID is provided by you and must be unique.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -124,7 +124,7 @@ public class CreateRefundRequest {
    * The merchant ID.
    * @return merchantId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantId() {
     return merchantId;
   }
@@ -143,7 +143,7 @@ public class CreateRefundRequest {
    * The amount to refund in cryptocurrency. The amount must be a positive number and can have up to two decimal places
    * @return payableAmount
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPayableAmount() {
     return payableAmount;
   }
@@ -162,7 +162,7 @@ public class CreateRefundRequest {
    * The address where the refunded cryptocurrency will be sent.
    * @return toAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getToAddress() {
     return toAddress;
   }
@@ -181,7 +181,7 @@ public class CreateRefundRequest {
    * The ID of the cryptocurrency used for refund. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -200,7 +200,7 @@ public class CreateRefundRequest {
    * Get refundType
    * @return refundType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public RefundType getRefundType() {
     return refundType;
   }
@@ -219,7 +219,7 @@ public class CreateRefundRequest {
    * The ID of the original pay-in order associated with this refund. Use this to track refunds against specific payments.
    * @return orderId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getOrderId() {
     return orderId;
   }
@@ -238,7 +238,7 @@ public class CreateRefundRequest {
    * Whether to charge developer fee to the merchant. This field is only valid when &#x60;refund_type&#x60; is &#x60;Merchant&#x60;. For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances).     - &#x60;true&#x60;: The fee amount (specified in &#x60;merchant_fee_amount&#x60;) will be deducted from the merchant&#39;s balance and added to the developer&#39;s balance    - &#x60;false&#x60;: The merchant is not charged any developer fee  When enabled, ensure both &#x60;merchant_fee_amount&#x60; and &#x60;merchant_fee_token_id&#x60; are properly specified. 
    * @return chargeMerchantFee
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getChargeMerchantFee() {
     return chargeMerchantFee;
   }
@@ -257,7 +257,7 @@ public class CreateRefundRequest {
    * The developer fee amount to charge the merchant, denominated in the cryptocurrency specified by &#x60;merchant_fee_token_id&#x60;. This field is only valid when &#x60;refund_type&#x60; is &#x60;Merchant&#x60;. For more information, please refer to [Funds allocation and balances](https://www.cobo.com/developers/v2/payments/amounts-and-balances).  This field is required when &#x60;charge_merchant_fee&#x60; is &#x60;true&#x60;. Must be:   - A positive integer with up to two decimal places.   - Less than the refund amount 
    * @return merchantFeeAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantFeeAmount() {
     return merchantFeeAmount;
   }
@@ -276,7 +276,7 @@ public class CreateRefundRequest {
    * The ID of the cryptocurrency used for the developer fee. It must be the same as &#x60;token_id&#x60;. Supported values:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDCOIN&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC2&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return merchantFeeTokenId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMerchantFeeTokenId() {
     return merchantFeeTokenId;
   }

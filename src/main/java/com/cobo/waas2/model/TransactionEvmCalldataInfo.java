@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * TransactionEvmCalldataInfo
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -97,7 +97,7 @@ public class TransactionEvmCalldataInfo {
    * The ID of the chain on which the smart contract is issued.
    * @return chainId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getChainId() {
     return chainId;
   }
@@ -116,7 +116,7 @@ public class TransactionEvmCalldataInfo {
    * The address of the smart contract.
    * @return address
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getAddress() {
     return address;
   }
@@ -135,7 +135,7 @@ public class TransactionEvmCalldataInfo {
    * The name of the smart contract.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -154,7 +154,7 @@ public class TransactionEvmCalldataInfo {
    * The address of the implementation smart contract. This property is applicable only when the specified smart contract is a proxy contract.
    * @return implAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getImplAddress() {
     return implAddress;
   }
@@ -173,7 +173,7 @@ public class TransactionEvmCalldataInfo {
    * The name of the implementation smart contract. This property is applicable only when the specified smart contract is a proxy contract.
    * @return implName
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getImplName() {
     return implName;
   }
@@ -192,7 +192,7 @@ public class TransactionEvmCalldataInfo {
    * Whether the specified smart contract address is a proxy contract. - &#x60;true&#x60;: The specified smart contract address is a proxy contract. - &#x60;false&#x60;: The specified smart contract address is not a proxy contract. 
    * @return proxy
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Boolean getProxy() {
     return proxy;
   }
@@ -211,7 +211,7 @@ public class TransactionEvmCalldataInfo {
    * Get method
    * @return method
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionEvmContractMethod getMethod() {
     return method;
   }
@@ -230,7 +230,7 @@ public class TransactionEvmCalldataInfo {
    * The parameters of the contract method are represented as a JSON array of arrays. Each element in the outer array is itself an array containing three elements that provide detailed information about a specific parameter: - Parameter name: The unique identifier of the parameter, such as &#x60;kind&#x60;, &#x60;swaps&#x60;, and &#x60;to&#x60;. - Parameter type: The Solidity data type of the parameter, such as &#x60;uint8&#x60;, &#x60;tuple[]&#x60;, &#x60;address[]&#x60;, and &#x60;int256[]&#x60;. - Parameter value: The actual value of the parameter. If the parameter type is a basic type such as &#x60;uint256&#x60; or &#x60;address&#x60;, this value is a single element. If the parameter type is a complex type such as &#x60;tuple[]&#x60; or &#x60;address[]&#x60;, the value is a nested array, with each inner array containing parameter names, types, and values. 
    * @return params
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getParams() {
     return params;
   }

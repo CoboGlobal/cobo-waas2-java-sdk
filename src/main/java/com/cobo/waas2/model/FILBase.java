@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * FILBase
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -68,7 +68,7 @@ public class FILBase {
    * The minimum fee required for a transaction to be included in a block. The base fee is dynamically adjusted based on network congestion to maintain target block utilization. It is burned rather than paid to miners, reducing the total Filecoin supply over time.
    * @return gasBase
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getGasBase() {
     return gasBase;
   }

@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the account involved in a Solana instruction.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -76,7 +76,7 @@ public class SolContractCallAccount {
    * The public key of the account. If the account is a signer of this transaction, this property must be the same as the value of the &#x60;source.address&#x60; property. 
    * @return pubkey
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getPubkey() {
     return pubkey;
   }
@@ -95,7 +95,7 @@ public class SolContractCallAccount {
    * Whether the account is the signer of this transaction: - &#x60;true&#x60;: The account is a signer. - &#x60;false&#x60;: The account is not a signer. 
    * @return isSigner
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getIsSigner() {
     return isSigner;
   }
@@ -114,7 +114,7 @@ public class SolContractCallAccount {
    * Whether the account can be modified by the instruction: - &#x60;true&#x60;: The account can be modified by the instruction. - &#x60;false&#x60;: The account cannot be modified by the instruction. 
    * @return isWritable
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Boolean getIsWritable() {
     return isWritable;
   }

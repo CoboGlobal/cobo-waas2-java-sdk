@@ -52,7 +52,7 @@ import com.cobo.waas2.JSON;
 /**
  * The information about the request to drop or to speed up transactions.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -93,7 +93,7 @@ public class TransactionRbf {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getRequestId() {
     return requestId;
   }
@@ -112,7 +112,7 @@ public class TransactionRbf {
    * Get fee
    * @return fee
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public TransactionRequestFee getFee() {
     return fee;
   }
@@ -131,7 +131,7 @@ public class TransactionRbf {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionRbfSource getSource() {
     return source;
   }
@@ -158,7 +158,7 @@ public class TransactionRbf {
    * The custom category for you to identify your transactions.
    * @return categoryNames
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<String> getCategoryNames() {
     return categoryNames;
   }
@@ -177,7 +177,7 @@ public class TransactionRbf {
    * The description of the RBF transaction.
    * @return description
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }
@@ -196,7 +196,7 @@ public class TransactionRbf {
    * Get autoFuel
    * @return autoFuel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public AutoFuelType getAutoFuel() {
     return autoFuel;
   }

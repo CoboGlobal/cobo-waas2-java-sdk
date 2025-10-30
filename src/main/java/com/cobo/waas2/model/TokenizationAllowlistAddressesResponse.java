@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * TokenizationAllowlistAddressesResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -84,7 +84,7 @@ public class TokenizationAllowlistAddressesResponse {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public List<TokenizationAllowlistAddressNote> getData() {
     return data;
   }
@@ -103,7 +103,7 @@ public class TokenizationAllowlistAddressesResponse {
    * Get pagination
    * @return pagination
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public Pagination getPagination() {
     return pagination;
   }

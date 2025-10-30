@@ -47,7 +47,7 @@ import com.cobo.waas2.JSON;
 /**
  * SwapToken
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -88,7 +88,7 @@ public class SwapToken {
    * The token ID.
    * @return tokenId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getTokenId() {
     return tokenId;
   }
@@ -107,7 +107,7 @@ public class SwapToken {
    * The chain ID, which is the unique identifier of a blockchain.
    * @return chainId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getChainId() {
     return chainId;
   }
@@ -126,7 +126,7 @@ public class SwapToken {
    * The asset ID.
    * @return assetId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   public String getAssetId() {
     return assetId;
   }
@@ -145,7 +145,7 @@ public class SwapToken {
    * The on-chain contract address of the token.
    * @return tokenAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getTokenAddress() {
     return tokenAddress;
   }
@@ -164,7 +164,7 @@ public class SwapToken {
    * The minimum amount allowed for a swap.
    * @return minAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMinAmount() {
     return minAmount;
   }
@@ -183,7 +183,7 @@ public class SwapToken {
    * The maximum amount allowed for a swap.
    * @return maxAmount
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getMaxAmount() {
     return maxAmount;
   }

@@ -51,7 +51,7 @@ import com.cobo.waas2.JSON;
 /**
  * The role approval data for transaction.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -88,7 +88,7 @@ public class TransactionRoleApprovalDetail {
    * Get result
    * @return result
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TransactionApprovalResult getResult() {
     return result;
   }
@@ -107,7 +107,7 @@ public class TransactionRoleApprovalDetail {
    * The threshold for passing the review of this role.
    * @return reviewThreshold
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getReviewThreshold() {
     return reviewThreshold;
   }
@@ -126,7 +126,7 @@ public class TransactionRoleApprovalDetail {
    * The initiator of the transaction.
    * @return initiator
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getInitiator() {
     return initiator;
   }
@@ -145,7 +145,7 @@ public class TransactionRoleApprovalDetail {
    * Time to complete the review.
    * @return completeTime
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getCompleteTime() {
     return completeTime;
   }
@@ -172,7 +172,7 @@ public class TransactionRoleApprovalDetail {
    * Get userDetails
    * @return userDetails
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public List<TransactionUserApprovalDetail> getUserDetails() {
     return userDetails;
   }

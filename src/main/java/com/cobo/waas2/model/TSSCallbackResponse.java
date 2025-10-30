@@ -48,7 +48,7 @@ import com.cobo.waas2.JSON;
 /**
  * TSSCallbackResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
@@ -81,7 +81,7 @@ public class TSSCallbackResponse {
    * The unique ID of the callback request.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -100,7 +100,7 @@ public class TSSCallbackResponse {
    * The response status code. 0 indicates success.  Any other value indicates that an error occurred while processing the request in the callback server.
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public Integer getStatus() {
     return status;
   }
@@ -119,7 +119,7 @@ public class TSSCallbackResponse {
    * Get action
    * @return action
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public TSSCallbackActionType getAction() {
     return action;
   }
@@ -138,7 +138,7 @@ public class TSSCallbackResponse {
    * The error message. - When status is not 0, Contains internal error messages from the callback server. - When status is 0 and action is REJECT, Contains the specific reason for the rejection.
    * @return error
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   public String getError() {
     return error;
   }
