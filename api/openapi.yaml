@@ -11061,7 +11061,7 @@ paths:
       - CoboAuth: []
       - OAuth2:
         - wallet.create
-      summary: Create sweep-to address
+      summary: create sweep-to address
       tags:
       - AutoSweep
       x-content-type: application/json
@@ -15159,7 +15159,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/SubmitKytScreeningsReviewBody'
-      description: The request body to submit a manual review result for a KYT screening
+      description: The request body to submit a manual review result for KYT screening
         case that requires human analysis.
     createAddressBooksRequestBody:
       content:
@@ -28939,7 +28939,8 @@ components:
       - transaction_id
       type: object
     SubmitKytScreeningsReviewBody:
-      description: Submission of a manual KYT review result.
+      description: The information about submitting a manual KYT review result for
+        KYT screening cases that require human analysis.
       example:
         transaction_id: f47ac10b-58cc-4372-a567-0e02b2c3d479
         result: Approval
