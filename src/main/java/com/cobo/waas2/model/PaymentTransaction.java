@@ -12,6 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.Counterparty;
+import com.cobo.waas2.model.Destination;
 import com.cobo.waas2.model.TransactionStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -80,6 +82,14 @@ public class PaymentTransaction {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private TransactionStatus status;
+
+  public static final String SERIALIZED_NAME_COUNTERPARTY = "counterparty";
+  @SerializedName(SERIALIZED_NAME_COUNTERPARTY)
+  private Counterparty counterparty;
+
+  public static final String SERIALIZED_NAME_DESTINATION = "destination";
+  @SerializedName(SERIALIZED_NAME_DESTINATION)
+  private Destination destination;
 
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
@@ -225,6 +235,44 @@ public class PaymentTransaction {
   }
 
 
+  public PaymentTransaction counterparty(Counterparty counterparty) {
+    this.counterparty = counterparty;
+    return this;
+  }
+
+   /**
+   * Get counterparty
+   * @return counterparty
+  **/
+  @javax.annotation.Nullable
+  public Counterparty getCounterparty() {
+    return counterparty;
+  }
+
+  public void setCounterparty(Counterparty counterparty) {
+    this.counterparty = counterparty;
+  }
+
+
+  public PaymentTransaction destination(Destination destination) {
+    this.destination = destination;
+    return this;
+  }
+
+   /**
+   * Get destination
+   * @return destination
+  **/
+  @javax.annotation.Nullable
+  public Destination getDestination() {
+    return destination;
+  }
+
+  public void setDestination(Destination destination) {
+    this.destination = destination;
+  }
+
+
   public PaymentTransaction createdTimestamp(Long createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -324,6 +372,8 @@ public class PaymentTransaction {
         Objects.equals(this.toAddress, paymentTransaction.toAddress) &&
         Objects.equals(this.amount, paymentTransaction.amount) &&
         Objects.equals(this.status, paymentTransaction.status) &&
+        Objects.equals(this.counterparty, paymentTransaction.counterparty) &&
+        Objects.equals(this.destination, paymentTransaction.destination) &&
         Objects.equals(this.createdTimestamp, paymentTransaction.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, paymentTransaction.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, paymentTransaction.additionalProperties);
@@ -331,7 +381,7 @@ public class PaymentTransaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(txId, txHash, tokenId, fromAddress, toAddress, amount, status, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(txId, txHash, tokenId, fromAddress, toAddress, amount, status, counterparty, destination, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -345,6 +395,8 @@ public class PaymentTransaction {
     sb.append("    toAddress: ").append(toIndentedString(toAddress)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -377,6 +429,8 @@ public class PaymentTransaction {
     openapiFields.add("to_address");
     openapiFields.add("amount");
     openapiFields.add("status");
+    openapiFields.add("counterparty");
+    openapiFields.add("destination");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -431,6 +485,14 @@ public class PaymentTransaction {
       }
       // validate the required field `status`
       TransactionStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the optional field `counterparty`
+      if (jsonObj.get("counterparty") != null && !jsonObj.get("counterparty").isJsonNull()) {
+        Counterparty.validateJsonElement(jsonObj.get("counterparty"));
+      }
+      // validate the optional field `destination`
+      if (jsonObj.get("destination") != null && !jsonObj.get("destination").isJsonNull()) {
+        Destination.validateJsonElement(jsonObj.get("destination"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

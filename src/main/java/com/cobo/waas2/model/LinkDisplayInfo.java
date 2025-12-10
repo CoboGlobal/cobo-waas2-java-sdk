@@ -61,6 +61,10 @@ public class LinkDisplayInfo {
   @SerializedName(SERIALIZED_NAME_LOGO)
   private URI logo;
 
+  public static final String SERIALIZED_NAME_RETURN_URL = "return_url";
+  @SerializedName(SERIALIZED_NAME_RETURN_URL)
+  private URI returnUrl;
+
   public LinkDisplayInfo() {
   }
 
@@ -99,6 +103,25 @@ public class LinkDisplayInfo {
 
   public void setLogo(URI logo) {
     this.logo = logo;
+  }
+
+
+  public LinkDisplayInfo returnUrl(URI returnUrl) {
+    this.returnUrl = returnUrl;
+    return this;
+  }
+
+   /**
+   * The URL to redirect to after the operation completes.
+   * @return returnUrl
+  **/
+  @javax.annotation.Nullable
+  public URI getReturnUrl() {
+    return returnUrl;
+  }
+
+  public void setReturnUrl(URI returnUrl) {
+    this.returnUrl = returnUrl;
   }
 
   /**
@@ -157,13 +180,14 @@ public class LinkDisplayInfo {
     }
     LinkDisplayInfo linkDisplayInfo = (LinkDisplayInfo) o;
     return Objects.equals(this.developerName, linkDisplayInfo.developerName) &&
-        Objects.equals(this.logo, linkDisplayInfo.logo)&&
+        Objects.equals(this.logo, linkDisplayInfo.logo) &&
+        Objects.equals(this.returnUrl, linkDisplayInfo.returnUrl)&&
         Objects.equals(this.additionalProperties, linkDisplayInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(developerName, logo, additionalProperties);
+    return Objects.hash(developerName, logo, returnUrl, additionalProperties);
   }
 
   @Override
@@ -172,6 +196,7 @@ public class LinkDisplayInfo {
     sb.append("class LinkDisplayInfo {\n");
     sb.append("    developerName: ").append(toIndentedString(developerName)).append("\n");
     sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
+    sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -197,6 +222,7 @@ public class LinkDisplayInfo {
     openapiFields = new HashSet<String>();
     openapiFields.add("developer_name");
     openapiFields.add("logo");
+    openapiFields.add("return_url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -220,6 +246,9 @@ public class LinkDisplayInfo {
       }
       if ((jsonObj.get("logo") != null && !jsonObj.get("logo").isJsonNull()) && !jsonObj.get("logo").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `logo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logo").toString()));
+      }
+      if ((jsonObj.get("return_url") != null && !jsonObj.get("return_url").isJsonNull()) && !jsonObj.get("return_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `return_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("return_url").toString()));
       }
   }
 

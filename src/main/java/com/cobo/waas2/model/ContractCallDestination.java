@@ -143,7 +143,7 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
                     } else  {
                         // look up the discriminator value in the field `destination_type`
                         switch (jsonObject.get("destination_type").getAsString()) {
-                            case "Cosmos_Contract":
+                            case "COSMOS_Contract":
                                 deserialized = adapterCosmosContractCallDestination.fromJsonTree(jsonObject);
                                 newContractCallDestination.setActualInstance(deserialized);
                                 return newContractCallDestination;
@@ -184,7 +184,7 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
                                 newContractCallDestination.setActualInstance(deserialized);
                                 return newContractCallDestination;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for ContractCallDestination. Possible values: Cosmos_Contract EVM_Contract SOL_Contract STELLAR_Contract TRON_Contract CosmosContractCallDestination EvmContractCallDestination SolContractCallDestination StellarContractCallDestination TronContractCallDestination", jsonObject.get("destination_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for ContractCallDestination. Possible values: COSMOS_Contract EVM_Contract SOL_Contract STELLAR_Contract TRON_Contract CosmosContractCallDestination EvmContractCallDestination SolContractCallDestination StellarContractCallDestination TronContractCallDestination", jsonObject.get("destination_type").getAsString()));
                         }
                     }
 

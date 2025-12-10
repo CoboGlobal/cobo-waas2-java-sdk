@@ -55,12 +55,4 @@ public class CosmosContractCallDestinationTest {
         // TODO: test cosmosMessages
     }
 
-    /**
-     * Test the property 'value'
-     */
-    @Test
-    public void valueTest() {
-        // TODO: test value
-    }
-
 }

@@ -77,6 +77,14 @@ public class MerchantBalanceTest {
     }
 
     /**
+     * Test the property 'payoutAmount'
+     */
+    @Test
+    public void payoutAmountTest() {
+        // TODO: test payoutAmount
+    }
+
+    /**
      * Test the property 'refundedAmount'
      */
     @Test

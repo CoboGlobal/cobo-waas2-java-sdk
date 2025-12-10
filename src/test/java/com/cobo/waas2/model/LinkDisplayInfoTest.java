@@ -52,4 +52,12 @@ public class LinkDisplayInfoTest {
         // TODO: test logo
     }
 
+    /**
+     * Test the property 'returnUrl'
+     */
+    @Test
+    public void returnUrlTest() {
+        // TODO: test returnUrl
+    }
+
 }

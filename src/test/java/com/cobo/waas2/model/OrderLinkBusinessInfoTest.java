@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.OrderLinkBusinessInfoCustomExchangeRatesInner;
+import com.cobo.waas2.model.OrderLinkBusinessInfoPayableAmountsInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -39,51 +40,11 @@ public class OrderLinkBusinessInfoTest {
     }
 
     /**
-     * Test the property 'tokenIds'
-     */
-    @Test
-    public void tokenIdsTest() {
-        // TODO: test tokenIds
-    }
-
-    /**
-     * Test the property 'customExchangeRates'
-     */
-    @Test
-    public void customExchangeRatesTest() {
-        // TODO: test customExchangeRates
-    }
-
-    /**
-     * Test the property 'currency'
-     */
-    @Test
-    public void currencyTest() {
-        // TODO: test currency
-    }
-
-    /**
-     * Test the property 'feeAmount'
-     */
-    @Test
-    public void feeAmountTest() {
-        // TODO: test feeAmount
-    }
-
-    /**
      * Test the property 'merchantId'
      */
     @Test
     public void merchantIdTest() {
         // TODO: test merchantId
-    }
-
-    /**
-     * Test the property 'orderAmount'
-     */
-    @Test
-    public void orderAmountTest() {
-        // TODO: test orderAmount
     }
 
     /**
@@ -103,6 +64,46 @@ public class OrderLinkBusinessInfoTest {
     }
 
     /**
+     * Test the property 'pricingCurrency'
+     */
+    @Test
+    public void pricingCurrencyTest() {
+        // TODO: test pricingCurrency
+    }
+
+    /**
+     * Test the property 'pricingAmount'
+     */
+    @Test
+    public void pricingAmountTest() {
+        // TODO: test pricingAmount
+    }
+
+    /**
+     * Test the property 'feeAmount'
+     */
+    @Test
+    public void feeAmountTest() {
+        // TODO: test feeAmount
+    }
+
+    /**
+     * Test the property 'payableCurrencies'
+     */
+    @Test
+    public void payableCurrenciesTest() {
+        // TODO: test payableCurrencies
+    }
+
+    /**
+     * Test the property 'payableAmounts'
+     */
+    @Test
+    public void payableAmountsTest() {
+        // TODO: test payableAmounts
+    }
+
+    /**
      * Test the property 'expiredIn'
      */
     @Test
@@ -111,19 +112,51 @@ public class OrderLinkBusinessInfoTest {
     }
 
     /**
-     * Test the property 'useDedicatedAddress'
-     */
-    @Test
-    public void useDedicatedAddressTest() {
-        // TODO: test useDedicatedAddress
-    }
-
-    /**
      * Test the property 'amountTolerance'
      */
     @Test
     public void amountToleranceTest() {
         // TODO: test amountTolerance
+    }
+
+    /**
+     * Test the property 'currency'
+     */
+    @Test
+    public void currencyTest() {
+        // TODO: test currency
+    }
+
+    /**
+     * Test the property 'orderAmount'
+     */
+    @Test
+    public void orderAmountTest() {
+        // TODO: test orderAmount
+    }
+
+    /**
+     * Test the property 'tokenIds'
+     */
+    @Test
+    public void tokenIdsTest() {
+        // TODO: test tokenIds
+    }
+
+    /**
+     * Test the property 'customExchangeRates'
+     */
+    @Test
+    public void customExchangeRatesTest() {
+        // TODO: test customExchangeRates
+    }
+
+    /**
+     * Test the property 'useDedicatedAddress'
+     */
+    @Test
+    public void useDedicatedAddressTest() {
+        // TODO: test useDedicatedAddress
     }
 
 }

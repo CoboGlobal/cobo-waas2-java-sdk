@@ -109,6 +109,10 @@ public class SettlementDetail {
   @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS_ID)
   private String cryptoAddressId;
 
+  public static final String SERIALIZED_NAME_CRYPTO_ADDRESS = "crypto_address";
+  @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS)
+  private String cryptoAddress;
+
   public static final String SERIALIZED_NAME_PAYOUT_CHANNEL = "payout_channel";
   @SerializedName(SERIALIZED_NAME_PAYOUT_CHANNEL)
   private PayoutChannel payoutChannel;
@@ -372,6 +376,25 @@ public class SettlementDetail {
   }
 
 
+  public SettlementDetail cryptoAddress(String cryptoAddress) {
+    this.cryptoAddress = cryptoAddress;
+    return this;
+  }
+
+   /**
+   * The actual blockchain address to which funds were transferred.
+   * @return cryptoAddress
+  **/
+  @javax.annotation.Nullable
+  public String getCryptoAddress() {
+    return cryptoAddress;
+  }
+
+  public void setCryptoAddress(String cryptoAddress) {
+    this.cryptoAddress = cryptoAddress;
+  }
+
+
   public SettlementDetail payoutChannel(PayoutChannel payoutChannel) {
     this.payoutChannel = payoutChannel;
     return this;
@@ -560,6 +583,7 @@ public class SettlementDetail {
         Objects.equals(this.createdTimestamp, settlementDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, settlementDetail.updatedTimestamp) &&
         Objects.equals(this.cryptoAddressId, settlementDetail.cryptoAddressId) &&
+        Objects.equals(this.cryptoAddress, settlementDetail.cryptoAddress) &&
         Objects.equals(this.payoutChannel, settlementDetail.payoutChannel) &&
         Objects.equals(this.acquiringType, settlementDetail.acquiringType) &&
         Objects.equals(this.settlementRequestId, settlementDetail.settlementRequestId) &&
@@ -571,7 +595,7 @@ public class SettlementDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, payoutChannel, acquiringType, settlementRequestId, orderIds, commissionFee, bridgingFee, additionalProperties);
+    return Objects.hash(currency, tokenId, chainId, merchantId, amount, settledAmount, status, bankAccount, transactions, createdTimestamp, updatedTimestamp, cryptoAddressId, cryptoAddress, payoutChannel, acquiringType, settlementRequestId, orderIds, commissionFee, bridgingFee, additionalProperties);
   }
 
   @Override
@@ -590,6 +614,7 @@ public class SettlementDetail {
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    cryptoAddressId: ").append(toIndentedString(cryptoAddressId)).append("\n");
+    sb.append("    cryptoAddress: ").append(toIndentedString(cryptoAddress)).append("\n");
     sb.append("    payoutChannel: ").append(toIndentedString(payoutChannel)).append("\n");
     sb.append("    acquiringType: ").append(toIndentedString(acquiringType)).append("\n");
     sb.append("    settlementRequestId: ").append(toIndentedString(settlementRequestId)).append("\n");
@@ -631,6 +656,7 @@ public class SettlementDetail {
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("crypto_address_id");
+    openapiFields.add("crypto_address");
     openapiFields.add("payout_channel");
     openapiFields.add("acquiring_type");
     openapiFields.add("settlement_request_id");
@@ -697,6 +723,9 @@ public class SettlementDetail {
       }
       if ((jsonObj.get("crypto_address_id") != null && !jsonObj.get("crypto_address_id").isJsonNull()) && !jsonObj.get("crypto_address_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address_id").toString()));
+      }
+      if ((jsonObj.get("crypto_address") != null && !jsonObj.get("crypto_address").isJsonNull()) && !jsonObj.get("crypto_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `crypto_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address").toString()));
       }
       // validate the optional field `payout_channel`
       if (jsonObj.get("payout_channel") != null && !jsonObj.get("payout_channel").isJsonNull()) {

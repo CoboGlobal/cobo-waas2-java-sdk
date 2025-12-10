@@ -65,9 +65,29 @@ public class Order {
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
+  public static final String SERIALIZED_NAME_MERCHANT_ORDER_CODE = "merchant_order_code";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ORDER_CODE)
+  private String merchantOrderCode;
+
+  public static final String SERIALIZED_NAME_PSP_ORDER_CODE = "psp_order_code";
+  @SerializedName(SERIALIZED_NAME_PSP_ORDER_CODE)
+  private String pspOrderCode;
+
+  public static final String SERIALIZED_NAME_PRICING_CURRENCY = "pricing_currency";
+  @SerializedName(SERIALIZED_NAME_PRICING_CURRENCY)
+  private String pricingCurrency;
+
+  public static final String SERIALIZED_NAME_PRICING_AMOUNT = "pricing_amount";
+  @SerializedName(SERIALIZED_NAME_PRICING_AMOUNT)
+  private String pricingAmount;
+
+  public static final String SERIALIZED_NAME_FEE_AMOUNT = "fee_amount";
+  @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
+  private String feeAmount;
+
+  public static final String SERIALIZED_NAME_PAYABLE_CURRENCY = "payable_currency";
+  @SerializedName(SERIALIZED_NAME_PAYABLE_CURRENCY)
+  private String payableCurrency;
 
   public static final String SERIALIZED_NAME_CHAIN_ID = "chain_id";
   @SerializedName(SERIALIZED_NAME_CHAIN_ID)
@@ -77,37 +97,17 @@ public class Order {
   @SerializedName(SERIALIZED_NAME_PAYABLE_AMOUNT)
   private String payableAmount;
 
-  public static final String SERIALIZED_NAME_RECEIVE_ADDRESS = "receive_address";
-  @SerializedName(SERIALIZED_NAME_RECEIVE_ADDRESS)
-  private String receiveAddress;
-
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private String currency;
-
-  public static final String SERIALIZED_NAME_ORDER_AMOUNT = "order_amount";
-  @SerializedName(SERIALIZED_NAME_ORDER_AMOUNT)
-  private String orderAmount;
-
-  public static final String SERIALIZED_NAME_FEE_AMOUNT = "fee_amount";
-  @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
-  private String feeAmount;
-
   public static final String SERIALIZED_NAME_EXCHANGE_RATE = "exchange_rate";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_RATE)
   private String exchangeRate;
 
-  public static final String SERIALIZED_NAME_EXPIRED_AT = "expired_at";
-  @SerializedName(SERIALIZED_NAME_EXPIRED_AT)
-  private Integer expiredAt;
+  public static final String SERIALIZED_NAME_AMOUNT_TOLERANCE = "amount_tolerance";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_TOLERANCE)
+  private String amountTolerance;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ORDER_CODE = "merchant_order_code";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ORDER_CODE)
-  private String merchantOrderCode;
-
-  public static final String SERIALIZED_NAME_PSP_ORDER_CODE = "psp_order_code";
-  @SerializedName(SERIALIZED_NAME_PSP_ORDER_CODE)
-  private String pspOrderCode;
+  public static final String SERIALIZED_NAME_RECEIVE_ADDRESS = "receive_address";
+  @SerializedName(SERIALIZED_NAME_RECEIVE_ADDRESS)
+  private String receiveAddress;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -116,6 +116,10 @@ public class Order {
   public static final String SERIALIZED_NAME_RECEIVED_TOKEN_AMOUNT = "received_token_amount";
   @SerializedName(SERIALIZED_NAME_RECEIVED_TOKEN_AMOUNT)
   private String receivedTokenAmount;
+
+  public static final String SERIALIZED_NAME_EXPIRED_AT = "expired_at";
+  @SerializedName(SERIALIZED_NAME_EXPIRED_AT)
+  private Integer expiredAt;
 
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
@@ -129,13 +133,21 @@ public class Order {
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
   private List<PaymentTransaction> transactions = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private String currency;
+
+  public static final String SERIALIZED_NAME_ORDER_AMOUNT = "order_amount";
+  @SerializedName(SERIALIZED_NAME_ORDER_AMOUNT)
+  private String orderAmount;
+
+  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
+  private String tokenId;
+
   public static final String SERIALIZED_NAME_SETTLEMENT_STATUS = "settlement_status";
   @SerializedName(SERIALIZED_NAME_SETTLEMENT_STATUS)
   private SettleStatus settlementStatus;
-
-  public static final String SERIALIZED_NAME_AMOUNT_TOLERANCE = "amount_tolerance";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_TOLERANCE)
-  private String amountTolerance;
 
   public Order() {
   }
@@ -178,22 +190,117 @@ public class Order {
   }
 
 
-  public Order tokenId(String tokenId) {
-    this.tokenId = tokenId;
+  public Order merchantOrderCode(String merchantOrderCode) {
+    this.merchantOrderCode = merchantOrderCode;
+    return this;
+  }
+
+   /**
+   * A unique reference code assigned by the merchant to identify this order in their system.
+   * @return merchantOrderCode
+  **/
+  @javax.annotation.Nullable
+  public String getMerchantOrderCode() {
+    return merchantOrderCode;
+  }
+
+  public void setMerchantOrderCode(String merchantOrderCode) {
+    this.merchantOrderCode = merchantOrderCode;
+  }
+
+
+  public Order pspOrderCode(String pspOrderCode) {
+    this.pspOrderCode = pspOrderCode;
+    return this;
+  }
+
+   /**
+   * A unique reference code assigned by the developer to identify this order in their system.
+   * @return pspOrderCode
+  **/
+  @javax.annotation.Nonnull
+  public String getPspOrderCode() {
+    return pspOrderCode;
+  }
+
+  public void setPspOrderCode(String pspOrderCode) {
+    this.pspOrderCode = pspOrderCode;
+  }
+
+
+  public Order pricingCurrency(String pricingCurrency) {
+    this.pricingCurrency = pricingCurrency;
+    return this;
+  }
+
+   /**
+   * The fiat currency of the order.
+   * @return pricingCurrency
+  **/
+  @javax.annotation.Nullable
+  public String getPricingCurrency() {
+    return pricingCurrency;
+  }
+
+  public void setPricingCurrency(String pricingCurrency) {
+    this.pricingCurrency = pricingCurrency;
+  }
+
+
+  public Order pricingAmount(String pricingAmount) {
+    this.pricingAmount = pricingAmount;
+    return this;
+  }
+
+   /**
+   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;).
+   * @return pricingAmount
+  **/
+  @javax.annotation.Nullable
+  public String getPricingAmount() {
+    return pricingAmount;
+  }
+
+  public void setPricingAmount(String pricingAmount) {
+    this.pricingAmount = pricingAmount;
+  }
+
+
+  public Order feeAmount(String feeAmount) {
+    this.feeAmount = feeAmount;
+    return this;
+  }
+
+   /**
+   * The developer fee for the order in fiat currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge.
+   * @return feeAmount
+  **/
+  @javax.annotation.Nonnull
+  public String getFeeAmount() {
+    return feeAmount;
+  }
+
+  public void setFeeAmount(String feeAmount) {
+    this.feeAmount = feeAmount;
+  }
+
+
+  public Order payableCurrency(String payableCurrency) {
+    this.payableCurrency = payableCurrency;
     return this;
   }
 
    /**
    * The ID of the cryptocurrency used for payment.
-   * @return tokenId
+   * @return payableCurrency
   **/
-  @javax.annotation.Nonnull
-  public String getTokenId() {
-    return tokenId;
+  @javax.annotation.Nullable
+  public String getPayableCurrency() {
+    return payableCurrency;
   }
 
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
+  public void setPayableCurrency(String payableCurrency) {
+    this.payableCurrency = payableCurrency;
   }
 
 
@@ -235,82 +342,6 @@ public class Order {
   }
 
 
-  public Order receiveAddress(String receiveAddress) {
-    this.receiveAddress = receiveAddress;
-    return this;
-  }
-
-   /**
-   * The recipient wallet address to be used for the payment transaction.
-   * @return receiveAddress
-  **/
-  @javax.annotation.Nonnull
-  public String getReceiveAddress() {
-    return receiveAddress;
-  }
-
-  public void setReceiveAddress(String receiveAddress) {
-    this.receiveAddress = receiveAddress;
-  }
-
-
-  public Order currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * The fiat currency of the order.
-   * @return currency
-  **/
-  @javax.annotation.Nonnull
-  public String getCurrency() {
-    return currency;
-  }
-
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
-
-
-  public Order orderAmount(String orderAmount) {
-    this.orderAmount = orderAmount;
-    return this;
-  }
-
-   /**
-   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;).
-   * @return orderAmount
-  **/
-  @javax.annotation.Nonnull
-  public String getOrderAmount() {
-    return orderAmount;
-  }
-
-  public void setOrderAmount(String orderAmount) {
-    this.orderAmount = orderAmount;
-  }
-
-
-  public Order feeAmount(String feeAmount) {
-    this.feeAmount = feeAmount;
-    return this;
-  }
-
-   /**
-   * The developer fee for the order in fiat currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge.
-   * @return feeAmount
-  **/
-  @javax.annotation.Nonnull
-  public String getFeeAmount() {
-    return feeAmount;
-  }
-
-  public void setFeeAmount(String feeAmount) {
-    this.feeAmount = feeAmount;
-  }
-
-
   public Order exchangeRate(String exchangeRate) {
     this.exchangeRate = exchangeRate;
     return this;
@@ -330,60 +361,41 @@ public class Order {
   }
 
 
-  public Order expiredAt(Integer expiredAt) {
-    this.expiredAt = expiredAt;
+  public Order amountTolerance(String amountTolerance) {
+    this.amountTolerance = amountTolerance;
     return this;
   }
 
    /**
-   * The expiration time of the pay-in order, represented as a UNIX timestamp in seconds.
-   * @return expiredAt
+   * Allowed amount deviation.
+   * @return amountTolerance
   **/
   @javax.annotation.Nullable
-  public Integer getExpiredAt() {
-    return expiredAt;
+  public String getAmountTolerance() {
+    return amountTolerance;
   }
 
-  public void setExpiredAt(Integer expiredAt) {
-    this.expiredAt = expiredAt;
+  public void setAmountTolerance(String amountTolerance) {
+    this.amountTolerance = amountTolerance;
   }
 
 
-  public Order merchantOrderCode(String merchantOrderCode) {
-    this.merchantOrderCode = merchantOrderCode;
+  public Order receiveAddress(String receiveAddress) {
+    this.receiveAddress = receiveAddress;
     return this;
   }
 
    /**
-   * A unique reference code assigned by the merchant to identify this order in their system.
-   * @return merchantOrderCode
-  **/
-  @javax.annotation.Nullable
-  public String getMerchantOrderCode() {
-    return merchantOrderCode;
-  }
-
-  public void setMerchantOrderCode(String merchantOrderCode) {
-    this.merchantOrderCode = merchantOrderCode;
-  }
-
-
-  public Order pspOrderCode(String pspOrderCode) {
-    this.pspOrderCode = pspOrderCode;
-    return this;
-  }
-
-   /**
-   * A unique reference code assigned by the developer to identify this order in their system.
-   * @return pspOrderCode
+   * The recipient wallet address to be used for the payment transaction.
+   * @return receiveAddress
   **/
   @javax.annotation.Nonnull
-  public String getPspOrderCode() {
-    return pspOrderCode;
+  public String getReceiveAddress() {
+    return receiveAddress;
   }
 
-  public void setPspOrderCode(String pspOrderCode) {
-    this.pspOrderCode = pspOrderCode;
+  public void setReceiveAddress(String receiveAddress) {
+    this.receiveAddress = receiveAddress;
   }
 
 
@@ -422,6 +434,25 @@ public class Order {
 
   public void setReceivedTokenAmount(String receivedTokenAmount) {
     this.receivedTokenAmount = receivedTokenAmount;
+  }
+
+
+  public Order expiredAt(Integer expiredAt) {
+    this.expiredAt = expiredAt;
+    return this;
+  }
+
+   /**
+   * The expiration time of the pay-in order, represented as a UNIX timestamp in seconds.
+   * @return expiredAt
+  **/
+  @javax.annotation.Nullable
+  public Integer getExpiredAt() {
+    return expiredAt;
+  }
+
+  public void setExpiredAt(Integer expiredAt) {
+    this.expiredAt = expiredAt;
   }
 
 
@@ -490,6 +521,63 @@ public class Order {
   }
 
 
+  public Order currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * The fiat currency of the order.
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
+  public Order orderAmount(String orderAmount) {
+    this.orderAmount = orderAmount;
+    return this;
+  }
+
+   /**
+   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;).
+   * @return orderAmount
+  **/
+  @javax.annotation.Nullable
+  public String getOrderAmount() {
+    return orderAmount;
+  }
+
+  public void setOrderAmount(String orderAmount) {
+    this.orderAmount = orderAmount;
+  }
+
+
+  public Order tokenId(String tokenId) {
+    this.tokenId = tokenId;
+    return this;
+  }
+
+   /**
+   * The ID of the cryptocurrency used for payment.
+   * @return tokenId
+  **/
+  @javax.annotation.Nullable
+  public String getTokenId() {
+    return tokenId;
+  }
+
+  public void setTokenId(String tokenId) {
+    this.tokenId = tokenId;
+  }
+
+
   public Order settlementStatus(SettleStatus settlementStatus) {
     this.settlementStatus = settlementStatus;
     return this;
@@ -506,25 +594,6 @@ public class Order {
 
   public void setSettlementStatus(SettleStatus settlementStatus) {
     this.settlementStatus = settlementStatus;
-  }
-
-
-  public Order amountTolerance(String amountTolerance) {
-    this.amountTolerance = amountTolerance;
-    return this;
-  }
-
-   /**
-   * Allowed amount deviation.
-   * @return amountTolerance
-  **/
-  @javax.annotation.Nullable
-  public String getAmountTolerance() {
-    return amountTolerance;
-  }
-
-  public void setAmountTolerance(String amountTolerance) {
-    this.amountTolerance = amountTolerance;
   }
 
   /**
@@ -584,30 +653,33 @@ public class Order {
     Order order = (Order) o;
     return Objects.equals(this.orderId, order.orderId) &&
         Objects.equals(this.merchantId, order.merchantId) &&
-        Objects.equals(this.tokenId, order.tokenId) &&
-        Objects.equals(this.chainId, order.chainId) &&
-        Objects.equals(this.payableAmount, order.payableAmount) &&
-        Objects.equals(this.receiveAddress, order.receiveAddress) &&
-        Objects.equals(this.currency, order.currency) &&
-        Objects.equals(this.orderAmount, order.orderAmount) &&
-        Objects.equals(this.feeAmount, order.feeAmount) &&
-        Objects.equals(this.exchangeRate, order.exchangeRate) &&
-        Objects.equals(this.expiredAt, order.expiredAt) &&
         Objects.equals(this.merchantOrderCode, order.merchantOrderCode) &&
         Objects.equals(this.pspOrderCode, order.pspOrderCode) &&
+        Objects.equals(this.pricingCurrency, order.pricingCurrency) &&
+        Objects.equals(this.pricingAmount, order.pricingAmount) &&
+        Objects.equals(this.feeAmount, order.feeAmount) &&
+        Objects.equals(this.payableCurrency, order.payableCurrency) &&
+        Objects.equals(this.chainId, order.chainId) &&
+        Objects.equals(this.payableAmount, order.payableAmount) &&
+        Objects.equals(this.exchangeRate, order.exchangeRate) &&
+        Objects.equals(this.amountTolerance, order.amountTolerance) &&
+        Objects.equals(this.receiveAddress, order.receiveAddress) &&
         Objects.equals(this.status, order.status) &&
         Objects.equals(this.receivedTokenAmount, order.receivedTokenAmount) &&
+        Objects.equals(this.expiredAt, order.expiredAt) &&
         Objects.equals(this.createdTimestamp, order.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, order.updatedTimestamp) &&
         Objects.equals(this.transactions, order.transactions) &&
-        Objects.equals(this.settlementStatus, order.settlementStatus) &&
-        Objects.equals(this.amountTolerance, order.amountTolerance)&&
+        Objects.equals(this.currency, order.currency) &&
+        Objects.equals(this.orderAmount, order.orderAmount) &&
+        Objects.equals(this.tokenId, order.tokenId) &&
+        Objects.equals(this.settlementStatus, order.settlementStatus)&&
         Objects.equals(this.additionalProperties, order.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderId, merchantId, tokenId, chainId, payableAmount, receiveAddress, currency, orderAmount, feeAmount, exchangeRate, expiredAt, merchantOrderCode, pspOrderCode, status, receivedTokenAmount, createdTimestamp, updatedTimestamp, transactions, settlementStatus, amountTolerance, additionalProperties);
+    return Objects.hash(orderId, merchantId, merchantOrderCode, pspOrderCode, pricingCurrency, pricingAmount, feeAmount, payableCurrency, chainId, payableAmount, exchangeRate, amountTolerance, receiveAddress, status, receivedTokenAmount, expiredAt, createdTimestamp, updatedTimestamp, transactions, currency, orderAmount, tokenId, settlementStatus, additionalProperties);
   }
 
   @Override
@@ -616,24 +688,27 @@ public class Order {
     sb.append("class Order {\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
-    sb.append("    payableAmount: ").append(toIndentedString(payableAmount)).append("\n");
-    sb.append("    receiveAddress: ").append(toIndentedString(receiveAddress)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    orderAmount: ").append(toIndentedString(orderAmount)).append("\n");
-    sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
-    sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
-    sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    merchantOrderCode: ").append(toIndentedString(merchantOrderCode)).append("\n");
     sb.append("    pspOrderCode: ").append(toIndentedString(pspOrderCode)).append("\n");
+    sb.append("    pricingCurrency: ").append(toIndentedString(pricingCurrency)).append("\n");
+    sb.append("    pricingAmount: ").append(toIndentedString(pricingAmount)).append("\n");
+    sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
+    sb.append("    payableCurrency: ").append(toIndentedString(payableCurrency)).append("\n");
+    sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
+    sb.append("    payableAmount: ").append(toIndentedString(payableAmount)).append("\n");
+    sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
+    sb.append("    amountTolerance: ").append(toIndentedString(amountTolerance)).append("\n");
+    sb.append("    receiveAddress: ").append(toIndentedString(receiveAddress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    receivedTokenAmount: ").append(toIndentedString(receivedTokenAmount)).append("\n");
+    sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    orderAmount: ").append(toIndentedString(orderAmount)).append("\n");
+    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    settlementStatus: ").append(toIndentedString(settlementStatus)).append("\n");
-    sb.append("    amountTolerance: ").append(toIndentedString(amountTolerance)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -659,37 +734,37 @@ public class Order {
     openapiFields = new HashSet<String>();
     openapiFields.add("order_id");
     openapiFields.add("merchant_id");
-    openapiFields.add("token_id");
-    openapiFields.add("chain_id");
-    openapiFields.add("payable_amount");
-    openapiFields.add("receive_address");
-    openapiFields.add("currency");
-    openapiFields.add("order_amount");
-    openapiFields.add("fee_amount");
-    openapiFields.add("exchange_rate");
-    openapiFields.add("expired_at");
     openapiFields.add("merchant_order_code");
     openapiFields.add("psp_order_code");
+    openapiFields.add("pricing_currency");
+    openapiFields.add("pricing_amount");
+    openapiFields.add("fee_amount");
+    openapiFields.add("payable_currency");
+    openapiFields.add("chain_id");
+    openapiFields.add("payable_amount");
+    openapiFields.add("exchange_rate");
+    openapiFields.add("amount_tolerance");
+    openapiFields.add("receive_address");
     openapiFields.add("status");
     openapiFields.add("received_token_amount");
+    openapiFields.add("expired_at");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("transactions");
+    openapiFields.add("currency");
+    openapiFields.add("order_amount");
+    openapiFields.add("token_id");
     openapiFields.add("settlement_status");
-    openapiFields.add("amount_tolerance");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("order_id");
-    openapiRequiredFields.add("token_id");
+    openapiRequiredFields.add("psp_order_code");
+    openapiRequiredFields.add("fee_amount");
     openapiRequiredFields.add("chain_id");
     openapiRequiredFields.add("payable_amount");
-    openapiRequiredFields.add("receive_address");
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("order_amount");
-    openapiRequiredFields.add("fee_amount");
     openapiRequiredFields.add("exchange_rate");
-    openapiRequiredFields.add("psp_order_code");
+    openapiRequiredFields.add("receive_address");
     openapiRequiredFields.add("status");
     openapiRequiredFields.add("received_token_amount");
   }
@@ -720,8 +795,23 @@ public class Order {
       if ((jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()) && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
-      if (!jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      if ((jsonObj.get("merchant_order_code") != null && !jsonObj.get("merchant_order_code").isJsonNull()) && !jsonObj.get("merchant_order_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_order_code").toString()));
+      }
+      if (!jsonObj.get("psp_order_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `psp_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psp_order_code").toString()));
+      }
+      if ((jsonObj.get("pricing_currency") != null && !jsonObj.get("pricing_currency").isJsonNull()) && !jsonObj.get("pricing_currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pricing_currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pricing_currency").toString()));
+      }
+      if ((jsonObj.get("pricing_amount") != null && !jsonObj.get("pricing_amount").isJsonNull()) && !jsonObj.get("pricing_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pricing_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pricing_amount").toString()));
+      }
+      if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
+      }
+      if ((jsonObj.get("payable_currency") != null && !jsonObj.get("payable_currency").isJsonNull()) && !jsonObj.get("payable_currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `payable_currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payable_currency").toString()));
       }
       if (!jsonObj.get("chain_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `chain_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chain_id").toString()));
@@ -729,26 +819,14 @@ public class Order {
       if (!jsonObj.get("payable_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payable_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payable_amount").toString()));
       }
-      if (!jsonObj.get("receive_address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `receive_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receive_address").toString()));
-      }
-      if (!jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
-      if (!jsonObj.get("order_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `order_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_amount").toString()));
-      }
-      if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
-      }
       if (!jsonObj.get("exchange_rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `exchange_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exchange_rate").toString()));
       }
-      if ((jsonObj.get("merchant_order_code") != null && !jsonObj.get("merchant_order_code").isJsonNull()) && !jsonObj.get("merchant_order_code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_order_code").toString()));
+      if ((jsonObj.get("amount_tolerance") != null && !jsonObj.get("amount_tolerance").isJsonNull()) && !jsonObj.get("amount_tolerance").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `amount_tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount_tolerance").toString()));
       }
-      if (!jsonObj.get("psp_order_code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `psp_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psp_order_code").toString()));
+      if (!jsonObj.get("receive_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `receive_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receive_address").toString()));
       }
       // validate the required field `status`
       OrderStatus.validateJsonElement(jsonObj.get("status"));
@@ -769,12 +847,18 @@ public class Order {
           };
         }
       }
+      if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
+      if ((jsonObj.get("order_amount") != null && !jsonObj.get("order_amount").isJsonNull()) && !jsonObj.get("order_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_amount").toString()));
+      }
+      if ((jsonObj.get("token_id") != null && !jsonObj.get("token_id").isJsonNull()) && !jsonObj.get("token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      }
       // validate the optional field `settlement_status`
       if (jsonObj.get("settlement_status") != null && !jsonObj.get("settlement_status").isJsonNull()) {
         SettleStatus.validateJsonElement(jsonObj.get("settlement_status"));
-      }
-      if ((jsonObj.get("amount_tolerance") != null && !jsonObj.get("amount_tolerance").isJsonNull()) && !jsonObj.get("amount_tolerance").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `amount_tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount_tolerance").toString()));
       }
   }
 

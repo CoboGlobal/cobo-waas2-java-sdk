@@ -70,6 +70,10 @@ public class CreateSettlement {
   @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS_ID)
   private String cryptoAddressId;
 
+  public static final String SERIALIZED_NAME_CRYPTO_ADDRESS = "crypto_address";
+  @SerializedName(SERIALIZED_NAME_CRYPTO_ADDRESS)
+  private String cryptoAddress;
+
   public static final String SERIALIZED_NAME_ORDER_IDS = "order_ids";
   @SerializedName(SERIALIZED_NAME_ORDER_IDS)
   private List<String> orderIds = new ArrayList<>();
@@ -150,6 +154,25 @@ public class CreateSettlement {
 
   public void setCryptoAddressId(String cryptoAddressId) {
     this.cryptoAddressId = cryptoAddressId;
+  }
+
+
+  public CreateSettlement cryptoAddress(String cryptoAddress) {
+    this.cryptoAddress = cryptoAddress;
+    return this;
+  }
+
+   /**
+   * Only used in Crypto payout channel. The actual blockchain address to which funds will be transferred. If enable destination whitelist, this address must be associated with a destination. 
+   * @return cryptoAddress
+  **/
+  @javax.annotation.Nullable
+  public String getCryptoAddress() {
+    return cryptoAddress;
+  }
+
+  public void setCryptoAddress(String cryptoAddress) {
+    this.cryptoAddress = cryptoAddress;
   }
 
 
@@ -238,13 +261,14 @@ public class CreateSettlement {
         Objects.equals(this.tokenId, createSettlement.tokenId) &&
         Objects.equals(this.amount, createSettlement.amount) &&
         Objects.equals(this.cryptoAddressId, createSettlement.cryptoAddressId) &&
+        Objects.equals(this.cryptoAddress, createSettlement.cryptoAddress) &&
         Objects.equals(this.orderIds, createSettlement.orderIds)&&
         Objects.equals(this.additionalProperties, createSettlement.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, amount, cryptoAddressId, orderIds, additionalProperties);
+    return Objects.hash(merchantId, tokenId, amount, cryptoAddressId, cryptoAddress, orderIds, additionalProperties);
   }
 
   @Override
@@ -255,6 +279,7 @@ public class CreateSettlement {
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    cryptoAddressId: ").append(toIndentedString(cryptoAddressId)).append("\n");
+    sb.append("    cryptoAddress: ").append(toIndentedString(cryptoAddress)).append("\n");
     sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -283,6 +308,7 @@ public class CreateSettlement {
     openapiFields.add("token_id");
     openapiFields.add("amount");
     openapiFields.add("crypto_address_id");
+    openapiFields.add("crypto_address");
     openapiFields.add("order_ids");
 
     // a set of required properties/fields (JSON key names)
@@ -321,6 +347,9 @@ public class CreateSettlement {
       }
       if ((jsonObj.get("crypto_address_id") != null && !jsonObj.get("crypto_address_id").isJsonNull()) && !jsonObj.get("crypto_address_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `crypto_address_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address_id").toString()));
+      }
+      if ((jsonObj.get("crypto_address") != null && !jsonObj.get("crypto_address").isJsonNull()) && !jsonObj.get("crypto_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `crypto_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crypto_address").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("order_ids") != null && !jsonObj.get("order_ids").isJsonNull() && !jsonObj.get("order_ids").isJsonArray()) {

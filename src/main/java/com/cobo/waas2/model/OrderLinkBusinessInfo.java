@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.OrderLinkBusinessInfoCustomExchangeRatesInner;
+import com.cobo.waas2.model.OrderLinkBusinessInfoPayableAmountsInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,29 +56,9 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class OrderLinkBusinessInfo {
-  public static final String SERIALIZED_NAME_TOKEN_IDS = "token_ids";
-  @SerializedName(SERIALIZED_NAME_TOKEN_IDS)
-  private List<String> tokenIds = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_CUSTOM_EXCHANGE_RATES = "custom_exchange_rates";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_EXCHANGE_RATES)
-  private List<OrderLinkBusinessInfoCustomExchangeRatesInner> customExchangeRates = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private String currency;
-
-  public static final String SERIALIZED_NAME_FEE_AMOUNT = "fee_amount";
-  @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
-  private String feeAmount;
-
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
-
-  public static final String SERIALIZED_NAME_ORDER_AMOUNT = "order_amount";
-  @SerializedName(SERIALIZED_NAME_ORDER_AMOUNT)
-  private String orderAmount;
 
   public static final String SERIALIZED_NAME_MERCHANT_ORDER_CODE = "merchant_order_code";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ORDER_CODE)
@@ -87,112 +68,56 @@ public class OrderLinkBusinessInfo {
   @SerializedName(SERIALIZED_NAME_PSP_ORDER_CODE)
   private String pspOrderCode;
 
+  public static final String SERIALIZED_NAME_PRICING_CURRENCY = "pricing_currency";
+  @SerializedName(SERIALIZED_NAME_PRICING_CURRENCY)
+  private String pricingCurrency;
+
+  public static final String SERIALIZED_NAME_PRICING_AMOUNT = "pricing_amount";
+  @SerializedName(SERIALIZED_NAME_PRICING_AMOUNT)
+  private String pricingAmount;
+
+  public static final String SERIALIZED_NAME_FEE_AMOUNT = "fee_amount";
+  @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
+  private String feeAmount;
+
+  public static final String SERIALIZED_NAME_PAYABLE_CURRENCIES = "payable_currencies";
+  @SerializedName(SERIALIZED_NAME_PAYABLE_CURRENCIES)
+  private List<String> payableCurrencies = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_PAYABLE_AMOUNTS = "payable_amounts";
+  @SerializedName(SERIALIZED_NAME_PAYABLE_AMOUNTS)
+  private List<OrderLinkBusinessInfoPayableAmountsInner> payableAmounts = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_EXPIRED_IN = "expired_in";
   @SerializedName(SERIALIZED_NAME_EXPIRED_IN)
   private Integer expiredIn = 1800;
-
-  public static final String SERIALIZED_NAME_USE_DEDICATED_ADDRESS = "use_dedicated_address";
-  @SerializedName(SERIALIZED_NAME_USE_DEDICATED_ADDRESS)
-  private Boolean useDedicatedAddress;
 
   public static final String SERIALIZED_NAME_AMOUNT_TOLERANCE = "amount_tolerance";
   @SerializedName(SERIALIZED_NAME_AMOUNT_TOLERANCE)
   private String amountTolerance;
 
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private String currency;
+
+  public static final String SERIALIZED_NAME_ORDER_AMOUNT = "order_amount";
+  @SerializedName(SERIALIZED_NAME_ORDER_AMOUNT)
+  private String orderAmount;
+
+  public static final String SERIALIZED_NAME_TOKEN_IDS = "token_ids";
+  @SerializedName(SERIALIZED_NAME_TOKEN_IDS)
+  private List<String> tokenIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CUSTOM_EXCHANGE_RATES = "custom_exchange_rates";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_EXCHANGE_RATES)
+  private List<OrderLinkBusinessInfoCustomExchangeRatesInner> customExchangeRates = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_USE_DEDICATED_ADDRESS = "use_dedicated_address";
+  @SerializedName(SERIALIZED_NAME_USE_DEDICATED_ADDRESS)
+  private Boolean useDedicatedAddress;
+
   public OrderLinkBusinessInfo() {
   }
-
-  public OrderLinkBusinessInfo tokenIds(List<String> tokenIds) {
-    this.tokenIds = tokenIds;
-    return this;
-  }
-
-  public OrderLinkBusinessInfo addTokenIdsItem(String tokenIdsItem) {
-    if (this.tokenIds == null) {
-      this.tokenIds = new ArrayList<>();
-    }
-    this.tokenIds.add(tokenIdsItem);
-    return this;
-  }
-
-   /**
-   * List of supported cryptocurrency token IDs for this payment. Each token ID must be from the supported values. 
-   * @return tokenIds
-  **/
-  @javax.annotation.Nonnull
-  public List<String> getTokenIds() {
-    return tokenIds;
-  }
-
-  public void setTokenIds(List<String> tokenIds) {
-    this.tokenIds = tokenIds;
-  }
-
-
-  public OrderLinkBusinessInfo customExchangeRates(List<OrderLinkBusinessInfoCustomExchangeRatesInner> customExchangeRates) {
-    this.customExchangeRates = customExchangeRates;
-    return this;
-  }
-
-  public OrderLinkBusinessInfo addCustomExchangeRatesItem(OrderLinkBusinessInfoCustomExchangeRatesInner customExchangeRatesItem) {
-    if (this.customExchangeRates == null) {
-      this.customExchangeRates = new ArrayList<>();
-    }
-    this.customExchangeRates.add(customExchangeRatesItem);
-    return this;
-  }
-
-   /**
-   * Optional list of final exchange rates for different tokens. If provided, these rates will be used instead of real-time market rates. 
-   * @return customExchangeRates
-  **/
-  @javax.annotation.Nullable
-  public List<OrderLinkBusinessInfoCustomExchangeRatesInner> getCustomExchangeRates() {
-    return customExchangeRates;
-  }
-
-  public void setCustomExchangeRates(List<OrderLinkBusinessInfoCustomExchangeRatesInner> customExchangeRates) {
-    this.customExchangeRates = customExchangeRates;
-  }
-
-
-  public OrderLinkBusinessInfo currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * The currency for the base order amount and the developer fee. Currently, only &#x60;USD&#x60;/&#x60;USDT&#x60;/&#x60;USDC&#x60; are supported. 
-   * @return currency
-  **/
-  @javax.annotation.Nonnull
-  public String getCurrency() {
-    return currency;
-  }
-
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
-
-
-  public OrderLinkBusinessInfo feeAmount(String feeAmount) {
-    this.feeAmount = feeAmount;
-    return this;
-  }
-
-   /**
-   * The developer fee for the order, in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the fee is in the cryptocurrency specified by &#x60;token_id&#x60;.  If you are a merchant directly serving payers, set this field to &#x60;0&#x60;. Developer fees are only relevant for platforms like payment service providers (PSPs) that charge fees to their downstream merchants.  The developer fee is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example: - Base amount (&#x60;order_amount&#x60;): \&quot;100.00\&quot; - Developer fee (&#x60;fee_amount&#x60;): \&quot;2.00\&quot;  - Total charged to customer: \&quot;102.00\&quot;  Values can contain up to two decimal places. 
-   * @return feeAmount
-  **/
-  @javax.annotation.Nonnull
-  public String getFeeAmount() {
-    return feeAmount;
-  }
-
-  public void setFeeAmount(String feeAmount) {
-    this.feeAmount = feeAmount;
-  }
-
 
   public OrderLinkBusinessInfo merchantId(String merchantId) {
     this.merchantId = merchantId;
@@ -210,25 +135,6 @@ public class OrderLinkBusinessInfo {
 
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
-  }
-
-
-  public OrderLinkBusinessInfo orderAmount(String orderAmount) {
-    this.orderAmount = orderAmount;
-    return this;
-  }
-
-   /**
-   * The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;), in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the amount is in the cryptocurrency specified by &#x60;token_id&#x60;.   Values must be greater than &#x60;0&#x60; and contain two decimal places.  
-   * @return orderAmount
-  **/
-  @javax.annotation.Nonnull
-  public String getOrderAmount() {
-    return orderAmount;
-  }
-
-  public void setOrderAmount(String orderAmount) {
-    this.orderAmount = orderAmount;
   }
 
 
@@ -270,6 +176,117 @@ public class OrderLinkBusinessInfo {
   }
 
 
+  public OrderLinkBusinessInfo pricingCurrency(String pricingCurrency) {
+    this.pricingCurrency = pricingCurrency;
+    return this;
+  }
+
+   /**
+   * The currency for the base order amount and the developer fee. Currently, only &#x60;USD&#x60;/&#x60;USDT&#x60;/&#x60;USDC&#x60; are supported. 
+   * @return pricingCurrency
+  **/
+  @javax.annotation.Nullable
+  public String getPricingCurrency() {
+    return pricingCurrency;
+  }
+
+  public void setPricingCurrency(String pricingCurrency) {
+    this.pricingCurrency = pricingCurrency;
+  }
+
+
+  public OrderLinkBusinessInfo pricingAmount(String pricingAmount) {
+    this.pricingAmount = pricingAmount;
+    return this;
+  }
+
+   /**
+   * The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;), in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the amount is in the cryptocurrency specified by &#x60;token_id&#x60;.  Values must be greater than &#x60;0&#x60; and contain two decimal places. 
+   * @return pricingAmount
+  **/
+  @javax.annotation.Nullable
+  public String getPricingAmount() {
+    return pricingAmount;
+  }
+
+  public void setPricingAmount(String pricingAmount) {
+    this.pricingAmount = pricingAmount;
+  }
+
+
+  public OrderLinkBusinessInfo feeAmount(String feeAmount) {
+    this.feeAmount = feeAmount;
+    return this;
+  }
+
+   /**
+   * The developer fee for the order, in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the fee is in the cryptocurrency specified by &#x60;token_id&#x60;.  If you are a merchant directly serving payers, set this field to &#x60;0&#x60;. Developer fees are only relevant for platforms like payment service providers (PSPs) that charge fees to their downstream merchants.  The developer fee is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example: - Base amount (&#x60;order_amount&#x60;): \&quot;100.00\&quot; - Developer fee (&#x60;fee_amount&#x60;): \&quot;2.00\&quot; - Total charged to customer: \&quot;102.00\&quot;  Values can contain up to two decimal places. 
+   * @return feeAmount
+  **/
+  @javax.annotation.Nonnull
+  public String getFeeAmount() {
+    return feeAmount;
+  }
+
+  public void setFeeAmount(String feeAmount) {
+    this.feeAmount = feeAmount;
+  }
+
+
+  public OrderLinkBusinessInfo payableCurrencies(List<String> payableCurrencies) {
+    this.payableCurrencies = payableCurrencies;
+    return this;
+  }
+
+  public OrderLinkBusinessInfo addPayableCurrenciesItem(String payableCurrenciesItem) {
+    if (this.payableCurrencies == null) {
+      this.payableCurrencies = new ArrayList<>();
+    }
+    this.payableCurrencies.add(payableCurrenciesItem);
+    return this;
+  }
+
+   /**
+   * List of supported cryptocurrency token IDs for this payment. Each token ID must be from the supported values. 
+   * @return payableCurrencies
+  **/
+  @javax.annotation.Nullable
+  public List<String> getPayableCurrencies() {
+    return payableCurrencies;
+  }
+
+  public void setPayableCurrencies(List<String> payableCurrencies) {
+    this.payableCurrencies = payableCurrencies;
+  }
+
+
+  public OrderLinkBusinessInfo payableAmounts(List<OrderLinkBusinessInfoPayableAmountsInner> payableAmounts) {
+    this.payableAmounts = payableAmounts;
+    return this;
+  }
+
+  public OrderLinkBusinessInfo addPayableAmountsItem(OrderLinkBusinessInfoPayableAmountsInner payableAmountsItem) {
+    if (this.payableAmounts == null) {
+      this.payableAmounts = new ArrayList<>();
+    }
+    this.payableAmounts.add(payableAmountsItem);
+    return this;
+  }
+
+   /**
+   * Optional list of payable amounts for different tokens. If provided, these amounts will be used instead of calculating the amounts based on the exchange rate. 
+   * @return payableAmounts
+  **/
+  @javax.annotation.Nullable
+  public List<OrderLinkBusinessInfoPayableAmountsInner> getPayableAmounts() {
+    return payableAmounts;
+  }
+
+  public void setPayableAmounts(List<OrderLinkBusinessInfoPayableAmountsInner> payableAmounts) {
+    this.payableAmounts = payableAmounts;
+  }
+
+
   public OrderLinkBusinessInfo expiredIn(Integer expiredIn) {
     this.expiredIn = expiredIn;
     return this;
@@ -289,25 +306,6 @@ public class OrderLinkBusinessInfo {
   }
 
 
-  public OrderLinkBusinessInfo useDedicatedAddress(Boolean useDedicatedAddress) {
-    this.useDedicatedAddress = useDedicatedAddress;
-    return this;
-  }
-
-   /**
-   * Whether to allocate a dedicated address for this order.  - &#x60;true&#x60;: A dedicated address will be allocated for this order. - &#x60;false&#x60;: A shared address from the address pool will be used. 
-   * @return useDedicatedAddress
-  **/
-  @javax.annotation.Nullable
-  public Boolean getUseDedicatedAddress() {
-    return useDedicatedAddress;
-  }
-
-  public void setUseDedicatedAddress(Boolean useDedicatedAddress) {
-    this.useDedicatedAddress = useDedicatedAddress;
-  }
-
-
   public OrderLinkBusinessInfo amountTolerance(String amountTolerance) {
     this.amountTolerance = amountTolerance;
     return this;
@@ -324,6 +322,117 @@ public class OrderLinkBusinessInfo {
 
   public void setAmountTolerance(String amountTolerance) {
     this.amountTolerance = amountTolerance;
+  }
+
+
+  public OrderLinkBusinessInfo currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * The currency for the base order amount and the developer fee. Currently, only &#x60;USD&#x60;/&#x60;USDT&#x60;/&#x60;USDC&#x60; are supported. 
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
+  public OrderLinkBusinessInfo orderAmount(String orderAmount) {
+    this.orderAmount = orderAmount;
+    return this;
+  }
+
+   /**
+   * The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;), in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the amount is in the cryptocurrency specified by &#x60;token_id&#x60;.  Values must be greater than &#x60;0&#x60; and contain two decimal places. 
+   * @return orderAmount
+  **/
+  @javax.annotation.Nullable
+  public String getOrderAmount() {
+    return orderAmount;
+  }
+
+  public void setOrderAmount(String orderAmount) {
+    this.orderAmount = orderAmount;
+  }
+
+
+  public OrderLinkBusinessInfo tokenIds(List<String> tokenIds) {
+    this.tokenIds = tokenIds;
+    return this;
+  }
+
+  public OrderLinkBusinessInfo addTokenIdsItem(String tokenIdsItem) {
+    if (this.tokenIds == null) {
+      this.tokenIds = new ArrayList<>();
+    }
+    this.tokenIds.add(tokenIdsItem);
+    return this;
+  }
+
+   /**
+   * List of supported cryptocurrency token IDs for this payment. Each token ID must be from the supported values. 
+   * @return tokenIds
+  **/
+  @javax.annotation.Nullable
+  public List<String> getTokenIds() {
+    return tokenIds;
+  }
+
+  public void setTokenIds(List<String> tokenIds) {
+    this.tokenIds = tokenIds;
+  }
+
+
+  public OrderLinkBusinessInfo customExchangeRates(List<OrderLinkBusinessInfoCustomExchangeRatesInner> customExchangeRates) {
+    this.customExchangeRates = customExchangeRates;
+    return this;
+  }
+
+  public OrderLinkBusinessInfo addCustomExchangeRatesItem(OrderLinkBusinessInfoCustomExchangeRatesInner customExchangeRatesItem) {
+    if (this.customExchangeRates == null) {
+      this.customExchangeRates = new ArrayList<>();
+    }
+    this.customExchangeRates.add(customExchangeRatesItem);
+    return this;
+  }
+
+   /**
+   * Optional list of final exchange rates for different tokens. If provided, these rates will be used instead of real-time market rates. 
+   * @return customExchangeRates
+  **/
+  @javax.annotation.Nullable
+  public List<OrderLinkBusinessInfoCustomExchangeRatesInner> getCustomExchangeRates() {
+    return customExchangeRates;
+  }
+
+  public void setCustomExchangeRates(List<OrderLinkBusinessInfoCustomExchangeRatesInner> customExchangeRates) {
+    this.customExchangeRates = customExchangeRates;
+  }
+
+
+  public OrderLinkBusinessInfo useDedicatedAddress(Boolean useDedicatedAddress) {
+    this.useDedicatedAddress = useDedicatedAddress;
+    return this;
+  }
+
+   /**
+   * Whether to allocate a dedicated address for this order.  - &#x60;true&#x60;: A dedicated address will be allocated for this order. - &#x60;false&#x60;: A shared address from the address pool will be used. 
+   * @return useDedicatedAddress
+  **/
+  @javax.annotation.Nullable
+  public Boolean getUseDedicatedAddress() {
+    return useDedicatedAddress;
+  }
+
+  public void setUseDedicatedAddress(Boolean useDedicatedAddress) {
+    this.useDedicatedAddress = useDedicatedAddress;
   }
 
   /**
@@ -381,40 +490,48 @@ public class OrderLinkBusinessInfo {
       return false;
     }
     OrderLinkBusinessInfo orderLinkBusinessInfo = (OrderLinkBusinessInfo) o;
-    return Objects.equals(this.tokenIds, orderLinkBusinessInfo.tokenIds) &&
-        Objects.equals(this.customExchangeRates, orderLinkBusinessInfo.customExchangeRates) &&
-        Objects.equals(this.currency, orderLinkBusinessInfo.currency) &&
-        Objects.equals(this.feeAmount, orderLinkBusinessInfo.feeAmount) &&
-        Objects.equals(this.merchantId, orderLinkBusinessInfo.merchantId) &&
-        Objects.equals(this.orderAmount, orderLinkBusinessInfo.orderAmount) &&
+    return Objects.equals(this.merchantId, orderLinkBusinessInfo.merchantId) &&
         Objects.equals(this.merchantOrderCode, orderLinkBusinessInfo.merchantOrderCode) &&
         Objects.equals(this.pspOrderCode, orderLinkBusinessInfo.pspOrderCode) &&
+        Objects.equals(this.pricingCurrency, orderLinkBusinessInfo.pricingCurrency) &&
+        Objects.equals(this.pricingAmount, orderLinkBusinessInfo.pricingAmount) &&
+        Objects.equals(this.feeAmount, orderLinkBusinessInfo.feeAmount) &&
+        Objects.equals(this.payableCurrencies, orderLinkBusinessInfo.payableCurrencies) &&
+        Objects.equals(this.payableAmounts, orderLinkBusinessInfo.payableAmounts) &&
         Objects.equals(this.expiredIn, orderLinkBusinessInfo.expiredIn) &&
-        Objects.equals(this.useDedicatedAddress, orderLinkBusinessInfo.useDedicatedAddress) &&
-        Objects.equals(this.amountTolerance, orderLinkBusinessInfo.amountTolerance)&&
+        Objects.equals(this.amountTolerance, orderLinkBusinessInfo.amountTolerance) &&
+        Objects.equals(this.currency, orderLinkBusinessInfo.currency) &&
+        Objects.equals(this.orderAmount, orderLinkBusinessInfo.orderAmount) &&
+        Objects.equals(this.tokenIds, orderLinkBusinessInfo.tokenIds) &&
+        Objects.equals(this.customExchangeRates, orderLinkBusinessInfo.customExchangeRates) &&
+        Objects.equals(this.useDedicatedAddress, orderLinkBusinessInfo.useDedicatedAddress)&&
         Objects.equals(this.additionalProperties, orderLinkBusinessInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokenIds, customExchangeRates, currency, feeAmount, merchantId, orderAmount, merchantOrderCode, pspOrderCode, expiredIn, useDedicatedAddress, amountTolerance, additionalProperties);
+    return Objects.hash(merchantId, merchantOrderCode, pspOrderCode, pricingCurrency, pricingAmount, feeAmount, payableCurrencies, payableAmounts, expiredIn, amountTolerance, currency, orderAmount, tokenIds, customExchangeRates, useDedicatedAddress, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderLinkBusinessInfo {\n");
-    sb.append("    tokenIds: ").append(toIndentedString(tokenIds)).append("\n");
-    sb.append("    customExchangeRates: ").append(toIndentedString(customExchangeRates)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    orderAmount: ").append(toIndentedString(orderAmount)).append("\n");
     sb.append("    merchantOrderCode: ").append(toIndentedString(merchantOrderCode)).append("\n");
     sb.append("    pspOrderCode: ").append(toIndentedString(pspOrderCode)).append("\n");
+    sb.append("    pricingCurrency: ").append(toIndentedString(pricingCurrency)).append("\n");
+    sb.append("    pricingAmount: ").append(toIndentedString(pricingAmount)).append("\n");
+    sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
+    sb.append("    payableCurrencies: ").append(toIndentedString(payableCurrencies)).append("\n");
+    sb.append("    payableAmounts: ").append(toIndentedString(payableAmounts)).append("\n");
     sb.append("    expiredIn: ").append(toIndentedString(expiredIn)).append("\n");
-    sb.append("    useDedicatedAddress: ").append(toIndentedString(useDedicatedAddress)).append("\n");
     sb.append("    amountTolerance: ").append(toIndentedString(amountTolerance)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    orderAmount: ").append(toIndentedString(orderAmount)).append("\n");
+    sb.append("    tokenIds: ").append(toIndentedString(tokenIds)).append("\n");
+    sb.append("    customExchangeRates: ").append(toIndentedString(customExchangeRates)).append("\n");
+    sb.append("    useDedicatedAddress: ").append(toIndentedString(useDedicatedAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -438,26 +555,27 @@ public class OrderLinkBusinessInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("token_ids");
-    openapiFields.add("custom_exchange_rates");
-    openapiFields.add("currency");
-    openapiFields.add("fee_amount");
     openapiFields.add("merchant_id");
-    openapiFields.add("order_amount");
     openapiFields.add("merchant_order_code");
     openapiFields.add("psp_order_code");
+    openapiFields.add("pricing_currency");
+    openapiFields.add("pricing_amount");
+    openapiFields.add("fee_amount");
+    openapiFields.add("payable_currencies");
+    openapiFields.add("payable_amounts");
     openapiFields.add("expired_in");
-    openapiFields.add("use_dedicated_address");
     openapiFields.add("amount_tolerance");
+    openapiFields.add("currency");
+    openapiFields.add("order_amount");
+    openapiFields.add("token_ids");
+    openapiFields.add("custom_exchange_rates");
+    openapiFields.add("use_dedicated_address");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("token_ids");
-    openapiRequiredFields.add("currency");
-    openapiRequiredFields.add("fee_amount");
     openapiRequiredFields.add("merchant_id");
-    openapiRequiredFields.add("order_amount");
     openapiRequiredFields.add("psp_order_code");
+    openapiRequiredFields.add("fee_amount");
   }
 
  /**
@@ -480,10 +598,53 @@ public class OrderLinkBusinessInfo {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("token_ids") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("token_ids").isJsonArray()) {
+      if (!jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      if ((jsonObj.get("merchant_order_code") != null && !jsonObj.get("merchant_order_code").isJsonNull()) && !jsonObj.get("merchant_order_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_order_code").toString()));
+      }
+      if (!jsonObj.get("psp_order_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `psp_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psp_order_code").toString()));
+      }
+      if ((jsonObj.get("pricing_currency") != null && !jsonObj.get("pricing_currency").isJsonNull()) && !jsonObj.get("pricing_currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pricing_currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pricing_currency").toString()));
+      }
+      if ((jsonObj.get("pricing_amount") != null && !jsonObj.get("pricing_amount").isJsonNull()) && !jsonObj.get("pricing_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pricing_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pricing_amount").toString()));
+      }
+      if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("payable_currencies") != null && !jsonObj.get("payable_currencies").isJsonNull() && !jsonObj.get("payable_currencies").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `payable_currencies` to be an array in the JSON string but got `%s`", jsonObj.get("payable_currencies").toString()));
+      }
+      if (jsonObj.get("payable_amounts") != null && !jsonObj.get("payable_amounts").isJsonNull()) {
+        JsonArray jsonArraypayableAmounts = jsonObj.getAsJsonArray("payable_amounts");
+        if (jsonArraypayableAmounts != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("payable_amounts").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `payable_amounts` to be an array in the JSON string but got `%s`", jsonObj.get("payable_amounts").toString()));
+          }
+
+          // validate the optional field `payable_amounts` (array)
+          for (int i = 0; i < jsonArraypayableAmounts.size(); i++) {
+            OrderLinkBusinessInfoPayableAmountsInner.validateJsonElement(jsonArraypayableAmounts.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("amount_tolerance") != null && !jsonObj.get("amount_tolerance").isJsonNull()) && !jsonObj.get("amount_tolerance").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `amount_tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount_tolerance").toString()));
+      }
+      if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
+      if ((jsonObj.get("order_amount") != null && !jsonObj.get("order_amount").isJsonNull()) && !jsonObj.get("order_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_amount").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("token_ids") != null && !jsonObj.get("token_ids").isJsonNull() && !jsonObj.get("token_ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_ids` to be an array in the JSON string but got `%s`", jsonObj.get("token_ids").toString()));
       }
       if (jsonObj.get("custom_exchange_rates") != null && !jsonObj.get("custom_exchange_rates").isJsonNull()) {
@@ -499,27 +660,6 @@ public class OrderLinkBusinessInfo {
             OrderLinkBusinessInfoCustomExchangeRatesInner.validateJsonElement(jsonArraycustomExchangeRates.get(i));
           };
         }
-      }
-      if (!jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
-      if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
-      }
-      if (!jsonObj.get("merchant_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
-      }
-      if (!jsonObj.get("order_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `order_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_amount").toString()));
-      }
-      if ((jsonObj.get("merchant_order_code") != null && !jsonObj.get("merchant_order_code").isJsonNull()) && !jsonObj.get("merchant_order_code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchant_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_order_code").toString()));
-      }
-      if (!jsonObj.get("psp_order_code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `psp_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psp_order_code").toString()));
-      }
-      if ((jsonObj.get("amount_tolerance") != null && !jsonObj.get("amount_tolerance").isJsonNull()) && !jsonObj.get("amount_tolerance").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `amount_tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount_tolerance").toString()));
       }
   }
 

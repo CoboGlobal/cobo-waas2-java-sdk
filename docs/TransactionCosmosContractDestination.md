@@ -10,7 +10,6 @@ Information about the transaction destination type `COSMOS_Contract`. Refer to [
 |------------ | ------------- | ------------- | -------------|
 |**destinationType** | **TransactionDestinationType** |  |  |
 |**cosmosMessages** | [**List&lt;TransactionCosmosMessage&gt;**](TransactionCosmosMessage.md) |  |  |
-|**value** | **String** | The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  |  [optional] |
 
 
 

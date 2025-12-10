@@ -69,6 +69,8 @@
 
 * `PAYMENT_SETTLEMENT_STATUS_UPDATED` (value: `"payment.settlement.status.updated"`)
 
+* `PAYMENT_PAYOUT_STATUS_UPDATED` (value: `"payment.payout.status.updated"`)
+
 * `PAYMENT_ADDRESS_UPDATED` (value: `"payment.address.updated"`)
 
 * `PAYMENT_SUBSCRIPTION_STATUS_UPDATED` (value: `"payment.subscription.status.updated"`)
@@ -78,6 +80,8 @@
 * `COMPLIANCE_DISPOSITION_STATUS_UPDATED` (value: `"compliance.disposition.status.updated"`)
 
 * `COMPLIANCE_KYT_SCREENINGS_STATUS_UPDATED` (value: `"compliance.kyt.screenings.status.updated"`)
+
+* `COMPLIANCE_KYA_SCREENINGS_STATUS_UPDATED` (value: `"compliance.kya.screenings.status.updated"`)
 
 
 

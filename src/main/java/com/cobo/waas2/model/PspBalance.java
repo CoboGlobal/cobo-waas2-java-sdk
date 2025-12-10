@@ -64,6 +64,10 @@ public class PspBalance {
   @SerializedName(SERIALIZED_NAME_SETTLED_AMOUNT)
   private String settledAmount;
 
+  public static final String SERIALIZED_NAME_PAYOUT_AMOUNT = "payout_amount";
+  @SerializedName(SERIALIZED_NAME_PAYOUT_AMOUNT)
+  private String payoutAmount;
+
   public static final String SERIALIZED_NAME_REFUNDED_AMOUNT = "refunded_amount";
   @SerializedName(SERIALIZED_NAME_REFUNDED_AMOUNT)
   private String refundedAmount;
@@ -137,6 +141,25 @@ public class PspBalance {
 
   public void setSettledAmount(String settledAmount) {
     this.settledAmount = settledAmount;
+  }
+
+
+  public PspBalance payoutAmount(String payoutAmount) {
+    this.payoutAmount = payoutAmount;
+    return this;
+  }
+
+   /**
+   * The psp payout amount.
+   * @return payoutAmount
+  **/
+  @javax.annotation.Nullable
+  public String getPayoutAmount() {
+    return payoutAmount;
+  }
+
+  public void setPayoutAmount(String payoutAmount) {
+    this.payoutAmount = payoutAmount;
   }
 
 
@@ -273,6 +296,7 @@ public class PspBalance {
     return Objects.equals(this.tokenId, pspBalance.tokenId) &&
         Objects.equals(this.developerFeeAmount, pspBalance.developerFeeAmount) &&
         Objects.equals(this.settledAmount, pspBalance.settledAmount) &&
+        Objects.equals(this.payoutAmount, pspBalance.payoutAmount) &&
         Objects.equals(this.refundedAmount, pspBalance.refundedAmount) &&
         Objects.equals(this.totalBalance, pspBalance.totalBalance) &&
         Objects.equals(this.availableBalance, pspBalance.availableBalance) &&
@@ -282,7 +306,7 @@ public class PspBalance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokenId, developerFeeAmount, settledAmount, refundedAmount, totalBalance, availableBalance, lockedBalance, additionalProperties);
+    return Objects.hash(tokenId, developerFeeAmount, settledAmount, payoutAmount, refundedAmount, totalBalance, availableBalance, lockedBalance, additionalProperties);
   }
 
   @Override
@@ -292,6 +316,7 @@ public class PspBalance {
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    developerFeeAmount: ").append(toIndentedString(developerFeeAmount)).append("\n");
     sb.append("    settledAmount: ").append(toIndentedString(settledAmount)).append("\n");
+    sb.append("    payoutAmount: ").append(toIndentedString(payoutAmount)).append("\n");
     sb.append("    refundedAmount: ").append(toIndentedString(refundedAmount)).append("\n");
     sb.append("    totalBalance: ").append(toIndentedString(totalBalance)).append("\n");
     sb.append("    availableBalance: ").append(toIndentedString(availableBalance)).append("\n");
@@ -322,6 +347,7 @@ public class PspBalance {
     openapiFields.add("token_id");
     openapiFields.add("developer_fee_amount");
     openapiFields.add("settled_amount");
+    openapiFields.add("payout_amount");
     openapiFields.add("refunded_amount");
     openapiFields.add("total_balance");
     openapiFields.add("available_balance");
@@ -360,6 +386,9 @@ public class PspBalance {
       }
       if ((jsonObj.get("settled_amount") != null && !jsonObj.get("settled_amount").isJsonNull()) && !jsonObj.get("settled_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `settled_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("settled_amount").toString()));
+      }
+      if ((jsonObj.get("payout_amount") != null && !jsonObj.get("payout_amount").isJsonNull()) && !jsonObj.get("payout_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `payout_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payout_amount").toString()));
       }
       if ((jsonObj.get("refunded_amount") != null && !jsonObj.get("refunded_amount").isJsonNull()) && !jsonObj.get("refunded_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refunded_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refunded_amount").toString()));

@@ -14,11 +14,14 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.CreateKyaScreeningsBody;
 import com.cobo.waas2.model.DispositionQueryResponse;
 import com.cobo.waas2.model.DispositionResponse;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.IsolateDisposition;
+import com.cobo.waas2.model.KyaScreeningResult;
 import com.cobo.waas2.model.KytScreeningsTransaction;
+import com.cobo.waas2.model.ListKyaScreenings200Response;
 import com.cobo.waas2.model.RefundDisposition;
 import com.cobo.waas2.model.SubmitKytResponse;
 import com.cobo.waas2.model.SubmitKytScreeningsDecisionsBody;
@@ -47,6 +50,20 @@ public class ComplianceApiTest {
     private final ComplianceApi api = new ComplianceApi();
 
     /**
+     * Batch create KYA address screening requests
+     *
+     * This operation submits batch address screening requests to detect address compliance and risk levels. Up to 50 addresses can be submitted in a single request.  &lt;Note&gt;This endpoint supports cross-chain address screening with independent idempotency for each address, enabling flexible error handling and partial retries.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createKyaScreeningsTest() throws ApiException {
+        CreateKyaScreeningsBody createKyaScreeningsBody = null;
+        List<KyaScreeningResult> response = api.createKyaScreenings(createKyaScreeningsBody);
+        // TODO: test validations
+    }
+
+    /**
      * Query disposition status
      *
      * This operation retrieves the current status of a disposition request for a specific transaction.  You can use this endpoint to check the status of any disposition operation (Refund, Isolate, or Unfreeze)  that has been initiated for a transaction. The response includes the disposition type, current status,  and the disposition transaction ID if applicable.  &lt;Note&gt;Use this endpoint to monitor the progress of disposition operations and verify their completion.&lt;/Note&gt; 
@@ -57,6 +74,20 @@ public class ComplianceApiTest {
     public void getDispositionStatusTest() throws ApiException {
         UUID transactionId = null;
         DispositionQueryResponse response = api.getDispositionStatus(transactionId);
+        // TODO: test validations
+    }
+
+    /**
+     * Retrieve single KYA address screening result
+     *
+     * This operation retrieves a specific address screening result by screening_id, including complete risk assessment information.  &lt;Note&gt;This endpoint returns the full screening details including risk level, summary, and detailed risk category exposures.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getKyaScreeningTest() throws ApiException {
+        UUID screeningId = null;
+        KyaScreeningResult response = api.getKyaScreening(screeningId);
         // TODO: test validations
     }
 
@@ -85,6 +116,23 @@ public class ComplianceApiTest {
     public void isolateFundsTest() throws ApiException {
         IsolateDisposition isolateDisposition = null;
         DispositionResponse response = api.isolateFunds(isolateDisposition);
+        // TODO: test validations
+    }
+
+    /**
+     * Query KYA address screening results
+     *
+     * This operation queries the results of specified screening requests with pagination support. You can filter specific screening requests using screening_ids (up to 50 IDs).  &lt;Note&gt;For large-scale queries exceeding 50 screening results, use pagination parameters (limit, before, after) for multiple queries.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listKyaScreeningsTest() throws ApiException {
+        String screeningIds = null;
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        ListKyaScreenings200Response response = api.listKyaScreenings(screeningIds, limit, before, after);
         // TODO: test validations
     }
 

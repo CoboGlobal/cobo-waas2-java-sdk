@@ -58,7 +58,7 @@ import com.cobo.waas2.JSON;
 public class TransactionRawTxInfo {
   public static final String SERIALIZED_NAME_USED_NONCE = "used_nonce";
   @SerializedName(SERIALIZED_NAME_USED_NONCE)
-  private Integer usedNonce;
+  private Long usedNonce;
 
   public static final String SERIALIZED_NAME_SELECTED_UTXOS = "selected_utxos";
   @SerializedName(SERIALIZED_NAME_SELECTED_UTXOS)
@@ -79,7 +79,7 @@ public class TransactionRawTxInfo {
   public TransactionRawTxInfo() {
   }
 
-  public TransactionRawTxInfo usedNonce(Integer usedNonce) {
+  public TransactionRawTxInfo usedNonce(Long usedNonce) {
     this.usedNonce = usedNonce;
     return this;
   }
@@ -89,11 +89,11 @@ public class TransactionRawTxInfo {
    * @return usedNonce
   **/
   @javax.annotation.Nullable
-  public Integer getUsedNonce() {
+  public Long getUsedNonce() {
     return usedNonce;
   }
 
-  public void setUsedNonce(Integer usedNonce) {
+  public void setUsedNonce(Long usedNonce) {
     this.usedNonce = usedNonce;
   }
 

@@ -141,6 +141,14 @@ public class SettlementDetailTest {
     }
 
     /**
+     * Test the property 'cryptoAddress'
+     */
+    @Test
+    public void cryptoAddressTest() {
+        // TODO: test cryptoAddress
+    }
+
+    /**
      * Test the property 'payoutChannel'
      */
     @Test

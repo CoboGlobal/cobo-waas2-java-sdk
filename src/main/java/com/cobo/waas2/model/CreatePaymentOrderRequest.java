@@ -56,9 +56,41 @@ public class CreatePaymentOrderRequest {
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
+  public static final String SERIALIZED_NAME_MERCHANT_ORDER_CODE = "merchant_order_code";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ORDER_CODE)
+  private String merchantOrderCode;
+
+  public static final String SERIALIZED_NAME_PSP_ORDER_CODE = "psp_order_code";
+  @SerializedName(SERIALIZED_NAME_PSP_ORDER_CODE)
+  private String pspOrderCode;
+
+  public static final String SERIALIZED_NAME_PRICING_CURRENCY = "pricing_currency";
+  @SerializedName(SERIALIZED_NAME_PRICING_CURRENCY)
+  private String pricingCurrency;
+
+  public static final String SERIALIZED_NAME_PRICING_AMOUNT = "pricing_amount";
+  @SerializedName(SERIALIZED_NAME_PRICING_AMOUNT)
+  private String pricingAmount;
+
+  public static final String SERIALIZED_NAME_FEE_AMOUNT = "fee_amount";
+  @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
+  private String feeAmount;
+
+  public static final String SERIALIZED_NAME_PAYABLE_CURRENCY = "payable_currency";
+  @SerializedName(SERIALIZED_NAME_PAYABLE_CURRENCY)
+  private String payableCurrency;
+
+  public static final String SERIALIZED_NAME_PAYABLE_AMOUNT = "payable_amount";
+  @SerializedName(SERIALIZED_NAME_PAYABLE_AMOUNT)
+  private String payableAmount;
+
+  public static final String SERIALIZED_NAME_EXPIRED_IN = "expired_in";
+  @SerializedName(SERIALIZED_NAME_EXPIRED_IN)
+  private Integer expiredIn;
+
+  public static final String SERIALIZED_NAME_AMOUNT_TOLERANCE = "amount_tolerance";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_TOLERANCE)
+  private String amountTolerance;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -68,21 +100,9 @@ public class CreatePaymentOrderRequest {
   @SerializedName(SERIALIZED_NAME_ORDER_AMOUNT)
   private String orderAmount;
 
-  public static final String SERIALIZED_NAME_FEE_AMOUNT = "fee_amount";
-  @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
-  private String feeAmount;
-
-  public static final String SERIALIZED_NAME_MERCHANT_ORDER_CODE = "merchant_order_code";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_ORDER_CODE)
-  private String merchantOrderCode;
-
-  public static final String SERIALIZED_NAME_PSP_ORDER_CODE = "psp_order_code";
-  @SerializedName(SERIALIZED_NAME_PSP_ORDER_CODE)
-  private String pspOrderCode;
-
-  public static final String SERIALIZED_NAME_EXPIRED_IN = "expired_in";
-  @SerializedName(SERIALIZED_NAME_EXPIRED_IN)
-  private Integer expiredIn;
+  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
+  private String tokenId;
 
   public static final String SERIALIZED_NAME_USE_DEDICATED_ADDRESS = "use_dedicated_address";
   @SerializedName(SERIALIZED_NAME_USE_DEDICATED_ADDRESS)
@@ -91,10 +111,6 @@ public class CreatePaymentOrderRequest {
   public static final String SERIALIZED_NAME_CUSTOM_EXCHANGE_RATE = "custom_exchange_rate";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EXCHANGE_RATE)
   private String customExchangeRate;
-
-  public static final String SERIALIZED_NAME_AMOUNT_TOLERANCE = "amount_tolerance";
-  @SerializedName(SERIALIZED_NAME_AMOUNT_TOLERANCE)
-  private String amountTolerance;
 
   public CreatePaymentOrderRequest() {
   }
@@ -115,82 +131,6 @@ public class CreatePaymentOrderRequest {
 
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
-  }
-
-
-  public CreatePaymentOrderRequest tokenId(String tokenId) {
-    this.tokenId = tokenId;
-    return this;
-  }
-
-   /**
-   * The ID of the cryptocurrency used for payment. Supported values:    - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
-   * @return tokenId
-  **/
-  @javax.annotation.Nonnull
-  public String getTokenId() {
-    return tokenId;
-  }
-
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
-  }
-
-
-  public CreatePaymentOrderRequest currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * The fiat currency of the order.
-   * @return currency
-  **/
-  @javax.annotation.Nullable
-  public String getCurrency() {
-    return currency;
-  }
-
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
-
-
-  public CreatePaymentOrderRequest orderAmount(String orderAmount) {
-    this.orderAmount = orderAmount;
-    return this;
-  }
-
-   /**
-   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;). Values must be greater than &#x60;0&#x60; and contain two decimal places.
-   * @return orderAmount
-  **/
-  @javax.annotation.Nonnull
-  public String getOrderAmount() {
-    return orderAmount;
-  }
-
-  public void setOrderAmount(String orderAmount) {
-    this.orderAmount = orderAmount;
-  }
-
-
-  public CreatePaymentOrderRequest feeAmount(String feeAmount) {
-    this.feeAmount = feeAmount;
-    return this;
-  }
-
-   /**
-   * The developer fee for the order in fiat currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example, if order_amount is \&quot;100.00\&quot; and fee_amount is \&quot;2.00\&quot;, the customer will be charged \&quot;102.00\&quot; in total, with \&quot;100.00\&quot; being settled to the merchant and \&quot;2.00\&quot; settled to the developer. Values must be greater than 0 and contain two decimal places.
-   * @return feeAmount
-  **/
-  @javax.annotation.Nonnull
-  public String getFeeAmount() {
-    return feeAmount;
-  }
-
-  public void setFeeAmount(String feeAmount) {
-    this.feeAmount = feeAmount;
   }
 
 
@@ -232,6 +172,101 @@ public class CreatePaymentOrderRequest {
   }
 
 
+  public CreatePaymentOrderRequest pricingCurrency(String pricingCurrency) {
+    this.pricingCurrency = pricingCurrency;
+    return this;
+  }
+
+   /**
+   * The ID of the cryptocurrency used for payment. Supported values:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
+   * @return pricingCurrency
+  **/
+  @javax.annotation.Nullable
+  public String getPricingCurrency() {
+    return pricingCurrency;
+  }
+
+  public void setPricingCurrency(String pricingCurrency) {
+    this.pricingCurrency = pricingCurrency;
+  }
+
+
+  public CreatePaymentOrderRequest pricingAmount(String pricingAmount) {
+    this.pricingAmount = pricingAmount;
+    return this;
+  }
+
+   /**
+   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;). Values must be greater than &#x60;0&#x60; and contain two decimal places.
+   * @return pricingAmount
+  **/
+  @javax.annotation.Nullable
+  public String getPricingAmount() {
+    return pricingAmount;
+  }
+
+  public void setPricingAmount(String pricingAmount) {
+    this.pricingAmount = pricingAmount;
+  }
+
+
+  public CreatePaymentOrderRequest feeAmount(String feeAmount) {
+    this.feeAmount = feeAmount;
+    return this;
+  }
+
+   /**
+   * The developer fee for the order in fiat currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example, if order_amount is \&quot;100.00\&quot; and fee_amount is \&quot;2.00\&quot;, the customer will be charged \&quot;102.00\&quot; in total, with \&quot;100.00\&quot; being settled to the merchant and \&quot;2.00\&quot; settled to the developer. Values must be greater than 0 and contain two decimal places.
+   * @return feeAmount
+  **/
+  @javax.annotation.Nonnull
+  public String getFeeAmount() {
+    return feeAmount;
+  }
+
+  public void setFeeAmount(String feeAmount) {
+    this.feeAmount = feeAmount;
+  }
+
+
+  public CreatePaymentOrderRequest payableCurrency(String payableCurrency) {
+    this.payableCurrency = payableCurrency;
+    return this;
+  }
+
+   /**
+   * The ID of the cryptocurrency used for payment. Supported values:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
+   * @return payableCurrency
+  **/
+  @javax.annotation.Nullable
+  public String getPayableCurrency() {
+    return payableCurrency;
+  }
+
+  public void setPayableCurrency(String payableCurrency) {
+    this.payableCurrency = payableCurrency;
+  }
+
+
+  public CreatePaymentOrderRequest payableAmount(String payableAmount) {
+    this.payableAmount = payableAmount;
+    return this;
+  }
+
+   /**
+   * The actual payable amount of the order in the cryptocurrency.
+   * @return payableAmount
+  **/
+  @javax.annotation.Nullable
+  public String getPayableAmount() {
+    return payableAmount;
+  }
+
+  public void setPayableAmount(String payableAmount) {
+    this.payableAmount = payableAmount;
+  }
+
+
   public CreatePaymentOrderRequest expiredIn(Integer expiredIn) {
     this.expiredIn = expiredIn;
     return this;
@@ -248,6 +283,82 @@ public class CreatePaymentOrderRequest {
 
   public void setExpiredIn(Integer expiredIn) {
     this.expiredIn = expiredIn;
+  }
+
+
+  public CreatePaymentOrderRequest amountTolerance(String amountTolerance) {
+    this.amountTolerance = amountTolerance;
+    return this;
+  }
+
+   /**
+   * Allowed amount deviation, precision to 1 decimal place.
+   * @return amountTolerance
+  **/
+  @javax.annotation.Nullable
+  public String getAmountTolerance() {
+    return amountTolerance;
+  }
+
+  public void setAmountTolerance(String amountTolerance) {
+    this.amountTolerance = amountTolerance;
+  }
+
+
+  public CreatePaymentOrderRequest currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * The fiat currency of the order.
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
+  public CreatePaymentOrderRequest orderAmount(String orderAmount) {
+    this.orderAmount = orderAmount;
+    return this;
+  }
+
+   /**
+   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;). Values must be greater than &#x60;0&#x60; and contain two decimal places.
+   * @return orderAmount
+  **/
+  @javax.annotation.Nullable
+  public String getOrderAmount() {
+    return orderAmount;
+  }
+
+  public void setOrderAmount(String orderAmount) {
+    this.orderAmount = orderAmount;
+  }
+
+
+  public CreatePaymentOrderRequest tokenId(String tokenId) {
+    this.tokenId = tokenId;
+    return this;
+  }
+
+   /**
+   * The ID of the cryptocurrency used for payment. Supported values:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
+   * @return tokenId
+  **/
+  @javax.annotation.Nullable
+  public String getTokenId() {
+    return tokenId;
+  }
+
+  public void setTokenId(String tokenId) {
+    this.tokenId = tokenId;
   }
 
 
@@ -286,25 +397,6 @@ public class CreatePaymentOrderRequest {
 
   public void setCustomExchangeRate(String customExchangeRate) {
     this.customExchangeRate = customExchangeRate;
-  }
-
-
-  public CreatePaymentOrderRequest amountTolerance(String amountTolerance) {
-    this.amountTolerance = amountTolerance;
-    return this;
-  }
-
-   /**
-   * Allowed amount deviation, precision to 1 decimal place.
-   * @return amountTolerance
-  **/
-  @javax.annotation.Nullable
-  public String getAmountTolerance() {
-    return amountTolerance;
-  }
-
-  public void setAmountTolerance(String amountTolerance) {
-    this.amountTolerance = amountTolerance;
   }
 
   /**
@@ -363,22 +455,26 @@ public class CreatePaymentOrderRequest {
     }
     CreatePaymentOrderRequest createPaymentOrderRequest = (CreatePaymentOrderRequest) o;
     return Objects.equals(this.merchantId, createPaymentOrderRequest.merchantId) &&
-        Objects.equals(this.tokenId, createPaymentOrderRequest.tokenId) &&
-        Objects.equals(this.currency, createPaymentOrderRequest.currency) &&
-        Objects.equals(this.orderAmount, createPaymentOrderRequest.orderAmount) &&
-        Objects.equals(this.feeAmount, createPaymentOrderRequest.feeAmount) &&
         Objects.equals(this.merchantOrderCode, createPaymentOrderRequest.merchantOrderCode) &&
         Objects.equals(this.pspOrderCode, createPaymentOrderRequest.pspOrderCode) &&
+        Objects.equals(this.pricingCurrency, createPaymentOrderRequest.pricingCurrency) &&
+        Objects.equals(this.pricingAmount, createPaymentOrderRequest.pricingAmount) &&
+        Objects.equals(this.feeAmount, createPaymentOrderRequest.feeAmount) &&
+        Objects.equals(this.payableCurrency, createPaymentOrderRequest.payableCurrency) &&
+        Objects.equals(this.payableAmount, createPaymentOrderRequest.payableAmount) &&
         Objects.equals(this.expiredIn, createPaymentOrderRequest.expiredIn) &&
+        Objects.equals(this.amountTolerance, createPaymentOrderRequest.amountTolerance) &&
+        Objects.equals(this.currency, createPaymentOrderRequest.currency) &&
+        Objects.equals(this.orderAmount, createPaymentOrderRequest.orderAmount) &&
+        Objects.equals(this.tokenId, createPaymentOrderRequest.tokenId) &&
         Objects.equals(this.useDedicatedAddress, createPaymentOrderRequest.useDedicatedAddress) &&
-        Objects.equals(this.customExchangeRate, createPaymentOrderRequest.customExchangeRate) &&
-        Objects.equals(this.amountTolerance, createPaymentOrderRequest.amountTolerance)&&
+        Objects.equals(this.customExchangeRate, createPaymentOrderRequest.customExchangeRate)&&
         Objects.equals(this.additionalProperties, createPaymentOrderRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, tokenId, currency, orderAmount, feeAmount, merchantOrderCode, pspOrderCode, expiredIn, useDedicatedAddress, customExchangeRate, amountTolerance, additionalProperties);
+    return Objects.hash(merchantId, merchantOrderCode, pspOrderCode, pricingCurrency, pricingAmount, feeAmount, payableCurrency, payableAmount, expiredIn, amountTolerance, currency, orderAmount, tokenId, useDedicatedAddress, customExchangeRate, additionalProperties);
   }
 
   @Override
@@ -386,16 +482,20 @@ public class CreatePaymentOrderRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePaymentOrderRequest {\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    orderAmount: ").append(toIndentedString(orderAmount)).append("\n");
-    sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
     sb.append("    merchantOrderCode: ").append(toIndentedString(merchantOrderCode)).append("\n");
     sb.append("    pspOrderCode: ").append(toIndentedString(pspOrderCode)).append("\n");
+    sb.append("    pricingCurrency: ").append(toIndentedString(pricingCurrency)).append("\n");
+    sb.append("    pricingAmount: ").append(toIndentedString(pricingAmount)).append("\n");
+    sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
+    sb.append("    payableCurrency: ").append(toIndentedString(payableCurrency)).append("\n");
+    sb.append("    payableAmount: ").append(toIndentedString(payableAmount)).append("\n");
     sb.append("    expiredIn: ").append(toIndentedString(expiredIn)).append("\n");
+    sb.append("    amountTolerance: ").append(toIndentedString(amountTolerance)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    orderAmount: ").append(toIndentedString(orderAmount)).append("\n");
+    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    useDedicatedAddress: ").append(toIndentedString(useDedicatedAddress)).append("\n");
     sb.append("    customExchangeRate: ").append(toIndentedString(customExchangeRate)).append("\n");
-    sb.append("    amountTolerance: ").append(toIndentedString(amountTolerance)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -420,24 +520,26 @@ public class CreatePaymentOrderRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("merchant_id");
-    openapiFields.add("token_id");
-    openapiFields.add("currency");
-    openapiFields.add("order_amount");
-    openapiFields.add("fee_amount");
     openapiFields.add("merchant_order_code");
     openapiFields.add("psp_order_code");
+    openapiFields.add("pricing_currency");
+    openapiFields.add("pricing_amount");
+    openapiFields.add("fee_amount");
+    openapiFields.add("payable_currency");
+    openapiFields.add("payable_amount");
     openapiFields.add("expired_in");
+    openapiFields.add("amount_tolerance");
+    openapiFields.add("currency");
+    openapiFields.add("order_amount");
+    openapiFields.add("token_id");
     openapiFields.add("use_dedicated_address");
     openapiFields.add("custom_exchange_rate");
-    openapiFields.add("amount_tolerance");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("merchant_id");
-    openapiRequiredFields.add("token_id");
-    openapiRequiredFields.add("order_amount");
-    openapiRequiredFields.add("fee_amount");
     openapiRequiredFields.add("psp_order_code");
+    openapiRequiredFields.add("fee_amount");
   }
 
  /**
@@ -463,29 +565,41 @@ public class CreatePaymentOrderRequest {
       if (!jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
-      if (!jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
-      }
-      if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
-      if (!jsonObj.get("order_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `order_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_amount").toString()));
-      }
-      if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
-      }
       if ((jsonObj.get("merchant_order_code") != null && !jsonObj.get("merchant_order_code").isJsonNull()) && !jsonObj.get("merchant_order_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_order_code").toString()));
       }
       if (!jsonObj.get("psp_order_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `psp_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psp_order_code").toString()));
       }
-      if ((jsonObj.get("custom_exchange_rate") != null && !jsonObj.get("custom_exchange_rate").isJsonNull()) && !jsonObj.get("custom_exchange_rate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `custom_exchange_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_exchange_rate").toString()));
+      if ((jsonObj.get("pricing_currency") != null && !jsonObj.get("pricing_currency").isJsonNull()) && !jsonObj.get("pricing_currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pricing_currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pricing_currency").toString()));
+      }
+      if ((jsonObj.get("pricing_amount") != null && !jsonObj.get("pricing_amount").isJsonNull()) && !jsonObj.get("pricing_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pricing_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pricing_amount").toString()));
+      }
+      if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
+      }
+      if ((jsonObj.get("payable_currency") != null && !jsonObj.get("payable_currency").isJsonNull()) && !jsonObj.get("payable_currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `payable_currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payable_currency").toString()));
+      }
+      if ((jsonObj.get("payable_amount") != null && !jsonObj.get("payable_amount").isJsonNull()) && !jsonObj.get("payable_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `payable_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payable_amount").toString()));
       }
       if ((jsonObj.get("amount_tolerance") != null && !jsonObj.get("amount_tolerance").isJsonNull()) && !jsonObj.get("amount_tolerance").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount_tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount_tolerance").toString()));
+      }
+      if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
+      if ((jsonObj.get("order_amount") != null && !jsonObj.get("order_amount").isJsonNull()) && !jsonObj.get("order_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_amount").toString()));
+      }
+      if ((jsonObj.get("token_id") != null && !jsonObj.get("token_id").isJsonNull()) && !jsonObj.get("token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      }
+      if ((jsonObj.get("custom_exchange_rate") != null && !jsonObj.get("custom_exchange_rate").isJsonNull()) && !jsonObj.get("custom_exchange_rate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_exchange_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_exchange_rate").toString()));
       }
   }
 

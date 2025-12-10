@@ -65,11 +65,51 @@ public class PaymentOrderEventDataTest {
     }
 
     /**
-     * Test the property 'tokenId'
+     * Test the property 'merchantOrderCode'
      */
     @Test
-    public void tokenIdTest() {
-        // TODO: test tokenId
+    public void merchantOrderCodeTest() {
+        // TODO: test merchantOrderCode
+    }
+
+    /**
+     * Test the property 'pspOrderCode'
+     */
+    @Test
+    public void pspOrderCodeTest() {
+        // TODO: test pspOrderCode
+    }
+
+    /**
+     * Test the property 'pricingCurrency'
+     */
+    @Test
+    public void pricingCurrencyTest() {
+        // TODO: test pricingCurrency
+    }
+
+    /**
+     * Test the property 'pricingAmount'
+     */
+    @Test
+    public void pricingAmountTest() {
+        // TODO: test pricingAmount
+    }
+
+    /**
+     * Test the property 'feeAmount'
+     */
+    @Test
+    public void feeAmountTest() {
+        // TODO: test feeAmount
+    }
+
+    /**
+     * Test the property 'payableCurrency'
+     */
+    @Test
+    public void payableCurrencyTest() {
+        // TODO: test payableCurrency
     }
 
     /**
@@ -89,38 +129,6 @@ public class PaymentOrderEventDataTest {
     }
 
     /**
-     * Test the property 'receiveAddress'
-     */
-    @Test
-    public void receiveAddressTest() {
-        // TODO: test receiveAddress
-    }
-
-    /**
-     * Test the property 'currency'
-     */
-    @Test
-    public void currencyTest() {
-        // TODO: test currency
-    }
-
-    /**
-     * Test the property 'orderAmount'
-     */
-    @Test
-    public void orderAmountTest() {
-        // TODO: test orderAmount
-    }
-
-    /**
-     * Test the property 'feeAmount'
-     */
-    @Test
-    public void feeAmountTest() {
-        // TODO: test feeAmount
-    }
-
-    /**
      * Test the property 'exchangeRate'
      */
     @Test
@@ -129,27 +137,19 @@ public class PaymentOrderEventDataTest {
     }
 
     /**
-     * Test the property 'expiredAt'
+     * Test the property 'amountTolerance'
      */
     @Test
-    public void expiredAtTest() {
-        // TODO: test expiredAt
+    public void amountToleranceTest() {
+        // TODO: test amountTolerance
     }
 
     /**
-     * Test the property 'merchantOrderCode'
+     * Test the property 'receiveAddress'
      */
     @Test
-    public void merchantOrderCodeTest() {
-        // TODO: test merchantOrderCode
-    }
-
-    /**
-     * Test the property 'pspOrderCode'
-     */
-    @Test
-    public void pspOrderCodeTest() {
-        // TODO: test pspOrderCode
+    public void receiveAddressTest() {
+        // TODO: test receiveAddress
     }
 
     /**
@@ -166,6 +166,14 @@ public class PaymentOrderEventDataTest {
     @Test
     public void receivedTokenAmountTest() {
         // TODO: test receivedTokenAmount
+    }
+
+    /**
+     * Test the property 'expiredAt'
+     */
+    @Test
+    public void expiredAtTest() {
+        // TODO: test expiredAt
     }
 
     /**
@@ -193,19 +201,35 @@ public class PaymentOrderEventDataTest {
     }
 
     /**
+     * Test the property 'currency'
+     */
+    @Test
+    public void currencyTest() {
+        // TODO: test currency
+    }
+
+    /**
+     * Test the property 'orderAmount'
+     */
+    @Test
+    public void orderAmountTest() {
+        // TODO: test orderAmount
+    }
+
+    /**
+     * Test the property 'tokenId'
+     */
+    @Test
+    public void tokenIdTest() {
+        // TODO: test tokenId
+    }
+
+    /**
      * Test the property 'settlementStatus'
      */
     @Test
     public void settlementStatusTest() {
         // TODO: test settlementStatus
-    }
-
-    /**
-     * Test the property 'amountTolerance'
-     */
-    @Test
-    public void amountToleranceTest() {
-        // TODO: test amountTolerance
     }
 
 }

@@ -7,11 +7,9 @@
 
 * `PENDING` (value: `"Pending"`)
 
-* `VERIFIED` (value: `"Verified"`)
+* `APPROVED` (value: `"Approved"`)
 
 * `REJECTED` (value: `"Rejected"`)
-
-* `DELETED` (value: `"Deleted"`)
 
 
 

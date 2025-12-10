@@ -64,10 +64,6 @@ public class TransactionCosmosContractDestination {
   @SerializedName(SERIALIZED_NAME_COSMOS_MESSAGES)
   private List<TransactionCosmosMessage> cosmosMessages = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  private String value;
-
   public TransactionCosmosContractDestination() {
   }
 
@@ -114,25 +110,6 @@ public class TransactionCosmosContractDestination {
 
   public void setCosmosMessages(List<TransactionCosmosMessage> cosmosMessages) {
     this.cosmosMessages = cosmosMessages;
-  }
-
-
-  public TransactionCosmosContractDestination value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;. 
-   * @return value
-  **/
-  @javax.annotation.Nullable
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
   }
 
   /**
@@ -191,14 +168,13 @@ public class TransactionCosmosContractDestination {
     }
     TransactionCosmosContractDestination transactionCosmosContractDestination = (TransactionCosmosContractDestination) o;
     return Objects.equals(this.destinationType, transactionCosmosContractDestination.destinationType) &&
-        Objects.equals(this.cosmosMessages, transactionCosmosContractDestination.cosmosMessages) &&
-        Objects.equals(this.value, transactionCosmosContractDestination.value)&&
+        Objects.equals(this.cosmosMessages, transactionCosmosContractDestination.cosmosMessages)&&
         Objects.equals(this.additionalProperties, transactionCosmosContractDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, cosmosMessages, value, additionalProperties);
+    return Objects.hash(destinationType, cosmosMessages, additionalProperties);
   }
 
   @Override
@@ -207,7 +183,6 @@ public class TransactionCosmosContractDestination {
     sb.append("class TransactionCosmosContractDestination {\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    cosmosMessages: ").append(toIndentedString(cosmosMessages)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -233,7 +208,6 @@ public class TransactionCosmosContractDestination {
     openapiFields = new HashSet<String>();
     openapiFields.add("destination_type");
     openapiFields.add("cosmos_messages");
-    openapiFields.add("value");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -273,9 +247,6 @@ public class TransactionCosmosContractDestination {
       for (int i = 0; i < jsonArraycosmosMessages.size(); i++) {
         TransactionCosmosMessage.validateJsonElement(jsonArraycosmosMessages.get(i));
       };
-      if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

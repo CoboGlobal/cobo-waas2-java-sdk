@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * BankAccountStatus defines the status of the bank account: - &#x60;Pending&#x60;: The bank account is pending verification by Cobo. - &#x60;Verified&#x60;: The bank account has been verified by Cobo. - &#x60;Rejected&#x60;: The bank account has been rejected by Cobo. - &#x60;Deleted&#x60;: The bank account has been deleted. 
+ * BankAccountStatus defines the status of the bank account: - &#x60;Pending&#x60;: The bank account is pending verification by Cobo. - &#x60;Approved&#x60;: The bank account has been approved by Cobo. - &#x60;Rejected&#x60;: The bank account has been rejected by Cobo. 
  */
 @JsonAdapter(BankAccountStatus.Adapter.class)
 public enum BankAccountStatus {
@@ -30,11 +30,9 @@ public enum BankAccountStatus {
   
   PENDING("Pending"),
   
-  VERIFIED("Verified"),
+  APPROVED("Approved"),
   
-  REJECTED("Rejected"),
-  
-  DELETED("Deleted");
+  REJECTED("Rejected");
 
   private String value;
 

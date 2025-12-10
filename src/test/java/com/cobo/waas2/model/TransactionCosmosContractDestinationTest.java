@@ -55,12 +55,4 @@ public class TransactionCosmosContractDestinationTest {
         // TODO: test cosmosMessages
     }
 
-    /**
-     * Test the property 'value'
-     */
-    @Test
-    public void valueTest() {
-        // TODO: test value
-    }
-
 }

@@ -44,11 +44,75 @@ public class CreatePaymentOrderRequestTest {
     }
 
     /**
-     * Test the property 'tokenId'
+     * Test the property 'merchantOrderCode'
      */
     @Test
-    public void tokenIdTest() {
-        // TODO: test tokenId
+    public void merchantOrderCodeTest() {
+        // TODO: test merchantOrderCode
+    }
+
+    /**
+     * Test the property 'pspOrderCode'
+     */
+    @Test
+    public void pspOrderCodeTest() {
+        // TODO: test pspOrderCode
+    }
+
+    /**
+     * Test the property 'pricingCurrency'
+     */
+    @Test
+    public void pricingCurrencyTest() {
+        // TODO: test pricingCurrency
+    }
+
+    /**
+     * Test the property 'pricingAmount'
+     */
+    @Test
+    public void pricingAmountTest() {
+        // TODO: test pricingAmount
+    }
+
+    /**
+     * Test the property 'feeAmount'
+     */
+    @Test
+    public void feeAmountTest() {
+        // TODO: test feeAmount
+    }
+
+    /**
+     * Test the property 'payableCurrency'
+     */
+    @Test
+    public void payableCurrencyTest() {
+        // TODO: test payableCurrency
+    }
+
+    /**
+     * Test the property 'payableAmount'
+     */
+    @Test
+    public void payableAmountTest() {
+        // TODO: test payableAmount
+    }
+
+    /**
+     * Test the property 'expiredIn'
+     */
+    @Test
+    public void expiredInTest() {
+        // TODO: test expiredIn
+    }
+
+    /**
+     * Test the property 'amountTolerance'
+     */
+    @Test
+    public void amountToleranceTest() {
+        // TODO: test amountTolerance
     }
 
     /**
@@ -68,35 +132,11 @@ public class CreatePaymentOrderRequestTest {
     }
 
     /**
-     * Test the property 'feeAmount'
+     * Test the property 'tokenId'
      */
     @Test
-    public void feeAmountTest() {
-        // TODO: test feeAmount
-    }
-
-    /**
-     * Test the property 'merchantOrderCode'
-     */
-    @Test
-    public void merchantOrderCodeTest() {
-        // TODO: test merchantOrderCode
-    }
-
-    /**
-     * Test the property 'pspOrderCode'
-     */
-    @Test
-    public void pspOrderCodeTest() {
-        // TODO: test pspOrderCode
-    }
-
-    /**
-     * Test the property 'expiredIn'
-     */
-    @Test
-    public void expiredInTest() {
-        // TODO: test expiredIn
+    public void tokenIdTest() {
+        // TODO: test tokenId
     }
 
     /**
@@ -113,14 +153,6 @@ public class CreatePaymentOrderRequestTest {
     @Test
     public void customExchangeRateTest() {
         // TODO: test customExchangeRate
-    }
-
-    /**
-     * Test the property 'amountTolerance'
-     */
-    @Test
-    public void amountToleranceTest() {
-        // TODO: test amountTolerance
     }
 
 }
