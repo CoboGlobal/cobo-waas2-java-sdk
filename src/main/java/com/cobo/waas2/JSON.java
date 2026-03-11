@@ -306,6 +306,27 @@ public class JSON {
                                 getDiscriminatorValue(readElement, "activity_type"));
                     }
           })
+                .registerTypeSelector(com.cobo.waas2.model.InternalMessageSignDestination.class, new TypeSelector<com.cobo.waas2.model.InternalMessageSignDestination>() {
+                    @Override
+                    public Class<? extends com.cobo.waas2.model.InternalMessageSignDestination> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("BTC_BIP_137_Signature", com.cobo.waas2.model.BTCBIP137MessageSignDestination.class);
+                        classByDiscriminatorValue.put("BTC_BIP_322_Signature", com.cobo.waas2.model.BTCBIP322MessageSignDestination.class);
+                        classByDiscriminatorValue.put("COSMOS_ADR_36_Signature", com.cobo.waas2.model.CosmosAdr36MessageSignDestination.class);
+                        classByDiscriminatorValue.put("EVM_EIP_191_Signature", com.cobo.waas2.model.EvmEIP191MessageSignDestination.class);
+                        classByDiscriminatorValue.put("EVM_EIP_712_Signature", com.cobo.waas2.model.EvmEIP712MessageSignDestination.class);
+                        classByDiscriminatorValue.put("Raw_Message_Signature", com.cobo.waas2.model.InternalRawMessageSignDestination.class);
+                        classByDiscriminatorValue.put("BTCBIP137MessageSignDestination", com.cobo.waas2.model.BTCBIP137MessageSignDestination.class);
+                        classByDiscriminatorValue.put("BTCBIP322MessageSignDestination", com.cobo.waas2.model.BTCBIP322MessageSignDestination.class);
+                        classByDiscriminatorValue.put("CosmosAdr36MessageSignDestination", com.cobo.waas2.model.CosmosAdr36MessageSignDestination.class);
+                        classByDiscriminatorValue.put("EvmEIP191MessageSignDestination", com.cobo.waas2.model.EvmEIP191MessageSignDestination.class);
+                        classByDiscriminatorValue.put("EvmEIP712MessageSignDestination", com.cobo.waas2.model.EvmEIP712MessageSignDestination.class);
+                        classByDiscriminatorValue.put("InternalRawMessageSignDestination", com.cobo.waas2.model.InternalRawMessageSignDestination.class);
+                        classByDiscriminatorValue.put("InternalMessageSignDestination", com.cobo.waas2.model.InternalMessageSignDestination.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "destination_type"));
+                    }
+          })
                 .registerTypeSelector(com.cobo.waas2.model.MessageSignDestination.class, new TypeSelector<com.cobo.waas2.model.MessageSignDestination>() {
                     @Override
                     public Class<? extends com.cobo.waas2.model.MessageSignDestination> getClassForElement(JsonElement readElement) {
@@ -315,11 +336,13 @@ public class JSON {
                         classByDiscriminatorValue.put("COSMOS_ADR_36_Signature", com.cobo.waas2.model.CosmosAdr36MessageSignDestination.class);
                         classByDiscriminatorValue.put("EVM_EIP_191_Signature", com.cobo.waas2.model.EvmEIP191MessageSignDestination.class);
                         classByDiscriminatorValue.put("EVM_EIP_712_Signature", com.cobo.waas2.model.EvmEIP712MessageSignDestination.class);
+                        classByDiscriminatorValue.put("Raw_Message_Signature", com.cobo.waas2.model.RawMessageSignDestination.class);
                         classByDiscriminatorValue.put("BTCBIP137MessageSignDestination", com.cobo.waas2.model.BTCBIP137MessageSignDestination.class);
                         classByDiscriminatorValue.put("BTCBIP322MessageSignDestination", com.cobo.waas2.model.BTCBIP322MessageSignDestination.class);
                         classByDiscriminatorValue.put("CosmosAdr36MessageSignDestination", com.cobo.waas2.model.CosmosAdr36MessageSignDestination.class);
                         classByDiscriminatorValue.put("EvmEIP191MessageSignDestination", com.cobo.waas2.model.EvmEIP191MessageSignDestination.class);
                         classByDiscriminatorValue.put("EvmEIP712MessageSignDestination", com.cobo.waas2.model.EvmEIP712MessageSignDestination.class);
+                        classByDiscriminatorValue.put("RawMessageSignDestination", com.cobo.waas2.model.RawMessageSignDestination.class);
                         classByDiscriminatorValue.put("MessageSignDestination", com.cobo.waas2.model.MessageSignDestination.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "destination_type"));
@@ -612,9 +635,11 @@ public class JSON {
                         classByDiscriminatorValue.put("BabylonBusinessInfo", com.cobo.waas2.model.TransactionBabylonBusinessInfo.class);
                         classByDiscriminatorValue.put("BabylonTxParameters", com.cobo.waas2.model.TransactionBabylonTxParameters.class);
                         classByDiscriminatorValue.put("CoreStakeInfo", com.cobo.waas2.model.TransactionCoreStakeInfo.class);
+                        classByDiscriminatorValue.put("WalletConnectInfo", com.cobo.waas2.model.TransactionWalletConnectInfo.class);
                         classByDiscriminatorValue.put("TransactionBabylonBusinessInfo", com.cobo.waas2.model.TransactionBabylonBusinessInfo.class);
                         classByDiscriminatorValue.put("TransactionBabylonTxParameters", com.cobo.waas2.model.TransactionBabylonTxParameters.class);
                         classByDiscriminatorValue.put("TransactionCoreStakeInfo", com.cobo.waas2.model.TransactionCoreStakeInfo.class);
+                        classByDiscriminatorValue.put("TransactionWalletConnectInfo", com.cobo.waas2.model.TransactionWalletConnectInfo.class);
                         classByDiscriminatorValue.put("TransactionExtra", com.cobo.waas2.model.TransactionExtra.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "extra_type"));
@@ -1218,6 +1243,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.GraphQLRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.GraphQLResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.IntermediaryBankInfo.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.InternalMessageSignDestination.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.InternalMessageSignParams.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.InternalRawMessageSignDestination.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.InternalTransferParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.IsolateDisposition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.KeyShareHolder.CustomTypeAdapterFactory());
@@ -1389,6 +1417,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.QueryApprovalStatement200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.QueryGuardPubkey200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.QueryGuardPubkey200ResponseAddressesInner.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.RawMessageSignDestination.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.RefreshAddressBalancesByToken200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.RefreshAddressBalancesByTokenRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.RefreshPermissionTokenRequest.CustomTypeAdapterFactory());

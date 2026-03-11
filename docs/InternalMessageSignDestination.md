@@ -1,6 +1,6 @@
 
 
-# MessageSignDestination
+# InternalMessageSignDestination
 
 
 ## Properties

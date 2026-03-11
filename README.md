@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.31.0</version>
+  <version>1.32.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.31.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.32.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.31.0.jar`
+* `target/cobo-waas2-1.32.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -280,6 +280,7 @@ Class | Method | HTTP request | Description
 *InternalSwapsApi* | [**checkSwapWalletAddress**](docs/InternalSwapsApi.md#checkSwapWalletAddress) | **GET** /internal/swaps/check_wallet_address | Check Swap Address
 *InternalSwapsApi* | [**getSwapLimitsAndLiquidityInternally**](docs/InternalSwapsApi.md#getSwapLimitsAndLiquidityInternally) | **GET** /internal/swaps/limits_and_liquidity | Get Swap Limits and Liquidity
 *InternalSwapsApi* | [**listSwapReachableTokens**](docs/InternalSwapsApi.md#listSwapReachableTokens) | **GET** /internal/swaps/reachable_tokens | List Swap Reachable Tokens
+*InternalTransactionsApi* | [**createInternalMessageSignTransaction**](docs/InternalTransactionsApi.md#createInternalMessageSignTransaction) | **POST** /internal/transactions/message_sign | Sign message
 *InternalTransactionsApi* | [**createInternalTransferTransaction**](docs/InternalTransactionsApi.md#createInternalTransferTransaction) | **POST** /internal/transactions/transfer | Transfer token
 *InternalWebhooksApi* | [**createWebhookEvent**](docs/InternalWebhooksApi.md#createWebhookEvent) | **POST** /internal/webhook_event | Create webhook event
 *OAuthApi* | [**exchangePermissionToken**](docs/OAuthApi.md#exchangePermissionToken) | **POST** /oauth/permission_token/exchange | Exchange Permission Access Token by API Key
@@ -827,6 +828,10 @@ Class | Method | HTTP request | Description
  - [GraphQLResponse](docs/GraphQLResponse.md)
  - [GuardPubkeyStatus](docs/GuardPubkeyStatus.md)
  - [IntermediaryBankInfo](docs/IntermediaryBankInfo.md)
+ - [InternalMessageSignDestination](docs/InternalMessageSignDestination.md)
+ - [InternalMessageSignDestinationType](docs/InternalMessageSignDestinationType.md)
+ - [InternalMessageSignParams](docs/InternalMessageSignParams.md)
+ - [InternalRawMessageSignDestination](docs/InternalRawMessageSignDestination.md)
  - [InternalTransferParams](docs/InternalTransferParams.md)
  - [IsolateDisposition](docs/IsolateDisposition.md)
  - [KeyShareHolder](docs/KeyShareHolder.md)
@@ -1031,6 +1036,7 @@ Class | Method | HTTP request | Description
  - [QueryApprovalStatement200Response](docs/QueryApprovalStatement200Response.md)
  - [QueryGuardPubkey200Response](docs/QueryGuardPubkey200Response.md)
  - [QueryGuardPubkey200ResponseAddressesInner](docs/QueryGuardPubkey200ResponseAddressesInner.md)
+ - [RawMessageSignDestination](docs/RawMessageSignDestination.md)
  - [RefreshAddressBalancesByToken200Response](docs/RefreshAddressBalancesByToken200Response.md)
  - [RefreshAddressBalancesByTokenRequest](docs/RefreshAddressBalancesByTokenRequest.md)
  - [RefreshPermissionTokenRequest](docs/RefreshPermissionTokenRequest.md)

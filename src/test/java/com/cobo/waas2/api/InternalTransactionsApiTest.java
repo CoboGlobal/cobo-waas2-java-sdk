@@ -16,6 +16,7 @@ import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.CreateTransferTransaction201Response;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.InternalMessageSignParams;
 import com.cobo.waas2.model.InternalTransferParams;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,20 @@ public class InternalTransactionsApiTest {
         defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     }
     private final InternalTransactionsApi api = new InternalTransactionsApi();
+
+    /**
+     * Sign message
+     *
+     * This operation creates a transaction to sign the provided message using cryptographic techniques.  You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt;  &lt;Info&gt; This API is intended for internal use only and supports all message signing formats including raw message signing. &lt;/Info&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createInternalMessageSignTransactionTest() throws ApiException {
+        InternalMessageSignParams internalMessageSignParams = null;
+        CreateTransferTransaction201Response response = api.createInternalMessageSignTransaction(internalMessageSignParams);
+        // TODO: test validations
+    }
 
     /**
      * Transfer token

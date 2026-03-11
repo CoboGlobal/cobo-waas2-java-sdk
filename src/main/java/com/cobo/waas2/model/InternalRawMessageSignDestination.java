@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.InternalMessageSignDestinationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -19,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,128 +46,59 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * PaymentPayoutRecipientInfo
+ * The information about the destination &#x60;Raw_Message_Signature&#x60;. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class PaymentPayoutRecipientInfo {
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private String address;
+public class InternalRawMessageSignDestination {
+  public static final String SERIALIZED_NAME_DESTINATION_TYPE = "destination_type";
+  @SerializedName(SERIALIZED_NAME_DESTINATION_TYPE)
+  private InternalMessageSignDestinationType destinationType;
 
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
+  public static final String SERIALIZED_NAME_MSG_HASH = "msg_hash";
+  @SerializedName(SERIALIZED_NAME_MSG_HASH)
+  private String msgHash;
 
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private String currency;
-
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT_ID = "bank_account_id";
-  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_ID)
-  private UUID bankAccountId;
-
-  public static final String SERIALIZED_NAME_TRANSFER_VIA_VA = "transfer_via_va";
-  @SerializedName(SERIALIZED_NAME_TRANSFER_VIA_VA)
-  private Boolean transferViaVa;
-
-  public PaymentPayoutRecipientInfo() {
+  public InternalRawMessageSignDestination() {
   }
 
-  public PaymentPayoutRecipientInfo address(String address) {
-    this.address = address;
+  public InternalRawMessageSignDestination destinationType(InternalMessageSignDestinationType destinationType) {
+    this.destinationType = destinationType;
     return this;
   }
 
    /**
-   * The recipient&#39;s wallet address where the payout will be sent.
-   * @return address
+   * Get destinationType
+   * @return destinationType
   **/
-  @javax.annotation.Nullable
-  public String getAddress() {
-    return address;
+  @javax.annotation.Nonnull
+  public InternalMessageSignDestinationType getDestinationType() {
+    return destinationType;
   }
 
-  public void setAddress(String address) {
-    this.address = address;
+  public void setDestinationType(InternalMessageSignDestinationType destinationType) {
+    this.destinationType = destinationType;
   }
 
 
-  public PaymentPayoutRecipientInfo tokenId(String tokenId) {
-    this.tokenId = tokenId;
+  public InternalRawMessageSignDestination msgHash(String msgHash) {
+    this.msgHash = msgHash;
     return this;
   }
 
    /**
-   * The token id can be bridged.
-   * @return tokenId
+   * Message hash to be signed, in hexadecimal format.
+   * @return msgHash
   **/
-  @javax.annotation.Nullable
-  public String getTokenId() {
-    return tokenId;
+  @javax.annotation.Nonnull
+  public String getMsgHash() {
+    return msgHash;
   }
 
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
-  }
-
-
-  public PaymentPayoutRecipientInfo currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * The currency of the bank account.
-   * @return currency
-  **/
-  @javax.annotation.Nullable
-  public String getCurrency() {
-    return currency;
-  }
-
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
-
-
-  public PaymentPayoutRecipientInfo bankAccountId(UUID bankAccountId) {
-    this.bankAccountId = bankAccountId;
-    return this;
-  }
-
-   /**
-   * The destination bank account ID.
-   * @return bankAccountId
-  **/
-  @javax.annotation.Nullable
-  public UUID getBankAccountId() {
-    return bankAccountId;
-  }
-
-  public void setBankAccountId(UUID bankAccountId) {
-    this.bankAccountId = bankAccountId;
-  }
-
-
-  public PaymentPayoutRecipientInfo transferViaVa(Boolean transferViaVa) {
-    this.transferViaVa = transferViaVa;
-    return this;
-  }
-
-   /**
-   * For OffRamp payout, whether the payout is transferred to a registered bank account via a virtual account (VA) or directly. - &#x60;true&#x60;: The payout is transferred to a registered bank account via a VA (virtual account). - &#x60;false&#x60;: The payout is transferred directly to a registered bank account. 
-   * @return transferViaVa
-  **/
-  @javax.annotation.Nullable
-  public Boolean getTransferViaVa() {
-    return transferViaVa;
-  }
-
-  public void setTransferViaVa(Boolean transferViaVa) {
-    this.transferViaVa = transferViaVa;
+  public void setMsgHash(String msgHash) {
+    this.msgHash = msgHash;
   }
 
   /**
@@ -183,9 +114,9 @@ public class PaymentPayoutRecipientInfo {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the PaymentPayoutRecipientInfo instance itself
+   * @return the InternalRawMessageSignDestination instance itself
    */
-  public PaymentPayoutRecipientInfo putAdditionalProperty(String key, Object value) {
+  public InternalRawMessageSignDestination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -224,29 +155,23 @@ public class PaymentPayoutRecipientInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentPayoutRecipientInfo paymentPayoutRecipientInfo = (PaymentPayoutRecipientInfo) o;
-    return Objects.equals(this.address, paymentPayoutRecipientInfo.address) &&
-        Objects.equals(this.tokenId, paymentPayoutRecipientInfo.tokenId) &&
-        Objects.equals(this.currency, paymentPayoutRecipientInfo.currency) &&
-        Objects.equals(this.bankAccountId, paymentPayoutRecipientInfo.bankAccountId) &&
-        Objects.equals(this.transferViaVa, paymentPayoutRecipientInfo.transferViaVa)&&
-        Objects.equals(this.additionalProperties, paymentPayoutRecipientInfo.additionalProperties);
+    InternalRawMessageSignDestination internalRawMessageSignDestination = (InternalRawMessageSignDestination) o;
+    return Objects.equals(this.destinationType, internalRawMessageSignDestination.destinationType) &&
+        Objects.equals(this.msgHash, internalRawMessageSignDestination.msgHash)&&
+        Objects.equals(this.additionalProperties, internalRawMessageSignDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, tokenId, currency, bankAccountId, transferViaVa, additionalProperties);
+    return Objects.hash(destinationType, msgHash, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentPayoutRecipientInfo {\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
-    sb.append("    transferViaVa: ").append(toIndentedString(transferViaVa)).append("\n");
+    sb.append("class InternalRawMessageSignDestination {\n");
+    sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
+    sb.append("    msgHash: ").append(toIndentedString(msgHash)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -270,40 +195,39 @@ public class PaymentPayoutRecipientInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("address");
-    openapiFields.add("token_id");
-    openapiFields.add("currency");
-    openapiFields.add("bank_account_id");
-    openapiFields.add("transfer_via_va");
+    openapiFields.add("destination_type");
+    openapiFields.add("msg_hash");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("destination_type");
+    openapiRequiredFields.add("msg_hash");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to PaymentPayoutRecipientInfo
+  * @throws IOException if the JSON Element is invalid with respect to InternalRawMessageSignDestination
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!PaymentPayoutRecipientInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentPayoutRecipientInfo is not found in the empty JSON string", PaymentPayoutRecipientInfo.openapiRequiredFields.toString()));
+        if (!InternalRawMessageSignDestination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in InternalRawMessageSignDestination is not found in the empty JSON string", InternalRawMessageSignDestination.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : InternalRawMessageSignDestination.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
-      }
-      if ((jsonObj.get("token_id") != null && !jsonObj.get("token_id").isJsonNull()) && !jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
-      }
-      if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
-      if ((jsonObj.get("bank_account_id") != null && !jsonObj.get("bank_account_id").isJsonNull()) && !jsonObj.get("bank_account_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bank_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_account_id").toString()));
+      // validate the required field `destination_type`
+      InternalMessageSignDestinationType.validateJsonElement(jsonObj.get("destination_type"));
+      if (!jsonObj.get("msg_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `msg_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("msg_hash").toString()));
       }
   }
 
@@ -311,16 +235,16 @@ public class PaymentPayoutRecipientInfo {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentPayoutRecipientInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentPayoutRecipientInfo' and its subtypes
+       if (!InternalRawMessageSignDestination.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'InternalRawMessageSignDestination' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentPayoutRecipientInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentPayoutRecipientInfo.class));
+       final TypeAdapter<InternalRawMessageSignDestination> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(InternalRawMessageSignDestination.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PaymentPayoutRecipientInfo>() {
+       return (TypeAdapter<T>) new TypeAdapter<InternalRawMessageSignDestination>() {
            @Override
-           public void write(JsonWriter out, PaymentPayoutRecipientInfo value) throws IOException {
+           public void write(JsonWriter out, InternalRawMessageSignDestination value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -350,12 +274,12 @@ public class PaymentPayoutRecipientInfo {
            }
 
            @Override
-           public PaymentPayoutRecipientInfo read(JsonReader in) throws IOException {
+           public InternalRawMessageSignDestination read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             PaymentPayoutRecipientInfo instance = thisAdapter.fromJsonTree(jsonObj);
+             InternalRawMessageSignDestination instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -382,18 +306,18 @@ public class PaymentPayoutRecipientInfo {
   }
 
  /**
-  * Create an instance of PaymentPayoutRecipientInfo given an JSON string
+  * Create an instance of InternalRawMessageSignDestination given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of PaymentPayoutRecipientInfo
-  * @throws IOException if the JSON string is invalid with respect to PaymentPayoutRecipientInfo
+  * @return An instance of InternalRawMessageSignDestination
+  * @throws IOException if the JSON string is invalid with respect to InternalRawMessageSignDestination
   */
-  public static PaymentPayoutRecipientInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentPayoutRecipientInfo.class);
+  public static InternalRawMessageSignDestination fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, InternalRawMessageSignDestination.class);
   }
 
  /**
-  * Convert an instance of PaymentPayoutRecipientInfo to an JSON string
+  * Convert an instance of InternalRawMessageSignDestination to an JSON string
   *
   * @return JSON string
   */

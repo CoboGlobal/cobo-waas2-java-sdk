@@ -16,8 +16,8 @@ import com.cobo.waas2.model.BTCBIP322MessageSignDestination;
 import com.cobo.waas2.model.CosmosAdr36MessageSignDestination;
 import com.cobo.waas2.model.EvmEIP191MessageSignDestination;
 import com.cobo.waas2.model.EvmEIP712MessageSignDestination;
+import com.cobo.waas2.model.InternalRawMessageSignDestination;
 import com.cobo.waas2.model.MessageSignDestinationType;
-import com.cobo.waas2.model.RawMessageSignDestination;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,17 +31,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for MessageSignDestination
+ * Model tests for InternalMessageSignDestination
  */
-public class MessageSignDestinationTest {
-    private final MessageSignDestination model = new MessageSignDestination();
+public class InternalMessageSignDestinationTest {
+    private final InternalMessageSignDestination model = new InternalMessageSignDestination();
 
     /**
-     * Model tests for MessageSignDestination
+     * Model tests for InternalMessageSignDestination
      */
     @Test
-    public void testMessageSignDestination() {
-        // TODO: test MessageSignDestination
+    public void testInternalMessageSignDestination() {
+        // TODO: test InternalMessageSignDestination
     }
 
     /**

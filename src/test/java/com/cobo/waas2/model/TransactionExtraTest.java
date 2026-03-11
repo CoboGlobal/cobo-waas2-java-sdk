@@ -17,6 +17,7 @@ import com.cobo.waas2.model.TransactionBabylonBusinessInfo;
 import com.cobo.waas2.model.TransactionBabylonTxParameters;
 import com.cobo.waas2.model.TransactionCoreStakeInfo;
 import com.cobo.waas2.model.TransactionExtraType;
+import com.cobo.waas2.model.TransactionWalletConnectInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -143,6 +144,30 @@ public class TransactionExtraTest {
     @Test
     public void rewardAddressTest() {
         // TODO: test rewardAddress
+    }
+
+    /**
+     * Test the property 'dappName'
+     */
+    @Test
+    public void dappNameTest() {
+        // TODO: test dappName
+    }
+
+    /**
+     * Test the property 'dappDomain'
+     */
+    @Test
+    public void dappDomainTest() {
+        // TODO: test dappDomain
+    }
+
+    /**
+     * Test the property 'sessionId'
+     */
+    @Test
+    public void sessionIdTest() {
+        // TODO: test sessionId
     }
 
 }

@@ -27,6 +27,7 @@ import java.io.IOException;
 
 import com.cobo.waas2.model.CreateTransferTransaction201Response;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.InternalMessageSignParams;
 import com.cobo.waas2.model.InternalTransferParams;
 
 import java.lang.reflect.Type;
@@ -54,6 +55,119 @@ public class InternalTransactionsApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for createInternalMessageSignTransaction
+     * @param internalMessageSignParams The request body to create a message signing transaction (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createInternalMessageSignTransactionCall(InternalMessageSignParams internalMessageSignParams, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = internalMessageSignParams;
+
+        // create path and map variables
+        String localVarPath = "/internal/transactions/message_sign";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createInternalMessageSignTransactionValidateBeforeCall(InternalMessageSignParams internalMessageSignParams, final ApiCallback _callback) throws ApiException {
+        return createInternalMessageSignTransactionCall(internalMessageSignParams, _callback);
+
+    }
+
+    /**
+     * Sign message
+     * This operation creates a transaction to sign the provided message using cryptographic techniques.  You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt;  &lt;Info&gt; This API is intended for internal use only and supports all message signing formats including raw message signing. &lt;/Info&gt; 
+     * @param internalMessageSignParams The request body to create a message signing transaction (optional)
+     * @return CreateTransferTransaction201Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateTransferTransaction201Response createInternalMessageSignTransaction(InternalMessageSignParams internalMessageSignParams) throws ApiException {
+        ApiResponse<CreateTransferTransaction201Response> localVarResp = createInternalMessageSignTransactionWithHttpInfo(internalMessageSignParams);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Sign message
+     * This operation creates a transaction to sign the provided message using cryptographic techniques.  You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt;  &lt;Info&gt; This API is intended for internal use only and supports all message signing formats including raw message signing. &lt;/Info&gt; 
+     * @param internalMessageSignParams The request body to create a message signing transaction (optional)
+     * @return ApiResponse&lt;CreateTransferTransaction201Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateTransferTransaction201Response> createInternalMessageSignTransactionWithHttpInfo(InternalMessageSignParams internalMessageSignParams) throws ApiException {
+        okhttp3.Call localVarCall = createInternalMessageSignTransactionValidateBeforeCall(internalMessageSignParams, null);
+        Type localVarReturnType = new TypeToken<CreateTransferTransaction201Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Sign message (asynchronously)
+     * This operation creates a transaction to sign the provided message using cryptographic techniques.  You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt;  &lt;Info&gt; This API is intended for internal use only and supports all message signing formats including raw message signing. &lt;/Info&gt; 
+     * @param internalMessageSignParams The request body to create a message signing transaction (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createInternalMessageSignTransactionAsync(InternalMessageSignParams internalMessageSignParams, final ApiCallback<CreateTransferTransaction201Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createInternalMessageSignTransactionValidateBeforeCall(internalMessageSignParams, _callback);
+        Type localVarReturnType = new TypeToken<CreateTransferTransaction201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for createInternalTransferTransaction
      * @param internalTransferParams The request body to create a transfer transaction (optional)

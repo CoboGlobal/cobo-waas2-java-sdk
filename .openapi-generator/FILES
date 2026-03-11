@@ -344,6 +344,10 @@ docs/InternalBankGatewayApi.md
 docs/InternalBatchPayoutsApi.md
 docs/InternalFeeEngineApi.md
 docs/InternalFeeStationApi.md
+docs/InternalMessageSignDestination.md
+docs/InternalMessageSignDestinationType.md
+docs/InternalMessageSignParams.md
+docs/InternalRawMessageSignDestination.md
 docs/InternalSwapsApi.md
 docs/InternalTransactionsApi.md
 docs/InternalTransferParams.md
@@ -555,6 +559,7 @@ docs/PspBalance.md
 docs/QueryApprovalStatement200Response.md
 docs/QueryGuardPubkey200Response.md
 docs/QueryGuardPubkey200ResponseAddressesInner.md
+docs/RawMessageSignDestination.md
 docs/RefreshAddressBalancesByToken200Response.md
 docs/RefreshAddressBalancesByTokenRequest.md
 docs/RefreshPermissionTokenRequest.md
@@ -1342,6 +1347,10 @@ src/main/java/com/cobo/waas2/model/GraphQLRequest.java
 src/main/java/com/cobo/waas2/model/GraphQLResponse.java
 src/main/java/com/cobo/waas2/model/GuardPubkeyStatus.java
 src/main/java/com/cobo/waas2/model/IntermediaryBankInfo.java
+src/main/java/com/cobo/waas2/model/InternalMessageSignDestination.java
+src/main/java/com/cobo/waas2/model/InternalMessageSignDestinationType.java
+src/main/java/com/cobo/waas2/model/InternalMessageSignParams.java
+src/main/java/com/cobo/waas2/model/InternalRawMessageSignDestination.java
 src/main/java/com/cobo/waas2/model/InternalTransferParams.java
 src/main/java/com/cobo/waas2/model/IsolateDisposition.java
 src/main/java/com/cobo/waas2/model/KeyShareHolder.java
@@ -1546,6 +1555,7 @@ src/main/java/com/cobo/waas2/model/PspBalance.java
 src/main/java/com/cobo/waas2/model/QueryApprovalStatement200Response.java
 src/main/java/com/cobo/waas2/model/QueryGuardPubkey200Response.java
 src/main/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseAddressesInner.java
+src/main/java/com/cobo/waas2/model/RawMessageSignDestination.java
 src/main/java/com/cobo/waas2/model/RefreshAddressBalancesByToken200Response.java
 src/main/java/com/cobo/waas2/model/RefreshAddressBalancesByTokenRequest.java
 src/main/java/com/cobo/waas2/model/RefreshPermissionTokenRequest.java
@@ -2284,6 +2294,10 @@ src/test/java/com/cobo/waas2/model/GraphQLRequestTest.java
 src/test/java/com/cobo/waas2/model/GraphQLResponseTest.java
 src/test/java/com/cobo/waas2/model/GuardPubkeyStatusTest.java
 src/test/java/com/cobo/waas2/model/IntermediaryBankInfoTest.java
+src/test/java/com/cobo/waas2/model/InternalMessageSignDestinationTest.java
+src/test/java/com/cobo/waas2/model/InternalMessageSignDestinationTypeTest.java
+src/test/java/com/cobo/waas2/model/InternalMessageSignParamsTest.java
+src/test/java/com/cobo/waas2/model/InternalRawMessageSignDestinationTest.java
 src/test/java/com/cobo/waas2/model/InternalTransferParamsTest.java
 src/test/java/com/cobo/waas2/model/IsolateDispositionTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderGroupStatusTest.java
@@ -2488,6 +2502,7 @@ src/test/java/com/cobo/waas2/model/PspBalanceTest.java
 src/test/java/com/cobo/waas2/model/QueryApprovalStatement200ResponseTest.java
 src/test/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseAddressesInnerTest.java
 src/test/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseTest.java
+src/test/java/com/cobo/waas2/model/RawMessageSignDestinationTest.java
 src/test/java/com/cobo/waas2/model/RefreshAddressBalancesByToken200ResponseTest.java
 src/test/java/com/cobo/waas2/model/RefreshAddressBalancesByTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/RefreshPermissionTokenRequestTest.java

@@ -17,8 +17,8 @@ import com.cobo.waas2.model.BTCBIP322MessageSignDestination;
 import com.cobo.waas2.model.CosmosAdr36MessageSignDestination;
 import com.cobo.waas2.model.EvmEIP191MessageSignDestination;
 import com.cobo.waas2.model.EvmEIP712MessageSignDestination;
+import com.cobo.waas2.model.InternalRawMessageSignDestination;
 import com.cobo.waas2.model.MessageSignDestinationType;
-import com.cobo.waas2.model.RawMessageSignDestination;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -68,27 +68,27 @@ import com.cobo.waas2.JSON;
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class MessageSignDestination extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(MessageSignDestination.class.getName());
+public class InternalMessageSignDestination extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(InternalMessageSignDestination.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!MessageSignDestination.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'MessageSignDestination' and its subtypes
+            if (!InternalMessageSignDestination.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'InternalMessageSignDestination' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<EvmEIP191MessageSignDestination> adapterEvmEIP191MessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(EvmEIP191MessageSignDestination.class));
             final TypeAdapter<EvmEIP712MessageSignDestination> adapterEvmEIP712MessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(EvmEIP712MessageSignDestination.class));
-            final TypeAdapter<RawMessageSignDestination> adapterRawMessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(RawMessageSignDestination.class));
+            final TypeAdapter<InternalRawMessageSignDestination> adapterInternalRawMessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(InternalRawMessageSignDestination.class));
             final TypeAdapter<BTCBIP137MessageSignDestination> adapterBTCBIP137MessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(BTCBIP137MessageSignDestination.class));
             final TypeAdapter<BTCBIP322MessageSignDestination> adapterBTCBIP322MessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(BTCBIP322MessageSignDestination.class));
             final TypeAdapter<CosmosAdr36MessageSignDestination> adapterCosmosAdr36MessageSignDestination = gson.getDelegateAdapter(this, TypeToken.get(CosmosAdr36MessageSignDestination.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<MessageSignDestination>() {
+            return (TypeAdapter<T>) new TypeAdapter<InternalMessageSignDestination>() {
                 @Override
-                public void write(JsonWriter out, MessageSignDestination value) throws IOException {
+                public void write(JsonWriter out, InternalMessageSignDestination value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
                         elementAdapter.write(out, null);
                         return;
@@ -106,9 +106,9 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `RawMessageSignDestination`
-                    if (value.getActualInstance() instanceof RawMessageSignDestination) {
-                        JsonElement element = adapterRawMessageSignDestination.toJsonTree((RawMessageSignDestination)value.getActualInstance());
+                    // check if the actual instance is of the type `InternalRawMessageSignDestination`
+                    if (value.getActualInstance() instanceof InternalRawMessageSignDestination) {
+                        JsonElement element = adapterInternalRawMessageSignDestination.toJsonTree((InternalRawMessageSignDestination)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -130,73 +130,73 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, InternalRawMessageSignDestination");
                 }
 
                 @Override
-                public MessageSignDestination read(JsonReader in) throws IOException {
+                public InternalMessageSignDestination read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
                     JsonObject jsonObject = jsonElement.getAsJsonObject();
 
                     // use discriminator value for faster oneOf lookup
-                    MessageSignDestination newMessageSignDestination = new MessageSignDestination();
+                    InternalMessageSignDestination newInternalMessageSignDestination = new InternalMessageSignDestination();
                     if (jsonObject.get("destination_type") == null) {
-                        log.log(Level.WARNING, "Failed to lookup discriminator value for MessageSignDestination as `destination_type` was not found in the payload or the payload is empty.");
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for InternalMessageSignDestination as `destination_type` was not found in the payload or the payload is empty.");
                     } else  {
                         // look up the discriminator value in the field `destination_type`
                         switch (jsonObject.get("destination_type").getAsString()) {
                             case "BTC_BIP_137_Signature":
                                 deserialized = adapterBTCBIP137MessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             case "BTC_BIP_322_Signature":
                                 deserialized = adapterBTCBIP322MessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             case "COSMOS_ADR_36_Signature":
                                 deserialized = adapterCosmosAdr36MessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             case "EVM_EIP_191_Signature":
                                 deserialized = adapterEvmEIP191MessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             case "EVM_EIP_712_Signature":
                                 deserialized = adapterEvmEIP712MessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             case "Raw_Message_Signature":
-                                deserialized = adapterRawMessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                deserialized = adapterInternalRawMessageSignDestination.fromJsonTree(jsonObject);
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             case "BTCBIP137MessageSignDestination":
                                 deserialized = adapterBTCBIP137MessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             case "BTCBIP322MessageSignDestination":
                                 deserialized = adapterBTCBIP322MessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             case "CosmosAdr36MessageSignDestination":
                                 deserialized = adapterCosmosAdr36MessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             case "EvmEIP191MessageSignDestination":
                                 deserialized = adapterEvmEIP191MessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             case "EvmEIP712MessageSignDestination":
                                 deserialized = adapterEvmEIP712MessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
-                            case "RawMessageSignDestination":
-                                deserialized = adapterRawMessageSignDestination.fromJsonTree(jsonObject);
-                                newMessageSignDestination.setActualInstance(deserialized);
-                                return newMessageSignDestination;
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
+                            case "InternalRawMessageSignDestination":
+                                deserialized = adapterInternalRawMessageSignDestination.fromJsonTree(jsonObject);
+                                newInternalMessageSignDestination.setActualInstance(deserialized);
+                                return newInternalMessageSignDestination;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for MessageSignDestination. Possible values: BTC_BIP_137_Signature BTC_BIP_322_Signature COSMOS_ADR_36_Signature EVM_EIP_191_Signature EVM_EIP_712_Signature Raw_Message_Signature BTCBIP137MessageSignDestination BTCBIP322MessageSignDestination CosmosAdr36MessageSignDestination EvmEIP191MessageSignDestination EvmEIP712MessageSignDestination RawMessageSignDestination", jsonObject.get("destination_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for InternalMessageSignDestination. Possible values: BTC_BIP_137_Signature BTC_BIP_322_Signature COSMOS_ADR_36_Signature EVM_EIP_191_Signature EVM_EIP_712_Signature Raw_Message_Signature BTCBIP137MessageSignDestination BTCBIP322MessageSignDestination CosmosAdr36MessageSignDestination EvmEIP191MessageSignDestination EvmEIP712MessageSignDestination InternalRawMessageSignDestination", jsonObject.get("destination_type").getAsString()));
                         }
                     }
 
@@ -228,17 +228,17 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for EvmEIP712MessageSignDestination failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EvmEIP712MessageSignDestination'", e);
                     }
-                    // deserialize RawMessageSignDestination
+                    // deserialize InternalRawMessageSignDestination
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        RawMessageSignDestination.validateJsonElement(jsonElement);
-                        actualAdapter = adapterRawMessageSignDestination;
+                        InternalRawMessageSignDestination.validateJsonElement(jsonElement);
+                        actualAdapter = adapterInternalRawMessageSignDestination;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'RawMessageSignDestination'");
+                        log.log(Level.FINER, "Input data matches schema 'InternalRawMessageSignDestination'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for RawMessageSignDestination failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'RawMessageSignDestination'", e);
+                        errorMessages.add(String.format("Deserialization for InternalRawMessageSignDestination failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'InternalRawMessageSignDestination'", e);
                     }
                     // deserialize BTCBIP137MessageSignDestination
                     try {
@@ -278,12 +278,12 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                     }
 
                     if (match == 1) {
-                        MessageSignDestination ret = new MessageSignDestination();
+                        InternalMessageSignDestination ret = new InternalMessageSignDestination();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     }
 
-                    throw new IOException(String.format("Failed deserialization for MessageSignDestination: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
+                    throw new IOException(String.format("Failed deserialization for InternalMessageSignDestination: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
                 }
             }.nullSafe();
         }
@@ -292,36 +292,36 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
     // store a list of schema names defined in oneOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
-    public MessageSignDestination() {
+    public InternalMessageSignDestination() {
         super("oneOf", Boolean.FALSE);
     }
 
-    public MessageSignDestination(BTCBIP137MessageSignDestination o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public MessageSignDestination(BTCBIP322MessageSignDestination o) {
+    public InternalMessageSignDestination(BTCBIP137MessageSignDestination o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public MessageSignDestination(CosmosAdr36MessageSignDestination o) {
+    public InternalMessageSignDestination(BTCBIP322MessageSignDestination o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public MessageSignDestination(EvmEIP191MessageSignDestination o) {
+    public InternalMessageSignDestination(CosmosAdr36MessageSignDestination o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public MessageSignDestination(EvmEIP712MessageSignDestination o) {
+    public InternalMessageSignDestination(EvmEIP191MessageSignDestination o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public MessageSignDestination(RawMessageSignDestination o) {
+    public InternalMessageSignDestination(EvmEIP712MessageSignDestination o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public InternalMessageSignDestination(InternalRawMessageSignDestination o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -329,7 +329,7 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
     static {
         schemas.put("EvmEIP191MessageSignDestination", EvmEIP191MessageSignDestination.class);
         schemas.put("EvmEIP712MessageSignDestination", EvmEIP712MessageSignDestination.class);
-        schemas.put("RawMessageSignDestination", RawMessageSignDestination.class);
+        schemas.put("InternalRawMessageSignDestination", InternalRawMessageSignDestination.class);
         schemas.put("BTCBIP137MessageSignDestination", BTCBIP137MessageSignDestination.class);
         schemas.put("BTCBIP322MessageSignDestination", BTCBIP322MessageSignDestination.class);
         schemas.put("CosmosAdr36MessageSignDestination", CosmosAdr36MessageSignDestination.class);
@@ -337,13 +337,13 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
 
     @Override
     public Map<String, Class<?>> getSchemas() {
-        return MessageSignDestination.schemas;
+        return InternalMessageSignDestination.schemas;
     }
 
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination
+     * BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, InternalRawMessageSignDestination
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -359,7 +359,7 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof RawMessageSignDestination) {
+        if (instance instanceof InternalRawMessageSignDestination) {
             super.setActualInstance(instance);
             return;
         }
@@ -379,14 +379,14 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination");
+        throw new RuntimeException("Invalid instance type. Must be BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, InternalRawMessageSignDestination");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination
+     * BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, InternalRawMessageSignDestination
      *
-     * @return The actual instance (BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination)
+     * @return The actual instance (BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, InternalRawMessageSignDestination)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -415,14 +415,14 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
         return (EvmEIP712MessageSignDestination)super.getActualInstance();
     }
     /**
-     * Get the actual instance of `RawMessageSignDestination`. If the actual instance is not `RawMessageSignDestination`,
+     * Get the actual instance of `InternalRawMessageSignDestination`. If the actual instance is not `InternalRawMessageSignDestination`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `RawMessageSignDestination`
-     * @throws ClassCastException if the instance is not `RawMessageSignDestination`
+     * @return The actual instance of `InternalRawMessageSignDestination`
+     * @throws ClassCastException if the instance is not `InternalRawMessageSignDestination`
      */
-    public RawMessageSignDestination getRawMessageSignDestination() throws ClassCastException {
-        return (RawMessageSignDestination)super.getActualInstance();
+    public InternalRawMessageSignDestination getInternalRawMessageSignDestination() throws ClassCastException {
+        return (InternalRawMessageSignDestination)super.getActualInstance();
     }
     /**
      * Get the actual instance of `BTCBIP137MessageSignDestination`. If the actual instance is not `BTCBIP137MessageSignDestination`,
@@ -459,7 +459,7 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to MessageSignDestination
+     * @throws IOException if the JSON Element is invalid with respect to InternalMessageSignDestination
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate oneOf schemas one by one
@@ -481,12 +481,12 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for EvmEIP712MessageSignDestination failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with RawMessageSignDestination
+        // validate the json string with InternalRawMessageSignDestination
         try {
-            RawMessageSignDestination.validateJsonElement(jsonElement);
+            InternalRawMessageSignDestination.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for RawMessageSignDestination failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for InternalRawMessageSignDestination failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with BTCBIP137MessageSignDestination
@@ -514,23 +514,23 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for MessageSignDestination with oneOf schemas: BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, RawMessageSignDestination. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for InternalMessageSignDestination with oneOf schemas: BTCBIP137MessageSignDestination, BTCBIP322MessageSignDestination, CosmosAdr36MessageSignDestination, EvmEIP191MessageSignDestination, EvmEIP712MessageSignDestination, InternalRawMessageSignDestination. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 
     /**
-     * Create an instance of MessageSignDestination given an JSON string
+     * Create an instance of InternalMessageSignDestination given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of MessageSignDestination
-     * @throws IOException if the JSON string is invalid with respect to MessageSignDestination
+     * @return An instance of InternalMessageSignDestination
+     * @throws IOException if the JSON string is invalid with respect to InternalMessageSignDestination
      */
-    public static MessageSignDestination fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, MessageSignDestination.class);
+    public static InternalMessageSignDestination fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, InternalMessageSignDestination.class);
     }
 
     /**
-     * Convert an instance of MessageSignDestination to an JSON string
+     * Convert an instance of InternalMessageSignDestination to an JSON string
      *
      * @return JSON string
      */

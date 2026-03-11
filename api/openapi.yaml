@@ -17654,6 +17654,51 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /internal/transactions/message_sign:
+    post:
+      description: |
+        This operation creates a transaction to sign the provided message using cryptographic techniques.
+
+        You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.
+
+        <Note>This operation only applies to transactions from MPC Wallets.</Note>
+
+        <Info>
+        This API is intended for internal use only and supports all message signing formats including raw message signing.
+        </Info>
+      operationId: create_internal_message_sign_transaction
+      requestBody:
+        $ref: '#/components/requestBodies/createInternalMessageSignBody'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/create_transfer_transaction_201_response'
+          description: The request was successful.
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request. Your request contains malformed syntax or invalid
+            parameters.
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal server error.
+      security:
+      - CoboAuth: []
+      - OAuth2:
+        - transaction.message_sign
+      summary: Sign message
+      tags:
+      - Internal - Transactions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /internal/bank_gateway/balance:
     get:
       description: |
@@ -22237,6 +22282,12 @@ components:
           schema:
             $ref: '#/components/schemas/InternalTransferParams'
       description: The request body to create a transfer transaction
+    createInternalMessageSignBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalMessageSignParams'
+      description: The request body to create a message signing transaction
     createBankPayoutBody:
       content:
         application/json:
@@ -28888,11 +28939,13 @@ components:
           BabylonBusinessInfo: '#/components/schemas/TransactionBabylonBusinessInfo'
           BabylonTxParameters: '#/components/schemas/TransactionBabylonTxParameters'
           CoreStakeInfo: '#/components/schemas/TransactionCoreStakeInfo'
+          WalletConnectInfo: '#/components/schemas/TransactionWalletConnectInfo'
         propertyName: extra_type
       oneOf:
       - $ref: '#/components/schemas/TransactionBabylonBusinessInfo'
       - $ref: '#/components/schemas/TransactionBabylonTxParameters'
       - $ref: '#/components/schemas/TransactionCoreStakeInfo'
+      - $ref: '#/components/schemas/TransactionWalletConnectInfo'
     TransactionExtraType:
       description: |
         The transaction extra information type. Possible values include:
@@ -30467,6 +30520,22 @@ components:
       - structured_data
       title: EVM_EIP_712_Signature
       type: object
+    RawMessageSignDestination:
+      description: "The information about the destination `Raw_Message_Signature`.\
+        \ Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations)\
+        \ for a detailed introduction about the supported sources and destinations\
+        \ for each transaction type."
+      properties:
+        destination_type:
+          $ref: '#/components/schemas/MessageSignDestinationType'
+        msg_hash:
+          description: "Message hash to be signed, in hexadecimal format."
+          type: string
+      required:
+      - destination_type
+      - msg_hash
+      title: Raw_Message_Signature
+      type: object
     BTCBIP322MessageSignDestination:
       description: "The information about the destination `BTC_BIP_322`. Refer to\
         \ [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations)\
@@ -30538,10 +30607,12 @@ components:
           BTC_BIP_137_Signature: '#/components/schemas/BTCBIP137MessageSignDestination'
           BTC_BIP_322_Signature: '#/components/schemas/BTCBIP322MessageSignDestination'
           COSMOS_ADR_36_Signature: '#/components/schemas/CosmosAdr36MessageSignDestination'
+          Raw_Message_Signature: '#/components/schemas/RawMessageSignDestination'
         propertyName: destination_type
       oneOf:
       - $ref: '#/components/schemas/EvmEIP191MessageSignDestination'
       - $ref: '#/components/schemas/EvmEIP712MessageSignDestination'
+      - $ref: '#/components/schemas/RawMessageSignDestination'
       - $ref: '#/components/schemas/BTCBIP137MessageSignDestination'
       - $ref: '#/components/schemas/BTCBIP322MessageSignDestination'
       - $ref: '#/components/schemas/CosmosAdr36MessageSignDestination'
@@ -39522,6 +39593,7 @@ components:
             received_amount: received_amount
             received_token_id: received_token_id
         recipient_info:
+          transfer_via_va: false
           bank_account_id: 123e4567-e89b-12d3-a456-426614174003
           address: 0x9876543210abcdef1234567890abcdef12345678
           token_id: TRON_USDT
@@ -39683,6 +39755,7 @@ components:
             received_amount: received_amount
             received_token_id: received_token_id
         recipient_info:
+          transfer_via_va: false
           bank_account_id: 123e4567-e89b-12d3-a456-426614174003
           address: 0x9876543210abcdef1234567890abcdef12345678
           token_id: TRON_USDT
@@ -39715,6 +39788,7 @@ components:
       type: object
     PaymentPayoutRecipientInfo:
       example:
+        transfer_via_va: false
         bank_account_id: 123e4567-e89b-12d3-a456-426614174003
         address: 0x9876543210abcdef1234567890abcdef12345678
         token_id: TRON_USDT
@@ -39737,6 +39811,13 @@ components:
           example: 123e4567-e89b-12d3-a456-426614174003
           format: uuid
           type: string
+        transfer_via_va:
+          description: |
+            For OffRamp payout, whether the payout is transferred to a registered bank account via a virtual account (VA) or directly.
+            - `true`: The payout is transferred to a registered bank account via a VA (virtual account).
+            - `false`: The payout is transferred directly to a registered bank account.
+          example: false
+          type: boolean
       type: object
     PaymentPayoutParam:
       properties:
@@ -42079,7 +42160,6 @@ components:
           description: "Initial annual rate (optional). Can be updated later via NAV\
             \ updater. Default: '0'."
           example: "0.05"
-          pattern: ^0(\.\d+)?$|^1(\.0+)?$
           type: string
         min_deposit:
           default: "0"
@@ -44227,6 +44307,108 @@ components:
         - Trading
         - Trading
         request_id: f47ac10b-58cc-4372-a567-0e02b2c3d479
+    InternalMessageSignParams:
+      description: The information about a transaction that signs a message for internal
+        API. You can provide the message either as raw data or as structured data.
+      example:
+        chain_id: ETH
+        destination:
+          destination_type: EVM_EIP_191_Signature
+          message: YWFhYQ==
+        description: Transaction to sign a message initiated from a wallet
+        source:
+          wallet_id: f47ac10b-58cc-4372-a567-0e02b2c3d479
+          address: 19AR6YWEGbSoY8UT9Ksy9WrmrZPD5sL4Ku
+          source_type: Org-Controlled
+          mpc_used_key_share_holder_group:
+            used_tss_node_ids:
+            - cobo5yb7BNEBwwp5XXedbhnzQfvQtp132W4dH4Jz4x4eDp4KA
+            - cobo5yb7BNEBwwp5XXedbhnzQfvQtp132W4dH4Jz4x4eDp4KA
+            used_key_share_holder_group_id: f47ac10b-58cc-4372-a567-0e02b2c3d479
+        category_names:
+        - Trading
+        - Trading
+        request_id: f47ac10b-58cc-4372-a567-0e02b2c3d479
+      properties:
+        request_id:
+          description: The request ID that is used to track a transaction request.
+            The request ID is provided by you and must be unique within your organization.
+          example: f47ac10b-58cc-4372-a567-0e02b2c3d479
+          type: string
+        chain_id:
+          description: "The chain ID, which is the unique identifier of a blockchain.\
+            \ You can retrieve the IDs of all the chains you can use by calling [List\
+            \ enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains)."
+          example: ETH
+          type: string
+        source:
+          $ref: '#/components/schemas/MessageSignSource'
+        destination:
+          $ref: '#/components/schemas/InternalMessageSignDestination'
+        description:
+          description: The description of the message signing transaction.
+          example: Transaction to sign a message initiated from a wallet
+          type: string
+        category_names:
+          description: The custom category for you to identify your transactions.
+          items:
+            example: Trading
+            type: string
+          type: array
+      required:
+      - chain_id
+      - destination
+      - request_id
+      - request_type
+      - source
+      type: object
+    InternalMessageSignDestination:
+      discriminator:
+        mapping:
+          EVM_EIP_191_Signature: '#/components/schemas/EvmEIP191MessageSignDestination'
+          EVM_EIP_712_Signature: '#/components/schemas/EvmEIP712MessageSignDestination'
+          Raw_Message_Signature: '#/components/schemas/InternalRawMessageSignDestination'
+          BTC_BIP_137_Signature: '#/components/schemas/BTCBIP137MessageSignDestination'
+          BTC_BIP_322_Signature: '#/components/schemas/BTCBIP322MessageSignDestination'
+          COSMOS_ADR_36_Signature: '#/components/schemas/CosmosAdr36MessageSignDestination'
+        propertyName: destination_type
+      oneOf:
+      - $ref: '#/components/schemas/EvmEIP191MessageSignDestination'
+      - $ref: '#/components/schemas/EvmEIP712MessageSignDestination'
+      - $ref: '#/components/schemas/InternalRawMessageSignDestination'
+      - $ref: '#/components/schemas/BTCBIP137MessageSignDestination'
+      - $ref: '#/components/schemas/BTCBIP322MessageSignDestination'
+      - $ref: '#/components/schemas/CosmosAdr36MessageSignDestination'
+    InternalMessageSignDestinationType:
+      description: |
+        The type of the signature format. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
+
+        Each signature format type requires a different set of properties. Switch between the above tabs for details.
+      enum:
+      - EVM_EIP_191_Signature
+      - EVM_EIP_712_Signature
+      - BTC_BIP_137_Signature
+      - BTC_BIP_322_Signature
+      - COSMOS_ADR_36_Signature
+      - Raw_Message_Signature
+      example: EVM_EIP_191_Signature
+      type: string
+    InternalRawMessageSignDestination:
+      description: "The information about the destination `Raw_Message_Signature`.\
+        \ Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations)\
+        \ for a detailed introduction about the supported sources and destinations\
+        \ for each transaction type."
+      properties:
+        destination_type:
+          $ref: '#/components/schemas/InternalMessageSignDestinationType'
+        msg_hash:
+          description: "Message hash to be signed, in hexadecimal format."
+          type: string
+      required:
+      - destination_type
+      - msg_hash
+      title: Raw_Message_Signature
+      type: object
     BankPayoutStatus:
       description: |
         The status of the payout.
@@ -51424,6 +51606,7 @@ components:
               received_amount: received_amount
               received_token_id: received_token_id
           recipient_info:
+            transfer_via_va: false
             bank_account_id: 123e4567-e89b-12d3-a456-426614174003
             address: 0x9876543210abcdef1234567890abcdef12345678
             token_id: TRON_USDT
@@ -51457,6 +51640,7 @@ components:
               received_amount: received_amount
               received_token_id: received_token_id
           recipient_info:
+            transfer_via_va: false
             bank_account_id: 123e4567-e89b-12d3-a456-426614174003
             address: 0x9876543210abcdef1234567890abcdef12345678
             token_id: TRON_USDT

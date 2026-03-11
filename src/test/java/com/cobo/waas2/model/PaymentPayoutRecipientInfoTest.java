@@ -68,4 +68,12 @@ public class PaymentPayoutRecipientInfoTest {
         // TODO: test bankAccountId
     }
 
+    /**
+     * Test the property 'transferViaVa'
+     */
+    @Test
+    public void transferViaVaTest() {
+        // TODO: test transferViaVa
+    }
+
 }
