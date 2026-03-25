@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.32.0</version>
+  <version>1.33.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.32.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.33.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.32.0.jar`
+* `target/cobo-waas2-1.33.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -267,6 +267,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
 *PaymentApi* | [**createRefundLink**](docs/PaymentApi.md#createRefundLink) | **POST** /payments/links/refunds | Create refund link
 *PaymentApi* | [**createReport**](docs/PaymentApi.md#createReport) | **POST** /payments/reports | Generate reports
+*PaymentApi* | [**createSdkLink**](docs/PaymentApi.md#createSdkLink) | **POST** /payments/links/sdk | Create SDK link
 *PaymentApi* | [**createSettlementRequest**](docs/PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request
 *PaymentApi* | [**createTopUpAddresses**](docs/PaymentApi.md#createTopUpAddresses) | **POST** /payments/topup/address | Batch create top-up addresses
 *PaymentApi* | [**deleteCounterpartyById**](docs/PaymentApi.md#deleteCounterpartyById) | **DELETE** /payments/counterparty/{counterparty_id} | Delete counterparty

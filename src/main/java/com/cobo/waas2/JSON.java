@@ -514,9 +514,11 @@ public class JSON {
                         classByDiscriminatorValue.put("BabylonBusinessInfo", com.cobo.waas2.model.TransactionBabylonBusinessInfo.class);
                         classByDiscriminatorValue.put("BabylonTxParameters", com.cobo.waas2.model.TransactionBabylonTxParameters.class);
                         classByDiscriminatorValue.put("CoreStakeInfo", com.cobo.waas2.model.TransactionCoreStakeInfo.class);
+                        classByDiscriminatorValue.put("WalletConnectInfo", com.cobo.waas2.model.TransactionWalletConnectInfo.class);
                         classByDiscriminatorValue.put("TransactionBabylonBusinessInfo", com.cobo.waas2.model.TransactionBabylonBusinessInfo.class);
                         classByDiscriminatorValue.put("TransactionBabylonTxParameters", com.cobo.waas2.model.TransactionBabylonTxParameters.class);
                         classByDiscriminatorValue.put("TransactionCoreStakeInfo", com.cobo.waas2.model.TransactionCoreStakeInfo.class);
+                        classByDiscriminatorValue.put("TransactionWalletConnectInfo", com.cobo.waas2.model.TransactionWalletConnectInfo.class);
                         classByDiscriminatorValue.put("TransactionExtra", com.cobo.waas2.model.TransactionExtra.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "extra_type"));

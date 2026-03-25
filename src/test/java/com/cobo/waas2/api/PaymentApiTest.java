@@ -369,6 +369,19 @@ public class PaymentApiTest {
     }
 
     /**
+     * Create SDK link
+     *
+     * This operation creates a payment link for use with the front-end SDK integration.  The returned URL and token can be used to initialize the Cobo payment SDK in your front-end application.  For more information, see [Cobo Payment Guide](https://www.cobo.com/payments/en/guides/overview). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createSdkLinkTest() throws ApiException {
+        Link response = api.createSdkLink();
+        // TODO: test validations
+    }
+
+    /**
      * Create settlement request
      *
      * &lt;Note&gt;This operation has been deprecated. Please use [Create payout](https://www.cobo.com/payments/en/api-references/payment/create-payout) instead.&lt;/Note&gt;  You can include multiple merchants and cryptocurrencies in a single settlement request. 
