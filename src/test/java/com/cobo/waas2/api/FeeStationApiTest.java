@@ -18,8 +18,10 @@ import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.EstimatedFixedFee;
 import com.cobo.waas2.model.FeeStationCheckFeeStationUsage;
 import com.cobo.waas2.model.FeeStationCheckFeeStationUsageResponse;
+import com.cobo.waas2.model.FeeStationFiatTransactionType;
 import com.cobo.waas2.model.FeeStationTransfer;
 import com.cobo.waas2.model.ListAddresses200Response;
+import com.cobo.waas2.model.ListFeeStationFiatTransactions200Response;
 import com.cobo.waas2.model.ListTokenBalancesForFeeStation200Response;
 import com.cobo.waas2.model.ListTransactions200Response;
 import com.cobo.waas2.model.TransactionDetail;
@@ -102,6 +104,26 @@ public class FeeStationApiTest {
         String before = null;
         String after = null;
         ListAddresses200Response response = api.listFeeStationAddresses(chainIds, addresses, limit, before, after);
+        // TODO: test validations
+    }
+
+    /**
+     * List Fee Station fiat transactions
+     *
+     * This operation retrieves all Fee Station fiat transactions under your organization.  You can filter the results by request IDs, transaction IDs, transaction type, and created timestamp. You can also paginate your query results. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listFeeStationFiatTransactionsTest() throws ApiException {
+        String transactionIds = null;
+        FeeStationFiatTransactionType transactionType = null;
+        Long minCreatedTimestamp = null;
+        Long maxCreatedTimestamp = null;
+        String before = null;
+        String after = null;
+        Integer limit = null;
+        ListFeeStationFiatTransactions200Response response = api.listFeeStationFiatTransactions(transactionIds, transactionType, minCreatedTimestamp, maxCreatedTimestamp, before, after, limit);
         // TODO: test validations
     }
 

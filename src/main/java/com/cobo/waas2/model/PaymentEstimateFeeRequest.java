@@ -68,6 +68,10 @@ public class PaymentEstimateFeeRequest {
   @SerializedName(SERIALIZED_NAME_RECIPIENT_TOKEN_ID)
   private String recipientTokenId;
 
+  public static final String SERIALIZED_NAME_TRANSFER_VIA_VA = "transfer_via_va";
+  @SerializedName(SERIALIZED_NAME_TRANSFER_VIA_VA)
+  private Boolean transferViaVa;
+
   public PaymentEstimateFeeRequest() {
   }
 
@@ -135,6 +139,25 @@ public class PaymentEstimateFeeRequest {
     this.recipientTokenId = recipientTokenId;
   }
 
+
+  public PaymentEstimateFeeRequest transferViaVa(Boolean transferViaVa) {
+    this.transferViaVa = transferViaVa;
+    return this;
+  }
+
+   /**
+   * For OffRamp payout, whether the payout is transferred to a registered bank account via a virtual account (VA) or directly. - &#x60;true&#x60;: The payout is transferred to a registered bank account via a VA (virtual account). - &#x60;false&#x60;: The payout is transferred directly to a registered bank account. 
+   * @return transferViaVa
+  **/
+  @javax.annotation.Nullable
+  public Boolean getTransferViaVa() {
+    return transferViaVa;
+  }
+
+  public void setTransferViaVa(Boolean transferViaVa) {
+    this.transferViaVa = transferViaVa;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -192,13 +215,14 @@ public class PaymentEstimateFeeRequest {
     PaymentEstimateFeeRequest paymentEstimateFeeRequest = (PaymentEstimateFeeRequest) o;
     return Objects.equals(this.feeType, paymentEstimateFeeRequest.feeType) &&
         Objects.equals(this.estimateFees, paymentEstimateFeeRequest.estimateFees) &&
-        Objects.equals(this.recipientTokenId, paymentEstimateFeeRequest.recipientTokenId)&&
+        Objects.equals(this.recipientTokenId, paymentEstimateFeeRequest.recipientTokenId) &&
+        Objects.equals(this.transferViaVa, paymentEstimateFeeRequest.transferViaVa)&&
         Objects.equals(this.additionalProperties, paymentEstimateFeeRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(feeType, estimateFees, recipientTokenId, additionalProperties);
+    return Objects.hash(feeType, estimateFees, recipientTokenId, transferViaVa, additionalProperties);
   }
 
   @Override
@@ -208,6 +232,7 @@ public class PaymentEstimateFeeRequest {
     sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
     sb.append("    estimateFees: ").append(toIndentedString(estimateFees)).append("\n");
     sb.append("    recipientTokenId: ").append(toIndentedString(recipientTokenId)).append("\n");
+    sb.append("    transferViaVa: ").append(toIndentedString(transferViaVa)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -234,6 +259,7 @@ public class PaymentEstimateFeeRequest {
     openapiFields.add("fee_type");
     openapiFields.add("estimate_fees");
     openapiFields.add("recipient_token_id");
+    openapiFields.add("transfer_via_va");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -4,12 +4,81 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**cancelAutoSweepTaskById**](AutoSweepApi.md#cancelAutoSweepTaskById) | **POST** /auto_sweep/tasks/{task_id}/cancel | Cancel auto sweep task |
 | [**createAutoSweepTask**](AutoSweepApi.md#createAutoSweepTask) | **POST** /auto_sweep/tasks | Create auto-sweep task |
 | [**createWalletSweepToAddresses**](AutoSweepApi.md#createWalletSweepToAddresses) | **POST** /auto_sweep/sweep_to_addresses | Create sweep-to address |
 | [**getAutoSweepTaskById**](AutoSweepApi.md#getAutoSweepTaskById) | **GET** /auto_sweep/tasks/{task_id} | Get auto-sweep task details |
 | [**listAutoSweepTask**](AutoSweepApi.md#listAutoSweepTask) | **GET** /auto_sweep/tasks | List auto-sweep tasks |
 | [**listWalletSweepToAddresses**](AutoSweepApi.md#listWalletSweepToAddresses) | **GET** /auto_sweep/sweep_to_addresses | List sweep-to addresses |
 
+
+<a id="cancelAutoSweepTaskById"></a>
+# **cancelAutoSweepTaskById**
+> AutoSweepTask cancelAutoSweepTaskById(taskId)
+
+Cancel auto sweep task
+
+This operation cancels an in-progress auto sweep task by its ID.  Only tasks with the &#x60;Submitted&#x60; status can be cancelled. Tasks that have already been processed (status &#x60;TransactionCreated&#x60;) cannot be cancelled. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.AutoSweepApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    AutoSweepApi apiInstance = new AutoSweepApi();
+    UUID taskId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
+    try {
+      AutoSweepTask result = apiInstance.cancelAutoSweepTaskById(taskId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoSweepApi#cancelAutoSweepTaskById");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taskId** | **UUID**| The auto sweep task ID. | |
+
+### Return type
+
+[**AutoSweepTask**](AutoSweepTask.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully cancelled the auto sweep task. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
 
 <a id="createAutoSweepTask"></a>
 # **createAutoSweepTask**

@@ -53,6 +53,10 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class RefundLinkBusinessInfo {
+  public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
+  @SerializedName(SERIALIZED_NAME_ORDER_ID)
+  private String orderId;
+
   public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
   private String transactionId;
@@ -76,16 +80,35 @@ public class RefundLinkBusinessInfo {
   public RefundLinkBusinessInfo() {
   }
 
+  public RefundLinkBusinessInfo orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * The id of the order to refund. Specify either &#x60;order_id&#x60; or &#x60;transaction_id&#x60;, but not both. 
+   * @return orderId
+  **/
+  @javax.annotation.Nullable
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
+
+
   public RefundLinkBusinessInfo transactionId(String transactionId) {
     this.transactionId = transactionId;
     return this;
   }
 
    /**
-   * The transaction ID of the original order payment or top-up.  On the refund page, the from address of this transaction will be pre-filled as the default refund address.  The refund will be processed in the same token and on the same blockchain as this transaction. 
+   * The transaction ID of the original order payment or top-up. Specify either &#x60;order_id&#x60; or &#x60;transaction_id&#x60;, but not both. On the refund page, the from address of this transaction will be pre-filled as the default refund address. The refund will be processed in the same token and on the same blockchain as this transaction. 
    * @return transactionId
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTransactionId() {
     return transactionId;
   }
@@ -225,7 +248,8 @@ public class RefundLinkBusinessInfo {
       return false;
     }
     RefundLinkBusinessInfo refundLinkBusinessInfo = (RefundLinkBusinessInfo) o;
-    return Objects.equals(this.transactionId, refundLinkBusinessInfo.transactionId) &&
+    return Objects.equals(this.orderId, refundLinkBusinessInfo.orderId) &&
+        Objects.equals(this.transactionId, refundLinkBusinessInfo.transactionId) &&
         Objects.equals(this.amount, refundLinkBusinessInfo.amount) &&
         Objects.equals(this.refundSource, refundLinkBusinessInfo.refundSource) &&
         Objects.equals(this.merchantId, refundLinkBusinessInfo.merchantId) &&
@@ -235,13 +259,14 @@ public class RefundLinkBusinessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionId, amount, refundSource, merchantId, feeAmount, additionalProperties);
+    return Objects.hash(orderId, transactionId, amount, refundSource, merchantId, feeAmount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RefundLinkBusinessInfo {\n");
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    refundSource: ").append(toIndentedString(refundSource)).append("\n");
@@ -270,6 +295,7 @@ public class RefundLinkBusinessInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("order_id");
     openapiFields.add("transaction_id");
     openapiFields.add("amount");
     openapiFields.add("refund_source");
@@ -278,7 +304,6 @@ public class RefundLinkBusinessInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("transaction_id");
     openapiRequiredFields.add("amount");
     openapiRequiredFields.add("refund_source");
   }
@@ -303,7 +328,10 @@ public class RefundLinkBusinessInfo {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("transaction_id").isJsonPrimitive()) {
+      if ((jsonObj.get("order_id") != null && !jsonObj.get("order_id").isJsonNull()) && !jsonObj.get("order_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("order_id").toString()));
+      }
+      if ((jsonObj.get("transaction_id") != null && !jsonObj.get("transaction_id").isJsonNull()) && !jsonObj.get("transaction_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transaction_id").toString()));
       }
       if (!jsonObj.get("amount").isJsonPrimitive()) {

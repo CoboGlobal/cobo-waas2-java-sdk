@@ -44,6 +44,20 @@ public class AutoSweepApiTest {
     private final AutoSweepApi api = new AutoSweepApi();
 
     /**
+     * Cancel auto sweep task
+     *
+     * This operation cancels an in-progress auto sweep task by its ID.  Only tasks with the &#x60;Submitted&#x60; status can be cancelled. Tasks that have already been processed (status &#x60;TransactionCreated&#x60;) cannot be cancelled. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void cancelAutoSweepTaskByIdTest() throws ApiException {
+        UUID taskId = null;
+        AutoSweepTask response = api.cancelAutoSweepTaskById(taskId);
+        // TODO: test validations
+    }
+
+    /**
      * Create auto-sweep task
      *
      * This operation creates an auto-sweep task for the specified wallet and token. The task triggers transactions to sweep the full balance of the specified token to the configured sweep-to address. 

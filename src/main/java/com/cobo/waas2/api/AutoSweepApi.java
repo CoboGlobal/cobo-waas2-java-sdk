@@ -60,6 +60,124 @@ public class AutoSweepApi {
     }
 
     /**
+     * Build call for cancelAutoSweepTaskById
+     * @param taskId The auto sweep task ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully cancelled the auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelAutoSweepTaskByIdCall(UUID taskId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/auto_sweep/tasks/{task_id}/cancel"
+            .replace("{" + "task_id" + "}", localVarApiClient.escapeString(taskId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelAutoSweepTaskByIdValidateBeforeCall(UUID taskId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'taskId' is set
+        if (taskId == null) {
+            throw new ApiException("Missing the required parameter 'taskId' when calling cancelAutoSweepTaskById(Async)");
+        }
+
+        return cancelAutoSweepTaskByIdCall(taskId, _callback);
+
+    }
+
+    /**
+     * Cancel auto sweep task
+     * This operation cancels an in-progress auto sweep task by its ID.  Only tasks with the &#x60;Submitted&#x60; status can be cancelled. Tasks that have already been processed (status &#x60;TransactionCreated&#x60;) cannot be cancelled. 
+     * @param taskId The auto sweep task ID. (required)
+     * @return AutoSweepTask
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully cancelled the auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AutoSweepTask cancelAutoSweepTaskById(UUID taskId) throws ApiException {
+        ApiResponse<AutoSweepTask> localVarResp = cancelAutoSweepTaskByIdWithHttpInfo(taskId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel auto sweep task
+     * This operation cancels an in-progress auto sweep task by its ID.  Only tasks with the &#x60;Submitted&#x60; status can be cancelled. Tasks that have already been processed (status &#x60;TransactionCreated&#x60;) cannot be cancelled. 
+     * @param taskId The auto sweep task ID. (required)
+     * @return ApiResponse&lt;AutoSweepTask&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully cancelled the auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoSweepTask> cancelAutoSweepTaskByIdWithHttpInfo(UUID taskId) throws ApiException {
+        okhttp3.Call localVarCall = cancelAutoSweepTaskByIdValidateBeforeCall(taskId, null);
+        Type localVarReturnType = new TypeToken<AutoSweepTask>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel auto sweep task (asynchronously)
+     * This operation cancels an in-progress auto sweep task by its ID.  Only tasks with the &#x60;Submitted&#x60; status can be cancelled. Tasks that have already been processed (status &#x60;TransactionCreated&#x60;) cannot be cancelled. 
+     * @param taskId The auto sweep task ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully cancelled the auto sweep task. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelAutoSweepTaskByIdAsync(UUID taskId, final ApiCallback<AutoSweepTask> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = cancelAutoSweepTaskByIdValidateBeforeCall(taskId, _callback);
+        Type localVarReturnType = new TypeToken<AutoSweepTask>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createAutoSweepTask
      * @param createAutoSweepTask The request body to create an auto-sweep task. (optional)
      * @param _callback Callback for upload/download progress

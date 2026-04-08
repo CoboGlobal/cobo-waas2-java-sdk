@@ -63,4 +63,12 @@ public class PaymentEstimateFeeRequestTest {
         // TODO: test recipientTokenId
     }
 
+    /**
+     * Test the property 'transferViaVa'
+     */
+    @Test
+    public void transferViaVaTest() {
+        // TODO: test transferViaVa
+    }
+
 }

@@ -268,6 +268,8 @@ docs/FeeStationApi.md
 docs/FeeStationCheckFeeStationUsage.md
 docs/FeeStationCheckFeeStationUsageResponse.md
 docs/FeeStationDestination.md
+docs/FeeStationFiatTransaction.md
+docs/FeeStationFiatTransactionType.md
 docs/FeeStationGasStationType.md
 docs/FeeStationSponsorTransactionDescription.md
 docs/FeeStationTransactionType.md
@@ -341,6 +343,7 @@ docs/ListCounterpartyEntries200Response.md
 docs/ListDestinationEntries200Response.md
 docs/ListDestinations200Response.md
 docs/ListExchanges200ResponseInner.md
+docs/ListFeeStationFiatTransactions200Response.md
 docs/ListForcedSweepRequests200Response.md
 docs/ListKeyShareHolderGroups200Response.md
 docs/ListKeyShareHolders200Response.md
@@ -1154,6 +1157,8 @@ src/main/java/com/cobo/waas2/model/FeeReserved.java
 src/main/java/com/cobo/waas2/model/FeeStationCheckFeeStationUsage.java
 src/main/java/com/cobo/waas2/model/FeeStationCheckFeeStationUsageResponse.java
 src/main/java/com/cobo/waas2/model/FeeStationDestination.java
+src/main/java/com/cobo/waas2/model/FeeStationFiatTransaction.java
+src/main/java/com/cobo/waas2/model/FeeStationFiatTransactionType.java
 src/main/java/com/cobo/waas2/model/FeeStationGasStationType.java
 src/main/java/com/cobo/waas2/model/FeeStationSponsorTransactionDescription.java
 src/main/java/com/cobo/waas2/model/FeeStationTransactionType.java
@@ -1226,6 +1231,7 @@ src/main/java/com/cobo/waas2/model/ListCounterpartyEntries200Response.java
 src/main/java/com/cobo/waas2/model/ListDestinationEntries200Response.java
 src/main/java/com/cobo/waas2/model/ListDestinations200Response.java
 src/main/java/com/cobo/waas2/model/ListExchanges200ResponseInner.java
+src/main/java/com/cobo/waas2/model/ListFeeStationFiatTransactions200Response.java
 src/main/java/com/cobo/waas2/model/ListForcedSweepRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListKeyShareHolderGroups200Response.java
 src/main/java/com/cobo/waas2/model/ListKeyShareHolders200Response.java
@@ -1986,6 +1992,8 @@ src/test/java/com/cobo/waas2/model/FeeReservedTest.java
 src/test/java/com/cobo/waas2/model/FeeStationCheckFeeStationUsageResponseTest.java
 src/test/java/com/cobo/waas2/model/FeeStationCheckFeeStationUsageTest.java
 src/test/java/com/cobo/waas2/model/FeeStationDestinationTest.java
+src/test/java/com/cobo/waas2/model/FeeStationFiatTransactionTest.java
+src/test/java/com/cobo/waas2/model/FeeStationFiatTransactionTypeTest.java
 src/test/java/com/cobo/waas2/model/FeeStationGasStationTypeTest.java
 src/test/java/com/cobo/waas2/model/FeeStationSponsorTransactionDescriptionTest.java
 src/test/java/com/cobo/waas2/model/FeeStationTransactionTypeTest.java
@@ -2058,6 +2066,7 @@ src/test/java/com/cobo/waas2/model/ListCounterpartyEntries200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListDestinationEntries200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListDestinations200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListExchanges200ResponseInnerTest.java
+src/test/java/com/cobo/waas2/model/ListFeeStationFiatTransactions200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListForcedSweepRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListKeyShareHolderGroups200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListKeyShareHolders200ResponseTest.java

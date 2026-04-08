@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.33.0</version>
+  <version>1.34.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.33.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.34.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.33.0.jar`
+* `target/cobo-waas2-1.34.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -210,6 +210,7 @@ Class | Method | HTTP request | Description
 *AppWorkflowsApi* | [**listAppWorkflows**](docs/AppWorkflowsApi.md#listAppWorkflows) | **GET** /app/workflows | List app workflows
 *AppWorkflowsApi* | [**listApprovalRequests**](docs/AppWorkflowsApi.md#listApprovalRequests) | **GET** /app/workflows/approval_requests | List approval requests
 *AppWorkflowsApi* | [**revokeApprovalRequest**](docs/AppWorkflowsApi.md#revokeApprovalRequest) | **POST** /app/workflows/approval_requests/{approval_id}/revoke | Revoke approval request
+*AutoSweepApi* | [**cancelAutoSweepTaskById**](docs/AutoSweepApi.md#cancelAutoSweepTaskById) | **POST** /auto_sweep/tasks/{task_id}/cancel | Cancel auto sweep task
 *AutoSweepApi* | [**createAutoSweepTask**](docs/AutoSweepApi.md#createAutoSweepTask) | **POST** /auto_sweep/tasks | Create auto-sweep task
 *AutoSweepApi* | [**createWalletSweepToAddresses**](docs/AutoSweepApi.md#createWalletSweepToAddresses) | **POST** /auto_sweep/sweep_to_addresses | Create sweep-to address
 *AutoSweepApi* | [**getAutoSweepTaskById**](docs/AutoSweepApi.md#getAutoSweepTaskById) | **GET** /auto_sweep/tasks/{task_id} | Get auto-sweep task details
@@ -242,6 +243,7 @@ Class | Method | HTTP request | Description
 *FeeStationApi* | [**estimateFeeStationFee**](docs/FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate transaction fee
 *FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information
 *FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses
+*FeeStationApi* | [**listFeeStationFiatTransactions**](docs/FeeStationApi.md#listFeeStationFiatTransactions) | **GET** /fee_station/fiat_transactions | List Fee Station fiat transactions
 *FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions
 *FeeStationApi* | [**listTokenBalancesForFeeStation**](docs/FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances
 *GraphQlApi* | [**executeGraphql**](docs/GraphQlApi.md#executeGraphql) | **POST** /graphql | Execute a GraphQL query or mutation
@@ -709,6 +711,8 @@ Class | Method | HTTP request | Description
  - [FeeStationCheckFeeStationUsage](docs/FeeStationCheckFeeStationUsage.md)
  - [FeeStationCheckFeeStationUsageResponse](docs/FeeStationCheckFeeStationUsageResponse.md)
  - [FeeStationDestination](docs/FeeStationDestination.md)
+ - [FeeStationFiatTransaction](docs/FeeStationFiatTransaction.md)
+ - [FeeStationFiatTransactionType](docs/FeeStationFiatTransactionType.md)
  - [FeeStationGasStationType](docs/FeeStationGasStationType.md)
  - [FeeStationSponsorTransactionDescription](docs/FeeStationSponsorTransactionDescription.md)
  - [FeeStationTransactionType](docs/FeeStationTransactionType.md)
@@ -781,6 +785,7 @@ Class | Method | HTTP request | Description
  - [ListDestinationEntries200Response](docs/ListDestinationEntries200Response.md)
  - [ListDestinations200Response](docs/ListDestinations200Response.md)
  - [ListExchanges200ResponseInner](docs/ListExchanges200ResponseInner.md)
+ - [ListFeeStationFiatTransactions200Response](docs/ListFeeStationFiatTransactions200Response.md)
  - [ListForcedSweepRequests200Response](docs/ListForcedSweepRequests200Response.md)
  - [ListKeyShareHolderGroups200Response](docs/ListKeyShareHolderGroups200Response.md)
  - [ListKeyShareHolders200Response](docs/ListKeyShareHolders200Response.md)

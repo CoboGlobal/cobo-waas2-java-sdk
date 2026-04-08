@@ -37,6 +37,14 @@ public class RefundLinkBusinessInfoTest {
     }
 
     /**
+     * Test the property 'orderId'
+     */
+    @Test
+    public void orderIdTest() {
+        // TODO: test orderId
+    }
+
+    /**
      * Test the property 'transactionId'
      */
     @Test

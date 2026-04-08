@@ -51,4 +51,12 @@ public class CreateAutoSweepTaskTest {
         // TODO: test tokenId
     }
 
+    /**
+     * Test the property 'minBalanceThreshold'
+     */
+    @Test
+    public void minBalanceThresholdTest() {
+        // TODO: test minBalanceThreshold
+    }
+
 }

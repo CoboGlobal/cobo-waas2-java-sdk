@@ -12,14 +12,17 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.FeeStationFiatTransaction;
+import com.cobo.waas2.model.Pagination;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.UUID;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,128 +49,67 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * PaymentPayoutRecipientInfo
+ * ListFeeStationFiatTransactions200Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class PaymentPayoutRecipientInfo {
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private String address;
+public class ListFeeStationFiatTransactions200Response {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private List<FeeStationFiatTransaction> data = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
+  public static final String SERIALIZED_NAME_PAGINATION = "pagination";
+  @SerializedName(SERIALIZED_NAME_PAGINATION)
+  private Pagination pagination;
 
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
-  @SerializedName(SERIALIZED_NAME_CURRENCY)
-  private String currency;
-
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT_ID = "bank_account_id";
-  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_ID)
-  private UUID bankAccountId;
-
-  public static final String SERIALIZED_NAME_TRANSFER_VIA_VA = "transfer_via_va";
-  @SerializedName(SERIALIZED_NAME_TRANSFER_VIA_VA)
-  private Boolean transferViaVa;
-
-  public PaymentPayoutRecipientInfo() {
+  public ListFeeStationFiatTransactions200Response() {
   }
 
-  public PaymentPayoutRecipientInfo address(String address) {
-    this.address = address;
+  public ListFeeStationFiatTransactions200Response data(List<FeeStationFiatTransaction> data) {
+    this.data = data;
+    return this;
+  }
+
+  public ListFeeStationFiatTransactions200Response addDataItem(FeeStationFiatTransaction dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * The recipient&#39;s wallet address where the payout will be sent.
-   * @return address
+   * Get data
+   * @return data
   **/
   @javax.annotation.Nullable
-  public String getAddress() {
-    return address;
+  public List<FeeStationFiatTransaction> getData() {
+    return data;
   }
 
-  public void setAddress(String address) {
-    this.address = address;
+  public void setData(List<FeeStationFiatTransaction> data) {
+    this.data = data;
   }
 
 
-  public PaymentPayoutRecipientInfo tokenId(String tokenId) {
-    this.tokenId = tokenId;
+  public ListFeeStationFiatTransactions200Response pagination(Pagination pagination) {
+    this.pagination = pagination;
     return this;
   }
 
    /**
-   * The token ID for the cryptocurrency to be sent to the recipient.  If &#x60;recipient_info.token_id&#x60; is on a different chain than &#x60;payout_param.token_id&#x60;, the token will be automatically bridged to the chain specified in &#x60;recipient_info.token_id&#x60;. 
-   * @return tokenId
+   * Get pagination
+   * @return pagination
   **/
   @javax.annotation.Nullable
-  public String getTokenId() {
-    return tokenId;
+  public Pagination getPagination() {
+    return pagination;
   }
 
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
-  }
-
-
-  public PaymentPayoutRecipientInfo currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * The fiat currency of the bank account to which the payout will be sent.
-   * @return currency
-  **/
-  @javax.annotation.Nullable
-  public String getCurrency() {
-    return currency;
-  }
-
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
-
-
-  public PaymentPayoutRecipientInfo bankAccountId(UUID bankAccountId) {
-    this.bankAccountId = bankAccountId;
-    return this;
-  }
-
-   /**
-   * The ID of the bank account to which the payout will be sent. You can retrieve the bank account ID by calling [List destination entries](https://www.cobo.com/payments/en/api-references/payment/list-destination-entries).
-   * @return bankAccountId
-  **/
-  @javax.annotation.Nullable
-  public UUID getBankAccountId() {
-    return bankAccountId;
-  }
-
-  public void setBankAccountId(UUID bankAccountId) {
-    this.bankAccountId = bankAccountId;
-  }
-
-
-  public PaymentPayoutRecipientInfo transferViaVa(Boolean transferViaVa) {
-    this.transferViaVa = transferViaVa;
-    return this;
-  }
-
-   /**
-   * For OffRamp payout, whether the payout is transferred to a registered bank account via a virtual account (VA) or directly. - &#x60;true&#x60;: The payout is transferred to a registered bank account via a VA (virtual account). - &#x60;false&#x60;: The payout is transferred directly to a registered bank account. 
-   * @return transferViaVa
-  **/
-  @javax.annotation.Nullable
-  public Boolean getTransferViaVa() {
-    return transferViaVa;
-  }
-
-  public void setTransferViaVa(Boolean transferViaVa) {
-    this.transferViaVa = transferViaVa;
+  public void setPagination(Pagination pagination) {
+    this.pagination = pagination;
   }
 
   /**
@@ -183,9 +125,9 @@ public class PaymentPayoutRecipientInfo {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the PaymentPayoutRecipientInfo instance itself
+   * @return the ListFeeStationFiatTransactions200Response instance itself
    */
-  public PaymentPayoutRecipientInfo putAdditionalProperty(String key, Object value) {
+  public ListFeeStationFiatTransactions200Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -224,29 +166,23 @@ public class PaymentPayoutRecipientInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentPayoutRecipientInfo paymentPayoutRecipientInfo = (PaymentPayoutRecipientInfo) o;
-    return Objects.equals(this.address, paymentPayoutRecipientInfo.address) &&
-        Objects.equals(this.tokenId, paymentPayoutRecipientInfo.tokenId) &&
-        Objects.equals(this.currency, paymentPayoutRecipientInfo.currency) &&
-        Objects.equals(this.bankAccountId, paymentPayoutRecipientInfo.bankAccountId) &&
-        Objects.equals(this.transferViaVa, paymentPayoutRecipientInfo.transferViaVa)&&
-        Objects.equals(this.additionalProperties, paymentPayoutRecipientInfo.additionalProperties);
+    ListFeeStationFiatTransactions200Response listFeeStationFiatTransactions200Response = (ListFeeStationFiatTransactions200Response) o;
+    return Objects.equals(this.data, listFeeStationFiatTransactions200Response.data) &&
+        Objects.equals(this.pagination, listFeeStationFiatTransactions200Response.pagination)&&
+        Objects.equals(this.additionalProperties, listFeeStationFiatTransactions200Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, tokenId, currency, bankAccountId, transferViaVa, additionalProperties);
+    return Objects.hash(data, pagination, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentPayoutRecipientInfo {\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
-    sb.append("    transferViaVa: ").append(toIndentedString(transferViaVa)).append("\n");
+    sb.append("class ListFeeStationFiatTransactions200Response {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -270,11 +206,8 @@ public class PaymentPayoutRecipientInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("address");
-    openapiFields.add("token_id");
-    openapiFields.add("currency");
-    openapiFields.add("bank_account_id");
-    openapiFields.add("transfer_via_va");
+    openapiFields.add("data");
+    openapiFields.add("pagination");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -284,26 +217,32 @@ public class PaymentPayoutRecipientInfo {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to PaymentPayoutRecipientInfo
+  * @throws IOException if the JSON Element is invalid with respect to ListFeeStationFiatTransactions200Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!PaymentPayoutRecipientInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentPayoutRecipientInfo is not found in the empty JSON string", PaymentPayoutRecipientInfo.openapiRequiredFields.toString()));
+        if (!ListFeeStationFiatTransactions200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListFeeStationFiatTransactions200Response is not found in the empty JSON string", ListFeeStationFiatTransactions200Response.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        if (jsonArraydata != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("data").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+          }
+
+          // validate the optional field `data` (array)
+          for (int i = 0; i < jsonArraydata.size(); i++) {
+            FeeStationFiatTransaction.validateJsonElement(jsonArraydata.get(i));
+          };
+        }
       }
-      if ((jsonObj.get("token_id") != null && !jsonObj.get("token_id").isJsonNull()) && !jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
-      }
-      if ((jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonNull()) && !jsonObj.get("currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
-      }
-      if ((jsonObj.get("bank_account_id") != null && !jsonObj.get("bank_account_id").isJsonNull()) && !jsonObj.get("bank_account_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bank_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_account_id").toString()));
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        Pagination.validateJsonElement(jsonObj.get("pagination"));
       }
   }
 
@@ -311,16 +250,16 @@ public class PaymentPayoutRecipientInfo {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentPayoutRecipientInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentPayoutRecipientInfo' and its subtypes
+       if (!ListFeeStationFiatTransactions200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListFeeStationFiatTransactions200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentPayoutRecipientInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentPayoutRecipientInfo.class));
+       final TypeAdapter<ListFeeStationFiatTransactions200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListFeeStationFiatTransactions200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PaymentPayoutRecipientInfo>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListFeeStationFiatTransactions200Response>() {
            @Override
-           public void write(JsonWriter out, PaymentPayoutRecipientInfo value) throws IOException {
+           public void write(JsonWriter out, ListFeeStationFiatTransactions200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -350,12 +289,12 @@ public class PaymentPayoutRecipientInfo {
            }
 
            @Override
-           public PaymentPayoutRecipientInfo read(JsonReader in) throws IOException {
+           public ListFeeStationFiatTransactions200Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             PaymentPayoutRecipientInfo instance = thisAdapter.fromJsonTree(jsonObj);
+             ListFeeStationFiatTransactions200Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -382,18 +321,18 @@ public class PaymentPayoutRecipientInfo {
   }
 
  /**
-  * Create an instance of PaymentPayoutRecipientInfo given an JSON string
+  * Create an instance of ListFeeStationFiatTransactions200Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of PaymentPayoutRecipientInfo
-  * @throws IOException if the JSON string is invalid with respect to PaymentPayoutRecipientInfo
+  * @return An instance of ListFeeStationFiatTransactions200Response
+  * @throws IOException if the JSON string is invalid with respect to ListFeeStationFiatTransactions200Response
   */
-  public static PaymentPayoutRecipientInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentPayoutRecipientInfo.class);
+  public static ListFeeStationFiatTransactions200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListFeeStationFiatTransactions200Response.class);
   }
 
  /**
-  * Convert an instance of PaymentPayoutRecipientInfo to an JSON string
+  * Convert an instance of ListFeeStationFiatTransactions200Response to an JSON string
   *
   * @return JSON string
   */

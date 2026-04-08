@@ -60,6 +60,10 @@ public class CreateAutoSweepTask {
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
   private String tokenId;
 
+  public static final String SERIALIZED_NAME_MIN_BALANCE_THRESHOLD = "min_balance_threshold";
+  @SerializedName(SERIALIZED_NAME_MIN_BALANCE_THRESHOLD)
+  private String minBalanceThreshold;
+
   public CreateAutoSweepTask() {
   }
 
@@ -98,6 +102,25 @@ public class CreateAutoSweepTask {
 
   public void setTokenId(String tokenId) {
     this.tokenId = tokenId;
+  }
+
+
+  public CreateAutoSweepTask minBalanceThreshold(String minBalanceThreshold) {
+    this.minBalanceThreshold = minBalanceThreshold;
+    return this;
+  }
+
+   /**
+   * The minimum token balance threshold for auto sweep. If the token balance of an address is less than this threshold, the address will not be swept. 
+   * @return minBalanceThreshold
+  **/
+  @javax.annotation.Nullable
+  public String getMinBalanceThreshold() {
+    return minBalanceThreshold;
+  }
+
+  public void setMinBalanceThreshold(String minBalanceThreshold) {
+    this.minBalanceThreshold = minBalanceThreshold;
   }
 
   /**
@@ -156,13 +179,14 @@ public class CreateAutoSweepTask {
     }
     CreateAutoSweepTask createAutoSweepTask = (CreateAutoSweepTask) o;
     return Objects.equals(this.walletId, createAutoSweepTask.walletId) &&
-        Objects.equals(this.tokenId, createAutoSweepTask.tokenId)&&
+        Objects.equals(this.tokenId, createAutoSweepTask.tokenId) &&
+        Objects.equals(this.minBalanceThreshold, createAutoSweepTask.minBalanceThreshold)&&
         Objects.equals(this.additionalProperties, createAutoSweepTask.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, tokenId, additionalProperties);
+    return Objects.hash(walletId, tokenId, minBalanceThreshold, additionalProperties);
   }
 
   @Override
@@ -171,6 +195,7 @@ public class CreateAutoSweepTask {
     sb.append("class CreateAutoSweepTask {\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
+    sb.append("    minBalanceThreshold: ").append(toIndentedString(minBalanceThreshold)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -196,6 +221,7 @@ public class CreateAutoSweepTask {
     openapiFields = new HashSet<String>();
     openapiFields.add("wallet_id");
     openapiFields.add("token_id");
+    openapiFields.add("min_balance_threshold");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -228,6 +254,9 @@ public class CreateAutoSweepTask {
       }
       if (!jsonObj.get("token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      }
+      if ((jsonObj.get("min_balance_threshold") != null && !jsonObj.get("min_balance_threshold").isJsonNull()) && !jsonObj.get("min_balance_threshold").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `min_balance_threshold` to be a primitive type in the JSON string but got `%s`", jsonObj.get("min_balance_threshold").toString()));
       }
   }
 
