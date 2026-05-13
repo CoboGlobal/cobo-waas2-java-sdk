@@ -352,6 +352,7 @@ docs/ListMerchantBalances200Response.md
 docs/ListMerchants200Response.md
 docs/ListMpcProjects200Response.md
 docs/ListMpcVaults200Response.md
+docs/ListPayerTransactions200Response.md
 docs/ListPaymentOrders200Response.md
 docs/ListPaymentWalletBalances200Response.md
 docs/ListPayouts200Response.md
@@ -415,6 +416,7 @@ docs/OrderLinkBusinessInfoPayableAmountsInner.md
 docs/OrderStatus.md
 docs/OrgInfo.md
 docs/OrganizationsApi.md
+docs/OriginalMainGroupHandling.md
 docs/OtcFee.md
 docs/Pagination.md
 docs/PayerAccount.md
@@ -802,7 +804,6 @@ docs/TronContractCallDestination.md
 docs/UTXO.md
 docs/UnfreezeDisposition.md
 docs/UpdateAddressBookParam.md
-docs/UpdateBankAccountByIdRequest.md
 docs/UpdateCounterpartyRequest.md
 docs/UpdateCustodialWalletParams.md
 docs/UpdateDestinationBankAccount.md
@@ -1240,6 +1241,7 @@ src/main/java/com/cobo/waas2/model/ListMerchantBalances200Response.java
 src/main/java/com/cobo/waas2/model/ListMerchants200Response.java
 src/main/java/com/cobo/waas2/model/ListMpcProjects200Response.java
 src/main/java/com/cobo/waas2/model/ListMpcVaults200Response.java
+src/main/java/com/cobo/waas2/model/ListPayerTransactions200Response.java
 src/main/java/com/cobo/waas2/model/ListPaymentOrders200Response.java
 src/main/java/com/cobo/waas2/model/ListPaymentWalletBalances200Response.java
 src/main/java/com/cobo/waas2/model/ListPayouts200Response.java
@@ -1301,6 +1303,7 @@ src/main/java/com/cobo/waas2/model/OrderLinkBusinessInfoCustomExchangeRatesInner
 src/main/java/com/cobo/waas2/model/OrderLinkBusinessInfoPayableAmountsInner.java
 src/main/java/com/cobo/waas2/model/OrderStatus.java
 src/main/java/com/cobo/waas2/model/OrgInfo.java
+src/main/java/com/cobo/waas2/model/OriginalMainGroupHandling.java
 src/main/java/com/cobo/waas2/model/OtcFee.java
 src/main/java/com/cobo/waas2/model/Pagination.java
 src/main/java/com/cobo/waas2/model/PayerAccount.java
@@ -1681,7 +1684,6 @@ src/main/java/com/cobo/waas2/model/TronContractCallDestination.java
 src/main/java/com/cobo/waas2/model/UTXO.java
 src/main/java/com/cobo/waas2/model/UnfreezeDisposition.java
 src/main/java/com/cobo/waas2/model/UpdateAddressBookParam.java
-src/main/java/com/cobo/waas2/model/UpdateBankAccountByIdRequest.java
 src/main/java/com/cobo/waas2/model/UpdateCounterpartyRequest.java
 src/main/java/com/cobo/waas2/model/UpdateCustodialWalletParams.java
 src/main/java/com/cobo/waas2/model/UpdateDestinationBankAccount.java
@@ -2075,6 +2077,7 @@ src/test/java/com/cobo/waas2/model/ListMerchantBalances200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListMerchants200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListMpcProjects200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListMpcVaults200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListPayerTransactions200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListPaymentOrders200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListPaymentWalletBalances200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListPayouts200ResponseTest.java
@@ -2136,6 +2139,7 @@ src/test/java/com/cobo/waas2/model/OrderLinkBusinessInfoTest.java
 src/test/java/com/cobo/waas2/model/OrderStatusTest.java
 src/test/java/com/cobo/waas2/model/OrderTest.java
 src/test/java/com/cobo/waas2/model/OrgInfoTest.java
+src/test/java/com/cobo/waas2/model/OriginalMainGroupHandlingTest.java
 src/test/java/com/cobo/waas2/model/OtcFeeTest.java
 src/test/java/com/cobo/waas2/model/PaginationTest.java
 src/test/java/com/cobo/waas2/model/PayerAccountTest.java
@@ -2516,7 +2520,6 @@ src/test/java/com/cobo/waas2/model/TronContractCallDestinationTest.java
 src/test/java/com/cobo/waas2/model/UTXOTest.java
 src/test/java/com/cobo/waas2/model/UnfreezeDispositionTest.java
 src/test/java/com/cobo/waas2/model/UpdateAddressBookParamTest.java
-src/test/java/com/cobo/waas2/model/UpdateBankAccountByIdRequestTest.java
 src/test/java/com/cobo/waas2/model/UpdateCounterpartyRequestTest.java
 src/test/java/com/cobo/waas2/model/UpdateCustodialWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/UpdateDestinationBankAccountTest.java

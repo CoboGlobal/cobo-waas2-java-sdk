@@ -63,6 +63,10 @@ public class ListTopUpPayers200ResponseDataInner {
   @SerializedName(SERIALIZED_NAME_PAYER_ID)
   private String payerId;
 
+  public static final String SERIALIZED_NAME_CUSTOM_PAYER_ID = "custom_payer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_PAYER_ID)
+  private String customPayerId;
+
   public static final String SERIALIZED_NAME_DEVELOPER_FEE_RATE = "developer_fee_rate";
   @SerializedName(SERIALIZED_NAME_DEVELOPER_FEE_RATE)
   private String developerFeeRate;
@@ -117,6 +121,25 @@ public class ListTopUpPayers200ResponseDataInner {
 
   public void setPayerId(String payerId) {
     this.payerId = payerId;
+  }
+
+
+  public ListTopUpPayers200ResponseDataInner customPayerId(String customPayerId) {
+    this.customPayerId = customPayerId;
+    return this;
+  }
+
+   /**
+   * Unique user identifier on the merchant side, used to assign a dedicated deposit address. 
+   * @return customPayerId
+  **/
+  @javax.annotation.Nullable
+  public String getCustomPayerId() {
+    return customPayerId;
+  }
+
+  public void setCustomPayerId(String customPayerId) {
+    this.customPayerId = customPayerId;
   }
 
 
@@ -191,7 +214,7 @@ public class ListTopUpPayers200ResponseDataInner {
   }
 
    /**
-   * An array of top-up transactions associated with this payer.
+   * An array of transactions associated with this payer.  &lt;Note&gt;This field returns up to the latest 200 transactions only and will be removed in a future version. Use the dedicated payer transactions API to paginate through transactions.&lt;/Note&gt; 
    * @return transactions
   **/
   @javax.annotation.Nullable
@@ -260,6 +283,7 @@ public class ListTopUpPayers200ResponseDataInner {
     ListTopUpPayers200ResponseDataInner listTopUpPayers200ResponseDataInner = (ListTopUpPayers200ResponseDataInner) o;
     return Objects.equals(this.merchantId, listTopUpPayers200ResponseDataInner.merchantId) &&
         Objects.equals(this.payerId, listTopUpPayers200ResponseDataInner.payerId) &&
+        Objects.equals(this.customPayerId, listTopUpPayers200ResponseDataInner.customPayerId) &&
         Objects.equals(this.developerFeeRate, listTopUpPayers200ResponseDataInner.developerFeeRate) &&
         Objects.equals(this.createdTimestamp, listTopUpPayers200ResponseDataInner.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, listTopUpPayers200ResponseDataInner.updatedTimestamp) &&
@@ -269,7 +293,7 @@ public class ListTopUpPayers200ResponseDataInner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId, payerId, developerFeeRate, createdTimestamp, updatedTimestamp, transactions, additionalProperties);
+    return Objects.hash(merchantId, payerId, customPayerId, developerFeeRate, createdTimestamp, updatedTimestamp, transactions, additionalProperties);
   }
 
   @Override
@@ -278,6 +302,7 @@ public class ListTopUpPayers200ResponseDataInner {
     sb.append("class ListTopUpPayers200ResponseDataInner {\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    payerId: ").append(toIndentedString(payerId)).append("\n");
+    sb.append("    customPayerId: ").append(toIndentedString(customPayerId)).append("\n");
     sb.append("    developerFeeRate: ").append(toIndentedString(developerFeeRate)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
@@ -307,6 +332,7 @@ public class ListTopUpPayers200ResponseDataInner {
     openapiFields = new HashSet<String>();
     openapiFields.add("merchant_id");
     openapiFields.add("payer_id");
+    openapiFields.add("custom_payer_id");
     openapiFields.add("developer_fee_rate");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
@@ -344,6 +370,9 @@ public class ListTopUpPayers200ResponseDataInner {
       }
       if (!jsonObj.get("payer_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payer_id").toString()));
+      }
+      if ((jsonObj.get("custom_payer_id") != null && !jsonObj.get("custom_payer_id").isJsonNull()) && !jsonObj.get("custom_payer_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_payer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_payer_id").toString()));
       }
       if (!jsonObj.get("developer_fee_rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `developer_fee_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("developer_fee_rate").toString()));

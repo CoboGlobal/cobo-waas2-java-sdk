@@ -12,15 +12,17 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.Pagination;
+import com.cobo.waas2.model.PaymentTransaction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,44 +49,67 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * UpdateBankAccountByIdRequest
+ * ListPayerTransactions200Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class UpdateBankAccountByIdRequest {
-  public static final String SERIALIZED_NAME_INFO = "info";
-  @SerializedName(SERIALIZED_NAME_INFO)
-  private Map<String, Object> info = new HashMap<>();
+public class ListPayerTransactions200Response {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private List<PaymentTransaction> data = new ArrayList<>();
 
-  public UpdateBankAccountByIdRequest() {
+  public static final String SERIALIZED_NAME_PAGINATION = "pagination";
+  @SerializedName(SERIALIZED_NAME_PAGINATION)
+  private Pagination pagination;
+
+  public ListPayerTransactions200Response() {
   }
 
-  public UpdateBankAccountByIdRequest info(Map<String, Object> info) {
-    this.info = info;
+  public ListPayerTransactions200Response data(List<PaymentTransaction> data) {
+    this.data = data;
     return this;
   }
 
-  public UpdateBankAccountByIdRequest putInfoItem(String key, Object infoItem) {
-    if (this.info == null) {
-      this.info = new HashMap<>();
+  public ListPayerTransactions200Response addDataItem(PaymentTransaction dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
     }
-    this.info.put(key, infoItem);
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * JSON-formatted bank account details. The object should include the following fields: - beneficiary_name: Name of the account holder - beneficiary_address: Address of the account holder - account_number: Bank account number - bank_name: Name of the bank - bank_address: Address of the bank - iban: (Optional) International Bank Account Number - swift_or_bic: SWIFT or BIC code of the bank 
-   * @return info
+   * Get data
+   * @return data
   **/
-  @javax.annotation.Nonnull
-  public Map<String, Object> getInfo() {
-    return info;
+  @javax.annotation.Nullable
+  public List<PaymentTransaction> getData() {
+    return data;
   }
 
-  public void setInfo(Map<String, Object> info) {
-    this.info = info;
+  public void setData(List<PaymentTransaction> data) {
+    this.data = data;
+  }
+
+
+  public ListPayerTransactions200Response pagination(Pagination pagination) {
+    this.pagination = pagination;
+    return this;
+  }
+
+   /**
+   * Get pagination
+   * @return pagination
+  **/
+  @javax.annotation.Nullable
+  public Pagination getPagination() {
+    return pagination;
+  }
+
+  public void setPagination(Pagination pagination) {
+    this.pagination = pagination;
   }
 
   /**
@@ -100,9 +125,9 @@ public class UpdateBankAccountByIdRequest {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the UpdateBankAccountByIdRequest instance itself
+   * @return the ListPayerTransactions200Response instance itself
    */
-  public UpdateBankAccountByIdRequest putAdditionalProperty(String key, Object value) {
+  public ListPayerTransactions200Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -141,21 +166,23 @@ public class UpdateBankAccountByIdRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateBankAccountByIdRequest updateBankAccountByIdRequest = (UpdateBankAccountByIdRequest) o;
-    return Objects.equals(this.info, updateBankAccountByIdRequest.info)&&
-        Objects.equals(this.additionalProperties, updateBankAccountByIdRequest.additionalProperties);
+    ListPayerTransactions200Response listPayerTransactions200Response = (ListPayerTransactions200Response) o;
+    return Objects.equals(this.data, listPayerTransactions200Response.data) &&
+        Objects.equals(this.pagination, listPayerTransactions200Response.pagination)&&
+        Objects.equals(this.additionalProperties, listPayerTransactions200Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(info, additionalProperties);
+    return Objects.hash(data, pagination, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateBankAccountByIdRequest {\n");
-    sb.append("    info: ").append(toIndentedString(info)).append("\n");
+    sb.append("class ListPayerTransactions200Response {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -179,49 +206,60 @@ public class UpdateBankAccountByIdRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("info");
+    openapiFields.add("data");
+    openapiFields.add("pagination");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("info");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to UpdateBankAccountByIdRequest
+  * @throws IOException if the JSON Element is invalid with respect to ListPayerTransactions200Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!UpdateBankAccountByIdRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateBankAccountByIdRequest is not found in the empty JSON string", UpdateBankAccountByIdRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateBankAccountByIdRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!ListPayerTransactions200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListPayerTransactions200Response is not found in the empty JSON string", ListPayerTransactions200Response.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        if (jsonArraydata != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("data").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+          }
+
+          // validate the optional field `data` (array)
+          for (int i = 0; i < jsonArraydata.size(); i++) {
+            PaymentTransaction.validateJsonElement(jsonArraydata.get(i));
+          };
+        }
+      }
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        Pagination.validateJsonElement(jsonObj.get("pagination"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateBankAccountByIdRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateBankAccountByIdRequest' and its subtypes
+       if (!ListPayerTransactions200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListPayerTransactions200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateBankAccountByIdRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateBankAccountByIdRequest.class));
+       final TypeAdapter<ListPayerTransactions200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListPayerTransactions200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UpdateBankAccountByIdRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListPayerTransactions200Response>() {
            @Override
-           public void write(JsonWriter out, UpdateBankAccountByIdRequest value) throws IOException {
+           public void write(JsonWriter out, ListPayerTransactions200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -251,12 +289,12 @@ public class UpdateBankAccountByIdRequest {
            }
 
            @Override
-           public UpdateBankAccountByIdRequest read(JsonReader in) throws IOException {
+           public ListPayerTransactions200Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             UpdateBankAccountByIdRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             ListPayerTransactions200Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -283,18 +321,18 @@ public class UpdateBankAccountByIdRequest {
   }
 
  /**
-  * Create an instance of UpdateBankAccountByIdRequest given an JSON string
+  * Create an instance of ListPayerTransactions200Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of UpdateBankAccountByIdRequest
-  * @throws IOException if the JSON string is invalid with respect to UpdateBankAccountByIdRequest
+  * @return An instance of ListPayerTransactions200Response
+  * @throws IOException if the JSON string is invalid with respect to ListPayerTransactions200Response
   */
-  public static UpdateBankAccountByIdRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateBankAccountByIdRequest.class);
+  public static ListPayerTransactions200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListPayerTransactions200Response.class);
   }
 
  /**
-  * Convert an instance of UpdateBankAccountByIdRequest to an JSON string
+  * Convert an instance of ListPayerTransactions200Response to an JSON string
   *
   * @return JSON string
   */

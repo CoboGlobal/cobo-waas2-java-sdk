@@ -85,5 +85,13 @@
 
 * `WALLETCONNECT` (value: `"WalletConnect"`)
 
+* `JUSTLENDRECEIVERPRECHARGE` (value: `"JustLendReceiverPrecharge"`)
+
+* `JUSTLENDENERGYRENTAL` (value: `"JustLendEnergyRental"`)
+
+* `JUSTLENDENERGYRETURN` (value: `"JustLendEnergyReturn"`)
+
+* `TRXRECHARGE` (value: `"TrxRecharge"`)
+
 
 

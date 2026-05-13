@@ -88,6 +88,10 @@ public class ChainInfo {
   @SerializedName(SERIALIZED_NAME_COINBASE_MATURITY)
   private Integer coinbaseMaturity;
 
+  public static final String SERIALIZED_NAME_CAIP2_CHAIN_ID = "caip2_chain_id";
+  @SerializedName(SERIALIZED_NAME_CAIP2_CHAIN_ID)
+  private String caip2ChainId;
+
   public ChainInfo() {
   }
 
@@ -261,6 +265,25 @@ public class ChainInfo {
     this.coinbaseMaturity = coinbaseMaturity;
   }
 
+
+  public ChainInfo caip2ChainId(String caip2ChainId) {
+    this.caip2ChainId = caip2ChainId;
+    return this;
+  }
+
+   /**
+   * A standardized, unique identifier for blockchain networks (like eip155:1 for Ethereum) that combines a namespace and a reference to ensure cross-chain compatibility.
+   * @return caip2ChainId
+  **/
+  @javax.annotation.Nullable
+  public String getCaip2ChainId() {
+    return caip2ChainId;
+  }
+
+  public void setCaip2ChainId(String caip2ChainId) {
+    this.caip2ChainId = caip2ChainId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -324,13 +347,14 @@ public class ChainInfo {
         Objects.equals(this.explorerAddressUrl, chainInfo.explorerAddressUrl) &&
         Objects.equals(this.requireMemo, chainInfo.requireMemo) &&
         Objects.equals(this.confirmingThreshold, chainInfo.confirmingThreshold) &&
-        Objects.equals(this.coinbaseMaturity, chainInfo.coinbaseMaturity)&&
+        Objects.equals(this.coinbaseMaturity, chainInfo.coinbaseMaturity) &&
+        Objects.equals(this.caip2ChainId, chainInfo.caip2ChainId)&&
         Objects.equals(this.additionalProperties, chainInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chainId, symbol, iconUrl, chainIdentifier, explorerTxUrl, explorerAddressUrl, requireMemo, confirmingThreshold, coinbaseMaturity, additionalProperties);
+    return Objects.hash(chainId, symbol, iconUrl, chainIdentifier, explorerTxUrl, explorerAddressUrl, requireMemo, confirmingThreshold, coinbaseMaturity, caip2ChainId, additionalProperties);
   }
 
   @Override
@@ -346,6 +370,7 @@ public class ChainInfo {
     sb.append("    requireMemo: ").append(toIndentedString(requireMemo)).append("\n");
     sb.append("    confirmingThreshold: ").append(toIndentedString(confirmingThreshold)).append("\n");
     sb.append("    coinbaseMaturity: ").append(toIndentedString(coinbaseMaturity)).append("\n");
+    sb.append("    caip2ChainId: ").append(toIndentedString(caip2ChainId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -378,6 +403,7 @@ public class ChainInfo {
     openapiFields.add("require_memo");
     openapiFields.add("confirming_threshold");
     openapiFields.add("coinbase_maturity");
+    openapiFields.add("caip2_chain_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -421,6 +447,9 @@ public class ChainInfo {
       }
       if ((jsonObj.get("explorer_address_url") != null && !jsonObj.get("explorer_address_url").isJsonNull()) && !jsonObj.get("explorer_address_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `explorer_address_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("explorer_address_url").toString()));
+      }
+      if ((jsonObj.get("caip2_chain_id") != null && !jsonObj.get("caip2_chain_id").isJsonNull()) && !jsonObj.get("caip2_chain_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `caip2_chain_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("caip2_chain_id").toString()));
       }
   }
 

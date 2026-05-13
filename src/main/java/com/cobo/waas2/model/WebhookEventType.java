@@ -62,6 +62,8 @@ public enum WebhookEventType {
   
   FEE_STATION_TRANSACTION_SUCCEEDED("fee_station.transaction.succeeded"),
   
+  FEE_STATION_FIAT_TRANSACTION_CREATED("fee_station.fiat_transaction.created"),
+  
   WALLET_TOKEN_ENABLED("wallet.token.enabled"),
   
   WALLET_CHAIN_ENABLED("wallet.chain.enabled"),

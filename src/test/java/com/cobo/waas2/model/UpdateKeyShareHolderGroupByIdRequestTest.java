@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.OriginalMainGroupHandling;
 import com.cobo.waas2.model.UpdateGroupAction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -42,6 +43,14 @@ public class UpdateKeyShareHolderGroupByIdRequestTest {
     @Test
     public void updateKeyShareHolderGroupActionTest() {
         // TODO: test updateKeyShareHolderGroupAction
+    }
+
+    /**
+     * Test the property 'originalMainGroupHandling'
+     */
+    @Test
+    public void originalMainGroupHandlingTest() {
+        // TODO: test originalMainGroupHandling
     }
 
 }

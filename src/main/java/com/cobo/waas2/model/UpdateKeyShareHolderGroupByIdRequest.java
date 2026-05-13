@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.OriginalMainGroupHandling;
 import com.cobo.waas2.model.UpdateGroupAction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -57,6 +58,10 @@ public class UpdateKeyShareHolderGroupByIdRequest {
   @SerializedName(SERIALIZED_NAME_UPDATE_KEY_SHARE_HOLDER_GROUP_ACTION)
   private UpdateGroupAction updateKeyShareHolderGroupAction;
 
+  public static final String SERIALIZED_NAME_ORIGINAL_MAIN_GROUP_HANDLING = "original_main_group_handling";
+  @SerializedName(SERIALIZED_NAME_ORIGINAL_MAIN_GROUP_HANDLING)
+  private OriginalMainGroupHandling originalMainGroupHandling = OriginalMainGroupHandling.INVALIDATE;
+
   public UpdateKeyShareHolderGroupByIdRequest() {
   }
 
@@ -76,6 +81,25 @@ public class UpdateKeyShareHolderGroupByIdRequest {
 
   public void setUpdateKeyShareHolderGroupAction(UpdateGroupAction updateKeyShareHolderGroupAction) {
     this.updateKeyShareHolderGroupAction = updateKeyShareHolderGroupAction;
+  }
+
+
+  public UpdateKeyShareHolderGroupByIdRequest originalMainGroupHandling(OriginalMainGroupHandling originalMainGroupHandling) {
+    this.originalMainGroupHandling = originalMainGroupHandling;
+    return this;
+  }
+
+   /**
+   * Get originalMainGroupHandling
+   * @return originalMainGroupHandling
+  **/
+  @javax.annotation.Nullable
+  public OriginalMainGroupHandling getOriginalMainGroupHandling() {
+    return originalMainGroupHandling;
+  }
+
+  public void setOriginalMainGroupHandling(OriginalMainGroupHandling originalMainGroupHandling) {
+    this.originalMainGroupHandling = originalMainGroupHandling;
   }
 
   /**
@@ -133,13 +157,14 @@ public class UpdateKeyShareHolderGroupByIdRequest {
       return false;
     }
     UpdateKeyShareHolderGroupByIdRequest updateKeyShareHolderGroupByIdRequest = (UpdateKeyShareHolderGroupByIdRequest) o;
-    return Objects.equals(this.updateKeyShareHolderGroupAction, updateKeyShareHolderGroupByIdRequest.updateKeyShareHolderGroupAction)&&
+    return Objects.equals(this.updateKeyShareHolderGroupAction, updateKeyShareHolderGroupByIdRequest.updateKeyShareHolderGroupAction) &&
+        Objects.equals(this.originalMainGroupHandling, updateKeyShareHolderGroupByIdRequest.originalMainGroupHandling)&&
         Objects.equals(this.additionalProperties, updateKeyShareHolderGroupByIdRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updateKeyShareHolderGroupAction, additionalProperties);
+    return Objects.hash(updateKeyShareHolderGroupAction, originalMainGroupHandling, additionalProperties);
   }
 
   @Override
@@ -147,6 +172,7 @@ public class UpdateKeyShareHolderGroupByIdRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateKeyShareHolderGroupByIdRequest {\n");
     sb.append("    updateKeyShareHolderGroupAction: ").append(toIndentedString(updateKeyShareHolderGroupAction)).append("\n");
+    sb.append("    originalMainGroupHandling: ").append(toIndentedString(originalMainGroupHandling)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -171,6 +197,7 @@ public class UpdateKeyShareHolderGroupByIdRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("update_key_share_holder_group_action");
+    openapiFields.add("original_main_group_handling");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -199,6 +226,10 @@ public class UpdateKeyShareHolderGroupByIdRequest {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `update_key_share_holder_group_action`
       UpdateGroupAction.validateJsonElement(jsonObj.get("update_key_share_holder_group_action"));
+      // validate the optional field `original_main_group_handling`
+      if (jsonObj.get("original_main_group_handling") != null && !jsonObj.get("original_main_group_handling").isJsonNull()) {
+        OriginalMainGroupHandling.validateJsonElement(jsonObj.get("original_main_group_handling"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
