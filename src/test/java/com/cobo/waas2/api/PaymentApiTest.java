@@ -15,7 +15,6 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.AcquiringType;
-import com.cobo.waas2.model.BankAccount;
 import com.cobo.waas2.model.BankAccountStatus;
 import com.cobo.waas2.model.BatchAllocation;
 import com.cobo.waas2.model.BatchAllocationDetail;
@@ -72,6 +71,7 @@ import com.cobo.waas2.model.ListDestinations200Response;
 import com.cobo.waas2.model.ListForcedSweepRequests200Response;
 import com.cobo.waas2.model.ListMerchantBalances200Response;
 import com.cobo.waas2.model.ListMerchants200Response;
+import com.cobo.waas2.model.ListPayerTransactions200Response;
 import com.cobo.waas2.model.ListPaymentOrders200Response;
 import com.cobo.waas2.model.ListPaymentWalletBalances200Response;
 import com.cobo.waas2.model.ListPayouts200Response;
@@ -98,7 +98,6 @@ import com.cobo.waas2.model.TopUpAddress;
 import com.cobo.waas2.model.TriggerTestPaymentWebhookEventResponse;
 import com.cobo.waas2.model.TriggerTestPaymentsWebhookEventRequest;
 import java.util.UUID;
-import com.cobo.waas2.model.UpdateBankAccountByIdRequest;
 import com.cobo.waas2.model.UpdateCounterpartyRequest;
 import com.cobo.waas2.model.UpdateDestinationEntry200Response;
 import com.cobo.waas2.model.UpdateDestinationEntryRequest;
@@ -760,19 +759,6 @@ public class PaymentApiTest {
     }
 
     /**
-     * List all bank accounts
-     *
-     * &lt;Note&gt;This operation has been deprecated. Please use [List counterparty entries](https://www.cobo.com/payments/en/api-references/payment/list-counterparty-entries) instead.&lt;/Note&gt; This operation retrieves the information of all bank accounts registered. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listBankAccountsTest() throws ApiException {
-        List<BankAccount> response = api.listBankAccounts();
-        // TODO: test validations
-    }
-
-    /**
      * List all batch allocations
      *
      * This operation retrieves the information of all batch allocations. 
@@ -954,6 +940,27 @@ public class PaymentApiTest {
     }
 
     /**
+     * List payer transactions
+     *
+     * This operation retrieves on-chain transactions related to a specific top-up payer.  You need to specify &#x60;custom_payer_id&#x60;, which is the merchant-defined customer identifier used when creating top-up addresses.  &lt;Note&gt;This operation is applicable to the top-up scenario only.&lt;/Note&gt;  For more information, see [Cobo Payments Guide](https://www.cobo.com/payments/en/guides/overview). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listPayerTransactionsTest() throws ApiException {
+        String customPayerId = null;
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String merchantId = null;
+        String tokenId = null;
+        String transactionHashes = null;
+        String transactionIds = null;
+        ListPayerTransactions200Response response = api.listPayerTransactions(customPayerId, limit, before, after, merchantId, tokenId, transactionHashes, transactionIds);
+        // TODO: test validations
+    }
+
+    /**
      * List all pay-in orders
      *
      * This operation retrieves the information of all pay-in orders. You can filter the result by merchant ID. 
@@ -1073,7 +1080,7 @@ public class PaymentApiTest {
     /**
      * List payers
      *
-     * This operation retrieves the information of all payers under a merchant.   You can filter the result by the payer ID. 
+     * This operation retrieves the information of all payers. You can filter the result by merchant ID and payer_id.  &lt;Note&gt;The &#x60;transactions&#x60; field in the response returns up to the latest 200 transactions only. This field will be removed in a future version. To paginate through payer transactions, use [List payer transactions](https://www.cobo.com/payments/en/guides/overview).&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1113,21 +1120,6 @@ public class PaymentApiTest {
     public void triggerTestPaymentsWebhookEventTest() throws ApiException {
         TriggerTestPaymentsWebhookEventRequest triggerTestPaymentsWebhookEventRequest = null;
         TriggerTestPaymentWebhookEventResponse response = api.triggerTestPaymentsWebhookEvent(triggerTestPaymentsWebhookEventRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * Update bank account
-     *
-     * &lt;Note&gt;This operation has been deprecated.&lt;/Note&gt; This operation updates the information of an existing bank account. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateBankAccountByIdTest() throws ApiException {
-        UUID bankAccountId = null;
-        UpdateBankAccountByIdRequest updateBankAccountByIdRequest = null;
-        BankAccount response = api.updateBankAccountById(bankAccountId, updateBankAccountByIdRequest);
         // TODO: test validations
     }
 

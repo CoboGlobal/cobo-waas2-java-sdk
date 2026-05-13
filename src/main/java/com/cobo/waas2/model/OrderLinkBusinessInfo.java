@@ -182,7 +182,7 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * The pricing currency that denominates &#x60;pricing_amount&#x60; and &#x60;fee_amount&#x60;. Currently, only &#x60;USD&#x60;/&#x60;USDT&#x60;/&#x60;USDC&#x60; are supported. This field is required. 
+   * The pricing currency that denominates &#x60;pricing_amount&#x60; and &#x60;fee_amount&#x60;. If left empty, both values will be denominated in &#x60;payable_currency&#x60;.  Currently, For a complete list of supported currencies, see [Supported chains and tokens](https://www.cobo.com//payments/en/guides/supported-chains-and-tokens#pricing-currency). 
    * @return pricingCurrency
   **/
   @javax.annotation.Nonnull

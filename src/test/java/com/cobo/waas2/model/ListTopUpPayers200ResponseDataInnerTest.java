@@ -55,6 +55,14 @@ public class ListTopUpPayers200ResponseDataInnerTest {
     }
 
     /**
+     * Test the property 'customPayerId'
+     */
+    @Test
+    public void customPayerIdTest() {
+        // TODO: test customPayerId
+    }
+
+    /**
      * Test the property 'developerFeeRate'
      */
     @Test

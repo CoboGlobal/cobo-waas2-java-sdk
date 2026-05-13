@@ -107,4 +107,12 @@ public class ChainInfoTest {
         // TODO: test coinbaseMaturity
     }
 
+    /**
+     * Test the property 'caip2ChainId'
+     */
+    @Test
+    public void caip2ChainIdTest() {
+        // TODO: test caip2ChainId
+    }
+
 }
