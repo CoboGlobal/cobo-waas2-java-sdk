@@ -14,9 +14,17 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.AddressVerificationDetail;
+import com.cobo.waas2.model.AddressVerificationStatus;
+import com.cobo.waas2.model.CancelSatoshiTestChallengeRequest;
+import com.cobo.waas2.model.CreateSatoshiTestChallengeRequest;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetTransactionLimitation200Response;
+import com.cobo.waas2.model.ListAddressVerifications200Response;
 import com.cobo.waas2.model.ListSupportedCountries200ResponseInner;
+import com.cobo.waas2.model.SatoshiTestCancelResult;
+import com.cobo.waas2.model.SatoshiTestChallenge;
+import com.cobo.waas2.model.SignatureChallenge;
 import com.cobo.waas2.model.SubmitDepositTravelRuleInfo201Response;
 import com.cobo.waas2.model.TravelRuleDepositRequest;
 import com.cobo.waas2.model.TravelRuleWithdrawRequest;
@@ -43,9 +51,80 @@ public class TravelRuleApiTest {
     private final TravelRuleApi api = new TravelRuleApi();
 
     /**
+     * Cancel Satoshi Test challenge
+     *
+     * This operation cancels a Satoshi Test challenge that is currently in &#x60;PREPARE&#x60; or &#x60;PENDING&#x60; status. Typical use case: the counterparty decides to switch verification methods before transferring.  Once cancelled, the challenge status becomes &#x60;DELETED&#x60; and the on-chain match will no longer be observed. Challenges already in &#x60;MATCHED&#x60;, &#x60;VERIFIED&#x60;, &#x60;EXPIRED&#x60;, or &#x60;DELETED&#x60; state cannot be cancelled. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void cancelSatoshiTestChallengeTest() throws ApiException {
+        CancelSatoshiTestChallengeRequest cancelSatoshiTestChallengeRequest = null;
+        SatoshiTestCancelResult response = api.cancelSatoshiTestChallenge(cancelSatoshiTestChallengeRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Create Satoshi Test challenge
+     *
+     * This operation creates a Satoshi Test challenge for self-custody address verification. Satoshi Test verifies address ownership by having the counterparty transfer a small, uniquely-generated amount from their wallet to a Cobo-controlled verification address.  A single endpoint covers both flows via the &#x60;action&#x60; parameter: - **Two-step flow** (&#x60;action&#x3D;PREPARE&#x60; then &#x60;action&#x3D;SUBMIT&#x60;): Preview the verification details first, then activate. The 180-minute countdown only starts on &#x60;SUBMIT&#x60;. The server uses &#x60;(chain_id, from_address)&#x60; as the idempotency key, so the second call automatically targets the prepared challenge. For extra safety, pass the &#x60;challenge_id&#x60; returned by &#x60;PREPARE&#x60; in the subsequent &#x60;SUBMIT&#x60; call — it pins the activation to that specific challenge. - **One-shot flow** (&#x60;action&#x3D;SUBMIT&#x60; directly, without &#x60;challenge_id&#x60;): Prepare and submit in a single call. The challenge is created directly in &#x60;PENDING&#x60; state with the countdown started.  If the counterparty address has already been verified, the operation returns HTTP 400 &#x60;ADDRESS_ALREADY_VERIFIED&#x60;. Call [List address verifications](#operation/list_address_verifications) with &#x60;chain_id&#x60;, &#x60;address&#x60;, and &#x60;status&#x3D;VERIFIED&#x60; first to pre-check.  Supported chains: &#x60;BTC&#x60;, &#x60;ETH&#x60;, &#x60;BASE_ETH&#x60;, &#x60;BSC_BNB&#x60;, &#x60;TRON&#x60;. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createSatoshiTestChallengeTest() throws ApiException {
+        CreateSatoshiTestChallengeRequest createSatoshiTestChallengeRequest = null;
+        SatoshiTestChallenge response = api.createSatoshiTestChallenge(createSatoshiTestChallengeRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Get address verification
+     *
+     * Retrieve a single self-custody address verification record by its &#x60;verification_id&#x60;, including method-specific provenance:  - &#x60;verification_method&#x3D;SIGNATURE&#x60; → &#x60;signature_detail&#x60; is populated. - &#x60;verification_method&#x3D;SATOSHI_TEST&#x60; → &#x60;satoshi_test_detail&#x60; carries the latest challenge state (&#x60;status&#x60;, &#x60;remaining_seconds&#x60;, &#x60;matched_txid&#x60;).  Use [List address verifications](#operation/list_address_verifications) to discover &#x60;verification_id&#x60; values. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getAddressVerificationTest() throws ApiException {
+        UUID verificationId = null;
+        AddressVerificationDetail response = api.getAddressVerification(verificationId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get Satoshi Test challenge
+     *
+     * This operation returns the current state of a Satoshi Test challenge — useful for polling after submission. The response contains the challenge &#x60;status&#x60; and &#x60;remaining_seconds&#x60;.  Recommended polling interval: 10–30 seconds. The challenge will transition through &#x60;PENDING&#x60; → &#x60;MATCHED&#x60; → &#x60;VERIFIED&#x60; once the counterparty&#39;s transfer is observed and confirmed on chain. If the challenge is not matched within 180 minutes, the status becomes &#x60;EXPIRED&#x60;. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSatoshiTestChallengeTest() throws ApiException {
+        UUID challengeId = null;
+        SatoshiTestChallenge response = api.getSatoshiTestChallenge(challengeId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get self-custody signature challenge
+     *
+     * This operation issues a one-time, time-bounded message for a self-custody wallet address to sign, in order to prove wallet ownership. The signature is then submitted via [Submit Travel Rule information for deposits](#operation/submit_deposit_travel_rule_info) or [withdrawals](#operation/submit_withdraw_travel_rule_info).  Use this endpoint when you want to verify the counterparty&#39;s self-custody address via off-chain signature. For address verification via on-chain micro-deposit, use the Satoshi Test endpoints (&#x60;/travel_rule/satoshi_test/...&#x60;) instead.  The challenge is valid for a short window (returned as &#x60;expires_in&#x60;, currently 30 seconds). Calling this endpoint again for the same transaction rotates the challenge — only the latest issued value will verify. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSignatureChallengeTest() throws ApiException {
+        String transactionType = null;
+        UUID transactionId = null;
+        SignatureChallenge response = api.getSignatureChallenge(transactionType, transactionId);
+        // TODO: test validations
+    }
+
+    /**
      * Retrieve transaction limitations
      *
-     * This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
+     * &lt;Note&gt;The &#x60;self_custody_wallet_challenge&#x60; field in the response is deprecated. To obtain a signature challenge, call [Get self-custody signature challenge](#operation/get_signature_challenge) instead. This operation itself is not deprecated and continues to return the VASP list, threshold info, connect wallet list, and Satoshi Test support.&lt;/Note&gt;  This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -54,6 +133,25 @@ public class TravelRuleApiTest {
         String transactionType = null;
         UUID transactionId = null;
         GetTransactionLimitation200Response response = api.getTransactionLimitation(transactionType, transactionId);
+        // TODO: test validations
+    }
+
+    /**
+     * List address verifications
+     *
+     * List self-custody address verification records under the current organization with optional filters and cursor-based pagination.  Records are sorted by creation time descending (most recent first). Use &#x60;limit&#x60; plus &#x60;before&#x60; / &#x60;after&#x60; cursors from the previous page&#39;s &#x60;pagination&#x60; block to traverse pages.  Each record&#39;s &#x60;status&#x60; is one of &#x60;PENDING&#x60;, &#x60;VERIFIED&#x60;, or &#x60;FAILED&#x60;. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listAddressVerificationsTest() throws ApiException {
+        AddressVerificationStatus status = null;
+        String chainId = null;
+        String address = null;
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        ListAddressVerifications200Response response = api.listAddressVerifications(status, chainId, address, limit, before, after);
         // TODO: test validations
     }
 

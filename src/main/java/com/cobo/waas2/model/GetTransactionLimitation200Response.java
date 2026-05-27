@@ -64,12 +64,17 @@ public class GetTransactionLimitation200Response {
   private Boolean isThresholdReached;
 
   public static final String SERIALIZED_NAME_SELF_CUSTODY_WALLET_CHALLENGE = "self_custody_wallet_challenge";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_SELF_CUSTODY_WALLET_CHALLENGE)
   private String selfCustodyWalletChallenge;
 
   public static final String SERIALIZED_NAME_CONNECT_WALLET_LIST = "connect_wallet_list";
   @SerializedName(SERIALIZED_NAME_CONNECT_WALLET_LIST)
   private List<String> connectWalletList = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_SATOSHI_TEST_SUPPORTED = "satoshi_test_supported";
+  @SerializedName(SERIALIZED_NAME_SATOSHI_TEST_SUPPORTED)
+  private Boolean satoshiTestSupported;
 
   public GetTransactionLimitation200Response() {
   }
@@ -120,20 +125,24 @@ public class GetTransactionLimitation200Response {
   }
 
 
+  @Deprecated
   public GetTransactionLimitation200Response selfCustodyWalletChallenge(String selfCustodyWalletChallenge) {
     this.selfCustodyWalletChallenge = selfCustodyWalletChallenge;
     return this;
   }
 
    /**
-   * A human-readable, time-sensitive message to be signed by the wallet owner. The message contains key information including the wallet address, a unique nonce, and a timestamp. Signing this message confirms ownership of the wallet and allows the operation to proceed. 
+   * **Deprecated.** Use [Get self-custody signature challenge](#operation/get_signature_challenge) instead. This field will be removed in a future release.  A human-readable, time-sensitive message to be signed by the wallet owner. The message contains key information including the wallet address, a unique nonce, and a timestamp. Signing this message confirms ownership of the wallet and allows the operation to proceed. 
    * @return selfCustodyWalletChallenge
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   public String getSelfCustodyWalletChallenge() {
     return selfCustodyWalletChallenge;
   }
 
+  @Deprecated
   public void setSelfCustodyWalletChallenge(String selfCustodyWalletChallenge) {
     this.selfCustodyWalletChallenge = selfCustodyWalletChallenge;
   }
@@ -163,6 +172,25 @@ public class GetTransactionLimitation200Response {
 
   public void setConnectWalletList(List<String> connectWalletList) {
     this.connectWalletList = connectWalletList;
+  }
+
+
+  public GetTransactionLimitation200Response satoshiTestSupported(Boolean satoshiTestSupported) {
+    this.satoshiTestSupported = satoshiTestSupported;
+    return this;
+  }
+
+   /**
+   * Indicates whether Satoshi Test (on-chain micro-deposit verification) is supported for the transaction&#39;s chain. - &#x60;true&#x60;: You can initiate a Satoshi Test challenge to verify the counterparty address. - &#x60;false&#x60;: The chain does not support Satoshi Test; use signature verification instead. 
+   * @return satoshiTestSupported
+  **/
+  @javax.annotation.Nullable
+  public Boolean getSatoshiTestSupported() {
+    return satoshiTestSupported;
+  }
+
+  public void setSatoshiTestSupported(Boolean satoshiTestSupported) {
+    this.satoshiTestSupported = satoshiTestSupported;
   }
 
   /**
@@ -223,13 +251,14 @@ public class GetTransactionLimitation200Response {
     return Objects.equals(this.vaspList, getTransactionLimitation200Response.vaspList) &&
         Objects.equals(this.isThresholdReached, getTransactionLimitation200Response.isThresholdReached) &&
         Objects.equals(this.selfCustodyWalletChallenge, getTransactionLimitation200Response.selfCustodyWalletChallenge) &&
-        Objects.equals(this.connectWalletList, getTransactionLimitation200Response.connectWalletList)&&
+        Objects.equals(this.connectWalletList, getTransactionLimitation200Response.connectWalletList) &&
+        Objects.equals(this.satoshiTestSupported, getTransactionLimitation200Response.satoshiTestSupported)&&
         Objects.equals(this.additionalProperties, getTransactionLimitation200Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vaspList, isThresholdReached, selfCustodyWalletChallenge, connectWalletList, additionalProperties);
+    return Objects.hash(vaspList, isThresholdReached, selfCustodyWalletChallenge, connectWalletList, satoshiTestSupported, additionalProperties);
   }
 
   @Override
@@ -240,6 +269,7 @@ public class GetTransactionLimitation200Response {
     sb.append("    isThresholdReached: ").append(toIndentedString(isThresholdReached)).append("\n");
     sb.append("    selfCustodyWalletChallenge: ").append(toIndentedString(selfCustodyWalletChallenge)).append("\n");
     sb.append("    connectWalletList: ").append(toIndentedString(connectWalletList)).append("\n");
+    sb.append("    satoshiTestSupported: ").append(toIndentedString(satoshiTestSupported)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -267,6 +297,7 @@ public class GetTransactionLimitation200Response {
     openapiFields.add("is_threshold_reached");
     openapiFields.add("self_custody_wallet_challenge");
     openapiFields.add("connect_wallet_list");
+    openapiFields.add("satoshi_test_supported");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

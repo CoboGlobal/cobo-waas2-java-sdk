@@ -86,6 +86,10 @@ public class ApprovalUserDetail {
   @SerializedName(SERIALIZED_NAME_CREATED_TIME)
   private Integer createdTime;
 
+  public static final String SERIALIZED_NAME_EXPIRED_TIME = "expired_time";
+  @SerializedName(SERIALIZED_NAME_EXPIRED_TIME)
+  private Integer expiredTime;
+
   public static final String SERIALIZED_NAME_TEMPLATE_VERSION = "template_version";
   @SerializedName(SERIALIZED_NAME_TEMPLATE_VERSION)
   private String templateVersion;
@@ -270,6 +274,25 @@ public class ApprovalUserDetail {
 
   public void setCreatedTime(Integer createdTime) {
     this.createdTime = createdTime;
+  }
+
+
+  public ApprovalUserDetail expiredTime(Integer expiredTime) {
+    this.expiredTime = expiredTime;
+    return this;
+  }
+
+   /**
+   * The timestamp when the approval was expired.
+   * @return expiredTime
+  **/
+  @javax.annotation.Nullable
+  public Integer getExpiredTime() {
+    return expiredTime;
+  }
+
+  public void setExpiredTime(Integer expiredTime) {
+    this.expiredTime = expiredTime;
   }
 
 
@@ -487,6 +510,7 @@ public class ApprovalUserDetail {
         Objects.equals(this.result, approvalUserDetail.result) &&
         Objects.equals(this.approvalResultCode, approvalUserDetail.approvalResultCode) &&
         Objects.equals(this.createdTime, approvalUserDetail.createdTime) &&
+        Objects.equals(this.expiredTime, approvalUserDetail.expiredTime) &&
         Objects.equals(this.templateVersion, approvalUserDetail.templateVersion) &&
         Objects.equals(this.headerTitle, approvalUserDetail.headerTitle) &&
         Objects.equals(this.isForSign, approvalUserDetail.isForSign) &&
@@ -500,7 +524,7 @@ public class ApprovalUserDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email, pubkey, signature, statementUuid, result, approvalResultCode, createdTime, templateVersion, headerTitle, isForSign, showInfo, language, messageVersion, message, extraMessage, additionalProperties);
+    return Objects.hash(name, email, pubkey, signature, statementUuid, result, approvalResultCode, createdTime, expiredTime, templateVersion, headerTitle, isForSign, showInfo, language, messageVersion, message, extraMessage, additionalProperties);
   }
 
   @Override
@@ -515,6 +539,7 @@ public class ApprovalUserDetail {
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    approvalResultCode: ").append(toIndentedString(approvalResultCode)).append("\n");
     sb.append("    createdTime: ").append(toIndentedString(createdTime)).append("\n");
+    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    templateVersion: ").append(toIndentedString(templateVersion)).append("\n");
     sb.append("    headerTitle: ").append(toIndentedString(headerTitle)).append("\n");
     sb.append("    isForSign: ").append(toIndentedString(isForSign)).append("\n");
@@ -554,6 +579,7 @@ public class ApprovalUserDetail {
     openapiFields.add("result");
     openapiFields.add("approval_result_code");
     openapiFields.add("created_time");
+    openapiFields.add("expired_time");
     openapiFields.add("template_version");
     openapiFields.add("header_title");
     openapiFields.add("is_for_sign");
