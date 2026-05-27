@@ -64,6 +64,7 @@ import com.cobo.waas2.model.Link;
 import com.cobo.waas2.model.ListAllocationItems200Response;
 import com.cobo.waas2.model.ListBatchAllocations200Response;
 import com.cobo.waas2.model.ListBulkSendItems200Response;
+import com.cobo.waas2.model.ListBulkSends200Response;
 import com.cobo.waas2.model.ListCounterparties200Response;
 import com.cobo.waas2.model.ListCounterpartyEntries200Response;
 import com.cobo.waas2.model.ListDestinationEntries200Response;
@@ -789,6 +790,23 @@ public class PaymentApiTest {
         String before = null;
         String after = null;
         ListBulkSendItems200Response response = api.listBulkSendItems(bulkSendId, limit, before, after);
+        // TODO: test validations
+    }
+
+    /**
+     * List bulk sends
+     *
+     * This operation retrieves the list of bulk sends. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listBulkSendsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String requestId = null;
+        ListBulkSends200Response response = api.listBulkSends(limit, before, after, requestId);
         // TODO: test validations
     }
 

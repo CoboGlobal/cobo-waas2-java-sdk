@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.35.0</version>
+  <version>1.36.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.35.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.36.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.35.0.jar`
+* `target/cobo-waas2-1.36.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -297,6 +297,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**listAllocationItems**](docs/PaymentApi.md#listAllocationItems) | **GET** /payments/allocation_items | List all allocation items
 *PaymentApi* | [**listBatchAllocations**](docs/PaymentApi.md#listBatchAllocations) | **GET** /payments/batch_allocations | List all batch allocations
 *PaymentApi* | [**listBulkSendItems**](docs/PaymentApi.md#listBulkSendItems) | **GET** /payments/bulk_sends/{bulk_send_id}/items | List bulk send items
+*PaymentApi* | [**listBulkSends**](docs/PaymentApi.md#listBulkSends) | **GET** /payments/bulk_sends | List bulk sends
 *PaymentApi* | [**listCounterparties**](docs/PaymentApi.md#listCounterparties) | **GET** /payments/counterparty | List all counterparties
 *PaymentApi* | [**listCounterpartyEntries**](docs/PaymentApi.md#listCounterpartyEntries) | **GET** /payments/counterparty_entry | List counterparty entries
 *PaymentApi* | [**listCryptoAddresses**](docs/PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
@@ -394,7 +395,13 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**resendTransactionById**](docs/TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
 *TransactionsApi* | [**signAndBroadcastTransactionById**](docs/TransactionsApi.md#signAndBroadcastTransactionById) | **POST** /transactions/{transaction_id}/sign_and_broadcast | Sign and broadcast transaction
 *TransactionsApi* | [**speedupTransactionById**](docs/TransactionsApi.md#speedupTransactionById) | **POST** /transactions/{transaction_id}/speedup | Speed up transaction
+*TravelRuleApi* | [**cancelSatoshiTestChallenge**](docs/TravelRuleApi.md#cancelSatoshiTestChallenge) | **POST** /travel_rule/satoshi_test/challenge/cancel | Cancel Satoshi Test challenge
+*TravelRuleApi* | [**createSatoshiTestChallenge**](docs/TravelRuleApi.md#createSatoshiTestChallenge) | **POST** /travel_rule/satoshi_test/challenge | Create Satoshi Test challenge
+*TravelRuleApi* | [**getAddressVerification**](docs/TravelRuleApi.md#getAddressVerification) | **GET** /travel_rule/address_verifications/{verification_id} | Get address verification
+*TravelRuleApi* | [**getSatoshiTestChallenge**](docs/TravelRuleApi.md#getSatoshiTestChallenge) | **GET** /travel_rule/satoshi_test/challenge/status | Get Satoshi Test challenge
+*TravelRuleApi* | [**getSignatureChallenge**](docs/TravelRuleApi.md#getSignatureChallenge) | **GET** /travel_rule/signature_challenge | Get self-custody signature challenge
 *TravelRuleApi* | [**getTransactionLimitation**](docs/TravelRuleApi.md#getTransactionLimitation) | **GET** /travel_rule/transaction/limitation | Retrieve transaction limitations
+*TravelRuleApi* | [**listAddressVerifications**](docs/TravelRuleApi.md#listAddressVerifications) | **GET** /travel_rule/address_verifications | List address verifications
 *TravelRuleApi* | [**listSupportedCountries**](docs/TravelRuleApi.md#listSupportedCountries) | **GET** /travel_rule/transaction/countries | List supported countries
 *TravelRuleApi* | [**submitDepositTravelRuleInfo**](docs/TravelRuleApi.md#submitDepositTravelRuleInfo) | **POST** /travel_rule/transaction/deposit/travel_rule_info | Submit Travel Rule information for deposits
 *TravelRuleApi* | [**submitWithdrawTravelRuleInfo**](docs/TravelRuleApi.md#submitWithdrawTravelRuleInfo) | **POST** /travel_rule/transaction/withdraw/travel_rule_info | Submit Travel Rule information for withdrawals
@@ -474,6 +481,12 @@ Class | Method | HTTP request | Description
  - [AddressTransferDestination](docs/AddressTransferDestination.md)
  - [AddressTransferDestinationAccountOutput](docs/AddressTransferDestinationAccountOutput.md)
  - [AddressTransferDestinationUtxoOutputsInner](docs/AddressTransferDestinationUtxoOutputsInner.md)
+ - [AddressVerification](docs/AddressVerification.md)
+ - [AddressVerificationDetail](docs/AddressVerificationDetail.md)
+ - [AddressVerificationDetailSatoshiTestDetail](docs/AddressVerificationDetailSatoshiTestDetail.md)
+ - [AddressVerificationDetailSignatureDetail](docs/AddressVerificationDetailSignatureDetail.md)
+ - [AddressVerificationMethod](docs/AddressVerificationMethod.md)
+ - [AddressVerificationStatus](docs/AddressVerificationStatus.md)
  - [AddressesEventData](docs/AddressesEventData.md)
  - [AddressesEventDataAllOfAddresses](docs/AddressesEventDataAllOfAddresses.md)
  - [AllocationItem](docs/AllocationItem.md)
@@ -533,6 +546,7 @@ Class | Method | HTTP request | Description
  - [BroadcastSignedTransactions201ResponseInner](docs/BroadcastSignedTransactions201ResponseInner.md)
  - [BroadcastSignedTransactionsRequest](docs/BroadcastSignedTransactionsRequest.md)
  - [CallbackMessage](docs/CallbackMessage.md)
+ - [CancelSatoshiTestChallengeRequest](docs/CancelSatoshiTestChallengeRequest.md)
  - [ChainInfo](docs/ChainInfo.md)
  - [ChainsEventData](docs/ChainsEventData.md)
  - [ChangeGuardPubkey200Response](docs/ChangeGuardPubkey200Response.md)
@@ -602,6 +616,7 @@ Class | Method | HTTP request | Description
  - [CreateRefundRequest](docs/CreateRefundRequest.md)
  - [CreateReportRequest](docs/CreateReportRequest.md)
  - [CreateSafeWalletParams](docs/CreateSafeWalletParams.md)
+ - [CreateSatoshiTestChallengeRequest](docs/CreateSatoshiTestChallengeRequest.md)
  - [CreateSettlement](docs/CreateSettlement.md)
  - [CreateSettlementRequestRequest](docs/CreateSettlementRequestRequest.md)
  - [CreateSmartContractWalletParams](docs/CreateSmartContractWalletParams.md)
@@ -766,6 +781,7 @@ Class | Method | HTTP request | Description
  - [LinkDisplayInfo](docs/LinkDisplayInfo.md)
  - [ListAddressBalancesByToken200Response](docs/ListAddressBalancesByToken200Response.md)
  - [ListAddressBooks200Response](docs/ListAddressBooks200Response.md)
+ - [ListAddressVerifications200Response](docs/ListAddressVerifications200Response.md)
  - [ListAddresses200Response](docs/ListAddresses200Response.md)
  - [ListAllocationItems200Response](docs/ListAllocationItems200Response.md)
  - [ListApprovalRequests200Response](docs/ListApprovalRequests200Response.md)
@@ -778,6 +794,7 @@ Class | Method | HTTP request | Description
  - [ListBabylonStakingRegistrations200Response](docs/ListBabylonStakingRegistrations200Response.md)
  - [ListBatchAllocations200Response](docs/ListBatchAllocations200Response.md)
  - [ListBulkSendItems200Response](docs/ListBulkSendItems200Response.md)
+ - [ListBulkSends200Response](docs/ListBulkSends200Response.md)
  - [ListCallbackMessages200Response](docs/ListCallbackMessages200Response.md)
  - [ListCounterparties200Response](docs/ListCounterparties200Response.md)
  - [ListCounterpartyEntries200Response](docs/ListCounterpartyEntries200Response.md)
@@ -939,6 +956,10 @@ Class | Method | HTTP request | Description
  - [SafeWalletDelegates](docs/SafeWalletDelegates.md)
  - [SafeWalletDelegatesContractCall](docs/SafeWalletDelegatesContractCall.md)
  - [SafeWalletDelegatesTransfer](docs/SafeWalletDelegatesTransfer.md)
+ - [SatoshiTestCancelResult](docs/SatoshiTestCancelResult.md)
+ - [SatoshiTestChallenge](docs/SatoshiTestChallenge.md)
+ - [SatoshiTestChallengeAction](docs/SatoshiTestChallengeAction.md)
+ - [SatoshiTestChallengeStatus](docs/SatoshiTestChallengeStatus.md)
  - [Scopes](docs/Scopes.md)
  - [SelectedEntityType](docs/SelectedEntityType.md)
  - [SelfCustodyWallet](docs/SelfCustodyWallet.md)
@@ -948,6 +969,8 @@ Class | Method | HTTP request | Description
  - [SettlementDetail](docs/SettlementDetail.md)
  - [SettlementInfo](docs/SettlementInfo.md)
  - [SettlementType](docs/SettlementType.md)
+ - [SignatureChallenge](docs/SignatureChallenge.md)
+ - [SignatureDetail](docs/SignatureDetail.md)
  - [SkipCheckType](docs/SkipCheckType.md)
  - [SmartContractInitiator](docs/SmartContractInitiator.md)
  - [SmartContractWalletInfo](docs/SmartContractWalletInfo.md)
@@ -1222,6 +1245,7 @@ Class | Method | HTTP request | Description
  - [TravelRuleDepositNaturalEntity](docs/TravelRuleDepositNaturalEntity.md)
  - [TravelRuleDepositRequest](docs/TravelRuleDepositRequest.md)
  - [TravelRuleDepositRequestTravelRuleInfo](docs/TravelRuleDepositRequestTravelRuleInfo.md)
+ - [TravelRuleTransactionType](docs/TravelRuleTransactionType.md)
  - [TravelRuleWithdrawExchangesOrVASP](docs/TravelRuleWithdrawExchangesOrVASP.md)
  - [TravelRuleWithdrawExchangesOrVASPEntityInfo](docs/TravelRuleWithdrawExchangesOrVASPEntityInfo.md)
  - [TravelRuleWithdrawLegalEntity](docs/TravelRuleWithdrawLegalEntity.md)

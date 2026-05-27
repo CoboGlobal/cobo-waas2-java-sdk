@@ -25,9 +25,17 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cobo.waas2.model.AddressVerificationDetail;
+import com.cobo.waas2.model.AddressVerificationStatus;
+import com.cobo.waas2.model.CancelSatoshiTestChallengeRequest;
+import com.cobo.waas2.model.CreateSatoshiTestChallengeRequest;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetTransactionLimitation200Response;
+import com.cobo.waas2.model.ListAddressVerifications200Response;
 import com.cobo.waas2.model.ListSupportedCountries200ResponseInner;
+import com.cobo.waas2.model.SatoshiTestCancelResult;
+import com.cobo.waas2.model.SatoshiTestChallenge;
+import com.cobo.waas2.model.SignatureChallenge;
 import com.cobo.waas2.model.SubmitDepositTravelRuleInfo201Response;
 import com.cobo.waas2.model.TravelRuleDepositRequest;
 import com.cobo.waas2.model.TravelRuleWithdrawRequest;
@@ -58,6 +66,605 @@ public class TravelRuleApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for cancelSatoshiTestChallenge
+     * @param cancelSatoshiTestChallengeRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The challenge has been cancelled. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelSatoshiTestChallengeCall(CancelSatoshiTestChallengeRequest cancelSatoshiTestChallengeRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = cancelSatoshiTestChallengeRequest;
+
+        // create path and map variables
+        String localVarPath = "/travel_rule/satoshi_test/challenge/cancel";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelSatoshiTestChallengeValidateBeforeCall(CancelSatoshiTestChallengeRequest cancelSatoshiTestChallengeRequest, final ApiCallback _callback) throws ApiException {
+        return cancelSatoshiTestChallengeCall(cancelSatoshiTestChallengeRequest, _callback);
+
+    }
+
+    /**
+     * Cancel Satoshi Test challenge
+     * This operation cancels a Satoshi Test challenge that is currently in &#x60;PREPARE&#x60; or &#x60;PENDING&#x60; status. Typical use case: the counterparty decides to switch verification methods before transferring.  Once cancelled, the challenge status becomes &#x60;DELETED&#x60; and the on-chain match will no longer be observed. Challenges already in &#x60;MATCHED&#x60;, &#x60;VERIFIED&#x60;, &#x60;EXPIRED&#x60;, or &#x60;DELETED&#x60; state cannot be cancelled. 
+     * @param cancelSatoshiTestChallengeRequest  (optional)
+     * @return SatoshiTestCancelResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The challenge has been cancelled. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public SatoshiTestCancelResult cancelSatoshiTestChallenge(CancelSatoshiTestChallengeRequest cancelSatoshiTestChallengeRequest) throws ApiException {
+        ApiResponse<SatoshiTestCancelResult> localVarResp = cancelSatoshiTestChallengeWithHttpInfo(cancelSatoshiTestChallengeRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel Satoshi Test challenge
+     * This operation cancels a Satoshi Test challenge that is currently in &#x60;PREPARE&#x60; or &#x60;PENDING&#x60; status. Typical use case: the counterparty decides to switch verification methods before transferring.  Once cancelled, the challenge status becomes &#x60;DELETED&#x60; and the on-chain match will no longer be observed. Challenges already in &#x60;MATCHED&#x60;, &#x60;VERIFIED&#x60;, &#x60;EXPIRED&#x60;, or &#x60;DELETED&#x60; state cannot be cancelled. 
+     * @param cancelSatoshiTestChallengeRequest  (optional)
+     * @return ApiResponse&lt;SatoshiTestCancelResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The challenge has been cancelled. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SatoshiTestCancelResult> cancelSatoshiTestChallengeWithHttpInfo(CancelSatoshiTestChallengeRequest cancelSatoshiTestChallengeRequest) throws ApiException {
+        okhttp3.Call localVarCall = cancelSatoshiTestChallengeValidateBeforeCall(cancelSatoshiTestChallengeRequest, null);
+        Type localVarReturnType = new TypeToken<SatoshiTestCancelResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel Satoshi Test challenge (asynchronously)
+     * This operation cancels a Satoshi Test challenge that is currently in &#x60;PREPARE&#x60; or &#x60;PENDING&#x60; status. Typical use case: the counterparty decides to switch verification methods before transferring.  Once cancelled, the challenge status becomes &#x60;DELETED&#x60; and the on-chain match will no longer be observed. Challenges already in &#x60;MATCHED&#x60;, &#x60;VERIFIED&#x60;, &#x60;EXPIRED&#x60;, or &#x60;DELETED&#x60; state cannot be cancelled. 
+     * @param cancelSatoshiTestChallengeRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The challenge has been cancelled. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelSatoshiTestChallengeAsync(CancelSatoshiTestChallengeRequest cancelSatoshiTestChallengeRequest, final ApiCallback<SatoshiTestCancelResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = cancelSatoshiTestChallengeValidateBeforeCall(cancelSatoshiTestChallengeRequest, _callback);
+        Type localVarReturnType = new TypeToken<SatoshiTestCancelResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createSatoshiTestChallenge
+     * @param createSatoshiTestChallengeRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The Satoshi Test challenge was created.  - &#x60;action&#x3D;PREPARE&#x60;: returned challenge has &#x60;status&#x3D;PREPARE&#x60;; the 180-minute countdown is not started yet. - &#x60;action&#x3D;SUBMIT&#x60;: returned challenge has &#x60;status&#x3D;PENDING&#x60;; &#x60;started_at&#x60; and &#x60;expires_at&#x60; are set.  If the counterparty address has already been verified (by signature or a prior Satoshi Test), this operation returns HTTP 400 &#x60;ADDRESS_ALREADY_VERIFIED&#x60; instead — call [List address verifications](#operation/list_address_verifications) with &#x60;chain_id&#x60;, &#x60;address&#x60;, and &#x60;status&#x3D;VERIFIED&#x60; first to pre-check.  </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSatoshiTestChallengeCall(CreateSatoshiTestChallengeRequest createSatoshiTestChallengeRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createSatoshiTestChallengeRequest;
+
+        // create path and map variables
+        String localVarPath = "/travel_rule/satoshi_test/challenge";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSatoshiTestChallengeValidateBeforeCall(CreateSatoshiTestChallengeRequest createSatoshiTestChallengeRequest, final ApiCallback _callback) throws ApiException {
+        return createSatoshiTestChallengeCall(createSatoshiTestChallengeRequest, _callback);
+
+    }
+
+    /**
+     * Create Satoshi Test challenge
+     * This operation creates a Satoshi Test challenge for self-custody address verification. Satoshi Test verifies address ownership by having the counterparty transfer a small, uniquely-generated amount from their wallet to a Cobo-controlled verification address.  A single endpoint covers both flows via the &#x60;action&#x60; parameter: - **Two-step flow** (&#x60;action&#x3D;PREPARE&#x60; then &#x60;action&#x3D;SUBMIT&#x60;): Preview the verification details first, then activate. The 180-minute countdown only starts on &#x60;SUBMIT&#x60;. The server uses &#x60;(chain_id, from_address)&#x60; as the idempotency key, so the second call automatically targets the prepared challenge. For extra safety, pass the &#x60;challenge_id&#x60; returned by &#x60;PREPARE&#x60; in the subsequent &#x60;SUBMIT&#x60; call — it pins the activation to that specific challenge. - **One-shot flow** (&#x60;action&#x3D;SUBMIT&#x60; directly, without &#x60;challenge_id&#x60;): Prepare and submit in a single call. The challenge is created directly in &#x60;PENDING&#x60; state with the countdown started.  If the counterparty address has already been verified, the operation returns HTTP 400 &#x60;ADDRESS_ALREADY_VERIFIED&#x60;. Call [List address verifications](#operation/list_address_verifications) with &#x60;chain_id&#x60;, &#x60;address&#x60;, and &#x60;status&#x3D;VERIFIED&#x60; first to pre-check.  Supported chains: &#x60;BTC&#x60;, &#x60;ETH&#x60;, &#x60;BASE_ETH&#x60;, &#x60;BSC_BNB&#x60;, &#x60;TRON&#x60;. 
+     * @param createSatoshiTestChallengeRequest  (optional)
+     * @return SatoshiTestChallenge
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The Satoshi Test challenge was created.  - &#x60;action&#x3D;PREPARE&#x60;: returned challenge has &#x60;status&#x3D;PREPARE&#x60;; the 180-minute countdown is not started yet. - &#x60;action&#x3D;SUBMIT&#x60;: returned challenge has &#x60;status&#x3D;PENDING&#x60;; &#x60;started_at&#x60; and &#x60;expires_at&#x60; are set.  If the counterparty address has already been verified (by signature or a prior Satoshi Test), this operation returns HTTP 400 &#x60;ADDRESS_ALREADY_VERIFIED&#x60; instead — call [List address verifications](#operation/list_address_verifications) with &#x60;chain_id&#x60;, &#x60;address&#x60;, and &#x60;status&#x3D;VERIFIED&#x60; first to pre-check.  </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public SatoshiTestChallenge createSatoshiTestChallenge(CreateSatoshiTestChallengeRequest createSatoshiTestChallengeRequest) throws ApiException {
+        ApiResponse<SatoshiTestChallenge> localVarResp = createSatoshiTestChallengeWithHttpInfo(createSatoshiTestChallengeRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Satoshi Test challenge
+     * This operation creates a Satoshi Test challenge for self-custody address verification. Satoshi Test verifies address ownership by having the counterparty transfer a small, uniquely-generated amount from their wallet to a Cobo-controlled verification address.  A single endpoint covers both flows via the &#x60;action&#x60; parameter: - **Two-step flow** (&#x60;action&#x3D;PREPARE&#x60; then &#x60;action&#x3D;SUBMIT&#x60;): Preview the verification details first, then activate. The 180-minute countdown only starts on &#x60;SUBMIT&#x60;. The server uses &#x60;(chain_id, from_address)&#x60; as the idempotency key, so the second call automatically targets the prepared challenge. For extra safety, pass the &#x60;challenge_id&#x60; returned by &#x60;PREPARE&#x60; in the subsequent &#x60;SUBMIT&#x60; call — it pins the activation to that specific challenge. - **One-shot flow** (&#x60;action&#x3D;SUBMIT&#x60; directly, without &#x60;challenge_id&#x60;): Prepare and submit in a single call. The challenge is created directly in &#x60;PENDING&#x60; state with the countdown started.  If the counterparty address has already been verified, the operation returns HTTP 400 &#x60;ADDRESS_ALREADY_VERIFIED&#x60;. Call [List address verifications](#operation/list_address_verifications) with &#x60;chain_id&#x60;, &#x60;address&#x60;, and &#x60;status&#x3D;VERIFIED&#x60; first to pre-check.  Supported chains: &#x60;BTC&#x60;, &#x60;ETH&#x60;, &#x60;BASE_ETH&#x60;, &#x60;BSC_BNB&#x60;, &#x60;TRON&#x60;. 
+     * @param createSatoshiTestChallengeRequest  (optional)
+     * @return ApiResponse&lt;SatoshiTestChallenge&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The Satoshi Test challenge was created.  - &#x60;action&#x3D;PREPARE&#x60;: returned challenge has &#x60;status&#x3D;PREPARE&#x60;; the 180-minute countdown is not started yet. - &#x60;action&#x3D;SUBMIT&#x60;: returned challenge has &#x60;status&#x3D;PENDING&#x60;; &#x60;started_at&#x60; and &#x60;expires_at&#x60; are set.  If the counterparty address has already been verified (by signature or a prior Satoshi Test), this operation returns HTTP 400 &#x60;ADDRESS_ALREADY_VERIFIED&#x60; instead — call [List address verifications](#operation/list_address_verifications) with &#x60;chain_id&#x60;, &#x60;address&#x60;, and &#x60;status&#x3D;VERIFIED&#x60; first to pre-check.  </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SatoshiTestChallenge> createSatoshiTestChallengeWithHttpInfo(CreateSatoshiTestChallengeRequest createSatoshiTestChallengeRequest) throws ApiException {
+        okhttp3.Call localVarCall = createSatoshiTestChallengeValidateBeforeCall(createSatoshiTestChallengeRequest, null);
+        Type localVarReturnType = new TypeToken<SatoshiTestChallenge>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Satoshi Test challenge (asynchronously)
+     * This operation creates a Satoshi Test challenge for self-custody address verification. Satoshi Test verifies address ownership by having the counterparty transfer a small, uniquely-generated amount from their wallet to a Cobo-controlled verification address.  A single endpoint covers both flows via the &#x60;action&#x60; parameter: - **Two-step flow** (&#x60;action&#x3D;PREPARE&#x60; then &#x60;action&#x3D;SUBMIT&#x60;): Preview the verification details first, then activate. The 180-minute countdown only starts on &#x60;SUBMIT&#x60;. The server uses &#x60;(chain_id, from_address)&#x60; as the idempotency key, so the second call automatically targets the prepared challenge. For extra safety, pass the &#x60;challenge_id&#x60; returned by &#x60;PREPARE&#x60; in the subsequent &#x60;SUBMIT&#x60; call — it pins the activation to that specific challenge. - **One-shot flow** (&#x60;action&#x3D;SUBMIT&#x60; directly, without &#x60;challenge_id&#x60;): Prepare and submit in a single call. The challenge is created directly in &#x60;PENDING&#x60; state with the countdown started.  If the counterparty address has already been verified, the operation returns HTTP 400 &#x60;ADDRESS_ALREADY_VERIFIED&#x60;. Call [List address verifications](#operation/list_address_verifications) with &#x60;chain_id&#x60;, &#x60;address&#x60;, and &#x60;status&#x3D;VERIFIED&#x60; first to pre-check.  Supported chains: &#x60;BTC&#x60;, &#x60;ETH&#x60;, &#x60;BASE_ETH&#x60;, &#x60;BSC_BNB&#x60;, &#x60;TRON&#x60;. 
+     * @param createSatoshiTestChallengeRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The Satoshi Test challenge was created.  - &#x60;action&#x3D;PREPARE&#x60;: returned challenge has &#x60;status&#x3D;PREPARE&#x60;; the 180-minute countdown is not started yet. - &#x60;action&#x3D;SUBMIT&#x60;: returned challenge has &#x60;status&#x3D;PENDING&#x60;; &#x60;started_at&#x60; and &#x60;expires_at&#x60; are set.  If the counterparty address has already been verified (by signature or a prior Satoshi Test), this operation returns HTTP 400 &#x60;ADDRESS_ALREADY_VERIFIED&#x60; instead — call [List address verifications](#operation/list_address_verifications) with &#x60;chain_id&#x60;, &#x60;address&#x60;, and &#x60;status&#x3D;VERIFIED&#x60; first to pre-check.  </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSatoshiTestChallengeAsync(CreateSatoshiTestChallengeRequest createSatoshiTestChallengeRequest, final ApiCallback<SatoshiTestChallenge> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createSatoshiTestChallengeValidateBeforeCall(createSatoshiTestChallengeRequest, _callback);
+        Type localVarReturnType = new TypeToken<SatoshiTestChallenge>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getAddressVerification
+     * @param verificationId The unique identifier of the address verification record. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The address verification record. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAddressVerificationCall(UUID verificationId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/travel_rule/address_verifications/{verification_id}"
+            .replace("{" + "verification_id" + "}", localVarApiClient.escapeString(verificationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAddressVerificationValidateBeforeCall(UUID verificationId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'verificationId' is set
+        if (verificationId == null) {
+            throw new ApiException("Missing the required parameter 'verificationId' when calling getAddressVerification(Async)");
+        }
+
+        return getAddressVerificationCall(verificationId, _callback);
+
+    }
+
+    /**
+     * Get address verification
+     * Retrieve a single self-custody address verification record by its &#x60;verification_id&#x60;, including method-specific provenance:  - &#x60;verification_method&#x3D;SIGNATURE&#x60; → &#x60;signature_detail&#x60; is populated. - &#x60;verification_method&#x3D;SATOSHI_TEST&#x60; → &#x60;satoshi_test_detail&#x60; carries the latest challenge state (&#x60;status&#x60;, &#x60;remaining_seconds&#x60;, &#x60;matched_txid&#x60;).  Use [List address verifications](#operation/list_address_verifications) to discover &#x60;verification_id&#x60; values. 
+     * @param verificationId The unique identifier of the address verification record. (required)
+     * @return AddressVerificationDetail
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The address verification record. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AddressVerificationDetail getAddressVerification(UUID verificationId) throws ApiException {
+        ApiResponse<AddressVerificationDetail> localVarResp = getAddressVerificationWithHttpInfo(verificationId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get address verification
+     * Retrieve a single self-custody address verification record by its &#x60;verification_id&#x60;, including method-specific provenance:  - &#x60;verification_method&#x3D;SIGNATURE&#x60; → &#x60;signature_detail&#x60; is populated. - &#x60;verification_method&#x3D;SATOSHI_TEST&#x60; → &#x60;satoshi_test_detail&#x60; carries the latest challenge state (&#x60;status&#x60;, &#x60;remaining_seconds&#x60;, &#x60;matched_txid&#x60;).  Use [List address verifications](#operation/list_address_verifications) to discover &#x60;verification_id&#x60; values. 
+     * @param verificationId The unique identifier of the address verification record. (required)
+     * @return ApiResponse&lt;AddressVerificationDetail&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The address verification record. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AddressVerificationDetail> getAddressVerificationWithHttpInfo(UUID verificationId) throws ApiException {
+        okhttp3.Call localVarCall = getAddressVerificationValidateBeforeCall(verificationId, null);
+        Type localVarReturnType = new TypeToken<AddressVerificationDetail>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get address verification (asynchronously)
+     * Retrieve a single self-custody address verification record by its &#x60;verification_id&#x60;, including method-specific provenance:  - &#x60;verification_method&#x3D;SIGNATURE&#x60; → &#x60;signature_detail&#x60; is populated. - &#x60;verification_method&#x3D;SATOSHI_TEST&#x60; → &#x60;satoshi_test_detail&#x60; carries the latest challenge state (&#x60;status&#x60;, &#x60;remaining_seconds&#x60;, &#x60;matched_txid&#x60;).  Use [List address verifications](#operation/list_address_verifications) to discover &#x60;verification_id&#x60; values. 
+     * @param verificationId The unique identifier of the address verification record. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The address verification record. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAddressVerificationAsync(UUID verificationId, final ApiCallback<AddressVerificationDetail> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAddressVerificationValidateBeforeCall(verificationId, _callback);
+        Type localVarReturnType = new TypeToken<AddressVerificationDetail>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSatoshiTestChallenge
+     * @param challengeId The Satoshi Test challenge ID returned by the &#x60;prepare&#x60; or &#x60;submit&#x60; operation. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The Satoshi Test challenge information (after submit or for status polling). </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSatoshiTestChallengeCall(UUID challengeId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/travel_rule/satoshi_test/challenge/status";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (challengeId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("challenge_id", challengeId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSatoshiTestChallengeValidateBeforeCall(UUID challengeId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'challengeId' is set
+        if (challengeId == null) {
+            throw new ApiException("Missing the required parameter 'challengeId' when calling getSatoshiTestChallenge(Async)");
+        }
+
+        return getSatoshiTestChallengeCall(challengeId, _callback);
+
+    }
+
+    /**
+     * Get Satoshi Test challenge
+     * This operation returns the current state of a Satoshi Test challenge — useful for polling after submission. The response contains the challenge &#x60;status&#x60; and &#x60;remaining_seconds&#x60;.  Recommended polling interval: 10–30 seconds. The challenge will transition through &#x60;PENDING&#x60; → &#x60;MATCHED&#x60; → &#x60;VERIFIED&#x60; once the counterparty&#39;s transfer is observed and confirmed on chain. If the challenge is not matched within 180 minutes, the status becomes &#x60;EXPIRED&#x60;. 
+     * @param challengeId The Satoshi Test challenge ID returned by the &#x60;prepare&#x60; or &#x60;submit&#x60; operation. (required)
+     * @return SatoshiTestChallenge
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The Satoshi Test challenge information (after submit or for status polling). </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public SatoshiTestChallenge getSatoshiTestChallenge(UUID challengeId) throws ApiException {
+        ApiResponse<SatoshiTestChallenge> localVarResp = getSatoshiTestChallengeWithHttpInfo(challengeId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Satoshi Test challenge
+     * This operation returns the current state of a Satoshi Test challenge — useful for polling after submission. The response contains the challenge &#x60;status&#x60; and &#x60;remaining_seconds&#x60;.  Recommended polling interval: 10–30 seconds. The challenge will transition through &#x60;PENDING&#x60; → &#x60;MATCHED&#x60; → &#x60;VERIFIED&#x60; once the counterparty&#39;s transfer is observed and confirmed on chain. If the challenge is not matched within 180 minutes, the status becomes &#x60;EXPIRED&#x60;. 
+     * @param challengeId The Satoshi Test challenge ID returned by the &#x60;prepare&#x60; or &#x60;submit&#x60; operation. (required)
+     * @return ApiResponse&lt;SatoshiTestChallenge&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The Satoshi Test challenge information (after submit or for status polling). </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SatoshiTestChallenge> getSatoshiTestChallengeWithHttpInfo(UUID challengeId) throws ApiException {
+        okhttp3.Call localVarCall = getSatoshiTestChallengeValidateBeforeCall(challengeId, null);
+        Type localVarReturnType = new TypeToken<SatoshiTestChallenge>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Satoshi Test challenge (asynchronously)
+     * This operation returns the current state of a Satoshi Test challenge — useful for polling after submission. The response contains the challenge &#x60;status&#x60; and &#x60;remaining_seconds&#x60;.  Recommended polling interval: 10–30 seconds. The challenge will transition through &#x60;PENDING&#x60; → &#x60;MATCHED&#x60; → &#x60;VERIFIED&#x60; once the counterparty&#39;s transfer is observed and confirmed on chain. If the challenge is not matched within 180 minutes, the status becomes &#x60;EXPIRED&#x60;. 
+     * @param challengeId The Satoshi Test challenge ID returned by the &#x60;prepare&#x60; or &#x60;submit&#x60; operation. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The Satoshi Test challenge information (after submit or for status polling). </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSatoshiTestChallengeAsync(UUID challengeId, final ApiCallback<SatoshiTestChallenge> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSatoshiTestChallengeValidateBeforeCall(challengeId, _callback);
+        Type localVarReturnType = new TypeToken<SatoshiTestChallenge>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSignatureChallenge
+     * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
+     * @param transactionId The transaction ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The signature challenge was issued successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSignatureChallengeCall(String transactionType, UUID transactionId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/travel_rule/signature_challenge";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (transactionType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("transaction_type", transactionType));
+        }
+
+        if (transactionId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("transaction_id", transactionId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSignatureChallengeValidateBeforeCall(String transactionType, UUID transactionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'transactionType' is set
+        if (transactionType == null) {
+            throw new ApiException("Missing the required parameter 'transactionType' when calling getSignatureChallenge(Async)");
+        }
+
+        // verify the required parameter 'transactionId' is set
+        if (transactionId == null) {
+            throw new ApiException("Missing the required parameter 'transactionId' when calling getSignatureChallenge(Async)");
+        }
+
+        return getSignatureChallengeCall(transactionType, transactionId, _callback);
+
+    }
+
+    /**
+     * Get self-custody signature challenge
+     * This operation issues a one-time, time-bounded message for a self-custody wallet address to sign, in order to prove wallet ownership. The signature is then submitted via [Submit Travel Rule information for deposits](#operation/submit_deposit_travel_rule_info) or [withdrawals](#operation/submit_withdraw_travel_rule_info).  Use this endpoint when you want to verify the counterparty&#39;s self-custody address via off-chain signature. For address verification via on-chain micro-deposit, use the Satoshi Test endpoints (&#x60;/travel_rule/satoshi_test/...&#x60;) instead.  The challenge is valid for a short window (returned as &#x60;expires_in&#x60;, currently 30 seconds). Calling this endpoint again for the same transaction rotates the challenge — only the latest issued value will verify. 
+     * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
+     * @param transactionId The transaction ID. (required)
+     * @return SignatureChallenge
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The signature challenge was issued successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public SignatureChallenge getSignatureChallenge(String transactionType, UUID transactionId) throws ApiException {
+        ApiResponse<SignatureChallenge> localVarResp = getSignatureChallengeWithHttpInfo(transactionType, transactionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get self-custody signature challenge
+     * This operation issues a one-time, time-bounded message for a self-custody wallet address to sign, in order to prove wallet ownership. The signature is then submitted via [Submit Travel Rule information for deposits](#operation/submit_deposit_travel_rule_info) or [withdrawals](#operation/submit_withdraw_travel_rule_info).  Use this endpoint when you want to verify the counterparty&#39;s self-custody address via off-chain signature. For address verification via on-chain micro-deposit, use the Satoshi Test endpoints (&#x60;/travel_rule/satoshi_test/...&#x60;) instead.  The challenge is valid for a short window (returned as &#x60;expires_in&#x60;, currently 30 seconds). Calling this endpoint again for the same transaction rotates the challenge — only the latest issued value will verify. 
+     * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
+     * @param transactionId The transaction ID. (required)
+     * @return ApiResponse&lt;SignatureChallenge&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The signature challenge was issued successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SignatureChallenge> getSignatureChallengeWithHttpInfo(String transactionType, UUID transactionId) throws ApiException {
+        okhttp3.Call localVarCall = getSignatureChallengeValidateBeforeCall(transactionType, transactionId, null);
+        Type localVarReturnType = new TypeToken<SignatureChallenge>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get self-custody signature challenge (asynchronously)
+     * This operation issues a one-time, time-bounded message for a self-custody wallet address to sign, in order to prove wallet ownership. The signature is then submitted via [Submit Travel Rule information for deposits](#operation/submit_deposit_travel_rule_info) or [withdrawals](#operation/submit_withdraw_travel_rule_info).  Use this endpoint when you want to verify the counterparty&#39;s self-custody address via off-chain signature. For address verification via on-chain micro-deposit, use the Satoshi Test endpoints (&#x60;/travel_rule/satoshi_test/...&#x60;) instead.  The challenge is valid for a short window (returned as &#x60;expires_in&#x60;, currently 30 seconds). Calling this endpoint again for the same transaction rotates the challenge — only the latest issued value will verify. 
+     * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
+     * @param transactionId The transaction ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The signature challenge was issued successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSignatureChallengeAsync(String transactionType, UUID transactionId, final ApiCallback<SignatureChallenge> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSignatureChallengeValidateBeforeCall(transactionType, transactionId, _callback);
+        Type localVarReturnType = new TypeToken<SignatureChallenge>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for getTransactionLimitation
      * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
@@ -130,7 +737,7 @@ public class TravelRuleApi {
 
     /**
      * Retrieve transaction limitations
-     * This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
+     * &lt;Note&gt;The &#x60;self_custody_wallet_challenge&#x60; field in the response is deprecated. To obtain a signature challenge, call [Get self-custody signature challenge](#operation/get_signature_challenge) instead. This operation itself is not deprecated and continues to return the VASP list, threshold info, connect wallet list, and Satoshi Test support.&lt;/Note&gt;  This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
      * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
      * @param transactionId The transaction ID. (required)
      * @return GetTransactionLimitation200Response
@@ -150,7 +757,7 @@ public class TravelRuleApi {
 
     /**
      * Retrieve transaction limitations
-     * This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
+     * &lt;Note&gt;The &#x60;self_custody_wallet_challenge&#x60; field in the response is deprecated. To obtain a signature challenge, call [Get self-custody signature challenge](#operation/get_signature_challenge) instead. This operation itself is not deprecated and continues to return the VASP list, threshold info, connect wallet list, and Satoshi Test support.&lt;/Note&gt;  This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
      * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
      * @param transactionId The transaction ID. (required)
      * @return ApiResponse&lt;GetTransactionLimitation200Response&gt;
@@ -171,7 +778,7 @@ public class TravelRuleApi {
 
     /**
      * Retrieve transaction limitations (asynchronously)
-     * This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
+     * &lt;Note&gt;The &#x60;self_custody_wallet_challenge&#x60; field in the response is deprecated. To obtain a signature challenge, call [Get self-custody signature challenge](#operation/get_signature_challenge) instead. This operation itself is not deprecated and continues to return the VASP list, threshold info, connect wallet list, and Satoshi Test support.&lt;/Note&gt;  This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
      * @param transactionType The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  (required)
      * @param transactionId The transaction ID. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -189,6 +796,162 @@ public class TravelRuleApi {
 
         okhttp3.Call localVarCall = getTransactionLimitationValidateBeforeCall(transactionType, transactionId, _callback);
         Type localVarReturnType = new TypeToken<GetTransactionLimitation200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listAddressVerifications
+     * @param status Filter by verification status. Allowed values: - &#x60;PENDING&#x60;: A Satoshi Test challenge is in progress (countdown active or awaiting confirmation). - &#x60;VERIFIED&#x60;: The address ownership has been confirmed (by signature or by a matched Satoshi Test transfer). - &#x60;FAILED&#x60;: The verification attempt did not succeed (Satoshi Test expired without match, or signature verification rejected).  Omit this parameter to return records of all three statuses.  (optional)
+     * @param chainId Filter by chain ID (e.g. &#x60;BTC&#x60;, &#x60;ETH&#x60;, &#x60;BASE_ETH&#x60;, &#x60;BSC_BNB&#x60;, &#x60;TRON&#x60;). (optional)
+     * @param address Filter by counterparty (self-custody) wallet address. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Paginated list of address verification records. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAddressVerificationsCall(AddressVerificationStatus status, String chainId, String address, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/travel_rule/address_verifications";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (chainId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("chain_id", chainId));
+        }
+
+        if (address != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("address", address));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAddressVerificationsValidateBeforeCall(AddressVerificationStatus status, String chainId, String address, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+        return listAddressVerificationsCall(status, chainId, address, limit, before, after, _callback);
+
+    }
+
+    /**
+     * List address verifications
+     * List self-custody address verification records under the current organization with optional filters and cursor-based pagination.  Records are sorted by creation time descending (most recent first). Use &#x60;limit&#x60; plus &#x60;before&#x60; / &#x60;after&#x60; cursors from the previous page&#39;s &#x60;pagination&#x60; block to traverse pages.  Each record&#39;s &#x60;status&#x60; is one of &#x60;PENDING&#x60;, &#x60;VERIFIED&#x60;, or &#x60;FAILED&#x60;. 
+     * @param status Filter by verification status. Allowed values: - &#x60;PENDING&#x60;: A Satoshi Test challenge is in progress (countdown active or awaiting confirmation). - &#x60;VERIFIED&#x60;: The address ownership has been confirmed (by signature or by a matched Satoshi Test transfer). - &#x60;FAILED&#x60;: The verification attempt did not succeed (Satoshi Test expired without match, or signature verification rejected).  Omit this parameter to return records of all three statuses.  (optional)
+     * @param chainId Filter by chain ID (e.g. &#x60;BTC&#x60;, &#x60;ETH&#x60;, &#x60;BASE_ETH&#x60;, &#x60;BSC_BNB&#x60;, &#x60;TRON&#x60;). (optional)
+     * @param address Filter by counterparty (self-custody) wallet address. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @return ListAddressVerifications200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Paginated list of address verification records. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListAddressVerifications200Response listAddressVerifications(AddressVerificationStatus status, String chainId, String address, Integer limit, String before, String after) throws ApiException {
+        ApiResponse<ListAddressVerifications200Response> localVarResp = listAddressVerificationsWithHttpInfo(status, chainId, address, limit, before, after);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List address verifications
+     * List self-custody address verification records under the current organization with optional filters and cursor-based pagination.  Records are sorted by creation time descending (most recent first). Use &#x60;limit&#x60; plus &#x60;before&#x60; / &#x60;after&#x60; cursors from the previous page&#39;s &#x60;pagination&#x60; block to traverse pages.  Each record&#39;s &#x60;status&#x60; is one of &#x60;PENDING&#x60;, &#x60;VERIFIED&#x60;, or &#x60;FAILED&#x60;. 
+     * @param status Filter by verification status. Allowed values: - &#x60;PENDING&#x60;: A Satoshi Test challenge is in progress (countdown active or awaiting confirmation). - &#x60;VERIFIED&#x60;: The address ownership has been confirmed (by signature or by a matched Satoshi Test transfer). - &#x60;FAILED&#x60;: The verification attempt did not succeed (Satoshi Test expired without match, or signature verification rejected).  Omit this parameter to return records of all three statuses.  (optional)
+     * @param chainId Filter by chain ID (e.g. &#x60;BTC&#x60;, &#x60;ETH&#x60;, &#x60;BASE_ETH&#x60;, &#x60;BSC_BNB&#x60;, &#x60;TRON&#x60;). (optional)
+     * @param address Filter by counterparty (self-custody) wallet address. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @return ApiResponse&lt;ListAddressVerifications200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Paginated list of address verification records. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListAddressVerifications200Response> listAddressVerificationsWithHttpInfo(AddressVerificationStatus status, String chainId, String address, Integer limit, String before, String after) throws ApiException {
+        okhttp3.Call localVarCall = listAddressVerificationsValidateBeforeCall(status, chainId, address, limit, before, after, null);
+        Type localVarReturnType = new TypeToken<ListAddressVerifications200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List address verifications (asynchronously)
+     * List self-custody address verification records under the current organization with optional filters and cursor-based pagination.  Records are sorted by creation time descending (most recent first). Use &#x60;limit&#x60; plus &#x60;before&#x60; / &#x60;after&#x60; cursors from the previous page&#39;s &#x60;pagination&#x60; block to traverse pages.  Each record&#39;s &#x60;status&#x60; is one of &#x60;PENDING&#x60;, &#x60;VERIFIED&#x60;, or &#x60;FAILED&#x60;. 
+     * @param status Filter by verification status. Allowed values: - &#x60;PENDING&#x60;: A Satoshi Test challenge is in progress (countdown active or awaiting confirmation). - &#x60;VERIFIED&#x60;: The address ownership has been confirmed (by signature or by a matched Satoshi Test transfer). - &#x60;FAILED&#x60;: The verification attempt did not succeed (Satoshi Test expired without match, or signature verification rejected).  Omit this parameter to return records of all three statuses.  (optional)
+     * @param chainId Filter by chain ID (e.g. &#x60;BTC&#x60;, &#x60;ETH&#x60;, &#x60;BASE_ETH&#x60;, &#x60;BSC_BNB&#x60;, &#x60;TRON&#x60;). (optional)
+     * @param address Filter by counterparty (self-custody) wallet address. (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Paginated list of address verification records. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAddressVerificationsAsync(AddressVerificationStatus status, String chainId, String address, Integer limit, String before, String after, final ApiCallback<ListAddressVerifications200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listAddressVerificationsValidateBeforeCall(status, chainId, address, limit, before, after, _callback);
+        Type localVarReturnType = new TypeToken<ListAddressVerifications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

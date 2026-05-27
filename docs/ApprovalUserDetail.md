@@ -16,6 +16,7 @@ Details about a user involved in a transaction approval workflow.
 |**result** | **ApprovalResult** |  |  [optional] |
 |**approvalResultCode** | **Integer** | Integer value representing the result of the approval. |  [optional] |
 |**createdTime** | **Integer** | Timestamp when the approval was created. |  [optional] |
+|**expiredTime** | **Integer** | The timestamp when the approval was expired. |  [optional] |
 |**templateVersion** | **String** | Version of the template used for the transaction approval. |  [optional] |
 |**headerTitle** | **String** | Display title used in the transaction approval. |  [optional] |
 |**isForSign** | **Boolean** | Indicates whether this approval requires signing: - &#x60;true&#x60;: The user must sign the transaction. - &#x60;false&#x60;: The user only needs to approve or reject without signing.  |  [optional] |

@@ -70,4 +70,12 @@ public class GetTransactionLimitation200ResponseTest {
         // TODO: test connectWalletList
     }
 
+    /**
+     * Test the property 'satoshiTestSupported'
+     */
+    @Test
+    public void satoshiTestSupportedTest() {
+        // TODO: test satoshiTestSupported
+    }
+
 }

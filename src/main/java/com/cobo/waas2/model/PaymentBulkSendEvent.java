@@ -150,6 +150,10 @@ public class PaymentBulkSendEvent {
   @SerializedName(SERIALIZED_NAME_BULK_SEND_ID)
   private String bulkSendId;
 
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public static final String SERIALIZED_NAME_SOURCE_ACCOUNT = "source_account";
   @SerializedName(SERIALIZED_NAME_SOURCE_ACCOUNT)
   private String sourceAccount;
@@ -212,6 +216,25 @@ public class PaymentBulkSendEvent {
 
   public void setBulkSendId(String bulkSendId) {
     this.bulkSendId = bulkSendId;
+  }
+
+
+  public PaymentBulkSendEvent requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
 
@@ -385,6 +408,7 @@ public class PaymentBulkSendEvent {
     PaymentBulkSendEvent paymentBulkSendEvent = (PaymentBulkSendEvent) o;
     return Objects.equals(this.dataType, paymentBulkSendEvent.dataType) &&
         Objects.equals(this.bulkSendId, paymentBulkSendEvent.bulkSendId) &&
+        Objects.equals(this.requestId, paymentBulkSendEvent.requestId) &&
         Objects.equals(this.sourceAccount, paymentBulkSendEvent.sourceAccount) &&
         Objects.equals(this.description, paymentBulkSendEvent.description) &&
         Objects.equals(this.executionMode, paymentBulkSendEvent.executionMode) &&
@@ -396,7 +420,7 @@ public class PaymentBulkSendEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, bulkSendId, sourceAccount, description, executionMode, status, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(dataType, bulkSendId, requestId, sourceAccount, description, executionMode, status, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -405,6 +429,7 @@ public class PaymentBulkSendEvent {
     sb.append("class PaymentBulkSendEvent {\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    bulkSendId: ").append(toIndentedString(bulkSendId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    sourceAccount: ").append(toIndentedString(sourceAccount)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    executionMode: ").append(toIndentedString(executionMode)).append("\n");
@@ -436,6 +461,7 @@ public class PaymentBulkSendEvent {
     openapiFields = new HashSet<String>();
     openapiFields.add("data_type");
     openapiFields.add("bulk_send_id");
+    openapiFields.add("request_id");
     openapiFields.add("source_account");
     openapiFields.add("description");
     openapiFields.add("execution_mode");
@@ -481,6 +507,9 @@ public class PaymentBulkSendEvent {
       DataTypeEnum.validateJsonElement(jsonObj.get("data_type"));
       if (!jsonObj.get("bulk_send_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bulk_send_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bulk_send_id").toString()));
+      }
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
       if (!jsonObj.get("source_account").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `source_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source_account").toString()));

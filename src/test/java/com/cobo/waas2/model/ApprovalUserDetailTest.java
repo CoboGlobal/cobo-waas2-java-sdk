@@ -102,6 +102,14 @@ public class ApprovalUserDetailTest {
     }
 
     /**
+     * Test the property 'expiredTime'
+     */
+    @Test
+    public void expiredTimeTest() {
+        // TODO: test expiredTime
+    }
+
+    /**
      * Test the property 'templateVersion'
      */
     @Test
