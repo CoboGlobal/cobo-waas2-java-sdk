@@ -288,7 +288,7 @@ public class PaymentPayout {
   }
 
    /**
-   * The commission fees of the payout.
+   * The commission fees. Not returned when no fee has been incurred, the actual charged amounts once incurred, or &#x60;0&#x60; if refunded.
    * @return commissionFees
   **/
   @javax.annotation.Nullable

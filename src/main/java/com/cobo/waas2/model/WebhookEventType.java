@@ -48,11 +48,19 @@ public enum WebhookEventType {
   
   WALLETS_CREATED("wallets.created"),
   
+  WALLETS_UPDATED("wallets.updated"),
+  
   WALLETS_TOKEN_LISTING_FAILED("wallets.token_listing.failed"),
   
   WALLETS_TOKEN_LISTING_SUCCEEDED("wallets.token_listing.succeeded"),
   
   MPC_VAULTS_CREATED("mpc_vaults.created"),
+  
+  MPC_VAULTS_UPDATED("mpc_vaults.updated"),
+  
+  MPC_VAULTS_DELETED("mpc_vaults.deleted"),
+  
+  ORGANIZATIONS_UPDATED("organizations.updated"),
   
   FEE_STATION_TRANSACTION_CREATED("fee_station.transaction.created"),
   
