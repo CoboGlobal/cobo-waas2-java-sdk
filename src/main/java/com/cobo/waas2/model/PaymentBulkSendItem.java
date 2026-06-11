@@ -74,6 +74,10 @@ public class PaymentBulkSendItem {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_TX_HASH = "tx_hash";
+  @SerializedName(SERIALIZED_NAME_TX_HASH)
+  private String txHash;
+
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private PaymentBulkSendItemStatus status;
@@ -180,6 +184,25 @@ public class PaymentBulkSendItem {
   }
 
 
+  public PaymentBulkSendItem txHash(String txHash) {
+    this.txHash = txHash;
+    return this;
+  }
+
+   /**
+   * The transaction hash of the bulk send item.
+   * @return txHash
+  **/
+  @javax.annotation.Nullable
+  public String getTxHash() {
+    return txHash;
+  }
+
+  public void setTxHash(String txHash) {
+    this.txHash = txHash;
+  }
+
+
   public PaymentBulkSendItem status(PaymentBulkSendItemStatus status) {
     this.status = status;
     return this;
@@ -277,6 +300,7 @@ public class PaymentBulkSendItem {
         Objects.equals(this.receivingAddress, paymentBulkSendItem.receivingAddress) &&
         Objects.equals(this.amount, paymentBulkSendItem.amount) &&
         Objects.equals(this.description, paymentBulkSendItem.description) &&
+        Objects.equals(this.txHash, paymentBulkSendItem.txHash) &&
         Objects.equals(this.status, paymentBulkSendItem.status) &&
         Objects.equals(this.validationStatus, paymentBulkSendItem.validationStatus)&&
         Objects.equals(this.additionalProperties, paymentBulkSendItem.additionalProperties);
@@ -284,7 +308,7 @@ public class PaymentBulkSendItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bulkSendItemId, tokenId, receivingAddress, amount, description, status, validationStatus, additionalProperties);
+    return Objects.hash(bulkSendItemId, tokenId, receivingAddress, amount, description, txHash, status, validationStatus, additionalProperties);
   }
 
   @Override
@@ -296,6 +320,7 @@ public class PaymentBulkSendItem {
     sb.append("    receivingAddress: ").append(toIndentedString(receivingAddress)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    txHash: ").append(toIndentedString(txHash)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    validationStatus: ").append(toIndentedString(validationStatus)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -326,6 +351,7 @@ public class PaymentBulkSendItem {
     openapiFields.add("receiving_address");
     openapiFields.add("amount");
     openapiFields.add("description");
+    openapiFields.add("tx_hash");
     openapiFields.add("status");
     openapiFields.add("validation_status");
 
@@ -373,6 +399,9 @@ public class PaymentBulkSendItem {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("tx_hash") != null && !jsonObj.get("tx_hash").isJsonNull()) && !jsonObj.get("tx_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tx_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tx_hash").toString()));
       }
       // validate the required field `status`
       PaymentBulkSendItemStatus.validateJsonElement(jsonObj.get("status"));

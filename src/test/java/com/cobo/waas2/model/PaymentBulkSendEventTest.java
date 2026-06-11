@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
 import com.cobo.waas2.model.PaymentBulkSendStatus;
 import com.google.gson.TypeAdapter;
@@ -107,6 +108,14 @@ public class PaymentBulkSendEventTest {
     @Test
     public void updatedTimestampTest() {
         // TODO: test updatedTimestamp
+    }
+
+    /**
+     * Test the property 'commissionFee'
+     */
+    @Test
+    public void commissionFeeTest() {
+        // TODO: test commissionFee
     }
 
 }

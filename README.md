@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.36.0</version>
+  <version>1.37.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.36.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.37.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.36.0.jar`
+* `target/cobo-waas2-1.37.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -295,6 +295,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**getSettlementInfoByIds**](docs/PaymentApi.md#getSettlementInfoByIds) | **GET** /payments/settlement_info | Get withdrawable balances
 *PaymentApi* | [**getTopUpAddress**](docs/PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Create/Get top-up address
 *PaymentApi* | [**listAllocationItems**](docs/PaymentApi.md#listAllocationItems) | **GET** /payments/allocation_items | List all allocation items
+*PaymentApi* | [**listBalanceChanges**](docs/PaymentApi.md#listBalanceChanges) | **GET** /payments/balance_changes | List balance changes
 *PaymentApi* | [**listBatchAllocations**](docs/PaymentApi.md#listBatchAllocations) | **GET** /payments/batch_allocations | List all batch allocations
 *PaymentApi* | [**listBulkSendItems**](docs/PaymentApi.md#listBulkSendItems) | **GET** /payments/bulk_sends/{bulk_send_id}/items | List bulk send items
 *PaymentApi* | [**listBulkSends**](docs/PaymentApi.md#listBulkSends) | **GET** /payments/bulk_sends | List bulk sends
@@ -732,6 +733,7 @@ Class | Method | HTTP request | Description
  - [FeeStationTransactionType](docs/FeeStationTransactionType.md)
  - [FeeStationTransfer](docs/FeeStationTransfer.md)
  - [FeeType](docs/FeeType.md)
+ - [FiatTransactionEventData](docs/FiatTransactionEventData.md)
  - [FixedFeeRate](docs/FixedFeeRate.md)
  - [ForcedSweep](docs/ForcedSweep.md)
  - [ForcedSweepRequest](docs/ForcedSweepRequest.md)
@@ -872,12 +874,17 @@ Class | Method | HTTP request | Description
  - [OrderLinkBusinessInfoPayableAmountsInner](docs/OrderLinkBusinessInfoPayableAmountsInner.md)
  - [OrderStatus](docs/OrderStatus.md)
  - [OrgInfo](docs/OrgInfo.md)
+ - [OrganizationEventData](docs/OrganizationEventData.md)
  - [OriginalMainGroupHandling](docs/OriginalMainGroupHandling.md)
  - [OtcFee](docs/OtcFee.md)
  - [Pagination](docs/Pagination.md)
  - [PayerAccount](docs/PayerAccount.md)
  - [PaymentAddressUpdateEventData](docs/PaymentAddressUpdateEventData.md)
  - [PaymentAllocationAmount](docs/PaymentAllocationAmount.md)
+ - [PaymentBalanceChange](docs/PaymentBalanceChange.md)
+ - [PaymentBalanceChangeResponse](docs/PaymentBalanceChangeResponse.md)
+ - [PaymentBalanceChangeSourceType](docs/PaymentBalanceChangeSourceType.md)
+ - [PaymentBalanceFlowDirection](docs/PaymentBalanceFlowDirection.md)
  - [PaymentBridgeStatus](docs/PaymentBridgeStatus.md)
  - [PaymentBulkSend](docs/PaymentBulkSend.md)
  - [PaymentBulkSendEvent](docs/PaymentBulkSendEvent.md)

@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
 import com.cobo.waas2.model.PaymentBulkSendStatus;
 import com.google.gson.TypeAdapter;
@@ -85,6 +86,10 @@ public class PaymentBulkSend {
   public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
   @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
   private Integer updatedTimestamp;
+
+  public static final String SERIALIZED_NAME_COMMISSION_FEE = "commission_fee";
+  @SerializedName(SERIALIZED_NAME_COMMISSION_FEE)
+  private CommissionFee commissionFee;
 
   public PaymentBulkSend() {
   }
@@ -240,6 +245,25 @@ public class PaymentBulkSend {
     this.updatedTimestamp = updatedTimestamp;
   }
 
+
+  public PaymentBulkSend commissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+    return this;
+  }
+
+   /**
+   * The commission fee. Not returned when no fee has been incurred, the actual charged amount once incurred, or &#x60;0&#x60; if refunded.
+   * @return commissionFee
+  **/
+  @javax.annotation.Nullable
+  public CommissionFee getCommissionFee() {
+    return commissionFee;
+  }
+
+  public void setCommissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -302,13 +326,14 @@ public class PaymentBulkSend {
         Objects.equals(this.executionMode, paymentBulkSend.executionMode) &&
         Objects.equals(this.status, paymentBulkSend.status) &&
         Objects.equals(this.createdTimestamp, paymentBulkSend.createdTimestamp) &&
-        Objects.equals(this.updatedTimestamp, paymentBulkSend.updatedTimestamp)&&
+        Objects.equals(this.updatedTimestamp, paymentBulkSend.updatedTimestamp) &&
+        Objects.equals(this.commissionFee, paymentBulkSend.commissionFee)&&
         Objects.equals(this.additionalProperties, paymentBulkSend.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bulkSendId, requestId, sourceAccount, description, executionMode, status, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(bulkSendId, requestId, sourceAccount, description, executionMode, status, createdTimestamp, updatedTimestamp, commissionFee, additionalProperties);
   }
 
   @Override
@@ -323,6 +348,7 @@ public class PaymentBulkSend {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
+    sb.append("    commissionFee: ").append(toIndentedString(commissionFee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -354,6 +380,7 @@ public class PaymentBulkSend {
     openapiFields.add("status");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
+    openapiFields.add("commission_fee");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -401,6 +428,10 @@ public class PaymentBulkSend {
       PaymentBulkSendExecutionMode.validateJsonElement(jsonObj.get("execution_mode"));
       // validate the required field `status`
       PaymentBulkSendStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the optional field `commission_fee`
+      if (jsonObj.get("commission_fee") != null && !jsonObj.get("commission_fee").isJsonNull()) {
+        CommissionFee.validateJsonElement(jsonObj.get("commission_fee"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

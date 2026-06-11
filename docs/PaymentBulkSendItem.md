@@ -12,6 +12,7 @@
 |**receivingAddress** | **String** | The receiving address. |  |
 |**amount** | **String** | The amount of the cryptocurrency to be sent to the recipient. |  |
 |**description** | **String** | A note or comment about the bulk send item. |  [optional] |
+|**txHash** | **String** | The transaction hash of the bulk send item. |  [optional] |
 |**status** | **PaymentBulkSendItemStatus** |  |  |
 |**validationStatus** | **PaymentBulkSendItemValidationStatus** |  |  |
 

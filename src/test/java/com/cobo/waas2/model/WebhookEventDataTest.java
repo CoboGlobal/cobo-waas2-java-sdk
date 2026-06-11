@@ -25,10 +25,11 @@ import com.cobo.waas2.model.ComplianceKyaScreeningsUpdateEventData;
 import com.cobo.waas2.model.ComplianceKytScreeningsUpdateEventData;
 import com.cobo.waas2.model.DispositionStatus;
 import com.cobo.waas2.model.DispositionType;
+import com.cobo.waas2.model.FeeStationFiatTransactionType;
+import com.cobo.waas2.model.FiatTransactionEventData;
 import com.cobo.waas2.model.FundsStatusType;
-import com.cobo.waas2.model.KyaScreeningStatus;
-import com.cobo.waas2.model.KytScreeningsTransactionType;
 import com.cobo.waas2.model.MPCVaultEventData;
+import com.cobo.waas2.model.OrganizationEventData;
 import com.cobo.waas2.model.PaymentAddressUpdateEventData;
 import com.cobo.waas2.model.PaymentBulkSendEvent;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
@@ -967,6 +968,38 @@ public class WebhookEventDataTest {
     @Test
     public void screeningIdTest() {
         // TODO: test screeningId
+    }
+
+    /**
+     * Test the property 'orgId'
+     */
+    @Test
+    public void orgIdTest() {
+        // TODO: test orgId
+    }
+
+    /**
+     * Test the property 'mainTransactionId'
+     */
+    @Test
+    public void mainTransactionIdTest() {
+        // TODO: test mainTransactionId
+    }
+
+    /**
+     * Test the property 'fiatCurrency'
+     */
+    @Test
+    public void fiatCurrencyTest() {
+        // TODO: test fiatCurrency
+    }
+
+    /**
+     * Test the property 'modifiedTimestamp'
+     */
+    @Test
+    public void modifiedTimestampTest() {
+        // TODO: test modifiedTimestamp
     }
 
 }

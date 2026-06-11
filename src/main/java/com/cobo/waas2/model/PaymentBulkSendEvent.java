@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
 import com.cobo.waas2.model.PaymentBulkSendStatus;
 import com.google.gson.TypeAdapter;
@@ -55,7 +56,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentBulkSendEvent {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -97,7 +98,11 @@ public class PaymentBulkSendEvent {
     
     COMPLIANCEKYTSCREENINGS("ComplianceKytScreenings"),
     
-    COMPLIANCEKYASCREENINGS("ComplianceKyaScreenings");
+    COMPLIANCEKYASCREENINGS("ComplianceKyaScreenings"),
+    
+    ORGANIZATION("Organization"),
+    
+    FIATTRANSACTION("FiatTransaction");
 
     private String value;
 
@@ -178,6 +183,10 @@ public class PaymentBulkSendEvent {
   @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
   private Integer updatedTimestamp;
 
+  public static final String SERIALIZED_NAME_COMMISSION_FEE = "commission_fee";
+  @SerializedName(SERIALIZED_NAME_COMMISSION_FEE)
+  private CommissionFee commissionFee;
+
   public PaymentBulkSendEvent() {
   }
 
@@ -187,7 +196,7 @@ public class PaymentBulkSendEvent {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -351,6 +360,25 @@ public class PaymentBulkSendEvent {
     this.updatedTimestamp = updatedTimestamp;
   }
 
+
+  public PaymentBulkSendEvent commissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+    return this;
+  }
+
+   /**
+   * The commission fee. Not returned when no fee has been incurred, the actual charged amount once incurred, or &#x60;0&#x60; if refunded.
+   * @return commissionFee
+  **/
+  @javax.annotation.Nullable
+  public CommissionFee getCommissionFee() {
+    return commissionFee;
+  }
+
+  public void setCommissionFee(CommissionFee commissionFee) {
+    this.commissionFee = commissionFee;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -414,13 +442,14 @@ public class PaymentBulkSendEvent {
         Objects.equals(this.executionMode, paymentBulkSendEvent.executionMode) &&
         Objects.equals(this.status, paymentBulkSendEvent.status) &&
         Objects.equals(this.createdTimestamp, paymentBulkSendEvent.createdTimestamp) &&
-        Objects.equals(this.updatedTimestamp, paymentBulkSendEvent.updatedTimestamp)&&
+        Objects.equals(this.updatedTimestamp, paymentBulkSendEvent.updatedTimestamp) &&
+        Objects.equals(this.commissionFee, paymentBulkSendEvent.commissionFee)&&
         Objects.equals(this.additionalProperties, paymentBulkSendEvent.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, bulkSendId, requestId, sourceAccount, description, executionMode, status, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(dataType, bulkSendId, requestId, sourceAccount, description, executionMode, status, createdTimestamp, updatedTimestamp, commissionFee, additionalProperties);
   }
 
   @Override
@@ -436,6 +465,7 @@ public class PaymentBulkSendEvent {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
+    sb.append("    commissionFee: ").append(toIndentedString(commissionFee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -468,6 +498,7 @@ public class PaymentBulkSendEvent {
     openapiFields.add("status");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
+    openapiFields.add("commission_fee");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -521,6 +552,10 @@ public class PaymentBulkSendEvent {
       PaymentBulkSendExecutionMode.validateJsonElement(jsonObj.get("execution_mode"));
       // validate the required field `status`
       PaymentBulkSendStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the optional field `commission_fee`
+      if (jsonObj.get("commission_fee") != null && !jsonObj.get("commission_fee").isJsonNull()) {
+        CommissionFee.validateJsonElement(jsonObj.get("commission_fee"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

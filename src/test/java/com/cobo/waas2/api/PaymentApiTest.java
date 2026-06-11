@@ -83,6 +83,9 @@ import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
 import com.cobo.waas2.model.Order;
 import com.cobo.waas2.model.PaymentAllocationAmount;
+import com.cobo.waas2.model.PaymentBalanceChangeResponse;
+import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
+import com.cobo.waas2.model.PaymentBalanceFlowDirection;
 import com.cobo.waas2.model.PaymentBulkSend;
 import com.cobo.waas2.model.PaymentEstimateFee201Response;
 import com.cobo.waas2.model.PaymentEstimateFeeRequest;
@@ -756,6 +759,29 @@ public class PaymentApiTest {
         String tokenId = null;
         String batchAllocationId = null;
         ListAllocationItems200Response response = api.listAllocationItems(limit, before, after, sourceAccount, destinationAccount, tokenId, batchAllocationId);
+        // TODO: test validations
+    }
+
+    /**
+     * List balance changes
+     *
+     * This operation retrieves balance changes for the specified source account. Each balance change includes the source information, token ID, changed amount, account balances before and after the change, flow direction, and creation time.  You need to specify &#x60;source_account&#x60;. Currently, use &#x60;developer&#x60; as the source account. You can use pagination parameters to control the response size, and filter balance changes by &#x60;token_id&#x60;, &#x60;flow_direction&#x60;, &#x60;min_created_timestamp&#x60;, &#x60;max_created_timestamp&#x60;, &#x60;source_type&#x60;, or &#x60;source_id&#x60;.  &lt;Note&gt;When specifying &#x60;source_id&#x60;, you must also specify &#x60;source_type&#x60;.&lt;/Note&gt;  For more information, see [Cobo Payments Guide](https://www.cobo.com/payments/en/guides/overview). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listBalanceChangesTest() throws ApiException {
+        String sourceAccount = null;
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String tokenId = null;
+        PaymentBalanceFlowDirection flowDirection = null;
+        Long minCreatedTimestamp = null;
+        Long maxCreatedTimestamp = null;
+        PaymentBalanceChangeSourceType sourceType = null;
+        String sourceId = null;
+        PaymentBalanceChangeResponse response = api.listBalanceChanges(sourceAccount, limit, before, after, tokenId, flowDirection, minCreatedTimestamp, maxCreatedTimestamp, sourceType, sourceId);
         // TODO: test validations
     }
 

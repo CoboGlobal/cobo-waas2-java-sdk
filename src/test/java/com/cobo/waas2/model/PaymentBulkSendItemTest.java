@@ -78,6 +78,14 @@ public class PaymentBulkSendItemTest {
     }
 
     /**
+     * Test the property 'txHash'
+     */
+    @Test
+    public void txHashTest() {
+        // TODO: test txHash
+    }
+
+    /**
      * Test the property 'status'
      */
     @Test

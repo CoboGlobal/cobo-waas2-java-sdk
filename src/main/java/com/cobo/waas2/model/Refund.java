@@ -470,7 +470,7 @@ public class Refund {
   }
 
    /**
-   * Get commissionFee
+   * The commission fee. Not returned when no fee has been incurred, the actual charged amount once incurred, or &#x60;0&#x60; if refunded.
    * @return commissionFee
   **/
   @javax.annotation.Nullable
