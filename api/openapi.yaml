@@ -26396,6 +26396,7 @@ components:
             template_version: 1.0.0
             header_title: Transaction Approval
             signature: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+            result_token: abc123token
             expired_time: 1610444165
             language: en
             message: Please approve the transaction.
@@ -26414,6 +26415,7 @@ components:
             template_version: 1.0.0
             header_title: Transaction Approval
             signature: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+            result_token: abc123token
             expired_time: 1610444165
             language: en
             message: Please approve the transaction.
@@ -26439,6 +26441,7 @@ components:
             template_version: 1.0.0
             header_title: Transaction Approval
             signature: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+            result_token: abc123token
             expired_time: 1610444165
             language: en
             message: Please approve the transaction.
@@ -26457,6 +26460,7 @@ components:
             template_version: 1.0.0
             header_title: Transaction Approval
             signature: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+            result_token: abc123token
             expired_time: 1610444165
             language: en
             message: Please approve the transaction.
@@ -26482,6 +26486,7 @@ components:
             template_version: 1.0.0
             header_title: Transaction Approval
             signature: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+            result_token: abc123token
             expired_time: 1610444165
             language: en
             message: Please approve the transaction.
@@ -26500,6 +26505,7 @@ components:
             template_version: 1.0.0
             header_title: Transaction Approval
             signature: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+            result_token: abc123token
             expired_time: 1610444165
             language: en
             message: Please approve the transaction.
@@ -26550,6 +26556,7 @@ components:
           template_version: 1.0.0
           header_title: Transaction Approval
           signature: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+          result_token: abc123token
           expired_time: 1610444165
           language: en
           message: Please approve the transaction.
@@ -26568,6 +26575,7 @@ components:
           template_version: 1.0.0
           header_title: Transaction Approval
           signature: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+          result_token: abc123token
           expired_time: 1610444165
           language: en
           message: Please approve the transaction.
@@ -26665,6 +26673,7 @@ components:
         template_version: 1.0.0
         header_title: Transaction Approval
         signature: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+        result_token: abc123token
         expired_time: 1610444165
         language: en
         message: Please approve the transaction.
@@ -26751,6 +26760,13 @@ components:
           description: Any additional message or information related to the transaction
             approval.
           example: Please review the transaction details carefully.
+          type: string
+        result_token:
+          description: |
+            The result token appended to the signing content when verifying signatures.
+            The full signing content is constructed as `{message}||{result_token}`.
+          example: abc123token
+          nullable: true
           type: string
       type: object
     CustodialTransferSource:

@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -171,6 +172,14 @@ public class ApprovalUserDetailTest {
     @Test
     public void extraMessageTest() {
         // TODO: test extraMessage
+    }
+
+    /**
+     * Test the property 'resultToken'
+     */
+    @Test
+    public void resultTokenTest() {
+        // TODO: test resultToken
     }
 
 }
