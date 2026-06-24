@@ -53,7 +53,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentAddressUpdateEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -86,6 +86,8 @@ public class PaymentAddressUpdateEventData {
     PAYMENTPAYOUT("PaymentPayout"),
     
     PAYMENTBULKSEND("PaymentBulkSend"),
+    
+    PAYMENTACCOUNTBALANCEUPDATE("PaymentAccountBalanceUpdate"),
     
     BALANCEUPDATEINFO("BalanceUpdateInfo"),
     
@@ -156,6 +158,10 @@ public class PaymentAddressUpdateEventData {
   @SerializedName(SERIALIZED_NAME_PAYER_ID)
   private String payerId;
 
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
+
   public static final String SERIALIZED_NAME_CHAIN = "chain";
   @SerializedName(SERIALIZED_NAME_CHAIN)
   private String chain;
@@ -177,7 +183,7 @@ public class PaymentAddressUpdateEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -225,6 +231,25 @@ public class PaymentAddressUpdateEventData {
 
   public void setPayerId(String payerId) {
     this.payerId = payerId;
+  }
+
+
+  public PaymentAddressUpdateEventData merchantId(String merchantId) {
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * The merchant ID.
+   * @return merchantId
+  **/
+  @javax.annotation.Nullable
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
   }
 
 
@@ -342,6 +367,7 @@ public class PaymentAddressUpdateEventData {
     return Objects.equals(this.dataType, paymentAddressUpdateEventData.dataType) &&
         Objects.equals(this.customPayerId, paymentAddressUpdateEventData.customPayerId) &&
         Objects.equals(this.payerId, paymentAddressUpdateEventData.payerId) &&
+        Objects.equals(this.merchantId, paymentAddressUpdateEventData.merchantId) &&
         Objects.equals(this.chain, paymentAddressUpdateEventData.chain) &&
         Objects.equals(this.previousAddress, paymentAddressUpdateEventData.previousAddress) &&
         Objects.equals(this.updatedAddress, paymentAddressUpdateEventData.updatedAddress)&&
@@ -350,7 +376,7 @@ public class PaymentAddressUpdateEventData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, customPayerId, payerId, chain, previousAddress, updatedAddress, additionalProperties);
+    return Objects.hash(dataType, customPayerId, payerId, merchantId, chain, previousAddress, updatedAddress, additionalProperties);
   }
 
   @Override
@@ -360,6 +386,7 @@ public class PaymentAddressUpdateEventData {
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    customPayerId: ").append(toIndentedString(customPayerId)).append("\n");
     sb.append("    payerId: ").append(toIndentedString(payerId)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    chain: ").append(toIndentedString(chain)).append("\n");
     sb.append("    previousAddress: ").append(toIndentedString(previousAddress)).append("\n");
     sb.append("    updatedAddress: ").append(toIndentedString(updatedAddress)).append("\n");
@@ -389,6 +416,7 @@ public class PaymentAddressUpdateEventData {
     openapiFields.add("data_type");
     openapiFields.add("custom_payer_id");
     openapiFields.add("payer_id");
+    openapiFields.add("merchant_id");
     openapiFields.add("chain");
     openapiFields.add("previous_address");
     openapiFields.add("updated_address");
@@ -433,6 +461,9 @@ public class PaymentAddressUpdateEventData {
       }
       if (!jsonObj.get("payer_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payer_id").toString()));
+      }
+      if ((jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()) && !jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
       if (!jsonObj.get("chain").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `chain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chain").toString()));

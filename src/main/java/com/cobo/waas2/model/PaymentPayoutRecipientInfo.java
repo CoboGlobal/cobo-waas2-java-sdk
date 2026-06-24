@@ -139,7 +139,7 @@ public class PaymentPayoutRecipientInfo {
   }
 
    /**
-   * The ID of the bank account to which the payout will be sent. You can retrieve the bank account ID by calling [List destination entries](https://www.cobo.com/payments/en/api-references/payment/list-destination-entries).
+   * The ID of the bank account to which the payout will be sent. This field is required only when the payout channel is &#x60;OffRamp&#x60;. You can retrieve the bank account ID by calling [List destination entries](https://www.cobo.com/payments/en/api-references/payment/list-destination-entries).
    * @return bankAccountId
   **/
   @javax.annotation.Nullable

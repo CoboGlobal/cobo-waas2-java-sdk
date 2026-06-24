@@ -134,7 +134,7 @@ public class CreateBulkSendRequestPayoutParamsInner {
   }
 
    /**
-   * A note or comment about the bulk send item.
+   * A note or comment about the bulk send item. Maximum length: 255 characters.
    * @return description
   **/
   @javax.annotation.Nullable

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data. |  |
+|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data. |  |
 |**transactionId** | **String** | The transaction ID. |  |
 |**coboId** | **String** | The Cobo ID, which can be used to track a transaction. |  [optional] |
 |**requestId** | **String** | The request ID. |  |
@@ -17,7 +17,7 @@
 |**subStatus** | **TransactionSubStatus** |  |  [optional] |
 |**failedReason** | **String** | (This property is applicable to approval failures and signature failures only) The reason why the transaction failed. |  [optional] |
 |**chainId** | **String** | The chain identifier. |  |
-|**tokenId** | **String** | The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). |  |
+|**tokenId** | **String** | The token ID of the balance change. |  |
 |**assetId** | **String** | (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account. |  [optional] |
 |**source** | [**TransactionSource**](TransactionSource.md) |  |  |
 |**destination** | [**TransactionDestination**](TransactionDestination.md) |  |  |
@@ -96,11 +96,13 @@
 |**bankAccount** | [**BankAccount**](BankAccount.md) |  |  [optional] |
 |**payerId** | **String** | A unique identifier assigned by Cobo to track and identify individual payers. |  |
 |**customPayerId** | **String** | A unique identifier assigned by the developer to track and identify individual payers in their system. |  |
+|**subscriptionId** | **String** | A unique identifier assigned by Cobo to track and identify subscription. |  [optional] |
+|**actionId** | **String** | A unique identifier assigned by Cobo to track and identify subscription action. |  [optional] |
 |**chain** | **String** | The chain ID. |  |
 |**previousAddress** | **String** | The previous top-up address that was assigned to the payer. |  |
 |**updatedAddress** | **String** | The new top-up address that has been assigned to the payer. |  |
 |**payoutId** | **String** | The payout ID generated by Cobo. |  |
-|**sourceAccount** | **String** | The source account from which the bulk send will be made. - If the source account is a merchant account, provide the merchant&#39;s ID (e.g., \&quot;M1001\&quot;). - If the source account is the developer account, use the string &#x60;\&quot;developer\&quot;&#x60;.  |  |
+|**sourceAccount** | **String** | The source account of the balance change. This field uses the same semantics as &#x60;source_account&#x60; in [List balance changes](https://www.cobo.com/developers/v2/api-references/payment/list-balance-changes). - When the account is a merchant account, this is the merchant ID (merchant code), which you can retrieve by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). - When the account is the developer account, use &#x60;developer&#x60;.  |  |
 |**payoutItems** | [**List&lt;PaymentPayoutItem&gt;**](PaymentPayoutItem.md) | required |  [optional] |
 |**recipientInfo** | [**PaymentPayoutRecipientInfo**](PaymentPayoutRecipientInfo.md) |  |  [optional] |
 |**actualPayoutAmount** | **String** | - For &#x60;Crypto&#x60; payouts: The amount of cryptocurrency sent to the recipient&#39;s address, denominated in the token specified in &#x60;recipient_info.token_id&#x60;. - For &#x60;OffRamp&#x60; payouts: The amount of fiat currency sent to the recipient&#39;s bank account, denominated in the currency specified in &#x60;recipient_info.currency&#x60;. (Note: The actual amount received may be lower due to additional bank transfer fees.)  |  [optional] |
@@ -108,6 +110,15 @@
 |**remark** | **String** | A note or comment about the payout. |  [optional] |
 |**bulkSendId** | **String** | The bulk send ID. |  |
 |**executionMode** | **PaymentBulkSendExecutionMode** |  |  |
+|**sourceId** | **String** | The source ID of the balance change. |  |
+|**sourceType** | **PaymentBalanceChangeSourceType** |  |  |
+|**amountRaw** | **String** | The balance change amount in the token&#39;s decimal precision, represented as a numeric string. |  |
+|**balanceBefore** | **String** | The account balance before the balance change, truncated to two decimal places and represented as a numeric string. |  |
+|**balanceBeforeRaw** | **String** | The account balance before the balance change in the token&#39;s decimal precision, represented as a numeric string. |  |
+|**balanceAfter** | **String** | The account balance after the balance change, truncated to two decimal places and represented as a numeric string. |  |
+|**balanceAfterRaw** | **String** | The account balance after the balance change in the token&#39;s decimal precision, represented as a numeric string. |  |
+|**flowDirection** | **PaymentBalanceFlowDirection** |  |  |
+|**updateTime** | **Long** | The time when the balance was updated, represented as a UNIX timestamp in seconds. |  |
 |**dispositionType** | **DispositionType** |  |  |
 |**dispositionStatus** | **DispositionStatus** |  |  |
 |**destinationAddress** | **String** | The blockchain address to receive the refunded/isolated funds. |  [optional] |
@@ -142,6 +153,7 @@
 | PAYMENTADDRESSUPDATE | &quot;PaymentAddressUpdate&quot; |
 | PAYMENTPAYOUT | &quot;PaymentPayout&quot; |
 | PAYMENTBULKSEND | &quot;PaymentBulkSend&quot; |
+| PAYMENTACCOUNTBALANCEUPDATE | &quot;PaymentAccountBalanceUpdate&quot; |
 | BALANCEUPDATEINFO | &quot;BalanceUpdateInfo&quot; |
 | SUSPENDEDTOKEN | &quot;SuspendedToken&quot; |
 | COMPLIANCEDISPOSITION | &quot;ComplianceDisposition&quot; |

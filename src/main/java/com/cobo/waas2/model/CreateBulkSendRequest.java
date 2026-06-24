@@ -142,7 +142,7 @@ public class CreateBulkSendRequest {
   }
 
    /**
-   * The description for the entire bulk send batch.
+   * The description for the entire bulk send batch. Maximum length: 255 characters.
    * @return description
   **/
   @javax.annotation.Nullable

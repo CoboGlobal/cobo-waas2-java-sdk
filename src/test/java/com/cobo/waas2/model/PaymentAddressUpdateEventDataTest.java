@@ -60,6 +60,14 @@ public class PaymentAddressUpdateEventDataTest {
     }
 
     /**
+     * Test the property 'merchantId'
+     */
+    @Test
+    public void merchantIdTest() {
+        // TODO: test merchantId
+    }
+
+    /**
      * Test the property 'chain'
      */
     @Test

@@ -12,17 +12,15 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.FeeStationFiatTransactionType;
+import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
+import com.cobo.waas2.model.PaymentBalanceFlowDirection;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,13 +47,13 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * FiatTransactionEventData
+ * This event occurs when the available balance of a Payments account changes for a specific token. The balance change fields are aligned with the &#x60;PaymentBalanceChange&#x60; object returned by
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class FiatTransactionEventData {
+public class PaymentAccountBalanceUpdateEventData {
   /**
    *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
    */
@@ -154,98 +152,58 @@ public class FiatTransactionEventData {
   @SerializedName(SERIALIZED_NAME_DATA_TYPE)
   private DataTypeEnum dataType;
 
-  public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
-  @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
-  private String transactionId;
+  public static final String SERIALIZED_NAME_SOURCE_ACCOUNT = "source_account";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ACCOUNT)
+  private String sourceAccount;
 
-  public static final String SERIALIZED_NAME_MAIN_TRANSACTION_ID = "main_transaction_id";
-  @SerializedName(SERIALIZED_NAME_MAIN_TRANSACTION_ID)
-  private UUID mainTransactionId;
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
 
-  public static final String SERIALIZED_NAME_TRANSACTION_TYPE = "transaction_type";
-  @SerializedName(SERIALIZED_NAME_TRANSACTION_TYPE)
-  private FeeStationFiatTransactionType transactionType;
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+  private PaymentBalanceChangeSourceType sourceType;
+
+  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
+  private String tokenId;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
 
-  public static final String SERIALIZED_NAME_FIAT_CURRENCY = "fiat_currency";
-  @SerializedName(SERIALIZED_NAME_FIAT_CURRENCY)
-  private String fiatCurrency;
+  public static final String SERIALIZED_NAME_AMOUNT_RAW = "amount_raw";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_RAW)
+  private String amountRaw;
 
-  /**
-   * The status of the fiat transaction. Possible values include:   - &#x60;Created&#x60;: The transaction has been created.   - &#x60;Succeeded&#x60;: The transaction has been completed successfully. 
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    CREATED("Created"),
-    
-    SUCCEEDED("Succeeded");
+  public static final String SERIALIZED_NAME_BALANCE_BEFORE = "balance_before";
+  @SerializedName(SERIALIZED_NAME_BALANCE_BEFORE)
+  private String balanceBefore;
 
-    private String value;
+  public static final String SERIALIZED_NAME_BALANCE_BEFORE_RAW = "balance_before_raw";
+  @SerializedName(SERIALIZED_NAME_BALANCE_BEFORE_RAW)
+  private String balanceBeforeRaw;
 
-    StatusEnum(String value) {
-      this.value = value;
-    }
+  public static final String SERIALIZED_NAME_BALANCE_AFTER = "balance_after";
+  @SerializedName(SERIALIZED_NAME_BALANCE_AFTER)
+  private String balanceAfter;
 
-    public String getValue() {
-      return value;
-    }
+  public static final String SERIALIZED_NAME_BALANCE_AFTER_RAW = "balance_after_raw";
+  @SerializedName(SERIALIZED_NAME_BALANCE_AFTER_RAW)
+  private String balanceAfterRaw;
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+  public static final String SERIALIZED_NAME_FLOW_DIRECTION = "flow_direction";
+  @SerializedName(SERIALIZED_NAME_FLOW_DIRECTION)
+  private PaymentBalanceFlowDirection flowDirection;
 
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+  public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
+  @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
+  private Long updateTime;
 
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      StatusEnum.fromValue(value);
-    }
+  public PaymentAccountBalanceUpdateEventData() {
   }
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private StatusEnum status;
-
-  public static final String SERIALIZED_NAME_COBO_CATEGORY = "cobo_category";
-  @SerializedName(SERIALIZED_NAME_COBO_CATEGORY)
-  private List<String> coboCategory = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
-  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
-  private Long createdTimestamp;
-
-  public static final String SERIALIZED_NAME_MODIFIED_TIMESTAMP = "modified_timestamp";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_TIMESTAMP)
-  private Long modifiedTimestamp;
-
-  public FiatTransactionEventData() {
-  }
-
-  public FiatTransactionEventData dataType(DataTypeEnum dataType) {
+  public PaymentAccountBalanceUpdateEventData dataType(DataTypeEnum dataType) {
     this.dataType = dataType;
     return this;
   }
@@ -264,70 +222,89 @@ public class FiatTransactionEventData {
   }
 
 
-  public FiatTransactionEventData transactionId(String transactionId) {
-    this.transactionId = transactionId;
+  public PaymentAccountBalanceUpdateEventData sourceAccount(String sourceAccount) {
+    this.sourceAccount = sourceAccount;
     return this;
   }
 
    /**
-   * The transaction ID.
-   * @return transactionId
+   * The source account of the balance change. This field uses the same semantics as &#x60;source_account&#x60; in [List balance changes](https://www.cobo.com/developers/v2/api-references/payment/list-balance-changes). - When the account is a merchant account, this is the merchant ID (merchant code), which you can retrieve by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). - When the account is the developer account, use &#x60;developer&#x60;. 
+   * @return sourceAccount
   **/
   @javax.annotation.Nonnull
-  public String getTransactionId() {
-    return transactionId;
+  public String getSourceAccount() {
+    return sourceAccount;
   }
 
-  public void setTransactionId(String transactionId) {
-    this.transactionId = transactionId;
+  public void setSourceAccount(String sourceAccount) {
+    this.sourceAccount = sourceAccount;
   }
 
 
-  public FiatTransactionEventData mainTransactionId(UUID mainTransactionId) {
-    this.mainTransactionId = mainTransactionId;
+  public PaymentAccountBalanceUpdateEventData sourceId(String sourceId) {
+    this.sourceId = sourceId;
     return this;
   }
 
    /**
-   * The UUID of the parent (main) transaction that this record is associated with. Set only when the current record is a gas/fee transaction initiated by FeeStation; omit for main transactions.
-   * @return mainTransactionId
-  **/
-  @javax.annotation.Nullable
-  public UUID getMainTransactionId() {
-    return mainTransactionId;
-  }
-
-  public void setMainTransactionId(UUID mainTransactionId) {
-    this.mainTransactionId = mainTransactionId;
-  }
-
-
-  public FiatTransactionEventData transactionType(FeeStationFiatTransactionType transactionType) {
-    this.transactionType = transactionType;
-    return this;
-  }
-
-   /**
-   * Get transactionType
-   * @return transactionType
+   * The source ID of the balance change.
+   * @return sourceId
   **/
   @javax.annotation.Nonnull
-  public FeeStationFiatTransactionType getTransactionType() {
-    return transactionType;
+  public String getSourceId() {
+    return sourceId;
   }
 
-  public void setTransactionType(FeeStationFiatTransactionType transactionType) {
-    this.transactionType = transactionType;
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
   }
 
 
-  public FiatTransactionEventData amount(String amount) {
+  public PaymentAccountBalanceUpdateEventData sourceType(PaymentBalanceChangeSourceType sourceType) {
+    this.sourceType = sourceType;
+    return this;
+  }
+
+   /**
+   * Get sourceType
+   * @return sourceType
+  **/
+  @javax.annotation.Nonnull
+  public PaymentBalanceChangeSourceType getSourceType() {
+    return sourceType;
+  }
+
+  public void setSourceType(PaymentBalanceChangeSourceType sourceType) {
+    this.sourceType = sourceType;
+  }
+
+
+  public PaymentAccountBalanceUpdateEventData tokenId(String tokenId) {
+    this.tokenId = tokenId;
+    return this;
+  }
+
+   /**
+   * The token ID of the balance change.
+   * @return tokenId
+  **/
+  @javax.annotation.Nonnull
+  public String getTokenId() {
+    return tokenId;
+  }
+
+  public void setTokenId(String tokenId) {
+    this.tokenId = tokenId;
+  }
+
+
+  public PaymentAccountBalanceUpdateEventData amount(String amount) {
     this.amount = amount;
     return this;
   }
 
    /**
-   * The transaction amount.
+   * The balance change amount, truncated to two decimal places and represented as a numeric string.
    * @return amount
   **/
   @javax.annotation.Nonnull
@@ -340,106 +317,136 @@ public class FiatTransactionEventData {
   }
 
 
-  public FiatTransactionEventData fiatCurrency(String fiatCurrency) {
-    this.fiatCurrency = fiatCurrency;
+  public PaymentAccountBalanceUpdateEventData amountRaw(String amountRaw) {
+    this.amountRaw = amountRaw;
     return this;
   }
 
    /**
-   * The fiat currency of the transaction. Possible values include:   - &#x60;USD&#x60;: US Dollar. 
-   * @return fiatCurrency
+   * The balance change amount in the token&#39;s decimal precision, represented as a numeric string.
+   * @return amountRaw
   **/
   @javax.annotation.Nonnull
-  public String getFiatCurrency() {
-    return fiatCurrency;
+  public String getAmountRaw() {
+    return amountRaw;
   }
 
-  public void setFiatCurrency(String fiatCurrency) {
-    this.fiatCurrency = fiatCurrency;
+  public void setAmountRaw(String amountRaw) {
+    this.amountRaw = amountRaw;
   }
 
 
-  public FiatTransactionEventData status(StatusEnum status) {
-    this.status = status;
+  public PaymentAccountBalanceUpdateEventData balanceBefore(String balanceBefore) {
+    this.balanceBefore = balanceBefore;
     return this;
   }
 
    /**
-   * The status of the fiat transaction. Possible values include:   - &#x60;Created&#x60;: The transaction has been created.   - &#x60;Succeeded&#x60;: The transaction has been completed successfully. 
-   * @return status
+   * The account balance before the balance change, truncated to two decimal places and represented as a numeric string.
+   * @return balanceBefore
   **/
   @javax.annotation.Nonnull
-  public StatusEnum getStatus() {
-    return status;
+  public String getBalanceBefore() {
+    return balanceBefore;
   }
 
-  public void setStatus(StatusEnum status) {
-    this.status = status;
+  public void setBalanceBefore(String balanceBefore) {
+    this.balanceBefore = balanceBefore;
   }
 
 
-  public FiatTransactionEventData coboCategory(List<String> coboCategory) {
-    this.coboCategory = coboCategory;
-    return this;
-  }
-
-  public FiatTransactionEventData addCoboCategoryItem(String coboCategoryItem) {
-    if (this.coboCategory == null) {
-      this.coboCategory = new ArrayList<>();
-    }
-    this.coboCategory.add(coboCategoryItem);
+  public PaymentAccountBalanceUpdateEventData balanceBeforeRaw(String balanceBeforeRaw) {
+    this.balanceBeforeRaw = balanceBeforeRaw;
     return this;
   }
 
    /**
-   * The Cobo category of the transaction.
-   * @return coboCategory
+   * The account balance before the balance change in the token&#39;s decimal precision, represented as a numeric string.
+   * @return balanceBeforeRaw
   **/
-  @javax.annotation.Nullable
-  public List<String> getCoboCategory() {
-    return coboCategory;
+  @javax.annotation.Nonnull
+  public String getBalanceBeforeRaw() {
+    return balanceBeforeRaw;
   }
 
-  public void setCoboCategory(List<String> coboCategory) {
-    this.coboCategory = coboCategory;
+  public void setBalanceBeforeRaw(String balanceBeforeRaw) {
+    this.balanceBeforeRaw = balanceBeforeRaw;
   }
 
 
-  public FiatTransactionEventData createdTimestamp(Long createdTimestamp) {
-    this.createdTimestamp = createdTimestamp;
+  public PaymentAccountBalanceUpdateEventData balanceAfter(String balanceAfter) {
+    this.balanceAfter = balanceAfter;
     return this;
   }
 
    /**
-   * The time when the transaction was created, in Unix timestamp format, measured in milliseconds.
-   * @return createdTimestamp
+   * The account balance after the balance change, truncated to two decimal places and represented as a numeric string.
+   * @return balanceAfter
   **/
-  @javax.annotation.Nullable
-  public Long getCreatedTimestamp() {
-    return createdTimestamp;
+  @javax.annotation.Nonnull
+  public String getBalanceAfter() {
+    return balanceAfter;
   }
 
-  public void setCreatedTimestamp(Long createdTimestamp) {
-    this.createdTimestamp = createdTimestamp;
+  public void setBalanceAfter(String balanceAfter) {
+    this.balanceAfter = balanceAfter;
   }
 
 
-  public FiatTransactionEventData modifiedTimestamp(Long modifiedTimestamp) {
-    this.modifiedTimestamp = modifiedTimestamp;
+  public PaymentAccountBalanceUpdateEventData balanceAfterRaw(String balanceAfterRaw) {
+    this.balanceAfterRaw = balanceAfterRaw;
     return this;
   }
 
    /**
-   * The time when the transaction was last modified, in Unix timestamp format, measured in milliseconds.
-   * @return modifiedTimestamp
+   * The account balance after the balance change in the token&#39;s decimal precision, represented as a numeric string.
+   * @return balanceAfterRaw
   **/
-  @javax.annotation.Nullable
-  public Long getModifiedTimestamp() {
-    return modifiedTimestamp;
+  @javax.annotation.Nonnull
+  public String getBalanceAfterRaw() {
+    return balanceAfterRaw;
   }
 
-  public void setModifiedTimestamp(Long modifiedTimestamp) {
-    this.modifiedTimestamp = modifiedTimestamp;
+  public void setBalanceAfterRaw(String balanceAfterRaw) {
+    this.balanceAfterRaw = balanceAfterRaw;
+  }
+
+
+  public PaymentAccountBalanceUpdateEventData flowDirection(PaymentBalanceFlowDirection flowDirection) {
+    this.flowDirection = flowDirection;
+    return this;
+  }
+
+   /**
+   * Get flowDirection
+   * @return flowDirection
+  **/
+  @javax.annotation.Nonnull
+  public PaymentBalanceFlowDirection getFlowDirection() {
+    return flowDirection;
+  }
+
+  public void setFlowDirection(PaymentBalanceFlowDirection flowDirection) {
+    this.flowDirection = flowDirection;
+  }
+
+
+  public PaymentAccountBalanceUpdateEventData updateTime(Long updateTime) {
+    this.updateTime = updateTime;
+    return this;
+  }
+
+   /**
+   * The time when the balance was updated, represented as a UNIX timestamp in seconds.
+   * @return updateTime
+  **/
+  @javax.annotation.Nonnull
+  public Long getUpdateTime() {
+    return updateTime;
+  }
+
+  public void setUpdateTime(Long updateTime) {
+    this.updateTime = updateTime;
   }
 
   /**
@@ -455,9 +462,9 @@ public class FiatTransactionEventData {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FiatTransactionEventData instance itself
+   * @return the PaymentAccountBalanceUpdateEventData instance itself
    */
-  public FiatTransactionEventData putAdditionalProperty(String key, Object value) {
+  public PaymentAccountBalanceUpdateEventData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -496,39 +503,45 @@ public class FiatTransactionEventData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FiatTransactionEventData fiatTransactionEventData = (FiatTransactionEventData) o;
-    return Objects.equals(this.dataType, fiatTransactionEventData.dataType) &&
-        Objects.equals(this.transactionId, fiatTransactionEventData.transactionId) &&
-        Objects.equals(this.mainTransactionId, fiatTransactionEventData.mainTransactionId) &&
-        Objects.equals(this.transactionType, fiatTransactionEventData.transactionType) &&
-        Objects.equals(this.amount, fiatTransactionEventData.amount) &&
-        Objects.equals(this.fiatCurrency, fiatTransactionEventData.fiatCurrency) &&
-        Objects.equals(this.status, fiatTransactionEventData.status) &&
-        Objects.equals(this.coboCategory, fiatTransactionEventData.coboCategory) &&
-        Objects.equals(this.createdTimestamp, fiatTransactionEventData.createdTimestamp) &&
-        Objects.equals(this.modifiedTimestamp, fiatTransactionEventData.modifiedTimestamp)&&
-        Objects.equals(this.additionalProperties, fiatTransactionEventData.additionalProperties);
+    PaymentAccountBalanceUpdateEventData paymentAccountBalanceUpdateEventData = (PaymentAccountBalanceUpdateEventData) o;
+    return Objects.equals(this.dataType, paymentAccountBalanceUpdateEventData.dataType) &&
+        Objects.equals(this.sourceAccount, paymentAccountBalanceUpdateEventData.sourceAccount) &&
+        Objects.equals(this.sourceId, paymentAccountBalanceUpdateEventData.sourceId) &&
+        Objects.equals(this.sourceType, paymentAccountBalanceUpdateEventData.sourceType) &&
+        Objects.equals(this.tokenId, paymentAccountBalanceUpdateEventData.tokenId) &&
+        Objects.equals(this.amount, paymentAccountBalanceUpdateEventData.amount) &&
+        Objects.equals(this.amountRaw, paymentAccountBalanceUpdateEventData.amountRaw) &&
+        Objects.equals(this.balanceBefore, paymentAccountBalanceUpdateEventData.balanceBefore) &&
+        Objects.equals(this.balanceBeforeRaw, paymentAccountBalanceUpdateEventData.balanceBeforeRaw) &&
+        Objects.equals(this.balanceAfter, paymentAccountBalanceUpdateEventData.balanceAfter) &&
+        Objects.equals(this.balanceAfterRaw, paymentAccountBalanceUpdateEventData.balanceAfterRaw) &&
+        Objects.equals(this.flowDirection, paymentAccountBalanceUpdateEventData.flowDirection) &&
+        Objects.equals(this.updateTime, paymentAccountBalanceUpdateEventData.updateTime)&&
+        Objects.equals(this.additionalProperties, paymentAccountBalanceUpdateEventData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, transactionId, mainTransactionId, transactionType, amount, fiatCurrency, status, coboCategory, createdTimestamp, modifiedTimestamp, additionalProperties);
+    return Objects.hash(dataType, sourceAccount, sourceId, sourceType, tokenId, amount, amountRaw, balanceBefore, balanceBeforeRaw, balanceAfter, balanceAfterRaw, flowDirection, updateTime, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FiatTransactionEventData {\n");
+    sb.append("class PaymentAccountBalanceUpdateEventData {\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
-    sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
-    sb.append("    mainTransactionId: ").append(toIndentedString(mainTransactionId)).append("\n");
-    sb.append("    transactionType: ").append(toIndentedString(transactionType)).append("\n");
+    sb.append("    sourceAccount: ").append(toIndentedString(sourceAccount)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
+    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    fiatCurrency: ").append(toIndentedString(fiatCurrency)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    coboCategory: ").append(toIndentedString(coboCategory)).append("\n");
-    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
-    sb.append("    modifiedTimestamp: ").append(toIndentedString(modifiedTimestamp)).append("\n");
+    sb.append("    amountRaw: ").append(toIndentedString(amountRaw)).append("\n");
+    sb.append("    balanceBefore: ").append(toIndentedString(balanceBefore)).append("\n");
+    sb.append("    balanceBeforeRaw: ").append(toIndentedString(balanceBeforeRaw)).append("\n");
+    sb.append("    balanceAfter: ").append(toIndentedString(balanceAfter)).append("\n");
+    sb.append("    balanceAfterRaw: ").append(toIndentedString(balanceAfterRaw)).append("\n");
+    sb.append("    flowDirection: ").append(toIndentedString(flowDirection)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -553,41 +566,51 @@ public class FiatTransactionEventData {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("data_type");
-    openapiFields.add("transaction_id");
-    openapiFields.add("main_transaction_id");
-    openapiFields.add("transaction_type");
+    openapiFields.add("source_account");
+    openapiFields.add("source_id");
+    openapiFields.add("source_type");
+    openapiFields.add("token_id");
     openapiFields.add("amount");
-    openapiFields.add("fiat_currency");
-    openapiFields.add("status");
-    openapiFields.add("cobo_category");
-    openapiFields.add("created_timestamp");
-    openapiFields.add("modified_timestamp");
+    openapiFields.add("amount_raw");
+    openapiFields.add("balance_before");
+    openapiFields.add("balance_before_raw");
+    openapiFields.add("balance_after");
+    openapiFields.add("balance_after_raw");
+    openapiFields.add("flow_direction");
+    openapiFields.add("update_time");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("data_type");
-    openapiRequiredFields.add("transaction_id");
-    openapiRequiredFields.add("transaction_type");
+    openapiRequiredFields.add("source_account");
+    openapiRequiredFields.add("source_id");
+    openapiRequiredFields.add("source_type");
+    openapiRequiredFields.add("token_id");
     openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("fiat_currency");
-    openapiRequiredFields.add("status");
+    openapiRequiredFields.add("amount_raw");
+    openapiRequiredFields.add("balance_before");
+    openapiRequiredFields.add("balance_before_raw");
+    openapiRequiredFields.add("balance_after");
+    openapiRequiredFields.add("balance_after_raw");
+    openapiRequiredFields.add("flow_direction");
+    openapiRequiredFields.add("update_time");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to FiatTransactionEventData
+  * @throws IOException if the JSON Element is invalid with respect to PaymentAccountBalanceUpdateEventData
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FiatTransactionEventData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FiatTransactionEventData is not found in the empty JSON string", FiatTransactionEventData.openapiRequiredFields.toString()));
+        if (!PaymentAccountBalanceUpdateEventData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentAccountBalanceUpdateEventData is not found in the empty JSON string", PaymentAccountBalanceUpdateEventData.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FiatTransactionEventData.openapiRequiredFields) {
+      for (String requiredField : PaymentAccountBalanceUpdateEventData.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -598,45 +621,53 @@ public class FiatTransactionEventData {
       }
       // validate the required field `data_type`
       DataTypeEnum.validateJsonElement(jsonObj.get("data_type"));
-      if (!jsonObj.get("transaction_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transaction_id").toString()));
+      if (!jsonObj.get("source_account").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `source_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source_account").toString()));
       }
-      if ((jsonObj.get("main_transaction_id") != null && !jsonObj.get("main_transaction_id").isJsonNull()) && !jsonObj.get("main_transaction_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `main_transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("main_transaction_id").toString()));
+      if (!jsonObj.get("source_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `source_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source_id").toString()));
       }
-      // validate the required field `transaction_type`
-      FeeStationFiatTransactionType.validateJsonElement(jsonObj.get("transaction_type"));
+      // validate the required field `source_type`
+      PaymentBalanceChangeSourceType.validateJsonElement(jsonObj.get("source_type"));
+      if (!jsonObj.get("token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      }
       if (!jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
       }
-      if (!jsonObj.get("fiat_currency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fiat_currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiat_currency").toString()));
+      if (!jsonObj.get("amount_raw").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `amount_raw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount_raw").toString()));
       }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      if (!jsonObj.get("balance_before").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `balance_before` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balance_before").toString()));
       }
-      // validate the required field `status`
-      StatusEnum.validateJsonElement(jsonObj.get("status"));
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("cobo_category") != null && !jsonObj.get("cobo_category").isJsonNull() && !jsonObj.get("cobo_category").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cobo_category` to be an array in the JSON string but got `%s`", jsonObj.get("cobo_category").toString()));
+      if (!jsonObj.get("balance_before_raw").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `balance_before_raw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balance_before_raw").toString()));
       }
+      if (!jsonObj.get("balance_after").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `balance_after` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balance_after").toString()));
+      }
+      if (!jsonObj.get("balance_after_raw").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `balance_after_raw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balance_after_raw").toString()));
+      }
+      // validate the required field `flow_direction`
+      PaymentBalanceFlowDirection.validateJsonElement(jsonObj.get("flow_direction"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FiatTransactionEventData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FiatTransactionEventData' and its subtypes
+       if (!PaymentAccountBalanceUpdateEventData.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PaymentAccountBalanceUpdateEventData' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FiatTransactionEventData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FiatTransactionEventData.class));
+       final TypeAdapter<PaymentAccountBalanceUpdateEventData> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentAccountBalanceUpdateEventData.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FiatTransactionEventData>() {
+       return (TypeAdapter<T>) new TypeAdapter<PaymentAccountBalanceUpdateEventData>() {
            @Override
-           public void write(JsonWriter out, FiatTransactionEventData value) throws IOException {
+           public void write(JsonWriter out, PaymentAccountBalanceUpdateEventData value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -666,12 +697,12 @@ public class FiatTransactionEventData {
            }
 
            @Override
-           public FiatTransactionEventData read(JsonReader in) throws IOException {
+           public PaymentAccountBalanceUpdateEventData read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FiatTransactionEventData instance = thisAdapter.fromJsonTree(jsonObj);
+             PaymentAccountBalanceUpdateEventData instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -698,18 +729,18 @@ public class FiatTransactionEventData {
   }
 
  /**
-  * Create an instance of FiatTransactionEventData given an JSON string
+  * Create an instance of PaymentAccountBalanceUpdateEventData given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of FiatTransactionEventData
-  * @throws IOException if the JSON string is invalid with respect to FiatTransactionEventData
+  * @return An instance of PaymentAccountBalanceUpdateEventData
+  * @throws IOException if the JSON string is invalid with respect to PaymentAccountBalanceUpdateEventData
   */
-  public static FiatTransactionEventData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FiatTransactionEventData.class);
+  public static PaymentAccountBalanceUpdateEventData fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentAccountBalanceUpdateEventData.class);
   }
 
  /**
-  * Convert an instance of FiatTransactionEventData to an JSON string
+  * Convert an instance of PaymentAccountBalanceUpdateEventData to an JSON string
   *
   * @return JSON string
   */

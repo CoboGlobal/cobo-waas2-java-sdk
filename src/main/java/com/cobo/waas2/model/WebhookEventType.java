@@ -98,6 +98,8 @@ public enum WebhookEventType {
   
   PAYMENT_TRANSACTION_FAILED("payment.transaction.failed"),
   
+  PAYMENT_ACCOUNT_BALANCE_UPDATED("payment.account.balance.updated"),
+  
   PAYMENT_STATUS_UPDATED("payment.status.updated"),
   
   PAYMENT_ORDER_STATUS_UPDATED("payment.order.status.updated"),

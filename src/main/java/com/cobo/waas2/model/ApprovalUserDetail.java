@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -121,6 +122,10 @@ public class ApprovalUserDetail {
   public static final String SERIALIZED_NAME_EXTRA_MESSAGE = "extra_message";
   @SerializedName(SERIALIZED_NAME_EXTRA_MESSAGE)
   private String extraMessage;
+
+  public static final String SERIALIZED_NAME_RESULT_TOKEN = "result_token";
+  @SerializedName(SERIALIZED_NAME_RESULT_TOKEN)
+  private String resultToken;
 
   public ApprovalUserDetail() {
   }
@@ -447,6 +452,25 @@ public class ApprovalUserDetail {
     this.extraMessage = extraMessage;
   }
 
+
+  public ApprovalUserDetail resultToken(String resultToken) {
+    this.resultToken = resultToken;
+    return this;
+  }
+
+   /**
+   * The result token appended to the signing content when verifying signatures. The full signing content is constructed as &#x60;{message}||{result_token}&#x60;. 
+   * @return resultToken
+  **/
+  @javax.annotation.Nullable
+  public String getResultToken() {
+    return resultToken;
+  }
+
+  public void setResultToken(String resultToken) {
+    this.resultToken = resultToken;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -518,13 +542,25 @@ public class ApprovalUserDetail {
         Objects.equals(this.language, approvalUserDetail.language) &&
         Objects.equals(this.messageVersion, approvalUserDetail.messageVersion) &&
         Objects.equals(this.message, approvalUserDetail.message) &&
-        Objects.equals(this.extraMessage, approvalUserDetail.extraMessage)&&
+        Objects.equals(this.extraMessage, approvalUserDetail.extraMessage) &&
+        Objects.equals(this.resultToken, approvalUserDetail.resultToken)&&
         Objects.equals(this.additionalProperties, approvalUserDetail.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email, pubkey, signature, statementUuid, result, approvalResultCode, createdTime, expiredTime, templateVersion, headerTitle, isForSign, showInfo, language, messageVersion, message, extraMessage, additionalProperties);
+    return Objects.hash(name, email, pubkey, signature, statementUuid, result, approvalResultCode, createdTime, expiredTime, templateVersion, headerTitle, isForSign, showInfo, language, messageVersion, message, extraMessage, resultToken, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -548,6 +584,7 @@ public class ApprovalUserDetail {
     sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    extraMessage: ").append(toIndentedString(extraMessage)).append("\n");
+    sb.append("    resultToken: ").append(toIndentedString(resultToken)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -588,6 +625,7 @@ public class ApprovalUserDetail {
     openapiFields.add("message_version");
     openapiFields.add("message");
     openapiFields.add("extra_message");
+    openapiFields.add("result_token");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -645,6 +683,9 @@ public class ApprovalUserDetail {
       }
       if ((jsonObj.get("extra_message") != null && !jsonObj.get("extra_message").isJsonNull()) && !jsonObj.get("extra_message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `extra_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extra_message").toString()));
+      }
+      if ((jsonObj.get("result_token") != null && !jsonObj.get("result_token").isJsonNull()) && !jsonObj.get("result_token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `result_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("result_token").toString()));
       }
   }
 
