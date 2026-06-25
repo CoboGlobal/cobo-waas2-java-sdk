@@ -432,6 +432,7 @@ docs/OriginalMainGroupHandling.md
 docs/OtcFee.md
 docs/Pagination.md
 docs/PayerAccount.md
+docs/PaymentAccountBalanceUpdateEventData.md
 docs/PaymentAddressUpdateEventData.md
 docs/PaymentAllocationAmount.md
 docs/PaymentApi.md
@@ -1342,6 +1343,7 @@ src/main/java/com/cobo/waas2/model/OriginalMainGroupHandling.java
 src/main/java/com/cobo/waas2/model/OtcFee.java
 src/main/java/com/cobo/waas2/model/Pagination.java
 src/main/java/com/cobo/waas2/model/PayerAccount.java
+src/main/java/com/cobo/waas2/model/PaymentAccountBalanceUpdateEventData.java
 src/main/java/com/cobo/waas2/model/PaymentAddressUpdateEventData.java
 src/main/java/com/cobo/waas2/model/PaymentAllocationAmount.java
 src/main/java/com/cobo/waas2/model/PaymentBalanceChange.java
@@ -2201,6 +2203,7 @@ src/test/java/com/cobo/waas2/model/OriginalMainGroupHandlingTest.java
 src/test/java/com/cobo/waas2/model/OtcFeeTest.java
 src/test/java/com/cobo/waas2/model/PaginationTest.java
 src/test/java/com/cobo/waas2/model/PayerAccountTest.java
+src/test/java/com/cobo/waas2/model/PaymentAccountBalanceUpdateEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentAddressUpdateEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentAllocationAmountTest.java
 src/test/java/com/cobo/waas2/model/PaymentBalanceChangeResponseTest.java

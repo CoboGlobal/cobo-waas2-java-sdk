@@ -113,7 +113,7 @@ public class TransactionSOLFee {
   }
 
    /**
-   * The rent fee charged by the network to store non–rent-exempt accounts on-chain. It is deducted periodically until the account maintains the minimum balance required for rent exemption.
+   * The one-time rent required to create and initialize a Solana token Associated Token Account (ATA) — a token sub-address that must be activated before the token can be received or used. This rent is paid by the main (source) address. It is populated only when an ATA must be activated for the transaction; otherwise it is null. 
    * @return rentAmount
   **/
   @javax.annotation.Nullable
@@ -208,7 +208,7 @@ public class TransactionSOLFee {
   }
 
    /**
-   * The actually charged transaction fee.
+   * The actual on-chain network transaction fee charged for this Solana transaction. For Solana, this value covers the network fee only and does NOT include &#x60;rent_amount&#x60;. The total cost deducted from the transaction&#39;s source (withdrawal) address is &#x60;fee_used&#x60; + &#x60;rent_amount&#x60;, both paid by the same source address. 
    * @return feeUsed
   **/
   @javax.annotation.Nullable

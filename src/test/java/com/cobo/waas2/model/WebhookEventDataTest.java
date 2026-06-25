@@ -30,7 +30,10 @@ import com.cobo.waas2.model.FiatTransactionEventData;
 import com.cobo.waas2.model.FundsStatusType;
 import com.cobo.waas2.model.MPCVaultEventData;
 import com.cobo.waas2.model.OrganizationEventData;
+import com.cobo.waas2.model.PaymentAccountBalanceUpdateEventData;
 import com.cobo.waas2.model.PaymentAddressUpdateEventData;
+import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
+import com.cobo.waas2.model.PaymentBalanceFlowDirection;
 import com.cobo.waas2.model.PaymentBulkSendEvent;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
 import com.cobo.waas2.model.PaymentOrderEventData;
@@ -811,6 +814,22 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'subscriptionId'
+     */
+    @Test
+    public void subscriptionIdTest() {
+        // TODO: test subscriptionId
+    }
+
+    /**
+     * Test the property 'actionId'
+     */
+    @Test
+    public void actionIdTest() {
+        // TODO: test actionId
+    }
+
+    /**
      * Test the property 'chain'
      */
     @Test
@@ -904,6 +923,78 @@ public class WebhookEventDataTest {
     @Test
     public void executionModeTest() {
         // TODO: test executionMode
+    }
+
+    /**
+     * Test the property 'sourceId'
+     */
+    @Test
+    public void sourceIdTest() {
+        // TODO: test sourceId
+    }
+
+    /**
+     * Test the property 'sourceType'
+     */
+    @Test
+    public void sourceTypeTest() {
+        // TODO: test sourceType
+    }
+
+    /**
+     * Test the property 'amountRaw'
+     */
+    @Test
+    public void amountRawTest() {
+        // TODO: test amountRaw
+    }
+
+    /**
+     * Test the property 'balanceBefore'
+     */
+    @Test
+    public void balanceBeforeTest() {
+        // TODO: test balanceBefore
+    }
+
+    /**
+     * Test the property 'balanceBeforeRaw'
+     */
+    @Test
+    public void balanceBeforeRawTest() {
+        // TODO: test balanceBeforeRaw
+    }
+
+    /**
+     * Test the property 'balanceAfter'
+     */
+    @Test
+    public void balanceAfterTest() {
+        // TODO: test balanceAfter
+    }
+
+    /**
+     * Test the property 'balanceAfterRaw'
+     */
+    @Test
+    public void balanceAfterRawTest() {
+        // TODO: test balanceAfterRaw
+    }
+
+    /**
+     * Test the property 'flowDirection'
+     */
+    @Test
+    public void flowDirectionTest() {
+        // TODO: test flowDirection
+    }
+
+    /**
+     * Test the property 'updateTime'
+     */
+    @Test
+    public void updateTimeTest() {
+        // TODO: test updateTime
     }
 
     /**
