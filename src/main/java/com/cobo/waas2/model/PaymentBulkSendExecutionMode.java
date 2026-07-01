@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The execution mode of the bulk send. - &#x60;Strict&#x60;: The bulk send is executed in strict mode, which means all bulk send items should be successfully executed or all failed. - &#x60;Partial&#x60;: The bulk send is executed in partial mode, which means some bulk send items can be successfully executed and some can be failed. 
+ * The execution mode of the bulk send. - &#x60;Strict&#x60;: The bulk send is executed in strict mode. All-or-nothing is enforced at the validation stage: if any item fails validation, the entire batch is rejected and no items are sent. Note that this all-or-nothing guarantee applies at validation only, not at execution. After validation passes, individual items may still be rejected by risk control or fail during on-chain execution, which can result in a &#x60;PartiallyCompleted&#x60; bulk send status. - &#x60;Partial&#x60;: The bulk send is executed in partial mode, which means some bulk send items can be successfully executed and some can be failed. 
  */
 @JsonAdapter(PaymentBulkSendExecutionMode.Adapter.class)
 public enum PaymentBulkSendExecutionMode {

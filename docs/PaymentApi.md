@@ -1175,7 +1175,7 @@ public class Example {
 
 Generate reports
 
- This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. 
+This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -2702,7 +2702,7 @@ public class Example {
 
 List all reports
 
-This operation retrieves the information of all reports. 
+This operation retrieves the information of all reports. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
 
 ### Example
 ```java

@@ -618,6 +618,21 @@ paths:
           description: "A list of token IDs, separated by comma."
           type: string
         style: form
+      - description: "A list of token contract addresses (Supports up to 500), separated\
+          \ by comma. Matching is case-insensitive, so you can pass either lowercase\
+          \ or checksum addresses. Because the same contract address may be deployed\
+          \ on multiple chains, this filter can return tokens across different chain\
+          \ IDs; combine it with `chain_ids` to narrow the result to a specific chain.\
+          \ Native tokens have no contract address and are excluded from the result."
+        example: 0xdac17f958d2ee523a2206206994597c13d831ec7
+        explode: true
+        in: query
+        name: token_addresses
+        required: false
+        schema:
+          description: "A list of token contract addresses, separated by comma."
+          type: string
+        style: form
       - description: "The maximum number of objects to return. The value range is\
           \ [1, 500]."
         example: 10
@@ -3905,6 +3920,8 @@ paths:
         You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).
 
         The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees).
+
+        <Note>Fee estimates are point-in-time and short-lived. Because on-chain gas prices change continuously, re-estimate the fee immediately before submitting a withdrawal. Submitting a transaction based on a stale estimate may cause the transaction to be rejected because the fee is insufficient.</Note>
       operationId: estimate_fee
       requestBody:
         $ref: '#/components/requestBodies/estimateFeeBody'
@@ -13609,6 +13626,7 @@ paths:
     get:
       description: |
         This operation retrieves the information of all reports.
+        <Note>For `report_types`, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).</Note>
       operationId: get_reports
       parameters:
       - description: "The maximum number of objects to return. For most operations,\
@@ -13707,9 +13725,9 @@ paths:
       x-accepts:
       - application/json
     post:
-      description: |2
-
+      description: |
         This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees.
+        <Note>For `report_types`, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).</Note>
       operationId: create_report
       requestBody:
         $ref: '#/components/requestBodies/createReportBody'
@@ -15684,6 +15702,10 @@ paths:
     post:
       description: |
         This operation creates an auto-sweep task for the specified wallet and token. The task triggers transactions to sweep the full balance of the specified token to the configured sweep-to address.
+
+        <Note>A sweep requires native chain coin to pay for gas. The gas must be available either in the source (deposit) address, or supplied by a configured Fee Station or Auto-Fuel. Reaching the deposit threshold alone does not trigger a sweep. If no gas is available, the sweep is blocked (for example, with an insufficient-balance error) or the Fee Station quota check fails. When a sweep is blocked, the reason is reported in the `failed_reasons` array of the auto-sweep task.</Note>
+
+        <Info>This operation is asynchronous. When the task is created, it is returned with `status` set to `Submitted` and an empty `transaction_ids` array; this is expected and does not indicate a failure. The `transaction_ids` array is populated only after `status` becomes `TransactionCreated`. To retrieve the transaction IDs, poll [Get auto-sweep task details](https://www.cobo.com/developers/v2/api-references/autosweep/get-auto-sweep-task-details) using the returned `task_id` until the status changes.</Info>
       operationId: create_auto_sweep_task
       requestBody:
         $ref: '#/components/requestBodies/createAutoSweepTaskBody'
@@ -16627,6 +16649,22 @@ components:
       required: false
       schema:
         description: "A list of token IDs, separated by comma."
+        type: string
+      style: form
+    optionalTokenAddressListWithLimitParam:
+      description: "A list of token contract addresses (Supports up to 500), separated\
+        \ by comma. Matching is case-insensitive, so you can pass either lowercase\
+        \ or checksum addresses. Because the same contract address may be deployed\
+        \ on multiple chains, this filter can return tokens across different chain\
+        \ IDs; combine it with `chain_ids` to narrow the result to a specific chain.\
+        \ Native tokens have no contract address and are excluded from the result."
+      example: 0xdac17f958d2ee523a2206206994597c13d831ec7
+      explode: true
+      in: query
+      name: token_addresses
+      required: false
+      schema:
+        description: "A list of token contract addresses, separated by comma."
         type: string
       style: form
     optionalTokenListIdParam:
@@ -22312,7 +22350,10 @@ components:
         enable_auto_sweep: true
       properties:
         name:
-          description: The wallet name.
+          description: |
+            The wallet name. This field is required and cannot be empty. Letters, numbers, and spaces are supported (for example, `My WaaS 2.0 Wallet`).
+
+            <Note>Some special characters are not accepted. For example, the at sign (`@`) is rejected. If the name is empty or contains unsupported characters, the request fails with a `400 Bad Request` error.</Note>
           example: My WaaS 2.0 Wallet
           type: string
         wallet_type:
@@ -23337,8 +23378,9 @@ components:
           example: "0.000005"
           type: string
         rent_amount:
-          description: |
-            The one-time rent required to create and initialize a Solana token Associated Token Account (ATA) — a token sub-address that must be activated before the token can be received or used. This rent is paid by the main (source) address. It is populated only when an ATA must be activated for the transaction; otherwise it is null.
+          description: The one-time rent required to activate a Solana token Associated
+            Token Account (ATA) before the token can be received or used. **This field
+            is reserved for future use and is currently not populated.**
           example: "0.00001"
           type: string
       type: object
@@ -23930,7 +23972,10 @@ components:
           format: int32
           type: integer
         transaction_hash:
-          description: The transaction hash.
+          description: |
+            The transaction hash (on-chain transaction identifier, also referred to as `txid`).
+
+            This property is populated only after the transaction is broadcast on-chain, so it may be `null` or absent before broadcast. In contrast, `transaction_id` (the Cobo internal transaction ID) is assigned at creation and is always present.
           example: 239861be9a4afe080c359b7fe4a1d035945ec46256b1a0f44d1267c71de8ec28
           type: string
         block_info:
@@ -24256,6 +24301,8 @@ components:
     TransactionStatus:
       description: |
         The transaction status. For more details including sub-statuses, please refer to [Transaction statuses and sub-statuses](https://www.cobo.com/developers/v2/guides/transactions/status).
+
+        <Info>The `PendingAuthorization` status covers both manual approval steps and internal automated risk-control, KYT, and compliance screening checks. A transaction in this status does not necessarily require a human to take action.</Info>
       enum:
       - Submitted
       - PendingScreening
@@ -25599,8 +25646,9 @@ components:
             example: SOL
             type: string
           fee_used:
-            description: |
-              The actual on-chain network transaction fee charged for this Solana transaction. For Solana, this value covers the network fee only and does NOT include `rent_amount`. The total cost deducted from the transaction's source (withdrawal) address is `fee_used` + `rent_amount`, both paid by the same source address.
+            description: The actual on-chain network transaction fee charged for this
+              Solana transaction. This covers the network fee only and does not include
+              ATA activation rent.
             example: "0.1"
             type: string
           estimated_fee_used:
@@ -36798,7 +36846,7 @@ components:
     PaymentBulkSendExecutionMode:
       description: |
         The execution mode of the bulk send.
-        - `Strict`: The bulk send is executed in strict mode, which means all bulk send items should be successfully executed or all failed.
+        - `Strict`: The bulk send is executed in strict mode. All-or-nothing is enforced at the validation stage: if any item fails validation, the entire batch is rejected and no items are sent. Note that this all-or-nothing guarantee applies at validation only, not at execution. After validation passes, individual items may still be rejected by risk control or fail during on-chain execution, which can result in a `PartiallyCompleted` bulk send status.
         - `Partial`: The bulk send is executed in partial mode, which means some bulk send items can be successfully executed and some can be failed.
       enum:
       - Strict
@@ -40375,7 +40423,8 @@ components:
         status:
           $ref: '#/components/schemas/AutoSweepTaskStatus'
         transaction_ids:
-          description: IDs of the transactions triggered by the task.
+          description: |
+            IDs of the transactions triggered by the task. This array is empty while the task `status` is `Submitted`, and is populated only after the status becomes `TransactionCreated`. Poll [Get auto-sweep task details](https://www.cobo.com/developers/v2/api-references/autosweep/get-auto-sweep-task-details) until the transaction IDs are available.
           items:
             example: 0011039d-27fb-49ba-b172-6e0aa80e37ec
             type: string
