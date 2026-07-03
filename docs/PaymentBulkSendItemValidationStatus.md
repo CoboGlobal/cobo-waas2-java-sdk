@@ -11,5 +11,7 @@
 
 * `VALIDATIONFAILED` (value: `"ValidationFailed"`)
 
+* `NOTEXECUTED` (value: `"NotExecuted"`)
+
 
 

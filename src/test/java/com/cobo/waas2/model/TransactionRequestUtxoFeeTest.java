@@ -45,6 +45,14 @@ public class TransactionRequestUtxoFeeTest {
     }
 
     /**
+     * Test the property 'fallback'
+     */
+    @Test
+    public void fallbackTest() {
+        // TODO: test fallback
+    }
+
+    /**
      * Test the property 'feeType'
      */
     @Test

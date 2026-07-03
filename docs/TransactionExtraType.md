@@ -13,5 +13,7 @@
 
 * `WALLETCONNECTINFO` (value: `"WalletConnectInfo"`)
 
+* `FEEPAYER` (value: `"FeePayer"`)
+
 
 

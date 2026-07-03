@@ -2,7 +2,7 @@
 
 # SwapActivityApprovers
 
-The approver information of the swap activity.
+The approvers data for swap activity.
 
 ## Properties
 

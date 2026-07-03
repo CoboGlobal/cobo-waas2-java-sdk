@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.TokenizationSOLTokenExtensions;
 import com.cobo.waas2.model.TokenizationSolTokenPermissionParams;
 import com.cobo.waas2.model.TokenizationTokenStandard;
 import com.google.gson.TypeAdapter;
@@ -77,6 +78,10 @@ public class TokenizationSOLTokenParams {
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
   private TokenizationSolTokenPermissionParams permissions;
+
+  public static final String SERIALIZED_NAME_EXTENSIONS = "extensions";
+  @SerializedName(SERIALIZED_NAME_EXTENSIONS)
+  private TokenizationSOLTokenExtensions extensions;
 
   public TokenizationSOLTokenParams() {
   }
@@ -196,6 +201,25 @@ public class TokenizationSOLTokenParams {
     this.permissions = permissions;
   }
 
+
+  public TokenizationSOLTokenParams extensions(TokenizationSOLTokenExtensions extensions) {
+    this.extensions = extensions;
+    return this;
+  }
+
+   /**
+   * Get extensions
+   * @return extensions
+  **/
+  @javax.annotation.Nullable
+  public TokenizationSOLTokenExtensions getExtensions() {
+    return extensions;
+  }
+
+  public void setExtensions(TokenizationSOLTokenExtensions extensions) {
+    this.extensions = extensions;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -256,13 +280,14 @@ public class TokenizationSOLTokenParams {
         Objects.equals(this.symbol, tokenizationSOLTokenParams.symbol) &&
         Objects.equals(this.decimals, tokenizationSOLTokenParams.decimals) &&
         Objects.equals(this.tokenAccessActivated, tokenizationSOLTokenParams.tokenAccessActivated) &&
-        Objects.equals(this.permissions, tokenizationSOLTokenParams.permissions)&&
+        Objects.equals(this.permissions, tokenizationSOLTokenParams.permissions) &&
+        Objects.equals(this.extensions, tokenizationSOLTokenParams.extensions)&&
         Objects.equals(this.additionalProperties, tokenizationSOLTokenParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(standard, name, symbol, decimals, tokenAccessActivated, permissions, additionalProperties);
+    return Objects.hash(standard, name, symbol, decimals, tokenAccessActivated, permissions, extensions, additionalProperties);
   }
 
   @Override
@@ -275,6 +300,7 @@ public class TokenizationSOLTokenParams {
     sb.append("    decimals: ").append(toIndentedString(decimals)).append("\n");
     sb.append("    tokenAccessActivated: ").append(toIndentedString(tokenAccessActivated)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -304,6 +330,7 @@ public class TokenizationSOLTokenParams {
     openapiFields.add("decimals");
     openapiFields.add("token_access_activated");
     openapiFields.add("permissions");
+    openapiFields.add("extensions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -344,6 +371,10 @@ public class TokenizationSOLTokenParams {
       // validate the optional field `permissions`
       if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
         TokenizationSolTokenPermissionParams.validateJsonElement(jsonObj.get("permissions"));
+      }
+      // validate the optional field `extensions`
+      if (jsonObj.get("extensions") != null && !jsonObj.get("extensions").isJsonNull()) {
+        TokenizationSOLTokenExtensions.validateJsonElement(jsonObj.get("extensions"));
       }
   }
 

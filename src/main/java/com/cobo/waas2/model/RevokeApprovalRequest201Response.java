@@ -71,7 +71,7 @@ public class RevokeApprovalRequest201Response {
   }
 
    /**
-   * The system-generated unique ID of the approval request.
+   * Get approvalId
    * @return approvalId
   **/
   @javax.annotation.Nonnull

@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The response for a request to submit a KYT review result.
+ * The response for a KYT (Know Your Transaction) submission request.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -70,7 +70,7 @@ public class SubmitKytResponse {
   }
 
    /**
-   * The UUID of the transaction being processed for KYT screening.
+   * The UUID of the transaction being processed for screened.
    * @return transactionId
   **/
   @javax.annotation.Nonnull
@@ -89,7 +89,7 @@ public class SubmitKytResponse {
   }
 
    /**
-   * Indicates whether the KYT review result was successfully submitted.
+   * Indicates whether the KYT submission was successfully submitted.
    * @return submitted
   **/
   @javax.annotation.Nonnull

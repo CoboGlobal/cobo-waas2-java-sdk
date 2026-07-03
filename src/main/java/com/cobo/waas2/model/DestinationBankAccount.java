@@ -12,6 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.BankAccountHolderType;
+import com.cobo.waas2.model.BankAccountPaymentMethod;
 import com.cobo.waas2.model.BankAccountStatus;
 import com.cobo.waas2.model.IntermediaryBankInfo;
 import com.google.gson.TypeAdapter;
@@ -122,6 +124,14 @@ public class DestinationBankAccount {
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
+
+  public static final String SERIALIZED_NAME_PAYMENT_METHOD = "payment_method";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
+  private BankAccountPaymentMethod paymentMethod;
+
+  public static final String SERIALIZED_NAME_HOLDER_TYPE = "holder_type";
+  @SerializedName(SERIALIZED_NAME_HOLDER_TYPE)
+  private BankAccountHolderType holderType;
 
   public DestinationBankAccount() {
   }
@@ -448,6 +458,44 @@ public class DestinationBankAccount {
     this.city = city;
   }
 
+
+  public DestinationBankAccount paymentMethod(BankAccountPaymentMethod paymentMethod) {
+    this.paymentMethod = paymentMethod;
+    return this;
+  }
+
+   /**
+   * Get paymentMethod
+   * @return paymentMethod
+  **/
+  @javax.annotation.Nullable
+  public BankAccountPaymentMethod getPaymentMethod() {
+    return paymentMethod;
+  }
+
+  public void setPaymentMethod(BankAccountPaymentMethod paymentMethod) {
+    this.paymentMethod = paymentMethod;
+  }
+
+
+  public DestinationBankAccount holderType(BankAccountHolderType holderType) {
+    this.holderType = holderType;
+    return this;
+  }
+
+   /**
+   * Get holderType
+   * @return holderType
+  **/
+  @javax.annotation.Nullable
+  public BankAccountHolderType getHolderType() {
+    return holderType;
+  }
+
+  public void setHolderType(BankAccountHolderType holderType) {
+    this.holderType = holderType;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -519,13 +567,15 @@ public class DestinationBankAccount {
         Objects.equals(this.createdTimestamp, destinationBankAccount.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, destinationBankAccount.updatedTimestamp) &&
         Objects.equals(this.country, destinationBankAccount.country) &&
-        Objects.equals(this.city, destinationBankAccount.city)&&
+        Objects.equals(this.city, destinationBankAccount.city) &&
+        Objects.equals(this.paymentMethod, destinationBankAccount.paymentMethod) &&
+        Objects.equals(this.holderType, destinationBankAccount.holderType)&&
         Objects.equals(this.additionalProperties, destinationBankAccount.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccountId, accountAlias, accountNumber, swiftCode, currency, beneficiaryName, beneficiaryAddress, bankName, bankAddress, ibanCode, furtherCredit, intermediaryBankInfo, bankAccountStatus, createdTimestamp, updatedTimestamp, country, city, additionalProperties);
+    return Objects.hash(bankAccountId, accountAlias, accountNumber, swiftCode, currency, beneficiaryName, beneficiaryAddress, bankName, bankAddress, ibanCode, furtherCredit, intermediaryBankInfo, bankAccountStatus, createdTimestamp, updatedTimestamp, country, city, paymentMethod, holderType, additionalProperties);
   }
 
   @Override
@@ -549,6 +599,8 @@ public class DestinationBankAccount {
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    holderType: ").append(toIndentedString(holderType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -589,6 +641,8 @@ public class DestinationBankAccount {
     openapiFields.add("updated_timestamp");
     openapiFields.add("country");
     openapiFields.add("city");
+    openapiFields.add("payment_method");
+    openapiFields.add("holder_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -668,6 +722,14 @@ public class DestinationBankAccount {
       }
       if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
+      }
+      // validate the optional field `payment_method`
+      if (jsonObj.get("payment_method") != null && !jsonObj.get("payment_method").isJsonNull()) {
+        BankAccountPaymentMethod.validateJsonElement(jsonObj.get("payment_method"));
+      }
+      // validate the optional field `holder_type`
+      if (jsonObj.get("holder_type") != null && !jsonObj.get("holder_type").isJsonNull()) {
+        BankAccountHolderType.validateJsonElement(jsonObj.get("holder_type"));
       }
   }
 

@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AllocationItemStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -79,6 +80,10 @@ public class AllocationItem {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private AllocationItemStatus status;
 
   public AllocationItem() {
   }
@@ -165,7 +170,7 @@ public class AllocationItem {
   }
 
    /**
-   * The source account from which the allocation will be deducted. - If the source account is a merchant account, provide the merchant&#39;s ID (e.g., \&quot;M1001\&quot;). - If the source account is the developer account, use the string &#x60;\&quot;developer\&quot;&#x60;. 
+   * Get sourceAccount
    * @return sourceAccount
   **/
   @javax.annotation.Nullable
@@ -184,7 +189,7 @@ public class AllocationItem {
   }
 
    /**
-   * The destination account to which the allocation will be credited. - If the destination account is a merchant account, provide the merchant&#39;s ID (e.g., \&quot;M1001\&quot;). - If the destination account is the developer account, use the string &#x60;\&quot;developer\&quot;&#x60;. 
+   * Get destinationAccount
    * @return destinationAccount
   **/
   @javax.annotation.Nullable
@@ -203,7 +208,7 @@ public class AllocationItem {
   }
 
    /**
-   * The description of the allocation item.
+   * Get description
    * @return description
   **/
   @javax.annotation.Nonnull
@@ -213,6 +218,25 @@ public class AllocationItem {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public AllocationItem status(AllocationItemStatus status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  public AllocationItemStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(AllocationItemStatus status) {
+    this.status = status;
   }
 
   /**
@@ -276,13 +300,14 @@ public class AllocationItem {
         Objects.equals(this.amount, allocationItem.amount) &&
         Objects.equals(this.sourceAccount, allocationItem.sourceAccount) &&
         Objects.equals(this.destinationAccount, allocationItem.destinationAccount) &&
-        Objects.equals(this.description, allocationItem.description)&&
+        Objects.equals(this.description, allocationItem.description) &&
+        Objects.equals(this.status, allocationItem.status)&&
         Objects.equals(this.additionalProperties, allocationItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationItemId, batchAllocationId, tokenId, amount, sourceAccount, destinationAccount, description, additionalProperties);
+    return Objects.hash(allocationItemId, batchAllocationId, tokenId, amount, sourceAccount, destinationAccount, description, status, additionalProperties);
   }
 
   @Override
@@ -296,6 +321,7 @@ public class AllocationItem {
     sb.append("    sourceAccount: ").append(toIndentedString(sourceAccount)).append("\n");
     sb.append("    destinationAccount: ").append(toIndentedString(destinationAccount)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -326,6 +352,7 @@ public class AllocationItem {
     openapiFields.add("source_account");
     openapiFields.add("destination_account");
     openapiFields.add("description");
+    openapiFields.add("status");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -376,6 +403,10 @@ public class AllocationItem {
       }
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // validate the optional field `status`
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+        AllocationItemStatus.validateJsonElement(jsonObj.get("status"));
       }
   }
 

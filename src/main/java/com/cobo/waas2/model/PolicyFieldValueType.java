@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The field value type. Possible values include:  - &#x60;INT&#x60;: The field value is an integer. - &#x60;Float2&#x60;: The field value is a float with two decimal places. 
+ * The app field value type. Possible values include:    - &#x60;INT&#x60;: The file value type is int.   - &#x60;Float2&#x60;: The field value type is float with two decimal places.  
  */
 @JsonAdapter(PolicyFieldValueType.Adapter.class)
 public enum PolicyFieldValueType {

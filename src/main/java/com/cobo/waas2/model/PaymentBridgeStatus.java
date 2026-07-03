@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The current status of the payout bridge. Possible values include: - &#x60;Completed&#x60;: The payout bridge has been completed successfully. - &#x60;Failed&#x60;: The payout bridge has failed. 
+ * The current status of the payout bridge: - &#x60;Completed&#x60;: The payout bridge has been completed successfully. - &#x60;Failed&#x60;: The payout bridge has failed. 
  */
 @JsonAdapter(PaymentBridgeStatus.Adapter.class)
 public enum PaymentBridgeStatus {

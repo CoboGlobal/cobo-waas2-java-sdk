@@ -85,7 +85,7 @@ public class SwapToken {
   }
 
    /**
-   * The token ID.
+   * The token id.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -104,7 +104,7 @@ public class SwapToken {
   }
 
    /**
-   * The chain ID, which is the unique identifier of a blockchain.
+   * The chain id.
    * @return chainId
   **/
   @javax.annotation.Nonnull
@@ -123,7 +123,7 @@ public class SwapToken {
   }
 
    /**
-   * The asset ID.
+   * The asset id.
    * @return assetId
   **/
   @javax.annotation.Nonnull
@@ -142,7 +142,7 @@ public class SwapToken {
   }
 
    /**
-   * The on-chain contract address of the token.
+   * The token address.
    * @return tokenAddress
   **/
   @javax.annotation.Nullable
@@ -161,7 +161,7 @@ public class SwapToken {
   }
 
    /**
-   * The minimum amount allowed for a swap.
+   * The minimum amount.
    * @return minAmount
   **/
   @javax.annotation.Nullable
@@ -180,7 +180,7 @@ public class SwapToken {
   }
 
    /**
-   * The maximum amount allowed for a swap.
+   * The maximum amount.
    * @return maxAmount
   **/
   @javax.annotation.Nullable

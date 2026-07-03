@@ -2,17 +2,17 @@
 
 # RequestApproval
 
-The information about a approval request.
+The information about a request that approve an operation.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**operationId** | **String** | The unique ID of the approval workflow. |  |
-|**requestId** | **String** | An identifier provided by you to track this request. |  |
-|**initiatorEmail** | **String** | The email of the user who requested the approval. |  |
+|**operationId** | **String** | The operation id of workflow approval request. |  |
+|**requestId** | **String** | The request id of workflow approval request. |  |
+|**initiatorEmail** | **String** | The initiator email of workflow approval request. |  |
 |**fields** | [**List&lt;AppWorkflowField&gt;**](AppWorkflowField.md) |  |  |
-|**guardTemplate** | **String** | The template of a Cobo Guard message. Please connect [help@cobo.com](mailto:help@cobo.com) to get the template content. |  |
+|**guardTemplate** | **String** | The guard template content of workflow approval request, need to connect cobo. |  |
 
 
 

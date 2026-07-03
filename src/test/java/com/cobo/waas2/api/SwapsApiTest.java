@@ -22,9 +22,12 @@ import com.cobo.waas2.model.ListSwapEnabledTokens200Response;
 import com.cobo.waas2.model.SwapActivityDetail;
 import com.cobo.waas2.model.SwapActivityStatus;
 import com.cobo.waas2.model.SwapEstimateFee;
+import com.cobo.waas2.model.SwapLimitsAndLiquidity;
 import com.cobo.waas2.model.SwapQuote;
 import com.cobo.waas2.model.SwapType;
 import java.util.UUID;
+import com.cobo.waas2.model.WalletSubtype;
+import com.cobo.waas2.model.WalletType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -47,9 +50,9 @@ public class SwapsApiTest {
     private final SwapsApi api = new SwapsApi();
 
     /**
-     * Create swap activity
+     * Create Swap Activity
      *
-     * This operation creates a swap activity. A swap activity can be either a bridge (cross-chain transfer) or an exchange (token-to-token swap on the same chain). 
+     * This operation to create a swap activity. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -61,9 +64,9 @@ public class SwapsApiTest {
     }
 
     /**
-     * Estimate swap fee
+     * Estimate Swap Fee
      *
-     * This operation estimates the network fee of a swap activity. You can use this operation to estimate the network fee before initiating swap activities from MPC Wallets or Custodial Wallets (Web3 Wallets).  It requires a valid &#x60;wallet_id&#x60; and &#x60;quote_id&#x60;, so you need to [get a swap quote](https://www.cobo.com/developers/v2/api-references/swaps/get-swap-quote) first. 
+     * This operation to estimate the fee of a swap activity. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -75,9 +78,9 @@ public class SwapsApiTest {
     }
 
     /**
-     * Get swap activity
+     * Get Swap Activity Details
      *
-     * This operation retrieves detailed information about a specified swap activity. 
+     * This operation retrieves the details of a swap activity. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -89,9 +92,26 @@ public class SwapsApiTest {
     }
 
     /**
-     * Get swap quote
+     * Get Swap Limits and Liquidity
      *
-     * This operation retrieves the current market exchange rate and estimated service fee. You need to provide &#x60;wallet_id&#x60;, &#x60;pay_token_id&#x60;, and &#x60;receive_token_id&#x60;, along with either &#x60;pay_amount&#x60; or &#x60;receive_amount&#x60;. 
+     * This operation retrieves the trading limits and available liquidity for a specific swap trading pair. The limits include minimum and maximum amounts for both pay and receive tokens, as well as the available liquidity in both pay token and USD. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSwapLimitsAndLiquidityTest() throws ApiException {
+        String payTokenId = null;
+        String receiveTokenId = null;
+        WalletSubtype walletSubtype = null;
+        SwapType type = null;
+        SwapLimitsAndLiquidity response = api.getSwapLimitsAndLiquidity(payTokenId, receiveTokenId, walletSubtype, type);
+        // TODO: test validations
+    }
+
+    /**
+     * Get Current Swap Rate
+     *
+     * This operation retrieves the current market exchange rate and estimated amount for swapping between two tokens. Either pay_amount or receive_amount must be provided. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -107,9 +127,9 @@ public class SwapsApiTest {
     }
 
     /**
-     * List swap activities
+     * List Swap Activities
      *
-     * This operation retrieves a list of swap activities. You can filter the results by swap type, status, initiator, and time range. 
+     * This operation retrieves a list of swap activities. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -131,9 +151,9 @@ public class SwapsApiTest {
     }
 
     /**
-     * List enabled tokens for swap
+     * List Enabled Tokens
      *
-     * This operation retrieves a list of tokens that are enabled for the swap feature. You can filter the results by swap type, asset ID, and chain ID. 
+     * This operation retrieves all enabled tokens for swaps.   
      *
      * @throws ApiException if the Api call fails
      */
@@ -142,10 +162,13 @@ public class SwapsApiTest {
         SwapType type = null;
         String assetId = null;
         String chainId = null;
+        UUID walletId = null;
+        WalletType walletType = null;
+        WalletSubtype walletSubtype = null;
         Integer limit = null;
         String before = null;
         String after = null;
-        ListSwapEnabledTokens200Response response = api.listSwapEnabledTokens(type, assetId, chainId, limit, before, after);
+        ListSwapEnabledTokens200Response response = api.listSwapEnabledTokens(type, assetId, chainId, walletId, walletType, walletSubtype, limit, before, after);
         // TODO: test validations
     }
 

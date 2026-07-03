@@ -104,7 +104,7 @@ public class CreateBulkSendRequest {
   }
 
    /**
-   * The source account from which the bulk send will be made. - If the source account is a merchant account, provide the merchant&#39;s ID (e.g., \&quot;M1001\&quot;). - If the source account is the developer account, use the string &#x60;\&quot;developer\&quot;&#x60;. 
+   * The source account ID.
    * @return sourceAccount
   **/
   @javax.annotation.Nonnull
@@ -142,7 +142,7 @@ public class CreateBulkSendRequest {
   }
 
    /**
-   * The description for the entire bulk send batch. Maximum length: 255 characters.
+   * The description for the entire bulk send batch.
    * @return description
   **/
   @javax.annotation.Nullable
@@ -169,7 +169,7 @@ public class CreateBulkSendRequest {
   }
 
    /**
-   * The bulk send items.
+   * The payout items of the bulk send.
    * @return payoutParams
   **/
   @javax.annotation.Nonnull

@@ -50,7 +50,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Detailed information about a token listing request.
+ * Detailed information about a token listing request
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -110,7 +110,7 @@ public class TokenListing {
   }
 
    /**
-   * The unique identifier of the token listing request.
+   * Unique identifier of the token listing request
    * @return requestId
   **/
   @javax.annotation.Nonnull
@@ -129,7 +129,7 @@ public class TokenListing {
   }
 
    /**
-   * The ID of the blockchain where the token is deployed.
+   * chain_id of the blockchain where the token exists
    * @return chainId
   **/
   @javax.annotation.Nonnull
@@ -148,7 +148,7 @@ public class TokenListing {
   }
 
    /**
-   * The token&#39;s contract address on the specified blockchain.
+   * Contract address of the token
    * @return contractAddress
   **/
   @javax.annotation.Nonnull
@@ -262,7 +262,7 @@ public class TokenListing {
   }
 
    /**
-   * The feedback provided by Cobo when a token listing request is rejected.
+   * Feedback provided by the admin for rejected requests
    * @return feedback
   **/
   @javax.annotation.Nullable
@@ -281,7 +281,7 @@ public class TokenListing {
   }
 
    /**
-   * The time when the request was created in Unix timestamp format, measured in milliseconds.
+   * Timestamp when the request was created (in milliseconds since Unix epoch)
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -300,7 +300,7 @@ public class TokenListing {
   }
 
    /**
-   * The time when the request was last updated in Unix timestamp format, measured in milliseconds.
+   * Timestamp when the request was last updated (in milliseconds since Unix epoch)
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable

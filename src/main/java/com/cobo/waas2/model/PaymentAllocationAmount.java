@@ -88,7 +88,7 @@ public class PaymentAllocationAmount {
   }
 
    /**
-   * The available amount that can be allocated from the source account to the destination account for the given cryptocurrency.
+   * The allocation amount.
    * @return allocationAmount
   **/
   @javax.annotation.Nonnull

@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**tokenId** | **String** |  |  |
-|**exchangeRate** | **String** |  |  |
+|**tokenId** | **String** | The cryptocurrency token ID |  |
+|**exchangeRate** | **String** | The fixed exchange rate to use for this token |  |
 
 
 

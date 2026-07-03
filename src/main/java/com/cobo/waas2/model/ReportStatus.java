@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The status of the report. - &#x60;Completed&#x60;: The report has been generated successfully. - &#x60;Failed&#x60;: The report could not be generated. 
+ * The status of the report. - &#x60;Completed&#x60;: The report has been completed. - &#x60;Failed&#x60;: The report has failed. 
  */
 @JsonAdapter(ReportStatus.Adapter.class)
 public enum ReportStatus {

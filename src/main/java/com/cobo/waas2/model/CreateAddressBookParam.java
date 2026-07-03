@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The request body to add an address to your Address Book.
+ * The request body to create address book.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -129,7 +129,7 @@ public class CreateAddressBookParam {
   }
 
    /**
-   * Optional memo or tag required by some chains.
+   * The memo.
    * @return memo
   **/
   @javax.annotation.Nullable
@@ -148,7 +148,7 @@ public class CreateAddressBookParam {
   }
 
    /**
-   * A user-defined label for the address.
+   * The address label.
    * @return label
   **/
   @javax.annotation.Nullable

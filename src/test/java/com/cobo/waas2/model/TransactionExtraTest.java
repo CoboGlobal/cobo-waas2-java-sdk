@@ -17,6 +17,7 @@ import com.cobo.waas2.model.TransactionBabylonBusinessInfo;
 import com.cobo.waas2.model.TransactionBabylonTxParameters;
 import com.cobo.waas2.model.TransactionCoreStakeInfo;
 import com.cobo.waas2.model.TransactionExtraType;
+import com.cobo.waas2.model.TransactionFeePayer;
 import com.cobo.waas2.model.TransactionWalletConnectInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -168,6 +169,14 @@ public class TransactionExtraTest {
     @Test
     public void sessionIdTest() {
         // TODO: test sessionId
+    }
+
+    /**
+     * Test the property 'feePayer'
+     */
+    @Test
+    public void feePayerTest() {
+        // TODO: test feePayer
     }
 
 }

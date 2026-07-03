@@ -116,7 +116,7 @@ public class TransactionTronContractDestination {
   }
 
    /**
-   * The transfer amount. For example, if you trade 1.5 TRX, then the value is &#x60;1.5&#x60;. 
+   * The transfer amount. For example, if you trade 1.5 TRON, then the value is &#x60;1.5&#x60;. 
    * @return value
   **/
   @javax.annotation.Nullable

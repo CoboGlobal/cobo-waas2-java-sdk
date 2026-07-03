@@ -115,7 +115,7 @@ public class BabylonStakeExtra {
    * The public key of the finality provider.
    * @return finalityProviderPublicKey
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getFinalityProviderPublicKey() {
     return finalityProviderPublicKey;
   }
@@ -139,7 +139,7 @@ public class BabylonStakeExtra {
   }
 
    /**
-   * The public keys of the finality providers, with each key corresponding to a BSN chain.
+   * The public keys of the finality providers(each key for a BSN chain).
    * @return finalityProviderPublicKeys
   **/
   @javax.annotation.Nullable
@@ -161,7 +161,7 @@ public class BabylonStakeExtra {
    * The number of blocks that need to be processed before the locked tokens are unlocked and become accessible.
    * @return stakeBlockTime
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Long getStakeBlockTime() {
     return stakeBlockTime;
   }
@@ -342,8 +342,6 @@ public class BabylonStakeExtra {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("pool_type");
-    openapiRequiredFields.add("finality_provider_public_key");
-    openapiRequiredFields.add("stake_block_time");
   }
 
  /**
@@ -368,7 +366,7 @@ public class BabylonStakeExtra {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `pool_type`
       StakingPoolType.validateJsonElement(jsonObj.get("pool_type"));
-      if (!jsonObj.get("finality_provider_public_key").isJsonPrimitive()) {
+      if ((jsonObj.get("finality_provider_public_key") != null && !jsonObj.get("finality_provider_public_key").isJsonNull()) && !jsonObj.get("finality_provider_public_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `finality_provider_public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("finality_provider_public_key").toString()));
       }
       // ensure the optional json data is an array if present

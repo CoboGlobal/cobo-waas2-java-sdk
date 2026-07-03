@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.ApprovalAction;
 import com.cobo.waas2.model.ApprovalResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -180,6 +181,14 @@ public class ApprovalUserDetailTest {
     @Test
     public void resultTokenTest() {
         // TODO: test resultToken
+    }
+
+    /**
+     * Test the property 'action'
+     */
+    @Test
+    public void actionTest() {
+        // TODO: test action
     }
 
 }
