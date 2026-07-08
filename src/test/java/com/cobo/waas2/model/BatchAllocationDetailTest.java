@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.AllocationItem;
+import com.cobo.waas2.model.BatchAllocationStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -68,6 +69,14 @@ public class BatchAllocationDetailTest {
     @Test
     public void initiatorTest() {
         // TODO: test initiator
+    }
+
+    /**
+     * Test the property 'status'
+     */
+    @Test
+    public void statusTest() {
+        // TODO: test status
     }
 
     /**

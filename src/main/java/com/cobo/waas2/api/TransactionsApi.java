@@ -25,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cobo.waas2.model.ApprovalAction;
 import com.cobo.waas2.model.ApprovalDetail;
 import com.cobo.waas2.model.ApprovalTemplate;
 import com.cobo.waas2.model.BroadcastSignedTransactions201ResponseInner;
@@ -966,7 +967,7 @@ public class TransactionsApi {
 
     /**
      * Estimate transaction fee
-     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees).  &lt;Note&gt;Fee estimates are point-in-time and short-lived. Because on-chain gas prices change continuously, re-estimate the fee immediately before submitting a withdrawal. Submitting a transaction based on a stale estimate may cause the transaction to be rejected because the fee is insufficient.&lt;/Note&gt; 
      * @param estimateFeeParams The request body to estimate the transaction fee of a token transfer or a contract call. (optional)
      * @return EstimatedFee
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -985,7 +986,7 @@ public class TransactionsApi {
 
     /**
      * Estimate transaction fee
-     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees).  &lt;Note&gt;Fee estimates are point-in-time and short-lived. Because on-chain gas prices change continuously, re-estimate the fee immediately before submitting a withdrawal. Submitting a transaction based on a stale estimate may cause the transaction to be rejected because the fee is insufficient.&lt;/Note&gt; 
      * @param estimateFeeParams The request body to estimate the transaction fee of a token transfer or a contract call. (optional)
      * @return ApiResponse&lt;EstimatedFee&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1005,7 +1006,7 @@ public class TransactionsApi {
 
     /**
      * Estimate transaction fee (asynchronously)
-     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees).  &lt;Note&gt;Fee estimates are point-in-time and short-lived. Because on-chain gas prices change continuously, re-estimate the fee immediately before submitting a withdrawal. Submitting a transaction based on a stale estimate may cause the transaction to be rejected because the fee is insufficient.&lt;/Note&gt; 
      * @param estimateFeeParams The request body to estimate the transaction fee of a token transfer or a contract call. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1521,6 +1522,7 @@ public class TransactionsApi {
      * Build call for listTransactionTemplates
      * @param templateKey Key of the transaction template used to create an approval message.  (required)
      * @param templateVersion Version of the template. (optional)
+     * @param action The approval action type. If omitted, &#x60;Transfer&#x60; is used by default. Possible values include:   - &#x60;Transfer&#x60;: To approve a transaction transfer.   - &#x60;Drop&#x60;: To approve dropping a transaction.   - &#x60;SpeedUp&#x60;: To approve speeding up a transaction.  (optional, default to Transfer)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1532,7 +1534,7 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTransactionTemplatesCall(String templateKey, String templateVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listTransactionTemplatesCall(String templateKey, String templateVersion, ApprovalAction action, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1550,6 +1552,10 @@ public class TransactionsApi {
 
         if (templateVersion != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("template_version", templateVersion));
+        }
+
+        if (action != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("action", action));
         }
 
         final String[] localVarAccepts = {
@@ -1572,13 +1578,13 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listTransactionTemplatesValidateBeforeCall(String templateKey, String templateVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listTransactionTemplatesValidateBeforeCall(String templateKey, String templateVersion, ApprovalAction action, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'templateKey' is set
         if (templateKey == null) {
             throw new ApiException("Missing the required parameter 'templateKey' when calling listTransactionTemplates(Async)");
         }
 
-        return listTransactionTemplatesCall(templateKey, templateVersion, _callback);
+        return listTransactionTemplatesCall(templateKey, templateVersion, action, _callback);
 
     }
 
@@ -1587,6 +1593,7 @@ public class TransactionsApi {
      * This operation retrieves approval templates based on the specified template key and template version.  These templates define the content used to generate approval messages displayed to users, including messages for transaction approvals and other approval workflows. 
      * @param templateKey Key of the transaction template used to create an approval message.  (required)
      * @param templateVersion Version of the template. (optional)
+     * @param action The approval action type. If omitted, &#x60;Transfer&#x60; is used by default. Possible values include:   - &#x60;Transfer&#x60;: To approve a transaction transfer.   - &#x60;Drop&#x60;: To approve dropping a transaction.   - &#x60;SpeedUp&#x60;: To approve speeding up a transaction.  (optional, default to Transfer)
      * @return List&lt;ApprovalTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1597,8 +1604,8 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public List<ApprovalTemplate> listTransactionTemplates(String templateKey, String templateVersion) throws ApiException {
-        ApiResponse<List<ApprovalTemplate>> localVarResp = listTransactionTemplatesWithHttpInfo(templateKey, templateVersion);
+    public List<ApprovalTemplate> listTransactionTemplates(String templateKey, String templateVersion, ApprovalAction action) throws ApiException {
+        ApiResponse<List<ApprovalTemplate>> localVarResp = listTransactionTemplatesWithHttpInfo(templateKey, templateVersion, action);
         return localVarResp.getData();
     }
 
@@ -1607,6 +1614,7 @@ public class TransactionsApi {
      * This operation retrieves approval templates based on the specified template key and template version.  These templates define the content used to generate approval messages displayed to users, including messages for transaction approvals and other approval workflows. 
      * @param templateKey Key of the transaction template used to create an approval message.  (required)
      * @param templateVersion Version of the template. (optional)
+     * @param action The approval action type. If omitted, &#x60;Transfer&#x60; is used by default. Possible values include:   - &#x60;Transfer&#x60;: To approve a transaction transfer.   - &#x60;Drop&#x60;: To approve dropping a transaction.   - &#x60;SpeedUp&#x60;: To approve speeding up a transaction.  (optional, default to Transfer)
      * @return ApiResponse&lt;List&lt;ApprovalTemplate&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1617,8 +1625,8 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ApprovalTemplate>> listTransactionTemplatesWithHttpInfo(String templateKey, String templateVersion) throws ApiException {
-        okhttp3.Call localVarCall = listTransactionTemplatesValidateBeforeCall(templateKey, templateVersion, null);
+    public ApiResponse<List<ApprovalTemplate>> listTransactionTemplatesWithHttpInfo(String templateKey, String templateVersion, ApprovalAction action) throws ApiException {
+        okhttp3.Call localVarCall = listTransactionTemplatesValidateBeforeCall(templateKey, templateVersion, action, null);
         Type localVarReturnType = new TypeToken<List<ApprovalTemplate>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1628,6 +1636,7 @@ public class TransactionsApi {
      * This operation retrieves approval templates based on the specified template key and template version.  These templates define the content used to generate approval messages displayed to users, including messages for transaction approvals and other approval workflows. 
      * @param templateKey Key of the transaction template used to create an approval message.  (required)
      * @param templateVersion Version of the template. (optional)
+     * @param action The approval action type. If omitted, &#x60;Transfer&#x60; is used by default. Possible values include:   - &#x60;Transfer&#x60;: To approve a transaction transfer.   - &#x60;Drop&#x60;: To approve dropping a transaction.   - &#x60;SpeedUp&#x60;: To approve speeding up a transaction.  (optional, default to Transfer)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1639,9 +1648,9 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTransactionTemplatesAsync(String templateKey, String templateVersion, final ApiCallback<List<ApprovalTemplate>> _callback) throws ApiException {
+    public okhttp3.Call listTransactionTemplatesAsync(String templateKey, String templateVersion, ApprovalAction action, final ApiCallback<List<ApprovalTemplate>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listTransactionTemplatesValidateBeforeCall(templateKey, templateVersion, _callback);
+        okhttp3.Call localVarCall = listTransactionTemplatesValidateBeforeCall(templateKey, templateVersion, action, _callback);
         Type localVarReturnType = new TypeToken<List<ApprovalTemplate>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

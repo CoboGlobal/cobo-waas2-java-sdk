@@ -26,6 +26,7 @@ Details about a user involved in a transaction approval workflow.
 |**message** | **String** | Message associated with the transaction approval. |  [optional] |
 |**extraMessage** | **String** | Any additional message or information related to the transaction approval. |  [optional] |
 |**resultToken** | **String** | The result token appended to the signing content when verifying signatures. The full signing content is constructed as &#x60;{message}||{result_token}&#x60;.  |  [optional] |
+|**action** | **ApprovalAction** |  |  [optional] |
 
 
 

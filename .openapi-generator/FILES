@@ -35,6 +35,7 @@ docs/AddressVerificationStatus.md
 docs/AddressesEventData.md
 docs/AddressesEventDataAllOfAddresses.md
 docs/AllocationItem.md
+docs/AllocationItemStatus.md
 docs/AllocationParam.md
 docs/AmountDetailsInner.md
 docs/AmountStatus.md
@@ -44,6 +45,7 @@ docs/AppWorkflow.md
 docs/AppWorkflowField.md
 docs/AppWorkflowPolicy.md
 docs/AppWorkflowsApi.md
+docs/ApprovalAction.md
 docs/ApprovalDetail.md
 docs/ApprovalEntry.md
 docs/ApprovalRequest.md
@@ -86,6 +88,7 @@ docs/BaseStakeExtra.md
 docs/BaseStakeSource.md
 docs/BatchAllocation.md
 docs/BatchAllocationDetail.md
+docs/BatchAllocationStatus.md
 docs/BatchCheckUtxo201Response.md
 docs/BatchCheckUtxoRequest.md
 docs/BatchUTXOParam.md
@@ -483,6 +486,7 @@ docs/PspBalance.md
 docs/QueryApprovalStatement200Response.md
 docs/QueryGuardPubkey200Response.md
 docs/QueryGuardPubkey200ResponseAddressesInner.md
+docs/RawMessageSignDestination.md
 docs/RefreshAddressBalancesByToken200Response.md
 docs/RefreshAddressBalancesByTokenRequest.md
 docs/RefreshPermissionTokenRequest.md
@@ -744,6 +748,7 @@ docs/TransactionExtra.md
 docs/TransactionExtraType.md
 docs/TransactionFILFee.md
 docs/TransactionFee.md
+docs/TransactionFeePayer.md
 docs/TransactionFeeStationWalletSource.md
 docs/TransactionFixedFee.md
 docs/TransactionFuelingInfo.md
@@ -955,6 +960,7 @@ src/main/java/com/cobo/waas2/model/AddressVerificationStatus.java
 src/main/java/com/cobo/waas2/model/AddressesEventData.java
 src/main/java/com/cobo/waas2/model/AddressesEventDataAllOfAddresses.java
 src/main/java/com/cobo/waas2/model/AllocationItem.java
+src/main/java/com/cobo/waas2/model/AllocationItemStatus.java
 src/main/java/com/cobo/waas2/model/AllocationParam.java
 src/main/java/com/cobo/waas2/model/AmountDetailsInner.java
 src/main/java/com/cobo/waas2/model/AmountStatus.java
@@ -963,6 +969,7 @@ src/main/java/com/cobo/waas2/model/ApiLogSummary.java
 src/main/java/com/cobo/waas2/model/AppWorkflow.java
 src/main/java/com/cobo/waas2/model/AppWorkflowField.java
 src/main/java/com/cobo/waas2/model/AppWorkflowPolicy.java
+src/main/java/com/cobo/waas2/model/ApprovalAction.java
 src/main/java/com/cobo/waas2/model/ApprovalDetail.java
 src/main/java/com/cobo/waas2/model/ApprovalEntry.java
 src/main/java/com/cobo/waas2/model/ApprovalRequest.java
@@ -1004,6 +1011,7 @@ src/main/java/com/cobo/waas2/model/BaseStakeExtra.java
 src/main/java/com/cobo/waas2/model/BaseStakeSource.java
 src/main/java/com/cobo/waas2/model/BatchAllocation.java
 src/main/java/com/cobo/waas2/model/BatchAllocationDetail.java
+src/main/java/com/cobo/waas2/model/BatchAllocationStatus.java
 src/main/java/com/cobo/waas2/model/BatchCheckUtxo201Response.java
 src/main/java/com/cobo/waas2/model/BatchCheckUtxoRequest.java
 src/main/java/com/cobo/waas2/model/BatchUTXOParam.java
@@ -1392,6 +1400,7 @@ src/main/java/com/cobo/waas2/model/PspBalance.java
 src/main/java/com/cobo/waas2/model/QueryApprovalStatement200Response.java
 src/main/java/com/cobo/waas2/model/QueryGuardPubkey200Response.java
 src/main/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseAddressesInner.java
+src/main/java/com/cobo/waas2/model/RawMessageSignDestination.java
 src/main/java/com/cobo/waas2/model/RefreshAddressBalancesByToken200Response.java
 src/main/java/com/cobo/waas2/model/RefreshAddressBalancesByTokenRequest.java
 src/main/java/com/cobo/waas2/model/RefreshPermissionTokenRequest.java
@@ -1650,6 +1659,7 @@ src/main/java/com/cobo/waas2/model/TransactionExtra.java
 src/main/java/com/cobo/waas2/model/TransactionExtraType.java
 src/main/java/com/cobo/waas2/model/TransactionFILFee.java
 src/main/java/com/cobo/waas2/model/TransactionFee.java
+src/main/java/com/cobo/waas2/model/TransactionFeePayer.java
 src/main/java/com/cobo/waas2/model/TransactionFeeStationWalletSource.java
 src/main/java/com/cobo/waas2/model/TransactionFixedFee.java
 src/main/java/com/cobo/waas2/model/TransactionFuelingInfo.java
@@ -1814,6 +1824,7 @@ src/test/java/com/cobo/waas2/model/AddressVerificationStatusTest.java
 src/test/java/com/cobo/waas2/model/AddressVerificationTest.java
 src/test/java/com/cobo/waas2/model/AddressesEventDataAllOfAddressesTest.java
 src/test/java/com/cobo/waas2/model/AddressesEventDataTest.java
+src/test/java/com/cobo/waas2/model/AllocationItemStatusTest.java
 src/test/java/com/cobo/waas2/model/AllocationItemTest.java
 src/test/java/com/cobo/waas2/model/AllocationParamTest.java
 src/test/java/com/cobo/waas2/model/AmountDetailsInnerTest.java
@@ -1823,6 +1834,7 @@ src/test/java/com/cobo/waas2/model/ApiLogSummaryTest.java
 src/test/java/com/cobo/waas2/model/AppWorkflowFieldTest.java
 src/test/java/com/cobo/waas2/model/AppWorkflowPolicyTest.java
 src/test/java/com/cobo/waas2/model/AppWorkflowTest.java
+src/test/java/com/cobo/waas2/model/ApprovalActionTest.java
 src/test/java/com/cobo/waas2/model/ApprovalDetailTest.java
 src/test/java/com/cobo/waas2/model/ApprovalEntryTest.java
 src/test/java/com/cobo/waas2/model/ApprovalRequestDetailTest.java
@@ -1863,6 +1875,7 @@ src/test/java/com/cobo/waas2/model/BaseEstimateStakingFeeTest.java
 src/test/java/com/cobo/waas2/model/BaseStakeExtraTest.java
 src/test/java/com/cobo/waas2/model/BaseStakeSourceTest.java
 src/test/java/com/cobo/waas2/model/BatchAllocationDetailTest.java
+src/test/java/com/cobo/waas2/model/BatchAllocationStatusTest.java
 src/test/java/com/cobo/waas2/model/BatchAllocationTest.java
 src/test/java/com/cobo/waas2/model/BatchCheckUtxo201ResponseTest.java
 src/test/java/com/cobo/waas2/model/BatchCheckUtxoRequestTest.java
@@ -2252,6 +2265,7 @@ src/test/java/com/cobo/waas2/model/PspBalanceTest.java
 src/test/java/com/cobo/waas2/model/QueryApprovalStatement200ResponseTest.java
 src/test/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseAddressesInnerTest.java
 src/test/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseTest.java
+src/test/java/com/cobo/waas2/model/RawMessageSignDestinationTest.java
 src/test/java/com/cobo/waas2/model/RefreshAddressBalancesByToken200ResponseTest.java
 src/test/java/com/cobo/waas2/model/RefreshAddressBalancesByTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/RefreshPermissionTokenRequestTest.java
@@ -2508,6 +2522,7 @@ src/test/java/com/cobo/waas2/model/TransactionExchangeWalletSourceTest.java
 src/test/java/com/cobo/waas2/model/TransactionExtraTest.java
 src/test/java/com/cobo/waas2/model/TransactionExtraTypeTest.java
 src/test/java/com/cobo/waas2/model/TransactionFILFeeTest.java
+src/test/java/com/cobo/waas2/model/TransactionFeePayerTest.java
 src/test/java/com/cobo/waas2/model/TransactionFeeStationWalletSourceTest.java
 src/test/java/com/cobo/waas2/model/TransactionFeeTest.java
 src/test/java/com/cobo/waas2/model/TransactionFixedFeeTest.java

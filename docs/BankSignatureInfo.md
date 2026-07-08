@@ -1,0 +1,30 @@
+
+
+# BankSignatureInfo
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**bankProvider** | [**BankProviderEnum**](#BankProviderEnum) | 法币三方下发Pyvio. |  |
+|**method** | **String** | The HTTP method of the API request. |  |
+|**urlPath** | **String** | The URL path of the API request. |  |
+|**queryString** | **Object** | The query parameters of the API request. |  [optional] |
+|**bodyString** | **String** | The body of the API request. |  |
+|**orgId** | **String** | The ID of the organization. |  |
+|**orgName** | **String** | The name of the organization. |  |
+|**cryptoAmount** | **String** | The amount of the cryptocurrency. |  [optional] |
+|**isVaTransfer** | **Boolean** | Whether the payout is transfer between virtual accounts |  [optional] |
+|**appId** | **String** | The Pyvio app ID. |  |
+
+
+
+## Enum: BankProviderEnum
+
+| Name | Value |
+|---- | -----|
+| PYVIO | &quot;PYVIO&quot; |
+
+
+

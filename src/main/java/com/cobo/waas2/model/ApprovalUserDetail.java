@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.ApprovalAction;
 import com.cobo.waas2.model.ApprovalResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -126,6 +127,10 @@ public class ApprovalUserDetail {
   public static final String SERIALIZED_NAME_RESULT_TOKEN = "result_token";
   @SerializedName(SERIALIZED_NAME_RESULT_TOKEN)
   private String resultToken;
+
+  public static final String SERIALIZED_NAME_ACTION = "action";
+  @SerializedName(SERIALIZED_NAME_ACTION)
+  private ApprovalAction action;
 
   public ApprovalUserDetail() {
   }
@@ -471,6 +476,25 @@ public class ApprovalUserDetail {
     this.resultToken = resultToken;
   }
 
+
+  public ApprovalUserDetail action(ApprovalAction action) {
+    this.action = action;
+    return this;
+  }
+
+   /**
+   * Get action
+   * @return action
+  **/
+  @javax.annotation.Nullable
+  public ApprovalAction getAction() {
+    return action;
+  }
+
+  public void setAction(ApprovalAction action) {
+    this.action = action;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -543,7 +567,8 @@ public class ApprovalUserDetail {
         Objects.equals(this.messageVersion, approvalUserDetail.messageVersion) &&
         Objects.equals(this.message, approvalUserDetail.message) &&
         Objects.equals(this.extraMessage, approvalUserDetail.extraMessage) &&
-        Objects.equals(this.resultToken, approvalUserDetail.resultToken)&&
+        Objects.equals(this.resultToken, approvalUserDetail.resultToken) &&
+        Objects.equals(this.action, approvalUserDetail.action)&&
         Objects.equals(this.additionalProperties, approvalUserDetail.additionalProperties);
   }
 
@@ -553,7 +578,7 @@ public class ApprovalUserDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email, pubkey, signature, statementUuid, result, approvalResultCode, createdTime, expiredTime, templateVersion, headerTitle, isForSign, showInfo, language, messageVersion, message, extraMessage, resultToken, additionalProperties);
+    return Objects.hash(name, email, pubkey, signature, statementUuid, result, approvalResultCode, createdTime, expiredTime, templateVersion, headerTitle, isForSign, showInfo, language, messageVersion, message, extraMessage, resultToken, action, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -585,6 +610,7 @@ public class ApprovalUserDetail {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    extraMessage: ").append(toIndentedString(extraMessage)).append("\n");
     sb.append("    resultToken: ").append(toIndentedString(resultToken)).append("\n");
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -626,6 +652,7 @@ public class ApprovalUserDetail {
     openapiFields.add("message");
     openapiFields.add("extra_message");
     openapiFields.add("result_token");
+    openapiFields.add("action");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -686,6 +713,10 @@ public class ApprovalUserDetail {
       }
       if ((jsonObj.get("result_token") != null && !jsonObj.get("result_token").isJsonNull()) && !jsonObj.get("result_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `result_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("result_token").toString()));
+      }
+      // validate the optional field `action`
+      if (jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) {
+        ApprovalAction.validateJsonElement(jsonObj.get("action"));
       }
   }
 

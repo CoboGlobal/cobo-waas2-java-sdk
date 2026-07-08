@@ -11,6 +11,7 @@
 |**requestId** | **String** | The request ID provided by you when creating the batch allocation. |  |
 |**allocationParams** | [**List&lt;AllocationParam&gt;**](AllocationParam.md) |  |  [optional] |
 |**initiator** | **String** | The initiator of this batch allocation, usually the API key you used to create the batch allocation. |  [optional] |
+|**status** | **BatchAllocationStatus** |  |  [optional] |
 |**createdTimestamp** | **Integer** | The created time of the batch allocation, represented as a UNIX timestamp in seconds. |  |
 |**updatedTimestamp** | **Integer** | The updated time of the batch allocation, represented as a UNIX timestamp in seconds. |  |
 

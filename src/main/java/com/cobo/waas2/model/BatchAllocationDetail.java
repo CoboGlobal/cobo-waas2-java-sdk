@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.AllocationItem;
+import com.cobo.waas2.model.BatchAllocationStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -70,6 +71,10 @@ public class BatchAllocationDetail {
   public static final String SERIALIZED_NAME_INITIATOR = "initiator";
   @SerializedName(SERIALIZED_NAME_INITIATOR)
   private String initiator;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private BatchAllocationStatus status;
 
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
@@ -163,6 +168,25 @@ public class BatchAllocationDetail {
 
   public void setInitiator(String initiator) {
     this.initiator = initiator;
+  }
+
+
+  public BatchAllocationDetail status(BatchAllocationStatus status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  public BatchAllocationStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(BatchAllocationStatus status) {
+    this.status = status;
   }
 
 
@@ -262,6 +286,7 @@ public class BatchAllocationDetail {
         Objects.equals(this.requestId, batchAllocationDetail.requestId) &&
         Objects.equals(this.allocationItems, batchAllocationDetail.allocationItems) &&
         Objects.equals(this.initiator, batchAllocationDetail.initiator) &&
+        Objects.equals(this.status, batchAllocationDetail.status) &&
         Objects.equals(this.createdTimestamp, batchAllocationDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, batchAllocationDetail.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, batchAllocationDetail.additionalProperties);
@@ -269,7 +294,7 @@ public class BatchAllocationDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(batchAllocationId, requestId, allocationItems, initiator, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(batchAllocationId, requestId, allocationItems, initiator, status, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -280,6 +305,7 @@ public class BatchAllocationDetail {
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    allocationItems: ").append(toIndentedString(allocationItems)).append("\n");
     sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -309,6 +335,7 @@ public class BatchAllocationDetail {
     openapiFields.add("request_id");
     openapiFields.add("allocation_items");
     openapiFields.add("initiator");
+    openapiFields.add("status");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -360,6 +387,10 @@ public class BatchAllocationDetail {
       }
       if ((jsonObj.get("initiator") != null && !jsonObj.get("initiator").isJsonNull()) && !jsonObj.get("initiator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiator").toString()));
+      }
+      // validate the optional field `status`
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+        BatchAllocationStatus.validateJsonElement(jsonObj.get("status"));
       }
   }
 

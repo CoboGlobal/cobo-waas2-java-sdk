@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.38.0</version>
+  <version>1.39.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.38.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.39.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.38.0.jar`
+* `target/cobo-waas2-1.39.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -491,6 +491,7 @@ Class | Method | HTTP request | Description
  - [AddressesEventData](docs/AddressesEventData.md)
  - [AddressesEventDataAllOfAddresses](docs/AddressesEventDataAllOfAddresses.md)
  - [AllocationItem](docs/AllocationItem.md)
+ - [AllocationItemStatus](docs/AllocationItemStatus.md)
  - [AllocationParam](docs/AllocationParam.md)
  - [AmountDetailsInner](docs/AmountDetailsInner.md)
  - [AmountStatus](docs/AmountStatus.md)
@@ -499,6 +500,7 @@ Class | Method | HTTP request | Description
  - [AppWorkflow](docs/AppWorkflow.md)
  - [AppWorkflowField](docs/AppWorkflowField.md)
  - [AppWorkflowPolicy](docs/AppWorkflowPolicy.md)
+ - [ApprovalAction](docs/ApprovalAction.md)
  - [ApprovalDetail](docs/ApprovalDetail.md)
  - [ApprovalEntry](docs/ApprovalEntry.md)
  - [ApprovalRequest](docs/ApprovalRequest.md)
@@ -540,6 +542,7 @@ Class | Method | HTTP request | Description
  - [BaseStakeSource](docs/BaseStakeSource.md)
  - [BatchAllocation](docs/BatchAllocation.md)
  - [BatchAllocationDetail](docs/BatchAllocationDetail.md)
+ - [BatchAllocationStatus](docs/BatchAllocationStatus.md)
  - [BatchCheckUtxo201Response](docs/BatchCheckUtxo201Response.md)
  - [BatchCheckUtxoRequest](docs/BatchCheckUtxoRequest.md)
  - [BatchUTXOParam](docs/BatchUTXOParam.md)
@@ -928,6 +931,7 @@ Class | Method | HTTP request | Description
  - [QueryApprovalStatement200Response](docs/QueryApprovalStatement200Response.md)
  - [QueryGuardPubkey200Response](docs/QueryGuardPubkey200Response.md)
  - [QueryGuardPubkey200ResponseAddressesInner](docs/QueryGuardPubkey200ResponseAddressesInner.md)
+ - [RawMessageSignDestination](docs/RawMessageSignDestination.md)
  - [RefreshAddressBalancesByToken200Response](docs/RefreshAddressBalancesByToken200Response.md)
  - [RefreshAddressBalancesByTokenRequest](docs/RefreshAddressBalancesByTokenRequest.md)
  - [RefreshPermissionTokenRequest](docs/RefreshPermissionTokenRequest.md)
@@ -1186,6 +1190,7 @@ Class | Method | HTTP request | Description
  - [TransactionExtraType](docs/TransactionExtraType.md)
  - [TransactionFILFee](docs/TransactionFILFee.md)
  - [TransactionFee](docs/TransactionFee.md)
+ - [TransactionFeePayer](docs/TransactionFeePayer.md)
  - [TransactionFeeStationWalletSource](docs/TransactionFeeStationWalletSource.md)
  - [TransactionFixedFee](docs/TransactionFixedFee.md)
  - [TransactionFuelingInfo](docs/TransactionFuelingInfo.md)

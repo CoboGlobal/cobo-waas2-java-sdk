@@ -14,6 +14,7 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.ApprovalAction;
 import com.cobo.waas2.model.ApprovalDetail;
 import com.cobo.waas2.model.ApprovalTemplate;
 import com.cobo.waas2.model.BroadcastSignedTransactions201ResponseInner;
@@ -160,7 +161,7 @@ public class TransactionsApiTest {
     /**
      * Estimate transaction fee
      *
-     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees).  &lt;Note&gt;Fee estimates are point-in-time and short-lived. Because on-chain gas prices change continuously, re-estimate the fee immediately before submitting a withdrawal. Submitting a transaction based on a stale estimate may cause the transaction to be rejected because the fee is insufficient.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -241,7 +242,8 @@ public class TransactionsApiTest {
     public void listTransactionTemplatesTest() throws ApiException {
         String templateKey = null;
         String templateVersion = null;
-        List<ApprovalTemplate> response = api.listTransactionTemplates(templateKey, templateVersion);
+        ApprovalAction action = null;
+        List<ApprovalTemplate> response = api.listTransactionTemplates(templateKey, templateVersion, action);
         // TODO: test validations
     }
 

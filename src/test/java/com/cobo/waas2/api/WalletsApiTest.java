@@ -346,10 +346,11 @@ public class WalletsApiTest {
         WalletSubtype walletSubtype = null;
         String chainIds = null;
         String tokenIds = null;
+        String tokenAddresses = null;
         Integer limit = null;
         String before = null;
         String after = null;
-        ListSupportedTokens200Response response = api.listEnabledTokens(walletType, walletSubtype, chainIds, tokenIds, limit, before, after);
+        ListSupportedTokens200Response response = api.listEnabledTokens(walletType, walletSubtype, chainIds, tokenIds, tokenAddresses, limit, before, after);
         // TODO: test validations
     }
 

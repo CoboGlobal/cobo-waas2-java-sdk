@@ -181,7 +181,7 @@ public class AutoSweepTask {
   }
 
    /**
-   * IDs of the transactions triggered by the task.
+   * IDs of the transactions triggered by the task. This array is empty while the task &#x60;status&#x60; is &#x60;Submitted&#x60;, and is populated only after the status becomes &#x60;TransactionCreated&#x60;. Poll [Get auto-sweep task details](https://www.cobo.com/developers/v2/api-references/autosweep/get-auto-sweep-task-details) until the transaction IDs are available. 
    * @return transactionIds
   **/
   @javax.annotation.Nullable

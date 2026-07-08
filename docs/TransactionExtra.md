@@ -23,6 +23,7 @@
 |**dappName** | **String** | The dapp name that initiated this transaction. |  [optional] |
 |**dappDomain** | **String** | The dapp domain that initiated this transaction |  [optional] |
 |**sessionId** | **String** | The session id that initiated this transaction |  [optional] |
+|**feePayer** | **String** | The address of the designated Solana fee payer account that covers the transaction fees, separating the fee payment from the main signer or source account. |  [optional] |
 
 
 
