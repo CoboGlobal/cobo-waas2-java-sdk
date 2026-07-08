@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Source of the token listing request
+ * The source of the token listing request. - &#x60;API&#x60;: The request was created via the WaaS 2.0 API. - &#x60;Admin&#x60;: The request was created on Cobo Portal. 
  */
 @JsonAdapter(TokenListingRequestSource.Adapter.class)
 public enum TokenListingRequestSource {

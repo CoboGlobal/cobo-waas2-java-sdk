@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -73,10 +72,6 @@ public class PaymentEstimateFeeRequest {
   @SerializedName(SERIALIZED_NAME_TRANSFER_VIA_VA)
   private Boolean transferViaVa;
 
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT_ID = "bank_account_id";
-  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_ID)
-  private UUID bankAccountId;
-
   public PaymentEstimateFeeRequest() {
   }
 
@@ -113,7 +108,7 @@ public class PaymentEstimateFeeRequest {
   }
 
    /**
-   * Get estimateFees
+   * A list of token IDs and amounts for which fees will be calculated.
    * @return estimateFees
   **/
   @javax.annotation.Nonnull
@@ -132,7 +127,7 @@ public class PaymentEstimateFeeRequest {
   }
 
    /**
-   * only need fee_type is CryptoPayoutBridge
+   * The token ID that the recipient will receive. Required only when &#x60;fee_type&#x60; is &#x60;CryptoPayoutBridge&#x60;.
    * @return recipientTokenId
   **/
   @javax.annotation.Nullable
@@ -161,25 +156,6 @@ public class PaymentEstimateFeeRequest {
 
   public void setTransferViaVa(Boolean transferViaVa) {
     this.transferViaVa = transferViaVa;
-  }
-
-
-  public PaymentEstimateFeeRequest bankAccountId(UUID bankAccountId) {
-    this.bankAccountId = bankAccountId;
-    return this;
-  }
-
-   /**
-   * The bank account ID, which you can retrieve by calling [List counterparty entries](https://www.cobo.com/developers/v2/api-references/payment/list-counterparty-entries). 
-   * @return bankAccountId
-  **/
-  @javax.annotation.Nullable
-  public UUID getBankAccountId() {
-    return bankAccountId;
-  }
-
-  public void setBankAccountId(UUID bankAccountId) {
-    this.bankAccountId = bankAccountId;
   }
 
   /**
@@ -240,14 +216,13 @@ public class PaymentEstimateFeeRequest {
     return Objects.equals(this.feeType, paymentEstimateFeeRequest.feeType) &&
         Objects.equals(this.estimateFees, paymentEstimateFeeRequest.estimateFees) &&
         Objects.equals(this.recipientTokenId, paymentEstimateFeeRequest.recipientTokenId) &&
-        Objects.equals(this.transferViaVa, paymentEstimateFeeRequest.transferViaVa) &&
-        Objects.equals(this.bankAccountId, paymentEstimateFeeRequest.bankAccountId)&&
+        Objects.equals(this.transferViaVa, paymentEstimateFeeRequest.transferViaVa)&&
         Objects.equals(this.additionalProperties, paymentEstimateFeeRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(feeType, estimateFees, recipientTokenId, transferViaVa, bankAccountId, additionalProperties);
+    return Objects.hash(feeType, estimateFees, recipientTokenId, transferViaVa, additionalProperties);
   }
 
   @Override
@@ -258,7 +233,6 @@ public class PaymentEstimateFeeRequest {
     sb.append("    estimateFees: ").append(toIndentedString(estimateFees)).append("\n");
     sb.append("    recipientTokenId: ").append(toIndentedString(recipientTokenId)).append("\n");
     sb.append("    transferViaVa: ").append(toIndentedString(transferViaVa)).append("\n");
-    sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -286,7 +260,6 @@ public class PaymentEstimateFeeRequest {
     openapiFields.add("estimate_fees");
     openapiFields.add("recipient_token_id");
     openapiFields.add("transfer_via_va");
-    openapiFields.add("bank_account_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -329,9 +302,6 @@ public class PaymentEstimateFeeRequest {
       };
       if ((jsonObj.get("recipient_token_id") != null && !jsonObj.get("recipient_token_id").isJsonNull()) && !jsonObj.get("recipient_token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recipient_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipient_token_id").toString()));
-      }
-      if ((jsonObj.get("bank_account_id") != null && !jsonObj.get("bank_account_id").isJsonNull()) && !jsonObj.get("bank_account_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bank_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_account_id").toString()));
       }
   }
 

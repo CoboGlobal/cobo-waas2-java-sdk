@@ -73,7 +73,7 @@ public class TokenizationAllowlistAddressNote {
   }
 
    /**
-   * The allowed address.
+   * The address on the allowlist.
    * @return address
   **/
   @javax.annotation.Nonnull
@@ -92,7 +92,7 @@ public class TokenizationAllowlistAddressNote {
   }
 
    /**
-   * The note for the allowed address.
+   * The note for the address on the allowlist.
    * @return note
   **/
   @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class TokenizationAllowlistAddressNote {
   }
 
    /**
-   * The time when the allowlist address was created, in Unix timestamp format, measured in milliseconds.
+   * The time when the address was added to the allowlist, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable

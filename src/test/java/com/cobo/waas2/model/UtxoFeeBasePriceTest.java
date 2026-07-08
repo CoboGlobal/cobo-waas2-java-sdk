@@ -43,12 +43,4 @@ public class UtxoFeeBasePriceTest {
         // TODO: test feeRate
     }
 
-    /**
-     * Test the property 'fallback'
-     */
-    @Test
-    public void fallbackTest() {
-        // TODO: test fallback
-    }
-
 }

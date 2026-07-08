@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * EntryType defines the type of the counterparty entry: - &#x60;Address&#x60;: The counterparty entry is an address. - &#x60;BankAccount&#x60;: The counterparty entry is a bank account. 
+ * The type of the counterparty entry. - &#x60;Address&#x60;: The entry is a wallet address. - &#x60;BankAccount&#x60;: The entry is a bank account. 
  */
 @JsonAdapter(EntryType.Adapter.class)
 public enum EntryType {

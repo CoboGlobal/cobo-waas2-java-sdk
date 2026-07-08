@@ -107,14 +107,6 @@ public class TransactionRequestFeeTest {
     }
 
     /**
-     * Test the property 'fallback'
-     */
-    @Test
-    public void fallbackTest() {
-        // TODO: test fallback
-    }
-
-    /**
      * Test the property 'computeUnitPrice'
      */
     @Test

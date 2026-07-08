@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**cryptoAddressId** | **String** | The crypto address ID. |  |
+|**cryptoAddressId** | **String** | The ID of the deleted crypto address. |  |
 
 
 

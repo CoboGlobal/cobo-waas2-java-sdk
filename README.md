@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.38.1</version>
+  <version>1.39.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.38.1"
+     implementation "com.cobo.waas2:cobo-waas2:1.39.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.38.1.jar`
+* `target/cobo-waas2-1.39.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -200,37 +200,29 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AddressBooksApi* | [**createAddressBooks**](docs/AddressBooksApi.md#createAddressBooks) | **POST** /address_books | Create address books
-*AddressBooksApi* | [**deleteAddressBookById**](docs/AddressBooksApi.md#deleteAddressBookById) | **POST** /address_books/{entry_id}/delete | Delete address book
-*AddressBooksApi* | [**getAddressBookById**](docs/AddressBooksApi.md#getAddressBookById) | **GET** /address_books/{entry_id} | Get address book information
-*AddressBooksApi* | [**listAddressBooks**](docs/AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List address book entries
-*AddressBooksApi* | [**updateAddressBookById**](docs/AddressBooksApi.md#updateAddressBookById) | **PUT** /address_books/{entry_id} | Update address book
-*AppWorkflowsApi* | [**createApprovalRequest**](docs/AppWorkflowsApi.md#createApprovalRequest) | **POST** /app/workflows/approval_requests | Request app workflow approval
-*AppWorkflowsApi* | [**getApprovalRequestById**](docs/AppWorkflowsApi.md#getApprovalRequestById) | **GET** /app/workflows/approval_requests/{approval_id} | Get app workflow approval request by approval id
-*AppWorkflowsApi* | [**listAppWorkflows**](docs/AppWorkflowsApi.md#listAppWorkflows) | **GET** /app/workflows | list app workflows
-*AppWorkflowsApi* | [**listApprovalRequests**](docs/AppWorkflowsApi.md#listApprovalRequests) | **GET** /app/workflows/approval_requests | List app workflow approval requests by operation_id
-*AppWorkflowsApi* | [**revokeApprovalRequest**](docs/AppWorkflowsApi.md#revokeApprovalRequest) | **POST** /app/workflows/approval_requests/{approval_id}/revoke | Revoke an app workflow approval request by request initiator.
+*AddressBooksApi* | [**createAddressBooks**](docs/AddressBooksApi.md#createAddressBooks) | **POST** /address_books | Create Address Book entries
+*AddressBooksApi* | [**deleteAddressBookById**](docs/AddressBooksApi.md#deleteAddressBookById) | **POST** /address_books/{entry_id}/delete | Delete Address Book entry
+*AddressBooksApi* | [**getAddressBookById**](docs/AddressBooksApi.md#getAddressBookById) | **GET** /address_books/{entry_id} | Get Address Book entry
+*AddressBooksApi* | [**listAddressBooks**](docs/AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List Address Book entries
+*AddressBooksApi* | [**updateAddressBookById**](docs/AddressBooksApi.md#updateAddressBookById) | **PUT** /address_books/{entry_id} | Update Address Book entry
+*AppWorkflowsApi* | [**createApprovalRequest**](docs/AppWorkflowsApi.md#createApprovalRequest) | **POST** /app/workflows/approval_requests | Request workflow approval
+*AppWorkflowsApi* | [**getApprovalRequestById**](docs/AppWorkflowsApi.md#getApprovalRequestById) | **GET** /app/workflows/approval_requests/{approval_id} | Get approval request details
+*AppWorkflowsApi* | [**listAppWorkflows**](docs/AppWorkflowsApi.md#listAppWorkflows) | **GET** /app/workflows | List app workflows
+*AppWorkflowsApi* | [**listApprovalRequests**](docs/AppWorkflowsApi.md#listApprovalRequests) | **GET** /app/workflows/approval_requests | List approval requests
+*AppWorkflowsApi* | [**revokeApprovalRequest**](docs/AppWorkflowsApi.md#revokeApprovalRequest) | **POST** /app/workflows/approval_requests/{approval_id}/revoke | Revoke approval request
 *AutoSweepApi* | [**cancelAutoSweepTaskById**](docs/AutoSweepApi.md#cancelAutoSweepTaskById) | **POST** /auto_sweep/tasks/{task_id}/cancel | Cancel auto sweep task
-*AutoSweepApi* | [**createAutoSweepTask**](docs/AutoSweepApi.md#createAutoSweepTask) | **POST** /auto_sweep/tasks | create auto sweep task
-*AutoSweepApi* | [**createWalletSweepToAddresses**](docs/AutoSweepApi.md#createWalletSweepToAddresses) | **POST** /auto_sweep/sweep_to_addresses | create wallet sweep to addresses
-*AutoSweepApi* | [**getAutoSweepTaskById**](docs/AutoSweepApi.md#getAutoSweepTaskById) | **GET** /auto_sweep/tasks/{task_id} | Get auto sweep task information
-*AutoSweepApi* | [**listAutoSweepTask**](docs/AutoSweepApi.md#listAutoSweepTask) | **GET** /auto_sweep/tasks | List wallet auto sweep task
-*AutoSweepApi* | [**listWalletSweepToAddresses**](docs/AutoSweepApi.md#listWalletSweepToAddresses) | **GET** /auto_sweep/sweep_to_addresses | List wallet sweep to addresses
-*BatchPayoutsApi* | [**cancelBatchPayout**](docs/BatchPayoutsApi.md#cancelBatchPayout) | **POST** /batch_payouts/payouts/{payout_id}/cancel | Cancel batch payout
-*BatchPayoutsApi* | [**createBatchPayout**](docs/BatchPayoutsApi.md#createBatchPayout) | **POST** /batch_payouts/payouts | Create batch payout
-*BatchPayoutsApi* | [**dropBatchPayout**](docs/BatchPayoutsApi.md#dropBatchPayout) | **POST** /batch_payouts/payouts/{payout_id}/drop | Drop batch payout
-*BatchPayoutsApi* | [**estimateBatchPayoutFee**](docs/BatchPayoutsApi.md#estimateBatchPayoutFee) | **POST** /batch_payouts/estimate_fee | Estimate batch payout fee
-*BatchPayoutsApi* | [**getBatchPayout**](docs/BatchPayoutsApi.md#getBatchPayout) | **GET** /batch_payouts/payouts/{payout_id} | Get batch payout
-*BatchPayoutsApi* | [**listBatchPayouts**](docs/BatchPayoutsApi.md#listBatchPayouts) | **GET** /batch_payouts/payouts | List batch payouts
-*BatchPayoutsApi* | [**revokeBatchPayout**](docs/BatchPayoutsApi.md#revokeBatchPayout) | **POST** /batch_payouts/payouts/{payout_id}/revoke | Revoke batch payout
-*BatchPayoutsApi* | [**speedUpBatchPayout**](docs/BatchPayoutsApi.md#speedUpBatchPayout) | **POST** /batch_payouts/payouts/{payout_id}/speedup | Speed up batch payout
-*ComplianceApi* | [**createKyaScreenings**](docs/ComplianceApi.md#createKyaScreenings) | **POST** /compliance/kya/screenings | Batch create KYA address screening requests
-*ComplianceApi* | [**getDispositionStatus**](docs/ComplianceApi.md#getDispositionStatus) | **GET** /compliance/funds/disposition | Query disposition status
-*ComplianceApi* | [**getKyaScreening**](docs/ComplianceApi.md#getKyaScreening) | **GET** /compliance/kya/screenings/{screening_id} | Retrieve single KYA address screening result
-*ComplianceApi* | [**getKytScreeningStatus**](docs/ComplianceApi.md#getKytScreeningStatus) | **GET** /compliance/kyt/screenings/status | Retrieve KYT screening status
-*ComplianceApi* | [**isolateFunds**](docs/ComplianceApi.md#isolateFunds) | **POST** /compliance/funds/disposition/isolate | Create fund isolate disposition
-*ComplianceApi* | [**listKyaScreenings**](docs/ComplianceApi.md#listKyaScreenings) | **GET** /compliance/kya/screenings | Query KYA address screening results
-*ComplianceApi* | [**refundFunds**](docs/ComplianceApi.md#refundFunds) | **POST** /compliance/funds/disposition/refund | Create fund refund disposition
+*AutoSweepApi* | [**createAutoSweepTask**](docs/AutoSweepApi.md#createAutoSweepTask) | **POST** /auto_sweep/tasks | Create auto-sweep task
+*AutoSweepApi* | [**createWalletSweepToAddresses**](docs/AutoSweepApi.md#createWalletSweepToAddresses) | **POST** /auto_sweep/sweep_to_addresses | Create sweep-to address
+*AutoSweepApi* | [**getAutoSweepTaskById**](docs/AutoSweepApi.md#getAutoSweepTaskById) | **GET** /auto_sweep/tasks/{task_id} | Get auto-sweep task details
+*AutoSweepApi* | [**listAutoSweepTask**](docs/AutoSweepApi.md#listAutoSweepTask) | **GET** /auto_sweep/tasks | List auto-sweep tasks
+*AutoSweepApi* | [**listWalletSweepToAddresses**](docs/AutoSweepApi.md#listWalletSweepToAddresses) | **GET** /auto_sweep/sweep_to_addresses | List sweep-to addresses
+*ComplianceApi* | [**createKyaScreenings**](docs/ComplianceApi.md#createKyaScreenings) | **POST** /compliance/kya/screenings | Create KYA address screening requests
+*ComplianceApi* | [**getDispositionStatus**](docs/ComplianceApi.md#getDispositionStatus) | **GET** /compliance/funds/disposition | Get disposition status
+*ComplianceApi* | [**getKyaScreening**](docs/ComplianceApi.md#getKyaScreening) | **GET** /compliance/kya/screenings/{screening_id} | Get KYA address screening result
+*ComplianceApi* | [**getKytScreeningStatus**](docs/ComplianceApi.md#getKytScreeningStatus) | **GET** /compliance/kyt/screenings/status | Get KYT screening status
+*ComplianceApi* | [**isolateFunds**](docs/ComplianceApi.md#isolateFunds) | **POST** /compliance/funds/disposition/isolate | Isolate funds
+*ComplianceApi* | [**listKyaScreenings**](docs/ComplianceApi.md#listKyaScreenings) | **GET** /compliance/kya/screenings | List KYA address screening results
+*ComplianceApi* | [**refundFunds**](docs/ComplianceApi.md#refundFunds) | **POST** /compliance/funds/disposition/refund | Refund funds
 *ComplianceApi* | [**submitKytManualReview**](docs/ComplianceApi.md#submitKytManualReview) | **POST** /compliance/kyt/screenings/manual_review | Submit KYT manual review result
 *ComplianceApi* | [**submitKytScreeningDecisions**](docs/ComplianceApi.md#submitKytScreeningDecisions) | **POST** /compliance/kyt/screenings/decisions | Submit KYT screening decision
 *ComplianceApi* | [**unfreezeFunds**](docs/ComplianceApi.md#unfreezeFunds) | **POST** /compliance/funds/disposition/unfreeze | Unfreeze frozen funds
@@ -247,7 +239,7 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *DevelopersWebhooksApi* | [**triggerTestWebhookEvent**](docs/DevelopersWebhooksApi.md#triggerTestWebhookEvent) | **POST** /webhooks/events/trigger | Trigger test event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
-*FeeStationApi* | [**checkFeeStationUsage**](docs/FeeStationApi.md#checkFeeStationUsage) | **POST** /fee_station/check_fee_station_usage | fee station pre check
+*FeeStationApi* | [**checkFeeStationUsage**](docs/FeeStationApi.md#checkFeeStationUsage) | **POST** /fee_station/check_fee_station_usage | Check Fee Station usage
 *FeeStationApi* | [**estimateFeeStationFee**](docs/FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate transaction fee
 *FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information
 *FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses
@@ -255,49 +247,9 @@ Class | Method | HTTP request | Description
 *FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions
 *FeeStationApi* | [**listTokenBalancesForFeeStation**](docs/FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances
 *GraphQlApi* | [**executeGraphql**](docs/GraphQlApi.md#executeGraphql) | **POST** /graphql | Execute a GraphQL query or mutation
-*InternalBankGatewayApi* | [**bankPayoutCancel**](docs/InternalBankGatewayApi.md#bankPayoutCancel) | **POST** /internal/bank_gateway/payouts/{payout_id}/cancel | Cancel a payout
-*InternalBankGatewayApi* | [**bankPayoutRetry**](docs/InternalBankGatewayApi.md#bankPayoutRetry) | **POST** /internal/bank_gateway/payouts/{payout_id}/retry | Retry a payout
-*InternalBankGatewayApi* | [**createBankPayout**](docs/InternalBankGatewayApi.md#createBankPayout) | **POST** /internal/bank_gateway/payouts | Create a payout
-*InternalBankGatewayApi* | [**createThirdPartyMerchant**](docs/InternalBankGatewayApi.md#createThirdPartyMerchant) | **POST** /internal/bank_gateway/third_party/merchant | Create third-party merchant
-*InternalBankGatewayApi* | [**createThirdPartyPayee**](docs/InternalBankGatewayApi.md#createThirdPartyPayee) | **POST** /internal/bank_gateway/third_party/payee | Create third-party payee
-*InternalBankGatewayApi* | [**createVirtualAccount**](docs/InternalBankGatewayApi.md#createVirtualAccount) | **POST** /internal/bank_gateway/va | Create a virtual account
-*InternalBankGatewayApi* | [**deleteThirdPartyPayee**](docs/InternalBankGatewayApi.md#deleteThirdPartyPayee) | **DELETE** /internal/bank_gateway/third_party/payee/{cobo_payee_id} | Delete third-party payee
-*InternalBankGatewayApi* | [**getBankAccountBalance**](docs/InternalBankGatewayApi.md#getBankAccountBalance) | **GET** /internal/bank_gateway/balance | Get bank account balance
-*InternalBankGatewayApi* | [**getBankPayoutDetail**](docs/InternalBankGatewayApi.md#getBankPayoutDetail) | **GET** /internal/bank_gateway/payouts/{payout_id} | Get payout details
-*InternalBankGatewayApi* | [**getDepositDetail**](docs/InternalBankGatewayApi.md#getDepositDetail) | **GET** /internal/bank_gateway/deposits/detail | Get deposit detail
-*InternalBankGatewayApi* | [**getThirdPartyMerchant**](docs/InternalBankGatewayApi.md#getThirdPartyMerchant) | **GET** /internal/bank_gateway/third_party/merchant/{cobo_merchant_id} | Get third-party merchant
-*InternalBankGatewayApi* | [**getThirdPartyPayee**](docs/InternalBankGatewayApi.md#getThirdPartyPayee) | **GET** /internal/bank_gateway/third_party/payee/{cobo_payee_id} | Get third-party payee
-*InternalBankGatewayApi* | [**getVirtualAccountDetail**](docs/InternalBankGatewayApi.md#getVirtualAccountDetail) | **GET** /internal/bank_gateway/va/detail | Get virtual account detail
-*InternalBankGatewayApi* | [**listBankAwaitingSignaturePayouts**](docs/InternalBankGatewayApi.md#listBankAwaitingSignaturePayouts) | **GET** /internal/bank_gateway/payouts/awaiting_signature | Get awaiting signature payouts
-*InternalBankGatewayApi* | [**listBankReturnedPayouts**](docs/InternalBankGatewayApi.md#listBankReturnedPayouts) | **GET** /internal/bank_gateway/payouts/returned | Get returned payouts
-*InternalBankGatewayApi* | [**listBankTransactions**](docs/InternalBankGatewayApi.md#listBankTransactions) | **GET** /internal/bank_gateway/transactions | Get payouts list
-*InternalBankGatewayApi* | [**listDeposits**](docs/InternalBankGatewayApi.md#listDeposits) | **GET** /internal/bank_gateway/deposits | List deposit
-*InternalBankGatewayApi* | [**listVirtualAccounts**](docs/InternalBankGatewayApi.md#listVirtualAccounts) | **GET** /internal/bank_gateway/va | List virtual accounts
-*InternalBankGatewayApi* | [**submitBankPayoutSignature**](docs/InternalBankGatewayApi.md#submitBankPayoutSignature) | **POST** /internal/bank_gateway/payouts/{payout_id}/signature | Submit a payout signature
-*InternalBatchPayoutsApi* | [**internalCreateBatchPayout**](docs/InternalBatchPayoutsApi.md#internalCreateBatchPayout) | **POST** /internal/batch_payouts/payouts | Create batch payout
-*InternalBatchPayoutsApi* | [**internalGetBatchPayout**](docs/InternalBatchPayoutsApi.md#internalGetBatchPayout) | **GET** /internal/batch_payouts/payouts/{payout_id} | Get batch payout
-*InternalFeeEngineApi* | [**addTxTokens**](docs/InternalFeeEngineApi.md#addTxTokens) | **POST** /internal/fee_engine/add_tx_tokens | Add FeeEngine Tx Tokens
-*InternalFeeEngineApi* | [**getCommissionFee**](docs/InternalFeeEngineApi.md#getCommissionFee) | **GET** /internal/fee_engine/commission_fee | Get commission fee
-*InternalFeeEngineApi* | [**getFeeEngine**](docs/InternalFeeEngineApi.md#getFeeEngine) | **GET** /internal/fee_engine | Get FeeEngine
-*InternalFeeEngineApi* | [**updateFeeEngine**](docs/InternalFeeEngineApi.md#updateFeeEngine) | **POST** /internal/fee_engine/update | Update FeeEngine
-*InternalFeeStationApi* | [**addCoboPaidToken**](docs/InternalFeeStationApi.md#addCoboPaidToken) | **POST** /internal/fee_station/add_cobo_paid_token | Append Cobo-paid tokens
-*InternalFeeStationApi* | [**chargeCommissionFee**](docs/InternalFeeStationApi.md#chargeCommissionFee) | **POST** /internal/fee_station/charge_commission_fee | Charge commission fee
-*InternalFeeStationApi* | [**getFeeStationDetail**](docs/InternalFeeStationApi.md#getFeeStationDetail) | **GET** /internal/fee_station | Get FeeStation Detail
-*InternalFeeStationApi* | [**getFeeStationSystemConf**](docs/InternalFeeStationApi.md#getFeeStationSystemConf) | **GET** /internal/fee_station/system_conf | Get FeeStation System Config
-*InternalFeeStationApi* | [**listFeeStationUnifiedTransactions**](docs/InternalFeeStationApi.md#listFeeStationUnifiedTransactions) | **GET** /internal/fee_station/unified_transactions | List fee station unified transactions
-*InternalFeeStationApi* | [**refundCommissionFee**](docs/InternalFeeStationApi.md#refundCommissionFee) | **POST** /internal/fee_station/refund_commission_fee | Refund commission fee
-*InternalFeeStationApi* | [**updateFeeStationConfig**](docs/InternalFeeStationApi.md#updateFeeStationConfig) | **POST** /internal/fee_station/update_conf | Update FeeStation
-*InternalPackageApi* | [**addPackageChain**](docs/InternalPackageApi.md#addPackageChain) | **POST** /internal/package/add_package_chain | Add chain to package
-*InternalSwapsApi* | [**checkSwapWalletAddress**](docs/InternalSwapsApi.md#checkSwapWalletAddress) | **GET** /internal/swaps/check_wallet_address | Check Swap Address
-*InternalSwapsApi* | [**getSwapLimitsAndLiquidityInternally**](docs/InternalSwapsApi.md#getSwapLimitsAndLiquidityInternally) | **GET** /internal/swaps/limits_and_liquidity | Get Swap Limits and Liquidity
-*InternalSwapsApi* | [**listSwapReachableTokens**](docs/InternalSwapsApi.md#listSwapReachableTokens) | **GET** /internal/swaps/reachable_tokens | List Swap Reachable Tokens
-*InternalTokensApi* | [**setSupportToken**](docs/InternalTokensApi.md#setSupportToken) | **POST** /internal/tokens/set_support_token | Set support token
-*InternalTransactionsApi* | [**createInternalMessageSignTransaction**](docs/InternalTransactionsApi.md#createInternalMessageSignTransaction) | **POST** /internal/transactions/message_sign | Sign message
-*InternalTransactionsApi* | [**createInternalTransferTransaction**](docs/InternalTransactionsApi.md#createInternalTransferTransaction) | **POST** /internal/transactions/transfer | Transfer token
-*InternalWebhooksApi* | [**createWebhookEvent**](docs/InternalWebhooksApi.md#createWebhookEvent) | **POST** /internal/webhook_event | Create webhook event
-*OAuthApi* | [**exchangePermissionToken**](docs/OAuthApi.md#exchangePermissionToken) | **POST** /oauth/permission_token/exchange | Exchange Permission Access Token by API Key
+*OAuthApi* | [**exchangePermissionToken**](docs/OAuthApi.md#exchangePermissionToken) | **POST** /oauth/permission_token/exchange | Get Access Token
 *OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
-*OAuthApi* | [**refreshPermissionToken**](docs/OAuthApi.md#refreshPermissionToken) | **POST** /oauth/permission_token/refresh | Refresh Permission Access Token by Permission Refresh Token
+*OAuthApi* | [**refreshPermissionToken**](docs/OAuthApi.md#refreshPermissionToken) | **POST** /oauth/permission_token/refresh | Refresh Access Token
 *OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
 *OrganizationsApi* | [**getOrgInfo**](docs/OrganizationsApi.md#getOrgInfo) | **GET** /organizations/info | Get organization information
 *PaymentApi* | [**batchGetExchangeRates**](docs/PaymentApi.md#batchGetExchangeRates) | **GET** /payments/exchange_rates | Batch get exchange rates
@@ -309,18 +261,16 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**createCryptoAddress**](docs/PaymentApi.md#createCryptoAddress) | **POST** /payments/crypto_addresses | Create crypto address
 *PaymentApi* | [**createDestination**](docs/PaymentApi.md#createDestination) | **POST** /payments/destination | Create destination
 *PaymentApi* | [**createDestinationEntry**](docs/PaymentApi.md#createDestinationEntry) | **POST** /payments/destination_entry | Create destination entry
-*PaymentApi* | [**createForcedSweepRequest**](docs/PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create force sweep request
+*PaymentApi* | [**createForcedSweepRequest**](docs/PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create forced sweep
 *PaymentApi* | [**createMerchant**](docs/PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant
 *PaymentApi* | [**createOrderLink**](docs/PaymentApi.md#createOrderLink) | **POST** /payments/links/orders | Create order link
 *PaymentApi* | [**createPaymentOrder**](docs/PaymentApi.md#createPaymentOrder) | **POST** /payments/orders | Create pay-in order
 *PaymentApi* | [**createPayout**](docs/PaymentApi.md#createPayout) | **POST** /payments/payouts | Create payout
 *PaymentApi* | [**createRefund**](docs/PaymentApi.md#createRefund) | **POST** /payments/refunds | Create refund order
 *PaymentApi* | [**createRefundLink**](docs/PaymentApi.md#createRefundLink) | **POST** /payments/links/refunds | Create refund link
-*PaymentApi* | [**createReport**](docs/PaymentApi.md#createReport) | **POST** /payments/reports | Create report
+*PaymentApi* | [**createReport**](docs/PaymentApi.md#createReport) | **POST** /payments/reports | Generate reports
 *PaymentApi* | [**createSdkLink**](docs/PaymentApi.md#createSdkLink) | **POST** /payments/links/sdk | Create SDK link
 *PaymentApi* | [**createSettlementRequest**](docs/PaymentApi.md#createSettlementRequest) | **POST** /payments/settlement_requests | Create settlement request
-*PaymentApi* | [**createSubscriptionAction**](docs/PaymentApi.md#createSubscriptionAction) | **POST** /payments/subscription_actions | Create a subscription action
-*PaymentApi* | [**createSubscriptionPlan**](docs/PaymentApi.md#createSubscriptionPlan) | **POST** /payments/subscription_plans | Create subscription plan
 *PaymentApi* | [**createTopUpAddresses**](docs/PaymentApi.md#createTopUpAddresses) | **POST** /payments/topup/address | Batch create top-up addresses
 *PaymentApi* | [**deleteCounterpartyById**](docs/PaymentApi.md#deleteCounterpartyById) | **DELETE** /payments/counterparty/{counterparty_id} | Delete counterparty
 *PaymentApi* | [**deleteCounterpartyEntry**](docs/PaymentApi.md#deleteCounterpartyEntry) | **DELETE** /payments/counterparty_entry/{counterparty_entry_id} | Delete counterparty entry
@@ -328,26 +278,22 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**deleteDestinationById**](docs/PaymentApi.md#deleteDestinationById) | **DELETE** /payments/destination/{destination_id} | Delete destination
 *PaymentApi* | [**deleteDestinationEntry**](docs/PaymentApi.md#deleteDestinationEntry) | **DELETE** /payments/destination_entry/{destination_entry_id} | Delete destination entry
 *PaymentApi* | [**getAvailableAllocationAmount**](docs/PaymentApi.md#getAvailableAllocationAmount) | **GET** /payments/allocation_amount | Get available allocation amount
-*PaymentApi* | [**getBatchAllocationById**](docs/PaymentApi.md#getBatchAllocationById) | **GET** /payments/batch_allocations/{batch_allocation_id} | Get batch allocation by id
+*PaymentApi* | [**getBatchAllocationById**](docs/PaymentApi.md#getBatchAllocationById) | **GET** /payments/batch_allocations/{batch_allocation_id} | Get batch allocation information
 *PaymentApi* | [**getBulkSendById**](docs/PaymentApi.md#getBulkSendById) | **GET** /payments/bulk_sends/{bulk_send_id} | Get bulk send information
 *PaymentApi* | [**getCounterparty**](docs/PaymentApi.md#getCounterparty) | **GET** /payments/counterparty/{counterparty_id} | Get counterparty information
 *PaymentApi* | [**getCounterpartyEntry**](docs/PaymentApi.md#getCounterpartyEntry) | **GET** /payments/counterparty_entry/{counterparty_entry_id} | Get counterparty entry information
 *PaymentApi* | [**getDestination**](docs/PaymentApi.md#getDestination) | **GET** /payments/destination/{destination_id} | Get destination information
 *PaymentApi* | [**getDestinationEntry**](docs/PaymentApi.md#getDestinationEntry) | **GET** /payments/destination_entry/{destination_entry_id} | Get destination entry information
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
-*PaymentApi* | [**getMerchantKyc**](docs/PaymentApi.md#getMerchantKyc) | **GET** /payments/merchants/{merchant_id}/kyc | Get merchant KYC
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
 *PaymentApi* | [**getPayoutById**](docs/PaymentApi.md#getPayoutById) | **GET** /payments/payouts/{payout_id} | Get payout information
-*PaymentApi* | [**getPspBalance**](docs/PaymentApi.md#getPspBalance) | **GET** /payments/balance/psp | Get psp balance
+*PaymentApi* | [**getPspBalance**](docs/PaymentApi.md#getPspBalance) | **GET** /payments/balance/psp | Get developer balance
 *PaymentApi* | [**getRefundDetailById**](docs/PaymentApi.md#getRefundDetailById) | **GET** /payments/refunds/{refund_id} | Get refund order information
 *PaymentApi* | [**getRefunds**](docs/PaymentApi.md#getRefunds) | **GET** /payments/refunds | List all refund orders
 *PaymentApi* | [**getReports**](docs/PaymentApi.md#getReports) | **GET** /payments/reports | List all reports
 *PaymentApi* | [**getSettlementById**](docs/PaymentApi.md#getSettlementById) | **GET** /payments/settlement_requests/{settlement_request_id} | Get settlement request information
 *PaymentApi* | [**getSettlementInfoByIds**](docs/PaymentApi.md#getSettlementInfoByIds) | **GET** /payments/settlement_info | Get withdrawable balances
-*PaymentApi* | [**getSubscriptionActionById**](docs/PaymentApi.md#getSubscriptionActionById) | **GET** /payments/subscription_actions/{action_id} | Get subscription action by id
-*PaymentApi* | [**getSubscriptionById**](docs/PaymentApi.md#getSubscriptionById) | **GET** /payments/subscriptions/{subscription_id} | Get subscription by id
-*PaymentApi* | [**getSubscriptionPlanById**](docs/PaymentApi.md#getSubscriptionPlanById) | **GET** /payments/subscription_plans/{plan_id} | Get subscription plan by id
-*PaymentApi* | [**getTopUpAddress**](docs/PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Get top-up address
+*PaymentApi* | [**getTopUpAddress**](docs/PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Create/Get top-up address
 *PaymentApi* | [**listAllocationItems**](docs/PaymentApi.md#listAllocationItems) | **GET** /payments/allocation_items | List all allocation items
 *PaymentApi* | [**listBalanceChanges**](docs/PaymentApi.md#listBalanceChanges) | **GET** /payments/balance_changes | List balance changes
 *PaymentApi* | [**listBatchAllocations**](docs/PaymentApi.md#listBatchAllocations) | **GET** /payments/batch_allocations | List all batch allocations
@@ -358,7 +304,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**listCryptoAddresses**](docs/PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
 *PaymentApi* | [**listDestinationEntries**](docs/PaymentApi.md#listDestinationEntries) | **GET** /payments/destination_entry | List destination entries
 *PaymentApi* | [**listDestinations**](docs/PaymentApi.md#listDestinations) | **GET** /payments/destination | List all destinations
-*PaymentApi* | [**listForcedSweepRequests**](docs/PaymentApi.md#listForcedSweepRequests) | **GET** /payments/force_sweep_requests | List force sweep requests
+*PaymentApi* | [**listForcedSweepRequests**](docs/PaymentApi.md#listForcedSweepRequests) | **GET** /payments/force_sweep_requests | List forced sweeps
 *PaymentApi* | [**listMerchantBalances**](docs/PaymentApi.md#listMerchantBalances) | **GET** /payments/balance/merchants | List merchant balances
 *PaymentApi* | [**listMerchants**](docs/PaymentApi.md#listMerchants) | **GET** /payments/merchants | List all merchants
 *PaymentApi* | [**listPayerTransactions**](docs/PaymentApi.md#listPayerTransactions) | **GET** /payments/topup/payers/transactions | List payer transactions
@@ -368,22 +314,17 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**listPayouts**](docs/PaymentApi.md#listPayouts) | **GET** /payments/payouts | List all payouts
 *PaymentApi* | [**listSettlementDetails**](docs/PaymentApi.md#listSettlementDetails) | **GET** /payments/settlement_details | List all settlement details
 *PaymentApi* | [**listSettlementRequests**](docs/PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests
-*PaymentApi* | [**listSubscriptionActions**](docs/PaymentApi.md#listSubscriptionActions) | **GET** /payments/subscription_actions | List subscription actions
-*PaymentApi* | [**listSubscriptionPlans**](docs/PaymentApi.md#listSubscriptionPlans) | **GET** /payments/subscription_plans | List subscription plans
-*PaymentApi* | [**listSubscriptions**](docs/PaymentApi.md#listSubscriptions) | **GET** /payments/subscriptions | List subscriptions
 *PaymentApi* | [**listTopUpPayerAccounts**](docs/PaymentApi.md#listTopUpPayerAccounts) | **GET** /payments/topup/payer_accounts | List top-up payer accounts
-*PaymentApi* | [**listTopUpPayers**](docs/PaymentApi.md#listTopUpPayers) | **GET** /payments/topup/payers | List top-up payers
-*PaymentApi* | [**paymentEstimateFee**](docs/PaymentApi.md#paymentEstimateFee) | **POST** /payments/estimate_fee | Payment estimate fee
-*PaymentApi* | [**submitMerchantKyc**](docs/PaymentApi.md#submitMerchantKyc) | **POST** /payments/merchants/{merchant_id}/kyc | Submit merchant KYC
+*PaymentApi* | [**listTopUpPayers**](docs/PaymentApi.md#listTopUpPayers) | **GET** /payments/topup/payers | List payers
+*PaymentApi* | [**paymentEstimateFee**](docs/PaymentApi.md#paymentEstimateFee) | **POST** /payments/estimate_fee | Estimate fees
 *PaymentApi* | [**triggerTestPaymentsWebhookEvent**](docs/PaymentApi.md#triggerTestPaymentsWebhookEvent) | **POST** /payments/webhooks/trigger | Trigger test webhook event
 *PaymentApi* | [**updateCounterparty**](docs/PaymentApi.md#updateCounterparty) | **PUT** /payments/counterparty/{counterparty_id} | Update counterparty
-*PaymentApi* | [**updateDestination**](docs/PaymentApi.md#updateDestination) | **PUT** /payments/destination/{destination_id} | Update destination information
+*PaymentApi* | [**updateDestination**](docs/PaymentApi.md#updateDestination) | **PUT** /payments/destination/{destination_id} | Update destination
 *PaymentApi* | [**updateDestinationEntry**](docs/PaymentApi.md#updateDestinationEntry) | **PUT** /payments/destination_entry/{destination_entry_id} | Update destination entry
 *PaymentApi* | [**updateMerchantById**](docs/PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant
 *PaymentApi* | [**updatePaymentOrder**](docs/PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order
-*PaymentApi* | [**updateRefundById**](docs/PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order information
+*PaymentApi* | [**updateRefundById**](docs/PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order
 *PaymentApi* | [**updateTopUpAddress**](docs/PaymentApi.md#updateTopUpAddress) | **PUT** /payments/topup/address | Update top-up address
-*PaymentApi* | [**uploadPaymentFile**](docs/PaymentApi.md#uploadPaymentFile) | **POST** /payments/files | Upload file
 *PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
 *PrimeBrokerApi* | [**createGuardPubkey**](docs/PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | Create Guard pubkey binding
 *PrimeBrokerApi* | [**createPrimeBrokerAddress**](docs/PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | Bind addresses to a broker user
@@ -411,36 +352,33 @@ Class | Method | HTTP request | Description
 *StakingsApi* | [**listStakingActivities**](docs/StakingsApi.md#listStakingActivities) | **GET** /stakings/activities | List staking activities
 *StakingsApi* | [**listStakingPools**](docs/StakingsApi.md#listStakingPools) | **GET** /stakings/pools | List staking pools
 *StakingsApi* | [**listStakings**](docs/StakingsApi.md#listStakings) | **GET** /stakings | List staking positions
-*SwapsApi* | [**createSwapActivity**](docs/SwapsApi.md#createSwapActivity) | **POST** /swaps/swap | Create Swap Activity
-*SwapsApi* | [**estimateSwapFee**](docs/SwapsApi.md#estimateSwapFee) | **POST** /swaps/estimate_fee | Estimate Swap Fee
-*SwapsApi* | [**getSwapActivity**](docs/SwapsApi.md#getSwapActivity) | **GET** /swaps/activities/{activity_id} | Get Swap Activity Details
-*SwapsApi* | [**getSwapLimitsAndLiquidity**](docs/SwapsApi.md#getSwapLimitsAndLiquidity) | **GET** /swaps/limits_and_liquidity | Get Swap Limits and Liquidity
-*SwapsApi* | [**getSwapQuote**](docs/SwapsApi.md#getSwapQuote) | **GET** /swaps/quote | Get Current Swap Rate
-*SwapsApi* | [**listSwapActivities**](docs/SwapsApi.md#listSwapActivities) | **GET** /swaps/activities | List Swap Activities
-*SwapsApi* | [**listSwapEnabledTokens**](docs/SwapsApi.md#listSwapEnabledTokens) | **GET** /swaps/enabled_tokens | List Enabled Tokens
-*TokenizationApi* | [**archiveTokenization**](docs/TokenizationApi.md#archiveTokenization) | **POST** /tokenization/tokens/{token_id}/archive | Archive token
+*SwapsApi* | [**createSwapActivity**](docs/SwapsApi.md#createSwapActivity) | **POST** /swaps/swap | Create swap activity
+*SwapsApi* | [**estimateSwapFee**](docs/SwapsApi.md#estimateSwapFee) | **POST** /swaps/estimate_fee | Estimate swap fee
+*SwapsApi* | [**getSwapActivity**](docs/SwapsApi.md#getSwapActivity) | **GET** /swaps/activities/{activity_id} | Get swap activity
+*SwapsApi* | [**getSwapQuote**](docs/SwapsApi.md#getSwapQuote) | **GET** /swaps/quote | Get swap quote
+*SwapsApi* | [**listSwapActivities**](docs/SwapsApi.md#listSwapActivities) | **GET** /swaps/activities | List swap activities
+*SwapsApi* | [**listSwapEnabledTokens**](docs/SwapsApi.md#listSwapEnabledTokens) | **GET** /swaps/enabled_tokens | List enabled tokens for swap
 *TokenizationApi* | [**burnTokenization**](docs/TokenizationApi.md#burnTokenization) | **POST** /tokenization/tokens/{token_id}/burn | Burn tokens
 *TokenizationApi* | [**estimateTokenizationFee**](docs/TokenizationApi.md#estimateTokenizationFee) | **POST** /tokenization/estimate_fee | Estimate tokenization operation fee
 *TokenizationApi* | [**getTokenizationActivity**](docs/TokenizationApi.md#getTokenizationActivity) | **GET** /tokenization/activities/{activity_id} | Get tokenization activity details
 *TokenizationApi* | [**getTokenizationAllowlistActivation**](docs/TokenizationApi.md#getTokenizationAllowlistActivation) | **GET** /tokenization/tokens/{token_id}/allowlist/activation | Get allowlist activation status
 *TokenizationApi* | [**getTokenizationInfo**](docs/TokenizationApi.md#getTokenizationInfo) | **GET** /tokenization/tokens/{token_id} | Get token details
-*TokenizationApi* | [**issueToken**](docs/TokenizationApi.md#issueToken) | **POST** /tokenization/tokens | Issue a new token
+*TokenizationApi* | [**issueToken**](docs/TokenizationApi.md#issueToken) | **POST** /tokenization/tokens | Issue token
 *TokenizationApi* | [**listIssuedTokens**](docs/TokenizationApi.md#listIssuedTokens) | **GET** /tokenization/tokens | List issued tokens
 *TokenizationApi* | [**listTokenizationActivities**](docs/TokenizationApi.md#listTokenizationActivities) | **GET** /tokenization/activities | List tokenization activities
-*TokenizationApi* | [**listTokenizationAllowlistAddresses**](docs/TokenizationApi.md#listTokenizationAllowlistAddresses) | **GET** /tokenization/tokens/{token_id}/allowlist/addresses | List allowlist addresses
-*TokenizationApi* | [**listTokenizationBlocklistAddresses**](docs/TokenizationApi.md#listTokenizationBlocklistAddresses) | **GET** /tokenization/tokens/{token_id}/blocklist/addresses | List tokenization blocklist addresses
+*TokenizationApi* | [**listTokenizationAllowlistAddresses**](docs/TokenizationApi.md#listTokenizationAllowlistAddresses) | **GET** /tokenization/tokens/{token_id}/allowlist/addresses | List addresses on allowlist
+*TokenizationApi* | [**listTokenizationBlocklistAddresses**](docs/TokenizationApi.md#listTokenizationBlocklistAddresses) | **GET** /tokenization/tokens/{token_id}/blocklist/addresses | List addresses on blocklist
 *TokenizationApi* | [**listTokenizationHoldings**](docs/TokenizationApi.md#listTokenizationHoldings) | **GET** /tokenization/tokens/{token_id}/holdings | Get token holdings information
-*TokenizationApi* | [**listTokenizationPermissions**](docs/TokenizationApi.md#listTokenizationPermissions) | **GET** /tokenization/tokens/{token_id}/permissions | List permissions of the token
+*TokenizationApi* | [**listTokenizationPermissions**](docs/TokenizationApi.md#listTokenizationPermissions) | **GET** /tokenization/tokens/{token_id}/permissions | List token permissions
 *TokenizationApi* | [**listTokenizationSupportedChains**](docs/TokenizationApi.md#listTokenizationSupportedChains) | **GET** /tokenization/enabled_chains | List supported chains for tokenization
 *TokenizationApi* | [**mintTokenization**](docs/TokenizationApi.md#mintTokenization) | **POST** /tokenization/tokens/{token_id}/mint | Mint tokens
 *TokenizationApi* | [**pauseTokenization**](docs/TokenizationApi.md#pauseTokenization) | **POST** /tokenization/tokens/{token_id}/pause | Pause token contract
 *TokenizationApi* | [**tokenizationContractCall**](docs/TokenizationApi.md#tokenizationContractCall) | **POST** /tokenization/tokens/{token_id}/contract_call | Call token contract
-*TokenizationApi* | [**unarchiveTokenization**](docs/TokenizationApi.md#unarchiveTokenization) | **POST** /tokenization/tokens/{token_id}/unarchive | Unarchive token
 *TokenizationApi* | [**unpauseTokenization**](docs/TokenizationApi.md#unpauseTokenization) | **POST** /tokenization/tokens/{token_id}/unpause | Unpause token contract
-*TokenizationApi* | [**updateTokenizationAllowlistActivation**](docs/TokenizationApi.md#updateTokenizationAllowlistActivation) | **POST** /tokenization/tokens/{token_id}/allowlist/activation | Activate or deactivate the allowlist
-*TokenizationApi* | [**updateTokenizationAllowlistAddresses**](docs/TokenizationApi.md#updateTokenizationAllowlistAddresses) | **POST** /tokenization/tokens/{token_id}/allowlist/addresses | Update allowlist addresses
-*TokenizationApi* | [**updateTokenizationBlocklistAddresses**](docs/TokenizationApi.md#updateTokenizationBlocklistAddresses) | **POST** /tokenization/tokens/{token_id}/blocklist/addresses | Update tokenization blocklist addresses
-*TokenizationApi* | [**updateTokenizationPermissions**](docs/TokenizationApi.md#updateTokenizationPermissions) | **POST** /tokenization/tokens/{token_id}/permissions | Update permissions of the token
+*TokenizationApi* | [**updateTokenizationAllowlistActivation**](docs/TokenizationApi.md#updateTokenizationAllowlistActivation) | **POST** /tokenization/tokens/{token_id}/allowlist/activation | Activate or deactivate allowlist
+*TokenizationApi* | [**updateTokenizationAllowlistAddresses**](docs/TokenizationApi.md#updateTokenizationAllowlistAddresses) | **POST** /tokenization/tokens/{token_id}/allowlist/addresses | Update addresses on allowlist
+*TokenizationApi* | [**updateTokenizationBlocklistAddresses**](docs/TokenizationApi.md#updateTokenizationBlocklistAddresses) | **POST** /tokenization/tokens/{token_id}/blocklist/addresses | Update addresses on blocklist
+*TokenizationApi* | [**updateTokenizationPermissions**](docs/TokenizationApi.md#updateTokenizationPermissions) | **POST** /tokenization/tokens/{token_id}/permissions | Update token permissions
 *TransactionsApi* | [**broadcastSignedTransactions**](docs/TransactionsApi.md#broadcastSignedTransactions) | **POST** /transactions/broadcast | Broadcast signed transactions
 *TransactionsApi* | [**cancelTransactionById**](docs/TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction
 *TransactionsApi* | [**checkLoopTransfers**](docs/TransactionsApi.md#checkLoopTransfers) | **GET** /transactions/check_loop_transfers | Check Cobo Loop transfers
@@ -451,9 +389,9 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**estimateFee**](docs/TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee
 *TransactionsApi* | [**getTransactionApprovalDetail**](docs/TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval details
 *TransactionsApi* | [**getTransactionById**](docs/TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
-*TransactionsApi* | [**listApprovalDetails**](docs/TransactionsApi.md#listApprovalDetails) | **GET** /transactions/approval/details | List transaction approval details
+*TransactionsApi* | [**listApprovalDetails**](docs/TransactionsApi.md#listApprovalDetails) | **GET** /transactions/approval/details | List approval details
 *TransactionsApi* | [**listTransactionApprovalDetails**](docs/TransactionsApi.md#listTransactionApprovalDetails) | **GET** /transactions/approval_details | List transaction approval details
-*TransactionsApi* | [**listTransactionTemplates**](docs/TransactionsApi.md#listTransactionTemplates) | **GET** /transactions/templates | list transaction templates
+*TransactionsApi* | [**listTransactionTemplates**](docs/TransactionsApi.md#listTransactionTemplates) | **GET** /transactions/templates | List transaction templates
 *TransactionsApi* | [**listTransactions**](docs/TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 *TransactionsApi* | [**resendTransactionById**](docs/TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
 *TransactionsApi* | [**signAndBroadcastTransactionById**](docs/TransactionsApi.md#signAndBroadcastTransactionById) | **POST** /transactions/{transaction_id}/sign_and_broadcast | Sign and broadcast transaction
@@ -473,14 +411,14 @@ Class | Method | HTTP request | Description
 *WalletsApi* | [**checkAddressValidity**](docs/WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
 *WalletsApi* | [**checkAddressesValidity**](docs/WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity
 *WalletsApi* | [**createAddress**](docs/WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet
-*WalletsApi* | [**createTokenListingRequest**](docs/WalletsApi.md#createTokenListingRequest) | **POST** /wallets/tokens/listing_requests | Submit token listing request
+*WalletsApi* | [**createTokenListingRequest**](docs/WalletsApi.md#createTokenListingRequest) | **POST** /wallets/tokens/listing_requests | Create token listing request
 *WalletsApi* | [**createWallet**](docs/WalletsApi.md#createWallet) | **POST** /wallets | Create wallet
 *WalletsApi* | [**deleteWalletById**](docs/WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet
 *WalletsApi* | [**getChainById**](docs/WalletsApi.md#getChainById) | **GET** /wallets/chains/{chain_id} | Get chain information
 *WalletsApi* | [**getMaxTransferableValue**](docs/WalletsApi.md#getMaxTransferableValue) | **GET** /wallets/{wallet_id}/max_transferable_value | Get maximum transferable value
-*WalletsApi* | [**getMaxTransferableValueWithFeeModel**](docs/WalletsApi.md#getMaxTransferableValueWithFeeModel) | **POST** /wallets/{wallet_id}/max_transferable_value_with_fee_model | Get maximum transferable value with fee model
+*WalletsApi* | [**getMaxTransferableValueWithFeeModel**](docs/WalletsApi.md#getMaxTransferableValueWithFeeModel) | **POST** /wallets/{wallet_id}/max_transferable_value_with_fee_model | Estimate maximum transferable value
 *WalletsApi* | [**getTokenById**](docs/WalletsApi.md#getTokenById) | **GET** /wallets/tokens/{token_id} | Get token information
-*WalletsApi* | [**getTokenListingRequestByRequestId**](docs/WalletsApi.md#getTokenListingRequestByRequestId) | **GET** /wallets/tokens/listing_requests/{request_id} | Get token listing request details
+*WalletsApi* | [**getTokenListingRequestByRequestId**](docs/WalletsApi.md#getTokenListingRequestByRequestId) | **GET** /wallets/tokens/listing_requests/{request_id} | Get token listing request
 *WalletsApi* | [**getWalletById**](docs/WalletsApi.md#getWalletById) | **GET** /wallets/{wallet_id} | Get wallet information
 *WalletsApi* | [**listAddressBalancesByToken**](docs/WalletsApi.md#listAddressBalancesByToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances by token
 *WalletsApi* | [**listAddresses**](docs/WalletsApi.md#listAddresses) | **GET** /wallets/{wallet_id}/addresses | List wallet addresses
@@ -490,7 +428,7 @@ Class | Method | HTTP request | Description
 *WalletsApi* | [**listSupportedTokens**](docs/WalletsApi.md#listSupportedTokens) | **GET** /wallets/tokens | List supported tokens
 *WalletsApi* | [**listTokenBalancesForAddress**](docs/WalletsApi.md#listTokenBalancesForAddress) | **GET** /wallets/{wallet_id}/addresses/{address}/tokens | List token balances by address
 *WalletsApi* | [**listTokenBalancesForWallet**](docs/WalletsApi.md#listTokenBalancesForWallet) | **GET** /wallets/{wallet_id}/tokens | List token balances by wallet
-*WalletsApi* | [**listTokenListingRequests**](docs/WalletsApi.md#listTokenListingRequests) | **GET** /wallets/tokens/listing_requests | Get all token listing requests
+*WalletsApi* | [**listTokenListingRequests**](docs/WalletsApi.md#listTokenListingRequests) | **GET** /wallets/tokens/listing_requests | List token listing requests
 *WalletsApi* | [**listTransactionUtxos**](docs/WalletsApi.md#listTransactionUtxos) | **GET** /wallets/{wallet_id}/transaction_utxos | List transaction UTXOs
 *WalletsApi* | [**listUtxos**](docs/WalletsApi.md#listUtxos) | **GET** /wallets/{wallet_id}/utxos | List UTXOs
 *WalletsApi* | [**listWallets**](docs/WalletsApi.md#listWallets) | **GET** /wallets | List all wallets
@@ -536,11 +474,6 @@ Class | Method | HTTP request | Description
  - [ActivityStatus](docs/ActivityStatus.md)
  - [ActivityTimeline](docs/ActivityTimeline.md)
  - [ActivityType](docs/ActivityType.md)
- - [AddCoboPaidTokenRequest](docs/AddCoboPaidTokenRequest.md)
- - [AddPackageChainInfo](docs/AddPackageChainInfo.md)
- - [AddPackageChainParams](docs/AddPackageChainParams.md)
- - [AddTxTokens201Response](docs/AddTxTokens201Response.md)
- - [AddTxTokensRequest](docs/AddTxTokensRequest.md)
  - [AddressBalance](docs/AddressBalance.md)
  - [AddressBook](docs/AddressBook.md)
  - [AddressEncoding](docs/AddressEncoding.md)
@@ -602,29 +535,7 @@ Class | Method | HTTP request | Description
  - [BalanceUpdateInfo](docs/BalanceUpdateInfo.md)
  - [BalanceUpdateInfoEventData](docs/BalanceUpdateInfoEventData.md)
  - [BankAccount](docs/BankAccount.md)
- - [BankAccountHolderType](docs/BankAccountHolderType.md)
- - [BankAccountPaymentMethod](docs/BankAccountPaymentMethod.md)
  - [BankAccountStatus](docs/BankAccountStatus.md)
- - [BankDeposit](docs/BankDeposit.md)
- - [BankInfo](docs/BankInfo.md)
- - [BankKyc](docs/BankKyc.md)
- - [BankPayout](docs/BankPayout.md)
- - [BankPayoutBeneficiary](docs/BankPayoutBeneficiary.md)
- - [BankPayoutSender](docs/BankPayoutSender.md)
- - [BankPayoutStatus](docs/BankPayoutStatus.md)
- - [BankPayoutType](docs/BankPayoutType.md)
- - [BankProvider](docs/BankProvider.md)
- - [BankSgbKyc](docs/BankSgbKyc.md)
- - [BankSignatureInfo](docs/BankSignatureInfo.md)
- - [BankSignatureInfoPyvio](docs/BankSignatureInfoPyvio.md)
- - [BankSignatureInfoSgb](docs/BankSignatureInfoSgb.md)
- - [BankSignatureResult](docs/BankSignatureResult.md)
- - [BankSignatureResultPyvio](docs/BankSignatureResultPyvio.md)
- - [BankSignatureResultSgb](docs/BankSignatureResultSgb.md)
- - [BankSignatureStatus](docs/BankSignatureStatus.md)
- - [BankTransferType](docs/BankTransferType.md)
- - [BankVirtualAccount](docs/BankVirtualAccount.md)
- - [BankVirtualAccountStatus](docs/BankVirtualAccountStatus.md)
  - [BaseContractCallSource](docs/BaseContractCallSource.md)
  - [BaseEstimateStakingFee](docs/BaseEstimateStakingFee.md)
  - [BaseStakeExtra](docs/BaseStakeExtra.md)
@@ -634,40 +545,22 @@ Class | Method | HTTP request | Description
  - [BatchAllocationStatus](docs/BatchAllocationStatus.md)
  - [BatchCheckUtxo201Response](docs/BatchCheckUtxo201Response.md)
  - [BatchCheckUtxoRequest](docs/BatchCheckUtxoRequest.md)
- - [BatchPayout](docs/BatchPayout.md)
- - [BatchPayoutDestination](docs/BatchPayoutDestination.md)
- - [BatchPayoutDestinationDetail](docs/BatchPayoutDestinationDetail.md)
- - [BatchPayoutDetail](docs/BatchPayoutDetail.md)
- - [BatchPayoutEstimatedFee](docs/BatchPayoutEstimatedFee.md)
- - [BatchPayoutFeeData](docs/BatchPayoutFeeData.md)
- - [BatchPayoutMode](docs/BatchPayoutMode.md)
- - [BatchPayoutRbfRequest](docs/BatchPayoutRbfRequest.md)
- - [BatchPayoutRbfType](docs/BatchPayoutRbfType.md)
- - [BatchPayoutSource](docs/BatchPayoutSource.md)
- - [BatchPayoutStatus](docs/BatchPayoutStatus.md)
- - [BatchPayoutTransactionStatus](docs/BatchPayoutTransactionStatus.md)
  - [BatchUTXOParam](docs/BatchUTXOParam.md)
  - [BridgingFee](docs/BridgingFee.md)
  - [BroadcastSignedTransactions201ResponseInner](docs/BroadcastSignedTransactions201ResponseInner.md)
  - [BroadcastSignedTransactionsRequest](docs/BroadcastSignedTransactionsRequest.md)
  - [CallbackMessage](docs/CallbackMessage.md)
- - [CancelBatchPayoutRequest](docs/CancelBatchPayoutRequest.md)
  - [CancelSatoshiTestChallengeRequest](docs/CancelSatoshiTestChallengeRequest.md)
  - [ChainInfo](docs/ChainInfo.md)
  - [ChainsEventData](docs/ChainsEventData.md)
  - [ChangeGuardPubkey200Response](docs/ChangeGuardPubkey200Response.md)
- - [ChargeCommissionFee201Response](docs/ChargeCommissionFee201Response.md)
- - [ChargeCommissionFeeRequest](docs/ChargeCommissionFeeRequest.md)
- - [ChargeTransaction](docs/ChargeTransaction.md)
  - [CheckAddressChainsValidity200ResponseInner](docs/CheckAddressChainsValidity200ResponseInner.md)
  - [CheckAddressValidity200Response](docs/CheckAddressValidity200Response.md)
  - [CheckAddressesValidity200ResponseInner](docs/CheckAddressesValidity200ResponseInner.md)
  - [CheckLoopTransfers200ResponseInner](docs/CheckLoopTransfers200ResponseInner.md)
- - [CheckSwapWalletAddress200Response](docs/CheckSwapWalletAddress200Response.md)
  - [CoboSafeDelegate](docs/CoboSafeDelegate.md)
  - [CoboSafeDelegateType](docs/CoboSafeDelegateType.md)
  - [CommissionFee](docs/CommissionFee.md)
- - [CommissionFeeDetail](docs/CommissionFeeDetail.md)
  - [ComplianceDispositionUpdateEventData](docs/ComplianceDispositionUpdateEventData.md)
  - [ComplianceKyaScreeningsUpdateEventData](docs/ComplianceKyaScreeningsUpdateEventData.md)
  - [ComplianceKytScreeningsUpdateEventData](docs/ComplianceKytScreeningsUpdateEventData.md)
@@ -696,14 +589,7 @@ Class | Method | HTTP request | Description
  - [CreateBabylonAirdropRegistrationRequest](docs/CreateBabylonAirdropRegistrationRequest.md)
  - [CreateBabylonStakingRegistration201Response](docs/CreateBabylonStakingRegistration201Response.md)
  - [CreateBabylonStakingRegistrationRequest](docs/CreateBabylonStakingRegistrationRequest.md)
- - [CreateBankPayout201Response](docs/CreateBankPayout201Response.md)
- - [CreateBankPayoutPyvioRequest](docs/CreateBankPayoutPyvioRequest.md)
- - [CreateBankPayoutPyvioRequestBeneficiary](docs/CreateBankPayoutPyvioRequestBeneficiary.md)
- - [CreateBankPayoutRequest](docs/CreateBankPayoutRequest.md)
- - [CreateBankPayoutSgbRequest](docs/CreateBankPayoutSgbRequest.md)
  - [CreateBatchAllocationRequest](docs/CreateBatchAllocationRequest.md)
- - [CreateBatchPayout201Response](docs/CreateBatchPayout201Response.md)
- - [CreateBatchPayoutRequest](docs/CreateBatchPayoutRequest.md)
  - [CreateBulkSendRequest](docs/CreateBulkSendRequest.md)
  - [CreateBulkSendRequestPayoutParamsInner](docs/CreateBulkSendRequestPayoutParamsInner.md)
  - [CreateClaimActivity](docs/CreateClaimActivity.md)
@@ -744,10 +630,6 @@ Class | Method | HTTP request | Description
  - [CreateStakeActivityRequest](docs/CreateStakeActivityRequest.md)
  - [CreateSwapActivityRequest](docs/CreateSwapActivityRequest.md)
  - [CreateSweepToAddress](docs/CreateSweepToAddress.md)
- - [CreateThirdPartyMerchant201Response](docs/CreateThirdPartyMerchant201Response.md)
- - [CreateThirdPartyMerchantRequest](docs/CreateThirdPartyMerchantRequest.md)
- - [CreateThirdPartyPayee201Response](docs/CreateThirdPartyPayee201Response.md)
- - [CreateThirdPartyPayeeRequest](docs/CreateThirdPartyPayeeRequest.md)
  - [CreateTokenListingRequest201Response](docs/CreateTokenListingRequest201Response.md)
  - [CreateTokenListingRequestRequest](docs/CreateTokenListingRequestRequest.md)
  - [CreateTopUpAddresses](docs/CreateTopUpAddresses.md)
@@ -757,13 +639,9 @@ Class | Method | HTTP request | Description
  - [CreateUnstakeActivity](docs/CreateUnstakeActivity.md)
  - [CreateUnstakeActivityExtra](docs/CreateUnstakeActivityExtra.md)
  - [CreateUnstakeActivityRequest](docs/CreateUnstakeActivityRequest.md)
- - [CreateVirtualAccount201Response](docs/CreateVirtualAccount201Response.md)
- - [CreateVirtualAccountRequest](docs/CreateVirtualAccountRequest.md)
  - [CreateWalletAddress](docs/CreateWalletAddress.md)
  - [CreateWalletParams](docs/CreateWalletParams.md)
  - [CreateWebhookEndpointRequest](docs/CreateWebhookEndpointRequest.md)
- - [CreateWebhookEventInfo](docs/CreateWebhookEventInfo.md)
- - [CreateWebhookEventParams](docs/CreateWebhookEventParams.md)
  - [CreateWithdrawActivity](docs/CreateWithdrawActivity.md)
  - [CreateWithdrawActivityRequest](docs/CreateWithdrawActivityRequest.md)
  - [CreatedWalletInfo](docs/CreatedWalletInfo.md)
@@ -783,7 +661,6 @@ Class | Method | HTTP request | Description
  - [DeleteDestinationEntry200Response](docs/DeleteDestinationEntry200Response.md)
  - [DeleteGuardPubkey201Response](docs/DeleteGuardPubkey201Response.md)
  - [DeleteKeyShareHolderGroupById201Response](docs/DeleteKeyShareHolderGroupById201Response.md)
- - [DeleteThirdPartyPayee200Response](docs/DeleteThirdPartyPayee200Response.md)
  - [DeleteWalletById201Response](docs/DeleteWalletById201Response.md)
  - [Destination](docs/Destination.md)
  - [DestinationBankAccount](docs/DestinationBankAccount.md)
@@ -802,7 +679,6 @@ Class | Method | HTTP request | Description
  - [EigenlayerValidator](docs/EigenlayerValidator.md)
  - [EntryType](docs/EntryType.md)
  - [ErrorResponse](docs/ErrorResponse.md)
- - [EstimateBatchPayoutFeeRequest](docs/EstimateBatchPayoutFeeRequest.md)
  - [EstimateClaimFee](docs/EstimateClaimFee.md)
  - [EstimateContractCallFeeParams](docs/EstimateContractCallFeeParams.md)
  - [EstimateFeeParams](docs/EstimateFeeParams.md)
@@ -847,27 +723,18 @@ Class | Method | HTTP request | Description
  - [FILBase](docs/FILBase.md)
  - [FILPrice](docs/FILPrice.md)
  - [FeeAmount](docs/FeeAmount.md)
- - [FeeEngineDetail](docs/FeeEngineDetail.md)
- - [FeeEngineUpdate](docs/FeeEngineUpdate.md)
  - [FeeGasLimit](docs/FeeGasLimit.md)
  - [FeeRate](docs/FeeRate.md)
  - [FeeReserved](docs/FeeReserved.md)
  - [FeeStationCheckFeeStationUsage](docs/FeeStationCheckFeeStationUsage.md)
  - [FeeStationCheckFeeStationUsageResponse](docs/FeeStationCheckFeeStationUsageResponse.md)
  - [FeeStationDestination](docs/FeeStationDestination.md)
- - [FeeStationDetail](docs/FeeStationDetail.md)
- - [FeeStationDetailGasFuelStrategiesInner](docs/FeeStationDetailGasFuelStrategiesInner.md)
  - [FeeStationFiatTransaction](docs/FeeStationFiatTransaction.md)
  - [FeeStationFiatTransactionType](docs/FeeStationFiatTransactionType.md)
  - [FeeStationGasStationType](docs/FeeStationGasStationType.md)
  - [FeeStationSponsorTransactionDescription](docs/FeeStationSponsorTransactionDescription.md)
- - [FeeStationSystemConf](docs/FeeStationSystemConf.md)
  - [FeeStationTransactionType](docs/FeeStationTransactionType.md)
  - [FeeStationTransfer](docs/FeeStationTransfer.md)
- - [FeeStationUnifiedTransaction](docs/FeeStationUnifiedTransaction.md)
- - [FeeStationUnifiedTransactionAsset](docs/FeeStationUnifiedTransactionAsset.md)
- - [FeeStationUnifiedTransactionSubtype](docs/FeeStationUnifiedTransactionSubtype.md)
- - [FeeStationWallet](docs/FeeStationWallet.md)
  - [FeeType](docs/FeeType.md)
  - [FiatTransactionEventData](docs/FiatTransactionEventData.md)
  - [FixedFeeRate](docs/FixedFeeRate.md)
@@ -876,7 +743,6 @@ Class | Method | HTTP request | Description
  - [ForcedSweepStatus](docs/ForcedSweepStatus.md)
  - [FundsStatusType](docs/FundsStatusType.md)
  - [GetApiKeyInfo200Response](docs/GetApiKeyInfo200Response.md)
- - [GetBankAccountBalance200ResponseInner](docs/GetBankAccountBalance200ResponseInner.md)
  - [GetCounterpartyEntry200Response](docs/GetCounterpartyEntry200Response.md)
  - [GetDestinationEntry200Response](docs/GetDestinationEntry200Response.md)
  - [GetExchangeRate200Response](docs/GetExchangeRate200Response.md)
@@ -896,12 +762,6 @@ Class | Method | HTTP request | Description
  - [GraphQLResponse](docs/GraphQLResponse.md)
  - [GuardPubkeyStatus](docs/GuardPubkeyStatus.md)
  - [IntermediaryBankInfo](docs/IntermediaryBankInfo.md)
- - [InternalCreateBatchPayout201Response](docs/InternalCreateBatchPayout201Response.md)
- - [InternalMessageSignDestination](docs/InternalMessageSignDestination.md)
- - [InternalMessageSignDestinationType](docs/InternalMessageSignDestinationType.md)
- - [InternalMessageSignParams](docs/InternalMessageSignParams.md)
- - [InternalRawMessageSignDestination](docs/InternalRawMessageSignDestination.md)
- - [InternalTransferParams](docs/InternalTransferParams.md)
  - [IsolateDisposition](docs/IsolateDisposition.md)
  - [KeyShareHolder](docs/KeyShareHolder.md)
  - [KeyShareHolderGroup](docs/KeyShareHolderGroup.md)
@@ -937,23 +797,16 @@ Class | Method | HTTP request | Description
  - [ListBabylonEligibleStakings200Response](docs/ListBabylonEligibleStakings200Response.md)
  - [ListBabylonEligibleStakings200ResponseDataInner](docs/ListBabylonEligibleStakings200ResponseDataInner.md)
  - [ListBabylonStakingRegistrations200Response](docs/ListBabylonStakingRegistrations200Response.md)
- - [ListBankAwaitingSignaturePayouts200ResponseInner](docs/ListBankAwaitingSignaturePayouts200ResponseInner.md)
- - [ListBankReturnedPayouts200Response](docs/ListBankReturnedPayouts200Response.md)
- - [ListBankReturnedPayouts200ResponseDataInner](docs/ListBankReturnedPayouts200ResponseDataInner.md)
- - [ListBankTransactions200Response](docs/ListBankTransactions200Response.md)
  - [ListBatchAllocations200Response](docs/ListBatchAllocations200Response.md)
- - [ListBatchPayouts200Response](docs/ListBatchPayouts200Response.md)
  - [ListBulkSendItems200Response](docs/ListBulkSendItems200Response.md)
  - [ListBulkSends200Response](docs/ListBulkSends200Response.md)
  - [ListCallbackMessages200Response](docs/ListCallbackMessages200Response.md)
  - [ListCounterparties200Response](docs/ListCounterparties200Response.md)
  - [ListCounterpartyEntries200Response](docs/ListCounterpartyEntries200Response.md)
- - [ListDeposits200Response](docs/ListDeposits200Response.md)
  - [ListDestinationEntries200Response](docs/ListDestinationEntries200Response.md)
  - [ListDestinations200Response](docs/ListDestinations200Response.md)
  - [ListExchanges200ResponseInner](docs/ListExchanges200ResponseInner.md)
  - [ListFeeStationFiatTransactions200Response](docs/ListFeeStationFiatTransactions200Response.md)
- - [ListFeeStationUnifiedTransactions200Response](docs/ListFeeStationUnifiedTransactions200Response.md)
  - [ListForcedSweepRequests200Response](docs/ListForcedSweepRequests200Response.md)
  - [ListKeyShareHolderGroups200Response](docs/ListKeyShareHolderGroups200Response.md)
  - [ListKeyShareHolders200Response](docs/ListKeyShareHolders200Response.md)
@@ -971,16 +824,12 @@ Class | Method | HTTP request | Description
  - [ListStakingActivities200Response](docs/ListStakingActivities200Response.md)
  - [ListStakingPools200Response](docs/ListStakingPools200Response.md)
  - [ListStakings200Response](docs/ListStakings200Response.md)
- - [ListSubscriptionActions200Response](docs/ListSubscriptionActions200Response.md)
- - [ListSubscriptionPlans200Response](docs/ListSubscriptionPlans200Response.md)
- - [ListSubscriptions200Response](docs/ListSubscriptions200Response.md)
  - [ListSupportedAssetsForExchange200Response](docs/ListSupportedAssetsForExchange200Response.md)
  - [ListSupportedChains200Response](docs/ListSupportedChains200Response.md)
  - [ListSupportedCountries200ResponseInner](docs/ListSupportedCountries200ResponseInner.md)
  - [ListSupportedTokens200Response](docs/ListSupportedTokens200Response.md)
  - [ListSwapActivities200Response](docs/ListSwapActivities200Response.md)
  - [ListSwapEnabledTokens200Response](docs/ListSwapEnabledTokens200Response.md)
- - [ListSwapReachableTokens200Response](docs/ListSwapReachableTokens200Response.md)
  - [ListTokenBalancesForAddress200Response](docs/ListTokenBalancesForAddress200Response.md)
  - [ListTokenBalancesForFeeStation200Response](docs/ListTokenBalancesForFeeStation200Response.md)
  - [ListTokenBalancesForFeeStation200ResponseDataInner](docs/ListTokenBalancesForFeeStation200ResponseDataInner.md)
@@ -1012,18 +861,6 @@ Class | Method | HTTP request | Description
  - [MaxTransferableValue](docs/MaxTransferableValue.md)
  - [Merchant](docs/Merchant.md)
  - [MerchantBalance](docs/MerchantBalance.md)
- - [MerchantKycAddress](docs/MerchantKycAddress.md)
- - [MerchantKycCompanyAttachment](docs/MerchantKycCompanyAttachment.md)
- - [MerchantKycCompanyAttachmentFileType](docs/MerchantKycCompanyAttachmentFileType.md)
- - [MerchantKycCompanyInfo](docs/MerchantKycCompanyInfo.md)
- - [MerchantKycCompanyType](docs/MerchantKycCompanyType.md)
- - [MerchantKycInfo](docs/MerchantKycInfo.md)
- - [MerchantKycMerchantType](docs/MerchantKycMerchantType.md)
- - [MerchantKycPersonAttachment](docs/MerchantKycPersonAttachment.md)
- - [MerchantKycPersonAttachmentFileType](docs/MerchantKycPersonAttachmentFileType.md)
- - [MerchantKycPersonInfo](docs/MerchantKycPersonInfo.md)
- - [MerchantKycStatus](docs/MerchantKycStatus.md)
- - [MerchantKycSubmission](docs/MerchantKycSubmission.md)
  - [MessageSignDestination](docs/MessageSignDestination.md)
  - [MessageSignDestinationType](docs/MessageSignDestinationType.md)
  - [MessageSignParams](docs/MessageSignParams.md)
@@ -1052,7 +889,6 @@ Class | Method | HTTP request | Description
  - [PaymentBalanceChangeResponse](docs/PaymentBalanceChangeResponse.md)
  - [PaymentBalanceChangeSourceType](docs/PaymentBalanceChangeSourceType.md)
  - [PaymentBalanceFlowDirection](docs/PaymentBalanceFlowDirection.md)
- - [PaymentBaseSubscriptionActionData](docs/PaymentBaseSubscriptionActionData.md)
  - [PaymentBridgeStatus](docs/PaymentBridgeStatus.md)
  - [PaymentBulkSend](docs/PaymentBulkSend.md)
  - [PaymentBulkSendEvent](docs/PaymentBulkSendEvent.md)
@@ -1061,17 +897,10 @@ Class | Method | HTTP request | Description
  - [PaymentBulkSendItemStatus](docs/PaymentBulkSendItemStatus.md)
  - [PaymentBulkSendItemValidationStatus](docs/PaymentBulkSendItemValidationStatus.md)
  - [PaymentBulkSendStatus](docs/PaymentBulkSendStatus.md)
- - [PaymentChargeSubscriptionActionData](docs/PaymentChargeSubscriptionActionData.md)
- - [PaymentChargeUpdateEventData](docs/PaymentChargeUpdateEventData.md)
- - [PaymentCreateSubscriptionAction](docs/PaymentCreateSubscriptionAction.md)
- - [PaymentCreateSubscriptionActionData](docs/PaymentCreateSubscriptionActionData.md)
- - [PaymentCreateSubscriptionPlan](docs/PaymentCreateSubscriptionPlan.md)
- - [PaymentDeveloperSubscriptionActionData](docs/PaymentDeveloperSubscriptionActionData.md)
  - [PaymentEstimateFee](docs/PaymentEstimateFee.md)
  - [PaymentEstimateFee201Response](docs/PaymentEstimateFee201Response.md)
  - [PaymentEstimateFeeRequest](docs/PaymentEstimateFeeRequest.md)
  - [PaymentEstimatedFee](docs/PaymentEstimatedFee.md)
- - [PaymentExtendPeriodSubscriptionActionData](docs/PaymentExtendPeriodSubscriptionActionData.md)
  - [PaymentFeeType](docs/PaymentFeeType.md)
  - [PaymentOrderEventData](docs/PaymentOrderEventData.md)
  - [PaymentPayout](docs/PaymentPayout.md)
@@ -1084,24 +913,8 @@ Class | Method | HTTP request | Description
  - [PaymentRefundEventData](docs/PaymentRefundEventData.md)
  - [PaymentSettlementEvent](docs/PaymentSettlementEvent.md)
  - [PaymentSourceType](docs/PaymentSourceType.md)
- - [PaymentSubscribeAndChargeSubscriptionActionData](docs/PaymentSubscribeAndChargeSubscriptionActionData.md)
- - [PaymentSubscription](docs/PaymentSubscription.md)
- - [PaymentSubscriptionAction](docs/PaymentSubscriptionAction.md)
- - [PaymentSubscriptionActionData](docs/PaymentSubscriptionActionData.md)
- - [PaymentSubscriptionActionDetail](docs/PaymentSubscriptionActionDetail.md)
- - [PaymentSubscriptionActionStatus](docs/PaymentSubscriptionActionStatus.md)
- - [PaymentSubscriptionActionType](docs/PaymentSubscriptionActionType.md)
- - [PaymentSubscriptionDetail](docs/PaymentSubscriptionDetail.md)
- - [PaymentSubscriptionPeriodType](docs/PaymentSubscriptionPeriodType.md)
- - [PaymentSubscriptionPlan](docs/PaymentSubscriptionPlan.md)
- - [PaymentSubscriptionPlanDetail](docs/PaymentSubscriptionPlanDetail.md)
- - [PaymentSubscriptionStatus](docs/PaymentSubscriptionStatus.md)
- - [PaymentSubscriptionUpdateEventData](docs/PaymentSubscriptionUpdateEventData.md)
  - [PaymentTransaction](docs/PaymentTransaction.md)
  - [PaymentTransactionEventData](docs/PaymentTransactionEventData.md)
- - [PaymentUpdateAmountSubscriptionActionData](docs/PaymentUpdateAmountSubscriptionActionData.md)
- - [PaymentUpdateTokenIdSubscriptionActionData](docs/PaymentUpdateTokenIdSubscriptionActionData.md)
- - [PaymentUploadedFile](docs/PaymentUploadedFile.md)
  - [PaymentWalletBalance](docs/PaymentWalletBalance.md)
  - [PayoutChannel](docs/PayoutChannel.md)
  - [PolicyAction](docs/PolicyAction.md)
@@ -1125,12 +938,9 @@ Class | Method | HTTP request | Description
  - [RefreshToken2XXResponse](docs/RefreshToken2XXResponse.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [Refund](docs/Refund.md)
- - [RefundCommissionFee201Response](docs/RefundCommissionFee201Response.md)
- - [RefundCommissionFeeRequest](docs/RefundCommissionFeeRequest.md)
  - [RefundDisposition](docs/RefundDisposition.md)
  - [RefundLinkBusinessInfo](docs/RefundLinkBusinessInfo.md)
  - [RefundStatus](docs/RefundStatus.md)
- - [RefundTransaction](docs/RefundTransaction.md)
  - [RefundType](docs/RefundType.md)
  - [ReplaceType](docs/ReplaceType.md)
  - [Report](docs/Report.md)
@@ -1165,11 +975,8 @@ Class | Method | HTTP request | Description
  - [Scopes](docs/Scopes.md)
  - [SelectedEntityType](docs/SelectedEntityType.md)
  - [SelfCustodyWallet](docs/SelfCustodyWallet.md)
- - [SetSupportTokenParams](docs/SetSupportTokenParams.md)
- - [SetSupportTokenResponse](docs/SetSupportTokenResponse.md)
  - [SettleRequestStatus](docs/SettleRequestStatus.md)
  - [SettleStatus](docs/SettleStatus.md)
- - [SettleType](docs/SettleType.md)
  - [Settlement](docs/Settlement.md)
  - [SettlementDetail](docs/SettlementDetail.md)
  - [SettlementInfo](docs/SettlementInfo.md)
@@ -1197,14 +1004,11 @@ Class | Method | HTTP request | Description
  - [StellarContractCallDestination](docs/StellarContractCallDestination.md)
  - [StellarContractCallTrustLineOperationType](docs/StellarContractCallTrustLineOperationType.md)
  - [StellarContractCallTrustLineParam](docs/StellarContractCallTrustLineParam.md)
- - [StrategyParams](docs/StrategyParams.md)
  - [SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
- - [SubmitBankPayoutSignatureRequest](docs/SubmitBankPayoutSignatureRequest.md)
  - [SubmitDepositTravelRuleInfo201Response](docs/SubmitDepositTravelRuleInfo201Response.md)
  - [SubmitKytResponse](docs/SubmitKytResponse.md)
  - [SubmitKytScreeningsDecisionsBody](docs/SubmitKytScreeningsDecisionsBody.md)
  - [SubmitKytScreeningsReviewBody](docs/SubmitKytScreeningsReviewBody.md)
- - [SubmitMerchantKyc](docs/SubmitMerchantKyc.md)
  - [SupportedToken](docs/SupportedToken.md)
  - [SuspendedTokenEventData](docs/SuspendedTokenEventData.md)
  - [SuspendedTokenOperationType](docs/SuspendedTokenOperationType.md)
@@ -1216,7 +1020,6 @@ Class | Method | HTTP request | Description
  - [SwapActivityTimeline](docs/SwapActivityTimeline.md)
  - [SwapApproversStatus](docs/SwapApproversStatus.md)
  - [SwapEstimateFee](docs/SwapEstimateFee.md)
- - [SwapLimitsAndLiquidity](docs/SwapLimitsAndLiquidity.md)
  - [SwapQuote](docs/SwapQuote.md)
  - [SwapReceivingTransaction](docs/SwapReceivingTransaction.md)
  - [SwapSingingStatus](docs/SwapSingingStatus.md)
@@ -1264,23 +1067,6 @@ Class | Method | HTTP request | Description
  - [TSSSignatureType](docs/TSSSignatureType.md)
  - [TSSSignatures](docs/TSSSignatures.md)
  - [TSSStatus](docs/TSSStatus.md)
- - [ThirdPartyAddress](docs/ThirdPartyAddress.md)
- - [ThirdPartyBankAccountInfo](docs/ThirdPartyBankAccountInfo.md)
- - [ThirdPartyBeneficiaryDetail](docs/ThirdPartyBeneficiaryDetail.md)
- - [ThirdPartyCompanyAttachment](docs/ThirdPartyCompanyAttachment.md)
- - [ThirdPartyCompanyAttachmentFileType](docs/ThirdPartyCompanyAttachmentFileType.md)
- - [ThirdPartyCompanyInfo](docs/ThirdPartyCompanyInfo.md)
- - [ThirdPartyCompanyType](docs/ThirdPartyCompanyType.md)
- - [ThirdPartyHolderType](docs/ThirdPartyHolderType.md)
- - [ThirdPartyMerchantInfo](docs/ThirdPartyMerchantInfo.md)
- - [ThirdPartyMerchantStatus](docs/ThirdPartyMerchantStatus.md)
- - [ThirdPartyMerchantType](docs/ThirdPartyMerchantType.md)
- - [ThirdPartyPayeeInfo](docs/ThirdPartyPayeeInfo.md)
- - [ThirdPartyPayeeStatus](docs/ThirdPartyPayeeStatus.md)
- - [ThirdPartyPaymentMethod](docs/ThirdPartyPaymentMethod.md)
- - [ThirdPartyPersonAttachment](docs/ThirdPartyPersonAttachment.md)
- - [ThirdPartyPersonAttachmentFileType](docs/ThirdPartyPersonAttachmentFileType.md)
- - [ThirdPartyPersonInfo](docs/ThirdPartyPersonInfo.md)
  - [TokenAssetModelType](docs/TokenAssetModelType.md)
  - [TokenBalance](docs/TokenBalance.md)
  - [TokenInfo](docs/TokenInfo.md)
@@ -1296,7 +1082,6 @@ Class | Method | HTTP request | Description
  - [TokenizationAllowlistAddressNote](docs/TokenizationAllowlistAddressNote.md)
  - [TokenizationAllowlistAddressesResponse](docs/TokenizationAllowlistAddressesResponse.md)
  - [TokenizationAppInitiator](docs/TokenizationAppInitiator.md)
- - [TokenizationArchiveTokenRequest](docs/TokenizationArchiveTokenRequest.md)
  - [TokenizationBlocklistAddressNote](docs/TokenizationBlocklistAddressNote.md)
  - [TokenizationBurnEstimateFeeParams](docs/TokenizationBurnEstimateFeeParams.md)
  - [TokenizationBurnTokenParams](docs/TokenizationBurnTokenParams.md)
@@ -1307,8 +1092,6 @@ Class | Method | HTTP request | Description
  - [TokenizationContractCallParamsData](docs/TokenizationContractCallParamsData.md)
  - [TokenizationContractCallRequest](docs/TokenizationContractCallRequest.md)
  - [TokenizationContractCallType](docs/TokenizationContractCallType.md)
- - [TokenizationERC20FundTokenParams](docs/TokenizationERC20FundTokenParams.md)
- - [TokenizationERC20FundTokenPermissionParams](docs/TokenizationERC20FundTokenPermissionParams.md)
  - [TokenizationERC20TokenParams](docs/TokenizationERC20TokenParams.md)
  - [TokenizationERC20TokenPermissionParams](docs/TokenizationERC20TokenPermissionParams.md)
  - [TokenizationERC20WrappedTokenParams](docs/TokenizationERC20WrappedTokenParams.md)
@@ -1339,9 +1122,7 @@ Class | Method | HTTP request | Description
  - [TokenizationPauseTokenParams](docs/TokenizationPauseTokenParams.md)
  - [TokenizationPauseTokenRequest](docs/TokenizationPauseTokenRequest.md)
  - [TokenizationPermissionAction](docs/TokenizationPermissionAction.md)
- - [TokenizationSOLTokenExtensions](docs/TokenizationSOLTokenExtensions.md)
  - [TokenizationSOLTokenParams](docs/TokenizationSOLTokenParams.md)
- - [TokenizationSOLTransferFeeExtensionParams](docs/TokenizationSOLTransferFeeExtensionParams.md)
  - [TokenizationSOLWrappedTokenParams](docs/TokenizationSOLWrappedTokenParams.md)
  - [TokenizationSolContractCallParams](docs/TokenizationSolContractCallParams.md)
  - [TokenizationSolTokenPermissionParams](docs/TokenizationSolTokenPermissionParams.md)
@@ -1354,7 +1135,6 @@ Class | Method | HTTP request | Description
  - [TokenizationTokenPermission](docs/TokenizationTokenPermission.md)
  - [TokenizationTokenPermissionType](docs/TokenizationTokenPermissionType.md)
  - [TokenizationTokenStandard](docs/TokenizationTokenStandard.md)
- - [TokenizationUnarchiveTokenRequest](docs/TokenizationUnarchiveTokenRequest.md)
  - [TokenizationUnpauseEstimateFeeParams](docs/TokenizationUnpauseEstimateFeeParams.md)
  - [TokenizationUnpauseTokenParams](docs/TokenizationUnpauseTokenParams.md)
  - [TokenizationUnpauseTokenRequest](docs/TokenizationUnpauseTokenRequest.md)
@@ -1430,7 +1210,6 @@ Class | Method | HTTP request | Description
  - [TransactionRequestFee](docs/TransactionRequestFee.md)
  - [TransactionRequestFixedFee](docs/TransactionRequestFixedFee.md)
  - [TransactionRequestSOLFee](docs/TransactionRequestSOLFee.md)
- - [TransactionRequestTypeParams](docs/TransactionRequestTypeParams.md)
  - [TransactionRequestUtxoFee](docs/TransactionRequestUtxoFee.md)
  - [TransactionResend](docs/TransactionResend.md)
  - [TransactionResult](docs/TransactionResult.md)
@@ -1501,7 +1280,6 @@ Class | Method | HTTP request | Description
  - [UpdateDestinationEntryRequest](docs/UpdateDestinationEntryRequest.md)
  - [UpdateDestinationRequest](docs/UpdateDestinationRequest.md)
  - [UpdateExchangeWalletParams](docs/UpdateExchangeWalletParams.md)
- - [UpdateFeeStationConfigRequest](docs/UpdateFeeStationConfigRequest.md)
  - [UpdateGroupAction](docs/UpdateGroupAction.md)
  - [UpdateKeyShareHolderGroupByIdRequest](docs/UpdateKeyShareHolderGroupByIdRequest.md)
  - [UpdateMerchantByIdRequest](docs/UpdateMerchantByIdRequest.md)
@@ -1528,7 +1306,6 @@ Class | Method | HTTP request | Description
  - [WebhookEvent](docs/WebhookEvent.md)
  - [WebhookEventData](docs/WebhookEventData.md)
  - [WebhookEventDataType](docs/WebhookEventDataType.md)
- - [WebhookEventInternalStatus](docs/WebhookEventInternalStatus.md)
  - [WebhookEventLog](docs/WebhookEventLog.md)
  - [WebhookEventStatus](docs/WebhookEventStatus.md)
  - [WebhookEventType](docs/WebhookEventType.md)

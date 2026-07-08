@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The transaction fee actually charged by the chain that uses the EIP-1559 fee model.   The transaction fee is calculated by multiplying the gas price by the used gas units. This can be expressed as: Transaction fee &#x3D; gas price * used gas units.  Switch between the tabs to display the properties for different transaction fee models. 
+ * The transaction fee actually charged by the chain that uses the EIP-1559 fee model.   For more information about the EIP-1559 fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -84,10 +84,6 @@ public class TransactionEvmEip1559Fee {
   public static final String SERIALIZED_NAME_ESTIMATED_FEE_USED = "estimated_fee_used";
   @SerializedName(SERIALIZED_NAME_ESTIMATED_FEE_USED)
   private String estimatedFeeUsed;
-
-  public static final String SERIALIZED_NAME_ESTIMATED_RESERVED_FEE = "estimated_reserved_fee";
-  @SerializedName(SERIALIZED_NAME_ESTIMATED_RESERVED_FEE)
-  private String estimatedReservedFee;
 
   public static final String SERIALIZED_NAME_GAS_USED = "gas_used";
   @SerializedName(SERIALIZED_NAME_GAS_USED)
@@ -178,7 +174,7 @@ public class TransactionEvmEip1559Fee {
   }
 
    /**
-   * The token ID of the transaction fee.
+   * The token used to pay the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -216,7 +212,7 @@ public class TransactionEvmEip1559Fee {
   }
 
    /**
-   * The transaction fee.
+   * The actually charged transaction fee.
    * @return feeUsed
   **/
   @javax.annotation.Nullable
@@ -245,25 +241,6 @@ public class TransactionEvmEip1559Fee {
 
   public void setEstimatedFeeUsed(String estimatedFeeUsed) {
     this.estimatedFeeUsed = estimatedFeeUsed;
-  }
-
-
-  public TransactionEvmEip1559Fee estimatedReservedFee(String estimatedReservedFee) {
-    this.estimatedReservedFee = estimatedReservedFee;
-    return this;
-  }
-
-   /**
-   * The estimated fee required for submitting the transaction data to L1 (Layer 1)
-   * @return estimatedReservedFee
-  **/
-  @javax.annotation.Nullable
-  public String getEstimatedReservedFee() {
-    return estimatedReservedFee;
-  }
-
-  public void setEstimatedReservedFee(String estimatedReservedFee) {
-    this.estimatedReservedFee = estimatedReservedFee;
   }
 
 
@@ -348,14 +325,13 @@ public class TransactionEvmEip1559Fee {
         Objects.equals(this.effectiveGasPrice, transactionEvmEip1559Fee.effectiveGasPrice) &&
         Objects.equals(this.feeUsed, transactionEvmEip1559Fee.feeUsed) &&
         Objects.equals(this.estimatedFeeUsed, transactionEvmEip1559Fee.estimatedFeeUsed) &&
-        Objects.equals(this.estimatedReservedFee, transactionEvmEip1559Fee.estimatedReservedFee) &&
         Objects.equals(this.gasUsed, transactionEvmEip1559Fee.gasUsed)&&
         Objects.equals(this.additionalProperties, transactionEvmEip1559Fee.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxFeePerGas, maxPriorityFeePerGas, gasLimit, feeType, tokenId, effectiveGasPrice, feeUsed, estimatedFeeUsed, estimatedReservedFee, gasUsed, additionalProperties);
+    return Objects.hash(maxFeePerGas, maxPriorityFeePerGas, gasLimit, feeType, tokenId, effectiveGasPrice, feeUsed, estimatedFeeUsed, gasUsed, additionalProperties);
   }
 
   @Override
@@ -370,7 +346,6 @@ public class TransactionEvmEip1559Fee {
     sb.append("    effectiveGasPrice: ").append(toIndentedString(effectiveGasPrice)).append("\n");
     sb.append("    feeUsed: ").append(toIndentedString(feeUsed)).append("\n");
     sb.append("    estimatedFeeUsed: ").append(toIndentedString(estimatedFeeUsed)).append("\n");
-    sb.append("    estimatedReservedFee: ").append(toIndentedString(estimatedReservedFee)).append("\n");
     sb.append("    gasUsed: ").append(toIndentedString(gasUsed)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -403,7 +378,6 @@ public class TransactionEvmEip1559Fee {
     openapiFields.add("effective_gas_price");
     openapiFields.add("fee_used");
     openapiFields.add("estimated_fee_used");
-    openapiFields.add("estimated_reserved_fee");
     openapiFields.add("gas_used");
 
     // a set of required properties/fields (JSON key names)
@@ -453,9 +427,6 @@ public class TransactionEvmEip1559Fee {
       }
       if ((jsonObj.get("estimated_fee_used") != null && !jsonObj.get("estimated_fee_used").isJsonNull()) && !jsonObj.get("estimated_fee_used").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `estimated_fee_used` to be a primitive type in the JSON string but got `%s`", jsonObj.get("estimated_fee_used").toString()));
-      }
-      if ((jsonObj.get("estimated_reserved_fee") != null && !jsonObj.get("estimated_reserved_fee").isJsonNull()) && !jsonObj.get("estimated_reserved_fee").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `estimated_reserved_fee` to be a primitive type in the JSON string but got `%s`", jsonObj.get("estimated_reserved_fee").toString()));
       }
       if ((jsonObj.get("gas_used") != null && !jsonObj.get("gas_used").isJsonNull()) && !jsonObj.get("gas_used").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gas_used` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gas_used").toString()));

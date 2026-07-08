@@ -2,7 +2,6 @@
 
 # EvmEip1559FeeBasePrice
 
-The transaction gas price based on the EIP-1559 fee model.
 
 ## Properties
 

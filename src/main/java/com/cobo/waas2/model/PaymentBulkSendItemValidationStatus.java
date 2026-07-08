@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The current validation status of the payout item. - &#x60;Pending&#x60;: The payout item is pending validation. - &#x60;Validated&#x60;: The payout item is validated. - &#x60;ValidationFailed&#x60;: The payout item is validation failed. - &#x60;NotExecuted&#x60;: The payout item validation was not executed. 
+ * The current validation status of the bulk send item. Possible values include: - &#x60;Pending&#x60;: The bulk send item has not yet been validated. - &#x60;Validated&#x60;: The bulk send item has passed validation and is ready to be processed. - &#x60;ValidationFailed&#x60;: The bulk send item has failed validation and cannot be processed. - &#x60;NotExecuted&#x60;: The bulk send item validation was not executed. 
  */
 @JsonAdapter(PaymentBulkSendItemValidationStatus.Adapter.class)
 public enum PaymentBulkSendItemValidationStatus {

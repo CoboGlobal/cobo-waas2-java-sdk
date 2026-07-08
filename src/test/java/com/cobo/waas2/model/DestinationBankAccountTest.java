@@ -11,8 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.BankAccountHolderType;
-import com.cobo.waas2.model.BankAccountPaymentMethod;
 import com.cobo.waas2.model.BankAccountStatus;
 import com.cobo.waas2.model.IntermediaryBankInfo;
 import com.google.gson.TypeAdapter;
@@ -174,22 +172,6 @@ public class DestinationBankAccountTest {
     @Test
     public void cityTest() {
         // TODO: test city
-    }
-
-    /**
-     * Test the property 'paymentMethod'
-     */
-    @Test
-    public void paymentMethodTest() {
-        // TODO: test paymentMethod
-    }
-
-    /**
-     * Test the property 'holderType'
-     */
-    @Test
-    public void holderTypeTest() {
-        // TODO: test holderType
     }
 
 }

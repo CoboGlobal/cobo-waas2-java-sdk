@@ -48,7 +48,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information of an app workflow approval user entry.
+ * The information of an approval workflow
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -80,7 +80,7 @@ public class AppWorkflow {
   }
 
    /**
-   * The workflow id.
+   * The unique ID distinguishing the approval workflow instance among organizations.
    * @return workflowId
   **/
   @javax.annotation.Nonnull
@@ -99,7 +99,7 @@ public class AppWorkflow {
   }
 
    /**
-   * The workflow operation id.
+   * The unique ID of the approval workflow.
    * @return operationId
   **/
   @javax.annotation.Nonnull
@@ -118,7 +118,7 @@ public class AppWorkflow {
   }
 
    /**
-   * The workflow operation name.
+   * The name of the approval workflow.
    * @return operationName
   **/
   @javax.annotation.Nonnull

@@ -2,7 +2,7 @@
 
 # AppWorkflowPolicy
 
-The information of an app workflow policy entry.
+The current approval workflow policy, consisting of one or more conditions and an associated action. When the conditions are met, the action is triggered.
 
 ## Properties
 

@@ -18,7 +18,7 @@
 |**status** | **TokenizationStatus** |  |  |
 |**totalSupply** | **String** | The total supply of the token. |  [optional] |
 |**holdings** | **String** | The amount of tokens held by the organization. |  [optional] |
-|**archived** | **Boolean** | Whether the token is archived. If archived, no operations can be initiated on this token. |  |
+|**archived** | **Boolean** | Whether the token is archived. If the token is archived, no operations can be initiated on it. |  |
 
 
 

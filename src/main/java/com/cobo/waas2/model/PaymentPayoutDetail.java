@@ -182,7 +182,7 @@ public class PaymentPayoutDetail {
   }
 
    /**
-   * required
+   * The source account from which the payout will be made. - If the source account is a merchant account, provide the merchant&#39;s ID (e.g., \&quot;M1001\&quot;). - If the source account is the developer account, use the string &#x60;\&quot;developer\&quot;&#x60;. 
    * @return sourceAccount
   **/
   @javax.annotation.Nullable
@@ -266,7 +266,7 @@ public class PaymentPayoutDetail {
   }
 
    /**
-   * In crypto bridge, the actual amount of the recipient_info token in the payout. In offramp, the actual amount of the recipient_info currency in the payout. 
+   * - For &#x60;Crypto&#x60; payouts: The amount of cryptocurrency sent to the recipient&#39;s address, denominated in the token specified in &#x60;recipient_info.token_id&#x60;. - For &#x60;OffRamp&#x60; payouts: The amount of fiat currency sent to the recipient&#39;s bank account, denominated in the currency specified in &#x60;recipient_info.currency&#x60;. (Note: The actual amount received may be lower due to additional bank transfer fees.) 
    * @return actualPayoutAmount
   **/
   @javax.annotation.Nullable
@@ -312,7 +312,7 @@ public class PaymentPayoutDetail {
   }
 
    /**
-   * The remark for the create payouts.
+   * A note or comment about the payout.
    * @return remark
   **/
   @javax.annotation.Nullable

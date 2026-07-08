@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The preset properties to limit transaction fee.  In the UTXO fee model, the transaction fee is calculated by multiplying the fee rate by the transaction size. This can be expressed as: Transaction fee &#x3D; fee rate * transaction size. For more information about the UTXO fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  You can specify the maximum fee amount to limit the transaction fee. The transaction will fail if the transaction fee exceeds the specified maximum fee amount.  Switch between the tabs to display the properties for different transaction fee models. 
+ * The preset properties to limit transaction fee.  For more information about the UTXO fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  You can specify the maximum fee amount to limit the transaction fee. The transaction will fail if the transaction fee exceeds the specified maximum fee amount.  Switch between the tabs to display the properties for different transaction fee models. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -56,10 +56,6 @@ public class TransactionRequestUtxoFee {
   public static final String SERIALIZED_NAME_FEE_RATE = "fee_rate";
   @SerializedName(SERIALIZED_NAME_FEE_RATE)
   private String feeRate;
-
-  public static final String SERIALIZED_NAME_FALLBACK = "fallback";
-  @SerializedName(SERIALIZED_NAME_FALLBACK)
-  private Boolean fallback;
 
   public static final String SERIALIZED_NAME_FEE_TYPE = "fee_type";
   @SerializedName(SERIALIZED_NAME_FEE_TYPE)
@@ -95,25 +91,6 @@ public class TransactionRequestUtxoFee {
   }
 
 
-  public TransactionRequestUtxoFee fallback(Boolean fallback) {
-    this.fallback = fallback;
-    return this;
-  }
-
-   /**
-   * Indicates whether the estimated fee is generated from Cobo’s fallback mechanism. When the estimated transaction belongs to a UTXO-based chain and the specified address does not have sufficient balance to cover the on-chain fee, this field will be set to &#x60;true&#x60;. In this case, the returned fee value is estimated by Cobo’s internal fallback strategy, which is typically higher than the actual on-chain fee. When &#x60;fallback&#x60; is &#x60;true&#x60;, please use the estimated fee value with caution.
-   * @return fallback
-  **/
-  @javax.annotation.Nullable
-  public Boolean getFallback() {
-    return fallback;
-  }
-
-  public void setFallback(Boolean fallback) {
-    this.fallback = fallback;
-  }
-
-
   public TransactionRequestUtxoFee feeType(FeeType feeType) {
     this.feeType = feeType;
     return this;
@@ -139,7 +116,7 @@ public class TransactionRequestUtxoFee {
   }
 
    /**
-   * The token ID of the transaction fee.
+   * The token used to pay the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -226,7 +203,6 @@ public class TransactionRequestUtxoFee {
     }
     TransactionRequestUtxoFee transactionRequestUtxoFee = (TransactionRequestUtxoFee) o;
     return Objects.equals(this.feeRate, transactionRequestUtxoFee.feeRate) &&
-        Objects.equals(this.fallback, transactionRequestUtxoFee.fallback) &&
         Objects.equals(this.feeType, transactionRequestUtxoFee.feeType) &&
         Objects.equals(this.tokenId, transactionRequestUtxoFee.tokenId) &&
         Objects.equals(this.maxFeeAmount, transactionRequestUtxoFee.maxFeeAmount)&&
@@ -235,7 +211,7 @@ public class TransactionRequestUtxoFee {
 
   @Override
   public int hashCode() {
-    return Objects.hash(feeRate, fallback, feeType, tokenId, maxFeeAmount, additionalProperties);
+    return Objects.hash(feeRate, feeType, tokenId, maxFeeAmount, additionalProperties);
   }
 
   @Override
@@ -243,7 +219,6 @@ public class TransactionRequestUtxoFee {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionRequestUtxoFee {\n");
     sb.append("    feeRate: ").append(toIndentedString(feeRate)).append("\n");
-    sb.append("    fallback: ").append(toIndentedString(fallback)).append("\n");
     sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    maxFeeAmount: ").append(toIndentedString(maxFeeAmount)).append("\n");
@@ -271,7 +246,6 @@ public class TransactionRequestUtxoFee {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("fee_rate");
-    openapiFields.add("fallback");
     openapiFields.add("fee_type");
     openapiFields.add("token_id");
     openapiFields.add("max_fee_amount");

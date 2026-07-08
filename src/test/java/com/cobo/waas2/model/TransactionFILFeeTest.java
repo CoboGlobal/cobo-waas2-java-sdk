@@ -100,12 +100,4 @@ public class TransactionFILFeeTest {
         // TODO: test estimatedFeeUsed
     }
 
-    /**
-     * Test the property 'gasUsed'
-     */
-    @Test
-    public void gasUsedTest() {
-        // TODO: test gasUsed
-    }
-
 }

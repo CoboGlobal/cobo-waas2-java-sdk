@@ -52,7 +52,6 @@ import com.cobo.waas2.model.DestinationType;
 import com.cobo.waas2.model.EntryType;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExchangeRate;
-import java.io.File;
 import com.cobo.waas2.model.ForcedSweep;
 import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetCounterpartyEntry200Response;
@@ -79,40 +78,25 @@ import com.cobo.waas2.model.ListPaymentWalletBalances200Response;
 import com.cobo.waas2.model.ListPayouts200Response;
 import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
-import com.cobo.waas2.model.ListSubscriptionActions200Response;
-import com.cobo.waas2.model.ListSubscriptionPlans200Response;
-import com.cobo.waas2.model.ListSubscriptions200Response;
 import com.cobo.waas2.model.ListTopUpPayerAccounts200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
-import com.cobo.waas2.model.MerchantKycInfo;
-import com.cobo.waas2.model.MerchantKycSubmission;
 import com.cobo.waas2.model.Order;
 import com.cobo.waas2.model.PaymentAllocationAmount;
 import com.cobo.waas2.model.PaymentBalanceChangeResponse;
 import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
 import com.cobo.waas2.model.PaymentBalanceFlowDirection;
 import com.cobo.waas2.model.PaymentBulkSend;
-import com.cobo.waas2.model.PaymentCreateSubscriptionAction;
-import com.cobo.waas2.model.PaymentCreateSubscriptionPlan;
 import com.cobo.waas2.model.PaymentEstimateFee201Response;
 import com.cobo.waas2.model.PaymentEstimateFeeRequest;
 import com.cobo.waas2.model.PaymentPayout;
 import com.cobo.waas2.model.PaymentPayoutDetail;
-import com.cobo.waas2.model.PaymentSubscriptionAction;
-import com.cobo.waas2.model.PaymentSubscriptionActionDetail;
-import com.cobo.waas2.model.PaymentSubscriptionActionType;
-import com.cobo.waas2.model.PaymentSubscriptionDetail;
-import com.cobo.waas2.model.PaymentSubscriptionPlan;
-import com.cobo.waas2.model.PaymentSubscriptionPlanDetail;
-import com.cobo.waas2.model.PaymentUploadedFile;
 import com.cobo.waas2.model.PspBalance;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Report;
 import com.cobo.waas2.model.ReportStatus;
 import com.cobo.waas2.model.ReportType;
 import com.cobo.waas2.model.Settlement;
-import com.cobo.waas2.model.SubmitMerchantKyc;
 import com.cobo.waas2.model.SupportedToken;
 import com.cobo.waas2.model.TopUpAddress;
 import com.cobo.waas2.model.TriggerTestPaymentWebhookEventResponse;
@@ -151,7 +135,7 @@ public class PaymentApiTest {
     /**
      * Batch get exchange rates
      *
-     * This operation retrieves the current exchange rates between a specified currency and a list of token IDs. 
+     * This operation retrieves the current exchange rates between multiple fiat currencies and cryptocurrencies. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -166,7 +150,7 @@ public class PaymentApiTest {
     /**
      * Cancel refund order
      *
-     * This operation cancels a specified refund order. 
+     * This operation cancels a specified refund order. You can only cancel refund orders that have not been processed yet. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -180,7 +164,7 @@ public class PaymentApiTest {
     /**
      * Create batch allocation
      *
-     * This operation creates a batch allocation to withdraw available balances.   You can include multiple merchants and cryptocurrencies in a single batch allocation. 
+     * This operation allocates funds between multiple accounts in one batch request. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -208,7 +192,7 @@ public class PaymentApiTest {
     /**
      * Create counterparty
      *
-     * This operation creates a counterparty. 
+     * This operation creates a [counterparty](https://www.cobo.com/payments/en/guides/counterparties). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -222,7 +206,7 @@ public class PaymentApiTest {
     /**
      * Create counterparty entry
      *
-     * This operation creates a counterparty entry. 
+     * This operation creates one or more entries for a counterparty.   A counterparty entry is a record of a counterparty&#39;s wallet address. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -236,7 +220,7 @@ public class PaymentApiTest {
     /**
      * Create crypto address
      *
-     * Create a new cryptocurrency address for receiving payouts or transfers.  The address must match the specified &#x60;token_id&#x60;&#39;s blockchain.  Optionally, a label can be provided to help categorize the address internally. 
+     * &lt;Note&gt;This operation has been deprecated.&lt;/Note&gt; This operation registers a crypto address for crypto payouts.  The registered address can later be referenced by its ID when creating settlement requests. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -250,7 +234,7 @@ public class PaymentApiTest {
     /**
      * Create destination
      *
-     * This operation creates a destination. 
+     * This operation creates a [destination](https://www.cobo.com/payments/en/guides/destinations). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -264,7 +248,7 @@ public class PaymentApiTest {
     /**
      * Create destination entry
      *
-     * This operation creates a destination entry, either an address or a bank account. 
+     * This operation creates one or more entries for a destination. A destination entry is a record of a destination&#39;s wallet addresses or bank accounts. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -276,9 +260,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Create force sweep request
+     * Create forced sweep
      *
-     * This operation creates a force sweep request to settle or refund available balances.  
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation creates a forced sweep to transfer funds from addresses within a specified wallet to its designated sweep-to address. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -292,7 +276,7 @@ public class PaymentApiTest {
     /**
      * Create merchant
      *
-     * This operation creates a merchant and links it to a specified wallet. Payments to the merchant will be deposited into the linked wallet.  Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information. 
+     * This operation creates a merchant. Upon successful creation, a merchant ID is generated and returned along with the merchant&#39;s information. For more information on merchant creation, please refer to [Preparation](https://www.cobo.com/payments/en/guides/preparation#create-merchant). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -306,7 +290,7 @@ public class PaymentApiTest {
     /**
      * Create order link
      *
-     * This operation creates a payment link of a pay-in order. 
+     * This operation generates a payment link for a pay-in order. The link directs users to a hosted payment page where they can complete their payment for the order. You can share the link directly with users or embed the payment page in your website or application using an iframe.  For more details, see [Payment Link](https://www.cobo.com/payments/en/guides/payment-link). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -362,7 +346,7 @@ public class PaymentApiTest {
     /**
      * Create refund link
      *
-     * This operation creates a payment link for a refund. 
+     * This operation creates a link that points to a Cobo-hosted refund page. The user can submit their desired refund address on the page.  Once the address is submitted, Cobo will automatically create a refund order and initiate the refund process according to your configuration.  For details, see [Create refund link](https://www.cobo.com/payments/en/guides/create-refund-link). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -374,9 +358,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Create report
+     * Generate reports
      *
-     * This operation creates reports. 
+     * This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -415,37 +399,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Create a subscription action
-     *
-     * This operation creates a subscription action. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createSubscriptionActionTest() throws ApiException {
-        PaymentCreateSubscriptionAction paymentCreateSubscriptionAction = null;
-        PaymentSubscriptionAction response = api.createSubscriptionAction(paymentCreateSubscriptionAction);
-        // TODO: test validations
-    }
-
-    /**
-     * Create subscription plan
-     *
-     * This operation creates a subscription plan. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createSubscriptionPlanTest() throws ApiException {
-        PaymentCreateSubscriptionPlan paymentCreateSubscriptionPlan = null;
-        PaymentSubscriptionPlan response = api.createSubscriptionPlan(paymentCreateSubscriptionPlan);
-        // TODO: test validations
-    }
-
-    /**
      * Batch create top-up addresses
      *
-     * Batch create the top-up address for payer list under a specific merchant and token. 
+     * This operation creates top-up addresses for multiple payers under a specific merchant and token in a single request.  &lt;Note&gt;This operation supports batch processing of up to 50 payers per request.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -459,7 +415,7 @@ public class PaymentApiTest {
     /**
      * Delete counterparty
      *
-     * This operation deletes a counterparty. Note that this operation will delete all the items under the counterparty. 
+     * This operation deletes a counterparty. Note that this operation will delete all entries under the counterparty. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -489,7 +445,7 @@ public class PaymentApiTest {
     /**
      * Delete crypto address
      *
-     * This operation deletes a crypto address. 
+     * &lt;Note&gt;This operation has been deprecated.&lt;/Note&gt; This operation unregisters a crypto address from being used for crypto payouts. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -503,7 +459,7 @@ public class PaymentApiTest {
     /**
      * Delete destination
      *
-     * This operation deletes a destination. Note that this operation will delete all the items under the destination, including bank accounts and addresses. 
+     * This operation deletes a destination. Note that this operation will delete all entries under the destination, including bank accounts and addresses. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -533,7 +489,7 @@ public class PaymentApiTest {
     /**
      * Get available allocation amount
      *
-     * This operation retrieves the information of available allocation amount. 
+     * This operation retrieves the available amount that can be allocated from a source account to a destination account. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -547,7 +503,7 @@ public class PaymentApiTest {
     }
 
     /**
-     * Get batch allocation by id
+     * Get batch allocation information
      *
      * This operation retrieves the information of a batch allocation. 
      *
@@ -635,7 +591,7 @@ public class PaymentApiTest {
     /**
      * Get exchange rate
      *
-     * This operation retrieves the current exchange rate between a specified currency pair. 
+     * This operation retrieves the current exchange rate between a specified currency pair. The exchange rate is updated approximately every 10 minutes.  &lt;Note&gt;This operation returns the exchange rate for reference only. The actual exchange rate may vary due to market fluctuations and other factors.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -644,20 +600,6 @@ public class PaymentApiTest {
         String tokenId = null;
         String currency = null;
         GetExchangeRate200Response response = api.getExchangeRate(tokenId, currency);
-        // TODO: test validations
-    }
-
-    /**
-     * Get merchant KYC
-     *
-     * This operation retrieves the KYC submission for a specified merchant.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getMerchantKycTest() throws ApiException {
-        String merchantId = null;
-        MerchantKycSubmission response = api.getMerchantKyc(merchantId);
         // TODO: test validations
     }
 
@@ -690,9 +632,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Get psp balance
+     * Get developer balance
      *
-     * This operation retrieves the information of psp balance. 
+     * This operation retrieves the balance information for you as the developer. The balance information is grouped by token.  For more information, please refer to [Accounts and fund allocation](https://www.cobo.com/payments/en/guides/amounts-and-balances). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -739,7 +681,7 @@ public class PaymentApiTest {
     /**
      * List all reports
      *
-     * This operation retrieves the information of all reports. 
+     * This operation retrieves the information of all reports. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -757,7 +699,7 @@ public class PaymentApiTest {
     /**
      * Get settlement request information
      *
-     * &lt;Note&gt;This operation has been deprecated. Please use [Get payout information](https://www.cobo.com/payments/en/api-references/payment/get-payout-detail) instead.&lt;/Note&gt;  This operation retrieves the information of a specific settlement request. 
+     * &lt;Note&gt;This operation has been deprecated. Please use [Get payout information](https://www.cobo.com/payments/en/api-references/payment/get-payout-information) instead.&lt;/Note&gt;  This operation retrieves the information of a specific settlement request. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -771,7 +713,7 @@ public class PaymentApiTest {
     /**
      * Get withdrawable balances
      *
-     * This operation retrieves the current withdrawable balances of specified merchants or the developer. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the balances of specified merchants or the developer. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -785,52 +727,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Get subscription action by id
+     * Create/Get top-up address
      *
-     * This operation retrieves the information of subscription plan detail. You can filter the result by action_id. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSubscriptionActionByIdTest() throws ApiException {
-        String actionId = null;
-        PaymentSubscriptionActionDetail response = api.getSubscriptionActionById(actionId);
-        // TODO: test validations
-    }
-
-    /**
-     * Get subscription by id
-     *
-     * This operation retrieves the information of subscription detail. You can filter the result by subscription_id. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSubscriptionByIdTest() throws ApiException {
-        String subscriptionId = null;
-        PaymentSubscriptionDetail response = api.getSubscriptionById(subscriptionId);
-        // TODO: test validations
-    }
-
-    /**
-     * Get subscription plan by id
-     *
-     * This operation retrieves the information of subscription plan detail. You can filter the result by subscription_id. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSubscriptionPlanByIdTest() throws ApiException {
-        String planId = null;
-        String tokenId = null;
-        PaymentSubscriptionPlanDetail response = api.getSubscriptionPlanById(planId, tokenId);
-        // TODO: test validations
-    }
-
-    /**
-     * Get top-up address
-     *
-     * Get a top-up address for certain payer under merchant. 
+     * This operation creates or retrieves a unique top-up address for a payer.   In the request, you need to provide the &#x60;custom_payer_id&#x60; parameter to identify the payer in your system and link them to the top-up address.  - If no address exists for the payer on the specified chain, a new address will be created and returned. - If an address already exists for the payer on the specified chain, the existing address details will be returned.  You can also provide the &#x60;merchant_id&#x60; parameter to specify the merchant to which the payer belongs. If not provided, the default merchant will be used. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -979,7 +878,7 @@ public class PaymentApiTest {
     /**
      * List crypto addresses
      *
-     * Retrieve a list of cryptocurrency addresses previously created for a given &#x60;token_id&#x60;. 
+     * &lt;Note&gt;This operation has been deprecated.&lt;/Note&gt; This operation retrieves a list of crypto addresses registered for crypto payouts.   Contact our support team at [help@cobo.com](mailto:help@cobo.com) to register a new crypto address. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1033,9 +932,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * List force sweep requests
+     * List forced sweeps
      *
-     * This operation retrieves the information of force_sweep requests. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the information of all forced sweeps. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1140,7 +1039,7 @@ public class PaymentApiTest {
     /**
      * List payment wallet balances
      *
-     * This operation retrieves the information of payment wallet balances. 
+     * &lt;Warning&gt;This operation has been deprecated.&lt;/Warning&gt; This operation retrieves the balance information for specified payment wallets. The balance information is grouped by token. If you do not specify the &#x60;wallet_ids&#x60; parameter, the balance information for all payment wallets will be returned. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1172,7 +1071,7 @@ public class PaymentApiTest {
     /**
      * List all settlement details
      *
-     * &lt;Note&gt;This operation has been deprecated.  This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
+     * &lt;Note&gt;This operation has been deprecated.&lt;/Note&gt;  This operation retrieves the information of all settlement details. You can filter the result by merchant ID or status. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1190,7 +1089,7 @@ public class PaymentApiTest {
     /**
      * List all settlement requests
      *
-     * &lt;Note&gt;This operation has been deprecated. Please use [List payout](https://www.cobo.com/payments/en/api-references/payment/list-all-payouts) instead.&lt;/Note&gt;  This operation retrieves the information of all settlement requests. 
+     * &lt;Note&gt;This operation has been deprecated. Please use [List all payouts](https://www.cobo.com/payments/en/api-references/payment/list-all-payouts) instead.&lt;/Note&gt;  This operation retrieves the information of all settlement requests. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1201,63 +1100,6 @@ public class PaymentApiTest {
         String after = null;
         String requestId = null;
         ListSettlementRequests200Response response = api.listSettlementRequests(limit, before, after, requestId);
-        // TODO: test validations
-    }
-
-    /**
-     * List subscription actions
-     *
-     * This operation retrieves the information of subscription actions. You can filter the result by plan id. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listSubscriptionActionsTest() throws ApiException {
-        Integer limit = null;
-        String before = null;
-        String after = null;
-        String planId = null;
-        String merchantId = null;
-        String subscriptionId = null;
-        String requestId = null;
-        PaymentSubscriptionActionType actionType = null;
-        ListSubscriptionActions200Response response = api.listSubscriptionActions(limit, before, after, planId, merchantId, subscriptionId, requestId, actionType);
-        // TODO: test validations
-    }
-
-    /**
-     * List subscription plans
-     *
-     * This operation retrieves the information of subscription plans. You can filter the result by developer plan id. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listSubscriptionPlansTest() throws ApiException {
-        Integer limit = null;
-        String before = null;
-        String after = null;
-        String developerPlanId = null;
-        ListSubscriptionPlans200Response response = api.listSubscriptionPlans(limit, before, after, developerPlanId);
-        // TODO: test validations
-    }
-
-    /**
-     * List subscriptions
-     *
-     * This operation retrieves the information of subscriptions. You can filter the result by plan id. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listSubscriptionsTest() throws ApiException {
-        Integer limit = null;
-        String before = null;
-        String after = null;
-        String planId = null;
-        String merchantId = null;
-        String actionId = null;
-        ListSubscriptions200Response response = api.listSubscriptions(limit, before, after, planId, merchantId, actionId);
         // TODO: test validations
     }
 
@@ -1280,7 +1122,7 @@ public class PaymentApiTest {
     }
 
     /**
-     * List top-up payers
+     * List payers
      *
      * This operation retrieves the information of all payers. You can filter the result by merchant ID and payer_id.  &lt;Note&gt;The &#x60;transactions&#x60; field in the response returns up to the latest 200 transactions only. This field will be removed in a future version. To paginate through payer transactions, use [List payer transactions](https://www.cobo.com/payments/en/guides/overview).&lt;/Note&gt; 
      *
@@ -1298,9 +1140,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Payment estimate fee
+     * Estimate fees
      *
-     * This operation to payment estimate fee. 
+     * This operation calculates fees for payment-related operations, including: - **Pay-in**: Fees for accepting payments - **Refunds**: Fees for refunding the payment - **Crypto payouts**: Fees for payouts in crypto - **Fiat off-ramp**: Fees for fiat currency transfers via off-ramp.    The returned fees represent the charges that would apply if the operation were executed immediately. Note that actual fees may vary over time based on your usage volume and applicable fee rates. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1308,21 +1150,6 @@ public class PaymentApiTest {
     public void paymentEstimateFeeTest() throws ApiException {
         PaymentEstimateFeeRequest paymentEstimateFeeRequest = null;
         PaymentEstimateFee201Response response = api.paymentEstimateFee(paymentEstimateFeeRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * Submit merchant KYC
-     *
-     * This operation submits KYC information for a specified merchant.  You need to provide the merchant contact information, merchant type, country, industry, and company information.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void submitMerchantKycTest() throws ApiException {
-        String merchantId = null;
-        SubmitMerchantKyc submitMerchantKyc = null;
-        MerchantKycInfo response = api.submitMerchantKyc(merchantId, submitMerchantKyc);
         // TODO: test validations
     }
 
@@ -1356,7 +1183,7 @@ public class PaymentApiTest {
     }
 
     /**
-     * Update destination information
+     * Update destination
      *
      * This operation updates the information of a specified destination. 
      *
@@ -1416,9 +1243,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Update refund order information
+     * Update refund order
      *
-     * This operation updates a specified refund order. 
+     * This operation updates a specified refund order by modifying its recipient address. You can only update the recipient address for refund orders that have not been processed yet. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1433,7 +1260,7 @@ public class PaymentApiTest {
     /**
      * Update top-up address
      *
-     * Update the top-up address for a payer under a specific merchant and token. 
+     * This operation updates the dedicated top-up address assigned to a specific payer under a merchant on a specified chain.  &lt;Note&gt;   You can update the top-up address for a given payer a maximum of 10 times. If you exceed this limit, the API request will return an error. &lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1441,20 +1268,6 @@ public class PaymentApiTest {
     public void updateTopUpAddressTest() throws ApiException {
         UpdateTopUpAddress updateTopUpAddress = null;
         TopUpAddress response = api.updateTopUpAddress(updateTopUpAddress);
-        // TODO: test validations
-    }
-
-    /**
-     * Upload file
-     *
-     * This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void uploadPaymentFileTest() throws ApiException {
-        File _file = null;
-        PaymentUploadedFile response = api.uploadPaymentFile(_file);
         // TODO: test validations
     }
 

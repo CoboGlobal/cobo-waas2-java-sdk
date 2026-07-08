@@ -13,12 +13,12 @@
 |**settlements** | [**List&lt;SettlementDetail&gt;**](SettlementDetail.md) |  |  |
 |**createdTimestamp** | **Integer** | The created time of the settlement request, represented as a UNIX timestamp in seconds. |  [optional] |
 |**updatedTimestamp** | **Integer** | The updated time of the settlement request, represented as a UNIX timestamp in seconds. |  [optional] |
-|**initiator** | **String** | The initiator of this settlement request, usually the user&#39;s API key. |  [optional] |
+|**initiator** | **String** |  The initiator of this settlement request. Can return either an API key or the Payments App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payments API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payments App using the App ID.  |  [optional] |
 |**acquiringType** | **AcquiringType** |  |  [optional] |
 |**payoutChannel** | **PayoutChannel** |  |  [optional] |
 |**settlementType** | **SettlementType** |  |  [optional] |
-|**currency** | **String** | The fiat currency for the settlement request. |  [optional] |
-|**receivedAmountFiat** | **String** | The received fiat amount of this settlement request.  |  [optional] |
+|**currency** | **String** | The fiat currency for the off-ramp. |  [optional] |
+|**receivedAmountFiat** | **String** | The estimated amount of the fiat currency to receive after off-ramping. This amount is subject to change due to bank transfer fees. |  [optional] |
 |**bankAccount** | [**BankAccount**](BankAccount.md) |  |  [optional] |
 
 

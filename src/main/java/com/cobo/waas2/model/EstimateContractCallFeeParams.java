@@ -81,10 +81,6 @@ public class EstimateContractCallFeeParams {
   @SerializedName(SERIALIZED_NAME_FEE_TYPE)
   private FeeType feeType = FeeType.EVM_EIP_1559;
 
-  public static final String SERIALIZED_NAME_FEE_TOKEN_ID = "fee_token_id";
-  @SerializedName(SERIALIZED_NAME_FEE_TOKEN_ID)
-  private String feeTokenId;
-
   public static final String SERIALIZED_NAME_REPLACED_TRANSACTION_ID = "replaced_transaction_id";
   @SerializedName(SERIALIZED_NAME_REPLACED_TRANSACTION_ID)
   private UUID replacedTransactionId;
@@ -98,7 +94,7 @@ public class EstimateContractCallFeeParams {
   }
 
    /**
-   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. It is recommended to use the same request ID as the transaction for which you want to estimate the transaction fee.
+   * The request ID that is used to track a transaction request.
    * @return requestId
   **/
   @javax.annotation.Nullable
@@ -206,25 +202,6 @@ public class EstimateContractCallFeeParams {
   }
 
 
-  public EstimateContractCallFeeParams feeTokenId(String feeTokenId) {
-    this.feeTokenId = feeTokenId;
-    return this;
-  }
-
-   /**
-   * The token ID of the token used to pay the transaction fee. This is only effective on chains that support specifying a custom fee token (such as Tempo), and the specified token must be on the same chain as the transaction. If not specified, the chain&#39;s default fee token is used.
-   * @return feeTokenId
-  **/
-  @javax.annotation.Nullable
-  public String getFeeTokenId() {
-    return feeTokenId;
-  }
-
-  public void setFeeTokenId(String feeTokenId) {
-    this.feeTokenId = feeTokenId;
-  }
-
-
   public EstimateContractCallFeeParams replacedTransactionId(UUID replacedTransactionId) {
     this.replacedTransactionId = replacedTransactionId;
     return this;
@@ -304,14 +281,13 @@ public class EstimateContractCallFeeParams {
         Objects.equals(this.source, estimateContractCallFeeParams.source) &&
         Objects.equals(this.destination, estimateContractCallFeeParams.destination) &&
         Objects.equals(this.feeType, estimateContractCallFeeParams.feeType) &&
-        Objects.equals(this.feeTokenId, estimateContractCallFeeParams.feeTokenId) &&
         Objects.equals(this.replacedTransactionId, estimateContractCallFeeParams.replacedTransactionId)&&
         Objects.equals(this.additionalProperties, estimateContractCallFeeParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, requestType, chainId, source, destination, feeType, feeTokenId, replacedTransactionId, additionalProperties);
+    return Objects.hash(requestId, requestType, chainId, source, destination, feeType, replacedTransactionId, additionalProperties);
   }
 
   @Override
@@ -324,7 +300,6 @@ public class EstimateContractCallFeeParams {
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
-    sb.append("    feeTokenId: ").append(toIndentedString(feeTokenId)).append("\n");
     sb.append("    replacedTransactionId: ").append(toIndentedString(replacedTransactionId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -355,7 +330,6 @@ public class EstimateContractCallFeeParams {
     openapiFields.add("source");
     openapiFields.add("destination");
     openapiFields.add("fee_type");
-    openapiFields.add("fee_token_id");
     openapiFields.add("replaced_transaction_id");
 
     // a set of required properties/fields (JSON key names)
@@ -402,9 +376,6 @@ public class EstimateContractCallFeeParams {
       // validate the optional field `fee_type`
       if (jsonObj.get("fee_type") != null && !jsonObj.get("fee_type").isJsonNull()) {
         FeeType.validateJsonElement(jsonObj.get("fee_type"));
-      }
-      if ((jsonObj.get("fee_token_id") != null && !jsonObj.get("fee_token_id").isJsonNull()) && !jsonObj.get("fee_token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fee_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_token_id").toString()));
       }
       if ((jsonObj.get("replaced_transaction_id") != null && !jsonObj.get("replaced_transaction_id").isJsonNull()) && !jsonObj.get("replaced_transaction_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `replaced_transaction_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("replaced_transaction_id").toString()));

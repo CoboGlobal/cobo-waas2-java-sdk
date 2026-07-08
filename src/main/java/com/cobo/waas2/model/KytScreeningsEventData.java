@@ -49,7 +49,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The kyt screening information about a transaction.
+ * The KYT screening information about a transaction.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -161,7 +161,7 @@ public class KytScreeningsEventData {
   }
 
    /**
-   * The time when the kyt screening was updated, in Unix timestamp format, measured in milliseconds.
+   * The time when the KYT screening information was updated, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nonnull

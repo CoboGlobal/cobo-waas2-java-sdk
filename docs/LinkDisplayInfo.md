@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**developerName** | **String** | Optional display name for the developer/platform. This name may be shown to end users during the payment process.  |  [optional] |
-|**logo** | **URI** | Optional URL to the developer&#39;s logo image. The logo may be displayed to end users during the payment process.  Supported formats: PNG, JPG, SVG. Maximum file size: 2MB.  |  [optional] |
-|**returnUrl** | **URI** | The URL to redirect to after the operation completes. |  [optional] |
+|**developerName** | **String** | The brand name to display to end users on the page. This helps users identify who is providing the payment service.  |  [optional] |
+|**logo** | **URI** | The URL of the logo image to display to end users on the page.  |  [optional] |
+|**returnUrl** | **URI** | The product page URL where end users will be redirected after the payment process ends.  This URL is embedded in a \&quot;Return to Merchant\&quot; button displayed on the following result pages: - Payment success - Payment timeout - Payment rejected - Payment error  |  [optional] |
 
 
 

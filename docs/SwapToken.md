@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**tokenId** | **String** | The token id. |  |
-|**chainId** | **String** | The chain id. |  |
-|**assetId** | **String** | The asset id. |  |
-|**tokenAddress** | **String** | The token address. |  [optional] |
-|**minAmount** | **String** | The minimum amount. |  [optional] |
-|**maxAmount** | **String** | The maximum amount. |  [optional] |
+|**tokenId** | **String** | The token ID. |  |
+|**chainId** | **String** | The chain ID, which is the unique identifier of a blockchain. |  |
+|**assetId** | **String** | The asset ID. |  |
+|**tokenAddress** | **String** | The on-chain contract address of the token. |  [optional] |
+|**minAmount** | **String** | The minimum amount allowed for a swap. |  [optional] |
+|**maxAmount** | **String** | The maximum amount allowed for a swap. |  [optional] |
 
 
 

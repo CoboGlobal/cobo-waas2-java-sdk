@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * AddressRiskLevel defines the risk level of the wallet address. - &#x60;Low&#x60;: Low risk. - &#x60;Unscreened&#x60;: The address has not been screened yet. - &#x60;Medium&#x60;: Medium risk. - &#x60;High&#x60;: High risk. 
+ * The risk level of the wallet address. - &#x60;Low&#x60;: Low risk. - &#x60;Unscreened&#x60;: The address has not been screened yet. - &#x60;Medium&#x60;: Medium risk. - &#x60;High&#x60;: High risk. 
  */
 @JsonAdapter(AddressRiskLevel.Adapter.class)
 public enum AddressRiskLevel {

@@ -310,7 +310,7 @@ public class AddressesEventDataAllOfAddresses {
   }
 
    /**
-   * The list of token IDs for which this address has already established stellar trustline.
+   * The list of token IDs for which this address has already established trustlines on the Stellar network.
    * @return stellarTrustedTokenIds
   **/
   @javax.annotation.Nullable

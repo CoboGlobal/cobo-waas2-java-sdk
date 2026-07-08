@@ -182,10 +182,10 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * The currency for the base order amount and the developer fee. Currently, only &#x60;USD&#x60;/&#x60;USDT&#x60;/&#x60;USDC&#x60; are supported. 
+   * The pricing currency that denominates &#x60;pricing_amount&#x60; and &#x60;fee_amount&#x60;. If left empty, both values will be denominated in &#x60;payable_currency&#x60;.  Currently, For a complete list of supported currencies, see [Supported chains and tokens](https://www.cobo.com//payments/en/guides/supported-chains-and-tokens#pricing-currency). 
    * @return pricingCurrency
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getPricingCurrency() {
     return pricingCurrency;
   }
@@ -201,10 +201,10 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;), in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the amount is in the cryptocurrency specified by &#x60;token_id&#x60;.  Values must be greater than &#x60;0&#x60; and contain two decimal places. 
+   * The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;). Values must be greater than &#x60;0&#x60; and contain two decimal places. 
    * @return pricingAmount
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getPricingAmount() {
     return pricingAmount;
   }
@@ -220,7 +220,7 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * The developer fee for the order, in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the fee is in the cryptocurrency specified by &#x60;token_id&#x60;.  If you are a merchant directly serving payers, set this field to &#x60;0&#x60;. Developer fees are only relevant for platforms like payment service providers (PSPs) that charge fees to their downstream merchants.  The developer fee is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example: - Base amount (&#x60;order_amount&#x60;): \&quot;100.00\&quot; - Developer fee (&#x60;fee_amount&#x60;): \&quot;2.00\&quot; - Total charged to customer: \&quot;102.00\&quot;  Values can contain up to two decimal places. 
+   * The developer fee for the order. It is added to the base amount (&#x60;pricing_amount&#x60;) to determine the final charge. For example, if &#x60;pricing_amount&#x60; is \&quot;100.00\&quot; and &#x60;fee_amount&#x60; is \&quot;2.00\&quot;, the payer will be charged \&quot;102.00\&quot; in total, with \&quot;100.00\&quot; being settled to the merchant account and \&quot;2.00\&quot; settled to the developer account. Values must be greater than 0 and contain two decimal places. 
    * @return feeAmount
   **/
   @javax.annotation.Nonnull
@@ -247,10 +247,10 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * List of supported cryptocurrency token IDs for this payment. Each token ID must be from the supported values. 
+   * The IDs of the cryptocurrencies used for payment. Supported values:  - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;  - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return payableCurrencies
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<String> getPayableCurrencies() {
     return payableCurrencies;
   }
@@ -274,7 +274,7 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * Optional list of payable amounts for different tokens. If provided, these amounts will be used instead of calculating the amounts based on the exchange rate. 
+   * The total amounts the payer needs to pay for each currency in &#x60;payable_currencies&#x60;. If this field is left blank, the system will automatically calculate the amounts at order creation using the following formula: (&#x60;pricing_amount&#x60; + &#x60;fee_amount&#x60;) / current exchange rate.  Values must be greater than 0 and contain two decimal places. 
    * @return payableAmounts
   **/
   @javax.annotation.Nullable
@@ -312,7 +312,7 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * Allowed amount deviation, precision to 1 decimal place.
+   * The allowed amount deviation, with precision up to 1 decimal place.  For example, if &#x60;payable_amount&#x60; is &#x60;100.00&#x60; and &#x60;amount_tolerance&#x60; is &#x60;0.50&#x60;: - Payer pays 99.55 → Success (difference of 0.45 ≤ 0.5) - Payer pays 99.40 → Underpaid (difference of 0.60 &gt; 0.5) 
    * @return amountTolerance
   **/
   @javax.annotation.Nullable
@@ -331,7 +331,7 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * The currency for the base order amount and the developer fee. Currently, only &#x60;USD&#x60;/&#x60;USDT&#x60;/&#x60;USDC&#x60; are supported. 
+   * This field has been deprecated. Please use &#x60;pricing_currency&#x60; instead.
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -350,7 +350,7 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;), in the currency specified by &#x60;currency&#x60;. If &#x60;currency&#x60; is not specified, the amount is in the cryptocurrency specified by &#x60;token_id&#x60;.  Values must be greater than &#x60;0&#x60; and contain two decimal places. 
+   * This field has been deprecated. Please use &#x60;pricing_amount&#x60; instead.
    * @return orderAmount
   **/
   @javax.annotation.Nullable
@@ -377,7 +377,7 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * List of supported cryptocurrency token IDs for this payment. Each token ID must be from the supported values. 
+   * This field has been deprecated. Please use &#x60;payable_currencies&#x60; instead. 
    * @return tokenIds
   **/
   @javax.annotation.Nullable
@@ -404,7 +404,7 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * Optional list of final exchange rates for different tokens. If provided, these rates will be used instead of real-time market rates. 
+   * This field has been deprecated. 
    * @return customExchangeRates
   **/
   @javax.annotation.Nullable
@@ -423,7 +423,7 @@ public class OrderLinkBusinessInfo {
   }
 
    /**
-   * Whether to allocate a dedicated address for this order.  - &#x60;true&#x60;: A dedicated address will be allocated for this order. - &#x60;false&#x60;: A shared address from the address pool will be used. 
+   * This field has been deprecated.
    * @return useDedicatedAddress
   **/
   @javax.annotation.Nullable
@@ -575,7 +575,10 @@ public class OrderLinkBusinessInfo {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("merchant_id");
     openapiRequiredFields.add("psp_order_code");
+    openapiRequiredFields.add("pricing_currency");
+    openapiRequiredFields.add("pricing_amount");
     openapiRequiredFields.add("fee_amount");
+    openapiRequiredFields.add("payable_currencies");
   }
 
  /**
@@ -607,17 +610,19 @@ public class OrderLinkBusinessInfo {
       if (!jsonObj.get("psp_order_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `psp_order_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("psp_order_code").toString()));
       }
-      if ((jsonObj.get("pricing_currency") != null && !jsonObj.get("pricing_currency").isJsonNull()) && !jsonObj.get("pricing_currency").isJsonPrimitive()) {
+      if (!jsonObj.get("pricing_currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pricing_currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pricing_currency").toString()));
       }
-      if ((jsonObj.get("pricing_amount") != null && !jsonObj.get("pricing_amount").isJsonNull()) && !jsonObj.get("pricing_amount").isJsonPrimitive()) {
+      if (!jsonObj.get("pricing_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pricing_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pricing_amount").toString()));
       }
       if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("payable_currencies") != null && !jsonObj.get("payable_currencies").isJsonNull() && !jsonObj.get("payable_currencies").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("payable_currencies") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("payable_currencies").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `payable_currencies` to be an array in the JSON string but got `%s`", jsonObj.get("payable_currencies").toString()));
       }
       if (jsonObj.get("payable_amounts") != null && !jsonObj.get("payable_amounts").isJsonNull()) {

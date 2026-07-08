@@ -74,7 +74,7 @@ public class WalletsApiTest {
     /**
      * Batch check UTXOs
      *
-     * The operation check a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets. This interface can only withdraw a maximum of 100 utxos&lt;/Note&gt; 
+     * This operation verifies the existence and details of specified **unspent** transaction outputs (UTXOs) for a given wallet and token. A maximum of 100 UTXOs can be verified per request.  &lt;Note&gt;This operation returns only UTXOs that are not used by any transaction. It does not return all UTXOs.&lt;/Note&gt;  &lt;Info&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -89,7 +89,7 @@ public class WalletsApiTest {
     /**
      * Check address validity across chains
      *
-     * This operation verifies if a given address is valid for a list of chains. 
+     * This operation verifies if a given address is valid for a list of chains.  &lt;Note&gt;You can specify up to 20 chain IDs in a single request.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -147,9 +147,9 @@ public class WalletsApiTest {
     }
 
     /**
-     * Submit token listing request
+     * Create token listing request
      *
-     * Submit a request to add a non-listed token. The token must exist on the specified blockchain with a valid contract address. 
+     * This operation creates a token listing request. The token to be listed must already be deployed on the specified blockchain and have a valid contract address.  &lt;note&gt;Currently, tokens listed through this operation are only supported in wallets of type &#x60;Custodial&#x60; or &#x60;MPC&#x60;, and subtype &#x60;Asset&#x60;, &#x60;Web3&#x60;, or &#x60;Org-Controlled&#x60;.&lt;/note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -205,7 +205,7 @@ public class WalletsApiTest {
     /**
      * Get maximum transferable value
      *
-     * This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
+     * &lt;Warning&gt;This operation is planned for deprecation. We recommend using  [Estimate maximum transferable value](https://www.cobo.com/developers/v2/api-references/wallets/estimate-maximum-transferable-value) instead.&lt;/Warning&gt; This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -221,9 +221,9 @@ public class WalletsApiTest {
     }
 
     /**
-     * Get maximum transferable value with fee model
+     * Estimate maximum transferable value
      *
-     * This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
+     * This operation estimates the maximum transferable value from a wallet or a specific wallet address, based on the specified fee settings.  The &#x60;to_address&#x60; property is required because it affects the fee calculation.  &lt;Note&gt;This operation is applicable to Custodial Wallets (Web3 Wallets) and MPC Wallets only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -250,9 +250,9 @@ public class WalletsApiTest {
     }
 
     /**
-     * Get token listing request details
+     * Get token listing request
      *
-     * Retrieve detailed information about a specific token listing request including its current status and any admin feedback. 
+     * This operation retrieves detailed information about a specific token listing request, including its current status. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -280,7 +280,7 @@ public class WalletsApiTest {
     /**
      * List address balances by token
      *
-     * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -299,7 +299,7 @@ public class WalletsApiTest {
     /**
      * List wallet addresses
      *
-     * This operation retrieves a list of addresses within a specified wallet. 
+     * This operation retrieves a list of addresses within a specified wallet. &lt;Note&gt; For Web3 Wallets, Asset Wallets, and MPC Wallets, addresses created on one EVM chain automatically work on all other supported EVM chains.   Currently, query results for EVM chain addresses differ between interfaces:  - API: Query results are limited by chain_id, so only addresses from that specific chain are returned. - Cobo Portal: Displays addresses from all supported EVM chains, so the number of addresses may be larger than the API results. &lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -336,7 +336,7 @@ public class WalletsApiTest {
     /**
      * List enabled tokens
      *
-     * This operation retrieves all the tokens that can be used by your organization.   You can filter the result by wallet type, subtype, and chain IDs. If you do not specify a wallet type, this operation returns a combination of tokens that can be used by your organization for each wallet type. 
+     * This operation retrieves all the tokens that can be used by your organization.   You can filter the result by wallet type, subtype, chain IDs, and token IDs. If you do not specify a wallet type, this operation returns a combination of tokens that can be used by your organization for each wallet type. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -396,7 +396,7 @@ public class WalletsApiTest {
     /**
      * List token balances by address
      *
-     * The operation retrieves a list of token balances for a specified address within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets and Smart Contract Wallets only.&lt;/Note&gt; 
+     * The operation retrieves a list of token balances for a specified address within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets, Custodial Wallets (Web3 Wallets), and Smart Contract Wallets only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -431,9 +431,9 @@ public class WalletsApiTest {
     }
 
     /**
-     * Get all token listing requests
+     * List token listing requests
      *
-     * Retrieve a list of all token listing requests. Results can be filtered and paginated. 
+     * This operation lists all token listing requests in your organization. You can filter the results by request status. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -473,7 +473,7 @@ public class WalletsApiTest {
     /**
      * List UTXOs
      *
-     * The operation retrieves a list of unspent transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation is applicable to MPC and Custodial Web3 Wallets.&lt;/Note&gt; 
+     * The operation retrieves a list of **unspent** transaction outputs (UTXOs) for a specified wallet and token.  &lt;Note&gt;This operation returns only UTXOs that are not used by any transaction. It does not return all UTXOs.&lt;/Note&gt;  &lt;Info&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -513,7 +513,7 @@ public class WalletsApiTest {
     /**
      * Lock UTXOs
      *
-     * This operation locks the UTXOs with specified transaction hashes. Locked UTXOs cannot be transferred until unlocked.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * This operation locks the UTXOs with specified transaction hashes. Locked UTXOs cannot be transferred until unlocked.  &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -544,7 +544,7 @@ public class WalletsApiTest {
     /**
      * Unlock UTXOs
      *
-     * This operation unlocks the UTXOs with specified transaction hashes. Locked UTXOs cannot be transferred until unlocked.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * This operation unlocks the UTXOs with specified transaction hashes. Locked UTXOs cannot be transferred until unlocked.    &lt;Note&gt;This operation is applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

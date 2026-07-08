@@ -70,14 +70,6 @@ public class MerchantTest {
     }
 
     /**
-     * Test the property 'subscriptionDeveloperFeeRate'
-     */
-    @Test
-    public void subscriptionDeveloperFeeRateTest() {
-        // TODO: test subscriptionDeveloperFeeRate
-    }
-
-    /**
      * Test the property 'walletSetup'
      */
     @Test

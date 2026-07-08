@@ -72,7 +72,7 @@ public class CreateBatchAllocationRequest {
   }
 
    /**
-   * The request ID that is used to track a allocation request. The request ID is provided by you and must be unique.
+   * The request ID that is used to track a batch allocation request. The request ID is provided by you and must be unique.
    * @return requestId
   **/
   @javax.annotation.Nonnull

@@ -32,11 +32,11 @@ public enum ContractCallDestinationType {
   
   SOL_CONTRACT("SOL_Contract"),
   
-  COSMOS_CONTRACT("COSMOS_Contract"),
-  
   STELLAR_CONTRACT("STELLAR_Contract"),
   
-  TRON_CONTRACT("TRON_Contract");
+  TRON_CONTRACT("TRON_Contract"),
+  
+  COSMOS_CONTRACT("COSMOS_Contract");
 
   private String value;
 

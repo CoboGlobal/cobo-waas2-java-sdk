@@ -2,7 +2,7 @@
 
 # SwapReceivingTransaction
 
-Receiving transaction information for the swap activity.
+The transaction that delivers the swapped or bridged assets to the destination address.
 
 ## Properties
 

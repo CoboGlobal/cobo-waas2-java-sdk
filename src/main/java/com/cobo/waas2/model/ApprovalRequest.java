@@ -49,7 +49,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information of an app workflow approval.
+ * The information of an approval request.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -85,7 +85,7 @@ public class ApprovalRequest {
   }
 
    /**
-   * Get approvalId
+   * The system-generated unique ID of the approval request.
    * @return approvalId
   **/
   @javax.annotation.Nonnull
@@ -104,7 +104,7 @@ public class ApprovalRequest {
   }
 
    /**
-   * Get requestId
+   * An identifier provided by you when requesting the approval.
    * @return requestId
   **/
   @javax.annotation.Nonnull

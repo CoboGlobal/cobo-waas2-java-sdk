@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Trustline management operations. 
+ * Operations to manage trustlines on the Stellar network. 
  */
 @JsonAdapter(StellarContractCallTrustLineOperationType.Adapter.class)
 public enum StellarContractCallTrustLineOperationType {

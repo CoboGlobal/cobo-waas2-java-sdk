@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of disposition operation.
+ * The type of a disposition operation.
  */
 @JsonAdapter(DispositionType.Adapter.class)
 public enum DispositionType {

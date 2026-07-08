@@ -73,7 +73,7 @@ public class TokenizationBlocklistAddressNote {
   }
 
    /**
-   * The allowed address.
+   * The address on the blocklist.
    * @return address
   **/
   @javax.annotation.Nonnull
@@ -92,7 +92,7 @@ public class TokenizationBlocklistAddressNote {
   }
 
    /**
-   * The note for the allowed address.
+   * The note for the address on the blocklist.
    * @return note
   **/
   @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class TokenizationBlocklistAddressNote {
   }
 
    /**
-   * The time when the blocklist address was created, in Unix timestamp format, measured in milliseconds.
+   * The time when the address was added to the blocklist, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable

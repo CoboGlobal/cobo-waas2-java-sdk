@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The estimated transaction fee based on the EIP-1559 fee model.
+ * The estimated transaction fee based on the EIP-1559 fee model.  For more details about the EIP-1559 fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models). 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -102,7 +102,7 @@ public class EstimatedEvmEip1559Fee {
   }
 
    /**
-   * The token ID of the transaction fee.
+   * The token used to pay the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nonnull

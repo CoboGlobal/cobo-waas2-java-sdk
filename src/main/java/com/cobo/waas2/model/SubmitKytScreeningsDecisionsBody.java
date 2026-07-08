@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The KYT screening decision submission containing transaction ID and compliance determination result.
+ * The KYT screening decision submission containing the transaction ID and the screening decision based on an external compliance review.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

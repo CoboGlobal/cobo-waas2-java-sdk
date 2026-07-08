@@ -85,14 +85,6 @@ public class TransactionEvmLegacyFeeTest {
     }
 
     /**
-     * Test the property 'estimatedReservedFee'
-     */
-    @Test
-    public void estimatedReservedFeeTest() {
-        // TODO: test estimatedReservedFee
-    }
-
-    /**
      * Test the property 'gasUsed'
      */
     @Test

@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information of an app workflow field.
+ * The information of a workflow field.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -74,7 +74,7 @@ public class AppWorkflowField {
   }
 
    /**
-   * The app workflow field name.
+   * The workflow field name.
    * @return field
   **/
   @javax.annotation.Nonnull
@@ -112,7 +112,7 @@ public class AppWorkflowField {
   }
 
    /**
-   * The app workflow field value.
+   * The workflow field value.
    * @return value
   **/
   @javax.annotation.Nonnull

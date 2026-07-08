@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The transaction fee rate for UTXO-based chains (such as Bitcoin).
+ * UtxoFeeBasePrice
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -55,10 +55,6 @@ public class UtxoFeeBasePrice {
   public static final String SERIALIZED_NAME_FEE_RATE = "fee_rate";
   @SerializedName(SERIALIZED_NAME_FEE_RATE)
   private String feeRate;
-
-  public static final String SERIALIZED_NAME_FALLBACK = "fallback";
-  @SerializedName(SERIALIZED_NAME_FALLBACK)
-  private Boolean fallback;
 
   public UtxoFeeBasePrice() {
   }
@@ -79,25 +75,6 @@ public class UtxoFeeBasePrice {
 
   public void setFeeRate(String feeRate) {
     this.feeRate = feeRate;
-  }
-
-
-  public UtxoFeeBasePrice fallback(Boolean fallback) {
-    this.fallback = fallback;
-    return this;
-  }
-
-   /**
-   * Indicates whether the estimated fee is generated from Cobo’s fallback mechanism. When the estimated transaction belongs to a UTXO-based chain and the specified address does not have sufficient balance to cover the on-chain fee, this field will be set to &#x60;true&#x60;. In this case, the returned fee value is estimated by Cobo’s internal fallback strategy, which is typically higher than the actual on-chain fee. When &#x60;fallback&#x60; is &#x60;true&#x60;, please use the estimated fee value with caution.
-   * @return fallback
-  **/
-  @javax.annotation.Nullable
-  public Boolean getFallback() {
-    return fallback;
-  }
-
-  public void setFallback(Boolean fallback) {
-    this.fallback = fallback;
   }
 
   /**
@@ -155,14 +132,13 @@ public class UtxoFeeBasePrice {
       return false;
     }
     UtxoFeeBasePrice utxoFeeBasePrice = (UtxoFeeBasePrice) o;
-    return Objects.equals(this.feeRate, utxoFeeBasePrice.feeRate) &&
-        Objects.equals(this.fallback, utxoFeeBasePrice.fallback)&&
+    return Objects.equals(this.feeRate, utxoFeeBasePrice.feeRate)&&
         Objects.equals(this.additionalProperties, utxoFeeBasePrice.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(feeRate, fallback, additionalProperties);
+    return Objects.hash(feeRate, additionalProperties);
   }
 
   @Override
@@ -170,7 +146,6 @@ public class UtxoFeeBasePrice {
     StringBuilder sb = new StringBuilder();
     sb.append("class UtxoFeeBasePrice {\n");
     sb.append("    feeRate: ").append(toIndentedString(feeRate)).append("\n");
-    sb.append("    fallback: ").append(toIndentedString(fallback)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -195,7 +170,6 @@ public class UtxoFeeBasePrice {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("fee_rate");
-    openapiFields.add("fallback");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

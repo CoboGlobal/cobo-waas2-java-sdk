@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information of an app workflow policy action, content is valuable when action_type is Quorum.
+ * The action to be executed when the policy conditions are satisfied.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

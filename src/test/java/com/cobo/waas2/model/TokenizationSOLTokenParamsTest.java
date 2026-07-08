@@ -11,7 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.TokenizationSOLTokenExtensions;
 import com.cobo.waas2.model.TokenizationSolTokenPermissionParams;
 import com.cobo.waas2.model.TokenizationTokenStandard;
 import com.google.gson.TypeAdapter;
@@ -84,14 +83,6 @@ public class TokenizationSOLTokenParamsTest {
     @Test
     public void permissionsTest() {
         // TODO: test permissions
-    }
-
-    /**
-     * Test the property 'extensions'
-     */
-    @Test
-    public void extensionsTest() {
-        // TODO: test extensions
     }
 
 }

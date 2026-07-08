@@ -121,7 +121,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The ID of the cryptocurrency.
+   * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -159,7 +159,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant total received amount.
+   * The total amount of the token that has been received by the merchant.
    * @return totalReceivedAmount
   **/
   @javax.annotation.Nullable
@@ -178,7 +178,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant settled amount.
+   * The total amount of the token that has been paid out from the merchant&#39;s balance.
    * @return settledAmount
   **/
   @javax.annotation.Nullable
@@ -197,7 +197,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant payout amount.
+   * This field is reserved for future use.
    * @return payoutAmount
   **/
   @javax.annotation.Nullable
@@ -216,7 +216,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant total refunded amount.
+   * The total amount of the token that has been refunded from the merchant&#39;s balance.
    * @return refundedAmount
   **/
   @javax.annotation.Nullable
@@ -235,7 +235,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant total balance.
+   *  The current balance of this token available to the merchant for payouts or refunds.  For more information, please refer to [Accounts and fund allocation](https://www.cobo.com/payments/en/guides/amounts-and-balances) 
    * @return totalBalance
   **/
   @javax.annotation.Nullable
@@ -254,7 +254,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant available balance.
+   * This field has been deprecated. 
    * @return availableBalance
   **/
   @javax.annotation.Nullable
@@ -273,7 +273,7 @@ public class MerchantBalance {
   }
 
    /**
-   * The merchant locked balance.
+   * This field is reserved for future use.
    * @return lockedBalance
   **/
   @javax.annotation.Nullable

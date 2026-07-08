@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about submitting external KYT (Know Your Transaction) review.
+ * Submission of a manual KYT review result.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -71,7 +71,7 @@ public class SubmitKytScreeningsReviewBody {
   }
 
    /**
-   * The UUID of the transaction for external KYT review. This identifies the transaction that requires external compliance review.
+   * The UUID of the transaction that requires a manual KYT review.
    * @return transactionId
   **/
   @javax.annotation.Nonnull

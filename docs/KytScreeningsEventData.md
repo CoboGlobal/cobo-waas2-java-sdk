@@ -2,7 +2,7 @@
 
 # KytScreeningsEventData
 
-The kyt screening information about a transaction.
+The KYT screening information about a transaction.
 
 ## Properties
 
@@ -12,7 +12,7 @@ The kyt screening information about a transaction.
 |**transactionType** | **KytScreeningsTransactionType** |  |  |
 |**reviewStatus** | **ReviewStatusType** |  |  |
 |**fundsStatus** | **FundsStatusType** |  |  |
-|**updatedTimestamp** | **Long** | The time when the kyt screening was updated, in Unix timestamp format, measured in milliseconds. |  |
+|**updatedTimestamp** | **Long** | The time when the KYT screening information was updated, in Unix timestamp format, measured in milliseconds. |  |
 
 
 

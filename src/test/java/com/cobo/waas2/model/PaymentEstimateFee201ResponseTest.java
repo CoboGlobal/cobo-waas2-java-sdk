@@ -46,12 +46,4 @@ public class PaymentEstimateFee201ResponseTest {
         // TODO: test data
     }
 
-    /**
-     * Test the property 'otcFixedFee'
-     */
-    @Test
-    public void otcFixedFeeTest() {
-        // TODO: test otcFixedFee
-    }
-
 }

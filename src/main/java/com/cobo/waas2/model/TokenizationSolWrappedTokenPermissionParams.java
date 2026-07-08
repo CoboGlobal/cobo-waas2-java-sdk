@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Role-based permission settings for Solana wrapped token. The owner is automatically set to the address that calls the initialize function (typically the issuance wallet) and cannot be specified here. Only wrapper and pauser roles can be configured during initialization.
+ * Role-based permission settings for Solana wrapped token. The owner is automatically set to the address that calls the initialize function (typically the issuing wallet) and cannot be specified here. Only the wrapper and pauser roles can be configured during initialization.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

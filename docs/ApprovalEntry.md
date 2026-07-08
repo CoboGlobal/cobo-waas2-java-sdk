@@ -2,7 +2,7 @@
 
 # ApprovalEntry
 
-The information of an app workflow approval entry.
+The information of an approval request.
 
 ## Properties
 

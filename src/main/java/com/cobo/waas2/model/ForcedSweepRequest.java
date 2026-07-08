@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the request to force sweep.
+ * ForcedSweepRequest
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -78,7 +78,7 @@ public class ForcedSweepRequest {
   }
 
    /**
-   * The request id of the force sweep.
+   * The request ID that is used to track a forced sweep. The request ID is provided by you and must be unique.
    * @return requestId
   **/
   @javax.annotation.Nonnull
@@ -97,7 +97,7 @@ public class ForcedSweepRequest {
   }
 
    /**
-   * The wallet ID to force sweep, which is the unique identifier of a wallet.
+   * The ID of the wallet in which the funds will be forcefully swept.
    * @return walletId
   **/
   @javax.annotation.Nonnull
@@ -116,7 +116,7 @@ public class ForcedSweepRequest {
   }
 
    /**
-   * The token ID to force sweep, which is the unique identifier of a token.
+   * The ID of the token to be forcefully swept.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -135,7 +135,7 @@ public class ForcedSweepRequest {
   }
 
    /**
-   * The amount of needing force sweep.
+   * The amount of the token to be forcefully swept.
    * @return amount
   **/
   @javax.annotation.Nonnull

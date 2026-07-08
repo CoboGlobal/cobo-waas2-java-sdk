@@ -123,7 +123,7 @@ public class TokenizationUpdateAddressPermissions {
   }
 
    /**
-   * The list of permissions to operate on.
+   * The list of permissions to be applied.
    * @return permissions
   **/
   @javax.annotation.Nonnull

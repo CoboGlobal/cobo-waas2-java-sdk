@@ -59,10 +59,6 @@ public class PaymentEstimateFee201Response {
   @SerializedName(SERIALIZED_NAME_DATA)
   private List<PaymentEstimatedFee> data = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_OTC_FIXED_FEE = "otc_fixed_fee";
-  @SerializedName(SERIALIZED_NAME_OTC_FIXED_FEE)
-  private String otcFixedFee;
-
   public PaymentEstimateFee201Response() {
   }
 
@@ -80,7 +76,7 @@ public class PaymentEstimateFee201Response {
   }
 
    /**
-   * Get data
+   * A list of estimated fees for the requested operations.
    * @return data
   **/
   @javax.annotation.Nullable
@@ -90,25 +86,6 @@ public class PaymentEstimateFee201Response {
 
   public void setData(List<PaymentEstimatedFee> data) {
     this.data = data;
-  }
-
-
-  public PaymentEstimateFee201Response otcFixedFee(String otcFixedFee) {
-    this.otcFixedFee = otcFixedFee;
-    return this;
-  }
-
-   /**
-   * The fixed OTC fee amount for the payout.  This fee is charged in addition to the percentage-based OTC fee calculated using &#x60;otc_fee.fee_rate&#x60;. 
-   * @return otcFixedFee
-  **/
-  @javax.annotation.Nullable
-  public String getOtcFixedFee() {
-    return otcFixedFee;
-  }
-
-  public void setOtcFixedFee(String otcFixedFee) {
-    this.otcFixedFee = otcFixedFee;
   }
 
   /**
@@ -166,14 +143,13 @@ public class PaymentEstimateFee201Response {
       return false;
     }
     PaymentEstimateFee201Response paymentEstimateFee201Response = (PaymentEstimateFee201Response) o;
-    return Objects.equals(this.data, paymentEstimateFee201Response.data) &&
-        Objects.equals(this.otcFixedFee, paymentEstimateFee201Response.otcFixedFee)&&
+    return Objects.equals(this.data, paymentEstimateFee201Response.data)&&
         Objects.equals(this.additionalProperties, paymentEstimateFee201Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, otcFixedFee, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
@@ -181,7 +157,6 @@ public class PaymentEstimateFee201Response {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentEstimateFee201Response {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    otcFixedFee: ").append(toIndentedString(otcFixedFee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -206,7 +181,6 @@ public class PaymentEstimateFee201Response {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("data");
-    openapiFields.add("otc_fixed_fee");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -238,9 +212,6 @@ public class PaymentEstimateFee201Response {
             PaymentEstimatedFee.validateJsonElement(jsonArraydata.get(i));
           };
         }
-      }
-      if ((jsonObj.get("otc_fixed_fee") != null && !jsonObj.get("otc_fixed_fee").isJsonNull()) && !jsonObj.get("otc_fixed_fee").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `otc_fixed_fee` to be a primitive type in the JSON string but got `%s`", jsonObj.get("otc_fixed_fee").toString()));
       }
   }
 

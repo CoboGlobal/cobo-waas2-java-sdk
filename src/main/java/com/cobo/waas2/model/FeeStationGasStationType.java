@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The fee station mode used for automatic gas payment: - &#x60;FeeStation&#x60;: The client uses their own Fee Station balance to cover the gas fee.  - &#x60;CoboOperationStation&#x60;: Cobo covers the gas fee on behalf of the client. 
+ * The Fee Station mode used for automatic gas payment: - &#x60;FeeStation&#x60;: The user uses their own Fee Station balance to cover the gas fee.  - &#x60;CoboOperationStation&#x60;: Cobo covers the gas fee on behalf of the user. 
  */
 @JsonAdapter(FeeStationGasStationType.Adapter.class)
 public enum FeeStationGasStationType {

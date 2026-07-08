@@ -58,9 +58,9 @@ public class AutoSweepApiTest {
     }
 
     /**
-     * create auto sweep task
+     * Create auto-sweep task
      *
-     * This operation create a new auto sweep task. 
+     * This operation creates an auto-sweep task for the specified wallet and token. The task triggers transactions to sweep the full balance of the specified token to the configured sweep-to address.  &lt;Note&gt;A sweep requires native chain coin to pay for gas. The gas must be available either in the source (deposit) address, or supplied by a configured Fee Station or Auto-Fuel. Reaching the deposit threshold alone does not trigger a sweep. If no gas is available, the sweep is blocked (for example, with an insufficient-balance error) or the Fee Station quota check fails. When a sweep is blocked, the reason is reported in the &#x60;failed_reasons&#x60; array of the auto-sweep task.&lt;/Note&gt;  &lt;Info&gt;This operation is asynchronous. When the task is created, it is returned with &#x60;status&#x60; set to &#x60;Submitted&#x60; and an empty &#x60;transaction_ids&#x60; array; this is expected and does not indicate a failure. The &#x60;transaction_ids&#x60; array is populated only after &#x60;status&#x60; becomes &#x60;TransactionCreated&#x60;. To retrieve the transaction IDs, poll [Get auto-sweep task details](https://www.cobo.com/developers/v2/api-references/autosweep/get-auto-sweep-task-details) using the returned &#x60;task_id&#x60; until the status changes.&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -72,9 +72,9 @@ public class AutoSweepApiTest {
     }
 
     /**
-     * create wallet sweep to addresses
+     * Create sweep-to address
      *
-     * This operation create a new sweep to address for the wallet. The old sweep to address will become invalid. 
+     * This operation creates a new sweep-to address for the specified wallet. The previously sweep-to address for the same token becomes invalid once the new one is created.  Use this operation to change the sweep-to address when your setup changes, you switch networks, or the current address is compromised or tainted by suspicious funds. You can withdraw any remaining balances from the old sweep-to addresses to the new address or another designated destination.  &lt;Note&gt;Sweep-to addresses are only applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) with the auto-sweep feature enabled.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -86,9 +86,9 @@ public class AutoSweepApiTest {
     }
 
     /**
-     * Get auto sweep task information
+     * Get auto-sweep task details
      *
-     * This operation retrieves detailed information about a specified auto sweep task. 
+     * This operation retrieves detailed information about a specified auto-sweep task. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -100,9 +100,9 @@ public class AutoSweepApiTest {
     }
 
     /**
-     * List wallet auto sweep task
+     * List auto-sweep tasks
      *
-     * This operation retrieves a list of auto sweep task. 
+     * This operation retrieves a list of auto-sweep tasks for the specified wallet. You can filter the results by token ID, task IDs, or a created-time range. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -122,9 +122,9 @@ public class AutoSweepApiTest {
     }
 
     /**
-     * List wallet sweep to addresses
+     * List sweep-to addresses
      *
-     * This operation retrieves a list of sweep to addresses within your wallet. 
+     * This operation retrieves a list of sweep-to addresses within your wallet.  &lt;Note&gt;Sweep-to addresses are only applicable to MPC Wallets and Custodial Wallets (Web3 Wallets) with the auto-sweep feature enabled.&lt;/Note&gt;  &lt;Info&gt;For EVM-compatible chains (such as Ethereum and BNB Smart Chain), the same address is used across chains. As a result, when listing sweep-to addresses, only one address entry (shown under Ethereum) is returned for all EVM-compatible chains. Separate entries are not returned for each individual EVM chain.&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */

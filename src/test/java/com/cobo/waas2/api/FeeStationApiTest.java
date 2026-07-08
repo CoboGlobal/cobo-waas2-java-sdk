@@ -48,9 +48,9 @@ public class FeeStationApiTest {
     private final FeeStationApi api = new FeeStationApi();
 
     /**
-     * fee station pre check
+     * Check Fee Station usage
      *
-     * This operation evaluates the fee station usage for the current transaction.   It determines whether the fee station needs to be applied, checks if the available fee station balance is sufficient,   and returns a detailed breakdown of the amounts involved, including any portion that must be covered by the user or sponsored in USDT (U).. 
+     * This operation evaluates Fee Station usage for the current transaction.   It determines whether Fee station can be used, checks if the Fee Station balance is sufficient, and returns a breakdown of the amounts involved, including any portion that must be covered by the user or sponsored in USD stablecoin. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -78,7 +78,7 @@ public class FeeStationApiTest {
     /**
      * Get Fee Station transaction information
      *
-     * This operation retrieves detailed information about a specified Fee Station transaction, such as the transaction status, source address, destination address, and timestamp. 
+     * This operation retrieves detailed information about a specified Fee Station transaction record, such as the transaction status, source address, destination address, and timestamp. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -92,7 +92,7 @@ public class FeeStationApiTest {
     /**
      * List Fee Station addresses
      *
-     * This operation retrieves a list of addresses within your Fee Station. 
+     * This operation retrieves a list of deposit addresses of your Fee Station, including the chain ID, address, and additional information. You can filter the result by chain ID and address. 
      *
      * @throws ApiException if the Api call fails
      */

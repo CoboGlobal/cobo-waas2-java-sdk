@@ -49,7 +49,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information of an app workflow policy entry.
+ * The current approval workflow policy, consisting of one or more conditions and an associated action. When the conditions are met, the action is triggered.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

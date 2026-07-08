@@ -158,7 +158,7 @@ public class BatchAllocation {
   }
 
    /**
-   * The initiator of this batch allocation, usually the user&#39;s API key.
+   * The initiator of this batch allocation, usually the API key you used to create the batch allocation.
    * @return initiator
   **/
   @javax.annotation.Nullable

@@ -10,7 +10,7 @@ Information about the transaction destination type `TRON_Contract`. Refer to [Tr
 |------------ | ------------- | ------------- | -------------|
 |**destinationType** | **TransactionDestinationType** |  |  |
 |**address** | **String** | The destination address. |  |
-|**value** | **String** | The transfer amount. For example, if you trade 1.5 TRON, then the value is &#x60;1.5&#x60;.  |  [optional] |
+|**value** | **String** | The transfer amount. For example, if you trade 1.5 TRX, then the value is &#x60;1.5&#x60;.  |  [optional] |
 |**calldata** | **String** | The data that is used to invoke a specific function or method within the specified contract at the destination address.  |  |
 
 

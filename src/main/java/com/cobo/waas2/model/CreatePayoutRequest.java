@@ -109,7 +109,7 @@ public class CreatePayoutRequest {
   }
 
    /**
-   * required
+   * The source account from which the payout will be made. - If the source account is a merchant account, provide the merchant&#39;s ID (e.g., \&quot;M1001\&quot;). - If the source account is the developer account, use the string &#x60;\&quot;developer\&quot;&#x60;. 
    * @return sourceAccount
   **/
   @javax.annotation.Nonnull
@@ -193,7 +193,7 @@ public class CreatePayoutRequest {
   }
 
    /**
-   * The remark for the create payouts.
+   * An optional note or comment about the payout for your internal reference.
    * @return remark
   **/
   @javax.annotation.Nullable

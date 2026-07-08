@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The current status of the payout: - &#x60;Pending&#x60;: The payout has been created and is awaiting sweep. - &#x60;Preparing&#x60;: The payout is being prepared and processed for transfer. - &#x60;Transferring&#x60;: The finance team is making an offramp payment to a bank account, or a crypto payout is being sent to a crypto address. - &#x60;Completed&#x60;: All payout transactions have been completed successfully. - &#x60;PartiallyCompleted&#x60;: Some payout transactions succeeded while others failed. - &#x60;Failed&#x60;: All payout transactions failed, or the bridge failed, or the sweep failed. - &#x60;RejectedByBank&#x60;: The bank rejected the offramp transfer. 
+ * The current status of the payout. Possible values include: - &#x60;Pending&#x60;: The payout has been created and is awaiting processing. - &#x60;Preparing&#x60;: The payout is being prepared for transfer. - &#x60;Transferring&#x60;: The payout is currently being transferred to the recipient&#39;s destination. - &#x60;Completed&#x60;: The payout has been successfully completed and all transactions have been processed. - &#x60;PartiallyCompleted&#x60;: The payout has been partially completed, with some transactions succeeding and others failing. - &#x60;Failed&#x60;: The payout has failed and no transactions were completed successfully. - &#x60;RejectedByBank&#x60;: The payout was rejected by the recipient&#39;s bank (applicable to OffRamp payouts only). 
  */
 @JsonAdapter(PaymentPayoutStatus.Adapter.class)
 public enum PaymentPayoutStatus {

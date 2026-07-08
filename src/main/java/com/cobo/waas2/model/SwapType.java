@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the swap activity. Possible values include: - &#x60;Bridge&#x60;: The activity is a bridge activity. - &#x60;Exchange&#x60;: The activity is an exchange activity. 
+ * The type of the swap activity. Possible values include: - &#x60;Bridge&#x60;: The activity involves bridging tokens across chains. - &#x60;Exchange&#x60;: The activity involves token-to-token exchange (a swap within the same chain). 
  */
 @JsonAdapter(SwapType.Adapter.class)
 public enum SwapType {

@@ -234,7 +234,7 @@ public class Order {
   }
 
    /**
-   * The fiat currency of the order.
+   * The pricing currency of the order.
    * @return pricingCurrency
   **/
   @javax.annotation.Nullable
@@ -253,7 +253,7 @@ public class Order {
   }
 
    /**
-   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;).
+   * The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;).
    * @return pricingAmount
   **/
   @javax.annotation.Nullable
@@ -272,7 +272,7 @@ public class Order {
   }
 
    /**
-   * The developer fee for the order in fiat currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge.
+   * The developer fee for the order. It is added to the base amount to determine the final charge.
    * @return feeAmount
   **/
   @javax.annotation.Nonnull
@@ -348,7 +348,7 @@ public class Order {
   }
 
    /**
-   * The exchange rate between a currency pair. Expressed as the amount of fiat currency per one unit of cryptocurrency. For example, if the cryptocurrency is USDT and the fiat currency is USD, a rate of \&quot;0.99\&quot; means 1 USDT &#x3D; 0.99 USD.
+   * The exchange rate between &#x60;payable_currency&#x60; and &#x60;pricing_currency&#x60;, calculated as (&#x60;pricing_amount&#x60; + &#x60;fee_amount&#x60;) / &#x60;payable_amount&#x60;.    &lt;Note&gt;This field is only returned when &#x60;payable_amount&#x60; was not provided in the order creation request. &lt;/Note&gt; 
    * @return exchangeRate
   **/
   @javax.annotation.Nonnull
@@ -367,7 +367,7 @@ public class Order {
   }
 
    /**
-   * Allowed amount deviation.
+   * The allowed amount deviation, with precision up to 1 decimal place.  For example, if &#x60;payable_amount&#x60; is &#x60;100.00&#x60; and &#x60;amount_tolerance&#x60; is &#x60;0.50&#x60;: - Payer pays 99.55 → Success (difference of 0.45 ≤ 0.5) - Payer pays 99.40 → Underpaid (difference of 0.60 &gt; 0.5) 
    * @return amountTolerance
   **/
   @javax.annotation.Nullable
@@ -527,7 +527,7 @@ public class Order {
   }
 
    /**
-   * The fiat currency of the order.
+   * This field has been deprecated. Please use &#x60;pricing_currency&#x60; instead.
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -546,7 +546,7 @@ public class Order {
   }
 
    /**
-   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;).
+   * This field has been deprecated. Please use &#x60;pricing_amount&#x60; instead.
    * @return orderAmount
   **/
   @javax.annotation.Nullable
@@ -565,7 +565,7 @@ public class Order {
   }
 
    /**
-   * The ID of the cryptocurrency used for payment.
+   * This field has been deprecated. Please use &#x60;payable_currency&#x60; instead.
    * @return tokenId
   **/
   @javax.annotation.Nullable

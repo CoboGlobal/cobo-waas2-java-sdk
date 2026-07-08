@@ -2,14 +2,14 @@
 
 # SubmitKytResponse
 
-The response for a KYT (Know Your Transaction) submission request.
+The response for a request to submit a KYT review result.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**transactionId** | **UUID** | The UUID of the transaction being processed for screened. |  |
-|**submitted** | **Boolean** | Indicates whether the KYT submission was successfully submitted. |  |
+|**transactionId** | **UUID** | The UUID of the transaction being processed for KYT screening. |  |
+|**submitted** | **Boolean** | Indicates whether the KYT review result was successfully submitted. |  |
 
 
 

@@ -101,7 +101,7 @@ public class PaymentPayoutRecipientInfo {
   }
 
    /**
-   * The token id can be bridged.
+   * The token ID for the cryptocurrency to be sent to the recipient.  If &#x60;recipient_info.token_id&#x60; is on a different chain than &#x60;payout_param.token_id&#x60;, the token will be automatically bridged to the chain specified in &#x60;recipient_info.token_id&#x60;. 
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -120,7 +120,7 @@ public class PaymentPayoutRecipientInfo {
   }
 
    /**
-   * The currency of the bank account.
+   * The fiat currency of the bank account to which the payout will be sent.
    * @return currency
   **/
   @javax.annotation.Nullable

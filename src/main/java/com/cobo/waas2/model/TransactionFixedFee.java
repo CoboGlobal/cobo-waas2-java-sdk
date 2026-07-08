@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The transaction fee actually charged by the chain that uses the fixed fee model.   Switch between the tabs to display the properties for different transaction fee models. 
+ * The transaction fee actually charged by the chain that uses the fixed fee model.   For more information about the fixed fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -120,7 +120,7 @@ public class TransactionFixedFee {
   }
 
    /**
-   * The token ID of the transaction fee.
+   * The token used to pay the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class TransactionFixedFee {
   }
 
    /**
-   * The transaction fee.
+   * The actually charged transaction fee.
    * @return feeUsed
   **/
   @javax.annotation.Nullable

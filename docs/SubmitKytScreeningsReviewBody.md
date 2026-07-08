@@ -2,13 +2,13 @@
 
 # SubmitKytScreeningsReviewBody
 
-The information about submitting external KYT (Know Your Transaction) review.
+Submission of a manual KYT review result.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**transactionId** | **UUID** | The UUID of the transaction for external KYT review. This identifies the transaction that requires external compliance review. |  |
+|**transactionId** | **UUID** | The UUID of the transaction that requires a manual KYT review. |  |
 |**result** | **KytScreeningsReviewType** |  |  |
 
 

@@ -44,9 +44,9 @@ public class AddressBooksApiTest {
     private final AddressBooksApi api = new AddressBooksApi();
 
     /**
-     * Create address books
+     * Create Address Book entries
      *
-     * This operation add addresses to your address book. 
+     * This operation adds new entries (records) to your Address Book. &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -58,9 +58,9 @@ public class AddressBooksApiTest {
     }
 
     /**
-     * Delete address book
+     * Delete Address Book entry
      *
-     * This operation deletes a specified address book. 
+     * This operation deletes a specified Address Book entry (record). &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -72,9 +72,9 @@ public class AddressBooksApiTest {
     }
 
     /**
-     * Get address book information
+     * Get Address Book entry
      *
-     * This operation retrieves the detailed information about a specified address book. 
+     * This operation retrieves the detailed information about a specified Address Book entry (record). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -86,9 +86,9 @@ public class AddressBooksApiTest {
     }
 
     /**
-     * List address book entries
+     * List Address Book entries
      *
-     * This operation retrieves a list of addresses from your address book. 
+     * This operation retrieves all entries (records) from your Address Book. You can filter the entries by chain ID, address, and label. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -105,9 +105,9 @@ public class AddressBooksApiTest {
     }
 
     /**
-     * Update address book
+     * Update Address Book entry
      *
-     * This operation updates the information of a specified address book. 
+     * This operation updates the information of a specified Address Book entry (record). &lt;Note&gt;This operation is available upon request. Please contact our [customer support](mailto:help@cobo.com) to enable it.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

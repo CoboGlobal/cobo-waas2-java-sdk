@@ -117,7 +117,7 @@ public class FeeStationCheckFeeStationUsageResponse {
   }
 
    /**
-   * The current token balance available in the fee station.
+   * The current token balance available in Fee Station.
    * @return balance
   **/
   @javax.annotation.Nonnull
@@ -155,7 +155,7 @@ public class FeeStationCheckFeeStationUsageResponse {
   }
 
    /**
-   * Indicates whether the fee station is applied for this transfer request.
+   * Indicates whether Fee Station is applied for this transfer request.
    * @return isFeeStationApplicable
   **/
   @javax.annotation.Nonnull
@@ -174,7 +174,7 @@ public class FeeStationCheckFeeStationUsageResponse {
   }
 
    /**
-   * If the fee station is used, indicates whether its balance is sufficient to cover the required gas fee.
+   * If Fee Station is used, indicates whether its balance is sufficient to cover the required gas fee.
    * @return isBalanceSufficient
   **/
   @javax.annotation.Nonnull
@@ -212,7 +212,7 @@ public class FeeStationCheckFeeStationUsageResponse {
   }
 
    /**
-   * Indicates whether USDT (U) sponsorship is applied when the fee station balance is insufficient.
+   * Indicates whether USD stablecoin sponsorship is applied when the Fee Station balance is insufficient.
    * @return isSponsorApplicable
   **/
   @javax.annotation.Nonnull
@@ -231,7 +231,7 @@ public class FeeStationCheckFeeStationUsageResponse {
   }
 
    /**
-   * The amount of gas fee sponsored by USDT (U) when applicable.
+   * The amount of gas fee sponsored by USD stablecoin when applicable.
    * @return sponsoredFeeAmount
   **/
   @javax.annotation.Nonnull

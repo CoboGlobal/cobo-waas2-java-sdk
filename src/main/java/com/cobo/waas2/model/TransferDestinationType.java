@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The transaction destination type. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Each destination type requires a different set of properties. Switch between the above tabs for details. 
+ * The transaction destination type. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  **Note: The &#x60;CustodialWallet&#x60; destination type is deprecated and should no longer be used. Please use &#x60;Address&#x60; instead.**  Each destination type requires a different set of properties. Switch between the above tabs for details. 
  */
 @JsonAdapter(TransferDestinationType.Adapter.class)
 public enum TransferDestinationType {

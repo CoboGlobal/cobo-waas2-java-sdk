@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Role-based permission settings for token contract. If not provided, all permissions will be granted to the issuance wallet by default.
+ * Role-based permission settings for token contract. If not provided, all permissions will be granted to the issuing wallet by default.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

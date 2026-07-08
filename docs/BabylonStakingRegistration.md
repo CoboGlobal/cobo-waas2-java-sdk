@@ -2,7 +2,7 @@
 
 # BabylonStakingRegistration
 
-The details of aBabylon Phase-2 registration.
+The details of a Babylon Phase-2 registration.
 
 ## Properties
 

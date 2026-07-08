@@ -96,19 +96,19 @@ public class ContractCallDestinationTest {
     }
 
     /**
-     * Test the property 'cosmosMessages'
-     */
-    @Test
-    public void cosmosMessagesTest() {
-        // TODO: test cosmosMessages
-    }
-
-    /**
      * Test the property 'contractParam'
      */
     @Test
     public void contractParamTest() {
         // TODO: test contractParam
+    }
+
+    /**
+     * Test the property 'cosmosMessages'
+     */
+    @Test
+    public void cosmosMessagesTest() {
+        // TODO: test cosmosMessages
     }
 
 }

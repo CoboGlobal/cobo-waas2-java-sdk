@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The transaction status. For more details including sub-statuses, please refer to [Transaction statuses and sub-statuses](https://www.cobo.com/developers/v2/guides/transactions/status). 
+ * The transaction status. For more details including sub-statuses, please refer to [Transaction statuses and sub-statuses](https://www.cobo.com/developers/v2/guides/transactions/status).  &lt;Info&gt;The &#x60;PendingAuthorization&#x60; status covers both manual approval steps and internal automated risk-control, KYT, and compliance screening checks. A transaction in this status does not necessarily require a human to take action.&lt;/Info&gt; 
  */
 @JsonAdapter(TransactionStatus.Adapter.class)
 public enum TransactionStatus {

@@ -148,7 +148,7 @@ public class Report {
   }
 
    /**
-   * The unix timestamp of the start time of the report.
+   * The start time of the report. Unix timestamp measured in seconds.
    * @return startTime
   **/
   @javax.annotation.Nonnull
@@ -167,7 +167,7 @@ public class Report {
   }
 
    /**
-   * The unix timestamp of the end time of the report.
+   * The end time of the report. Unix timestamp measured in seconds.
    * @return endTime
   **/
   @javax.annotation.Nonnull
@@ -186,7 +186,7 @@ public class Report {
   }
 
    /**
-   * The created time of the payment report, represented as a UNIX timestamp in seconds.
+   * The created time of the report. Unix timestamp measured in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nonnull
@@ -205,7 +205,7 @@ public class Report {
   }
 
    /**
-   * The url of the payment report.
+   * The URL of the report.
    * @return reportUrl
   **/
   @javax.annotation.Nullable
@@ -262,7 +262,7 @@ public class Report {
   }
 
    /**
-   * The initiator of this report, usually the user&#39;s API key.
+   * The initiator of this report. Usually the API key used to generate the report.
    * @return initiator
   **/
   @javax.annotation.Nonnull

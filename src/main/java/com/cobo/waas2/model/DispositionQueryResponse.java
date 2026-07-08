@@ -80,7 +80,7 @@ public class DispositionQueryResponse {
   }
 
    /**
-   * The UUID of the transaction that was disposed.
+   * The UUID of the transaction that the disposition applies to.
    * @return transactionId
   **/
   @javax.annotation.Nonnull

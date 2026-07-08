@@ -126,7 +126,7 @@ public class BankAccount {
   }
 
    /**
-   * The created time of the bank account, represented as a UNIX timestamp in seconds.
+   * The creation time of the bank account, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -145,7 +145,7 @@ public class BankAccount {
   }
 
    /**
-   * The updated time of the bank account, represented as a UNIX timestamp in seconds.
+   * The last update time of the bank account, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable

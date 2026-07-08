@@ -117,7 +117,7 @@ public class CreateTokenListingRequestRequest {
   }
 
    /**
-   * ID of the blockchain where the token exists
+   * The ID of the blockchain where the token is deployed.
    * @return chainId
   **/
   @javax.annotation.Nonnull
@@ -136,7 +136,7 @@ public class CreateTokenListingRequestRequest {
   }
 
    /**
-   * Contract address of the token
+   * The token&#39;s contract address on the specified blockchain.
    * @return contractAddress
   **/
   @javax.annotation.Nonnull

@@ -97,7 +97,7 @@ public class EvmContractCallDestination {
   }
 
    /**
-   * The destination address.
+   * The destination address.  If you are deploying a new contract on an EVM chain, set this address to &#x60;0x0000000000000000000000000000000000000000&#x60;. 
    * @return address
   **/
   @javax.annotation.Nonnull
@@ -135,7 +135,7 @@ public class EvmContractCallDestination {
   }
 
    /**
-   * The data that is used to invoke a specific function or method within the specified contract at the destination address. 
+   * The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters. 
    * @return calldata
   **/
   @javax.annotation.Nonnull

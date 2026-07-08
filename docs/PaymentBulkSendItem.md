@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**bulkSendItemId** | **String** | The payout item ID. |  |
-|**tokenId** | **String** | The token id of the payout item. |  |
-|**receivingAddress** | **String** | The receiving address of the payout item. |  |
-|**amount** | **String** | The amount of the payout item. |  |
-|**description** | **String** | The note of the payout item. |  [optional] |
+|**bulkSendItemId** | **String** | The bulk send item ID. |  |
+|**tokenId** | **String** | The token ID of the cryptocurrency to be sent to the recipient. |  |
+|**receivingAddress** | **String** | The receiving address. |  |
+|**amount** | **String** | The amount of the cryptocurrency to be sent to the recipient. |  |
+|**description** | **String** | A note or comment about the bulk send item. |  [optional] |
 |**txHash** | **String** | The transaction hash of the bulk send item. |  [optional] |
 |**status** | **PaymentBulkSendItemStatus** |  |  |
 |**validationStatus** | **PaymentBulkSendItemValidationStatus** |  |  |

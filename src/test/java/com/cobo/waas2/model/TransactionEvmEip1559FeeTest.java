@@ -101,14 +101,6 @@ public class TransactionEvmEip1559FeeTest {
     }
 
     /**
-     * Test the property 'estimatedReservedFee'
-     */
-    @Test
-    public void estimatedReservedFeeTest() {
-        // TODO: test estimatedReservedFee
-    }
-
-    /**
      * Test the property 'gasUsed'
      */
     @Test

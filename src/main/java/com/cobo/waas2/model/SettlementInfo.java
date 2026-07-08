@@ -148,7 +148,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The amount available for settlement or refund, in the specified cryptocurrency.
+   * This field has been deprecated.
    * @return availableAmount
   **/
   @javax.annotation.Nonnull
@@ -167,7 +167,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The amount available for settlement or refund, in the specified fiat currency.
+   * This field has been deprecated.
    * @return availableCurrencyBalance
   **/
   @javax.annotation.Nullable
@@ -186,7 +186,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The amount unavailable for settlement or refund, in the specified cryptocurrency.
+   * This field has been deprecated.
    * @return pendingAmount
   **/
   @javax.annotation.Nullable
@@ -205,7 +205,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The amount unavailable for settlement or refund, in the specified fiat currency.
+   * This field has been deprecated.
    * @return pendingCurrencyBalance
   **/
   @javax.annotation.Nullable
@@ -243,7 +243,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The balance available for settlement or refund, in the specified fiat currency.
+   * This field has been deprecated.
    * @return availableBalance
   **/
   @javax.annotation.Nullable
@@ -262,7 +262,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The balance total for settlement or refund, in the specified fiat currency.
+   * The total balance in the specified cryptocurrency.
    * @return totalBalance
   **/
   @javax.annotation.Nullable
@@ -300,7 +300,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The created time of the settlement, represented as a UNIX timestamp in seconds.
+   * The creation time of the settlement, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -319,7 +319,7 @@ public class SettlementInfo {
   }
 
    /**
-   * The updated time of the settlement, represented as a UNIX timestamp in seconds.
+   * The last update time of the settlement, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable

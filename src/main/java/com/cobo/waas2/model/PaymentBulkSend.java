@@ -138,7 +138,7 @@ public class PaymentBulkSend {
   }
 
    /**
-   * The source account ID.
+   * The source account from which the bulk send will be made. - If the source account is a merchant account, provide the merchant&#39;s ID (e.g., \&quot;M1001\&quot;). - If the source account is the developer account, use the string &#x60;\&quot;developer\&quot;&#x60;. 
    * @return sourceAccount
   **/
   @javax.annotation.Nonnull
@@ -214,7 +214,7 @@ public class PaymentBulkSend {
   }
 
    /**
-   * The created time of the order, represented as a UNIX timestamp in seconds.
+   * The created time of the bulk send, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nonnull
@@ -233,7 +233,7 @@ public class PaymentBulkSend {
   }
 
    /**
-   * The updated time of the order, represented as a UNIX timestamp in seconds.
+   * The updated time of the bulk send, represented as a UNIX timestamp in seconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nonnull

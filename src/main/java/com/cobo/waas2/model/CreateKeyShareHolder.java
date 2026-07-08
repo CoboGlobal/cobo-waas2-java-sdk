@@ -116,7 +116,7 @@ public class CreateKeyShareHolder {
   }
 
    /**
-   * Key share holder&#39;s TSS Node ID. You can obtain the TSS Node ID using either mobile co-signer or server co-signer. See the \&quot;Primary Purposes\&quot; row on the table in [Create a Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#create-a-main-group).
+   * Key share holder&#39;s TSS Node ID. For detailed information about signer types and their setup, see the [**Signer Type** table](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/holder-group-main-group). Mobile signers can view their TSS Node ID in the [Cobo Guard app](https://manuals.cobo.com/en/guard/manage).
    * @return tssNodeId
   **/
   @javax.annotation.Nullable

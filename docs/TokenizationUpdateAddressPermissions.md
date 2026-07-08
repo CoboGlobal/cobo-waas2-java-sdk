@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**address** | **String** | The address to manage permissions for. |  |
 |**action** | **TokenizationPermissionAction** |  |  |
-|**permissions** | **List&lt;TokenizationTokenPermissionType&gt;** | The list of permissions to operate on. |  |
+|**permissions** | **List&lt;TokenizationTokenPermissionType&gt;** | The list of permissions to be applied. |  |
 
 
 

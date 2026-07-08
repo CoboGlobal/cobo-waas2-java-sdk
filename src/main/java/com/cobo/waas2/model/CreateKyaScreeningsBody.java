@@ -48,7 +48,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Request body for batch creating address screening requests.
+ * Information about address screening requests.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -76,7 +76,7 @@ public class CreateKyaScreeningsBody {
   }
 
    /**
-   * List of address screening requests. Maximum 50 addresses per request.
+   * List of address screening requests. Maximum 50 addresses per call.
    * @return screenings
   **/
   @javax.annotation.Nonnull

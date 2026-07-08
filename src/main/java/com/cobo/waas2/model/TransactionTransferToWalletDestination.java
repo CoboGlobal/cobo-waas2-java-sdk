@@ -122,7 +122,7 @@ public class TransactionTransferToWalletDestination {
   }
 
    /**
-   * The trading account type. Only available for &#x60;ExchangeWallet&#x60;.
+   * The trading account type. This field is only applicable when &#x60;destination_type&#x60; is &#x60;ExchangeWallet&#x60;.
    * @return tradingAccountType
   **/
   @javax.annotation.Nullable

@@ -11,8 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.BankAccountHolderType;
-import com.cobo.waas2.model.BankAccountPaymentMethod;
 import com.cobo.waas2.model.IntermediaryBankInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -21,7 +19,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -141,78 +138,6 @@ public class UpdateDestinationBankAccountTest {
     @Test
     public void cityTest() {
         // TODO: test city
-    }
-
-    /**
-     * Test the property 'paymentMethod'
-     */
-    @Test
-    public void paymentMethodTest() {
-        // TODO: test paymentMethod
-    }
-
-    /**
-     * Test the property 'holderType'
-     */
-    @Test
-    public void holderTypeTest() {
-        // TODO: test holderType
-    }
-
-    /**
-     * Test the property 'beneficiaryProvince'
-     */
-    @Test
-    public void beneficiaryProvinceTest() {
-        // TODO: test beneficiaryProvince
-    }
-
-    /**
-     * Test the property 'beneficiaryPostCode'
-     */
-    @Test
-    public void beneficiaryPostCodeTest() {
-        // TODO: test beneficiaryPostCode
-    }
-
-    /**
-     * Test the property 'bankAccountName'
-     */
-    @Test
-    public void bankAccountNameTest() {
-        // TODO: test bankAccountName
-    }
-
-    /**
-     * Test the property 'bankBranchCode'
-     */
-    @Test
-    public void bankBranchCodeTest() {
-        // TODO: test bankBranchCode
-    }
-
-    /**
-     * Test the property 'bankCountry'
-     */
-    @Test
-    public void bankCountryTest() {
-        // TODO: test bankCountry
-    }
-
-    /**
-     * Test the property 'bankProvince'
-     */
-    @Test
-    public void bankProvinceTest() {
-        // TODO: test bankProvince
-    }
-
-    /**
-     * Test the property 'contractFileId'
-     */
-    @Test
-    public void contractFileIdTest() {
-        // TODO: test contractFileId
     }
 
 }

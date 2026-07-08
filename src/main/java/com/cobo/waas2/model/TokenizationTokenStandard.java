@@ -34,9 +34,7 @@ public enum TokenizationTokenStandard {
   
   ERC20WRAPPER("ERC20Wrapper"),
   
-  SOLWRAPPER("SOLWrapper"),
-  
-  ERC20FUND("ERC20Fund");
+  SOLWRAPPER("SOLWrapper");
 
   private String value;
 

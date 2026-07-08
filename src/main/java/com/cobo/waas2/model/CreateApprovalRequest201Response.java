@@ -66,7 +66,7 @@ public class CreateApprovalRequest201Response {
   }
 
    /**
-   * Get approvalId
+   * The system-generated unique ID of the approval request. You can use this ID to query the approval request status or revoke the request.
    * @return approvalId
   **/
   @javax.annotation.Nonnull

@@ -36,16 +36,12 @@ import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
 import com.cobo.waas2.model.PaymentBalanceFlowDirection;
 import com.cobo.waas2.model.PaymentBulkSendEvent;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
-import com.cobo.waas2.model.PaymentChargeUpdateEventData;
 import com.cobo.waas2.model.PaymentOrderEventData;
 import com.cobo.waas2.model.PaymentPayoutEvent;
 import com.cobo.waas2.model.PaymentPayoutItem;
 import com.cobo.waas2.model.PaymentPayoutRecipientInfo;
 import com.cobo.waas2.model.PaymentRefundEventData;
 import com.cobo.waas2.model.PaymentSettlementEvent;
-import com.cobo.waas2.model.PaymentSubscriptionActionData;
-import com.cobo.waas2.model.PaymentSubscriptionPeriodType;
-import com.cobo.waas2.model.PaymentSubscriptionUpdateEventData;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.PaymentTransactionEventData;
 import com.cobo.waas2.model.PayoutChannel;
@@ -855,102 +851,6 @@ public class WebhookEventDataTest {
     @Test
     public void updatedAddressTest() {
         // TODO: test updatedAddress
-    }
-
-    /**
-     * Test the property 'planId'
-     */
-    @Test
-    public void planIdTest() {
-        // TODO: test planId
-    }
-
-    /**
-     * Test the property 'merchantAddress'
-     */
-    @Test
-    public void merchantAddressTest() {
-        // TODO: test merchantAddress
-    }
-
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        // TODO: test data
-    }
-
-    /**
-     * Test the property 'transactionIds'
-     */
-    @Test
-    public void transactionIdsTest() {
-        // TODO: test transactionIds
-    }
-
-    /**
-     * Test the property 'userAddress'
-     */
-    @Test
-    public void userAddressTest() {
-        // TODO: test userAddress
-    }
-
-    /**
-     * Test the property 'chargeAmount'
-     */
-    @Test
-    public void chargeAmountTest() {
-        // TODO: test chargeAmount
-    }
-
-    /**
-     * Test the property 'startTime'
-     */
-    @Test
-    public void startTimeTest() {
-        // TODO: test startTime
-    }
-
-    /**
-     * Test the property 'expirationTime'
-     */
-    @Test
-    public void expirationTimeTest() {
-        // TODO: test expirationTime
-    }
-
-    /**
-     * Test the property 'chargesMade'
-     */
-    @Test
-    public void chargesMadeTest() {
-        // TODO: test chargesMade
-    }
-
-    /**
-     * Test the property 'periodType'
-     */
-    @Test
-    public void periodTypeTest() {
-        // TODO: test periodType
-    }
-
-    /**
-     * Test the property 'periods'
-     */
-    @Test
-    public void periodsTest() {
-        // TODO: test periods
-    }
-
-    /**
-     * Test the property 'interval'
-     */
-    @Test
-    public void intervalTest() {
-        // TODO: test interval
     }
 
     /**

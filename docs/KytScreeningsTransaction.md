@@ -2,7 +2,7 @@
 
 # KytScreeningsTransaction
 
-The KYT screening status response containing transaction review and funds information.
+KYT screening status information including the transaction’s review status and fund status.
 
 ## Properties
 

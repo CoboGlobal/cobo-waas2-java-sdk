@@ -49,7 +49,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Transaction approval details response schema.
+ * Details of the role in a transaction approval.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -108,7 +108,7 @@ public class RoleDetail {
   }
 
    /**
-   * The threshold for the transaction approval.
+   * Minimum number of approvals required for this role.
    * @return reviewThreshold
   **/
   @javax.annotation.Nullable
@@ -165,7 +165,7 @@ public class RoleDetail {
   }
 
    /**
-   * Time to complete the review.
+   * Time when the role completed the approval.
    * @return completeTime
   **/
   @javax.annotation.Nullable
