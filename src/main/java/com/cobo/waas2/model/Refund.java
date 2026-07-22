@@ -94,6 +94,10 @@ public class Refund {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private RefundStatus status;
 
+  public static final String SERIALIZED_NAME_FAILED_REASON = "failed_reason";
+  @SerializedName(SERIALIZED_NAME_FAILED_REASON)
+  private String failedReason;
+
   public static final String SERIALIZED_NAME_REFUND_TYPE = "refund_type";
   @SerializedName(SERIALIZED_NAME_REFUND_TYPE)
   private RefundType refundType;
@@ -301,6 +305,25 @@ public class Refund {
 
   public void setStatus(RefundStatus status) {
     this.status = status;
+  }
+
+
+  public Refund failedReason(String failedReason) {
+    this.failedReason = failedReason;
+    return this;
+  }
+
+   /**
+   * The reason why the refund failed.
+   * @return failedReason
+  **/
+  @javax.annotation.Nullable
+  public String getFailedReason() {
+    return failedReason;
+  }
+
+  public void setFailedReason(String failedReason) {
+    this.failedReason = failedReason;
   }
 
 
@@ -546,6 +569,7 @@ public class Refund {
         Objects.equals(this.amount, refund.amount) &&
         Objects.equals(this.toAddress, refund.toAddress) &&
         Objects.equals(this.status, refund.status) &&
+        Objects.equals(this.failedReason, refund.failedReason) &&
         Objects.equals(this.refundType, refund.refundType) &&
         Objects.equals(this.createdTimestamp, refund.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, refund.updatedTimestamp) &&
@@ -560,7 +584,7 @@ public class Refund {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, commissionFee, additionalProperties);
+    return Objects.hash(requestId, refundId, orderId, merchantId, tokenId, chainId, amount, toAddress, status, failedReason, refundType, createdTimestamp, updatedTimestamp, initiator, transactions, chargeMerchantFee, merchantFeeAmount, merchantFeeTokenId, commissionFee, additionalProperties);
   }
 
   @Override
@@ -576,6 +600,7 @@ public class Refund {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    toAddress: ").append(toIndentedString(toAddress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    failedReason: ").append(toIndentedString(failedReason)).append("\n");
     sb.append("    refundType: ").append(toIndentedString(refundType)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
@@ -617,6 +642,7 @@ public class Refund {
     openapiFields.add("amount");
     openapiFields.add("to_address");
     openapiFields.add("status");
+    openapiFields.add("failed_reason");
     openapiFields.add("refund_type");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
@@ -683,6 +709,9 @@ public class Refund {
       }
       // validate the required field `status`
       RefundStatus.validateJsonElement(jsonObj.get("status"));
+      if ((jsonObj.get("failed_reason") != null && !jsonObj.get("failed_reason").isJsonNull()) && !jsonObj.get("failed_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failed_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failed_reason").toString()));
+      }
       // validate the optional field `refund_type`
       if (jsonObj.get("refund_type") != null && !jsonObj.get("refund_type").isJsonNull()) {
         RefundType.validateJsonElement(jsonObj.get("refund_type"));

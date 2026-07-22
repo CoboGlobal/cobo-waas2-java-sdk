@@ -103,6 +103,10 @@ public class PaymentPayout {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private PaymentPayoutStatus status;
 
+  public static final String SERIALIZED_NAME_FAILED_REASON = "failed_reason";
+  @SerializedName(SERIALIZED_NAME_FAILED_REASON)
+  private String failedReason;
+
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
   private Integer createdTimestamp;
@@ -339,6 +343,25 @@ public class PaymentPayout {
   }
 
 
+  public PaymentPayout failedReason(String failedReason) {
+    this.failedReason = failedReason;
+    return this;
+  }
+
+   /**
+   * The reason why the payout failed.
+   * @return failedReason
+  **/
+  @javax.annotation.Nullable
+  public String getFailedReason() {
+    return failedReason;
+  }
+
+  public void setFailedReason(String failedReason) {
+    this.failedReason = failedReason;
+  }
+
+
   public PaymentPayout createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -442,6 +465,7 @@ public class PaymentPayout {
         Objects.equals(this.commissionFees, paymentPayout.commissionFees) &&
         Objects.equals(this.remark, paymentPayout.remark) &&
         Objects.equals(this.status, paymentPayout.status) &&
+        Objects.equals(this.failedReason, paymentPayout.failedReason) &&
         Objects.equals(this.createdTimestamp, paymentPayout.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, paymentPayout.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, paymentPayout.additionalProperties);
@@ -449,7 +473,7 @@ public class PaymentPayout {
 
   @Override
   public int hashCode() {
-    return Objects.hash(payoutId, requestId, payoutChannel, sourceAccount, payoutItems, recipientInfo, initiator, actualPayoutAmount, commissionFees, remark, status, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(payoutId, requestId, payoutChannel, sourceAccount, payoutItems, recipientInfo, initiator, actualPayoutAmount, commissionFees, remark, status, failedReason, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -467,6 +491,7 @@ public class PaymentPayout {
     sb.append("    commissionFees: ").append(toIndentedString(commissionFees)).append("\n");
     sb.append("    remark: ").append(toIndentedString(remark)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    failedReason: ").append(toIndentedString(failedReason)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -503,6 +528,7 @@ public class PaymentPayout {
     openapiFields.add("commission_fees");
     openapiFields.add("remark");
     openapiFields.add("status");
+    openapiFields.add("failed_reason");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -590,6 +616,9 @@ public class PaymentPayout {
       }
       // validate the required field `status`
       PaymentPayoutStatus.validateJsonElement(jsonObj.get("status"));
+      if ((jsonObj.get("failed_reason") != null && !jsonObj.get("failed_reason").isJsonNull()) && !jsonObj.get("failed_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failed_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failed_reason").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

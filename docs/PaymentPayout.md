@@ -18,6 +18,7 @@
 |**commissionFees** | [**List&lt;CommissionFee&gt;**](CommissionFee.md) | The commission fees. Not returned when no fee has been incurred, the actual charged amounts once incurred, or &#x60;0&#x60; if refunded. |  [optional] |
 |**remark** | **String** | A note or comment about the payout. |  [optional] |
 |**status** | **PaymentPayoutStatus** |  |  |
+|**failedReason** | **String** | The reason why the payout failed. |  [optional] |
 |**createdTimestamp** | **Integer** | The created time of the payout, represented as a UNIX timestamp in seconds. |  |
 |**updatedTimestamp** | **Integer** | The updated time of the payout, represented as a UNIX timestamp in seconds. |  |
 

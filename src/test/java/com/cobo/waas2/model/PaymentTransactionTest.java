@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.Counterparty;
 import com.cobo.waas2.model.Destination;
 import com.cobo.waas2.model.TransactionStatus;
+import com.cobo.waas2.model.TransactionSubStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -92,6 +93,22 @@ public class PaymentTransactionTest {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'subStatus'
+     */
+    @Test
+    public void subStatusTest() {
+        // TODO: test subStatus
+    }
+
+    /**
+     * Test the property 'failedReason'
+     */
+    @Test
+    public void failedReasonTest() {
+        // TODO: test failedReason
     }
 
     /**

@@ -14,6 +14,8 @@
 |**toAddress** | **String** | The destination address of the transaction. |  |
 |**amount** | **String** | The amount of cryptocurrency transferred, as a decimal string. |  |
 |**status** | **TransactionStatus** |  |  |
+|**subStatus** | **TransactionSubStatus** |  |  [optional] |
+|**failedReason** | **String** | (This property is applicable to approval failures and signature failures only) The reason why the transaction failed. |  [optional] |
 |**counterparty** | [**Counterparty**](Counterparty.md) |  |  [optional] |
 |**destination** | [**Destination**](Destination.md) |  |  [optional] |
 |**createdTimestamp** | **Long** | The time when the transaction was created, in Unix timestamp format, measured in milliseconds. |  |

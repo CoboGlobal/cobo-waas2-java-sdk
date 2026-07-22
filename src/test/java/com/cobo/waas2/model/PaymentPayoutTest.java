@@ -131,6 +131,14 @@ public class PaymentPayoutTest {
     }
 
     /**
+     * Test the property 'failedReason'
+     */
+    @Test
+    public void failedReasonTest() {
+        // TODO: test failedReason
+    }
+
+    /**
      * Test the property 'createdTimestamp'
      */
     @Test

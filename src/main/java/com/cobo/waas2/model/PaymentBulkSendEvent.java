@@ -177,6 +177,10 @@ public class PaymentBulkSendEvent {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private PaymentBulkSendStatus status;
 
+  public static final String SERIALIZED_NAME_FAILED_REASON = "failed_reason";
+  @SerializedName(SERIALIZED_NAME_FAILED_REASON)
+  private String failedReason;
+
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
   private Integer createdTimestamp;
@@ -325,6 +329,25 @@ public class PaymentBulkSendEvent {
   }
 
 
+  public PaymentBulkSendEvent failedReason(String failedReason) {
+    this.failedReason = failedReason;
+    return this;
+  }
+
+   /**
+   * The reason why the bulk send failed.
+   * @return failedReason
+  **/
+  @javax.annotation.Nullable
+  public String getFailedReason() {
+    return failedReason;
+  }
+
+  public void setFailedReason(String failedReason) {
+    this.failedReason = failedReason;
+  }
+
+
   public PaymentBulkSendEvent createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -443,6 +466,7 @@ public class PaymentBulkSendEvent {
         Objects.equals(this.description, paymentBulkSendEvent.description) &&
         Objects.equals(this.executionMode, paymentBulkSendEvent.executionMode) &&
         Objects.equals(this.status, paymentBulkSendEvent.status) &&
+        Objects.equals(this.failedReason, paymentBulkSendEvent.failedReason) &&
         Objects.equals(this.createdTimestamp, paymentBulkSendEvent.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, paymentBulkSendEvent.updatedTimestamp) &&
         Objects.equals(this.commissionFee, paymentBulkSendEvent.commissionFee)&&
@@ -451,7 +475,7 @@ public class PaymentBulkSendEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, bulkSendId, requestId, sourceAccount, description, executionMode, status, createdTimestamp, updatedTimestamp, commissionFee, additionalProperties);
+    return Objects.hash(dataType, bulkSendId, requestId, sourceAccount, description, executionMode, status, failedReason, createdTimestamp, updatedTimestamp, commissionFee, additionalProperties);
   }
 
   @Override
@@ -465,6 +489,7 @@ public class PaymentBulkSendEvent {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    executionMode: ").append(toIndentedString(executionMode)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    failedReason: ").append(toIndentedString(failedReason)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    commissionFee: ").append(toIndentedString(commissionFee)).append("\n");
@@ -498,6 +523,7 @@ public class PaymentBulkSendEvent {
     openapiFields.add("description");
     openapiFields.add("execution_mode");
     openapiFields.add("status");
+    openapiFields.add("failed_reason");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("commission_fee");
@@ -554,6 +580,9 @@ public class PaymentBulkSendEvent {
       PaymentBulkSendExecutionMode.validateJsonElement(jsonObj.get("execution_mode"));
       // validate the required field `status`
       PaymentBulkSendStatus.validateJsonElement(jsonObj.get("status"));
+      if ((jsonObj.get("failed_reason") != null && !jsonObj.get("failed_reason").isJsonNull()) && !jsonObj.get("failed_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failed_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failed_reason").toString()));
+      }
       // validate the optional field `commission_fee`
       if (jsonObj.get("commission_fee") != null && !jsonObj.get("commission_fee").isJsonNull()) {
         CommissionFee.validateJsonElement(jsonObj.get("commission_fee"));

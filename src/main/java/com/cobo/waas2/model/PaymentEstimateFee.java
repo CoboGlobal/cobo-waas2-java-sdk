@@ -69,7 +69,7 @@ public class PaymentEstimateFee {
   }
 
    /**
-   * The token ID for which fees will be calculated.
+   * The ID of the cryptocurrency you want to refund.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -88,7 +88,7 @@ public class PaymentEstimateFee {
   }
 
    /**
-   * The transaction amount for which fees will be calculated.
+   * The OffRamp settlement amount. 
    * @return amount
   **/
   @javax.annotation.Nonnull

@@ -54,6 +54,10 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class CreateOrderLinkRequest {
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public static final String SERIALIZED_NAME_BUSINESS_INFO = "business_info";
   @SerializedName(SERIALIZED_NAME_BUSINESS_INFO)
   private OrderLinkBusinessInfo businessInfo;
@@ -64,6 +68,25 @@ public class CreateOrderLinkRequest {
 
   public CreateOrderLinkRequest() {
   }
+
+  public CreateOrderLinkRequest requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track an order link request. The request ID is provided by you and must be unique.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
 
   public CreateOrderLinkRequest businessInfo(OrderLinkBusinessInfo businessInfo) {
     this.businessInfo = businessInfo;
@@ -157,20 +180,22 @@ public class CreateOrderLinkRequest {
       return false;
     }
     CreateOrderLinkRequest createOrderLinkRequest = (CreateOrderLinkRequest) o;
-    return Objects.equals(this.businessInfo, createOrderLinkRequest.businessInfo) &&
+    return Objects.equals(this.requestId, createOrderLinkRequest.requestId) &&
+        Objects.equals(this.businessInfo, createOrderLinkRequest.businessInfo) &&
         Objects.equals(this.displayInfo, createOrderLinkRequest.displayInfo)&&
         Objects.equals(this.additionalProperties, createOrderLinkRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessInfo, displayInfo, additionalProperties);
+    return Objects.hash(requestId, businessInfo, displayInfo, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateOrderLinkRequest {\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    businessInfo: ").append(toIndentedString(businessInfo)).append("\n");
     sb.append("    displayInfo: ").append(toIndentedString(displayInfo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -196,6 +221,7 @@ public class CreateOrderLinkRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("request_id");
     openapiFields.add("business_info");
     openapiFields.add("display_info");
 
@@ -224,6 +250,9 @@ public class CreateOrderLinkRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
       // validate the required field `business_info`
       OrderLinkBusinessInfo.validateJsonElement(jsonObj.get("business_info"));
       // validate the optional field `display_info`

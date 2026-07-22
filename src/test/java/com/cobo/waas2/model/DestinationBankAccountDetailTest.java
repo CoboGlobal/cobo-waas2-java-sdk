@@ -11,6 +11,8 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.BankAccountHolderType;
+import com.cobo.waas2.model.BankAccountPaymentMethod;
 import com.cobo.waas2.model.BankAccountStatus;
 import com.cobo.waas2.model.DestinationType;
 import com.cobo.waas2.model.IntermediaryBankInfo;
@@ -213,6 +215,78 @@ public class DestinationBankAccountDetailTest {
     @Test
     public void cityTest() {
         // TODO: test city
+    }
+
+    /**
+     * Test the property 'paymentMethod'
+     */
+    @Test
+    public void paymentMethodTest() {
+        // TODO: test paymentMethod
+    }
+
+    /**
+     * Test the property 'holderType'
+     */
+    @Test
+    public void holderTypeTest() {
+        // TODO: test holderType
+    }
+
+    /**
+     * Test the property 'beneficiaryProvince'
+     */
+    @Test
+    public void beneficiaryProvinceTest() {
+        // TODO: test beneficiaryProvince
+    }
+
+    /**
+     * Test the property 'beneficiaryPostCode'
+     */
+    @Test
+    public void beneficiaryPostCodeTest() {
+        // TODO: test beneficiaryPostCode
+    }
+
+    /**
+     * Test the property 'bankAccountName'
+     */
+    @Test
+    public void bankAccountNameTest() {
+        // TODO: test bankAccountName
+    }
+
+    /**
+     * Test the property 'bankBranchCode'
+     */
+    @Test
+    public void bankBranchCodeTest() {
+        // TODO: test bankBranchCode
+    }
+
+    /**
+     * Test the property 'bankCountry'
+     */
+    @Test
+    public void bankCountryTest() {
+        // TODO: test bankCountry
+    }
+
+    /**
+     * Test the property 'bankProvince'
+     */
+    @Test
+    public void bankProvinceTest() {
+        // TODO: test bankProvince
+    }
+
+    /**
+     * Test the property 'contractFileId'
+     */
+    @Test
+    public void contractFileIdTest() {
+        // TODO: test contractFileId
     }
 
     /**

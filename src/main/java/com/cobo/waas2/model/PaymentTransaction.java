@@ -15,6 +15,7 @@ import java.util.Objects;
 import com.cobo.waas2.model.Counterparty;
 import com.cobo.waas2.model.Destination;
 import com.cobo.waas2.model.TransactionStatus;
+import com.cobo.waas2.model.TransactionSubStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -82,6 +83,14 @@ public class PaymentTransaction {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private TransactionStatus status;
+
+  public static final String SERIALIZED_NAME_SUB_STATUS = "sub_status";
+  @SerializedName(SERIALIZED_NAME_SUB_STATUS)
+  private TransactionSubStatus subStatus;
+
+  public static final String SERIALIZED_NAME_FAILED_REASON = "failed_reason";
+  @SerializedName(SERIALIZED_NAME_FAILED_REASON)
+  private String failedReason;
 
   public static final String SERIALIZED_NAME_COUNTERPARTY = "counterparty";
   @SerializedName(SERIALIZED_NAME_COUNTERPARTY)
@@ -235,6 +244,44 @@ public class PaymentTransaction {
   }
 
 
+  public PaymentTransaction subStatus(TransactionSubStatus subStatus) {
+    this.subStatus = subStatus;
+    return this;
+  }
+
+   /**
+   * Get subStatus
+   * @return subStatus
+  **/
+  @javax.annotation.Nullable
+  public TransactionSubStatus getSubStatus() {
+    return subStatus;
+  }
+
+  public void setSubStatus(TransactionSubStatus subStatus) {
+    this.subStatus = subStatus;
+  }
+
+
+  public PaymentTransaction failedReason(String failedReason) {
+    this.failedReason = failedReason;
+    return this;
+  }
+
+   /**
+   * (This property is applicable to approval failures and signature failures only) The reason why the transaction failed.
+   * @return failedReason
+  **/
+  @javax.annotation.Nullable
+  public String getFailedReason() {
+    return failedReason;
+  }
+
+  public void setFailedReason(String failedReason) {
+    this.failedReason = failedReason;
+  }
+
+
   public PaymentTransaction counterparty(Counterparty counterparty) {
     this.counterparty = counterparty;
     return this;
@@ -372,6 +419,8 @@ public class PaymentTransaction {
         Objects.equals(this.toAddress, paymentTransaction.toAddress) &&
         Objects.equals(this.amount, paymentTransaction.amount) &&
         Objects.equals(this.status, paymentTransaction.status) &&
+        Objects.equals(this.subStatus, paymentTransaction.subStatus) &&
+        Objects.equals(this.failedReason, paymentTransaction.failedReason) &&
         Objects.equals(this.counterparty, paymentTransaction.counterparty) &&
         Objects.equals(this.destination, paymentTransaction.destination) &&
         Objects.equals(this.createdTimestamp, paymentTransaction.createdTimestamp) &&
@@ -381,7 +430,7 @@ public class PaymentTransaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(txId, txHash, tokenId, fromAddress, toAddress, amount, status, counterparty, destination, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(txId, txHash, tokenId, fromAddress, toAddress, amount, status, subStatus, failedReason, counterparty, destination, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -395,6 +444,8 @@ public class PaymentTransaction {
     sb.append("    toAddress: ").append(toIndentedString(toAddress)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subStatus: ").append(toIndentedString(subStatus)).append("\n");
+    sb.append("    failedReason: ").append(toIndentedString(failedReason)).append("\n");
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
@@ -429,6 +480,8 @@ public class PaymentTransaction {
     openapiFields.add("to_address");
     openapiFields.add("amount");
     openapiFields.add("status");
+    openapiFields.add("sub_status");
+    openapiFields.add("failed_reason");
     openapiFields.add("counterparty");
     openapiFields.add("destination");
     openapiFields.add("created_timestamp");
@@ -485,6 +538,13 @@ public class PaymentTransaction {
       }
       // validate the required field `status`
       TransactionStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the optional field `sub_status`
+      if (jsonObj.get("sub_status") != null && !jsonObj.get("sub_status").isJsonNull()) {
+        TransactionSubStatus.validateJsonElement(jsonObj.get("sub_status"));
+      }
+      if ((jsonObj.get("failed_reason") != null && !jsonObj.get("failed_reason").isJsonNull()) && !jsonObj.get("failed_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failed_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failed_reason").toString()));
+      }
       // validate the optional field `counterparty`
       if (jsonObj.get("counterparty") != null && !jsonObj.get("counterparty").isJsonNull()) {
         Counterparty.validateJsonElement(jsonObj.get("counterparty"));

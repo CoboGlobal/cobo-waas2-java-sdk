@@ -43,4 +43,12 @@ public class PaymentUploadedFileTest {
         // TODO: test fileId
     }
 
+    /**
+     * Test the property 'expiredTimestamp'
+     */
+    @Test
+    public void expiredTimestampTest() {
+        // TODO: test expiredTimestamp
+    }
+
 }

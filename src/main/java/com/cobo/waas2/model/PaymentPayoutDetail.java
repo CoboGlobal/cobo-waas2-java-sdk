@@ -104,6 +104,10 @@ public class PaymentPayoutDetail {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private PaymentPayoutStatus status;
 
+  public static final String SERIALIZED_NAME_FAILED_REASON = "failed_reason";
+  @SerializedName(SERIALIZED_NAME_FAILED_REASON)
+  private String failedReason;
+
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
   private Integer createdTimestamp;
@@ -344,6 +348,25 @@ public class PaymentPayoutDetail {
   }
 
 
+  public PaymentPayoutDetail failedReason(String failedReason) {
+    this.failedReason = failedReason;
+    return this;
+  }
+
+   /**
+   * The reason why the payout failed.
+   * @return failedReason
+  **/
+  @javax.annotation.Nullable
+  public String getFailedReason() {
+    return failedReason;
+  }
+
+  public void setFailedReason(String failedReason) {
+    this.failedReason = failedReason;
+  }
+
+
   public PaymentPayoutDetail createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -474,6 +497,7 @@ public class PaymentPayoutDetail {
         Objects.equals(this.commissionFees, paymentPayoutDetail.commissionFees) &&
         Objects.equals(this.remark, paymentPayoutDetail.remark) &&
         Objects.equals(this.status, paymentPayoutDetail.status) &&
+        Objects.equals(this.failedReason, paymentPayoutDetail.failedReason) &&
         Objects.equals(this.createdTimestamp, paymentPayoutDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, paymentPayoutDetail.updatedTimestamp) &&
         Objects.equals(this.transactions, paymentPayoutDetail.transactions)&&
@@ -482,7 +506,7 @@ public class PaymentPayoutDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(payoutId, requestId, payoutChannel, sourceAccount, payoutItems, recipientInfo, initiator, actualPayoutAmount, commissionFees, remark, status, createdTimestamp, updatedTimestamp, transactions, additionalProperties);
+    return Objects.hash(payoutId, requestId, payoutChannel, sourceAccount, payoutItems, recipientInfo, initiator, actualPayoutAmount, commissionFees, remark, status, failedReason, createdTimestamp, updatedTimestamp, transactions, additionalProperties);
   }
 
   @Override
@@ -500,6 +524,7 @@ public class PaymentPayoutDetail {
     sb.append("    commissionFees: ").append(toIndentedString(commissionFees)).append("\n");
     sb.append("    remark: ").append(toIndentedString(remark)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    failedReason: ").append(toIndentedString(failedReason)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
@@ -537,6 +562,7 @@ public class PaymentPayoutDetail {
     openapiFields.add("commission_fees");
     openapiFields.add("remark");
     openapiFields.add("status");
+    openapiFields.add("failed_reason");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
     openapiFields.add("transactions");
@@ -625,6 +651,9 @@ public class PaymentPayoutDetail {
       }
       // validate the required field `status`
       PaymentPayoutStatus.validateJsonElement(jsonObj.get("status"));
+      if ((jsonObj.get("failed_reason") != null && !jsonObj.get("failed_reason").isJsonNull()) && !jsonObj.get("failed_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failed_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failed_reason").toString()));
+      }
       if (jsonObj.get("transactions") != null && !jsonObj.get("transactions").isJsonNull()) {
         JsonArray jsonArraytransactions = jsonObj.getAsJsonArray("transactions");
         if (jsonArraytransactions != null) {

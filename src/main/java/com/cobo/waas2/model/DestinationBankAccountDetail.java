@@ -12,6 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.BankAccountHolderType;
+import com.cobo.waas2.model.BankAccountPaymentMethod;
 import com.cobo.waas2.model.BankAccountStatus;
 import com.cobo.waas2.model.DestinationType;
 import com.cobo.waas2.model.IntermediaryBankInfo;
@@ -143,6 +145,42 @@ public class DestinationBankAccountDetail {
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
+
+  public static final String SERIALIZED_NAME_PAYMENT_METHOD = "payment_method";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
+  private BankAccountPaymentMethod paymentMethod;
+
+  public static final String SERIALIZED_NAME_HOLDER_TYPE = "holder_type";
+  @SerializedName(SERIALIZED_NAME_HOLDER_TYPE)
+  private BankAccountHolderType holderType;
+
+  public static final String SERIALIZED_NAME_BENEFICIARY_PROVINCE = "beneficiary_province";
+  @SerializedName(SERIALIZED_NAME_BENEFICIARY_PROVINCE)
+  private String beneficiaryProvince;
+
+  public static final String SERIALIZED_NAME_BENEFICIARY_POST_CODE = "beneficiary_post_code";
+  @SerializedName(SERIALIZED_NAME_BENEFICIARY_POST_CODE)
+  private String beneficiaryPostCode;
+
+  public static final String SERIALIZED_NAME_BANK_ACCOUNT_NAME = "bank_account_name";
+  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_NAME)
+  private String bankAccountName;
+
+  public static final String SERIALIZED_NAME_BANK_BRANCH_CODE = "bank_branch_code";
+  @SerializedName(SERIALIZED_NAME_BANK_BRANCH_CODE)
+  private String bankBranchCode;
+
+  public static final String SERIALIZED_NAME_BANK_COUNTRY = "bank_country";
+  @SerializedName(SERIALIZED_NAME_BANK_COUNTRY)
+  private String bankCountry;
+
+  public static final String SERIALIZED_NAME_BANK_PROVINCE = "bank_province";
+  @SerializedName(SERIALIZED_NAME_BANK_PROVINCE)
+  private String bankProvince;
+
+  public static final String SERIALIZED_NAME_CONTRACT_FILE_ID = "contract_file_id";
+  @SerializedName(SERIALIZED_NAME_CONTRACT_FILE_ID)
+  private UUID contractFileId;
 
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
@@ -573,6 +611,177 @@ public class DestinationBankAccountDetail {
   }
 
 
+  public DestinationBankAccountDetail paymentMethod(BankAccountPaymentMethod paymentMethod) {
+    this.paymentMethod = paymentMethod;
+    return this;
+  }
+
+   /**
+   * Get paymentMethod
+   * @return paymentMethod
+  **/
+  @javax.annotation.Nullable
+  public BankAccountPaymentMethod getPaymentMethod() {
+    return paymentMethod;
+  }
+
+  public void setPaymentMethod(BankAccountPaymentMethod paymentMethod) {
+    this.paymentMethod = paymentMethod;
+  }
+
+
+  public DestinationBankAccountDetail holderType(BankAccountHolderType holderType) {
+    this.holderType = holderType;
+    return this;
+  }
+
+   /**
+   * Get holderType
+   * @return holderType
+  **/
+  @javax.annotation.Nullable
+  public BankAccountHolderType getHolderType() {
+    return holderType;
+  }
+
+  public void setHolderType(BankAccountHolderType holderType) {
+    this.holderType = holderType;
+  }
+
+
+  public DestinationBankAccountDetail beneficiaryProvince(String beneficiaryProvince) {
+    this.beneficiaryProvince = beneficiaryProvince;
+    return this;
+  }
+
+   /**
+   * The province or state of the beneficiary. Required when &#x60;payment_method&#x60; is &#x60;Swift&#x60;. Cannot be a pure number or contain Chinese characters. 
+   * @return beneficiaryProvince
+  **/
+  @javax.annotation.Nullable
+  public String getBeneficiaryProvince() {
+    return beneficiaryProvince;
+  }
+
+  public void setBeneficiaryProvince(String beneficiaryProvince) {
+    this.beneficiaryProvince = beneficiaryProvince;
+  }
+
+
+  public DestinationBankAccountDetail beneficiaryPostCode(String beneficiaryPostCode) {
+    this.beneficiaryPostCode = beneficiaryPostCode;
+    return this;
+  }
+
+   /**
+   * The postal code of the beneficiary. Required when &#x60;payment_method&#x60; is &#x60;Swift&#x60;. 
+   * @return beneficiaryPostCode
+  **/
+  @javax.annotation.Nullable
+  public String getBeneficiaryPostCode() {
+    return beneficiaryPostCode;
+  }
+
+  public void setBeneficiaryPostCode(String beneficiaryPostCode) {
+    this.beneficiaryPostCode = beneficiaryPostCode;
+  }
+
+
+  public DestinationBankAccountDetail bankAccountName(String bankAccountName) {
+    this.bankAccountName = bankAccountName;
+    return this;
+  }
+
+   /**
+   * The bank account name. Cannot contain Chinese characters. 
+   * @return bankAccountName
+  **/
+  @javax.annotation.Nullable
+  public String getBankAccountName() {
+    return bankAccountName;
+  }
+
+  public void setBankAccountName(String bankAccountName) {
+    this.bankAccountName = bankAccountName;
+  }
+
+
+  public DestinationBankAccountDetail bankBranchCode(String bankBranchCode) {
+    this.bankBranchCode = bankBranchCode;
+    return this;
+  }
+
+   /**
+   * The branch code. Required when &#x60;payment_method&#x60; is &#x60;Local&#x60; (HK only). 
+   * @return bankBranchCode
+  **/
+  @javax.annotation.Nullable
+  public String getBankBranchCode() {
+    return bankBranchCode;
+  }
+
+  public void setBankBranchCode(String bankBranchCode) {
+    this.bankBranchCode = bankBranchCode;
+  }
+
+
+  public DestinationBankAccountDetail bankCountry(String bankCountry) {
+    this.bankCountry = bankCountry;
+    return this;
+  }
+
+   /**
+   * The country, in ISO 3166-1 alpha-3 format.
+   * @return bankCountry
+  **/
+  @javax.annotation.Nullable
+  public String getBankCountry() {
+    return bankCountry;
+  }
+
+  public void setBankCountry(String bankCountry) {
+    this.bankCountry = bankCountry;
+  }
+
+
+  public DestinationBankAccountDetail bankProvince(String bankProvince) {
+    this.bankProvince = bankProvince;
+    return this;
+  }
+
+   /**
+   * The province or state of the bank. Cannot be a pure number or contain Chinese characters. 
+   * @return bankProvince
+  **/
+  @javax.annotation.Nullable
+  public String getBankProvince() {
+    return bankProvince;
+  }
+
+  public void setBankProvince(String bankProvince) {
+    this.bankProvince = bankProvince;
+  }
+
+
+  public DestinationBankAccountDetail contractFileId(UUID contractFileId) {
+    this.contractFileId = contractFileId;
+    return this;
+  }
+
+   /**
+   * The file ID of the contract document (e.g., cooperation agreement) that proves the business relationship between you and the beneficiary, which you can retrieve by calling [Upload file](https://www.cobo.com/developers/v2/api-references/payment/upload-file). 
+   * @return contractFileId
+  **/
+  @javax.annotation.Nullable
+  public UUID getContractFileId() {
+    return contractFileId;
+  }
+
+  public void setContractFileId(UUID contractFileId) {
+    this.contractFileId = contractFileId;
+  }
+
+
   public DestinationBankAccountDetail createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -687,6 +896,15 @@ public class DestinationBankAccountDetail {
         Objects.equals(this.bankAccountStatus, destinationBankAccountDetail.bankAccountStatus) &&
         Objects.equals(this.country, destinationBankAccountDetail.country) &&
         Objects.equals(this.city, destinationBankAccountDetail.city) &&
+        Objects.equals(this.paymentMethod, destinationBankAccountDetail.paymentMethod) &&
+        Objects.equals(this.holderType, destinationBankAccountDetail.holderType) &&
+        Objects.equals(this.beneficiaryProvince, destinationBankAccountDetail.beneficiaryProvince) &&
+        Objects.equals(this.beneficiaryPostCode, destinationBankAccountDetail.beneficiaryPostCode) &&
+        Objects.equals(this.bankAccountName, destinationBankAccountDetail.bankAccountName) &&
+        Objects.equals(this.bankBranchCode, destinationBankAccountDetail.bankBranchCode) &&
+        Objects.equals(this.bankCountry, destinationBankAccountDetail.bankCountry) &&
+        Objects.equals(this.bankProvince, destinationBankAccountDetail.bankProvince) &&
+        Objects.equals(this.contractFileId, destinationBankAccountDetail.contractFileId) &&
         Objects.equals(this.createdTimestamp, destinationBankAccountDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, destinationBankAccountDetail.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, destinationBankAccountDetail.additionalProperties);
@@ -694,7 +912,7 @@ public class DestinationBankAccountDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationId, destinationName, destinationType, destinationEmail, destinationCountry, destinationContactAddress, destinationMerchantId, bankAccountId, accountAlias, accountNumber, swiftCode, currency, beneficiaryName, beneficiaryAddress, bankName, bankAddress, ibanCode, furtherCredit, intermediaryBankInfo, bankAccountStatus, country, city, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(destinationId, destinationName, destinationType, destinationEmail, destinationCountry, destinationContactAddress, destinationMerchantId, bankAccountId, accountAlias, accountNumber, swiftCode, currency, beneficiaryName, beneficiaryAddress, bankName, bankAddress, ibanCode, furtherCredit, intermediaryBankInfo, bankAccountStatus, country, city, paymentMethod, holderType, beneficiaryProvince, beneficiaryPostCode, bankAccountName, bankBranchCode, bankCountry, bankProvince, contractFileId, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -723,6 +941,15 @@ public class DestinationBankAccountDetail {
     sb.append("    bankAccountStatus: ").append(toIndentedString(bankAccountStatus)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    holderType: ").append(toIndentedString(holderType)).append("\n");
+    sb.append("    beneficiaryProvince: ").append(toIndentedString(beneficiaryProvince)).append("\n");
+    sb.append("    beneficiaryPostCode: ").append(toIndentedString(beneficiaryPostCode)).append("\n");
+    sb.append("    bankAccountName: ").append(toIndentedString(bankAccountName)).append("\n");
+    sb.append("    bankBranchCode: ").append(toIndentedString(bankBranchCode)).append("\n");
+    sb.append("    bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
+    sb.append("    bankProvince: ").append(toIndentedString(bankProvince)).append("\n");
+    sb.append("    contractFileId: ").append(toIndentedString(contractFileId)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -770,6 +997,15 @@ public class DestinationBankAccountDetail {
     openapiFields.add("bank_account_status");
     openapiFields.add("country");
     openapiFields.add("city");
+    openapiFields.add("payment_method");
+    openapiFields.add("holder_type");
+    openapiFields.add("beneficiary_province");
+    openapiFields.add("beneficiary_post_code");
+    openapiFields.add("bank_account_name");
+    openapiFields.add("bank_branch_code");
+    openapiFields.add("bank_country");
+    openapiFields.add("bank_province");
+    openapiFields.add("contract_file_id");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -874,6 +1110,35 @@ public class DestinationBankAccountDetail {
       }
       if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
+      }
+      // validate the optional field `payment_method`
+      if (jsonObj.get("payment_method") != null && !jsonObj.get("payment_method").isJsonNull()) {
+        BankAccountPaymentMethod.validateJsonElement(jsonObj.get("payment_method"));
+      }
+      // validate the optional field `holder_type`
+      if (jsonObj.get("holder_type") != null && !jsonObj.get("holder_type").isJsonNull()) {
+        BankAccountHolderType.validateJsonElement(jsonObj.get("holder_type"));
+      }
+      if ((jsonObj.get("beneficiary_province") != null && !jsonObj.get("beneficiary_province").isJsonNull()) && !jsonObj.get("beneficiary_province").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `beneficiary_province` to be a primitive type in the JSON string but got `%s`", jsonObj.get("beneficiary_province").toString()));
+      }
+      if ((jsonObj.get("beneficiary_post_code") != null && !jsonObj.get("beneficiary_post_code").isJsonNull()) && !jsonObj.get("beneficiary_post_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `beneficiary_post_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("beneficiary_post_code").toString()));
+      }
+      if ((jsonObj.get("bank_account_name") != null && !jsonObj.get("bank_account_name").isJsonNull()) && !jsonObj.get("bank_account_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bank_account_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_account_name").toString()));
+      }
+      if ((jsonObj.get("bank_branch_code") != null && !jsonObj.get("bank_branch_code").isJsonNull()) && !jsonObj.get("bank_branch_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bank_branch_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_branch_code").toString()));
+      }
+      if ((jsonObj.get("bank_country") != null && !jsonObj.get("bank_country").isJsonNull()) && !jsonObj.get("bank_country").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bank_country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_country").toString()));
+      }
+      if ((jsonObj.get("bank_province") != null && !jsonObj.get("bank_province").isJsonNull()) && !jsonObj.get("bank_province").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bank_province` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_province").toString()));
+      }
+      if ((jsonObj.get("contract_file_id") != null && !jsonObj.get("contract_file_id").isJsonNull()) && !jsonObj.get("contract_file_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `contract_file_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contract_file_id").toString()));
       }
   }
 

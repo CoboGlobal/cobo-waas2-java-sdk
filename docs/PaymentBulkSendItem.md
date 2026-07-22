@@ -15,6 +15,7 @@
 |**txHash** | **String** | The transaction hash of the bulk send item. |  [optional] |
 |**status** | **PaymentBulkSendItemStatus** |  |  |
 |**validationStatus** | **PaymentBulkSendItemValidationStatus** |  |  |
+|**failedReason** | **String** | The reason why the bulk send item failed. |  [optional] |
 
 
 

@@ -8,7 +8,6 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
-docs/Account.md
 docs/AcquiringType.md
 docs/Activity.md
 docs/ActivityAction.md
@@ -81,6 +80,8 @@ docs/Balance.md
 docs/BalanceUpdateInfo.md
 docs/BalanceUpdateInfoEventData.md
 docs/BankAccount.md
+docs/BankAccountHolderType.md
+docs/BankAccountPaymentMethod.md
 docs/BankAccountStatus.md
 docs/BaseContractCallSource.md
 docs/BaseEstimateStakingFee.md
@@ -386,7 +387,6 @@ docs/ListTokenBalancesForFeeStation200Response.md
 docs/ListTokenBalancesForFeeStation200ResponseDataInner.md
 docs/ListTokenListingRequests200Response.md
 docs/ListTokenizationBlocklistAddresses200Response.md
-docs/ListTopUpPayerAccounts200Response.md
 docs/ListTopUpPayers200Response.md
 docs/ListTopUpPayers200ResponseDataInner.md
 docs/ListTransactionApprovalDetails200Response.md
@@ -412,6 +412,18 @@ docs/MaxFeeAmount.md
 docs/MaxTransferableValue.md
 docs/Merchant.md
 docs/MerchantBalance.md
+docs/MerchantKycAddress.md
+docs/MerchantKycCompanyAttachment.md
+docs/MerchantKycCompanyAttachmentFileType.md
+docs/MerchantKycCompanyInfo.md
+docs/MerchantKycCompanyType.md
+docs/MerchantKycInfo.md
+docs/MerchantKycMerchantType.md
+docs/MerchantKycPersonAttachment.md
+docs/MerchantKycPersonAttachmentFileType.md
+docs/MerchantKycPersonInfo.md
+docs/MerchantKycStatus.md
+docs/MerchantKycSubmission.md
 docs/MessageSignDestination.md
 docs/MessageSignDestinationType.md
 docs/MessageSignParams.md
@@ -434,7 +446,6 @@ docs/OrganizationsApi.md
 docs/OriginalMainGroupHandling.md
 docs/OtcFee.md
 docs/Pagination.md
-docs/PayerAccount.md
 docs/PaymentAccountBalanceUpdateEventData.md
 docs/PaymentAddressUpdateEventData.md
 docs/PaymentAllocationAmount.md
@@ -469,6 +480,7 @@ docs/PaymentSettlementEvent.md
 docs/PaymentSourceType.md
 docs/PaymentTransaction.md
 docs/PaymentTransactionEventData.md
+docs/PaymentUploadedFile.md
 docs/PaymentWalletBalance.md
 docs/PayoutChannel.md
 docs/PolicyAction.md
@@ -565,6 +577,7 @@ docs/SubmitDepositTravelRuleInfo201Response.md
 docs/SubmitKytResponse.md
 docs/SubmitKytScreeningsDecisionsBody.md
 docs/SubmitKytScreeningsReviewBody.md
+docs/SubmitMerchantKyc.md
 docs/SupportedToken.md
 docs/SuspendedTokenEventData.md
 docs/SuspendedTokenOperationType.md
@@ -934,7 +947,6 @@ src/main/java/com/cobo/waas2/auth/Signer.java
 src/main/java/com/cobo/waas2/demo/DemoApplication.java
 src/main/java/com/cobo/waas2/demo/DemoController.java
 src/main/java/com/cobo/waas2/model/AbstractOpenApiSchema.java
-src/main/java/com/cobo/waas2/model/Account.java
 src/main/java/com/cobo/waas2/model/AcquiringType.java
 src/main/java/com/cobo/waas2/model/Activity.java
 src/main/java/com/cobo/waas2/model/ActivityAction.java
@@ -1004,6 +1016,8 @@ src/main/java/com/cobo/waas2/model/Balance.java
 src/main/java/com/cobo/waas2/model/BalanceUpdateInfo.java
 src/main/java/com/cobo/waas2/model/BalanceUpdateInfoEventData.java
 src/main/java/com/cobo/waas2/model/BankAccount.java
+src/main/java/com/cobo/waas2/model/BankAccountHolderType.java
+src/main/java/com/cobo/waas2/model/BankAccountPaymentMethod.java
 src/main/java/com/cobo/waas2/model/BankAccountStatus.java
 src/main/java/com/cobo/waas2/model/BaseContractCallSource.java
 src/main/java/com/cobo/waas2/model/BaseEstimateStakingFee.java
@@ -1304,7 +1318,6 @@ src/main/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200Response.jav
 src/main/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseDataInner.java
 src/main/java/com/cobo/waas2/model/ListTokenListingRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListTokenizationBlocklistAddresses200Response.java
-src/main/java/com/cobo/waas2/model/ListTopUpPayerAccounts200Response.java
 src/main/java/com/cobo/waas2/model/ListTopUpPayers200Response.java
 src/main/java/com/cobo/waas2/model/ListTopUpPayers200ResponseDataInner.java
 src/main/java/com/cobo/waas2/model/ListTransactionApprovalDetails200Response.java
@@ -1330,6 +1343,18 @@ src/main/java/com/cobo/waas2/model/MaxFeeAmount.java
 src/main/java/com/cobo/waas2/model/MaxTransferableValue.java
 src/main/java/com/cobo/waas2/model/Merchant.java
 src/main/java/com/cobo/waas2/model/MerchantBalance.java
+src/main/java/com/cobo/waas2/model/MerchantKycAddress.java
+src/main/java/com/cobo/waas2/model/MerchantKycCompanyAttachment.java
+src/main/java/com/cobo/waas2/model/MerchantKycCompanyAttachmentFileType.java
+src/main/java/com/cobo/waas2/model/MerchantKycCompanyInfo.java
+src/main/java/com/cobo/waas2/model/MerchantKycCompanyType.java
+src/main/java/com/cobo/waas2/model/MerchantKycInfo.java
+src/main/java/com/cobo/waas2/model/MerchantKycMerchantType.java
+src/main/java/com/cobo/waas2/model/MerchantKycPersonAttachment.java
+src/main/java/com/cobo/waas2/model/MerchantKycPersonAttachmentFileType.java
+src/main/java/com/cobo/waas2/model/MerchantKycPersonInfo.java
+src/main/java/com/cobo/waas2/model/MerchantKycStatus.java
+src/main/java/com/cobo/waas2/model/MerchantKycSubmission.java
 src/main/java/com/cobo/waas2/model/MessageSignDestination.java
 src/main/java/com/cobo/waas2/model/MessageSignDestinationType.java
 src/main/java/com/cobo/waas2/model/MessageSignParams.java
@@ -1350,7 +1375,6 @@ src/main/java/com/cobo/waas2/model/OrganizationEventData.java
 src/main/java/com/cobo/waas2/model/OriginalMainGroupHandling.java
 src/main/java/com/cobo/waas2/model/OtcFee.java
 src/main/java/com/cobo/waas2/model/Pagination.java
-src/main/java/com/cobo/waas2/model/PayerAccount.java
 src/main/java/com/cobo/waas2/model/PaymentAccountBalanceUpdateEventData.java
 src/main/java/com/cobo/waas2/model/PaymentAddressUpdateEventData.java
 src/main/java/com/cobo/waas2/model/PaymentAllocationAmount.java
@@ -1384,6 +1408,7 @@ src/main/java/com/cobo/waas2/model/PaymentSettlementEvent.java
 src/main/java/com/cobo/waas2/model/PaymentSourceType.java
 src/main/java/com/cobo/waas2/model/PaymentTransaction.java
 src/main/java/com/cobo/waas2/model/PaymentTransactionEventData.java
+src/main/java/com/cobo/waas2/model/PaymentUploadedFile.java
 src/main/java/com/cobo/waas2/model/PaymentWalletBalance.java
 src/main/java/com/cobo/waas2/model/PayoutChannel.java
 src/main/java/com/cobo/waas2/model/PolicyAction.java
@@ -1478,6 +1503,7 @@ src/main/java/com/cobo/waas2/model/SubmitDepositTravelRuleInfo201Response.java
 src/main/java/com/cobo/waas2/model/SubmitKytResponse.java
 src/main/java/com/cobo/waas2/model/SubmitKytScreeningsDecisionsBody.java
 src/main/java/com/cobo/waas2/model/SubmitKytScreeningsReviewBody.java
+src/main/java/com/cobo/waas2/model/SubmitMerchantKyc.java
 src/main/java/com/cobo/waas2/model/SupportedToken.java
 src/main/java/com/cobo/waas2/model/SuspendedTokenEventData.java
 src/main/java/com/cobo/waas2/model/SuspendedTokenOperationType.java
@@ -1799,7 +1825,6 @@ src/test/java/com/cobo/waas2/api/WalletsApiTest.java
 src/test/java/com/cobo/waas2/api/WalletsExchangeWalletApiTest.java
 src/test/java/com/cobo/waas2/api/WalletsMpcWalletsApiTest.java
 src/test/java/com/cobo/waas2/api/WalletsSmartContractWalletsApiTest.java
-src/test/java/com/cobo/waas2/model/AccountTest.java
 src/test/java/com/cobo/waas2/model/AcquiringTypeTest.java
 src/test/java/com/cobo/waas2/model/ActivityActionTest.java
 src/test/java/com/cobo/waas2/model/ActivityExtraTest.java
@@ -1868,6 +1893,8 @@ src/test/java/com/cobo/waas2/model/BabylonValidatorTest.java
 src/test/java/com/cobo/waas2/model/BalanceTest.java
 src/test/java/com/cobo/waas2/model/BalanceUpdateInfoEventDataTest.java
 src/test/java/com/cobo/waas2/model/BalanceUpdateInfoTest.java
+src/test/java/com/cobo/waas2/model/BankAccountHolderTypeTest.java
+src/test/java/com/cobo/waas2/model/BankAccountPaymentMethodTest.java
 src/test/java/com/cobo/waas2/model/BankAccountStatusTest.java
 src/test/java/com/cobo/waas2/model/BankAccountTest.java
 src/test/java/com/cobo/waas2/model/BaseContractCallSourceTest.java
@@ -2169,7 +2196,6 @@ src/test/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseData
 src/test/java/com/cobo/waas2/model/ListTokenBalancesForFeeStation200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTokenListingRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTokenizationBlocklistAddresses200ResponseTest.java
-src/test/java/com/cobo/waas2/model/ListTopUpPayerAccounts200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTopUpPayers200ResponseDataInnerTest.java
 src/test/java/com/cobo/waas2/model/ListTopUpPayers200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTransactionApprovalDetails200ResponseTest.java
@@ -2194,6 +2220,18 @@ src/test/java/com/cobo/waas2/model/MPCWalletInfoTest.java
 src/test/java/com/cobo/waas2/model/MaxFeeAmountTest.java
 src/test/java/com/cobo/waas2/model/MaxTransferableValueTest.java
 src/test/java/com/cobo/waas2/model/MerchantBalanceTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycAddressTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycCompanyAttachmentFileTypeTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycCompanyAttachmentTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycCompanyInfoTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycCompanyTypeTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycInfoTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycMerchantTypeTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycPersonAttachmentFileTypeTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycPersonAttachmentTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycPersonInfoTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycStatusTest.java
+src/test/java/com/cobo/waas2/model/MerchantKycSubmissionTest.java
 src/test/java/com/cobo/waas2/model/MerchantTest.java
 src/test/java/com/cobo/waas2/model/MessageSignDestinationTest.java
 src/test/java/com/cobo/waas2/model/MessageSignDestinationTypeTest.java
@@ -2215,7 +2253,6 @@ src/test/java/com/cobo/waas2/model/OrganizationEventDataTest.java
 src/test/java/com/cobo/waas2/model/OriginalMainGroupHandlingTest.java
 src/test/java/com/cobo/waas2/model/OtcFeeTest.java
 src/test/java/com/cobo/waas2/model/PaginationTest.java
-src/test/java/com/cobo/waas2/model/PayerAccountTest.java
 src/test/java/com/cobo/waas2/model/PaymentAccountBalanceUpdateEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentAddressUpdateEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentAllocationAmountTest.java
@@ -2249,6 +2286,7 @@ src/test/java/com/cobo/waas2/model/PaymentSettlementEventTest.java
 src/test/java/com/cobo/waas2/model/PaymentSourceTypeTest.java
 src/test/java/com/cobo/waas2/model/PaymentTransactionEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentTransactionTest.java
+src/test/java/com/cobo/waas2/model/PaymentUploadedFileTest.java
 src/test/java/com/cobo/waas2/model/PaymentWalletBalanceTest.java
 src/test/java/com/cobo/waas2/model/PayoutChannelTest.java
 src/test/java/com/cobo/waas2/model/PolicyActionContentTest.java
@@ -2343,6 +2381,7 @@ src/test/java/com/cobo/waas2/model/SubmitDepositTravelRuleInfo201ResponseTest.ja
 src/test/java/com/cobo/waas2/model/SubmitKytResponseTest.java
 src/test/java/com/cobo/waas2/model/SubmitKytScreeningsDecisionsBodyTest.java
 src/test/java/com/cobo/waas2/model/SubmitKytScreeningsReviewBodyTest.java
+src/test/java/com/cobo/waas2/model/SubmitMerchantKycTest.java
 src/test/java/com/cobo/waas2/model/SupportedTokenTest.java
 src/test/java/com/cobo/waas2/model/SuspendedTokenEventDataTest.java
 src/test/java/com/cobo/waas2/model/SuspendedTokenOperationTypeTest.java
