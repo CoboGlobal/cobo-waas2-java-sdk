@@ -101,4 +101,12 @@ public class PaymentBulkSendItemTest {
         // TODO: test validationStatus
     }
 
+    /**
+     * Test the property 'failedReason'
+     */
+    @Test
+    public void failedReasonTest() {
+        // TODO: test failedReason
+    }
+
 }

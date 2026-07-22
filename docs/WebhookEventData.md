@@ -15,7 +15,7 @@
 |**type** | **TransactionType** |  |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | The status of the fiat transaction. Possible values include:   - &#x60;Created&#x60;: The transaction has been created.   - &#x60;Succeeded&#x60;: The transaction has been completed successfully.  |  |
 |**subStatus** | **TransactionSubStatus** |  |  [optional] |
-|**failedReason** | **String** | (This property is applicable to approval failures and signature failures only) The reason why the transaction failed. |  [optional] |
+|**failedReason** | **String** | The reason why the bulk send failed. |  [optional] |
 |**chainId** | **String** | The chain identifier. |  |
 |**tokenId** | **String** | The token ID of the balance change. |  |
 |**assetId** | **String** | (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account. |  [optional] |

@@ -86,6 +86,10 @@ public class PaymentBulkSendItem {
   @SerializedName(SERIALIZED_NAME_VALIDATION_STATUS)
   private PaymentBulkSendItemValidationStatus validationStatus;
 
+  public static final String SERIALIZED_NAME_FAILED_REASON = "failed_reason";
+  @SerializedName(SERIALIZED_NAME_FAILED_REASON)
+  private String failedReason;
+
   public PaymentBulkSendItem() {
   }
 
@@ -240,6 +244,25 @@ public class PaymentBulkSendItem {
     this.validationStatus = validationStatus;
   }
 
+
+  public PaymentBulkSendItem failedReason(String failedReason) {
+    this.failedReason = failedReason;
+    return this;
+  }
+
+   /**
+   * The reason why the bulk send item failed.
+   * @return failedReason
+  **/
+  @javax.annotation.Nullable
+  public String getFailedReason() {
+    return failedReason;
+  }
+
+  public void setFailedReason(String failedReason) {
+    this.failedReason = failedReason;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -302,13 +325,14 @@ public class PaymentBulkSendItem {
         Objects.equals(this.description, paymentBulkSendItem.description) &&
         Objects.equals(this.txHash, paymentBulkSendItem.txHash) &&
         Objects.equals(this.status, paymentBulkSendItem.status) &&
-        Objects.equals(this.validationStatus, paymentBulkSendItem.validationStatus)&&
+        Objects.equals(this.validationStatus, paymentBulkSendItem.validationStatus) &&
+        Objects.equals(this.failedReason, paymentBulkSendItem.failedReason)&&
         Objects.equals(this.additionalProperties, paymentBulkSendItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bulkSendItemId, tokenId, receivingAddress, amount, description, txHash, status, validationStatus, additionalProperties);
+    return Objects.hash(bulkSendItemId, tokenId, receivingAddress, amount, description, txHash, status, validationStatus, failedReason, additionalProperties);
   }
 
   @Override
@@ -323,6 +347,7 @@ public class PaymentBulkSendItem {
     sb.append("    txHash: ").append(toIndentedString(txHash)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    validationStatus: ").append(toIndentedString(validationStatus)).append("\n");
+    sb.append("    failedReason: ").append(toIndentedString(failedReason)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -354,6 +379,7 @@ public class PaymentBulkSendItem {
     openapiFields.add("tx_hash");
     openapiFields.add("status");
     openapiFields.add("validation_status");
+    openapiFields.add("failed_reason");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -407,6 +433,9 @@ public class PaymentBulkSendItem {
       PaymentBulkSendItemStatus.validateJsonElement(jsonObj.get("status"));
       // validate the required field `validation_status`
       PaymentBulkSendItemValidationStatus.validateJsonElement(jsonObj.get("validation_status"));
+      if ((jsonObj.get("failed_reason") != null && !jsonObj.get("failed_reason").isJsonNull()) && !jsonObj.get("failed_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failed_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failed_reason").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

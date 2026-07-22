@@ -54,6 +54,10 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class CreateRefundLinkRequest {
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public static final String SERIALIZED_NAME_BUSINESS_INFO = "business_info";
   @SerializedName(SERIALIZED_NAME_BUSINESS_INFO)
   private RefundLinkBusinessInfo businessInfo;
@@ -64,6 +68,25 @@ public class CreateRefundLinkRequest {
 
   public CreateRefundLinkRequest() {
   }
+
+  public CreateRefundLinkRequest requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a refund link request. The request ID is provided by you and must be unique.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
 
   public CreateRefundLinkRequest businessInfo(RefundLinkBusinessInfo businessInfo) {
     this.businessInfo = businessInfo;
@@ -157,20 +180,22 @@ public class CreateRefundLinkRequest {
       return false;
     }
     CreateRefundLinkRequest createRefundLinkRequest = (CreateRefundLinkRequest) o;
-    return Objects.equals(this.businessInfo, createRefundLinkRequest.businessInfo) &&
+    return Objects.equals(this.requestId, createRefundLinkRequest.requestId) &&
+        Objects.equals(this.businessInfo, createRefundLinkRequest.businessInfo) &&
         Objects.equals(this.displayInfo, createRefundLinkRequest.displayInfo)&&
         Objects.equals(this.additionalProperties, createRefundLinkRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessInfo, displayInfo, additionalProperties);
+    return Objects.hash(requestId, businessInfo, displayInfo, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRefundLinkRequest {\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    businessInfo: ").append(toIndentedString(businessInfo)).append("\n");
     sb.append("    displayInfo: ").append(toIndentedString(displayInfo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -196,6 +221,7 @@ public class CreateRefundLinkRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("request_id");
     openapiFields.add("business_info");
     openapiFields.add("display_info");
 
@@ -224,6 +250,9 @@ public class CreateRefundLinkRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
       // validate the required field `business_info`
       RefundLinkBusinessInfo.validateJsonElement(jsonObj.get("business_info"));
       // validate the optional field `display_info`

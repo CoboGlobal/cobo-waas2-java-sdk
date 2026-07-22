@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.39.0</version>
+  <version>1.40.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.39.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.40.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.39.0.jar`
+* `target/cobo-waas2-1.40.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -285,6 +285,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**getDestination**](docs/PaymentApi.md#getDestination) | **GET** /payments/destination/{destination_id} | Get destination information
 *PaymentApi* | [**getDestinationEntry**](docs/PaymentApi.md#getDestinationEntry) | **GET** /payments/destination_entry/{destination_entry_id} | Get destination entry information
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
+*PaymentApi* | [**getMerchantKyc**](docs/PaymentApi.md#getMerchantKyc) | **GET** /payments/merchants/{merchant_id}/kyc | Get merchant KYC
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
 *PaymentApi* | [**getPayoutById**](docs/PaymentApi.md#getPayoutById) | **GET** /payments/payouts/{payout_id} | Get payout information
 *PaymentApi* | [**getPspBalance**](docs/PaymentApi.md#getPspBalance) | **GET** /payments/balance/psp | Get developer balance
@@ -314,9 +315,9 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**listPayouts**](docs/PaymentApi.md#listPayouts) | **GET** /payments/payouts | List all payouts
 *PaymentApi* | [**listSettlementDetails**](docs/PaymentApi.md#listSettlementDetails) | **GET** /payments/settlement_details | List all settlement details
 *PaymentApi* | [**listSettlementRequests**](docs/PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests
-*PaymentApi* | [**listTopUpPayerAccounts**](docs/PaymentApi.md#listTopUpPayerAccounts) | **GET** /payments/topup/payer_accounts | List top-up payer accounts
 *PaymentApi* | [**listTopUpPayers**](docs/PaymentApi.md#listTopUpPayers) | **GET** /payments/topup/payers | List payers
 *PaymentApi* | [**paymentEstimateFee**](docs/PaymentApi.md#paymentEstimateFee) | **POST** /payments/estimate_fee | Estimate fees
+*PaymentApi* | [**submitMerchantKyc**](docs/PaymentApi.md#submitMerchantKyc) | **POST** /payments/merchants/{merchant_id}/kyc | Submit merchant KYC
 *PaymentApi* | [**triggerTestPaymentsWebhookEvent**](docs/PaymentApi.md#triggerTestPaymentsWebhookEvent) | **POST** /payments/webhooks/trigger | Trigger test webhook event
 *PaymentApi* | [**updateCounterparty**](docs/PaymentApi.md#updateCounterparty) | **PUT** /payments/counterparty/{counterparty_id} | Update counterparty
 *PaymentApi* | [**updateDestination**](docs/PaymentApi.md#updateDestination) | **PUT** /payments/destination/{destination_id} | Update destination
@@ -325,6 +326,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**updatePaymentOrder**](docs/PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order
 *PaymentApi* | [**updateRefundById**](docs/PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order
 *PaymentApi* | [**updateTopUpAddress**](docs/PaymentApi.md#updateTopUpAddress) | **PUT** /payments/topup/address | Update top-up address
+*PaymentApi* | [**uploadPaymentFile**](docs/PaymentApi.md#uploadPaymentFile) | **POST** /payments/files | Upload file
 *PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
 *PrimeBrokerApi* | [**createGuardPubkey**](docs/PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | Create Guard pubkey binding
 *PrimeBrokerApi* | [**createPrimeBrokerAddress**](docs/PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | Bind addresses to a broker user
@@ -465,7 +467,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [Account](docs/Account.md)
  - [AcquiringType](docs/AcquiringType.md)
  - [Activity](docs/Activity.md)
  - [ActivityAction](docs/ActivityAction.md)
@@ -535,6 +536,8 @@ Class | Method | HTTP request | Description
  - [BalanceUpdateInfo](docs/BalanceUpdateInfo.md)
  - [BalanceUpdateInfoEventData](docs/BalanceUpdateInfoEventData.md)
  - [BankAccount](docs/BankAccount.md)
+ - [BankAccountHolderType](docs/BankAccountHolderType.md)
+ - [BankAccountPaymentMethod](docs/BankAccountPaymentMethod.md)
  - [BankAccountStatus](docs/BankAccountStatus.md)
  - [BaseContractCallSource](docs/BaseContractCallSource.md)
  - [BaseEstimateStakingFee](docs/BaseEstimateStakingFee.md)
@@ -835,7 +838,6 @@ Class | Method | HTTP request | Description
  - [ListTokenBalancesForFeeStation200ResponseDataInner](docs/ListTokenBalancesForFeeStation200ResponseDataInner.md)
  - [ListTokenListingRequests200Response](docs/ListTokenListingRequests200Response.md)
  - [ListTokenizationBlocklistAddresses200Response](docs/ListTokenizationBlocklistAddresses200Response.md)
- - [ListTopUpPayerAccounts200Response](docs/ListTopUpPayerAccounts200Response.md)
  - [ListTopUpPayers200Response](docs/ListTopUpPayers200Response.md)
  - [ListTopUpPayers200ResponseDataInner](docs/ListTopUpPayers200ResponseDataInner.md)
  - [ListTransactionApprovalDetails200Response](docs/ListTransactionApprovalDetails200Response.md)
@@ -861,6 +863,18 @@ Class | Method | HTTP request | Description
  - [MaxTransferableValue](docs/MaxTransferableValue.md)
  - [Merchant](docs/Merchant.md)
  - [MerchantBalance](docs/MerchantBalance.md)
+ - [MerchantKycAddress](docs/MerchantKycAddress.md)
+ - [MerchantKycCompanyAttachment](docs/MerchantKycCompanyAttachment.md)
+ - [MerchantKycCompanyAttachmentFileType](docs/MerchantKycCompanyAttachmentFileType.md)
+ - [MerchantKycCompanyInfo](docs/MerchantKycCompanyInfo.md)
+ - [MerchantKycCompanyType](docs/MerchantKycCompanyType.md)
+ - [MerchantKycInfo](docs/MerchantKycInfo.md)
+ - [MerchantKycMerchantType](docs/MerchantKycMerchantType.md)
+ - [MerchantKycPersonAttachment](docs/MerchantKycPersonAttachment.md)
+ - [MerchantKycPersonAttachmentFileType](docs/MerchantKycPersonAttachmentFileType.md)
+ - [MerchantKycPersonInfo](docs/MerchantKycPersonInfo.md)
+ - [MerchantKycStatus](docs/MerchantKycStatus.md)
+ - [MerchantKycSubmission](docs/MerchantKycSubmission.md)
  - [MessageSignDestination](docs/MessageSignDestination.md)
  - [MessageSignDestinationType](docs/MessageSignDestinationType.md)
  - [MessageSignParams](docs/MessageSignParams.md)
@@ -881,7 +895,6 @@ Class | Method | HTTP request | Description
  - [OriginalMainGroupHandling](docs/OriginalMainGroupHandling.md)
  - [OtcFee](docs/OtcFee.md)
  - [Pagination](docs/Pagination.md)
- - [PayerAccount](docs/PayerAccount.md)
  - [PaymentAccountBalanceUpdateEventData](docs/PaymentAccountBalanceUpdateEventData.md)
  - [PaymentAddressUpdateEventData](docs/PaymentAddressUpdateEventData.md)
  - [PaymentAllocationAmount](docs/PaymentAllocationAmount.md)
@@ -915,6 +928,7 @@ Class | Method | HTTP request | Description
  - [PaymentSourceType](docs/PaymentSourceType.md)
  - [PaymentTransaction](docs/PaymentTransaction.md)
  - [PaymentTransactionEventData](docs/PaymentTransactionEventData.md)
+ - [PaymentUploadedFile](docs/PaymentUploadedFile.md)
  - [PaymentWalletBalance](docs/PaymentWalletBalance.md)
  - [PayoutChannel](docs/PayoutChannel.md)
  - [PolicyAction](docs/PolicyAction.md)
@@ -1009,6 +1023,7 @@ Class | Method | HTTP request | Description
  - [SubmitKytResponse](docs/SubmitKytResponse.md)
  - [SubmitKytScreeningsDecisionsBody](docs/SubmitKytScreeningsDecisionsBody.md)
  - [SubmitKytScreeningsReviewBody](docs/SubmitKytScreeningsReviewBody.md)
+ - [SubmitMerchantKyc](docs/SubmitMerchantKyc.md)
  - [SupportedToken](docs/SupportedToken.md)
  - [SuspendedTokenEventData](docs/SuspendedTokenEventData.md)
  - [SuspendedTokenOperationType](docs/SuspendedTokenOperationType.md)

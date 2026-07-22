@@ -52,6 +52,7 @@ import com.cobo.waas2.model.DestinationType;
 import com.cobo.waas2.model.EntryType;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExchangeRate;
+import java.io.File;
 import com.cobo.waas2.model.ForcedSweep;
 import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetCounterpartyEntry200Response;
@@ -78,9 +79,10 @@ import com.cobo.waas2.model.ListPaymentWalletBalances200Response;
 import com.cobo.waas2.model.ListPayouts200Response;
 import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
-import com.cobo.waas2.model.ListTopUpPayerAccounts200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
+import com.cobo.waas2.model.MerchantKycInfo;
+import com.cobo.waas2.model.MerchantKycSubmission;
 import com.cobo.waas2.model.Order;
 import com.cobo.waas2.model.PaymentAllocationAmount;
 import com.cobo.waas2.model.PaymentBalanceChangeResponse;
@@ -91,12 +93,14 @@ import com.cobo.waas2.model.PaymentEstimateFee201Response;
 import com.cobo.waas2.model.PaymentEstimateFeeRequest;
 import com.cobo.waas2.model.PaymentPayout;
 import com.cobo.waas2.model.PaymentPayoutDetail;
+import com.cobo.waas2.model.PaymentUploadedFile;
 import com.cobo.waas2.model.PspBalance;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Report;
 import com.cobo.waas2.model.ReportStatus;
 import com.cobo.waas2.model.ReportType;
 import com.cobo.waas2.model.Settlement;
+import com.cobo.waas2.model.SubmitMerchantKyc;
 import com.cobo.waas2.model.SupportedToken;
 import com.cobo.waas2.model.TopUpAddress;
 import com.cobo.waas2.model.TriggerTestPaymentWebhookEventResponse;
@@ -604,6 +608,20 @@ public class PaymentApiTest {
     }
 
     /**
+     * Get merchant KYC
+     *
+     * This operation retrieves the KYC submission for a specified merchant.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getMerchantKycTest() throws ApiException {
+        String merchantId = null;
+        MerchantKycSubmission response = api.getMerchantKyc(merchantId);
+        // TODO: test validations
+    }
+
+    /**
      * Get pay-in order information
      *
      * This operation retrieves details of a specific pay-in order. 
@@ -1104,24 +1122,6 @@ public class PaymentApiTest {
     }
 
     /**
-     * List top-up payer accounts
-     *
-     * This operation retrieves the accounts of all payers. You can filter the result by merchant ID and payer_id. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listTopUpPayerAccountsTest() throws ApiException {
-        Integer limit = null;
-        String before = null;
-        String after = null;
-        String merchantId = null;
-        String payerId = null;
-        ListTopUpPayerAccounts200Response response = api.listTopUpPayerAccounts(limit, before, after, merchantId, payerId);
-        // TODO: test validations
-    }
-
-    /**
      * List payers
      *
      * This operation retrieves the information of all payers. You can filter the result by merchant ID and payer_id.  &lt;Note&gt;The &#x60;transactions&#x60; field in the response returns up to the latest 200 transactions only. This field will be removed in a future version. To paginate through payer transactions, use [List payer transactions](https://www.cobo.com/payments/en/guides/overview).&lt;/Note&gt; 
@@ -1150,6 +1150,21 @@ public class PaymentApiTest {
     public void paymentEstimateFeeTest() throws ApiException {
         PaymentEstimateFeeRequest paymentEstimateFeeRequest = null;
         PaymentEstimateFee201Response response = api.paymentEstimateFee(paymentEstimateFeeRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Submit merchant KYC
+     *
+     * This operation submits KYC information for a specified merchant.  You need to provide the merchant contact information, merchant type, country, industry, and company information.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void submitMerchantKycTest() throws ApiException {
+        String merchantId = null;
+        SubmitMerchantKyc submitMerchantKyc = null;
+        MerchantKycInfo response = api.submitMerchantKyc(merchantId, submitMerchantKyc);
         // TODO: test validations
     }
 
@@ -1268,6 +1283,20 @@ public class PaymentApiTest {
     public void updateTopUpAddressTest() throws ApiException {
         UpdateTopUpAddress updateTopUpAddress = null;
         TopUpAddress response = api.updateTopUpAddress(updateTopUpAddress);
+        // TODO: test validations
+    }
+
+    /**
+     * Upload file
+     *
+     * This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void uploadPaymentFileTest() throws ApiException {
+        File _file = null;
+        PaymentUploadedFile response = api.uploadPaymentFile(_file);
         // TODO: test validations
     }
 

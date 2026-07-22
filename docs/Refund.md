@@ -16,6 +16,7 @@
 |**amount** | **String** | The amount in cryptocurrency to be returned for this refund order. |  |
 |**toAddress** | **String** | The recipient&#39;s wallet address where the refund will be sent. |  |
 |**status** | **RefundStatus** |  |  |
+|**failedReason** | **String** | The reason why the refund failed. |  [optional] |
 |**refundType** | **RefundType** |  |  [optional] |
 |**createdTimestamp** | **Integer** | The creation time of the refund order, represented as a UNIX timestamp in seconds. |  [optional] |
 |**updatedTimestamp** | **Integer** | The last update time of the refund order, represented as a UNIX timestamp in seconds. |  [optional] |
