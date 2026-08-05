@@ -11,5 +11,7 @@
 
 * `ZIP` (value: `"ZIP"`)
 
+* `PDF` (value: `"PDF"`)
+
 
 

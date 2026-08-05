@@ -459,6 +459,7 @@ docs/PaymentBulkSend.md
 docs/PaymentBulkSendEvent.md
 docs/PaymentBulkSendExecutionMode.md
 docs/PaymentBulkSendItem.md
+docs/PaymentBulkSendItemEvent.md
 docs/PaymentBulkSendItemStatus.md
 docs/PaymentBulkSendItemValidationStatus.md
 docs/PaymentBulkSendStatus.md
@@ -1387,6 +1388,7 @@ src/main/java/com/cobo/waas2/model/PaymentBulkSend.java
 src/main/java/com/cobo/waas2/model/PaymentBulkSendEvent.java
 src/main/java/com/cobo/waas2/model/PaymentBulkSendExecutionMode.java
 src/main/java/com/cobo/waas2/model/PaymentBulkSendItem.java
+src/main/java/com/cobo/waas2/model/PaymentBulkSendItemEvent.java
 src/main/java/com/cobo/waas2/model/PaymentBulkSendItemStatus.java
 src/main/java/com/cobo/waas2/model/PaymentBulkSendItemValidationStatus.java
 src/main/java/com/cobo/waas2/model/PaymentBulkSendStatus.java
@@ -2263,6 +2265,7 @@ src/test/java/com/cobo/waas2/model/PaymentBalanceFlowDirectionTest.java
 src/test/java/com/cobo/waas2/model/PaymentBridgeStatusTest.java
 src/test/java/com/cobo/waas2/model/PaymentBulkSendEventTest.java
 src/test/java/com/cobo/waas2/model/PaymentBulkSendExecutionModeTest.java
+src/test/java/com/cobo/waas2/model/PaymentBulkSendItemEventTest.java
 src/test/java/com/cobo/waas2/model/PaymentBulkSendItemStatusTest.java
 src/test/java/com/cobo/waas2/model/PaymentBulkSendItemTest.java
 src/test/java/com/cobo/waas2/model/PaymentBulkSendItemValidationStatusTest.java

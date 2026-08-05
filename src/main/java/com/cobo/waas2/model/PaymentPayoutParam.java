@@ -88,7 +88,7 @@ public class PaymentPayoutParam {
   }
 
    /**
-   * The payout cryptocurrency amount. 
+   * The payout amount, provided as a decimal string. You can include up to two nonzero digits after the decimal point; trailing zeros beyond that (for example, &#x60;100.500&#x60;) are accepted, but a value with more than two nonzero fractional digits (for example, &#x60;100.567&#x60;) is rejected with an invalid amount format error instead of being rounded. 
    * @return amount
   **/
   @javax.annotation.Nonnull

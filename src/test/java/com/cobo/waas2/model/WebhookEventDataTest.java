@@ -36,6 +36,8 @@ import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
 import com.cobo.waas2.model.PaymentBalanceFlowDirection;
 import com.cobo.waas2.model.PaymentBulkSendEvent;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
+import com.cobo.waas2.model.PaymentBulkSendItemEvent;
+import com.cobo.waas2.model.PaymentBulkSendItemValidationStatus;
 import com.cobo.waas2.model.PaymentOrderEventData;
 import com.cobo.waas2.model.PaymentPayoutEvent;
 import com.cobo.waas2.model.PaymentPayoutItem;
@@ -923,6 +925,38 @@ public class WebhookEventDataTest {
     @Test
     public void executionModeTest() {
         // TODO: test executionMode
+    }
+
+    /**
+     * Test the property 'bulkSendItemId'
+     */
+    @Test
+    public void bulkSendItemIdTest() {
+        // TODO: test bulkSendItemId
+    }
+
+    /**
+     * Test the property 'receivingAddress'
+     */
+    @Test
+    public void receivingAddressTest() {
+        // TODO: test receivingAddress
+    }
+
+    /**
+     * Test the property 'txHash'
+     */
+    @Test
+    public void txHashTest() {
+        // TODO: test txHash
+    }
+
+    /**
+     * Test the property 'validationStatus'
+     */
+    @Test
+    public void validationStatusTest() {
+        // TODO: test validationStatus
     }
 
     /**

@@ -140,7 +140,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * A unique reference code assigned by the merchant to identify this order in their system.
+   * An optional reference for the order maintained by a downstream merchant you serve — for example, when you are a payment service provider (PSP) processing pay-in orders on behalf of merchants. Set this field only when such a downstream merchant supplies its own order reference that is distinct from your internal &#x60;psp_order_code&#x60;. Omit this field if you are collecting payment directly as the merchant, with no separate downstream merchant reference to track.
    * @return merchantOrderCode
   **/
   @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * A unique reference code assigned by the developer to identify this order in their system.
+   * The order identifier for your own internal business order. Set this to the order reference you use internally to identify this pay-in — for example, an order or transaction ID from your own order-management system. This value must be unique within your Cobo organization: Cobo enforces uniqueness on &#x60;psp_order_code&#x60;, so reusing a code already associated with an existing order in your organization is rejected. If a downstream merchant you serve supplies its own separate order reference, record that in &#x60;merchant_order_code&#x60; instead — &#x60;psp_order_code&#x60; always identifies your own order, not the merchant&#39;s.
    * @return pspOrderCode
   **/
   @javax.annotation.Nonnull
@@ -216,7 +216,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The developer fee for the order. It is added to the base amount (&#x60;pricing_amount&#x60;) to determine the final charge. For example, if &#x60;pricing_amount&#x60; is \&quot;100.00\&quot; and &#x60;fee_amount&#x60; is \&quot;2.00\&quot;, the payer will be charged \&quot;102.00\&quot; in total, with \&quot;100.00\&quot; being settled to the merchant account and \&quot;2.00\&quot; settled to the developer account. Values must be greater than or equal to 0 and contain two decimal places.
+   * The order-level developer charge deducted from the payment collected for this order and credited to your developer balance. Both &#x60;0&#x60; and positive values are valid. A value of &#x60;0&#x60; means that no developer fee is taken and the merchant receives the full collected amount.  When the collected payment exactly matches the payable amount, the merchant balance is credited with the payable amount minus &#x60;fee_amount&#x60;, and your developer balance is credited with &#x60;fee_amount&#x60;. For example, for a payable amount of &#x60;104.08&#x60; and a &#x60;fee_amount&#x60; of &#x60;2&#x60;, the merchant receives &#x60;102.08&#x60; and you receive &#x60;2&#x60;.  For related fee settings and settlement details, see [Merchant management](https://www.cobo.com/payments/en/guides/merchants) and [Accounts and fund allocation](https://www.cobo.com/payments/en/guides/amounts-and-balances). 
    * @return feeAmount
   **/
   @javax.annotation.Nonnull
