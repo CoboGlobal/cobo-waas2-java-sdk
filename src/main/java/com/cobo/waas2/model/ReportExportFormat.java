@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The format of the report. - &#x60;CSV&#x60;: The report will be exported as a CSV file. - &#x60;XLSX&#x60;: The report will be exported as an XLSX file. - &#x60;ZIP&#x60;: The report will be exported as a ZIP file which contains multiple files. 
+ * The format of the report. - &#x60;CSV&#x60;: The report will be exported as a CSV file. - &#x60;XLSX&#x60;: The report will be exported as an XLSX file. - &#x60;ZIP&#x60;: The report will be exported as a ZIP file which contains multiple files. - &#x60;PDF&#x60;: The report will be exported as a PDF file, only supported for balance snapshot report. 
  */
 @JsonAdapter(ReportExportFormat.Adapter.class)
 public enum ReportExportFormat {
@@ -32,7 +32,9 @@ public enum ReportExportFormat {
   
   XLSX("XLSX"),
   
-  ZIP("ZIP");
+  ZIP("ZIP"),
+  
+  PDF("PDF");
 
   private String value;
 

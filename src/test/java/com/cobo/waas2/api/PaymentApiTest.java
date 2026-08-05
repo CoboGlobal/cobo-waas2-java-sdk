@@ -308,7 +308,7 @@ public class PaymentApiTest {
     /**
      * Create pay-in order
      *
-     * This operation creates a pay-in order. 
+     * This operation creates a pay-in order.  Before you can call this operation, make sure the following prerequisites are met:  - [Payments onboarding](https://www.cobo.com/payments/en/guides/preparation) is complete, so your organization&#39;s payment developer account is active. - &#x60;merchant_id&#x60; references a merchant that already exists and is owned by your organization.  Completing Payments onboarding automatically provisions a default merchant for your organization, which you can use directly as the &#x60;merchant_id&#x60; value. To create additional merchants, call [Create merchant](https://www.cobo.com/payments/en/api-references/payment/create-merchant).  &lt;Note&gt;   This operation does not independently check merchant KYB, merchant activation or status, merchant configuration, or whether a developer-fee configuration record exists for the merchant. These checks are not substitutes for completing organization-level Payments onboarding — if your organization&#39;s payment developer account is not active, the request fails regardless of merchant state. For more information, refer to [Merchants](https://www.cobo.com/payments/en/guides/merchants) and [Error codes and status codes](https://www.cobo.com/payments/en/guides/error-codes#general-api-errors). &lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

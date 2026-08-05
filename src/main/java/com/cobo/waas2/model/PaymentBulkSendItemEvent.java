@@ -12,9 +12,8 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.SourceGroup;
-import com.cobo.waas2.model.TSSRequestStatus;
-import com.cobo.waas2.model.TSSRequestType;
+import com.cobo.waas2.model.PaymentBulkSendItemStatus;
+import com.cobo.waas2.model.PaymentBulkSendItemValidationStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,13 +47,13 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * TSSRequestWebhookEventData
+ * PaymentBulkSendItemEvent
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class TSSRequestWebhookEventData {
+public class PaymentBulkSendItemEvent {
   /**
    *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentBulkSendItem&#x60;: The payment bulk send item event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
    */
@@ -155,38 +154,66 @@ public class TSSRequestWebhookEventData {
   @SerializedName(SERIALIZED_NAME_DATA_TYPE)
   private DataTypeEnum dataType;
 
-  public static final String SERIALIZED_NAME_TSS_REQUEST_ID = "tss_request_id";
-  @SerializedName(SERIALIZED_NAME_TSS_REQUEST_ID)
-  private String tssRequestId;
+  public static final String SERIALIZED_NAME_BULK_SEND_ITEM_ID = "bulk_send_item_id";
+  @SerializedName(SERIALIZED_NAME_BULK_SEND_ITEM_ID)
+  private String bulkSendItemId;
 
-  public static final String SERIALIZED_NAME_SOURCE_KEY_SHARE_HOLDER_GROUP = "source_key_share_holder_group";
-  @SerializedName(SERIALIZED_NAME_SOURCE_KEY_SHARE_HOLDER_GROUP)
-  private SourceGroup sourceKeyShareHolderGroup;
+  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
+  private String tokenId;
 
-  public static final String SERIALIZED_NAME_TARGET_KEY_SHARE_HOLDER_GROUP_ID = "target_key_share_holder_group_id";
-  @SerializedName(SERIALIZED_NAME_TARGET_KEY_SHARE_HOLDER_GROUP_ID)
-  private String targetKeyShareHolderGroupId;
+  public static final String SERIALIZED_NAME_RECEIVING_ADDRESS = "receiving_address";
+  @SerializedName(SERIALIZED_NAME_RECEIVING_ADDRESS)
+  private String receivingAddress;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private TSSRequestType type;
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private TSSRequestStatus status;
+  public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  private String amount;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_TX_HASH = "tx_hash";
+  @SerializedName(SERIALIZED_NAME_TX_HASH)
+  private String txHash;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private PaymentBulkSendItemStatus status;
+
+  public static final String SERIALIZED_NAME_VALIDATION_STATUS = "validation_status";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_STATUS)
+  private PaymentBulkSendItemValidationStatus validationStatus;
+
+  public static final String SERIALIZED_NAME_FAILED_REASON = "failed_reason";
+  @SerializedName(SERIALIZED_NAME_FAILED_REASON)
+  private String failedReason;
+
+  public static final String SERIALIZED_NAME_BULK_SEND_ID = "bulk_send_id";
+  @SerializedName(SERIALIZED_NAME_BULK_SEND_ID)
+  private String bulkSendId;
+
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
+  public static final String SERIALIZED_NAME_SOURCE_ACCOUNT = "source_account";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ACCOUNT)
+  private String sourceAccount;
+
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
-  private Long createdTimestamp;
+  private Integer createdTimestamp;
 
-  public TSSRequestWebhookEventData() {
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Integer updatedTimestamp;
+
+  public PaymentBulkSendItemEvent() {
   }
 
-  public TSSRequestWebhookEventData dataType(DataTypeEnum dataType) {
+  public PaymentBulkSendItemEvent dataType(DataTypeEnum dataType) {
     this.dataType = dataType;
     return this;
   }
@@ -205,108 +232,89 @@ public class TSSRequestWebhookEventData {
   }
 
 
-  public TSSRequestWebhookEventData tssRequestId(String tssRequestId) {
-    this.tssRequestId = tssRequestId;
+  public PaymentBulkSendItemEvent bulkSendItemId(String bulkSendItemId) {
+    this.bulkSendItemId = bulkSendItemId;
     return this;
   }
 
    /**
-   * The TSS request ID.
-   * @return tssRequestId
+   * The bulk send item ID.
+   * @return bulkSendItemId
   **/
-  @javax.annotation.Nullable
-  public String getTssRequestId() {
-    return tssRequestId;
+  @javax.annotation.Nonnull
+  public String getBulkSendItemId() {
+    return bulkSendItemId;
   }
 
-  public void setTssRequestId(String tssRequestId) {
-    this.tssRequestId = tssRequestId;
+  public void setBulkSendItemId(String bulkSendItemId) {
+    this.bulkSendItemId = bulkSendItemId;
   }
 
 
-  public TSSRequestWebhookEventData sourceKeyShareHolderGroup(SourceGroup sourceKeyShareHolderGroup) {
-    this.sourceKeyShareHolderGroup = sourceKeyShareHolderGroup;
+  public PaymentBulkSendItemEvent tokenId(String tokenId) {
+    this.tokenId = tokenId;
     return this;
   }
 
    /**
-   * Get sourceKeyShareHolderGroup
-   * @return sourceKeyShareHolderGroup
+   * The token ID of the cryptocurrency to be sent to the recipient.
+   * @return tokenId
   **/
-  @javax.annotation.Nullable
-  public SourceGroup getSourceKeyShareHolderGroup() {
-    return sourceKeyShareHolderGroup;
+  @javax.annotation.Nonnull
+  public String getTokenId() {
+    return tokenId;
   }
 
-  public void setSourceKeyShareHolderGroup(SourceGroup sourceKeyShareHolderGroup) {
-    this.sourceKeyShareHolderGroup = sourceKeyShareHolderGroup;
+  public void setTokenId(String tokenId) {
+    this.tokenId = tokenId;
   }
 
 
-  public TSSRequestWebhookEventData targetKeyShareHolderGroupId(String targetKeyShareHolderGroupId) {
-    this.targetKeyShareHolderGroupId = targetKeyShareHolderGroupId;
+  public PaymentBulkSendItemEvent receivingAddress(String receivingAddress) {
+    this.receivingAddress = receivingAddress;
     return this;
   }
 
    /**
-   * The target key share holder group ID.
-   * @return targetKeyShareHolderGroupId
+   * The receiving address.
+   * @return receivingAddress
   **/
-  @javax.annotation.Nullable
-  public String getTargetKeyShareHolderGroupId() {
-    return targetKeyShareHolderGroupId;
+  @javax.annotation.Nonnull
+  public String getReceivingAddress() {
+    return receivingAddress;
   }
 
-  public void setTargetKeyShareHolderGroupId(String targetKeyShareHolderGroupId) {
-    this.targetKeyShareHolderGroupId = targetKeyShareHolderGroupId;
+  public void setReceivingAddress(String receivingAddress) {
+    this.receivingAddress = receivingAddress;
   }
 
 
-  public TSSRequestWebhookEventData type(TSSRequestType type) {
-    this.type = type;
+  public PaymentBulkSendItemEvent amount(String amount) {
+    this.amount = amount;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * The amount of the cryptocurrency to be sent to the recipient.
+   * @return amount
   **/
-  @javax.annotation.Nullable
-  public TSSRequestType getType() {
-    return type;
+  @javax.annotation.Nonnull
+  public String getAmount() {
+    return amount;
   }
 
-  public void setType(TSSRequestType type) {
-    this.type = type;
-  }
-
-
-  public TSSRequestWebhookEventData status(TSSRequestStatus status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  public TSSRequestStatus getStatus() {
-    return status;
-  }
-
-  public void setStatus(TSSRequestStatus status) {
-    this.status = status;
+  public void setAmount(String amount) {
+    this.amount = amount;
   }
 
 
-  public TSSRequestWebhookEventData description(String description) {
+  public PaymentBulkSendItemEvent description(String description) {
     this.description = description;
     return this;
   }
 
    /**
-   * The description of the TSS request.
+   * A note or comment about the bulk send item.
    * @return description
   **/
   @javax.annotation.Nullable
@@ -319,22 +327,174 @@ public class TSSRequestWebhookEventData {
   }
 
 
-  public TSSRequestWebhookEventData createdTimestamp(Long createdTimestamp) {
+  public PaymentBulkSendItemEvent txHash(String txHash) {
+    this.txHash = txHash;
+    return this;
+  }
+
+   /**
+   * The transaction hash of the bulk send item.
+   * @return txHash
+  **/
+  @javax.annotation.Nullable
+  public String getTxHash() {
+    return txHash;
+  }
+
+  public void setTxHash(String txHash) {
+    this.txHash = txHash;
+  }
+
+
+  public PaymentBulkSendItemEvent status(PaymentBulkSendItemStatus status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nonnull
+  public PaymentBulkSendItemStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(PaymentBulkSendItemStatus status) {
+    this.status = status;
+  }
+
+
+  public PaymentBulkSendItemEvent validationStatus(PaymentBulkSendItemValidationStatus validationStatus) {
+    this.validationStatus = validationStatus;
+    return this;
+  }
+
+   /**
+   * Get validationStatus
+   * @return validationStatus
+  **/
+  @javax.annotation.Nonnull
+  public PaymentBulkSendItemValidationStatus getValidationStatus() {
+    return validationStatus;
+  }
+
+  public void setValidationStatus(PaymentBulkSendItemValidationStatus validationStatus) {
+    this.validationStatus = validationStatus;
+  }
+
+
+  public PaymentBulkSendItemEvent failedReason(String failedReason) {
+    this.failedReason = failedReason;
+    return this;
+  }
+
+   /**
+   * The reason why the bulk send item failed.
+   * @return failedReason
+  **/
+  @javax.annotation.Nullable
+  public String getFailedReason() {
+    return failedReason;
+  }
+
+  public void setFailedReason(String failedReason) {
+    this.failedReason = failedReason;
+  }
+
+
+  public PaymentBulkSendItemEvent bulkSendId(String bulkSendId) {
+    this.bulkSendId = bulkSendId;
+    return this;
+  }
+
+   /**
+   * The bulk send ID that this item belongs to.
+   * @return bulkSendId
+  **/
+  @javax.annotation.Nonnull
+  public String getBulkSendId() {
+    return bulkSendId;
+  }
+
+  public void setBulkSendId(String bulkSendId) {
+    this.bulkSendId = bulkSendId;
+  }
+
+
+  public PaymentBulkSendItemEvent requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID of the bulk send batch.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
+
+  public PaymentBulkSendItemEvent sourceAccount(String sourceAccount) {
+    this.sourceAccount = sourceAccount;
+    return this;
+  }
+
+   /**
+   * The source account ID of the bulk send batch.
+   * @return sourceAccount
+  **/
+  @javax.annotation.Nonnull
+  public String getSourceAccount() {
+    return sourceAccount;
+  }
+
+  public void setSourceAccount(String sourceAccount) {
+    this.sourceAccount = sourceAccount;
+  }
+
+
+  public PaymentBulkSendItemEvent createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
   }
 
    /**
-   * The TSS request&#39;s creation time in Unix timestamp format, measured in milliseconds.
+   * The created time of the bulk send item, represented as a UNIX timestamp in seconds.
    * @return createdTimestamp
   **/
-  @javax.annotation.Nullable
-  public Long getCreatedTimestamp() {
+  @javax.annotation.Nonnull
+  public Integer getCreatedTimestamp() {
     return createdTimestamp;
   }
 
-  public void setCreatedTimestamp(Long createdTimestamp) {
+  public void setCreatedTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
+  }
+
+
+  public PaymentBulkSendItemEvent updatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The updated time of the bulk send item, represented as a UNIX timestamp in seconds.
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nonnull
+  public Integer getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+  public void setUpdatedTimestamp(Integer updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
   }
 
   /**
@@ -350,9 +510,9 @@ public class TSSRequestWebhookEventData {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TSSRequestWebhookEventData instance itself
+   * @return the PaymentBulkSendItemEvent instance itself
    */
-  public TSSRequestWebhookEventData putAdditionalProperty(String key, Object value) {
+  public PaymentBulkSendItemEvent putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -391,35 +551,49 @@ public class TSSRequestWebhookEventData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TSSRequestWebhookEventData tsSRequestWebhookEventData = (TSSRequestWebhookEventData) o;
-    return Objects.equals(this.dataType, tsSRequestWebhookEventData.dataType) &&
-        Objects.equals(this.tssRequestId, tsSRequestWebhookEventData.tssRequestId) &&
-        Objects.equals(this.sourceKeyShareHolderGroup, tsSRequestWebhookEventData.sourceKeyShareHolderGroup) &&
-        Objects.equals(this.targetKeyShareHolderGroupId, tsSRequestWebhookEventData.targetKeyShareHolderGroupId) &&
-        Objects.equals(this.type, tsSRequestWebhookEventData.type) &&
-        Objects.equals(this.status, tsSRequestWebhookEventData.status) &&
-        Objects.equals(this.description, tsSRequestWebhookEventData.description) &&
-        Objects.equals(this.createdTimestamp, tsSRequestWebhookEventData.createdTimestamp)&&
-        Objects.equals(this.additionalProperties, tsSRequestWebhookEventData.additionalProperties);
+    PaymentBulkSendItemEvent paymentBulkSendItemEvent = (PaymentBulkSendItemEvent) o;
+    return Objects.equals(this.dataType, paymentBulkSendItemEvent.dataType) &&
+        Objects.equals(this.bulkSendItemId, paymentBulkSendItemEvent.bulkSendItemId) &&
+        Objects.equals(this.tokenId, paymentBulkSendItemEvent.tokenId) &&
+        Objects.equals(this.receivingAddress, paymentBulkSendItemEvent.receivingAddress) &&
+        Objects.equals(this.amount, paymentBulkSendItemEvent.amount) &&
+        Objects.equals(this.description, paymentBulkSendItemEvent.description) &&
+        Objects.equals(this.txHash, paymentBulkSendItemEvent.txHash) &&
+        Objects.equals(this.status, paymentBulkSendItemEvent.status) &&
+        Objects.equals(this.validationStatus, paymentBulkSendItemEvent.validationStatus) &&
+        Objects.equals(this.failedReason, paymentBulkSendItemEvent.failedReason) &&
+        Objects.equals(this.bulkSendId, paymentBulkSendItemEvent.bulkSendId) &&
+        Objects.equals(this.requestId, paymentBulkSendItemEvent.requestId) &&
+        Objects.equals(this.sourceAccount, paymentBulkSendItemEvent.sourceAccount) &&
+        Objects.equals(this.createdTimestamp, paymentBulkSendItemEvent.createdTimestamp) &&
+        Objects.equals(this.updatedTimestamp, paymentBulkSendItemEvent.updatedTimestamp)&&
+        Objects.equals(this.additionalProperties, paymentBulkSendItemEvent.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, tssRequestId, sourceKeyShareHolderGroup, targetKeyShareHolderGroupId, type, status, description, createdTimestamp, additionalProperties);
+    return Objects.hash(dataType, bulkSendItemId, tokenId, receivingAddress, amount, description, txHash, status, validationStatus, failedReason, bulkSendId, requestId, sourceAccount, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TSSRequestWebhookEventData {\n");
+    sb.append("class PaymentBulkSendItemEvent {\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
-    sb.append("    tssRequestId: ").append(toIndentedString(tssRequestId)).append("\n");
-    sb.append("    sourceKeyShareHolderGroup: ").append(toIndentedString(sourceKeyShareHolderGroup)).append("\n");
-    sb.append("    targetKeyShareHolderGroupId: ").append(toIndentedString(targetKeyShareHolderGroupId)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    bulkSendItemId: ").append(toIndentedString(bulkSendItemId)).append("\n");
+    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
+    sb.append("    receivingAddress: ").append(toIndentedString(receivingAddress)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    txHash: ").append(toIndentedString(txHash)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    validationStatus: ").append(toIndentedString(validationStatus)).append("\n");
+    sb.append("    failedReason: ").append(toIndentedString(failedReason)).append("\n");
+    sb.append("    bulkSendId: ").append(toIndentedString(bulkSendId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    sourceAccount: ").append(toIndentedString(sourceAccount)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -444,34 +618,51 @@ public class TSSRequestWebhookEventData {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("data_type");
-    openapiFields.add("tss_request_id");
-    openapiFields.add("source_key_share_holder_group");
-    openapiFields.add("target_key_share_holder_group_id");
-    openapiFields.add("type");
-    openapiFields.add("status");
+    openapiFields.add("bulk_send_item_id");
+    openapiFields.add("token_id");
+    openapiFields.add("receiving_address");
+    openapiFields.add("amount");
     openapiFields.add("description");
+    openapiFields.add("tx_hash");
+    openapiFields.add("status");
+    openapiFields.add("validation_status");
+    openapiFields.add("failed_reason");
+    openapiFields.add("bulk_send_id");
+    openapiFields.add("request_id");
+    openapiFields.add("source_account");
     openapiFields.add("created_timestamp");
+    openapiFields.add("updated_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("data_type");
+    openapiRequiredFields.add("bulk_send_item_id");
+    openapiRequiredFields.add("token_id");
+    openapiRequiredFields.add("receiving_address");
+    openapiRequiredFields.add("amount");
+    openapiRequiredFields.add("status");
+    openapiRequiredFields.add("validation_status");
+    openapiRequiredFields.add("bulk_send_id");
+    openapiRequiredFields.add("source_account");
+    openapiRequiredFields.add("created_timestamp");
+    openapiRequiredFields.add("updated_timestamp");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TSSRequestWebhookEventData
+  * @throws IOException if the JSON Element is invalid with respect to PaymentBulkSendItemEvent
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TSSRequestWebhookEventData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TSSRequestWebhookEventData is not found in the empty JSON string", TSSRequestWebhookEventData.openapiRequiredFields.toString()));
+        if (!PaymentBulkSendItemEvent.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentBulkSendItemEvent is not found in the empty JSON string", PaymentBulkSendItemEvent.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TSSRequestWebhookEventData.openapiRequiredFields) {
+      for (String requiredField : PaymentBulkSendItemEvent.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -482,26 +673,39 @@ public class TSSRequestWebhookEventData {
       }
       // validate the required field `data_type`
       DataTypeEnum.validateJsonElement(jsonObj.get("data_type"));
-      if ((jsonObj.get("tss_request_id") != null && !jsonObj.get("tss_request_id").isJsonNull()) && !jsonObj.get("tss_request_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tss_request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tss_request_id").toString()));
+      if (!jsonObj.get("bulk_send_item_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bulk_send_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bulk_send_item_id").toString()));
       }
-      // validate the optional field `source_key_share_holder_group`
-      if (jsonObj.get("source_key_share_holder_group") != null && !jsonObj.get("source_key_share_holder_group").isJsonNull()) {
-        SourceGroup.validateJsonElement(jsonObj.get("source_key_share_holder_group"));
+      if (!jsonObj.get("token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
       }
-      if ((jsonObj.get("target_key_share_holder_group_id") != null && !jsonObj.get("target_key_share_holder_group_id").isJsonNull()) && !jsonObj.get("target_key_share_holder_group_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target_key_share_holder_group_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_key_share_holder_group_id").toString()));
+      if (!jsonObj.get("receiving_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `receiving_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiving_address").toString()));
       }
-      // validate the optional field `type`
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
-        TSSRequestType.validateJsonElement(jsonObj.get("type"));
-      }
-      // validate the optional field `status`
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-        TSSRequestStatus.validateJsonElement(jsonObj.get("status"));
+      if (!jsonObj.get("amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("tx_hash") != null && !jsonObj.get("tx_hash").isJsonNull()) && !jsonObj.get("tx_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tx_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tx_hash").toString()));
+      }
+      // validate the required field `status`
+      PaymentBulkSendItemStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the required field `validation_status`
+      PaymentBulkSendItemValidationStatus.validateJsonElement(jsonObj.get("validation_status"));
+      if ((jsonObj.get("failed_reason") != null && !jsonObj.get("failed_reason").isJsonNull()) && !jsonObj.get("failed_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failed_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failed_reason").toString()));
+      }
+      if (!jsonObj.get("bulk_send_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bulk_send_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bulk_send_id").toString()));
+      }
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
+      if (!jsonObj.get("source_account").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `source_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source_account").toString()));
       }
   }
 
@@ -509,16 +713,16 @@ public class TSSRequestWebhookEventData {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TSSRequestWebhookEventData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TSSRequestWebhookEventData' and its subtypes
+       if (!PaymentBulkSendItemEvent.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PaymentBulkSendItemEvent' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TSSRequestWebhookEventData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TSSRequestWebhookEventData.class));
+       final TypeAdapter<PaymentBulkSendItemEvent> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentBulkSendItemEvent.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TSSRequestWebhookEventData>() {
+       return (TypeAdapter<T>) new TypeAdapter<PaymentBulkSendItemEvent>() {
            @Override
-           public void write(JsonWriter out, TSSRequestWebhookEventData value) throws IOException {
+           public void write(JsonWriter out, PaymentBulkSendItemEvent value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -548,12 +752,12 @@ public class TSSRequestWebhookEventData {
            }
 
            @Override
-           public TSSRequestWebhookEventData read(JsonReader in) throws IOException {
+           public PaymentBulkSendItemEvent read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TSSRequestWebhookEventData instance = thisAdapter.fromJsonTree(jsonObj);
+             PaymentBulkSendItemEvent instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -580,18 +784,18 @@ public class TSSRequestWebhookEventData {
   }
 
  /**
-  * Create an instance of TSSRequestWebhookEventData given an JSON string
+  * Create an instance of PaymentBulkSendItemEvent given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of TSSRequestWebhookEventData
-  * @throws IOException if the JSON string is invalid with respect to TSSRequestWebhookEventData
+  * @return An instance of PaymentBulkSendItemEvent
+  * @throws IOException if the JSON string is invalid with respect to PaymentBulkSendItemEvent
   */
-  public static TSSRequestWebhookEventData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TSSRequestWebhookEventData.class);
+  public static PaymentBulkSendItemEvent fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentBulkSendItemEvent.class);
   }
 
  /**
-  * Convert an instance of TSSRequestWebhookEventData to an JSON string
+  * Convert an instance of PaymentBulkSendItemEvent to an JSON string
   *
   * @return JSON string
   */
