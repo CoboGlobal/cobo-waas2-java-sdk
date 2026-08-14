@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.MerchantKycCompanyInfo;
 import com.cobo.waas2.model.MerchantKycMerchantType;
+import com.cobo.waas2.model.MerchantKycPersonInfo;
 import com.cobo.waas2.model.MerchantKycStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -93,6 +94,10 @@ public class MerchantKycSubmission {
   public static final String SERIALIZED_NAME_COMPANY_INFO = "company_info";
   @SerializedName(SERIALIZED_NAME_COMPANY_INFO)
   private MerchantKycCompanyInfo companyInfo;
+
+  public static final String SERIALIZED_NAME_INDIVIDUAL_INFO = "individual_info";
+  @SerializedName(SERIALIZED_NAME_INDIVIDUAL_INFO)
+  private MerchantKycPersonInfo individualInfo;
 
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
@@ -274,13 +279,32 @@ public class MerchantKycSubmission {
    * Get companyInfo
    * @return companyInfo
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public MerchantKycCompanyInfo getCompanyInfo() {
     return companyInfo;
   }
 
   public void setCompanyInfo(MerchantKycCompanyInfo companyInfo) {
     this.companyInfo = companyInfo;
+  }
+
+
+  public MerchantKycSubmission individualInfo(MerchantKycPersonInfo individualInfo) {
+    this.individualInfo = individualInfo;
+    return this;
+  }
+
+   /**
+   * Get individualInfo
+   * @return individualInfo
+  **/
+  @javax.annotation.Nullable
+  public MerchantKycPersonInfo getIndividualInfo() {
+    return individualInfo;
+  }
+
+  public void setIndividualInfo(MerchantKycPersonInfo individualInfo) {
+    this.individualInfo = individualInfo;
   }
 
 
@@ -385,6 +409,7 @@ public class MerchantKycSubmission {
         Objects.equals(this.country, merchantKycSubmission.country) &&
         Objects.equals(this.industry, merchantKycSubmission.industry) &&
         Objects.equals(this.companyInfo, merchantKycSubmission.companyInfo) &&
+        Objects.equals(this.individualInfo, merchantKycSubmission.individualInfo) &&
         Objects.equals(this.createdTimestamp, merchantKycSubmission.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, merchantKycSubmission.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, merchantKycSubmission.additionalProperties);
@@ -392,7 +417,7 @@ public class MerchantKycSubmission {
 
   @Override
   public int hashCode() {
-    return Objects.hash(kycSubmissionId, merchantId, status, email, phone, merchantType, country, industry, companyInfo, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(kycSubmissionId, merchantId, status, email, phone, merchantType, country, industry, companyInfo, individualInfo, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -408,6 +433,7 @@ public class MerchantKycSubmission {
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
     sb.append("    companyInfo: ").append(toIndentedString(companyInfo)).append("\n");
+    sb.append("    individualInfo: ").append(toIndentedString(individualInfo)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -442,6 +468,7 @@ public class MerchantKycSubmission {
     openapiFields.add("country");
     openapiFields.add("industry");
     openapiFields.add("company_info");
+    openapiFields.add("individual_info");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -455,7 +482,6 @@ public class MerchantKycSubmission {
     openapiRequiredFields.add("merchant_type");
     openapiRequiredFields.add("country");
     openapiRequiredFields.add("industry");
-    openapiRequiredFields.add("company_info");
     openapiRequiredFields.add("created_timestamp");
   }
 
@@ -504,8 +530,14 @@ public class MerchantKycSubmission {
       } else if (!jsonObj.get("industry").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `industry` to be an array in the JSON string but got `%s`", jsonObj.get("industry").toString()));
       }
-      // validate the required field `company_info`
-      MerchantKycCompanyInfo.validateJsonElement(jsonObj.get("company_info"));
+      // validate the optional field `company_info`
+      if (jsonObj.get("company_info") != null && !jsonObj.get("company_info").isJsonNull()) {
+        MerchantKycCompanyInfo.validateJsonElement(jsonObj.get("company_info"));
+      }
+      // validate the optional field `individual_info`
+      if (jsonObj.get("individual_info") != null && !jsonObj.get("individual_info").isJsonNull()) {
+        MerchantKycPersonInfo.validateJsonElement(jsonObj.get("individual_info"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

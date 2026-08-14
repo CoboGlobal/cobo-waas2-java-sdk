@@ -105,7 +105,7 @@ public class OrganizationsApi {
 
     /**
      * Get organization information
-     * This operation retrieves the detailed information about the organization associated with the current API key. 
+     * This operation retrieves the detailed information about the organization linked with current APIKey. 
      * @return OrgInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -123,7 +123,7 @@ public class OrganizationsApi {
 
     /**
      * Get organization information
-     * This operation retrieves the detailed information about the organization associated with the current API key. 
+     * This operation retrieves the detailed information about the organization linked with current APIKey. 
      * @return ApiResponse&lt;OrgInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -142,7 +142,7 @@ public class OrganizationsApi {
 
     /**
      * Get organization information (asynchronously)
-     * This operation retrieves the detailed information about the organization associated with the current API key. 
+     * This operation retrieves the detailed information about the organization linked with current APIKey. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

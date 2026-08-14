@@ -49,7 +49,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Details about a user involved in a transaction approval workflow. 
+ * The user detail for a transaction approval. This includes the user&#39;s email, public key, signature, statement UUID, result of the approval, creation time, template version, header title, whether it is for signing, and additional information to show. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -141,7 +141,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Name of the user who approved the transaction.
+   * The name of the user who approved the transaction.
    * @return name
   **/
   @javax.annotation.Nullable
@@ -160,7 +160,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Email of the user.
+   * The email address of the user who approved the transaction.
    * @return email
   **/
   @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Public key of the user.
+   * The public key of the user who approved the transaction.
    * @return pubkey
   **/
   @javax.annotation.Nullable
@@ -198,7 +198,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Signature produced by the user for this approval.
+   * The signature of the transaction approval.
    * @return signature
   **/
   @javax.annotation.Nullable
@@ -217,7 +217,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * UUID of the statement associated with this approval.
+   * The UUID of the statement associated with the transaction approval.
    * @return statementUuid
   **/
   @javax.annotation.Nullable
@@ -255,7 +255,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Integer value representing the result of the approval.
+   * The integer value representing the result of the approval.
    * @return approvalResultCode
   **/
   @javax.annotation.Nullable
@@ -274,7 +274,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Timestamp when the approval was created.
+   * The timestamp when the approval was created.
    * @return createdTime
   **/
   @javax.annotation.Nullable
@@ -312,7 +312,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Version of the template used for the transaction approval.
+   * The version of the template used for the transaction approval.
    * @return templateVersion
   **/
   @javax.annotation.Nullable
@@ -331,7 +331,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Display title used in the transaction approval.
+   * The title of the header for the transaction approval.
    * @return headerTitle
   **/
   @javax.annotation.Nullable
@@ -350,7 +350,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Indicates whether this approval requires signing: - &#x60;true&#x60;: The user must sign the transaction. - &#x60;false&#x60;: The user only needs to approve or reject without signing. 
+   * Indicates whether the approval is for signing.
    * @return isForSign
   **/
   @javax.annotation.Nullable
@@ -388,7 +388,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Language used for the transaction approval.
+   * The language used for the transaction approval.
    * @return language
   **/
   @javax.annotation.Nullable
@@ -407,7 +407,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Version of the message format used for the transaction approval.
+   * The version of the message format used for the transaction approval.
    * @return messageVersion
   **/
   @javax.annotation.Nullable
@@ -426,7 +426,7 @@ public class ApprovalUserDetail {
   }
 
    /**
-   * Message associated with the transaction approval.
+   * The message associated with the transaction approval.
    * @return message
   **/
   @javax.annotation.Nullable

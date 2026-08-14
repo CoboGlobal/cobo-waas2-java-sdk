@@ -8,7 +8,7 @@ The response for a disposition query request.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**transactionId** | **UUID** | The UUID of the transaction that the disposition applies to. |  |
+|**transactionId** | **UUID** | The UUID of the transaction that was disposed. |  |
 |**dispositionType** | **DispositionType** |  |  |
 |**dispositionStatus** | **DispositionStatus** |  |  |
 |**dispositionTransactionId** | **UUID** | The UUID of the generated disposition transaction (if available). |  [optional] |

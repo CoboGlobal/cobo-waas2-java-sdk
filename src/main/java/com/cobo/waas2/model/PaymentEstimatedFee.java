@@ -84,7 +84,7 @@ public class PaymentEstimatedFee {
   }
 
    /**
-   * The token ID for which fees will be calculated.
+   * The ID of the cryptocurrency you want to payment.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -103,7 +103,7 @@ public class PaymentEstimatedFee {
   }
 
    /**
-   * The transaction amount for which fees will be calculated.
+   * The payment amount. 
    * @return amount
   **/
   @javax.annotation.Nonnull

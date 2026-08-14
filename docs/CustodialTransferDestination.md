@@ -2,7 +2,7 @@
 
 # CustodialTransferDestination
 
-The information about the transaction destination type `CustodialWallet`. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  **Note: This destination type is deprecated and should no longer be used. Please use `Address` instead.**  Switch between the tabs to display the properties for different transaction destinations. 
+The information about the transaction destination type `CustodialWallet`. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  An Custodial Wallet  can only receive asset transfers from another Custodial Wallet by using Loop.  Switch between the tabs to display the properties for different transaction destinations. 
 
 ## Properties
 

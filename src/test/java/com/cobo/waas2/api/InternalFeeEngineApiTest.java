@@ -16,6 +16,8 @@ import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.AddTxTokens201Response;
 import com.cobo.waas2.model.AddTxTokensRequest;
+import com.cobo.waas2.model.BatchCommissionFeeRequest;
+import com.cobo.waas2.model.BatchCommissionFeeResult;
 import com.cobo.waas2.model.CommissionFeeDetail;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.FeeEngineDetail;
@@ -53,6 +55,20 @@ public class InternalFeeEngineApiTest {
     public void addTxTokensTest() throws ApiException {
         AddTxTokensRequest addTxTokensRequest = null;
         AddTxTokens201Response response = api.addTxTokens(addTxTokensRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Batch get commission fee
+     *
+     * This operation retrieves commission fees in batch. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void batchGetCommissionFeeTest() throws ApiException {
+        BatchCommissionFeeRequest batchCommissionFeeRequest = null;
+        List<BatchCommissionFeeResult> response = api.batchGetCommissionFee(batchCommissionFeeRequest);
         // TODO: test validations
     }
 

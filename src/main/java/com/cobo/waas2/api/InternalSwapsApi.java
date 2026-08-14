@@ -25,6 +25,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.cobo.waas2.model.BatchLimitsAndLiquidityRequest;
+import com.cobo.waas2.model.BatchLimitsAndLiquidityResponse;
 import com.cobo.waas2.model.CheckSwapWalletAddress200Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ListSwapReachableTokens200Response;
@@ -57,6 +59,124 @@ public class InternalSwapsApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for batchGetSwapLimitsAndLiquidityInternally
+     * @param batchLimitsAndLiquidityRequest Request body to query swap limits and liquidity for a batch of pay/receive token pairs. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The batch swap limits and liquidity information have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call batchGetSwapLimitsAndLiquidityInternallyCall(BatchLimitsAndLiquidityRequest batchLimitsAndLiquidityRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = batchLimitsAndLiquidityRequest;
+
+        // create path and map variables
+        String localVarPath = "/internal/swaps/limits_and_liquidity/batch";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call batchGetSwapLimitsAndLiquidityInternallyValidateBeforeCall(BatchLimitsAndLiquidityRequest batchLimitsAndLiquidityRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'batchLimitsAndLiquidityRequest' is set
+        if (batchLimitsAndLiquidityRequest == null) {
+            throw new ApiException("Missing the required parameter 'batchLimitsAndLiquidityRequest' when calling batchGetSwapLimitsAndLiquidityInternally(Async)");
+        }
+
+        return batchGetSwapLimitsAndLiquidityInternallyCall(batchLimitsAndLiquidityRequest, _callback);
+
+    }
+
+    /**
+     * Batch Get Swap Limits and Liquidity
+     * This operation retrieves the trading limits and available liquidity for up to 50 swap trading pairs in a single request. Only the pay/receive token pair varies per item - &#x60;wallet_id&#x60;, &#x60;wallet_type&#x60;, and &#x60;wallet_subtype&#x60; are request-level fields applied to every pair in the batch, not per item. Each result item echoes back the &#x60;pay_token_id&#x60; and &#x60;receive_token_id&#x60; from its request item so callers can match results to the pair they asked about. 
+     * @param batchLimitsAndLiquidityRequest Request body to query swap limits and liquidity for a batch of pay/receive token pairs. (required)
+     * @return BatchLimitsAndLiquidityResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The batch swap limits and liquidity information have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public BatchLimitsAndLiquidityResponse batchGetSwapLimitsAndLiquidityInternally(BatchLimitsAndLiquidityRequest batchLimitsAndLiquidityRequest) throws ApiException {
+        ApiResponse<BatchLimitsAndLiquidityResponse> localVarResp = batchGetSwapLimitsAndLiquidityInternallyWithHttpInfo(batchLimitsAndLiquidityRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Batch Get Swap Limits and Liquidity
+     * This operation retrieves the trading limits and available liquidity for up to 50 swap trading pairs in a single request. Only the pay/receive token pair varies per item - &#x60;wallet_id&#x60;, &#x60;wallet_type&#x60;, and &#x60;wallet_subtype&#x60; are request-level fields applied to every pair in the batch, not per item. Each result item echoes back the &#x60;pay_token_id&#x60; and &#x60;receive_token_id&#x60; from its request item so callers can match results to the pair they asked about. 
+     * @param batchLimitsAndLiquidityRequest Request body to query swap limits and liquidity for a batch of pay/receive token pairs. (required)
+     * @return ApiResponse&lt;BatchLimitsAndLiquidityResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The batch swap limits and liquidity information have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BatchLimitsAndLiquidityResponse> batchGetSwapLimitsAndLiquidityInternallyWithHttpInfo(BatchLimitsAndLiquidityRequest batchLimitsAndLiquidityRequest) throws ApiException {
+        okhttp3.Call localVarCall = batchGetSwapLimitsAndLiquidityInternallyValidateBeforeCall(batchLimitsAndLiquidityRequest, null);
+        Type localVarReturnType = new TypeToken<BatchLimitsAndLiquidityResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Batch Get Swap Limits and Liquidity (asynchronously)
+     * This operation retrieves the trading limits and available liquidity for up to 50 swap trading pairs in a single request. Only the pay/receive token pair varies per item - &#x60;wallet_id&#x60;, &#x60;wallet_type&#x60;, and &#x60;wallet_subtype&#x60; are request-level fields applied to every pair in the batch, not per item. Each result item echoes back the &#x60;pay_token_id&#x60; and &#x60;receive_token_id&#x60; from its request item so callers can match results to the pair they asked about. 
+     * @param batchLimitsAndLiquidityRequest Request body to query swap limits and liquidity for a batch of pay/receive token pairs. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The batch swap limits and liquidity information have been successfully retrieved. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call batchGetSwapLimitsAndLiquidityInternallyAsync(BatchLimitsAndLiquidityRequest batchLimitsAndLiquidityRequest, final ApiCallback<BatchLimitsAndLiquidityResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = batchGetSwapLimitsAndLiquidityInternallyValidateBeforeCall(batchLimitsAndLiquidityRequest, _callback);
+        Type localVarReturnType = new TypeToken<BatchLimitsAndLiquidityResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for checkSwapWalletAddress
      * @param chainId The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). (required)
@@ -195,7 +315,7 @@ public class InternalSwapsApi {
      * Build call for getSwapLimitsAndLiquidityInternally
      * @param payTokenId Unique id of the token to pay. (required)
      * @param receiveTokenId Unique id of the token to receive. (required)
-     * @param walletSubtype The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  - &#x60;Safe{Wallet}&#x60;: Smart Contract Wallets (Safe{Wallet})  (required)
+     * @param walletSubtype The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  (required)
      * @param type  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -281,7 +401,7 @@ public class InternalSwapsApi {
      * This operation retrieves the trading limits and available liquidity for a specific swap trading pair. The limits include minimum and maximum amounts for both pay and receive tokens, as well as the available liquidity in both pay token and USD. 
      * @param payTokenId Unique id of the token to pay. (required)
      * @param receiveTokenId Unique id of the token to receive. (required)
-     * @param walletSubtype The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  - &#x60;Safe{Wallet}&#x60;: Smart Contract Wallets (Safe{Wallet})  (required)
+     * @param walletSubtype The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  (required)
      * @param type  (optional)
      * @return SwapLimitsAndLiquidity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -303,7 +423,7 @@ public class InternalSwapsApi {
      * This operation retrieves the trading limits and available liquidity for a specific swap trading pair. The limits include minimum and maximum amounts for both pay and receive tokens, as well as the available liquidity in both pay token and USD. 
      * @param payTokenId Unique id of the token to pay. (required)
      * @param receiveTokenId Unique id of the token to receive. (required)
-     * @param walletSubtype The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  - &#x60;Safe{Wallet}&#x60;: Smart Contract Wallets (Safe{Wallet})  (required)
+     * @param walletSubtype The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  (required)
      * @param type  (optional)
      * @return ApiResponse&lt;SwapLimitsAndLiquidity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -326,7 +446,7 @@ public class InternalSwapsApi {
      * This operation retrieves the trading limits and available liquidity for a specific swap trading pair. The limits include minimum and maximum amounts for both pay and receive tokens, as well as the available liquidity in both pay token and USD. 
      * @param payTokenId Unique id of the token to pay. (required)
      * @param receiveTokenId Unique id of the token to receive. (required)
-     * @param walletSubtype The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  - &#x60;Safe{Wallet}&#x60;: Smart Contract Wallets (Safe{Wallet})  (required)
+     * @param walletSubtype The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  (required)
      * @param type  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

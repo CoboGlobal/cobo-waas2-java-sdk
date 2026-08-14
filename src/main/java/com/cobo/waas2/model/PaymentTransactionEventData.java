@@ -18,6 +18,7 @@ import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
 import com.cobo.waas2.model.TransactionFuelingInfo;
 import com.cobo.waas2.model.TransactionInitiatorType;
+import com.cobo.waas2.model.TransactionProcessType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
 import com.cobo.waas2.model.TransactionResult;
@@ -69,7 +70,7 @@ import com.cobo.waas2.JSON;
 )
 public class PaymentTransactionEventData {
   /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentBulkSendItem&#x60;: The payment bulk send item event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBankWithdrawal&#x60;: The payment bank withdrawal event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentBulkSendItem&#x60;: The payment bulk send item event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
@@ -99,7 +100,13 @@ public class PaymentTransactionEventData {
     
     PAYMENTADDRESSUPDATE("PaymentAddressUpdate"),
     
+    PAYMENTSUBSCRIPTIONUPDATE("PaymentSubscriptionUpdate"),
+    
+    PAYMENTCHARGEUPDATE("PaymentChargeUpdate"),
+    
     PAYMENTPAYOUT("PaymentPayout"),
+    
+    PAYMENTBANKWITHDRAWAL("PaymentBankWithdrawal"),
     
     PAYMENTBULKSEND("PaymentBulkSend"),
     
@@ -280,6 +287,10 @@ public class PaymentTransactionEventData {
   @SerializedName(SERIALIZED_NAME_EXTRA)
   private List<String> extra = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE = "transaction_process_type";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE)
+  private TransactionProcessType transactionProcessType;
+
   public static final String SERIALIZED_NAME_FUELING_INFO = "fueling_info";
   @SerializedName(SERIALIZED_NAME_FUELING_INFO)
   private TransactionFuelingInfo fuelingInfo;
@@ -333,7 +344,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentBulkSendItem&#x60;: The payment bulk send item event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBankWithdrawal&#x60;: The payment bank withdrawal event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentBulkSendItem&#x60;: The payment bulk send item event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull
@@ -713,7 +724,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   * The transaction hash (on-chain transaction identifier, also referred to as &#x60;txid&#x60;).  This property is populated only after the transaction is broadcast on-chain, so it may be &#x60;null&#x60; or absent before broadcast. In contrast, &#x60;transaction_id&#x60; (the Cobo internal transaction ID) is assigned at creation and is always present. 
+   * The transaction hash.
    * @return transactionHash
   **/
   @javax.annotation.Nullable
@@ -862,7 +873,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   * The transaction category defined by Cobo. For more details, refer to [Cobo-defined categories](/v2/guides/transactions/manage-transactions#cobo-defined-categories). 
+   * The transaction category defined by Cobo. Possible values include:  - &#x60;AutoSweep&#x60;: An auto-sweep transaction. - &#x60;AutoFueling&#x60;: A transaction where Fee Station pays transaction fees to an address within your wallet. - &#x60;AutoFuelingRefund&#x60;: A refund for an auto-fueling transaction. - &#x60;BillPayment&#x60;: A transaction to pay Cobo bills through Fee Station. - &#x60;BillRefund&#x60;: A refund for a previously made bill payment. - &#x60;CommissionFeeCharge&#x60;: A transaction to charge commission fees via Fee Station. - &#x60;CommissionFeeRefund&#x60;: A refund of previously charged commission fees. 
    * @return coboCategory
   **/
   @javax.annotation.Nullable
@@ -889,7 +900,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   * A list of JSON-encoded strings containing structured, business-specific extra information for the transaction. Each item corresponds to a specific data type, indicated by the &#x60;extra_type&#x60; field in the JSON object (for example, \&quot;BabylonBusinessInfo\&quot;, \&quot;BtcAddressInfo\&quot;). 
+   * The transaction extra information.
    * @return extra
   **/
   @javax.annotation.Nullable
@@ -899,6 +910,25 @@ public class PaymentTransactionEventData {
 
   public void setExtra(List<String> extra) {
     this.extra = extra;
+  }
+
+
+  public PaymentTransactionEventData transactionProcessType(TransactionProcessType transactionProcessType) {
+    this.transactionProcessType = transactionProcessType;
+    return this;
+  }
+
+   /**
+   * Get transactionProcessType
+   * @return transactionProcessType
+  **/
+  @javax.annotation.Nullable
+  public TransactionProcessType getTransactionProcessType() {
+    return transactionProcessType;
+  }
+
+  public void setTransactionProcessType(TransactionProcessType transactionProcessType) {
+    this.transactionProcessType = transactionProcessType;
   }
 
 
@@ -984,7 +1014,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   * The pay-in order ID.
+   * Unique identifier of a single order
    * @return orderId
   **/
   @javax.annotation.Nullable
@@ -1022,7 +1052,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   * A unique identifier assigned by Cobo to track and identify individual payers.
+   * Unique payer identifier on the Cobo side, auto-generated by the system. 
    * @return payerId
   **/
   @javax.annotation.Nullable
@@ -1041,7 +1071,7 @@ public class PaymentTransactionEventData {
   }
 
    /**
-   * A unique identifier assigned by the developer to track and identify individual payers in their system.
+   * Unique user identifier on the merchant side, used to assign a dedicated deposit address. 
    * @return customPayerId
   **/
   @javax.annotation.Nullable
@@ -1194,6 +1224,7 @@ public class PaymentTransactionEventData {
         Objects.equals(this.isLoop, paymentTransactionEventData.isLoop) &&
         Objects.equals(this.coboCategory, paymentTransactionEventData.coboCategory) &&
         Objects.equals(this.extra, paymentTransactionEventData.extra) &&
+        Objects.equals(this.transactionProcessType, paymentTransactionEventData.transactionProcessType) &&
         Objects.equals(this.fuelingInfo, paymentTransactionEventData.fuelingInfo) &&
         Objects.equals(this.createdTimestamp, paymentTransactionEventData.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, paymentTransactionEventData.updatedTimestamp) &&
@@ -1210,7 +1241,7 @@ public class PaymentTransactionEventData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, coboCategory, extra, fuelingInfo, createdTimestamp, updatedTimestamp, acquiringType, orderId, pspOrderCode, payerId, customPayerId, merchantId, subscriptionId, actionId, additionalProperties);
+    return Objects.hash(dataType, transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, coboCategory, extra, transactionProcessType, fuelingInfo, createdTimestamp, updatedTimestamp, acquiringType, orderId, pspOrderCode, payerId, customPayerId, merchantId, subscriptionId, actionId, additionalProperties);
   }
 
   @Override
@@ -1246,6 +1277,7 @@ public class PaymentTransactionEventData {
     sb.append("    isLoop: ").append(toIndentedString(isLoop)).append("\n");
     sb.append("    coboCategory: ").append(toIndentedString(coboCategory)).append("\n");
     sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
+    sb.append("    transactionProcessType: ").append(toIndentedString(transactionProcessType)).append("\n");
     sb.append("    fuelingInfo: ").append(toIndentedString(fuelingInfo)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
@@ -1309,6 +1341,7 @@ public class PaymentTransactionEventData {
     openapiFields.add("is_loop");
     openapiFields.add("cobo_category");
     openapiFields.add("extra");
+    openapiFields.add("transaction_process_type");
     openapiFields.add("fueling_info");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
@@ -1440,6 +1473,10 @@ public class PaymentTransactionEventData {
       // ensure the optional json data is an array if present
       if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull() && !jsonObj.get("extra").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `extra` to be an array in the JSON string but got `%s`", jsonObj.get("extra").toString()));
+      }
+      // validate the optional field `transaction_process_type`
+      if (jsonObj.get("transaction_process_type") != null && !jsonObj.get("transaction_process_type").isJsonNull()) {
+        TransactionProcessType.validateJsonElement(jsonObj.get("transaction_process_type"));
       }
       // validate the optional field `fueling_info`
       if (jsonObj.get("fueling_info") != null && !jsonObj.get("fueling_info").isJsonNull()) {

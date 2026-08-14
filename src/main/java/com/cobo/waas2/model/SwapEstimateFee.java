@@ -78,7 +78,7 @@ public class SwapEstimateFee {
   }
 
    /**
-   * The ID of the wallet to pay.
+   * The unique identifier of the wallet to pay.
    * @return walletId
   **/
   @javax.annotation.Nonnull
@@ -97,7 +97,7 @@ public class SwapEstimateFee {
   }
 
    /**
-   * The wallet address. This property is required when the wallet to pay is not a Custodial Wallet (Asset Wallet).
+   * The wallet address, required when the wallet is not a custodial wallet.
    * @return address
   **/
   @javax.annotation.Nullable
@@ -116,7 +116,7 @@ public class SwapEstimateFee {
   }
 
    /**
-   * The ID of the swap quote.
+   * The unique identifier of the quote.
    * @return quoteId
   **/
   @javax.annotation.Nonnull

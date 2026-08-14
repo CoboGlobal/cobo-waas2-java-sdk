@@ -11,11 +11,13 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.TokenizationERC20FundTokenParams;
+import com.cobo.waas2.model.TokenizationERC20FundTokenPermissionParams;
 import com.cobo.waas2.model.TokenizationERC20TokenParams;
 import com.cobo.waas2.model.TokenizationERC20WrappedTokenParams;
+import com.cobo.waas2.model.TokenizationSOLTokenExtensions;
 import com.cobo.waas2.model.TokenizationSOLTokenParams;
 import com.cobo.waas2.model.TokenizationSOLWrappedTokenParams;
-import com.cobo.waas2.model.TokenizationSolWrappedTokenPermissionParams;
 import com.cobo.waas2.model.TokenizationTokenStandard;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -95,6 +97,78 @@ public class TokenizationIssueTokenParamsTokenParamsTest {
     @Test
     public void underlyingTokenTest() {
         // TODO: test underlyingToken
+    }
+
+    /**
+     * Test the property 'extensions'
+     */
+    @Test
+    public void extensionsTest() {
+        // TODO: test extensions
+    }
+
+    /**
+     * Test the property 'assetToken'
+     */
+    @Test
+    public void assetTokenTest() {
+        // TODO: test assetToken
+    }
+
+    /**
+     * Test the property 'initialNav'
+     */
+    @Test
+    public void initialNavTest() {
+        // TODO: test initialNav
+    }
+
+    /**
+     * Test the property 'initialAnnualRate'
+     */
+    @Test
+    public void initialAnnualRateTest() {
+        // TODO: test initialAnnualRate
+    }
+
+    /**
+     * Test the property 'minDeposit'
+     */
+    @Test
+    public void minDepositTest() {
+        // TODO: test minDeposit
+    }
+
+    /**
+     * Test the property 'minRedemption'
+     */
+    @Test
+    public void minRedemptionTest() {
+        // TODO: test minRedemption
+    }
+
+    /**
+     * Test the property 'maxAnnualRate'
+     */
+    @Test
+    public void maxAnnualRateTest() {
+        // TODO: test maxAnnualRate
+    }
+
+    /**
+     * Test the property 'maxRateChange'
+     */
+    @Test
+    public void maxRateChangeTest() {
+        // TODO: test maxRateChange
+    }
+
+    /**
+     * Test the property 'minUpdateIntervalSeconds'
+     */
+    @Test
+    public void minUpdateIntervalSecondsTest() {
+        // TODO: test minUpdateIntervalSeconds
     }
 
 }

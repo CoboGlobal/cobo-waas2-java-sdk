@@ -4,21 +4,22 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createSwapActivity**](SwapsApi.md#createSwapActivity) | **POST** /swaps/swap | Create swap activity |
-| [**estimateSwapFee**](SwapsApi.md#estimateSwapFee) | **POST** /swaps/estimate_fee | Estimate swap fee |
-| [**getSwapActivity**](SwapsApi.md#getSwapActivity) | **GET** /swaps/activities/{activity_id} | Get swap activity |
-| [**getSwapQuote**](SwapsApi.md#getSwapQuote) | **GET** /swaps/quote | Get swap quote |
-| [**listSwapActivities**](SwapsApi.md#listSwapActivities) | **GET** /swaps/activities | List swap activities |
-| [**listSwapEnabledTokens**](SwapsApi.md#listSwapEnabledTokens) | **GET** /swaps/enabled_tokens | List enabled tokens for swap |
+| [**createSwapActivity**](SwapsApi.md#createSwapActivity) | **POST** /swaps/swap | Create Swap Activity |
+| [**estimateSwapFee**](SwapsApi.md#estimateSwapFee) | **POST** /swaps/estimate_fee | Estimate Swap Fee |
+| [**getSwapActivity**](SwapsApi.md#getSwapActivity) | **GET** /swaps/activities/{activity_id} | Get Swap Activity Details |
+| [**getSwapLimitsAndLiquidity**](SwapsApi.md#getSwapLimitsAndLiquidity) | **GET** /swaps/limits_and_liquidity | Get Swap Limits and Liquidity |
+| [**getSwapQuote**](SwapsApi.md#getSwapQuote) | **GET** /swaps/quote | Get Current Swap Rate |
+| [**listSwapActivities**](SwapsApi.md#listSwapActivities) | **GET** /swaps/activities | List Swap Activities |
+| [**listSwapEnabledTokens**](SwapsApi.md#listSwapEnabledTokens) | **GET** /swaps/enabled_tokens | List Enabled Tokens |
 
 
 <a id="createSwapActivity"></a>
 # **createSwapActivity**
 > SwapActivityDetail createSwapActivity(createSwapActivityRequest)
 
-Create swap activity
+Create Swap Activity
 
-This operation creates a swap activity. A swap activity can be either a bridge (cross-chain transfer) or an exchange (token-to-token swap on the same chain). 
+This operation to create a swap activity. 
 
 ### Example
 ```java
@@ -76,7 +77,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | The swap activity details successfully retrieved. |  -  |
+| **201** | The swap activity details have been successfully retrieved. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -84,9 +85,9 @@ public class Example {
 # **estimateSwapFee**
 > EstimatedFee estimateSwapFee(swapEstimateFee)
 
-Estimate swap fee
+Estimate Swap Fee
 
-This operation estimates the network fee of a swap activity. You can use this operation to estimate the network fee before initiating swap activities from MPC Wallets or Custodial Wallets (Web3 Wallets).  It requires a valid &#x60;wallet_id&#x60; and &#x60;quote_id&#x60;, so you need to [get a swap quote](https://www.cobo.com/developers/v2/api-references/swaps/get-swap-quote) first. 
+This operation to estimate the fee of a swap activity. 
 
 ### Example
 ```java
@@ -126,7 +127,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **swapEstimateFee** | [**SwapEstimateFee**](SwapEstimateFee.md)| The request body for estimating the network fee of a swap activity. | |
+| **swapEstimateFee** | [**SwapEstimateFee**](SwapEstimateFee.md)| The request body for estimating the fee of a swap activity. | |
 
 ### Return type
 
@@ -144,7 +145,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | The estimated service fee for swap activity successfully retrieved. |  -  |
+| **201** | Successfully retrieved the estimated fee for swap activity. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -152,9 +153,9 @@ public class Example {
 # **getSwapActivity**
 > SwapActivityDetail getSwapActivity(activityId)
 
-Get swap activity
+Get Swap Activity Details
 
-This operation retrieves detailed information about a specified swap activity. 
+This operation retrieves the details of a swap activity. 
 
 ### Example
 ```java
@@ -194,7 +195,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **activityId** | **String**| The unique identifier of the swap activity. | |
+| **activityId** | **String**| The unique id of the activity. | |
 
 ### Return type
 
@@ -212,7 +213,81 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The swap activity details successfully retrieved. |  -  |
+| **200** | The swap activity details have been successfully retrieved. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="getSwapLimitsAndLiquidity"></a>
+# **getSwapLimitsAndLiquidity**
+> SwapLimitsAndLiquidity getSwapLimitsAndLiquidity(payTokenId, receiveTokenId, walletSubtype, type)
+
+Get Swap Limits and Liquidity
+
+This operation retrieves the trading limits and available liquidity for a specific swap trading pair. The limits include minimum and maximum amounts for both pay and receive tokens, as well as the available liquidity in both pay token and USD. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.SwapsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    SwapsApi apiInstance = new SwapsApi();
+    String payTokenId = "ETH";
+    String receiveTokenId = "USDT";
+    WalletSubtype walletSubtype = WalletSubtype.fromValue("Asset");
+    SwapType type = SwapType.fromValue("Bridge");
+    try {
+      SwapLimitsAndLiquidity result = apiInstance.getSwapLimitsAndLiquidity(payTokenId, receiveTokenId, walletSubtype, type);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SwapsApi#getSwapLimitsAndLiquidity");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **payTokenId** | **String**| Unique id of the token to pay. | |
+| **receiveTokenId** | **String**| Unique id of the token to receive. | |
+| **walletSubtype** | [**WalletSubtype**](.md)| The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  | [enum: Asset, Web3, Org-Controlled, User-Controlled, Main, Sub] |
+| **type** | [**SwapType**](.md)|  | [optional] [enum: Bridge, Exchange] |
+
+### Return type
+
+[**SwapLimitsAndLiquidity**](SwapLimitsAndLiquidity.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The swap limits and liquidity information have been successfully retrieved. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -220,9 +295,9 @@ public class Example {
 # **getSwapQuote**
 > SwapQuote getSwapQuote(walletId, payTokenId, receiveTokenId, payAmount, receiveAmount)
 
-Get swap quote
+Get Current Swap Rate
 
-This operation retrieves the current market exchange rate and estimated service fee. You need to provide &#x60;wallet_id&#x60;, &#x60;pay_token_id&#x60;, and &#x60;receive_token_id&#x60;, along with either &#x60;pay_amount&#x60; or &#x60;receive_amount&#x60;. 
+This operation retrieves the current market exchange rate and estimated amount for swapping between two tokens. Either pay_amount or receive_amount must be provided. 
 
 ### Example
 ```java
@@ -267,10 +342,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **walletId** | **UUID**| The wallet ID. | |
-| **payTokenId** | **String**| The ID of the token to pay. | |
-| **receiveTokenId** | **String**| The ID of the token to receive. | |
-| **payAmount** | **String**| The amount of the token to pay. | [optional] |
-| **receiveAmount** | **String**| The amount of the token to receive. | [optional] |
+| **payTokenId** | **String**| Unique id of the token to pay. | |
+| **receiveTokenId** | **String**| Unique id of the token to receive. | |
+| **payAmount** | **String**| The amount of pay token. | [optional] |
+| **receiveAmount** | **String**| The amount of token to receive. | [optional] |
 
 ### Return type
 
@@ -288,7 +363,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The swap quote successfully retrieved. |  -  |
+| **200** | The swap quote has been successfully retrieved. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -296,9 +371,9 @@ public class Example {
 # **listSwapActivities**
 > ListSwapActivities200Response listSwapActivities(requestId, type, status, minUpdatedTimestamp, maxUpdatedTimestamp, initiator, limit, before, after, sortBy, direction)
 
-List swap activities
+List Swap Activities
 
-This operation retrieves a list of swap activities. You can filter the results by swap type, status, initiator, and time range. 
+This operation retrieves a list of swap activities. 
 
 ### Example
 ```java
@@ -351,12 +426,12 @@ public class Example {
 | **requestId** | **String**| The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. | [optional] |
 | **type** | [**SwapType**](.md)|  | [optional] [enum: Bridge, Exchange] |
 | **status** | [**SwapActivityStatus**](.md)|  | [optional] [enum: Success, Processing, Failed] |
-| **minUpdatedTimestamp** | **Long**| The start time of the query. All swap activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. | [optional] |
-| **maxUpdatedTimestamp** | **Long**| The end time of the query. All swap activities updated before the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. | [optional] |
-| **initiator** | **String**| The initiator of the swap activity. It is optional when creating the activity and defaults to your API key if not specified. | [optional] |
+| **minUpdatedTimestamp** | **Long**| The start time of the query. All staking activities updated after the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. | [optional] |
+| **maxUpdatedTimestamp** | **Long**| The end time of the query. All staking activities updated before the specified time will be retrieved. The time is in Unix timestamp format, measured in milliseconds. | [optional] |
+| **initiator** | **String**| The activity initiator, which is your API key by default. You can also specify the initiator when creating the activity. | [optional] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
-| **before** | **String**| A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  | [optional] |
-| **after** | **String**| A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  | [optional] |
+| **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
+| **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
 | **sortBy** | **String**| The field to sort the results by.   Possible values include: - &#x60;created_timestamp&#x60;: Sort by the time when the data was created. - &#x60;updated_timestamp&#x60;: Sort by the time when the data was last updated.  | [optional] [enum: created_timestamp, updated_timestamp] |
 | **direction** | **String**| The sort direction. Possible values include:   - &#x60;ASC&#x60;: Sort the results in ascending order.   - &#x60;DESC&#x60;: Sort the results in descending order.  | [optional] [default to ASC] [enum: ASC, DESC] |
 
@@ -376,17 +451,17 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A list of swap activities successfully retrieved. |  -  |
+| **200** | A list of swap activities have been successfully retrieved. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
 <a id="listSwapEnabledTokens"></a>
 # **listSwapEnabledTokens**
-> ListSwapEnabledTokens200Response listSwapEnabledTokens(type, assetId, chainId, limit, before, after)
+> ListSwapEnabledTokens200Response listSwapEnabledTokens(type, assetId, chainId, walletId, limit, before, after)
 
-List enabled tokens for swap
+List Enabled Tokens
 
-This operation retrieves a list of tokens that are enabled for the swap feature. You can filter the results by swap type, asset ID, and chain ID. 
+This operation retrieves all enabled tokens for swaps.   
 
 ### Example
 ```java
@@ -410,11 +485,12 @@ public class Example {
     SwapType type = SwapType.fromValue("Bridge");
     String assetId = "USDT";
     String chainId = "ETH";
+    UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     Integer limit = 10;
     String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
     String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
     try {
-      ListSwapEnabledTokens200Response result = apiInstance.listSwapEnabledTokens(type, assetId, chainId, limit, before, after);
+      ListSwapEnabledTokens200Response result = apiInstance.listSwapEnabledTokens(type, assetId, chainId, walletId, limit, before, after);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SwapsApi#listSwapEnabledTokens");
@@ -434,9 +510,10 @@ public class Example {
 | **type** | [**SwapType**](.md)|  | [optional] [enum: Bridge, Exchange] |
 | **assetId** | **String**| (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account. | [optional] |
 | **chainId** | **String**| The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). | [optional] |
+| **walletId** | **UUID**| The wallet ID. | [optional] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
-| **before** | **String**| A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  | [optional] |
-| **after** | **String**| A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  | [optional] |
+| **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
+| **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
 
 ### Return type
 
@@ -454,7 +531,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A list of enabled tokens successfully retrieved. |  -  |
+| **200** | A list of enabled tokens have been successfully retrieved. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 

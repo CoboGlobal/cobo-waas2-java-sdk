@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The extra information for Babylon transaction parameters.
+ * The Babylon transaction parameters.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -110,7 +110,7 @@ public class TransactionBabylonTxParameters {
   }
 
    /**
-   * The original staking amount.
+   * The origin staking amount.
    * @return stakeAmount
   **/
   @javax.annotation.Nullable
@@ -167,7 +167,7 @@ public class TransactionBabylonTxParameters {
   }
 
    /**
-   * The version of Babylon global parameters.
+   * The version of babylon global parameters.
    * @return paramVersion
   **/
   @javax.annotation.Nullable

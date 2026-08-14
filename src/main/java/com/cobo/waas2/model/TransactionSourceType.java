@@ -36,8 +36,6 @@ public enum TransactionSourceType {
   
   USER_CONTROLLED("User-Controlled"),
   
-  SAFE_WALLET_("Safe{Wallet}"),
-  
   MAIN("Main"),
   
   SUB("Sub"),

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The merchant status. Possible values include: - &#x60;Pending&#x60;: The merchant is pending approval. - &#x60;Active&#x60;: The merchant is active. - &#x60;Suspend&#x60;: The merchant is suspended. - &#x60;Deact&#x60;: The merchant is deactivated. 
+ * The merchant status. Possible values include: - &#x60;Pending&#x60;: The merchant is pending approval. - &#x60;Active&#x60;: The merchant is active. - &#x60;Suspend&#x60;: The merchant is suspended. - &#x60;Deact&#x60;: The merchant is deactivated. - &#x60;Disabled&#x60;: The merchant is disabled. 
  */
 @JsonAdapter(ThirdPartyMerchantStatus.Adapter.class)
 public enum ThirdPartyMerchantStatus {
@@ -34,7 +34,9 @@ public enum ThirdPartyMerchantStatus {
   
   SUSPEND("Suspend"),
   
-  DEACT("Deact");
+  DEACT("Deact"),
+  
+  DISABLED("Disabled");
 
   private String value;
 

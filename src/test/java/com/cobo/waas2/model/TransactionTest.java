@@ -16,6 +16,7 @@ import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
 import com.cobo.waas2.model.TransactionFuelingInfo;
 import com.cobo.waas2.model.TransactionInitiatorType;
+import com.cobo.waas2.model.TransactionProcessType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
 import com.cobo.waas2.model.TransactionResult;
@@ -272,6 +273,14 @@ public class TransactionTest {
     @Test
     public void extraTest() {
         // TODO: test extra
+    }
+
+    /**
+     * Test the property 'transactionProcessType'
+     */
+    @Test
+    public void transactionProcessTypeTest() {
+        // TODO: test transactionProcessType
     }
 
     /**

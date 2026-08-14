@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about a request to unfreeze funds.
+ * The information about a fund unfreeze disposition request.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -66,7 +66,7 @@ public class UnfreezeDisposition {
   }
 
    /**
-   * The UUID of the transaction whose funds are to be unfrozen.
+   * The UUID of the transaction to be unfrozen. This identifies the frozen transaction that needs to be released.
    * @return transactionId
   **/
   @javax.annotation.Nonnull

@@ -58,9 +58,17 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class CreateThirdPartyPayeeRequest {
+  public static final String SERIALIZED_NAME_THIRD_PAYEE_ID = "third_payee_id";
+  @SerializedName(SERIALIZED_NAME_THIRD_PAYEE_ID)
+  private String thirdPayeeId;
+
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
   private BankProvider provider;
+
+  public static final String SERIALIZED_NAME_COBO_MERCHANT_ID = "cobo_merchant_id";
+  @SerializedName(SERIALIZED_NAME_COBO_MERCHANT_ID)
+  private String coboMerchantId;
 
   public static final String SERIALIZED_NAME_COBO_PAYEE_ID = "cobo_payee_id";
   @SerializedName(SERIALIZED_NAME_COBO_PAYEE_ID)
@@ -97,6 +105,25 @@ public class CreateThirdPartyPayeeRequest {
   public CreateThirdPartyPayeeRequest() {
   }
 
+  public CreateThirdPartyPayeeRequest thirdPayeeId(String thirdPayeeId) {
+    this.thirdPayeeId = thirdPayeeId;
+    return this;
+  }
+
+   /**
+   * The third-party payee ID. If provided, the existing third-party payee is updated; otherwise, a new third-party payee is created. 
+   * @return thirdPayeeId
+  **/
+  @javax.annotation.Nullable
+  public String getThirdPayeeId() {
+    return thirdPayeeId;
+  }
+
+  public void setThirdPayeeId(String thirdPayeeId) {
+    this.thirdPayeeId = thirdPayeeId;
+  }
+
+
   public CreateThirdPartyPayeeRequest provider(BankProvider provider) {
     this.provider = provider;
     return this;
@@ -113,6 +140,25 @@ public class CreateThirdPartyPayeeRequest {
 
   public void setProvider(BankProvider provider) {
     this.provider = provider;
+  }
+
+
+  public CreateThirdPartyPayeeRequest coboMerchantId(String coboMerchantId) {
+    this.coboMerchantId = coboMerchantId;
+    return this;
+  }
+
+   /**
+   * The Cobo merchant ID.
+   * @return coboMerchantId
+  **/
+  @javax.annotation.Nonnull
+  public String getCoboMerchantId() {
+    return coboMerchantId;
+  }
+
+  public void setCoboMerchantId(String coboMerchantId) {
+    this.coboMerchantId = coboMerchantId;
   }
 
 
@@ -322,7 +368,9 @@ public class CreateThirdPartyPayeeRequest {
       return false;
     }
     CreateThirdPartyPayeeRequest createThirdPartyPayeeRequest = (CreateThirdPartyPayeeRequest) o;
-    return Objects.equals(this.provider, createThirdPartyPayeeRequest.provider) &&
+    return Objects.equals(this.thirdPayeeId, createThirdPartyPayeeRequest.thirdPayeeId) &&
+        Objects.equals(this.provider, createThirdPartyPayeeRequest.provider) &&
+        Objects.equals(this.coboMerchantId, createThirdPartyPayeeRequest.coboMerchantId) &&
         Objects.equals(this.coboPayeeId, createThirdPartyPayeeRequest.coboPayeeId) &&
         Objects.equals(this.currency, createThirdPartyPayeeRequest.currency) &&
         Objects.equals(this.country, createThirdPartyPayeeRequest.country) &&
@@ -336,14 +384,16 @@ public class CreateThirdPartyPayeeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, coboPayeeId, currency, country, paymentMethod, holderType, beneficiaryDetail, bankAccount, contractDocumentUrl, additionalProperties);
+    return Objects.hash(thirdPayeeId, provider, coboMerchantId, coboPayeeId, currency, country, paymentMethod, holderType, beneficiaryDetail, bankAccount, contractDocumentUrl, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateThirdPartyPayeeRequest {\n");
+    sb.append("    thirdPayeeId: ").append(toIndentedString(thirdPayeeId)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    coboMerchantId: ").append(toIndentedString(coboMerchantId)).append("\n");
     sb.append("    coboPayeeId: ").append(toIndentedString(coboPayeeId)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
@@ -375,7 +425,9 @@ public class CreateThirdPartyPayeeRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("third_payee_id");
     openapiFields.add("provider");
+    openapiFields.add("cobo_merchant_id");
     openapiFields.add("cobo_payee_id");
     openapiFields.add("currency");
     openapiFields.add("country");
@@ -388,6 +440,7 @@ public class CreateThirdPartyPayeeRequest {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("provider");
+    openapiRequiredFields.add("cobo_merchant_id");
     openapiRequiredFields.add("cobo_payee_id");
     openapiRequiredFields.add("currency");
     openapiRequiredFields.add("country");
@@ -418,8 +471,14 @@ public class CreateThirdPartyPayeeRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("third_payee_id") != null && !jsonObj.get("third_payee_id").isJsonNull()) && !jsonObj.get("third_payee_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `third_payee_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("third_payee_id").toString()));
+      }
       // validate the required field `provider`
       BankProvider.validateJsonElement(jsonObj.get("provider"));
+      if (!jsonObj.get("cobo_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cobo_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cobo_merchant_id").toString()));
+      }
       if (!jsonObj.get("cobo_payee_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cobo_payee_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cobo_payee_id").toString()));
       }

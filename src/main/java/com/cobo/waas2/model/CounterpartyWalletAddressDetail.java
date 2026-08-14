@@ -186,7 +186,7 @@ public class CounterpartyWalletAddressDetail {
   }
 
    /**
-   * The chain ID of the address.
+   * The chain ID of the cryptocurrency.
    * @return chainId
   **/
   @javax.annotation.Nonnull

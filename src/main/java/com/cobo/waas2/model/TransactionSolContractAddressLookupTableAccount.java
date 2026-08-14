@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about a Solana Address Lookup Table account.
+ * The information about the Solana address lookup table account.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -71,7 +71,7 @@ public class TransactionSolContractAddressLookupTableAccount {
   }
 
    /**
-   * The on-chain public key of the Address Lookup Table (ALT) account, identifying the specific lookup table.
+   * The on-chain public key of the address lookup table account (ALT), identifying the specific lookup table.
    * @return altAccountKey
   **/
   @javax.annotation.Nonnull
@@ -98,7 +98,7 @@ public class TransactionSolContractAddressLookupTableAccount {
   }
 
    /**
-   * An array of stored account addresses within the lookup table, which can be referenced in transactions by index.
+   * An array of stored account addresses within the lookup table, which can be referenced in the transaction by index.
    * @return addresses
   **/
   @javax.annotation.Nonnull

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The fee type. Possible values include: - &#x60;Order&#x60;: Fees for order processing. - &#x60;Refund&#x60;: Fees for refund processing. - &#x60;CryptoSettlement&#x60;: This fee type is deprecated. Please use &#x60;CryptoPayout&#x60; instead. - &#x60;OffRampSettlement&#x60;: This fee type is deprecated. Please use &#x60;OffRampPayout&#x60; instead. - &#x60;CryptoPayout&#x60;: Fees for crypto payouts. - &#x60;CryptoPayoutBridge&#x60;: Fees for crypto payouts with cross-chain bridging. - &#x60;OffRampPayout&#x60;: Fees for fiat off-ramp payouts. 
+ * The current status of the force sweep request: - &#x60;Order&#x60;: The order fee type. - &#x60;Refund&#x60;: The refund fee type. - &#x60;CryptoSettlement&#x60;: The crypto settlement fee type. - &#x60;OffRampSettlement&#x60;: The off ramp settlement fee type. - &#x60;CryptoPayout&#x60;: The crypto payout fee type - &#x60;CryptoPayoutBridge&#x60;: The crypto payout with bridge fee type - &#x60;OffRampPayout&#x60;: The off ramp payout fee type 
  */
 @JsonAdapter(PaymentFeeType.Adapter.class)
 public enum PaymentFeeType {

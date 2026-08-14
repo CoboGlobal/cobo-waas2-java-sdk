@@ -84,6 +84,14 @@ public class ThirdPartyBankAccountInfo {
   @SerializedName(SERIALIZED_NAME_PROVINCE)
   private String province;
 
+  public static final String SERIALIZED_NAME_CITY = "city";
+  @SerializedName(SERIALIZED_NAME_CITY)
+  private String city;
+
+  public static final String SERIALIZED_NAME_ROUTING_VALUE = "routing_value";
+  @SerializedName(SERIALIZED_NAME_ROUTING_VALUE)
+  private String routingValue;
+
   public ThirdPartyBankAccountInfo() {
   }
 
@@ -238,6 +246,44 @@ public class ThirdPartyBankAccountInfo {
     this.province = province;
   }
 
+
+  public ThirdPartyBankAccountInfo city(String city) {
+    this.city = city;
+    return this;
+  }
+
+   /**
+   * The city of the bank.
+   * @return city
+  **/
+  @javax.annotation.Nullable
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+
+  public ThirdPartyBankAccountInfo routingValue(String routingValue) {
+    this.routingValue = routingValue;
+    return this;
+  }
+
+   /**
+   * The routing value of the bank account.
+   * @return routingValue
+  **/
+  @javax.annotation.Nullable
+  public String getRoutingValue() {
+    return routingValue;
+  }
+
+  public void setRoutingValue(String routingValue) {
+    this.routingValue = routingValue;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -300,13 +346,15 @@ public class ThirdPartyBankAccountInfo {
         Objects.equals(this.swiftCode, thirdPartyBankAccountInfo.swiftCode) &&
         Objects.equals(this.branchCode, thirdPartyBankAccountInfo.branchCode) &&
         Objects.equals(this.bankAddress, thirdPartyBankAccountInfo.bankAddress) &&
-        Objects.equals(this.province, thirdPartyBankAccountInfo.province)&&
+        Objects.equals(this.province, thirdPartyBankAccountInfo.province) &&
+        Objects.equals(this.city, thirdPartyBankAccountInfo.city) &&
+        Objects.equals(this.routingValue, thirdPartyBankAccountInfo.routingValue)&&
         Objects.equals(this.additionalProperties, thirdPartyBankAccountInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountName, country, bankName, swiftCode, branchCode, bankAddress, province, additionalProperties);
+    return Objects.hash(accountNumber, accountName, country, bankName, swiftCode, branchCode, bankAddress, province, city, routingValue, additionalProperties);
   }
 
   @Override
@@ -321,6 +369,8 @@ public class ThirdPartyBankAccountInfo {
     sb.append("    branchCode: ").append(toIndentedString(branchCode)).append("\n");
     sb.append("    bankAddress: ").append(toIndentedString(bankAddress)).append("\n");
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    routingValue: ").append(toIndentedString(routingValue)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -352,6 +402,8 @@ public class ThirdPartyBankAccountInfo {
     openapiFields.add("branch_code");
     openapiFields.add("bank_address");
     openapiFields.add("province");
+    openapiFields.add("city");
+    openapiFields.add("routing_value");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -406,6 +458,12 @@ public class ThirdPartyBankAccountInfo {
       }
       if (!jsonObj.get("province").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `province` to be a primitive type in the JSON string but got `%s`", jsonObj.get("province").toString()));
+      }
+      if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
+      }
+      if ((jsonObj.get("routing_value") != null && !jsonObj.get("routing_value").isJsonNull()) && !jsonObj.get("routing_value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `routing_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("routing_value").toString()));
       }
   }
 

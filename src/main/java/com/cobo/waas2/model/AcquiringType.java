@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The payment acquisition type. - &#x60;Order&#x60;: Payers pay by fixed-amount orders. Ideal for specific purchases and one-time transactions. - &#x60;TopUp&#x60;: Account recharge flow where payers deposit funds to their dedicated top-up addresses. Ideal for flexible or usage-based payment models. 
+ * AcquiringType defines the acquisition logic used in the payment flow: - &#x60;Order&#x60;: Each order is created with a specific amount and associated payment request. Funds are settled on a per-order basis. - &#x60;TopUp&#x60;: Recharge-style flow where funds are topped up to a payer balance or account. Useful for flexible or usage-based payment models. - &#x60;Subscription&#x60;: Subscription. 
  */
 @JsonAdapter(AcquiringType.Adapter.class)
 public enum AcquiringType {
@@ -30,7 +30,9 @@ public enum AcquiringType {
   
   ORDER("Order"),
   
-  TOPUP("TopUp");
+  TOPUP("TopUp"),
+  
+  SUBSCRIPTION("Subscription");
 
   private String value;
 

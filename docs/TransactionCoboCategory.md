@@ -19,8 +19,6 @@
 
 * `COMMISSIONFEEREFUND` (value: `"CommissionFeeRefund"`)
 
-* `SAFETXMESSAGE` (value: `"SafeTxMessage"`)
-
 * `STAKINGBABYLONBTCDELEGATION` (value: `"StakingBabylonBtcDelegation"`)
 
 * `STAKINGBABYLONBTCSIGNBABYLON` (value: `"StakingBabylonBtcSignBabylon"`)
@@ -92,6 +90,8 @@
 * `JUSTLENDENERGYRETURN` (value: `"JustLendEnergyReturn"`)
 
 * `TRXRECHARGE` (value: `"TrxRecharge"`)
+
+* `AUTOFUELINGBATCH` (value: `"AutoFuelingBatch"`)
 
 
 

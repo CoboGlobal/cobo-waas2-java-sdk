@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.BankProvider;
 import com.cobo.waas2.model.ThirdPartyCompanyInfo;
 import com.cobo.waas2.model.ThirdPartyMerchantType;
+import com.cobo.waas2.model.ThirdPartyPersonInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,6 +39,14 @@ public class CreateThirdPartyMerchantRequestTest {
     @Test
     public void testCreateThirdPartyMerchantRequest() {
         // TODO: test CreateThirdPartyMerchantRequest
+    }
+
+    /**
+     * Test the property 'thirdMerchantId'
+     */
+    @Test
+    public void thirdMerchantIdTest() {
+        // TODO: test thirdMerchantId
     }
 
     /**
@@ -102,6 +111,14 @@ public class CreateThirdPartyMerchantRequestTest {
     @Test
     public void companyInfoTest() {
         // TODO: test companyInfo
+    }
+
+    /**
+     * Test the property 'individualInfo'
+     */
+    @Test
+    public void individualInfoTest() {
+        // TODO: test individualInfo
     }
 
 }

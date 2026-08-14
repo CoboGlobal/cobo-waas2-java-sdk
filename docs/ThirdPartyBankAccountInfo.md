@@ -16,6 +16,8 @@ Bank account details for creating a third-party beneficiary.  For USD company ba
 |**branchCode** | **String** | The branch code. Required when &#x60;payment_method&#x60; is &#x60;Local&#x60; (HK only).  |  [optional] |
 |**bankAddress** | **String** | The bank address. Cannot be a pure number or contain Chinese characters.  |  [optional] |
 |**province** | **String** | The province or state of the bank. Cannot be a pure number or contain Chinese characters.  |  |
+|**city** | **String** | The city of the bank. |  [optional] |
+|**routingValue** | **String** | The routing value of the bank account. |  [optional] |
 
 
 

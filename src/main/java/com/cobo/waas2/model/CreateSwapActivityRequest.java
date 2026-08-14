@@ -90,7 +90,7 @@ public class CreateSwapActivityRequest {
   }
 
    /**
-   * The ID of the wallet used to pay.
+   * The unique identifier of the wallet to pay.
    * @return walletId
   **/
   @javax.annotation.Nonnull
@@ -109,7 +109,7 @@ public class CreateSwapActivityRequest {
   }
 
    /**
-   * The address of the wallet used to pay.
+   * The wallet address, required when the wallet is not a custodial wallet.
    * @return address
   **/
   @javax.annotation.Nullable
@@ -128,7 +128,7 @@ public class CreateSwapActivityRequest {
   }
 
    /**
-   * The unique identifier of the swap quote.
+   * The unique identifier of the quote.
    * @return quoteId
   **/
   @javax.annotation.Nonnull
@@ -147,7 +147,7 @@ public class CreateSwapActivityRequest {
   }
 
    /**
-   * The initiator of the swap activity. It is optional and defaults to your API key if not specified.
+   * The initiator of the app activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.
    * @return appInitiator
   **/
   @javax.annotation.Nullable
@@ -166,7 +166,7 @@ public class CreateSwapActivityRequest {
   }
 
    /**
-   * The request ID of the swap activity.
+   * The request id of the swap activity.
    * @return requestId
   **/
   @javax.annotation.Nullable
@@ -185,7 +185,7 @@ public class CreateSwapActivityRequest {
   }
 
    /**
-   * The destination address of the swap activity. This property is required only when the swap type is &#x60;Bridge&#x60; and the wallet is not a Custodial Wallet (Asset Wallet).
+   * The address of the receiver.
    * @return receiverAddress
   **/
   @javax.annotation.Nullable

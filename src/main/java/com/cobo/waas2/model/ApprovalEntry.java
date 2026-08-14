@@ -49,7 +49,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information of an approval request.
+ * The information of an app workflow approval entry.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 

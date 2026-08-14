@@ -9,9 +9,9 @@ The information about the transaction destination. Refer to [Transaction sources
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**destinationType** | **ContractCallDestinationType** |  |  |
-|**address** | **String** | The destination address.  If you are deploying a new contract on an EVM chain, set this address to &#x60;0x0000000000000000000000000000000000000000&#x60;.  |  |
+|**address** | **String** | The destination address. |  |
 |**value** | **String** | The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  |  [optional] |
-|**calldata** | **String** | The data used to invoke a specific function or method within the specified contract at the destination address, with a maximum length of 65,000 characters.  |  |
+|**calldata** | **String** | The data that is used to invoke a specific function or method within the specified contract at the destination address.  |  |
 
 
 

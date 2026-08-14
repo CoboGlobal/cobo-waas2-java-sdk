@@ -27,6 +27,8 @@ import java.io.IOException;
 
 import com.cobo.waas2.model.AddTxTokens201Response;
 import com.cobo.waas2.model.AddTxTokensRequest;
+import com.cobo.waas2.model.BatchCommissionFeeRequest;
+import com.cobo.waas2.model.BatchCommissionFeeResult;
 import com.cobo.waas2.model.CommissionFeeDetail;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.FeeEngineDetail;
@@ -173,6 +175,124 @@ public class InternalFeeEngineApi {
 
         okhttp3.Call localVarCall = addTxTokensValidateBeforeCall(addTxTokensRequest, _callback);
         Type localVarReturnType = new TypeToken<AddTxTokens201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for batchGetCommissionFee
+     * @param batchCommissionFeeRequest Request body to query commission fees in batch (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call batchGetCommissionFeeCall(BatchCommissionFeeRequest batchCommissionFeeRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = batchCommissionFeeRequest;
+
+        // create path and map variables
+        String localVarPath = "/internal/fee_engine/batch_commission_fee";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call batchGetCommissionFeeValidateBeforeCall(BatchCommissionFeeRequest batchCommissionFeeRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'batchCommissionFeeRequest' is set
+        if (batchCommissionFeeRequest == null) {
+            throw new ApiException("Missing the required parameter 'batchCommissionFeeRequest' when calling batchGetCommissionFee(Async)");
+        }
+
+        return batchGetCommissionFeeCall(batchCommissionFeeRequest, _callback);
+
+    }
+
+    /**
+     * Batch get commission fee
+     * This operation retrieves commission fees in batch. 
+     * @param batchCommissionFeeRequest Request body to query commission fees in batch (required)
+     * @return List&lt;BatchCommissionFeeResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<BatchCommissionFeeResult> batchGetCommissionFee(BatchCommissionFeeRequest batchCommissionFeeRequest) throws ApiException {
+        ApiResponse<List<BatchCommissionFeeResult>> localVarResp = batchGetCommissionFeeWithHttpInfo(batchCommissionFeeRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Batch get commission fee
+     * This operation retrieves commission fees in batch. 
+     * @param batchCommissionFeeRequest Request body to query commission fees in batch (required)
+     * @return ApiResponse&lt;List&lt;BatchCommissionFeeResult&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<BatchCommissionFeeResult>> batchGetCommissionFeeWithHttpInfo(BatchCommissionFeeRequest batchCommissionFeeRequest) throws ApiException {
+        okhttp3.Call localVarCall = batchGetCommissionFeeValidateBeforeCall(batchCommissionFeeRequest, null);
+        Type localVarReturnType = new TypeToken<List<BatchCommissionFeeResult>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Batch get commission fee (asynchronously)
+     * This operation retrieves commission fees in batch. 
+     * @param batchCommissionFeeRequest Request body to query commission fees in batch (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call batchGetCommissionFeeAsync(BatchCommissionFeeRequest batchCommissionFeeRequest, final ApiCallback<List<BatchCommissionFeeResult>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = batchGetCommissionFeeValidateBeforeCall(batchCommissionFeeRequest, _callback);
+        Type localVarReturnType = new TypeToken<List<BatchCommissionFeeResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

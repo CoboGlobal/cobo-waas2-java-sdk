@@ -15,6 +15,7 @@
 |**destinationContactAddress** | **String** | The contact address of the destination. |  [optional] |
 |**destinationMerchantId** | **String** | The ID of the merchant linked to the destination. |  [optional] |
 |**bankAccountId** | **UUID** | The destination bank account ID. |  |
+|**tag** | **DestinationBankAccountTag** |  |  [optional] |
 |**accountAlias** | **String** | The alias of the bank account. |  |
 |**accountNumber** | **String** | The bank account number. |  |
 |**swiftCode** | **String** | The SWIFT or BIC code of the bank. |  |

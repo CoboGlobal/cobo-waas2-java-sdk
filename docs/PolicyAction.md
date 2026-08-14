@@ -2,7 +2,7 @@
 
 # PolicyAction
 
-The action to be executed when the policy conditions are satisfied.
+The information of an app workflow policy action, content is valuable when action_type is Quorum.
 
 ## Properties
 

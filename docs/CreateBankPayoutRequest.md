@@ -11,6 +11,7 @@
 |**bankProvider** | [**BankProviderEnum**](#BankProviderEnum) | 法币三方下发Pyvio. |  |
 |**transactionCurrency** | **String** | The currency of the transaction. |  |
 |**transactionAmount** | **String** | The amount of the transfer. |  |
+|**feeAmount** | **String** | The amount of the fee. |  [optional] |
 |**feeCurrency** | **String** | The currency of the fee. |  [optional] |
 |**remarks** | **String** | The remarks of the payout. |  [optional] |
 |**forceExternal** | **Boolean** | Whether to force the payout to be remittance between bank accounts. |  [optional] |

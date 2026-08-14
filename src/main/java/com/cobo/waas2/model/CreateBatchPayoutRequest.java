@@ -58,6 +58,10 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class CreateBatchPayoutRequest {
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -92,6 +96,25 @@ public class CreateBatchPayoutRequest {
 
   public CreateBatchPayoutRequest() {
   }
+
+  public CreateBatchPayoutRequest requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a batch payout request. The request ID is provided by you and must be unique within your organization. 
+   * @return requestId
+  **/
+  @javax.annotation.Nonnull
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
 
   public CreateBatchPayoutRequest description(String description) {
     this.description = description;
@@ -307,7 +330,8 @@ public class CreateBatchPayoutRequest {
       return false;
     }
     CreateBatchPayoutRequest createBatchPayoutRequest = (CreateBatchPayoutRequest) o;
-    return Objects.equals(this.description, createBatchPayoutRequest.description) &&
+    return Objects.equals(this.requestId, createBatchPayoutRequest.requestId) &&
+        Objects.equals(this.description, createBatchPayoutRequest.description) &&
         Objects.equals(this.tokenId, createBatchPayoutRequest.tokenId) &&
         Objects.equals(this.payoutMode, createBatchPayoutRequest.payoutMode) &&
         Objects.equals(this.unlimitedTokenApproval, createBatchPayoutRequest.unlimitedTokenApproval) &&
@@ -320,13 +344,14 @@ public class CreateBatchPayoutRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, tokenId, payoutMode, unlimitedTokenApproval, loopEnabled, networkFee, source, destinations, additionalProperties);
+    return Objects.hash(requestId, description, tokenId, payoutMode, unlimitedTokenApproval, loopEnabled, networkFee, source, destinations, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBatchPayoutRequest {\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    payoutMode: ").append(toIndentedString(payoutMode)).append("\n");
@@ -358,6 +383,7 @@ public class CreateBatchPayoutRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("request_id");
     openapiFields.add("description");
     openapiFields.add("token_id");
     openapiFields.add("payout_mode");
@@ -369,6 +395,7 @@ public class CreateBatchPayoutRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("request_id");
     openapiRequiredFields.add("description");
     openapiRequiredFields.add("token_id");
     openapiRequiredFields.add("payout_mode");
@@ -396,6 +423,9 @@ public class CreateBatchPayoutRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }

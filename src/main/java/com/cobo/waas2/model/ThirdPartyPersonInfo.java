@@ -165,7 +165,7 @@ public class ThirdPartyPersonInfo {
    * The identification number.
    * @return idNumber
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getIdNumber() {
     return idNumber;
   }
@@ -184,7 +184,7 @@ public class ThirdPartyPersonInfo {
    * The date of birth.
    * @return dateOfBirth
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDateOfBirth() {
     return dateOfBirth;
   }
@@ -203,7 +203,7 @@ public class ThirdPartyPersonInfo {
    * The issue date of the identification document.
    * @return issueDate
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getIssueDate() {
     return issueDate;
   }
@@ -222,7 +222,7 @@ public class ThirdPartyPersonInfo {
    * The expiration date of the identification document.
    * @return expirationDate
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getExpirationDate() {
     return expirationDate;
   }
@@ -241,7 +241,7 @@ public class ThirdPartyPersonInfo {
    * Get residentialAddress
    * @return residentialAddress
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public ThirdPartyAddress getResidentialAddress() {
     return residentialAddress;
   }
@@ -370,6 +370,11 @@ public class ThirdPartyPersonInfo {
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("name_en");
     openapiRequiredFields.add("attachments");
+    openapiRequiredFields.add("id_number");
+    openapiRequiredFields.add("date_of_birth");
+    openapiRequiredFields.add("issue_date");
+    openapiRequiredFields.add("expiration_date");
+    openapiRequiredFields.add("residential_address");
   }
 
  /**
@@ -408,22 +413,20 @@ public class ThirdPartyPersonInfo {
       for (int i = 0; i < jsonArrayattachments.size(); i++) {
         ThirdPartyPersonAttachment.validateJsonElement(jsonArrayattachments.get(i));
       };
-      if ((jsonObj.get("id_number") != null && !jsonObj.get("id_number").isJsonNull()) && !jsonObj.get("id_number").isJsonPrimitive()) {
+      if (!jsonObj.get("id_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id_number").toString()));
       }
-      if ((jsonObj.get("date_of_birth") != null && !jsonObj.get("date_of_birth").isJsonNull()) && !jsonObj.get("date_of_birth").isJsonPrimitive()) {
+      if (!jsonObj.get("date_of_birth").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `date_of_birth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("date_of_birth").toString()));
       }
-      if ((jsonObj.get("issue_date") != null && !jsonObj.get("issue_date").isJsonNull()) && !jsonObj.get("issue_date").isJsonPrimitive()) {
+      if (!jsonObj.get("issue_date").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issue_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issue_date").toString()));
       }
-      if ((jsonObj.get("expiration_date") != null && !jsonObj.get("expiration_date").isJsonNull()) && !jsonObj.get("expiration_date").isJsonPrimitive()) {
+      if (!jsonObj.get("expiration_date").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expiration_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiration_date").toString()));
       }
-      // validate the optional field `residential_address`
-      if (jsonObj.get("residential_address") != null && !jsonObj.get("residential_address").isJsonNull()) {
-        ThirdPartyAddress.validateJsonElement(jsonObj.get("residential_address"));
-      }
+      // validate the required field `residential_address`
+      ThirdPartyAddress.validateJsonElement(jsonObj.get("residential_address"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

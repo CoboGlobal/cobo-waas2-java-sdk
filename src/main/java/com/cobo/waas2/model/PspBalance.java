@@ -93,7 +93,7 @@ public class PspBalance {
   }
 
    /**
-   * The token ID, which is a unique identifier that specifies both the blockchain network and cryptocurrency token in the format &#x60;{CHAIN}_{TOKEN}&#x60;.
+   * The ID of the cryptocurrency.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -112,7 +112,7 @@ public class PspBalance {
   }
 
    /**
-   * The total amount of the token that has been received as developer fee.
+   * The psp developer fee amount.
    * @return developerFeeAmount
   **/
   @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class PspBalance {
   }
 
    /**
-   * The total amount of the token that has been paid out from the developer&#39;s balance.
+   * The psp settled amount.
    * @return settledAmount
   **/
   @javax.annotation.Nullable
@@ -150,7 +150,7 @@ public class PspBalance {
   }
 
    /**
-   * This field is reserved for future use.
+   * The psp payout amount.
    * @return payoutAmount
   **/
   @javax.annotation.Nullable
@@ -169,7 +169,7 @@ public class PspBalance {
   }
 
    /**
-   * The total amount of the token that has been refunded from the developer&#39;s balance.
+   * The psp total refunded amount.
    * @return refundedAmount
   **/
   @javax.annotation.Nullable
@@ -188,7 +188,7 @@ public class PspBalance {
   }
 
    /**
-   *  The total balance of the token available for payout or refund for the developer.  For more information, please refer to [Accounts and fund allocation](https://www.cobo.com/payments/en/guides/amounts-and-balances) 
+   * The psp total balance.
    * @return totalBalance
   **/
   @javax.annotation.Nullable
@@ -207,7 +207,7 @@ public class PspBalance {
   }
 
    /**
-   * This field has been deprecated. 
+   * The psp available balance.
    * @return availableBalance
   **/
   @javax.annotation.Nullable
@@ -226,7 +226,7 @@ public class PspBalance {
   }
 
    /**
-   * This field is reserved for future use.
+   * The psp locked balance.
    * @return lockedBalance
   **/
   @javax.annotation.Nullable

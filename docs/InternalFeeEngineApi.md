@@ -5,6 +5,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**addTxTokens**](InternalFeeEngineApi.md#addTxTokens) | **POST** /internal/fee_engine/add_tx_tokens | Add FeeEngine Tx Tokens |
+| [**batchGetCommissionFee**](InternalFeeEngineApi.md#batchGetCommissionFee) | **POST** /internal/fee_engine/batch_commission_fee | Batch get commission fee |
 | [**getCommissionFee**](InternalFeeEngineApi.md#getCommissionFee) | **GET** /internal/fee_engine/commission_fee | Get commission fee |
 | [**getFeeEngine**](InternalFeeEngineApi.md#getFeeEngine) | **GET** /internal/fee_engine | Get FeeEngine |
 | [**updateFeeEngine**](InternalFeeEngineApi.md#updateFeeEngine) | **POST** /internal/fee_engine/update | Update FeeEngine |
@@ -75,6 +76,74 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successfully updated fee engine tx tokens |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="batchGetCommissionFee"></a>
+# **batchGetCommissionFee**
+> List&lt;BatchCommissionFeeResult&gt; batchGetCommissionFee(batchCommissionFeeRequest)
+
+Batch get commission fee
+
+This operation retrieves commission fees in batch. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.InternalFeeEngineApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    InternalFeeEngineApi apiInstance = new InternalFeeEngineApi();
+    BatchCommissionFeeRequest batchCommissionFeeRequest = new BatchCommissionFeeRequest();
+    try {
+      List<BatchCommissionFeeResult> result = apiInstance.batchGetCommissionFee(batchCommissionFeeRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InternalFeeEngineApi#batchGetCommissionFee");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **batchCommissionFeeRequest** | [**BatchCommissionFeeRequest**](BatchCommissionFeeRequest.md)| Request body to query commission fees in batch | |
+
+### Return type
+
+[**List&lt;BatchCommissionFeeResult&gt;**](BatchCommissionFeeResult.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The request was successful. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 

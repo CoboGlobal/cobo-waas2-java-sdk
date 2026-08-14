@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information for evaluating Fee Station usage.
+ * The information about a check fee station usage.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -171,7 +171,7 @@ public class FeeStationCheckFeeStationUsage {
   }
 
    /**
-   * The estimated transaction fee required for this transfer, before applying any Fee Station rules.
+   * The estimated transaction fee required for this transfer, before applying any fee station rules.
    * @return estimatedFeeAmount
   **/
   @javax.annotation.Nonnull

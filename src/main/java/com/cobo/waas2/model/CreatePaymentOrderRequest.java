@@ -140,7 +140,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * An optional reference for the order maintained by a downstream merchant you serve — for example, when you are a payment service provider (PSP) processing pay-in orders on behalf of merchants. Set this field only when such a downstream merchant supplies its own order reference that is distinct from your internal &#x60;psp_order_code&#x60;. Omit this field if you are collecting payment directly as the merchant, with no separate downstream merchant reference to track.
+   * A unique reference code assigned by the merchant to identify this order in their system.
    * @return merchantOrderCode
   **/
   @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The order identifier for your own internal business order. Set this to the order reference you use internally to identify this pay-in — for example, an order or transaction ID from your own order-management system. This value must be unique within your Cobo organization: Cobo enforces uniqueness on &#x60;psp_order_code&#x60;, so reusing a code already associated with an existing order in your organization is rejected. If a downstream merchant you serve supplies its own separate order reference, record that in &#x60;merchant_order_code&#x60; instead — &#x60;psp_order_code&#x60; always identifies your own order, not the merchant&#39;s.
+   * A unique reference code assigned by the developer to identify this order in their system.
    * @return pspOrderCode
   **/
   @javax.annotation.Nonnull
@@ -178,7 +178,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The pricing currency that denominates &#x60;pricing_amount&#x60; and &#x60;fee_amount&#x60;. If left empty, both values will be denominated in &#x60;payable_currency&#x60;.  Currently, For a complete list of supported currencies, see [Supported chains and tokens](https://www.cobo.com//payments/en/guides/supported-chains-and-tokens#pricing-currency). 
+   * The ID of the cryptocurrency used for payment. Supported values:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return pricingCurrency
   **/
   @javax.annotation.Nullable
@@ -197,7 +197,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The base amount of the order, excluding the developer fee (specified in &#x60;fee_amount&#x60;). Values must be greater than &#x60;0&#x60; and contain two decimal places.
+   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;). Values must be greater than &#x60;0&#x60; and contain two decimal places.
    * @return pricingAmount
   **/
   @javax.annotation.Nullable
@@ -216,7 +216,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The order-level developer charge deducted from the payment collected for this order and credited to your developer balance. Both &#x60;0&#x60; and positive values are valid. A value of &#x60;0&#x60; means that no developer fee is taken and the merchant receives the full collected amount.  When the collected payment exactly matches the payable amount, the merchant balance is credited with the payable amount minus &#x60;fee_amount&#x60;, and your developer balance is credited with &#x60;fee_amount&#x60;. For example, for a payable amount of &#x60;104.08&#x60; and a &#x60;fee_amount&#x60; of &#x60;2&#x60;, the merchant receives &#x60;102.08&#x60; and you receive &#x60;2&#x60;.  For related fee settings and settlement details, see [Merchant management](https://www.cobo.com/payments/en/guides/merchants) and [Accounts and fund allocation](https://www.cobo.com/payments/en/guides/amounts-and-balances). 
+   * The developer fee for the order in fiat currency. It is added to the base amount (&#x60;order_amount&#x60;) to determine the final charge. For example, if order_amount is \&quot;100.00\&quot; and fee_amount is \&quot;2.00\&quot;, the customer will be charged \&quot;102.00\&quot; in total, with \&quot;100.00\&quot; being settled to the merchant and \&quot;2.00\&quot; settled to the developer. Values must be greater than or equal to 0 and contain two decimal places.
    * @return feeAmount
   **/
   @javax.annotation.Nonnull
@@ -238,7 +238,7 @@ public class CreatePaymentOrderRequest {
    * The ID of the cryptocurrency used for payment. Supported values:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return payableCurrency
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPayableCurrency() {
     return payableCurrency;
   }
@@ -254,7 +254,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The total amount the payer needs to pay, denominated in the specified &#x60;payable_currency&#x60;. If this field is left blank, the system will automatically calculate the amount at order creation using the following formula: (&#x60;pricing_amount&#x60; + &#x60;fee_amount&#x60;) / current exchange rate.  Values must be greater than 0 and contain two decimal places. 
+   * The actual payable amount of the order in the cryptocurrency.
    * @return payableAmount
   **/
   @javax.annotation.Nullable
@@ -292,7 +292,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * The allowed amount deviation, with precision up to 1 decimal place.  For example, if &#x60;payable_amount&#x60; is &#x60;100.00&#x60; and &#x60;amount_tolerance&#x60; is &#x60;0.50&#x60;: - Payer pays 99.55 → Success (difference of 0.45 ≤ 0.5) - Payer pays 99.40 → Underpaid (difference of 0.60 &gt; 0.5) 
+   * Allowed amount deviation, precision to 1 decimal place.
    * @return amountTolerance
   **/
   @javax.annotation.Nullable
@@ -311,7 +311,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * This field has been deprecated. Please use &#x60;pricing_currency&#x60; instead.
+   * The fiat currency of the order.
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -330,7 +330,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * This field has been deprecated. Please use &#x60;pricing_amount&#x60; instead.
+   * The base amount of the order in fiat currency, excluding the developer fee (specified in &#x60;fee_amount&#x60;). Values must be greater than &#x60;0&#x60; and contain two decimal places.
    * @return orderAmount
   **/
   @javax.annotation.Nullable
@@ -349,7 +349,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * This field has been deprecated. Please use &#x60;payable_currency&#x60; instead.
+   * The ID of the cryptocurrency used for payment. Supported values:   - USDC: &#x60;ETH_USDC&#x60;, &#x60;ARBITRUM_USDC&#x60;, &#x60;SOL_USDC&#x60;, &#x60;BASE_USDC&#x60;, &#x60;MATIC_USDC&#x60;, &#x60;BSC_USDC&#x60;   - USDT: &#x60;TRON_USDT&#x60;, &#x60;ETH_USDT&#x60;, &#x60;ARBITRUM_USDT&#x60;, &#x60;SOL_USDT&#x60;, &#x60;BASE_USDT&#x60;, &#x60;MATIC_USDT&#x60;, &#x60;BSC_USDT&#x60; 
    * @return tokenId
   **/
   @javax.annotation.Nullable
@@ -368,7 +368,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * This field has been deprecated.
+   * Indicates whether to allocate a dedicated address for this order.  If false, a shared address from the address pool will be used. 
    * @return useDedicatedAddress
   **/
   @javax.annotation.Nullable
@@ -387,7 +387,7 @@ public class CreatePaymentOrderRequest {
   }
 
    /**
-   * This field has been deprecated.
+   * A custom exchange rate specified by the merchant.   - Only effective when &#x60;currency&#x60; is &#x60;\&quot;USD\&quot;&#x60;.   - Expressed as the amount of USD per 1 unit of the specified cryptocurrency.   - If not provided, the system will use the default internal rate.   Example: If the cryptocurrency is USDT and &#x60;custom_exchange_rate&#x60; &#x3D; &#x60;\&quot;0.99\&quot;&#x60;, it means 1 USDT &#x3D; 0.99 USD. 
    * @return customExchangeRate
   **/
   @javax.annotation.Nullable
@@ -540,7 +540,6 @@ public class CreatePaymentOrderRequest {
     openapiRequiredFields.add("merchant_id");
     openapiRequiredFields.add("psp_order_code");
     openapiRequiredFields.add("fee_amount");
-    openapiRequiredFields.add("payable_currency");
   }
 
  /**
@@ -581,7 +580,7 @@ public class CreatePaymentOrderRequest {
       if (!jsonObj.get("fee_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
       }
-      if (!jsonObj.get("payable_currency").isJsonPrimitive()) {
+      if ((jsonObj.get("payable_currency") != null && !jsonObj.get("payable_currency").isJsonNull()) && !jsonObj.get("payable_currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payable_currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payable_currency").toString()));
       }
       if ((jsonObj.get("payable_amount") != null && !jsonObj.get("payable_amount").isJsonNull()) && !jsonObj.get("payable_amount").isJsonPrimitive()) {

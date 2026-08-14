@@ -13,8 +13,6 @@
 
 * `USER_CONTROLLED` (value: `"User-Controlled"`)
 
-* `SAFE_WALLET_` (value: `"Safe{Wallet}"`)
-
 * `MAIN` (value: `"Main"`)
 
 * `SUB` (value: `"Sub"`)

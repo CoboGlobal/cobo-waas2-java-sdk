@@ -72,6 +72,14 @@ public class CreateBankPayoutRequestTest {
     }
 
     /**
+     * Test the property 'feeAmount'
+     */
+    @Test
+    public void feeAmountTest() {
+        // TODO: test feeAmount
+    }
+
+    /**
      * Test the property 'feeCurrency'
      */
     @Test

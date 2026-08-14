@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.DestinationBankAccount;
+import com.cobo.waas2.model.DestinationSource;
 import com.cobo.waas2.model.DestinationType;
 import com.cobo.waas2.model.WalletAddress;
 import com.google.gson.TypeAdapter;
@@ -63,6 +64,14 @@ public class DestinationDetailTest {
     @Test
     public void destinationNameTest() {
         // TODO: test destinationName
+    }
+
+    /**
+     * Test the property 'source'
+     */
+    @Test
+    public void sourceTest() {
+        // TODO: test source
     }
 
     /**

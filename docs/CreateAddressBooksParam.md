@@ -2,7 +2,7 @@
 
 # CreateAddressBooksParam
 
-The request body to add addresses in batches to your Address Book.
+The request body to batch create address book.
 
 ## Properties
 

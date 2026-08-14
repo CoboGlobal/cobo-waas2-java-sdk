@@ -9,5 +9,7 @@
 
 * `BUILDONLY` (value: `"BuildOnly"`)
 
+* `SIGNONLY` (value: `"SignOnly"`)
+
 
 

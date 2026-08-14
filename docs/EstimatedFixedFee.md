@@ -2,7 +2,7 @@
 
 # EstimatedFixedFee
 
-The estimated transaction fee based on the fixed fee model.  For more details about the fixed fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models). 
+The estimated transaction fee based on the fixed fee model.
 
 ## Properties
 
@@ -10,7 +10,7 @@ The estimated transaction fee based on the fixed fee model.  For more details ab
 |------------ | ------------- | ------------- | -------------|
 |**feeAmount** | **String** | The transaction fee that you need to pay for the transaction. |  |
 |**feeType** | **FeeType** |  |  |
-|**tokenId** | **String** | The token used to pay the transaction fee. |  |
+|**tokenId** | **String** | The token ID of the transaction fee. |  |
 |**isLoop** | **Boolean** | Whether the transaction was executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer. - &#x60;true&#x60;: The transaction was executed as a Cobo Loop transfer. - &#x60;false&#x60;: The transaction was not executed as a Cobo Loop transfer.  |  [optional] |
 
 

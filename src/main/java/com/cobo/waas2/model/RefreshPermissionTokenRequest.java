@@ -65,7 +65,7 @@ public class RefreshPermissionTokenRequest {
   }
 
    /**
-   * The Refresh Token of the current Access Token.
+   * The Refresh Token of the current Org Access Token.
    * @return refreshToken
   **/
   @javax.annotation.Nonnull

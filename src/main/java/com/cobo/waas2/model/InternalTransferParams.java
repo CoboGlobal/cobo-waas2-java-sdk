@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.AutoFuelType;
+import com.cobo.waas2.model.FeeLevel;
 import com.cobo.waas2.model.PreCheck;
 import com.cobo.waas2.model.TransactionProcessType;
 import com.cobo.waas2.model.TransactionRequestFee;
@@ -87,6 +88,10 @@ public class InternalTransferParams {
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
+
+  public static final String SERIALIZED_NAME_FEE_LEVEL = "fee_level";
+  @SerializedName(SERIALIZED_NAME_FEE_LEVEL)
+  private FeeLevel feeLevel;
 
   public static final String SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE = "transaction_process_type";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE)
@@ -248,6 +253,25 @@ public class InternalTransferParams {
   }
 
 
+  public InternalTransferParams feeLevel(FeeLevel feeLevel) {
+    this.feeLevel = feeLevel;
+    return this;
+  }
+
+   /**
+   * Get feeLevel
+   * @return feeLevel
+  **/
+  @javax.annotation.Nullable
+  public FeeLevel getFeeLevel() {
+    return feeLevel;
+  }
+
+  public void setFeeLevel(FeeLevel feeLevel) {
+    this.feeLevel = feeLevel;
+  }
+
+
   public InternalTransferParams transactionProcessType(TransactionProcessType transactionProcessType) {
     this.transactionProcessType = transactionProcessType;
     return this;
@@ -393,6 +417,7 @@ public class InternalTransferParams {
         Objects.equals(this.categoryNames, internalTransferParams.categoryNames) &&
         Objects.equals(this.description, internalTransferParams.description) &&
         Objects.equals(this.fee, internalTransferParams.fee) &&
+        Objects.equals(this.feeLevel, internalTransferParams.feeLevel) &&
         Objects.equals(this.transactionProcessType, internalTransferParams.transactionProcessType) &&
         Objects.equals(this.autoFuel, internalTransferParams.autoFuel) &&
         Objects.equals(this.preCheck, internalTransferParams.preCheck) &&
@@ -402,7 +427,7 @@ public class InternalTransferParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, source, tokenId, destination, categoryNames, description, fee, transactionProcessType, autoFuel, preCheck, coboCategory, additionalProperties);
+    return Objects.hash(requestId, source, tokenId, destination, categoryNames, description, fee, feeLevel, transactionProcessType, autoFuel, preCheck, coboCategory, additionalProperties);
   }
 
   @Override
@@ -416,6 +441,7 @@ public class InternalTransferParams {
     sb.append("    categoryNames: ").append(toIndentedString(categoryNames)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    feeLevel: ").append(toIndentedString(feeLevel)).append("\n");
     sb.append("    transactionProcessType: ").append(toIndentedString(transactionProcessType)).append("\n");
     sb.append("    autoFuel: ").append(toIndentedString(autoFuel)).append("\n");
     sb.append("    preCheck: ").append(toIndentedString(preCheck)).append("\n");
@@ -450,6 +476,7 @@ public class InternalTransferParams {
     openapiFields.add("category_names");
     openapiFields.add("description");
     openapiFields.add("fee");
+    openapiFields.add("fee_level");
     openapiFields.add("transaction_process_type");
     openapiFields.add("auto_fuel");
     openapiFields.add("pre_check");
@@ -503,6 +530,10 @@ public class InternalTransferParams {
       // validate the optional field `fee`
       if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
         TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
+      }
+      // validate the optional field `fee_level`
+      if (jsonObj.get("fee_level") != null && !jsonObj.get("fee_level").isJsonNull()) {
+        FeeLevel.validateJsonElement(jsonObj.get("fee_level"));
       }
       // validate the optional field `transaction_process_type`
       if (jsonObj.get("transaction_process_type") != null && !jsonObj.get("transaction_process_type").isJsonNull()) {

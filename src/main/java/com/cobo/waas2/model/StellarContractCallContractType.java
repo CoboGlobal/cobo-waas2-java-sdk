@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the Stellar contract. 
+ * The type of the stellar contract type. 
  */
 @JsonAdapter(StellarContractCallContractType.Adapter.class)
 public enum StellarContractCallContractType {

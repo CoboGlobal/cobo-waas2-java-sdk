@@ -14,7 +14,6 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.UpdateCustodialWalletParams;
 import com.cobo.waas2.model.UpdateExchangeWalletParams;
 import com.cobo.waas2.model.UpdateMpcWalletParams;
-import com.cobo.waas2.model.UpdateSmartContractWalletParams;
 import com.cobo.waas2.model.WalletType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

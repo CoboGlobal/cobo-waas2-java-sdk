@@ -78,7 +78,7 @@ public class BridgingFee {
   }
 
    /**
-   * The fee charged for bridging tokens to another chain. 
+   * The bridging fee amount.
    * @return feeAmount
   **/
   @javax.annotation.Nonnull
@@ -97,7 +97,7 @@ public class BridgingFee {
   }
 
    /**
-   * The ID of the destination token received after bridging.
+   * The received token id after bridge.
    * @return receivedTokenId
   **/
   @javax.annotation.Nullable
@@ -116,7 +116,7 @@ public class BridgingFee {
   }
 
    /**
-   * The final amount of the token received after bridging.
+   * The received amount after bridge.
    * @return receivedAmount
   **/
   @javax.annotation.Nullable

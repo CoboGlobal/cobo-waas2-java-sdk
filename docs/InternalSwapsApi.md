@@ -4,10 +4,79 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**batchGetSwapLimitsAndLiquidityInternally**](InternalSwapsApi.md#batchGetSwapLimitsAndLiquidityInternally) | **POST** /internal/swaps/limits_and_liquidity/batch | Batch Get Swap Limits and Liquidity |
 | [**checkSwapWalletAddress**](InternalSwapsApi.md#checkSwapWalletAddress) | **GET** /internal/swaps/check_wallet_address | Check Swap Address |
 | [**getSwapLimitsAndLiquidityInternally**](InternalSwapsApi.md#getSwapLimitsAndLiquidityInternally) | **GET** /internal/swaps/limits_and_liquidity | Get Swap Limits and Liquidity |
 | [**listSwapReachableTokens**](InternalSwapsApi.md#listSwapReachableTokens) | **GET** /internal/swaps/reachable_tokens | List Swap Reachable Tokens |
 
+
+<a id="batchGetSwapLimitsAndLiquidityInternally"></a>
+# **batchGetSwapLimitsAndLiquidityInternally**
+> BatchLimitsAndLiquidityResponse batchGetSwapLimitsAndLiquidityInternally(batchLimitsAndLiquidityRequest)
+
+Batch Get Swap Limits and Liquidity
+
+This operation retrieves the trading limits and available liquidity for up to 50 swap trading pairs in a single request. Only the pay/receive token pair varies per item - &#x60;wallet_id&#x60;, &#x60;wallet_type&#x60;, and &#x60;wallet_subtype&#x60; are request-level fields applied to every pair in the batch, not per item. Each result item echoes back the &#x60;pay_token_id&#x60; and &#x60;receive_token_id&#x60; from its request item so callers can match results to the pair they asked about. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.InternalSwapsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    InternalSwapsApi apiInstance = new InternalSwapsApi();
+    BatchLimitsAndLiquidityRequest batchLimitsAndLiquidityRequest = new BatchLimitsAndLiquidityRequest();
+    try {
+      BatchLimitsAndLiquidityResponse result = apiInstance.batchGetSwapLimitsAndLiquidityInternally(batchLimitsAndLiquidityRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InternalSwapsApi#batchGetSwapLimitsAndLiquidityInternally");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **batchLimitsAndLiquidityRequest** | [**BatchLimitsAndLiquidityRequest**](BatchLimitsAndLiquidityRequest.md)| Request body to query swap limits and liquidity for a batch of pay/receive token pairs. | |
+
+### Return type
+
+[**BatchLimitsAndLiquidityResponse**](BatchLimitsAndLiquidityResponse.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The batch swap limits and liquidity information have been successfully retrieved. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
 
 <a id="checkSwapWalletAddress"></a>
 # **checkSwapWalletAddress**
@@ -130,7 +199,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **payTokenId** | **String**| Unique id of the token to pay. | |
 | **receiveTokenId** | **String**| Unique id of the token to receive. | |
-| **walletSubtype** | [**WalletSubtype**](.md)| The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  - &#x60;Safe{Wallet}&#x60;: Smart Contract Wallets (Safe{Wallet})  | [enum: Asset, Web3, Org-Controlled, User-Controlled, Safe{Wallet}, Main, Sub] |
+| **walletSubtype** | [**WalletSubtype**](.md)| The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  | [enum: Asset, Web3, Org-Controlled, User-Controlled, Main, Sub] |
 | **type** | [**SwapType**](.md)|  | [optional] [enum: Bridge, Exchange] |
 
 ### Return type

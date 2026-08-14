@@ -10,7 +10,8 @@ Details of the auto-fueling transaction that provides gas for the current transa
 |------------ | ------------- | ------------- | -------------|
 |**requestId** | **String** | The request ID of the transaction. |  [optional] |
 |**transactionId** | **UUID** | The transaction ID. |  [optional] |
-|**mainTransactionId** | **UUID** | The UUID of the parent (main) transaction that this record is associated with. Set only when the current record is a gas/fee transaction initiated by Fee Station; omit for main transactions. |  [optional] |
+|**mainTransactionId** | **UUID** | The UUID of the parent (main) transaction that this record is associated with. Set only when the current record is a gas/fee transaction initiated by FeeStation; omit for main transactions. |  [optional] |
+|**mainTransactionIds** | **List&lt;UUID&gt;** | The UUIDs of the parent (main) transactions that this record is associated with. Set only when the current record is a gas/fee transaction initiated by FeeStation; omit for main transactions. |  [optional] |
 
 
 

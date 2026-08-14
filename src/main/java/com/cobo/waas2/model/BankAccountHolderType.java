@@ -22,13 +22,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The holder type of the bank account.
+ * BankAccountHolderType defines the holder type of the bank account: - &#x60;Company&#x60;: The bank account holder is a company. - &#x60;Personal&#x60;: The bank account holder is a personal individual. 
  */
 @JsonAdapter(BankAccountHolderType.Adapter.class)
 public enum BankAccountHolderType {
   UNKNOWN(null),
   
-  COMPANY("Company");
+  COMPANY("Company"),
+  
+  PERSONAL("Personal");
 
   private String value;
 

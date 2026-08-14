@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ExchangeId;
-import com.cobo.waas2.model.SafeTxExtraData;
 import com.cobo.waas2.model.TransactionBIP137Destination;
 import com.cobo.waas2.model.TransactionBIP322Destination;
 import com.cobo.waas2.model.TransactionCosmosAdr36Destination;
@@ -226,14 +225,6 @@ public class TransactionDestinationTest {
     @Test
     public void structuredDataTest() {
         // TODO: test structuredData
-    }
-
-    /**
-     * Test the property 'safeTxExtraData'
-     */
-    @Test
-    public void safeTxExtraDataTest() {
-        // TODO: test safeTxExtraData
     }
 
     /**

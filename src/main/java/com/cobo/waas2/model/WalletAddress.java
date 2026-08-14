@@ -125,7 +125,7 @@ public class WalletAddress {
   }
 
    /**
-   * The chain ID of the address.
+   * The chain ID of the cryptocurrency.
    * @return chainId
   **/
   @javax.annotation.Nonnull
@@ -163,7 +163,7 @@ public class WalletAddress {
   }
 
    /**
-   * UNIX timestamp (in seconds) when the address was last screened for compliance.
+   * The timestamp of the risk screening.
    * @return screeningTimestamp
   **/
   @javax.annotation.Nullable

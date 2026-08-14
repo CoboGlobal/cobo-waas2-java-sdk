@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.MerchantKycCompanyInfo;
 import com.cobo.waas2.model.MerchantKycMerchantType;
+import com.cobo.waas2.model.MerchantKycPersonInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -79,6 +80,10 @@ public class SubmitMerchantKyc {
   public static final String SERIALIZED_NAME_COMPANY_INFO = "company_info";
   @SerializedName(SERIALIZED_NAME_COMPANY_INFO)
   private MerchantKycCompanyInfo companyInfo;
+
+  public static final String SERIALIZED_NAME_INDIVIDUAL_INFO = "individual_info";
+  @SerializedName(SERIALIZED_NAME_INDIVIDUAL_INFO)
+  private MerchantKycPersonInfo individualInfo;
 
   public SubmitMerchantKyc() {
   }
@@ -195,13 +200,32 @@ public class SubmitMerchantKyc {
    * Get companyInfo
    * @return companyInfo
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public MerchantKycCompanyInfo getCompanyInfo() {
     return companyInfo;
   }
 
   public void setCompanyInfo(MerchantKycCompanyInfo companyInfo) {
     this.companyInfo = companyInfo;
+  }
+
+
+  public SubmitMerchantKyc individualInfo(MerchantKycPersonInfo individualInfo) {
+    this.individualInfo = individualInfo;
+    return this;
+  }
+
+   /**
+   * Get individualInfo
+   * @return individualInfo
+  **/
+  @javax.annotation.Nullable
+  public MerchantKycPersonInfo getIndividualInfo() {
+    return individualInfo;
+  }
+
+  public void setIndividualInfo(MerchantKycPersonInfo individualInfo) {
+    this.individualInfo = individualInfo;
   }
 
   /**
@@ -264,13 +288,14 @@ public class SubmitMerchantKyc {
         Objects.equals(this.merchantType, submitMerchantKyc.merchantType) &&
         Objects.equals(this.country, submitMerchantKyc.country) &&
         Objects.equals(this.industry, submitMerchantKyc.industry) &&
-        Objects.equals(this.companyInfo, submitMerchantKyc.companyInfo)&&
+        Objects.equals(this.companyInfo, submitMerchantKyc.companyInfo) &&
+        Objects.equals(this.individualInfo, submitMerchantKyc.individualInfo)&&
         Objects.equals(this.additionalProperties, submitMerchantKyc.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, phone, merchantType, country, industry, companyInfo, additionalProperties);
+    return Objects.hash(email, phone, merchantType, country, industry, companyInfo, individualInfo, additionalProperties);
   }
 
   @Override
@@ -283,6 +308,7 @@ public class SubmitMerchantKyc {
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
     sb.append("    companyInfo: ").append(toIndentedString(companyInfo)).append("\n");
+    sb.append("    individualInfo: ").append(toIndentedString(individualInfo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -312,6 +338,7 @@ public class SubmitMerchantKyc {
     openapiFields.add("country");
     openapiFields.add("industry");
     openapiFields.add("company_info");
+    openapiFields.add("individual_info");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -320,7 +347,6 @@ public class SubmitMerchantKyc {
     openapiRequiredFields.add("merchant_type");
     openapiRequiredFields.add("country");
     openapiRequiredFields.add("industry");
-    openapiRequiredFields.add("company_info");
   }
 
  /**
@@ -360,8 +386,14 @@ public class SubmitMerchantKyc {
       } else if (!jsonObj.get("industry").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `industry` to be an array in the JSON string but got `%s`", jsonObj.get("industry").toString()));
       }
-      // validate the required field `company_info`
-      MerchantKycCompanyInfo.validateJsonElement(jsonObj.get("company_info"));
+      // validate the optional field `company_info`
+      if (jsonObj.get("company_info") != null && !jsonObj.get("company_info").isJsonNull()) {
+        MerchantKycCompanyInfo.validateJsonElement(jsonObj.get("company_info"));
+      }
+      // validate the optional field `individual_info`
+      if (jsonObj.get("individual_info") != null && !jsonObj.get("individual_info").isJsonNull()) {
+        MerchantKycPersonInfo.validateJsonElement(jsonObj.get("individual_info"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

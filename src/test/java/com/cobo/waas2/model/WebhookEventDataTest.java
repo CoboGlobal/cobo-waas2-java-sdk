@@ -23,6 +23,7 @@ import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.ComplianceDispositionUpdateEventData;
 import com.cobo.waas2.model.ComplianceKyaScreeningsUpdateEventData;
 import com.cobo.waas2.model.ComplianceKytScreeningsUpdateEventData;
+import com.cobo.waas2.model.DestinationBankAccountDetail;
 import com.cobo.waas2.model.DispositionStatus;
 import com.cobo.waas2.model.DispositionType;
 import com.cobo.waas2.model.FeeStationFiatTransactionType;
@@ -34,16 +35,22 @@ import com.cobo.waas2.model.PaymentAccountBalanceUpdateEventData;
 import com.cobo.waas2.model.PaymentAddressUpdateEventData;
 import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
 import com.cobo.waas2.model.PaymentBalanceFlowDirection;
+import com.cobo.waas2.model.PaymentBankWithdrawalEvent;
+import com.cobo.waas2.model.PaymentBankWithdrawalTimelineItem;
 import com.cobo.waas2.model.PaymentBulkSendEvent;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
 import com.cobo.waas2.model.PaymentBulkSendItemEvent;
 import com.cobo.waas2.model.PaymentBulkSendItemValidationStatus;
+import com.cobo.waas2.model.PaymentChargeUpdateEventData;
 import com.cobo.waas2.model.PaymentOrderEventData;
 import com.cobo.waas2.model.PaymentPayoutEvent;
 import com.cobo.waas2.model.PaymentPayoutItem;
 import com.cobo.waas2.model.PaymentPayoutRecipientInfo;
 import com.cobo.waas2.model.PaymentRefundEventData;
 import com.cobo.waas2.model.PaymentSettlementEvent;
+import com.cobo.waas2.model.PaymentSubscriptionActionData;
+import com.cobo.waas2.model.PaymentSubscriptionPeriodType;
+import com.cobo.waas2.model.PaymentSubscriptionUpdateEventData;
 import com.cobo.waas2.model.PaymentTransaction;
 import com.cobo.waas2.model.PaymentTransactionEventData;
 import com.cobo.waas2.model.PayoutChannel;
@@ -65,6 +72,7 @@ import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
 import com.cobo.waas2.model.TransactionFuelingInfo;
 import com.cobo.waas2.model.TransactionInitiatorType;
+import com.cobo.waas2.model.TransactionProcessType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
 import com.cobo.waas2.model.TransactionResult;
@@ -333,6 +341,14 @@ public class WebhookEventDataTest {
     @Test
     public void extraTest() {
         // TODO: test extra
+    }
+
+    /**
+     * Test the property 'transactionProcessType'
+     */
+    @Test
+    public void transactionProcessTypeTest() {
+        // TODO: test transactionProcessType
     }
 
     /**
@@ -856,6 +872,102 @@ public class WebhookEventDataTest {
     }
 
     /**
+     * Test the property 'planId'
+     */
+    @Test
+    public void planIdTest() {
+        // TODO: test planId
+    }
+
+    /**
+     * Test the property 'merchantAddress'
+     */
+    @Test
+    public void merchantAddressTest() {
+        // TODO: test merchantAddress
+    }
+
+    /**
+     * Test the property 'data'
+     */
+    @Test
+    public void dataTest() {
+        // TODO: test data
+    }
+
+    /**
+     * Test the property 'transactionIds'
+     */
+    @Test
+    public void transactionIdsTest() {
+        // TODO: test transactionIds
+    }
+
+    /**
+     * Test the property 'userAddress'
+     */
+    @Test
+    public void userAddressTest() {
+        // TODO: test userAddress
+    }
+
+    /**
+     * Test the property 'chargeAmount'
+     */
+    @Test
+    public void chargeAmountTest() {
+        // TODO: test chargeAmount
+    }
+
+    /**
+     * Test the property 'startTime'
+     */
+    @Test
+    public void startTimeTest() {
+        // TODO: test startTime
+    }
+
+    /**
+     * Test the property 'expirationTime'
+     */
+    @Test
+    public void expirationTimeTest() {
+        // TODO: test expirationTime
+    }
+
+    /**
+     * Test the property 'chargesMade'
+     */
+    @Test
+    public void chargesMadeTest() {
+        // TODO: test chargesMade
+    }
+
+    /**
+     * Test the property 'periodType'
+     */
+    @Test
+    public void periodTypeTest() {
+        // TODO: test periodType
+    }
+
+    /**
+     * Test the property 'periods'
+     */
+    @Test
+    public void periodsTest() {
+        // TODO: test periods
+    }
+
+    /**
+     * Test the property 'interval'
+     */
+    @Test
+    public void intervalTest() {
+        // TODO: test interval
+    }
+
+    /**
      * Test the property 'payoutId'
      */
     @Test
@@ -909,6 +1021,62 @@ public class WebhookEventDataTest {
     @Test
     public void remarkTest() {
         // TODO: test remark
+    }
+
+    /**
+     * Test the property 'bankWithdrawalId'
+     */
+    @Test
+    public void bankWithdrawalIdTest() {
+        // TODO: test bankWithdrawalId
+    }
+
+    /**
+     * Test the property 'sourceBankAccountId'
+     */
+    @Test
+    public void sourceBankAccountIdTest() {
+        // TODO: test sourceBankAccountId
+    }
+
+    /**
+     * Test the property 'targetBankAccountId'
+     */
+    @Test
+    public void targetBankAccountIdTest() {
+        // TODO: test targetBankAccountId
+    }
+
+    /**
+     * Test the property 'sourceBankAccount'
+     */
+    @Test
+    public void sourceBankAccountTest() {
+        // TODO: test sourceBankAccount
+    }
+
+    /**
+     * Test the property 'targetBankAccount'
+     */
+    @Test
+    public void targetBankAccountTest() {
+        // TODO: test targetBankAccount
+    }
+
+    /**
+     * Test the property 'bankTxFee'
+     */
+    @Test
+    public void bankTxFeeTest() {
+        // TODO: test bankTxFee
+    }
+
+    /**
+     * Test the property 'timeline'
+     */
+    @Test
+    public void timelineTest() {
+        // TODO: test timeline
     }
 
     /**

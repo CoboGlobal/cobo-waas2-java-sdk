@@ -10,6 +10,7 @@
 |**destinationId** | **UUID** | The destination ID. |  |
 |**destinationType** | **DestinationType** |  |  |
 |**destinationName** | **String** | The destination name. |  |
+|**source** | **DestinationSource** |  |  [optional] |
 |**country** | **String** | The country of the destination, in ISO 3166-1 alpha-3 format. |  [optional] |
 |**email** | **String** | The email of the destination. |  [optional] |
 |**contactAddress** | **String** | The contact address of the destination. |  [optional] |

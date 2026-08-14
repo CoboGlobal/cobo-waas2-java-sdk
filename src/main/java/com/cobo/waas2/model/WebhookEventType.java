@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The event type. To learn the trigger condition of each event type, refer to [Webhook event types and event data](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/webhook-event-type).  
+ * The event type. To learn the trigger condition of each event type, refer to [Webhook event types and event data](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/webhook-event-type).
  */
 @JsonAdapter(WebhookEventType.Adapter.class)
 public enum WebhookEventType {
@@ -109,6 +109,8 @@ public enum WebhookEventType {
   PAYMENT_SETTLEMENT_STATUS_UPDATED("payment.settlement.status.updated"),
   
   PAYMENT_PAYOUT_STATUS_UPDATED("payment.payout.status.updated"),
+  
+  PAYMENT_BANK_WITHDRAWAL_STATUS_UPDATED("payment.bank_withdrawal.status.updated"),
   
   PAYMENT_ADDRESS_UPDATED("payment.address.updated"),
   

@@ -33,8 +33,8 @@ import com.cobo.waas2.model.DeleteThirdPartyPayee200Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetBankAccountBalance200ResponseInner;
 import com.cobo.waas2.model.ListBankAwaitingSignaturePayouts200ResponseInner;
+import com.cobo.waas2.model.ListBankPayouts200Response;
 import com.cobo.waas2.model.ListBankReturnedPayouts200Response;
-import com.cobo.waas2.model.ListBankTransactions200Response;
 import com.cobo.waas2.model.ListDeposits200Response;
 import com.cobo.waas2.model.SubmitBankPayoutSignatureRequest;
 import com.cobo.waas2.model.ThirdPartyMerchantInfo;
@@ -261,6 +261,23 @@ public class InternalBankGatewayApiTest {
     }
 
     /**
+     * List payouts
+     *
+     * This operation retrieves the list of payouts. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listBankPayoutsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String requestId = null;
+        ListBankPayouts200Response response = api.listBankPayouts(limit, before, after, requestId);
+        // TODO: test validations
+    }
+
+    /**
      * Get returned payouts
      *
      * This operation retrieves the list of payouts that are returned. 
@@ -292,7 +309,7 @@ public class InternalBankGatewayApiTest {
         String endTime = null;
         BankPayoutStatus status = null;
         BankTransferType transferType = null;
-        ListBankTransactions200Response response = api.listBankTransactions(bankProvider, accountNo, limit, before, after, currency, startTime, endTime, status, transferType);
+        ListBankPayouts200Response response = api.listBankTransactions(bankProvider, accountNo, limit, before, after, currency, startTime, endTime, status, transferType);
         // TODO: test validations
     }
 

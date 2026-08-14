@@ -26,9 +26,9 @@ import java.io.IOException;
 
 
 import com.cobo.waas2.model.BatchPayoutDetail;
-import com.cobo.waas2.model.CreateBatchPayoutRequest;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.InternalCreateBatchPayout201Response;
+import com.cobo.waas2.model.InternalCreateBatchPayoutRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -57,7 +57,7 @@ public class InternalBatchPayoutsApi {
 
     /**
      * Build call for internalCreateBatchPayout
-     * @param createBatchPayoutRequest The request body to create a batch payout. (optional)
+     * @param internalCreateBatchPayoutRequest The request body to create a batch payout for internal API. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -69,8 +69,8 @@ public class InternalBatchPayoutsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call internalCreateBatchPayoutCall(CreateBatchPayoutRequest createBatchPayoutRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = createBatchPayoutRequest;
+    public okhttp3.Call internalCreateBatchPayoutCall(InternalCreateBatchPayoutRequest internalCreateBatchPayoutRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = internalCreateBatchPayoutRequest;
 
         // create path and map variables
         String localVarPath = "/internal/batch_payouts/payouts";
@@ -102,15 +102,15 @@ public class InternalBatchPayoutsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call internalCreateBatchPayoutValidateBeforeCall(CreateBatchPayoutRequest createBatchPayoutRequest, final ApiCallback _callback) throws ApiException {
-        return internalCreateBatchPayoutCall(createBatchPayoutRequest, _callback);
+    private okhttp3.Call internalCreateBatchPayoutValidateBeforeCall(InternalCreateBatchPayoutRequest internalCreateBatchPayoutRequest, final ApiCallback _callback) throws ApiException {
+        return internalCreateBatchPayoutCall(internalCreateBatchPayoutRequest, _callback);
 
     }
 
     /**
      * Create batch payout
      * This operation creates a batch payout. 
-     * @param createBatchPayoutRequest The request body to create a batch payout. (optional)
+     * @param internalCreateBatchPayoutRequest The request body to create a batch payout for internal API. (optional)
      * @return InternalCreateBatchPayout201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -121,15 +121,15 @@ public class InternalBatchPayoutsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public InternalCreateBatchPayout201Response internalCreateBatchPayout(CreateBatchPayoutRequest createBatchPayoutRequest) throws ApiException {
-        ApiResponse<InternalCreateBatchPayout201Response> localVarResp = internalCreateBatchPayoutWithHttpInfo(createBatchPayoutRequest);
+    public InternalCreateBatchPayout201Response internalCreateBatchPayout(InternalCreateBatchPayoutRequest internalCreateBatchPayoutRequest) throws ApiException {
+        ApiResponse<InternalCreateBatchPayout201Response> localVarResp = internalCreateBatchPayoutWithHttpInfo(internalCreateBatchPayoutRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create batch payout
      * This operation creates a batch payout. 
-     * @param createBatchPayoutRequest The request body to create a batch payout. (optional)
+     * @param internalCreateBatchPayoutRequest The request body to create a batch payout for internal API. (optional)
      * @return ApiResponse&lt;InternalCreateBatchPayout201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -140,8 +140,8 @@ public class InternalBatchPayoutsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InternalCreateBatchPayout201Response> internalCreateBatchPayoutWithHttpInfo(CreateBatchPayoutRequest createBatchPayoutRequest) throws ApiException {
-        okhttp3.Call localVarCall = internalCreateBatchPayoutValidateBeforeCall(createBatchPayoutRequest, null);
+    public ApiResponse<InternalCreateBatchPayout201Response> internalCreateBatchPayoutWithHttpInfo(InternalCreateBatchPayoutRequest internalCreateBatchPayoutRequest) throws ApiException {
+        okhttp3.Call localVarCall = internalCreateBatchPayoutValidateBeforeCall(internalCreateBatchPayoutRequest, null);
         Type localVarReturnType = new TypeToken<InternalCreateBatchPayout201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -149,7 +149,7 @@ public class InternalBatchPayoutsApi {
     /**
      * Create batch payout (asynchronously)
      * This operation creates a batch payout. 
-     * @param createBatchPayoutRequest The request body to create a batch payout. (optional)
+     * @param internalCreateBatchPayoutRequest The request body to create a batch payout for internal API. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -161,9 +161,9 @@ public class InternalBatchPayoutsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call internalCreateBatchPayoutAsync(CreateBatchPayoutRequest createBatchPayoutRequest, final ApiCallback<InternalCreateBatchPayout201Response> _callback) throws ApiException {
+    public okhttp3.Call internalCreateBatchPayoutAsync(InternalCreateBatchPayoutRequest internalCreateBatchPayoutRequest, final ApiCallback<InternalCreateBatchPayout201Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = internalCreateBatchPayoutValidateBeforeCall(createBatchPayoutRequest, _callback);
+        okhttp3.Call localVarCall = internalCreateBatchPayoutValidateBeforeCall(internalCreateBatchPayoutRequest, _callback);
         Type localVarReturnType = new TypeToken<InternalCreateBatchPayout201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

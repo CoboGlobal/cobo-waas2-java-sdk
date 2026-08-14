@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Specifies how the batch handles item-level validation failures. The required &#x60;execution_mode&#x60; field is a string enum and must be set to either &#x60;Strict&#x60; or &#x60;Partial&#x60;; no default is applied if you omit it. It is not a &#x60;strict_mode&#x60; boolean flag.  - &#x60;Strict&#x60;: If any item in the batch fails validation, no items are executed.   Every item is marked &#x60;NotExecuted&#x60;, and the batch fails. The batch also   fails in &#x60;Strict&#x60; mode if the fund sweep needed to fund it only partially   completes. - &#x60;Partial&#x60;: Item validation failures are isolated to the affected items.   Failed items are marked &#x60;NotExecuted&#x60;, while all other validated items in   the batch continue to be processed normally.  Use &#x60;Partial&#x60; when one item&#39;s validation failure should not block the rest of the batch. Because outcomes can differ by item, check each item&#39;s result and &#x60;validation_status&#x60; individually instead of assuming that a batch-level outcome applies to every item. 
+ * The execution mode of the bulk send. - &#x60;Strict&#x60;: The bulk send is executed in strict mode, which means all payout items should be successfully executed or all failed. - &#x60;Partial&#x60;: The bulk send is executed in partial mode, which means some payout items can be successfully executed and some can be failed. 
  */
 @JsonAdapter(PaymentBulkSendExecutionMode.Adapter.class)
 public enum PaymentBulkSendExecutionMode {

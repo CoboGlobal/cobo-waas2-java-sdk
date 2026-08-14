@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.AutoFuelType;
+import com.cobo.waas2.model.FeeLevel;
 import com.cobo.waas2.model.PreCheck;
 import com.cobo.waas2.model.TransactionProcessType;
 import com.cobo.waas2.model.TransactionRequestFee;
@@ -88,6 +89,10 @@ public class TransferParams {
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
 
+  public static final String SERIALIZED_NAME_FEE_LEVEL = "fee_level";
+  @SerializedName(SERIALIZED_NAME_FEE_LEVEL)
+  private FeeLevel feeLevel;
+
   public static final String SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE = "transaction_process_type";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE)
   private TransactionProcessType transactionProcessType;
@@ -109,7 +114,7 @@ public class TransferParams {
   }
 
    /**
-   * A client-defined unique request identifier (idempotency key) used to prevent duplicate transfer requests. It must be unique within the same organization. Requests with the same request ID will be rejected with an error. 
+   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
   @javax.annotation.Nonnull
@@ -244,6 +249,25 @@ public class TransferParams {
   }
 
 
+  public TransferParams feeLevel(FeeLevel feeLevel) {
+    this.feeLevel = feeLevel;
+    return this;
+  }
+
+   /**
+   * Get feeLevel
+   * @return feeLevel
+  **/
+  @javax.annotation.Nullable
+  public FeeLevel getFeeLevel() {
+    return feeLevel;
+  }
+
+  public void setFeeLevel(FeeLevel feeLevel) {
+    this.feeLevel = feeLevel;
+  }
+
+
   public TransferParams transactionProcessType(TransactionProcessType transactionProcessType) {
     this.transactionProcessType = transactionProcessType;
     return this;
@@ -362,6 +386,7 @@ public class TransferParams {
         Objects.equals(this.categoryNames, transferParams.categoryNames) &&
         Objects.equals(this.description, transferParams.description) &&
         Objects.equals(this.fee, transferParams.fee) &&
+        Objects.equals(this.feeLevel, transferParams.feeLevel) &&
         Objects.equals(this.transactionProcessType, transferParams.transactionProcessType) &&
         Objects.equals(this.autoFuel, transferParams.autoFuel) &&
         Objects.equals(this.preCheck, transferParams.preCheck)&&
@@ -370,7 +395,7 @@ public class TransferParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, source, tokenId, destination, categoryNames, description, fee, transactionProcessType, autoFuel, preCheck, additionalProperties);
+    return Objects.hash(requestId, source, tokenId, destination, categoryNames, description, fee, feeLevel, transactionProcessType, autoFuel, preCheck, additionalProperties);
   }
 
   @Override
@@ -384,6 +409,7 @@ public class TransferParams {
     sb.append("    categoryNames: ").append(toIndentedString(categoryNames)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    feeLevel: ").append(toIndentedString(feeLevel)).append("\n");
     sb.append("    transactionProcessType: ").append(toIndentedString(transactionProcessType)).append("\n");
     sb.append("    autoFuel: ").append(toIndentedString(autoFuel)).append("\n");
     sb.append("    preCheck: ").append(toIndentedString(preCheck)).append("\n");
@@ -417,6 +443,7 @@ public class TransferParams {
     openapiFields.add("category_names");
     openapiFields.add("description");
     openapiFields.add("fee");
+    openapiFields.add("fee_level");
     openapiFields.add("transaction_process_type");
     openapiFields.add("auto_fuel");
     openapiFields.add("pre_check");
@@ -469,6 +496,10 @@ public class TransferParams {
       // validate the optional field `fee`
       if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
         TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
+      }
+      // validate the optional field `fee_level`
+      if (jsonObj.get("fee_level") != null && !jsonObj.get("fee_level").isJsonNull()) {
+        FeeLevel.validateJsonElement(jsonObj.get("fee_level"));
       }
       // validate the optional field `transaction_process_type`
       if (jsonObj.get("transaction_process_type") != null && !jsonObj.get("transaction_process_type").isJsonNull()) {

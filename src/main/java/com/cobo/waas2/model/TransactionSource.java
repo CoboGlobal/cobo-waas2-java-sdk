@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.ExchangeId;
 import com.cobo.waas2.model.TransactionCustodialAssetWalletSource;
 import com.cobo.waas2.model.TransactionCustodialWeb3WalletSource;
@@ -21,7 +20,6 @@ import com.cobo.waas2.model.TransactionDepositFromLoopSource;
 import com.cobo.waas2.model.TransactionDepositFromWalletSource;
 import com.cobo.waas2.model.TransactionExchangeWalletSource;
 import com.cobo.waas2.model.TransactionMPCWalletSource;
-import com.cobo.waas2.model.TransactionSmartContractSafeWalletSource;
 import com.cobo.waas2.model.TransactionSourceType;
 import com.cobo.waas2.model.TransactionUtxo;
 import com.cobo.waas2.model.WalletSubtype;
@@ -90,7 +88,6 @@ public class TransactionSource extends AbstractOpenApiSchema {
             final TypeAdapter<TransactionCustodialAssetWalletSource> adapterTransactionCustodialAssetWalletSource = gson.getDelegateAdapter(this, TypeToken.get(TransactionCustodialAssetWalletSource.class));
             final TypeAdapter<TransactionCustodialWeb3WalletSource> adapterTransactionCustodialWeb3WalletSource = gson.getDelegateAdapter(this, TypeToken.get(TransactionCustodialWeb3WalletSource.class));
             final TypeAdapter<TransactionMPCWalletSource> adapterTransactionMPCWalletSource = gson.getDelegateAdapter(this, TypeToken.get(TransactionMPCWalletSource.class));
-            final TypeAdapter<TransactionSmartContractSafeWalletSource> adapterTransactionSmartContractSafeWalletSource = gson.getDelegateAdapter(this, TypeToken.get(TransactionSmartContractSafeWalletSource.class));
             final TypeAdapter<TransactionExchangeWalletSource> adapterTransactionExchangeWalletSource = gson.getDelegateAdapter(this, TypeToken.get(TransactionExchangeWalletSource.class));
             final TypeAdapter<TransactionDepositFromAddressSource> adapterTransactionDepositFromAddressSource = gson.getDelegateAdapter(this, TypeToken.get(TransactionDepositFromAddressSource.class));
             final TypeAdapter<TransactionDepositFromWalletSource> adapterTransactionDepositFromWalletSource = gson.getDelegateAdapter(this, TypeToken.get(TransactionDepositFromWalletSource.class));
@@ -122,12 +119,6 @@ public class TransactionSource extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `TransactionSmartContractSafeWalletSource`
-                    if (value.getActualInstance() instanceof TransactionSmartContractSafeWalletSource) {
-                        JsonElement element = adapterTransactionSmartContractSafeWalletSource.toJsonTree((TransactionSmartContractSafeWalletSource)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
                     // check if the actual instance is of the type `TransactionExchangeWalletSource`
                     if (value.getActualInstance() instanceof TransactionExchangeWalletSource) {
                         JsonElement element = adapterTransactionExchangeWalletSource.toJsonTree((TransactionExchangeWalletSource)value.getActualInstance());
@@ -152,7 +143,7 @@ public class TransactionSource extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource, TransactionSmartContractSafeWalletSource");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource");
                 }
 
                 @Override
@@ -191,10 +182,6 @@ public class TransactionSource extends AbstractOpenApiSchema {
                                 return newTransactionSource;
                             case "Org-Controlled":
                                 deserialized = adapterTransactionMPCWalletSource.fromJsonTree(jsonObject);
-                                newTransactionSource.setActualInstance(deserialized);
-                                return newTransactionSource;
-                            case "Safe{Wallet}":
-                                deserialized = adapterTransactionSmartContractSafeWalletSource.fromJsonTree(jsonObject);
                                 newTransactionSource.setActualInstance(deserialized);
                                 return newTransactionSource;
                             case "Sub":
@@ -237,12 +224,8 @@ public class TransactionSource extends AbstractOpenApiSchema {
                                 deserialized = adapterTransactionMPCWalletSource.fromJsonTree(jsonObject);
                                 newTransactionSource.setActualInstance(deserialized);
                                 return newTransactionSource;
-                            case "TransactionSmartContractSafeWalletSource":
-                                deserialized = adapterTransactionSmartContractSafeWalletSource.fromJsonTree(jsonObject);
-                                newTransactionSource.setActualInstance(deserialized);
-                                return newTransactionSource;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionSource. Possible values: Asset DepositFromAddress DepositFromLoop DepositFromWallet Main Org-Controlled Safe{Wallet} Sub User-Controlled Web3 TransactionCustodialAssetWalletSource TransactionCustodialWeb3WalletSource TransactionDepositFromAddressSource TransactionDepositFromLoopSource TransactionDepositFromWalletSource TransactionExchangeWalletSource TransactionMPCWalletSource TransactionSmartContractSafeWalletSource", jsonObject.get("source_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionSource. Possible values: Asset DepositFromAddress DepositFromLoop DepositFromWallet Main Org-Controlled Sub User-Controlled Web3 TransactionCustodialAssetWalletSource TransactionCustodialWeb3WalletSource TransactionDepositFromAddressSource TransactionDepositFromLoopSource TransactionDepositFromWalletSource TransactionExchangeWalletSource TransactionMPCWalletSource", jsonObject.get("source_type").getAsString()));
                         }
                     }
 
@@ -285,18 +268,6 @@ public class TransactionSource extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for TransactionMPCWalletSource failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'TransactionMPCWalletSource'", e);
-                    }
-                    // deserialize TransactionSmartContractSafeWalletSource
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        TransactionSmartContractSafeWalletSource.validateJsonElement(jsonElement);
-                        actualAdapter = adapterTransactionSmartContractSafeWalletSource;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'TransactionSmartContractSafeWalletSource'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for TransactionSmartContractSafeWalletSource failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'TransactionSmartContractSafeWalletSource'", e);
                     }
                     // deserialize TransactionExchangeWalletSource
                     try {
@@ -401,16 +372,10 @@ public class TransactionSource extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
-    public TransactionSource(TransactionSmartContractSafeWalletSource o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     static {
         schemas.put("TransactionCustodialAssetWalletSource", TransactionCustodialAssetWalletSource.class);
         schemas.put("TransactionCustodialWeb3WalletSource", TransactionCustodialWeb3WalletSource.class);
         schemas.put("TransactionMPCWalletSource", TransactionMPCWalletSource.class);
-        schemas.put("TransactionSmartContractSafeWalletSource", TransactionSmartContractSafeWalletSource.class);
         schemas.put("TransactionExchangeWalletSource", TransactionExchangeWalletSource.class);
         schemas.put("TransactionDepositFromAddressSource", TransactionDepositFromAddressSource.class);
         schemas.put("TransactionDepositFromWalletSource", TransactionDepositFromWalletSource.class);
@@ -425,7 +390,7 @@ public class TransactionSource extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource, TransactionSmartContractSafeWalletSource
+     * TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -442,11 +407,6 @@ public class TransactionSource extends AbstractOpenApiSchema {
         }
 
         if (instance instanceof TransactionMPCWalletSource) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof TransactionSmartContractSafeWalletSource) {
             super.setActualInstance(instance);
             return;
         }
@@ -471,14 +431,14 @@ public class TransactionSource extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource, TransactionSmartContractSafeWalletSource");
+        throw new RuntimeException("Invalid instance type. Must be TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource, TransactionSmartContractSafeWalletSource
+     * TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource
      *
-     * @return The actual instance (TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource, TransactionSmartContractSafeWalletSource)
+     * @return The actual instance (TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -515,16 +475,6 @@ public class TransactionSource extends AbstractOpenApiSchema {
      */
     public TransactionMPCWalletSource getTransactionMPCWalletSource() throws ClassCastException {
         return (TransactionMPCWalletSource)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `TransactionSmartContractSafeWalletSource`. If the actual instance is not `TransactionSmartContractSafeWalletSource`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `TransactionSmartContractSafeWalletSource`
-     * @throws ClassCastException if the instance is not `TransactionSmartContractSafeWalletSource`
-     */
-    public TransactionSmartContractSafeWalletSource getTransactionSmartContractSafeWalletSource() throws ClassCastException {
-        return (TransactionSmartContractSafeWalletSource)super.getActualInstance();
     }
     /**
      * Get the actual instance of `TransactionExchangeWalletSource`. If the actual instance is not `TransactionExchangeWalletSource`,
@@ -601,14 +551,6 @@ public class TransactionSource extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for TransactionMPCWalletSource failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with TransactionSmartContractSafeWalletSource
-        try {
-            TransactionSmartContractSafeWalletSource.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for TransactionSmartContractSafeWalletSource failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         // validate the json string with TransactionExchangeWalletSource
         try {
             TransactionExchangeWalletSource.validateJsonElement(jsonElement);
@@ -642,7 +584,7 @@ public class TransactionSource extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for TransactionSource with oneOf schemas: TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource, TransactionSmartContractSafeWalletSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for TransactionSource with oneOf schemas: TransactionCustodialAssetWalletSource, TransactionCustodialWeb3WalletSource, TransactionDepositFromAddressSource, TransactionDepositFromLoopSource, TransactionDepositFromWalletSource, TransactionExchangeWalletSource, TransactionMPCWalletSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

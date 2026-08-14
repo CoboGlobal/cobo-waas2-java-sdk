@@ -15,6 +15,7 @@ import java.util.Objects;
 import com.cobo.waas2.model.BankAccountHolderType;
 import com.cobo.waas2.model.BankAccountPaymentMethod;
 import com.cobo.waas2.model.BankAccountStatus;
+import com.cobo.waas2.model.DestinationBankAccountTag;
 import com.cobo.waas2.model.IntermediaryBankInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -24,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -60,6 +62,10 @@ public class DestinationBankAccount {
   public static final String SERIALIZED_NAME_BANK_ACCOUNT_ID = "bank_account_id";
   @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_ID)
   private UUID bankAccountId;
+
+  public static final String SERIALIZED_NAME_TAG = "tag";
+  @SerializedName(SERIALIZED_NAME_TAG)
+  private DestinationBankAccountTag tag;
 
   public static final String SERIALIZED_NAME_ACCOUNT_ALIAS = "account_alias";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ALIAS)
@@ -180,6 +186,25 @@ public class DestinationBankAccount {
 
   public void setBankAccountId(UUID bankAccountId) {
     this.bankAccountId = bankAccountId;
+  }
+
+
+  public DestinationBankAccount tag(DestinationBankAccountTag tag) {
+    this.tag = tag;
+    return this;
+  }
+
+   /**
+   * Get tag
+   * @return tag
+  **/
+  @javax.annotation.Nullable
+  public DestinationBankAccountTag getTag() {
+    return tag;
+  }
+
+  public void setTag(DestinationBankAccountTag tag) {
+    this.tag = tag;
   }
 
 
@@ -713,6 +738,7 @@ public class DestinationBankAccount {
     }
     DestinationBankAccount destinationBankAccount = (DestinationBankAccount) o;
     return Objects.equals(this.bankAccountId, destinationBankAccount.bankAccountId) &&
+        Objects.equals(this.tag, destinationBankAccount.tag) &&
         Objects.equals(this.accountAlias, destinationBankAccount.accountAlias) &&
         Objects.equals(this.accountNumber, destinationBankAccount.accountNumber) &&
         Objects.equals(this.swiftCode, destinationBankAccount.swiftCode) &&
@@ -741,9 +767,20 @@ public class DestinationBankAccount {
         Objects.equals(this.additionalProperties, destinationBankAccount.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccountId, accountAlias, accountNumber, swiftCode, currency, beneficiaryName, beneficiaryAddress, bankName, bankAddress, ibanCode, furtherCredit, intermediaryBankInfo, bankAccountStatus, createdTimestamp, updatedTimestamp, country, city, paymentMethod, holderType, beneficiaryProvince, beneficiaryPostCode, bankAccountName, bankBranchCode, bankCountry, bankProvince, contractFileId, additionalProperties);
+    return Objects.hash(bankAccountId, tag, accountAlias, accountNumber, swiftCode, currency, beneficiaryName, beneficiaryAddress, bankName, bankAddress, ibanCode, furtherCredit, intermediaryBankInfo, bankAccountStatus, createdTimestamp, updatedTimestamp, country, city, paymentMethod, holderType, beneficiaryProvince, beneficiaryPostCode, bankAccountName, bankBranchCode, bankCountry, bankProvince, contractFileId, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -751,6 +788,7 @@ public class DestinationBankAccount {
     StringBuilder sb = new StringBuilder();
     sb.append("class DestinationBankAccount {\n");
     sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    accountAlias: ").append(toIndentedString(accountAlias)).append("\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    swiftCode: ").append(toIndentedString(swiftCode)).append("\n");
@@ -800,6 +838,7 @@ public class DestinationBankAccount {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("bank_account_id");
+    openapiFields.add("tag");
     openapiFields.add("account_alias");
     openapiFields.add("account_number");
     openapiFields.add("swift_code");
@@ -862,6 +901,10 @@ public class DestinationBankAccount {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("bank_account_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bank_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_account_id").toString()));
+      }
+      // validate the optional field `tag`
+      if (jsonObj.get("tag") != null && !jsonObj.get("tag").isJsonNull()) {
+        DestinationBankAccountTag.validateJsonElement(jsonObj.get("tag"));
       }
       if (!jsonObj.get("account_alias").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `account_alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_alias").toString()));

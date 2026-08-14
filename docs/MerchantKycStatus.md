@@ -11,5 +11,7 @@
 
 * `FAILED` (value: `"Failed"`)
 
+* `DISABLED` (value: `"Disabled"`)
+
 
 
