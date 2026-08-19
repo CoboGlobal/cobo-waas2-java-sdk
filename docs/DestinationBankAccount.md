@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**bankAccountId** | **UUID** | The destination bank account ID. |  |
+|**tag** | **DestinationBankAccountTag** |  |  [optional] |
 |**accountAlias** | **String** | The alias of the bank account. |  |
 |**accountNumber** | **String** | The bank account number. |  |
 |**swiftCode** | **String** | The SWIFT or BIC code of the bank. |  |

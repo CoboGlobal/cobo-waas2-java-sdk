@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,7 +56,7 @@ import com.cobo.waas2.JSON;
 public class MerchantKycCompanyAttachment {
   public static final String SERIALIZED_NAME_FILE_ID = "file_id";
   @SerializedName(SERIALIZED_NAME_FILE_ID)
-  private String fileId;
+  private UUID fileId;
 
   public static final String SERIALIZED_NAME_FILE_TYPE = "file_type";
   @SerializedName(SERIALIZED_NAME_FILE_TYPE)
@@ -64,21 +65,21 @@ public class MerchantKycCompanyAttachment {
   public MerchantKycCompanyAttachment() {
   }
 
-  public MerchantKycCompanyAttachment fileId(String fileId) {
+  public MerchantKycCompanyAttachment fileId(UUID fileId) {
     this.fileId = fileId;
     return this;
   }
 
    /**
-   * The AWS file link of the uploaded file, which you can retrieve by calling [Upload file](https://www.cobo.com/developers/v2/api-references/payment/upload-file). 
+   * The file ID of the uploaded file, which you can retrieve by calling [Upload file](https://www.cobo.com/developers/v2/api-references/payment/upload-file). 
    * @return fileId
   **/
   @javax.annotation.Nonnull
-  public String getFileId() {
+  public UUID getFileId() {
     return fileId;
   }
 
-  public void setFileId(String fileId) {
+  public void setFileId(UUID fileId) {
     this.fileId = fileId;
   }
 

@@ -12,12 +12,10 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.ContractCallSourceType;
 import com.cobo.waas2.model.CustodialWeb3ContractCallSource;
 import com.cobo.waas2.model.MpcContractCallSource;
 import com.cobo.waas2.model.MpcSigningGroup;
-import com.cobo.waas2.model.SafeContractCallSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -78,7 +76,6 @@ public class ContractCallSource extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<MpcContractCallSource> adapterMpcContractCallSource = gson.getDelegateAdapter(this, TypeToken.get(MpcContractCallSource.class));
-            final TypeAdapter<SafeContractCallSource> adapterSafeContractCallSource = gson.getDelegateAdapter(this, TypeToken.get(SafeContractCallSource.class));
             final TypeAdapter<CustodialWeb3ContractCallSource> adapterCustodialWeb3ContractCallSource = gson.getDelegateAdapter(this, TypeToken.get(CustodialWeb3ContractCallSource.class));
 
             return (TypeAdapter<T>) new TypeAdapter<ContractCallSource>() {
@@ -95,19 +92,13 @@ public class ContractCallSource extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `SafeContractCallSource`
-                    if (value.getActualInstance() instanceof SafeContractCallSource) {
-                        JsonElement element = adapterSafeContractCallSource.toJsonTree((SafeContractCallSource)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
                     // check if the actual instance is of the type `CustodialWeb3ContractCallSource`
                     if (value.getActualInstance() instanceof CustodialWeb3ContractCallSource) {
                         JsonElement element = adapterCustodialWeb3ContractCallSource.toJsonTree((CustodialWeb3ContractCallSource)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CustodialWeb3ContractCallSource, MpcContractCallSource, SafeContractCallSource");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CustodialWeb3ContractCallSource, MpcContractCallSource");
                 }
 
                 @Override
@@ -128,10 +119,6 @@ public class ContractCallSource extends AbstractOpenApiSchema {
                                 deserialized = adapterMpcContractCallSource.fromJsonTree(jsonObject);
                                 newContractCallSource.setActualInstance(deserialized);
                                 return newContractCallSource;
-                            case "Safe{Wallet}":
-                                deserialized = adapterSafeContractCallSource.fromJsonTree(jsonObject);
-                                newContractCallSource.setActualInstance(deserialized);
-                                return newContractCallSource;
                             case "User-Controlled":
                                 deserialized = adapterMpcContractCallSource.fromJsonTree(jsonObject);
                                 newContractCallSource.setActualInstance(deserialized);
@@ -148,12 +135,8 @@ public class ContractCallSource extends AbstractOpenApiSchema {
                                 deserialized = adapterMpcContractCallSource.fromJsonTree(jsonObject);
                                 newContractCallSource.setActualInstance(deserialized);
                                 return newContractCallSource;
-                            case "SafeContractCallSource":
-                                deserialized = adapterSafeContractCallSource.fromJsonTree(jsonObject);
-                                newContractCallSource.setActualInstance(deserialized);
-                                return newContractCallSource;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for ContractCallSource. Possible values: Org-Controlled Safe{Wallet} User-Controlled Web3 CustodialWeb3ContractCallSource MpcContractCallSource SafeContractCallSource", jsonObject.get("source_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for ContractCallSource. Possible values: Org-Controlled User-Controlled Web3 CustodialWeb3ContractCallSource MpcContractCallSource", jsonObject.get("source_type").getAsString()));
                         }
                     }
 
@@ -172,18 +155,6 @@ public class ContractCallSource extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for MpcContractCallSource failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'MpcContractCallSource'", e);
-                    }
-                    // deserialize SafeContractCallSource
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        SafeContractCallSource.validateJsonElement(jsonElement);
-                        actualAdapter = adapterSafeContractCallSource;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'SafeContractCallSource'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for SafeContractCallSource failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'SafeContractCallSource'", e);
                     }
                     // deserialize CustodialWeb3ContractCallSource
                     try {
@@ -227,14 +198,8 @@ public class ContractCallSource extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
-    public ContractCallSource(SafeContractCallSource o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     static {
         schemas.put("MpcContractCallSource", MpcContractCallSource.class);
-        schemas.put("SafeContractCallSource", SafeContractCallSource.class);
         schemas.put("CustodialWeb3ContractCallSource", CustodialWeb3ContractCallSource.class);
     }
 
@@ -246,7 +211,7 @@ public class ContractCallSource extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CustodialWeb3ContractCallSource, MpcContractCallSource, SafeContractCallSource
+     * CustodialWeb3ContractCallSource, MpcContractCallSource
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -257,24 +222,19 @@ public class ContractCallSource extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof SafeContractCallSource) {
-            super.setActualInstance(instance);
-            return;
-        }
-
         if (instance instanceof CustodialWeb3ContractCallSource) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CustodialWeb3ContractCallSource, MpcContractCallSource, SafeContractCallSource");
+        throw new RuntimeException("Invalid instance type. Must be CustodialWeb3ContractCallSource, MpcContractCallSource");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CustodialWeb3ContractCallSource, MpcContractCallSource, SafeContractCallSource
+     * CustodialWeb3ContractCallSource, MpcContractCallSource
      *
-     * @return The actual instance (CustodialWeb3ContractCallSource, MpcContractCallSource, SafeContractCallSource)
+     * @return The actual instance (CustodialWeb3ContractCallSource, MpcContractCallSource)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -291,16 +251,6 @@ public class ContractCallSource extends AbstractOpenApiSchema {
      */
     public MpcContractCallSource getMpcContractCallSource() throws ClassCastException {
         return (MpcContractCallSource)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `SafeContractCallSource`. If the actual instance is not `SafeContractCallSource`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `SafeContractCallSource`
-     * @throws ClassCastException if the instance is not `SafeContractCallSource`
-     */
-    public SafeContractCallSource getSafeContractCallSource() throws ClassCastException {
-        return (SafeContractCallSource)super.getActualInstance();
     }
     /**
      * Get the actual instance of `CustodialWeb3ContractCallSource`. If the actual instance is not `CustodialWeb3ContractCallSource`,
@@ -331,14 +281,6 @@ public class ContractCallSource extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for MpcContractCallSource failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with SafeContractCallSource
-        try {
-            SafeContractCallSource.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for SafeContractCallSource failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         // validate the json string with CustodialWeb3ContractCallSource
         try {
             CustodialWeb3ContractCallSource.validateJsonElement(jsonElement);
@@ -348,7 +290,7 @@ public class ContractCallSource extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for ContractCallSource with oneOf schemas: CustodialWeb3ContractCallSource, MpcContractCallSource, SafeContractCallSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for ContractCallSource with oneOf schemas: CustodialWeb3ContractCallSource, MpcContractCallSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

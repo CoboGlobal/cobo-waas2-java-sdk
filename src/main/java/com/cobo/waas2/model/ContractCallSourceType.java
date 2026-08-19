@@ -32,9 +32,7 @@ public enum ContractCallSourceType {
   
   ORG_CONTROLLED("Org-Controlled"),
   
-  USER_CONTROLLED("User-Controlled"),
-  
-  SAFE_WALLET_("Safe{Wallet}");
+  USER_CONTROLLED("User-Controlled");
 
   private String value;
 

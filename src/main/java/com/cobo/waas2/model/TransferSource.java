@@ -12,13 +12,11 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.CustodialTransferSource;
 import com.cobo.waas2.model.CustodialWeb3TransferSource;
 import com.cobo.waas2.model.ExchangeTransferSource;
 import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.MpcTransferSource;
-import com.cobo.waas2.model.SafeTransferSource;
 import com.cobo.waas2.model.TransactionUtxo;
 import com.cobo.waas2.model.WalletSubtype;
 import com.google.gson.TypeAdapter;
@@ -85,7 +83,6 @@ public class TransferSource extends AbstractOpenApiSchema {
             final TypeAdapter<CustodialTransferSource> adapterCustodialTransferSource = gson.getDelegateAdapter(this, TypeToken.get(CustodialTransferSource.class));
             final TypeAdapter<CustodialWeb3TransferSource> adapterCustodialWeb3TransferSource = gson.getDelegateAdapter(this, TypeToken.get(CustodialWeb3TransferSource.class));
             final TypeAdapter<MpcTransferSource> adapterMpcTransferSource = gson.getDelegateAdapter(this, TypeToken.get(MpcTransferSource.class));
-            final TypeAdapter<SafeTransferSource> adapterSafeTransferSource = gson.getDelegateAdapter(this, TypeToken.get(SafeTransferSource.class));
             final TypeAdapter<ExchangeTransferSource> adapterExchangeTransferSource = gson.getDelegateAdapter(this, TypeToken.get(ExchangeTransferSource.class));
 
             return (TypeAdapter<T>) new TypeAdapter<TransferSource>() {
@@ -114,19 +111,13 @@ public class TransferSource extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `SafeTransferSource`
-                    if (value.getActualInstance() instanceof SafeTransferSource) {
-                        JsonElement element = adapterSafeTransferSource.toJsonTree((SafeTransferSource)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
                     // check if the actual instance is of the type `ExchangeTransferSource`
                     if (value.getActualInstance() instanceof ExchangeTransferSource) {
                         JsonElement element = adapterExchangeTransferSource.toJsonTree((ExchangeTransferSource)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource");
                 }
 
                 @Override
@@ -153,10 +144,6 @@ public class TransferSource extends AbstractOpenApiSchema {
                                 return newTransferSource;
                             case "Org-Controlled":
                                 deserialized = adapterMpcTransferSource.fromJsonTree(jsonObject);
-                                newTransferSource.setActualInstance(deserialized);
-                                return newTransferSource;
-                            case "Safe{Wallet}":
-                                deserialized = adapterSafeTransferSource.fromJsonTree(jsonObject);
                                 newTransferSource.setActualInstance(deserialized);
                                 return newTransferSource;
                             case "Sub":
@@ -187,12 +174,8 @@ public class TransferSource extends AbstractOpenApiSchema {
                                 deserialized = adapterMpcTransferSource.fromJsonTree(jsonObject);
                                 newTransferSource.setActualInstance(deserialized);
                                 return newTransferSource;
-                            case "SafeTransferSource":
-                                deserialized = adapterSafeTransferSource.fromJsonTree(jsonObject);
-                                newTransferSource.setActualInstance(deserialized);
-                                return newTransferSource;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransferSource. Possible values: Asset Main Org-Controlled Safe{Wallet} Sub User-Controlled Web3 CustodialTransferSource CustodialWeb3TransferSource ExchangeTransferSource MpcTransferSource SafeTransferSource", jsonObject.get("source_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransferSource. Possible values: Asset Main Org-Controlled Sub User-Controlled Web3 CustodialTransferSource CustodialWeb3TransferSource ExchangeTransferSource MpcTransferSource", jsonObject.get("source_type").getAsString()));
                         }
                     }
 
@@ -235,18 +218,6 @@ public class TransferSource extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for MpcTransferSource failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'MpcTransferSource'", e);
-                    }
-                    // deserialize SafeTransferSource
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        SafeTransferSource.validateJsonElement(jsonElement);
-                        actualAdapter = adapterSafeTransferSource;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'SafeTransferSource'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for SafeTransferSource failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'SafeTransferSource'", e);
                     }
                     // deserialize ExchangeTransferSource
                     try {
@@ -300,16 +271,10 @@ public class TransferSource extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
-    public TransferSource(SafeTransferSource o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     static {
         schemas.put("CustodialTransferSource", CustodialTransferSource.class);
         schemas.put("CustodialWeb3TransferSource", CustodialWeb3TransferSource.class);
         schemas.put("MpcTransferSource", MpcTransferSource.class);
-        schemas.put("SafeTransferSource", SafeTransferSource.class);
         schemas.put("ExchangeTransferSource", ExchangeTransferSource.class);
     }
 
@@ -321,7 +286,7 @@ public class TransferSource extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource
+     * CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -342,24 +307,19 @@ public class TransferSource extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof SafeTransferSource) {
-            super.setActualInstance(instance);
-            return;
-        }
-
         if (instance instanceof ExchangeTransferSource) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource");
+        throw new RuntimeException("Invalid instance type. Must be CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource
+     * CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource
      *
-     * @return The actual instance (CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource)
+     * @return The actual instance (CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -396,16 +356,6 @@ public class TransferSource extends AbstractOpenApiSchema {
      */
     public MpcTransferSource getMpcTransferSource() throws ClassCastException {
         return (MpcTransferSource)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `SafeTransferSource`. If the actual instance is not `SafeTransferSource`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `SafeTransferSource`
-     * @throws ClassCastException if the instance is not `SafeTransferSource`
-     */
-    public SafeTransferSource getSafeTransferSource() throws ClassCastException {
-        return (SafeTransferSource)super.getActualInstance();
     }
     /**
      * Get the actual instance of `ExchangeTransferSource`. If the actual instance is not `ExchangeTransferSource`,
@@ -452,14 +402,6 @@ public class TransferSource extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for MpcTransferSource failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with SafeTransferSource
-        try {
-            SafeTransferSource.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for SafeTransferSource failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         // validate the json string with ExchangeTransferSource
         try {
             ExchangeTransferSource.validateJsonElement(jsonElement);
@@ -469,7 +411,7 @@ public class TransferSource extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for TransferSource with oneOf schemas: CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource, SafeTransferSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for TransferSource with oneOf schemas: CustodialTransferSource, CustodialWeb3TransferSource, ExchangeTransferSource, MpcTransferSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

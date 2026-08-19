@@ -13,7 +13,6 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.ExchangeId;
-import com.cobo.waas2.model.SafeTxExtraData;
 import com.cobo.waas2.model.TransactionBIP137Destination;
 import com.cobo.waas2.model.TransactionBIP322Destination;
 import com.cobo.waas2.model.TransactionCosmosAdr36Destination;

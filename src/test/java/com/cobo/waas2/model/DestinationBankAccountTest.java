@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.BankAccountHolderType;
 import com.cobo.waas2.model.BankAccountPaymentMethod;
 import com.cobo.waas2.model.BankAccountStatus;
+import com.cobo.waas2.model.DestinationBankAccountTag;
 import com.cobo.waas2.model.IntermediaryBankInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -23,6 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -46,6 +48,14 @@ public class DestinationBankAccountTest {
     @Test
     public void bankAccountIdTest() {
         // TODO: test bankAccountId
+    }
+
+    /**
+     * Test the property 'tag'
+     */
+    @Test
+    public void tagTest() {
+        // TODO: test tag
     }
 
     /**

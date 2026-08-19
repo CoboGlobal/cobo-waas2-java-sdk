@@ -11,7 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.ExchangeId;
 import com.cobo.waas2.model.TransactionCustodialAssetWalletSource;
 import com.cobo.waas2.model.TransactionCustodialWeb3WalletSource;
@@ -20,7 +19,6 @@ import com.cobo.waas2.model.TransactionDepositFromLoopSource;
 import com.cobo.waas2.model.TransactionDepositFromWalletSource;
 import com.cobo.waas2.model.TransactionExchangeWalletSource;
 import com.cobo.waas2.model.TransactionMPCWalletSource;
-import com.cobo.waas2.model.TransactionSmartContractSafeWalletSource;
 import com.cobo.waas2.model.TransactionSourceType;
 import com.cobo.waas2.model.TransactionUtxo;
 import com.cobo.waas2.model.WalletSubtype;
@@ -98,14 +96,6 @@ public class TransactionSourceTest {
     @Test
     public void signerKeyShareHolderGroupIdTest() {
         // TODO: test signerKeyShareHolderGroupId
-    }
-
-    /**
-     * Test the property 'delegate'
-     */
-    @Test
-    public void delegateTest() {
-        // TODO: test delegate
     }
 
     /**

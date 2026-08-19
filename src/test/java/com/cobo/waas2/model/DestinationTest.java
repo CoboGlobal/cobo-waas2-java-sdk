@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.DestinationSource;
 import com.cobo.waas2.model.DestinationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -59,6 +60,14 @@ public class DestinationTest {
     @Test
     public void destinationNameTest() {
         // TODO: test destinationName
+    }
+
+    /**
+     * Test the property 'source'
+     */
+    @Test
+    public void sourceTest() {
+        // TODO: test source
     }
 
     /**

@@ -15,9 +15,6 @@ import com.cobo.waas2.model.CustodialWalletInfo;
 import com.cobo.waas2.model.ExchangeId;
 import com.cobo.waas2.model.ExchangeWalletInfo;
 import com.cobo.waas2.model.MPCWalletInfo;
-import com.cobo.waas2.model.SmartContractInitiator;
-import com.cobo.waas2.model.SmartContractWalletInfo;
-import com.cobo.waas2.model.SmartContractWalletType;
 import com.cobo.waas2.model.WalletSubtype;
 import com.cobo.waas2.model.WalletType;
 import com.google.gson.TypeAdapter;
@@ -26,9 +23,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -125,62 +120,6 @@ public class WalletInfoTest {
     @Test
     public void vaultNameTest() {
         // TODO: test vaultName
-    }
-
-    /**
-     * Test the property 'chainId'
-     */
-    @Test
-    public void chainIdTest() {
-        // TODO: test chainId
-    }
-
-    /**
-     * Test the property 'smartContractWalletType'
-     */
-    @Test
-    public void smartContractWalletTypeTest() {
-        // TODO: test smartContractWalletType
-    }
-
-    /**
-     * Test the property 'safeAddress'
-     */
-    @Test
-    public void safeAddressTest() {
-        // TODO: test safeAddress
-    }
-
-    /**
-     * Test the property 'signers'
-     */
-    @Test
-    public void signersTest() {
-        // TODO: test signers
-    }
-
-    /**
-     * Test the property 'threshold'
-     */
-    @Test
-    public void thresholdTest() {
-        // TODO: test threshold
-    }
-
-    /**
-     * Test the property 'coboSafeAddress'
-     */
-    @Test
-    public void coboSafeAddressTest() {
-        // TODO: test coboSafeAddress
-    }
-
-    /**
-     * Test the property 'initiator'
-     */
-    @Test
-    public void initiatorTest() {
-        // TODO: test initiator
     }
 
     /**

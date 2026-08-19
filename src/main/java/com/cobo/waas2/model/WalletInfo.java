@@ -16,9 +16,6 @@ import com.cobo.waas2.model.CustodialWalletInfo;
 import com.cobo.waas2.model.ExchangeId;
 import com.cobo.waas2.model.ExchangeWalletInfo;
 import com.cobo.waas2.model.MPCWalletInfo;
-import com.cobo.waas2.model.SmartContractInitiator;
-import com.cobo.waas2.model.SmartContractWalletInfo;
-import com.cobo.waas2.model.SmartContractWalletType;
 import com.cobo.waas2.model.WalletSubtype;
 import com.cobo.waas2.model.WalletType;
 import com.google.gson.TypeAdapter;
@@ -27,9 +24,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 
 
@@ -84,7 +79,6 @@ public class WalletInfo extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<CustodialWalletInfo> adapterCustodialWalletInfo = gson.getDelegateAdapter(this, TypeToken.get(CustodialWalletInfo.class));
             final TypeAdapter<MPCWalletInfo> adapterMPCWalletInfo = gson.getDelegateAdapter(this, TypeToken.get(MPCWalletInfo.class));
-            final TypeAdapter<SmartContractWalletInfo> adapterSmartContractWalletInfo = gson.getDelegateAdapter(this, TypeToken.get(SmartContractWalletInfo.class));
             final TypeAdapter<ExchangeWalletInfo> adapterExchangeWalletInfo = gson.getDelegateAdapter(this, TypeToken.get(ExchangeWalletInfo.class));
 
             return (TypeAdapter<T>) new TypeAdapter<WalletInfo>() {
@@ -107,19 +101,13 @@ public class WalletInfo extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `SmartContractWalletInfo`
-                    if (value.getActualInstance() instanceof SmartContractWalletInfo) {
-                        JsonElement element = adapterSmartContractWalletInfo.toJsonTree((SmartContractWalletInfo)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
                     // check if the actual instance is of the type `ExchangeWalletInfo`
                     if (value.getActualInstance() instanceof ExchangeWalletInfo) {
                         JsonElement element = adapterExchangeWalletInfo.toJsonTree((ExchangeWalletInfo)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo, SmartContractWalletInfo");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo");
                 }
 
                 @Override
@@ -148,10 +136,6 @@ public class WalletInfo extends AbstractOpenApiSchema {
                                 deserialized = adapterMPCWalletInfo.fromJsonTree(jsonObject);
                                 newWalletInfo.setActualInstance(deserialized);
                                 return newWalletInfo;
-                            case "SmartContract":
-                                deserialized = adapterSmartContractWalletInfo.fromJsonTree(jsonObject);
-                                newWalletInfo.setActualInstance(deserialized);
-                                return newWalletInfo;
                             case "CustodialWalletInfo":
                                 deserialized = adapterCustodialWalletInfo.fromJsonTree(jsonObject);
                                 newWalletInfo.setActualInstance(deserialized);
@@ -164,12 +148,8 @@ public class WalletInfo extends AbstractOpenApiSchema {
                                 deserialized = adapterMPCWalletInfo.fromJsonTree(jsonObject);
                                 newWalletInfo.setActualInstance(deserialized);
                                 return newWalletInfo;
-                            case "SmartContractWalletInfo":
-                                deserialized = adapterSmartContractWalletInfo.fromJsonTree(jsonObject);
-                                newWalletInfo.setActualInstance(deserialized);
-                                return newWalletInfo;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for WalletInfo. Possible values: Custodial Exchange MPC SmartContract CustodialWalletInfo ExchangeWalletInfo MPCWalletInfo SmartContractWalletInfo", jsonObject.get("wallet_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for WalletInfo. Possible values: Custodial Exchange MPC CustodialWalletInfo ExchangeWalletInfo MPCWalletInfo", jsonObject.get("wallet_type").getAsString()));
                         }
                     }
 
@@ -200,18 +180,6 @@ public class WalletInfo extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for MPCWalletInfo failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'MPCWalletInfo'", e);
-                    }
-                    // deserialize SmartContractWalletInfo
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        SmartContractWalletInfo.validateJsonElement(jsonElement);
-                        actualAdapter = adapterSmartContractWalletInfo;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'SmartContractWalletInfo'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for SmartContractWalletInfo failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'SmartContractWalletInfo'", e);
                     }
                     // deserialize ExchangeWalletInfo
                     try {
@@ -260,15 +228,9 @@ public class WalletInfo extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
-    public WalletInfo(SmartContractWalletInfo o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     static {
         schemas.put("CustodialWalletInfo", CustodialWalletInfo.class);
         schemas.put("MPCWalletInfo", MPCWalletInfo.class);
-        schemas.put("SmartContractWalletInfo", SmartContractWalletInfo.class);
         schemas.put("ExchangeWalletInfo", ExchangeWalletInfo.class);
     }
 
@@ -280,7 +242,7 @@ public class WalletInfo extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo, SmartContractWalletInfo
+     * CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -296,24 +258,19 @@ public class WalletInfo extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof SmartContractWalletInfo) {
-            super.setActualInstance(instance);
-            return;
-        }
-
         if (instance instanceof ExchangeWalletInfo) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo, SmartContractWalletInfo");
+        throw new RuntimeException("Invalid instance type. Must be CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo, SmartContractWalletInfo
+     * CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo
      *
-     * @return The actual instance (CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo, SmartContractWalletInfo)
+     * @return The actual instance (CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -340,16 +297,6 @@ public class WalletInfo extends AbstractOpenApiSchema {
      */
     public MPCWalletInfo getMPCWalletInfo() throws ClassCastException {
         return (MPCWalletInfo)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `SmartContractWalletInfo`. If the actual instance is not `SmartContractWalletInfo`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `SmartContractWalletInfo`
-     * @throws ClassCastException if the instance is not `SmartContractWalletInfo`
-     */
-    public SmartContractWalletInfo getSmartContractWalletInfo() throws ClassCastException {
-        return (SmartContractWalletInfo)super.getActualInstance();
     }
     /**
      * Get the actual instance of `ExchangeWalletInfo`. If the actual instance is not `ExchangeWalletInfo`,
@@ -388,14 +335,6 @@ public class WalletInfo extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for MPCWalletInfo failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with SmartContractWalletInfo
-        try {
-            SmartContractWalletInfo.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for SmartContractWalletInfo failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         // validate the json string with ExchangeWalletInfo
         try {
             ExchangeWalletInfo.validateJsonElement(jsonElement);
@@ -405,7 +344,7 @@ public class WalletInfo extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for WalletInfo with oneOf schemas: CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo, SmartContractWalletInfo. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for WalletInfo with oneOf schemas: CustodialWalletInfo, ExchangeWalletInfo, MPCWalletInfo. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 
