@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.DestinationBankAccount;
+import com.cobo.waas2.model.DestinationSource;
 import com.cobo.waas2.model.DestinationType;
 import com.cobo.waas2.model.WalletAddress;
 import com.google.gson.TypeAdapter;
@@ -69,6 +70,10 @@ public class DestinationDetail {
   public static final String SERIALIZED_NAME_DESTINATION_NAME = "destination_name";
   @SerializedName(SERIALIZED_NAME_DESTINATION_NAME)
   private String destinationName;
+
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  private DestinationSource source;
 
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
@@ -159,6 +164,25 @@ public class DestinationDetail {
 
   public void setDestinationName(String destinationName) {
     this.destinationName = destinationName;
+  }
+
+
+  public DestinationDetail source(DestinationSource source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @javax.annotation.Nullable
+  public DestinationSource getSource() {
+    return source;
+  }
+
+  public void setSource(DestinationSource source) {
+    this.source = source;
   }
 
 
@@ -387,6 +411,7 @@ public class DestinationDetail {
     return Objects.equals(this.destinationId, destinationDetail.destinationId) &&
         Objects.equals(this.destinationType, destinationDetail.destinationType) &&
         Objects.equals(this.destinationName, destinationDetail.destinationName) &&
+        Objects.equals(this.source, destinationDetail.source) &&
         Objects.equals(this.country, destinationDetail.country) &&
         Objects.equals(this.email, destinationDetail.email) &&
         Objects.equals(this.contactAddress, destinationDetail.contactAddress) &&
@@ -400,7 +425,7 @@ public class DestinationDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationId, destinationType, destinationName, country, email, contactAddress, walletAddresses, bankAccounts, merchantId, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(destinationId, destinationType, destinationName, source, country, email, contactAddress, walletAddresses, bankAccounts, merchantId, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -410,6 +435,7 @@ public class DestinationDetail {
     sb.append("    destinationId: ").append(toIndentedString(destinationId)).append("\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    destinationName: ").append(toIndentedString(destinationName)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    contactAddress: ").append(toIndentedString(contactAddress)).append("\n");
@@ -444,6 +470,7 @@ public class DestinationDetail {
     openapiFields.add("destination_id");
     openapiFields.add("destination_type");
     openapiFields.add("destination_name");
+    openapiFields.add("source");
     openapiFields.add("country");
     openapiFields.add("email");
     openapiFields.add("contact_address");
@@ -489,6 +516,10 @@ public class DestinationDetail {
       DestinationType.validateJsonElement(jsonObj.get("destination_type"));
       if (!jsonObj.get("destination_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `destination_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("destination_name").toString()));
+      }
+      // validate the optional field `source`
+      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
+        DestinationSource.validateJsonElement(jsonObj.get("source"));
       }
       if ((jsonObj.get("country") != null && !jsonObj.get("country").isJsonNull()) && !jsonObj.get("country").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));

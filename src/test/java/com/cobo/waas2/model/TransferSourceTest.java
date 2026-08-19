@@ -11,13 +11,11 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.CustodialTransferSource;
 import com.cobo.waas2.model.CustodialWeb3TransferSource;
 import com.cobo.waas2.model.ExchangeTransferSource;
 import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.MpcTransferSource;
-import com.cobo.waas2.model.SafeTransferSource;
 import com.cobo.waas2.model.TransactionUtxo;
 import com.cobo.waas2.model.WalletSubtype;
 import com.google.gson.TypeAdapter;
@@ -93,14 +91,6 @@ public class TransferSourceTest {
     @Test
     public void mpcUsedKeyShareHolderGroupTest() {
         // TODO: test mpcUsedKeyShareHolderGroup
-    }
-
-    /**
-     * Test the property 'delegate'
-     */
-    @Test
-    public void delegateTest() {
-        // TODO: test delegate
     }
 
     /**

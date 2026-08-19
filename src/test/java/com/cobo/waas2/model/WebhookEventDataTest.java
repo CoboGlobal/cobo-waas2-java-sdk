@@ -23,6 +23,7 @@ import com.cobo.waas2.model.CommissionFee;
 import com.cobo.waas2.model.ComplianceDispositionUpdateEventData;
 import com.cobo.waas2.model.ComplianceKyaScreeningsUpdateEventData;
 import com.cobo.waas2.model.ComplianceKytScreeningsUpdateEventData;
+import com.cobo.waas2.model.DestinationBankAccountDetail;
 import com.cobo.waas2.model.DispositionStatus;
 import com.cobo.waas2.model.DispositionType;
 import com.cobo.waas2.model.FeeStationFiatTransactionType;
@@ -34,6 +35,8 @@ import com.cobo.waas2.model.PaymentAccountBalanceUpdateEventData;
 import com.cobo.waas2.model.PaymentAddressUpdateEventData;
 import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
 import com.cobo.waas2.model.PaymentBalanceFlowDirection;
+import com.cobo.waas2.model.PaymentBankWithdrawalEvent;
+import com.cobo.waas2.model.PaymentBankWithdrawalTimelineItem;
 import com.cobo.waas2.model.PaymentBulkSendEvent;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
 import com.cobo.waas2.model.PaymentBulkSendItemEvent;
@@ -65,6 +68,7 @@ import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
 import com.cobo.waas2.model.TransactionFuelingInfo;
 import com.cobo.waas2.model.TransactionInitiatorType;
+import com.cobo.waas2.model.TransactionProcessType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
 import com.cobo.waas2.model.TransactionResult;
@@ -333,6 +337,14 @@ public class WebhookEventDataTest {
     @Test
     public void extraTest() {
         // TODO: test extra
+    }
+
+    /**
+     * Test the property 'transactionProcessType'
+     */
+    @Test
+    public void transactionProcessTypeTest() {
+        // TODO: test transactionProcessType
     }
 
     /**
@@ -909,6 +921,62 @@ public class WebhookEventDataTest {
     @Test
     public void remarkTest() {
         // TODO: test remark
+    }
+
+    /**
+     * Test the property 'bankWithdrawalId'
+     */
+    @Test
+    public void bankWithdrawalIdTest() {
+        // TODO: test bankWithdrawalId
+    }
+
+    /**
+     * Test the property 'sourceBankAccountId'
+     */
+    @Test
+    public void sourceBankAccountIdTest() {
+        // TODO: test sourceBankAccountId
+    }
+
+    /**
+     * Test the property 'targetBankAccountId'
+     */
+    @Test
+    public void targetBankAccountIdTest() {
+        // TODO: test targetBankAccountId
+    }
+
+    /**
+     * Test the property 'sourceBankAccount'
+     */
+    @Test
+    public void sourceBankAccountTest() {
+        // TODO: test sourceBankAccount
+    }
+
+    /**
+     * Test the property 'targetBankAccount'
+     */
+    @Test
+    public void targetBankAccountTest() {
+        // TODO: test targetBankAccount
+    }
+
+    /**
+     * Test the property 'bankTxFee'
+     */
+    @Test
+    public void bankTxFeeTest() {
+        // TODO: test bankTxFee
+    }
+
+    /**
+     * Test the property 'timeline'
+     */
+    @Test
+    public void timelineTest() {
+        // TODO: test timeline
     }
 
     /**

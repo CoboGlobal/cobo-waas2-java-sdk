@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.SafeTxExtraData;
 import com.cobo.waas2.model.TransactionDestinationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -67,10 +66,6 @@ public class TransactionMessageSignEIP712Destination {
   public static final String SERIALIZED_NAME_STRUCTURED_DATA = "structured_data";
   @SerializedName(SERIALIZED_NAME_STRUCTURED_DATA)
   private Map<String, Object> structuredData = new HashMap<>();
-
-  public static final String SERIALIZED_NAME_SAFE_TX_EXTRA_DATA = "safe_tx_extra_data";
-  @SerializedName(SERIALIZED_NAME_SAFE_TX_EXTRA_DATA)
-  private SafeTxExtraData safeTxExtraData;
 
   public TransactionMessageSignEIP712Destination() {
   }
@@ -139,25 +134,6 @@ public class TransactionMessageSignEIP712Destination {
     this.structuredData = structuredData;
   }
 
-
-  public TransactionMessageSignEIP712Destination safeTxExtraData(SafeTxExtraData safeTxExtraData) {
-    this.safeTxExtraData = safeTxExtraData;
-    return this;
-  }
-
-   /**
-   * Get safeTxExtraData
-   * @return safeTxExtraData
-  **/
-  @javax.annotation.Nullable
-  public SafeTxExtraData getSafeTxExtraData() {
-    return safeTxExtraData;
-  }
-
-  public void setSafeTxExtraData(SafeTxExtraData safeTxExtraData) {
-    this.safeTxExtraData = safeTxExtraData;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -215,14 +191,13 @@ public class TransactionMessageSignEIP712Destination {
     TransactionMessageSignEIP712Destination transactionMessageSignEIP712Destination = (TransactionMessageSignEIP712Destination) o;
     return Objects.equals(this.destinationType, transactionMessageSignEIP712Destination.destinationType) &&
         Objects.equals(this.rawStructuredData, transactionMessageSignEIP712Destination.rawStructuredData) &&
-        Objects.equals(this.structuredData, transactionMessageSignEIP712Destination.structuredData) &&
-        Objects.equals(this.safeTxExtraData, transactionMessageSignEIP712Destination.safeTxExtraData)&&
+        Objects.equals(this.structuredData, transactionMessageSignEIP712Destination.structuredData)&&
         Objects.equals(this.additionalProperties, transactionMessageSignEIP712Destination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, rawStructuredData, structuredData, safeTxExtraData, additionalProperties);
+    return Objects.hash(destinationType, rawStructuredData, structuredData, additionalProperties);
   }
 
   @Override
@@ -232,7 +207,6 @@ public class TransactionMessageSignEIP712Destination {
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    rawStructuredData: ").append(toIndentedString(rawStructuredData)).append("\n");
     sb.append("    structuredData: ").append(toIndentedString(structuredData)).append("\n");
-    sb.append("    safeTxExtraData: ").append(toIndentedString(safeTxExtraData)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -259,7 +233,6 @@ public class TransactionMessageSignEIP712Destination {
     openapiFields.add("destination_type");
     openapiFields.add("raw_structured_data");
     openapiFields.add("structured_data");
-    openapiFields.add("safe_tx_extra_data");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -291,10 +264,6 @@ public class TransactionMessageSignEIP712Destination {
       TransactionDestinationType.validateJsonElement(jsonObj.get("destination_type"));
       if ((jsonObj.get("raw_structured_data") != null && !jsonObj.get("raw_structured_data").isJsonNull()) && !jsonObj.get("raw_structured_data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `raw_structured_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_structured_data").toString()));
-      }
-      // validate the optional field `safe_tx_extra_data`
-      if (jsonObj.get("safe_tx_extra_data") != null && !jsonObj.get("safe_tx_extra_data").isJsonNull()) {
-        SafeTxExtraData.validateJsonElement(jsonObj.get("safe_tx_extra_data"));
       }
   }
 

@@ -15,7 +15,6 @@ import java.util.Objects;
 import com.cobo.waas2.model.UpdateCustodialWalletParams;
 import com.cobo.waas2.model.UpdateExchangeWalletParams;
 import com.cobo.waas2.model.UpdateMpcWalletParams;
-import com.cobo.waas2.model.UpdateSmartContractWalletParams;
 import com.cobo.waas2.model.WalletType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -77,7 +76,6 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<UpdateCustodialWalletParams> adapterUpdateCustodialWalletParams = gson.getDelegateAdapter(this, TypeToken.get(UpdateCustodialWalletParams.class));
             final TypeAdapter<UpdateMpcWalletParams> adapterUpdateMpcWalletParams = gson.getDelegateAdapter(this, TypeToken.get(UpdateMpcWalletParams.class));
-            final TypeAdapter<UpdateSmartContractWalletParams> adapterUpdateSmartContractWalletParams = gson.getDelegateAdapter(this, TypeToken.get(UpdateSmartContractWalletParams.class));
             final TypeAdapter<UpdateExchangeWalletParams> adapterUpdateExchangeWalletParams = gson.getDelegateAdapter(this, TypeToken.get(UpdateExchangeWalletParams.class));
 
             return (TypeAdapter<T>) new TypeAdapter<UpdateWalletParams>() {
@@ -100,19 +98,13 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `UpdateSmartContractWalletParams`
-                    if (value.getActualInstance() instanceof UpdateSmartContractWalletParams) {
-                        JsonElement element = adapterUpdateSmartContractWalletParams.toJsonTree((UpdateSmartContractWalletParams)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
                     // check if the actual instance is of the type `UpdateExchangeWalletParams`
                     if (value.getActualInstance() instanceof UpdateExchangeWalletParams) {
                         JsonElement element = adapterUpdateExchangeWalletParams.toJsonTree((UpdateExchangeWalletParams)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams, UpdateSmartContractWalletParams");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams");
                 }
 
                 @Override
@@ -141,10 +133,6 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
                                 deserialized = adapterUpdateMpcWalletParams.fromJsonTree(jsonObject);
                                 newUpdateWalletParams.setActualInstance(deserialized);
                                 return newUpdateWalletParams;
-                            case "SmartContract":
-                                deserialized = adapterUpdateSmartContractWalletParams.fromJsonTree(jsonObject);
-                                newUpdateWalletParams.setActualInstance(deserialized);
-                                return newUpdateWalletParams;
                             case "UpdateCustodialWalletParams":
                                 deserialized = adapterUpdateCustodialWalletParams.fromJsonTree(jsonObject);
                                 newUpdateWalletParams.setActualInstance(deserialized);
@@ -157,12 +145,8 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
                                 deserialized = adapterUpdateMpcWalletParams.fromJsonTree(jsonObject);
                                 newUpdateWalletParams.setActualInstance(deserialized);
                                 return newUpdateWalletParams;
-                            case "UpdateSmartContractWalletParams":
-                                deserialized = adapterUpdateSmartContractWalletParams.fromJsonTree(jsonObject);
-                                newUpdateWalletParams.setActualInstance(deserialized);
-                                return newUpdateWalletParams;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for UpdateWalletParams. Possible values: Custodial Exchange MPC SmartContract UpdateCustodialWalletParams UpdateExchangeWalletParams UpdateMpcWalletParams UpdateSmartContractWalletParams", jsonObject.get("wallet_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for UpdateWalletParams. Possible values: Custodial Exchange MPC UpdateCustodialWalletParams UpdateExchangeWalletParams UpdateMpcWalletParams", jsonObject.get("wallet_type").getAsString()));
                         }
                     }
 
@@ -193,18 +177,6 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for UpdateMpcWalletParams failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'UpdateMpcWalletParams'", e);
-                    }
-                    // deserialize UpdateSmartContractWalletParams
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        UpdateSmartContractWalletParams.validateJsonElement(jsonElement);
-                        actualAdapter = adapterUpdateSmartContractWalletParams;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'UpdateSmartContractWalletParams'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for UpdateSmartContractWalletParams failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'UpdateSmartContractWalletParams'", e);
                     }
                     // deserialize UpdateExchangeWalletParams
                     try {
@@ -253,15 +225,9 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
-    public UpdateWalletParams(UpdateSmartContractWalletParams o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     static {
         schemas.put("UpdateCustodialWalletParams", UpdateCustodialWalletParams.class);
         schemas.put("UpdateMpcWalletParams", UpdateMpcWalletParams.class);
-        schemas.put("UpdateSmartContractWalletParams", UpdateSmartContractWalletParams.class);
         schemas.put("UpdateExchangeWalletParams", UpdateExchangeWalletParams.class);
     }
 
@@ -273,7 +239,7 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams, UpdateSmartContractWalletParams
+     * UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -289,24 +255,19 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof UpdateSmartContractWalletParams) {
-            super.setActualInstance(instance);
-            return;
-        }
-
         if (instance instanceof UpdateExchangeWalletParams) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams, UpdateSmartContractWalletParams");
+        throw new RuntimeException("Invalid instance type. Must be UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams, UpdateSmartContractWalletParams
+     * UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams
      *
-     * @return The actual instance (UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams, UpdateSmartContractWalletParams)
+     * @return The actual instance (UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -333,16 +294,6 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
      */
     public UpdateMpcWalletParams getUpdateMpcWalletParams() throws ClassCastException {
         return (UpdateMpcWalletParams)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `UpdateSmartContractWalletParams`. If the actual instance is not `UpdateSmartContractWalletParams`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `UpdateSmartContractWalletParams`
-     * @throws ClassCastException if the instance is not `UpdateSmartContractWalletParams`
-     */
-    public UpdateSmartContractWalletParams getUpdateSmartContractWalletParams() throws ClassCastException {
-        return (UpdateSmartContractWalletParams)super.getActualInstance();
     }
     /**
      * Get the actual instance of `UpdateExchangeWalletParams`. If the actual instance is not `UpdateExchangeWalletParams`,
@@ -381,14 +332,6 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for UpdateMpcWalletParams failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with UpdateSmartContractWalletParams
-        try {
-            UpdateSmartContractWalletParams.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for UpdateSmartContractWalletParams failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         // validate the json string with UpdateExchangeWalletParams
         try {
             UpdateExchangeWalletParams.validateJsonElement(jsonElement);
@@ -398,7 +341,7 @@ public class UpdateWalletParams extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for UpdateWalletParams with oneOf schemas: UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams, UpdateSmartContractWalletParams. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for UpdateWalletParams with oneOf schemas: UpdateCustodialWalletParams, UpdateExchangeWalletParams, UpdateMpcWalletParams. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

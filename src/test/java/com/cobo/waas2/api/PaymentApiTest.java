@@ -21,6 +21,7 @@ import com.cobo.waas2.model.BatchAllocationDetail;
 import com.cobo.waas2.model.Counterparty;
 import com.cobo.waas2.model.CounterpartyDetail;
 import com.cobo.waas2.model.CounterpartyType;
+import com.cobo.waas2.model.CreateBankWithdrawalRequest;
 import com.cobo.waas2.model.CreateBatchAllocationRequest;
 import com.cobo.waas2.model.CreateBulkSendRequest;
 import com.cobo.waas2.model.CreateCounterpartyEntry201Response;
@@ -47,6 +48,7 @@ import com.cobo.waas2.model.DeleteCryptoAddress201Response;
 import com.cobo.waas2.model.DeleteDestinationById200Response;
 import com.cobo.waas2.model.DeleteDestinationEntry200Response;
 import com.cobo.waas2.model.Destination;
+import com.cobo.waas2.model.DestinationBankAccountTag;
 import com.cobo.waas2.model.DestinationDetail;
 import com.cobo.waas2.model.DestinationType;
 import com.cobo.waas2.model.EntryType;
@@ -63,6 +65,7 @@ import com.cobo.waas2.model.GetReports200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
 import com.cobo.waas2.model.Link;
 import com.cobo.waas2.model.ListAllocationItems200Response;
+import com.cobo.waas2.model.ListBankWithdrawals200Response;
 import com.cobo.waas2.model.ListBatchAllocations200Response;
 import com.cobo.waas2.model.ListBulkSendItems200Response;
 import com.cobo.waas2.model.ListBulkSends200Response;
@@ -88,6 +91,10 @@ import com.cobo.waas2.model.PaymentAllocationAmount;
 import com.cobo.waas2.model.PaymentBalanceChangeResponse;
 import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
 import com.cobo.waas2.model.PaymentBalanceFlowDirection;
+import com.cobo.waas2.model.PaymentBankAccountBalance;
+import com.cobo.waas2.model.PaymentBankWithdrawal;
+import com.cobo.waas2.model.PaymentBankWithdrawalDetail;
+import com.cobo.waas2.model.PaymentBankWithdrawalStatus;
 import com.cobo.waas2.model.PaymentBulkSend;
 import com.cobo.waas2.model.PaymentEstimateFee201Response;
 import com.cobo.waas2.model.PaymentEstimateFeeRequest;
@@ -162,6 +169,20 @@ public class PaymentApiTest {
     public void cancelRefundByIdTest() throws ApiException {
         String refundId = null;
         Refund response = api.cancelRefundById(refundId);
+        // TODO: test validations
+    }
+
+    /**
+     * Create bank withdrawal
+     *
+     * This operation creates a bank withdrawal from a virtual account to a target bank account. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createBankWithdrawalTest() throws ApiException {
+        CreateBankWithdrawalRequest createBankWithdrawalRequest = null;
+        PaymentBankWithdrawal response = api.createBankWithdrawal(createBankWithdrawalRequest);
         // TODO: test validations
     }
 
@@ -507,6 +528,20 @@ public class PaymentApiTest {
     }
 
     /**
+     * Get bank withdrawal information
+     *
+     * This operation retrieves the information of a specific bank withdrawal. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getBankWithdrawalByIdTest() throws ApiException {
+        String bankWithdrawalId = null;
+        PaymentBankWithdrawalDetail response = api.getBankWithdrawalById(bankWithdrawalId);
+        // TODO: test validations
+    }
+
+    /**
      * Get batch allocation information
      *
      * This operation retrieves the information of a batch allocation. 
@@ -618,6 +653,20 @@ public class PaymentApiTest {
     public void getMerchantKycTest() throws ApiException {
         String merchantId = null;
         MerchantKycSubmission response = api.getMerchantKyc(merchantId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get bank account balance
+     *
+     * This operation retrieves the balance of a destination bank account, only available for bank accounts with tag &#x60;VA&#x60;. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPaymentBankAccountBalanceTest() throws ApiException {
+        UUID bankAccountId = null;
+        PaymentBankAccountBalance response = api.getPaymentBankAccountBalance(bankAccountId);
         // TODO: test validations
     }
 
@@ -804,6 +853,24 @@ public class PaymentApiTest {
     }
 
     /**
+     * List bank withdrawals
+     *
+     * This operation retrieves the list of bank withdrawals. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listBankWithdrawalsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String requestId = null;
+        PaymentBankWithdrawalStatus status = null;
+        ListBankWithdrawals200Response response = api.listBankWithdrawals(limit, before, after, requestId, status);
+        // TODO: test validations
+    }
+
+    /**
      * List all batch allocations
      *
      * This operation retrieves the information of all batch allocations. 
@@ -925,7 +992,8 @@ public class PaymentApiTest {
         String walletAddress = null;
         String keyword = null;
         BankAccountStatus bankAccountStatus = null;
-        ListDestinationEntries200Response response = api.listDestinationEntries(entryType, limit, before, after, destinationId, chainIds, walletAddress, keyword, bankAccountStatus);
+        DestinationBankAccountTag bankAccountTag = null;
+        ListDestinationEntries200Response response = api.listDestinationEntries(entryType, limit, before, after, destinationId, chainIds, walletAddress, keyword, bankAccountStatus, bankAccountTag);
         // TODO: test validations
     }
 

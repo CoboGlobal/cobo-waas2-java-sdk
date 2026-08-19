@@ -32,6 +32,7 @@ import com.cobo.waas2.model.BatchAllocationDetail;
 import com.cobo.waas2.model.Counterparty;
 import com.cobo.waas2.model.CounterpartyDetail;
 import com.cobo.waas2.model.CounterpartyType;
+import com.cobo.waas2.model.CreateBankWithdrawalRequest;
 import com.cobo.waas2.model.CreateBatchAllocationRequest;
 import com.cobo.waas2.model.CreateBulkSendRequest;
 import com.cobo.waas2.model.CreateCounterpartyEntry201Response;
@@ -58,6 +59,7 @@ import com.cobo.waas2.model.DeleteCryptoAddress201Response;
 import com.cobo.waas2.model.DeleteDestinationById200Response;
 import com.cobo.waas2.model.DeleteDestinationEntry200Response;
 import com.cobo.waas2.model.Destination;
+import com.cobo.waas2.model.DestinationBankAccountTag;
 import com.cobo.waas2.model.DestinationDetail;
 import com.cobo.waas2.model.DestinationType;
 import com.cobo.waas2.model.EntryType;
@@ -74,6 +76,7 @@ import com.cobo.waas2.model.GetReports200Response;
 import com.cobo.waas2.model.GetSettlementInfoByIds200Response;
 import com.cobo.waas2.model.Link;
 import com.cobo.waas2.model.ListAllocationItems200Response;
+import com.cobo.waas2.model.ListBankWithdrawals200Response;
 import com.cobo.waas2.model.ListBatchAllocations200Response;
 import com.cobo.waas2.model.ListBulkSendItems200Response;
 import com.cobo.waas2.model.ListBulkSends200Response;
@@ -99,6 +102,10 @@ import com.cobo.waas2.model.PaymentAllocationAmount;
 import com.cobo.waas2.model.PaymentBalanceChangeResponse;
 import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
 import com.cobo.waas2.model.PaymentBalanceFlowDirection;
+import com.cobo.waas2.model.PaymentBankAccountBalance;
+import com.cobo.waas2.model.PaymentBankWithdrawal;
+import com.cobo.waas2.model.PaymentBankWithdrawalDetail;
+import com.cobo.waas2.model.PaymentBankWithdrawalStatus;
 import com.cobo.waas2.model.PaymentBulkSend;
 import com.cobo.waas2.model.PaymentEstimateFee201Response;
 import com.cobo.waas2.model.PaymentEstimateFeeRequest;
@@ -401,6 +408,119 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = cancelRefundByIdValidateBeforeCall(refundId, _callback);
         Type localVarReturnType = new TypeToken<Refund>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createBankWithdrawal
+     * @param createBankWithdrawalRequest The request body to create a bank withdrawal. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The bank withdrawal was successfully created. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createBankWithdrawalCall(CreateBankWithdrawalRequest createBankWithdrawalRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createBankWithdrawalRequest;
+
+        // create path and map variables
+        String localVarPath = "/payments/bank_withdrawals";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createBankWithdrawalValidateBeforeCall(CreateBankWithdrawalRequest createBankWithdrawalRequest, final ApiCallback _callback) throws ApiException {
+        return createBankWithdrawalCall(createBankWithdrawalRequest, _callback);
+
+    }
+
+    /**
+     * Create bank withdrawal
+     * This operation creates a bank withdrawal from a virtual account to a target bank account. 
+     * @param createBankWithdrawalRequest The request body to create a bank withdrawal. (optional)
+     * @return PaymentBankWithdrawal
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The bank withdrawal was successfully created. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public PaymentBankWithdrawal createBankWithdrawal(CreateBankWithdrawalRequest createBankWithdrawalRequest) throws ApiException {
+        ApiResponse<PaymentBankWithdrawal> localVarResp = createBankWithdrawalWithHttpInfo(createBankWithdrawalRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create bank withdrawal
+     * This operation creates a bank withdrawal from a virtual account to a target bank account. 
+     * @param createBankWithdrawalRequest The request body to create a bank withdrawal. (optional)
+     * @return ApiResponse&lt;PaymentBankWithdrawal&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The bank withdrawal was successfully created. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PaymentBankWithdrawal> createBankWithdrawalWithHttpInfo(CreateBankWithdrawalRequest createBankWithdrawalRequest) throws ApiException {
+        okhttp3.Call localVarCall = createBankWithdrawalValidateBeforeCall(createBankWithdrawalRequest, null);
+        Type localVarReturnType = new TypeToken<PaymentBankWithdrawal>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create bank withdrawal (asynchronously)
+     * This operation creates a bank withdrawal from a virtual account to a target bank account. 
+     * @param createBankWithdrawalRequest The request body to create a bank withdrawal. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The bank withdrawal was successfully created. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createBankWithdrawalAsync(CreateBankWithdrawalRequest createBankWithdrawalRequest, final ApiCallback<PaymentBankWithdrawal> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createBankWithdrawalValidateBeforeCall(createBankWithdrawalRequest, _callback);
+        Type localVarReturnType = new TypeToken<PaymentBankWithdrawal>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3238,6 +3358,124 @@ public class PaymentApi {
         return localVarCall;
     }
     /**
+     * Build call for getBankWithdrawalById
+     * @param bankWithdrawalId The bank withdrawal ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBankWithdrawalByIdCall(String bankWithdrawalId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/bank_withdrawals/{bank_withdrawal_id}"
+            .replace("{" + "bank_withdrawal_id" + "}", localVarApiClient.escapeString(bankWithdrawalId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getBankWithdrawalByIdValidateBeforeCall(String bankWithdrawalId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'bankWithdrawalId' is set
+        if (bankWithdrawalId == null) {
+            throw new ApiException("Missing the required parameter 'bankWithdrawalId' when calling getBankWithdrawalById(Async)");
+        }
+
+        return getBankWithdrawalByIdCall(bankWithdrawalId, _callback);
+
+    }
+
+    /**
+     * Get bank withdrawal information
+     * This operation retrieves the information of a specific bank withdrawal. 
+     * @param bankWithdrawalId The bank withdrawal ID. (required)
+     * @return PaymentBankWithdrawalDetail
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public PaymentBankWithdrawalDetail getBankWithdrawalById(String bankWithdrawalId) throws ApiException {
+        ApiResponse<PaymentBankWithdrawalDetail> localVarResp = getBankWithdrawalByIdWithHttpInfo(bankWithdrawalId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get bank withdrawal information
+     * This operation retrieves the information of a specific bank withdrawal. 
+     * @param bankWithdrawalId The bank withdrawal ID. (required)
+     * @return ApiResponse&lt;PaymentBankWithdrawalDetail&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PaymentBankWithdrawalDetail> getBankWithdrawalByIdWithHttpInfo(String bankWithdrawalId) throws ApiException {
+        okhttp3.Call localVarCall = getBankWithdrawalByIdValidateBeforeCall(bankWithdrawalId, null);
+        Type localVarReturnType = new TypeToken<PaymentBankWithdrawalDetail>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get bank withdrawal information (asynchronously)
+     * This operation retrieves the information of a specific bank withdrawal. 
+     * @param bankWithdrawalId The bank withdrawal ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBankWithdrawalByIdAsync(String bankWithdrawalId, final ApiCallback<PaymentBankWithdrawalDetail> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getBankWithdrawalByIdValidateBeforeCall(bankWithdrawalId, _callback);
+        Type localVarReturnType = new TypeToken<PaymentBankWithdrawalDetail>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getBatchAllocationById
      * @param batchAllocationId The batch allocation ID. (required)
      * @param _callback Callback for upload/download progress
@@ -4217,6 +4455,124 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = getMerchantKycValidateBeforeCall(merchantId, _callback);
         Type localVarReturnType = new TypeToken<MerchantKycSubmission>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getPaymentBankAccountBalance
+     * @param bankAccountId The destination bank account ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getPaymentBankAccountBalanceCall(UUID bankAccountId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/balance/bank_accounts/{bank_account_id}"
+            .replace("{" + "bank_account_id" + "}", localVarApiClient.escapeString(bankAccountId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getPaymentBankAccountBalanceValidateBeforeCall(UUID bankAccountId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'bankAccountId' is set
+        if (bankAccountId == null) {
+            throw new ApiException("Missing the required parameter 'bankAccountId' when calling getPaymentBankAccountBalance(Async)");
+        }
+
+        return getPaymentBankAccountBalanceCall(bankAccountId, _callback);
+
+    }
+
+    /**
+     * Get bank account balance
+     * This operation retrieves the balance of a destination bank account, only available for bank accounts with tag &#x60;VA&#x60;. 
+     * @param bankAccountId The destination bank account ID. (required)
+     * @return PaymentBankAccountBalance
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public PaymentBankAccountBalance getPaymentBankAccountBalance(UUID bankAccountId) throws ApiException {
+        ApiResponse<PaymentBankAccountBalance> localVarResp = getPaymentBankAccountBalanceWithHttpInfo(bankAccountId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get bank account balance
+     * This operation retrieves the balance of a destination bank account, only available for bank accounts with tag &#x60;VA&#x60;. 
+     * @param bankAccountId The destination bank account ID. (required)
+     * @return ApiResponse&lt;PaymentBankAccountBalance&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PaymentBankAccountBalance> getPaymentBankAccountBalanceWithHttpInfo(UUID bankAccountId) throws ApiException {
+        okhttp3.Call localVarCall = getPaymentBankAccountBalanceValidateBeforeCall(bankAccountId, null);
+        Type localVarReturnType = new TypeToken<PaymentBankAccountBalance>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get bank account balance (asynchronously)
+     * This operation retrieves the balance of a destination bank account, only available for bank accounts with tag &#x60;VA&#x60;. 
+     * @param bankAccountId The destination bank account ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getPaymentBankAccountBalanceAsync(UUID bankAccountId, final ApiCallback<PaymentBankAccountBalance> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getPaymentBankAccountBalanceValidateBeforeCall(bankAccountId, _callback);
+        Type localVarReturnType = new TypeToken<PaymentBankAccountBalance>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5749,6 +6105,154 @@ public class PaymentApi {
         return localVarCall;
     }
     /**
+     * Build call for listBankWithdrawals
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param requestId The request ID. (optional)
+     * @param status Filter by bank withdrawal status. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBankWithdrawalsCall(Integer limit, String before, String after, String requestId, PaymentBankWithdrawalStatus status, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payments/bank_withdrawals";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (requestId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("request_id", requestId));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listBankWithdrawalsValidateBeforeCall(Integer limit, String before, String after, String requestId, PaymentBankWithdrawalStatus status, final ApiCallback _callback) throws ApiException {
+        return listBankWithdrawalsCall(limit, before, after, requestId, status, _callback);
+
+    }
+
+    /**
+     * List bank withdrawals
+     * This operation retrieves the list of bank withdrawals. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param requestId The request ID. (optional)
+     * @param status Filter by bank withdrawal status. (optional)
+     * @return ListBankWithdrawals200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListBankWithdrawals200Response listBankWithdrawals(Integer limit, String before, String after, String requestId, PaymentBankWithdrawalStatus status) throws ApiException {
+        ApiResponse<ListBankWithdrawals200Response> localVarResp = listBankWithdrawalsWithHttpInfo(limit, before, after, requestId, status);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List bank withdrawals
+     * This operation retrieves the list of bank withdrawals. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param requestId The request ID. (optional)
+     * @param status Filter by bank withdrawal status. (optional)
+     * @return ApiResponse&lt;ListBankWithdrawals200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListBankWithdrawals200Response> listBankWithdrawalsWithHttpInfo(Integer limit, String before, String after, String requestId, PaymentBankWithdrawalStatus status) throws ApiException {
+        okhttp3.Call localVarCall = listBankWithdrawalsValidateBeforeCall(limit, before, after, requestId, status, null);
+        Type localVarReturnType = new TypeToken<ListBankWithdrawals200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List bank withdrawals (asynchronously)
+     * This operation retrieves the list of bank withdrawals. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
+     * @param after A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  (optional)
+     * @param requestId The request ID. (optional)
+     * @param status Filter by bank withdrawal status. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBankWithdrawalsAsync(Integer limit, String before, String after, String requestId, PaymentBankWithdrawalStatus status, final ApiCallback<ListBankWithdrawals200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listBankWithdrawalsValidateBeforeCall(limit, before, after, requestId, status, _callback);
+        Type localVarReturnType = new TypeToken<ListBankWithdrawals200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listBatchAllocations
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  (optional)
@@ -6617,6 +7121,7 @@ public class PaymentApi {
      * @param walletAddress The wallet address. (optional)
      * @param keyword A search term for performing fuzzy matches in the search query. (optional)
      * @param bankAccountStatus BankAccountStatus defines the status of the bank account: - &#x60;Pending&#x60;: The bank account is pending verification by Cobo. - &#x60;Approved&#x60;: The bank account has been approved by Cobo. - &#x60;Rejected&#x60;: The bank account has been rejected by Cobo.  (optional)
+     * @param bankAccountTag Filter destination bank accounts by tag.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6628,7 +7133,7 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listDestinationEntriesCall(EntryType entryType, Integer limit, String before, String after, String destinationId, String chainIds, String walletAddress, String keyword, BankAccountStatus bankAccountStatus, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listDestinationEntriesCall(EntryType entryType, Integer limit, String before, String after, String destinationId, String chainIds, String walletAddress, String keyword, BankAccountStatus bankAccountStatus, DestinationBankAccountTag bankAccountTag, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6676,6 +7181,10 @@ public class PaymentApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("bank_account_status", bankAccountStatus));
         }
 
+        if (bankAccountTag != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("bank_account_tag", bankAccountTag));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -6696,13 +7205,13 @@ public class PaymentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDestinationEntriesValidateBeforeCall(EntryType entryType, Integer limit, String before, String after, String destinationId, String chainIds, String walletAddress, String keyword, BankAccountStatus bankAccountStatus, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDestinationEntriesValidateBeforeCall(EntryType entryType, Integer limit, String before, String after, String destinationId, String chainIds, String walletAddress, String keyword, BankAccountStatus bankAccountStatus, DestinationBankAccountTag bankAccountTag, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'entryType' is set
         if (entryType == null) {
             throw new ApiException("Missing the required parameter 'entryType' when calling listDestinationEntries(Async)");
         }
 
-        return listDestinationEntriesCall(entryType, limit, before, after, destinationId, chainIds, walletAddress, keyword, bankAccountStatus, _callback);
+        return listDestinationEntriesCall(entryType, limit, before, after, destinationId, chainIds, walletAddress, keyword, bankAccountStatus, bankAccountTag, _callback);
 
     }
 
@@ -6718,6 +7227,7 @@ public class PaymentApi {
      * @param walletAddress The wallet address. (optional)
      * @param keyword A search term for performing fuzzy matches in the search query. (optional)
      * @param bankAccountStatus BankAccountStatus defines the status of the bank account: - &#x60;Pending&#x60;: The bank account is pending verification by Cobo. - &#x60;Approved&#x60;: The bank account has been approved by Cobo. - &#x60;Rejected&#x60;: The bank account has been rejected by Cobo.  (optional)
+     * @param bankAccountTag Filter destination bank accounts by tag.  (optional)
      * @return ListDestinationEntries200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6728,8 +7238,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListDestinationEntries200Response listDestinationEntries(EntryType entryType, Integer limit, String before, String after, String destinationId, String chainIds, String walletAddress, String keyword, BankAccountStatus bankAccountStatus) throws ApiException {
-        ApiResponse<ListDestinationEntries200Response> localVarResp = listDestinationEntriesWithHttpInfo(entryType, limit, before, after, destinationId, chainIds, walletAddress, keyword, bankAccountStatus);
+    public ListDestinationEntries200Response listDestinationEntries(EntryType entryType, Integer limit, String before, String after, String destinationId, String chainIds, String walletAddress, String keyword, BankAccountStatus bankAccountStatus, DestinationBankAccountTag bankAccountTag) throws ApiException {
+        ApiResponse<ListDestinationEntries200Response> localVarResp = listDestinationEntriesWithHttpInfo(entryType, limit, before, after, destinationId, chainIds, walletAddress, keyword, bankAccountStatus, bankAccountTag);
         return localVarResp.getData();
     }
 
@@ -6745,6 +7255,7 @@ public class PaymentApi {
      * @param walletAddress The wallet address. (optional)
      * @param keyword A search term for performing fuzzy matches in the search query. (optional)
      * @param bankAccountStatus BankAccountStatus defines the status of the bank account: - &#x60;Pending&#x60;: The bank account is pending verification by Cobo. - &#x60;Approved&#x60;: The bank account has been approved by Cobo. - &#x60;Rejected&#x60;: The bank account has been rejected by Cobo.  (optional)
+     * @param bankAccountTag Filter destination bank accounts by tag.  (optional)
      * @return ApiResponse&lt;ListDestinationEntries200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6755,8 +7266,8 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListDestinationEntries200Response> listDestinationEntriesWithHttpInfo(EntryType entryType, Integer limit, String before, String after, String destinationId, String chainIds, String walletAddress, String keyword, BankAccountStatus bankAccountStatus) throws ApiException {
-        okhttp3.Call localVarCall = listDestinationEntriesValidateBeforeCall(entryType, limit, before, after, destinationId, chainIds, walletAddress, keyword, bankAccountStatus, null);
+    public ApiResponse<ListDestinationEntries200Response> listDestinationEntriesWithHttpInfo(EntryType entryType, Integer limit, String before, String after, String destinationId, String chainIds, String walletAddress, String keyword, BankAccountStatus bankAccountStatus, DestinationBankAccountTag bankAccountTag) throws ApiException {
+        okhttp3.Call localVarCall = listDestinationEntriesValidateBeforeCall(entryType, limit, before, after, destinationId, chainIds, walletAddress, keyword, bankAccountStatus, bankAccountTag, null);
         Type localVarReturnType = new TypeToken<ListDestinationEntries200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6773,6 +7284,7 @@ public class PaymentApi {
      * @param walletAddress The wallet address. (optional)
      * @param keyword A search term for performing fuzzy matches in the search query. (optional)
      * @param bankAccountStatus BankAccountStatus defines the status of the bank account: - &#x60;Pending&#x60;: The bank account is pending verification by Cobo. - &#x60;Approved&#x60;: The bank account has been approved by Cobo. - &#x60;Rejected&#x60;: The bank account has been rejected by Cobo.  (optional)
+     * @param bankAccountTag Filter destination bank accounts by tag.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6784,9 +7296,9 @@ public class PaymentApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listDestinationEntriesAsync(EntryType entryType, Integer limit, String before, String after, String destinationId, String chainIds, String walletAddress, String keyword, BankAccountStatus bankAccountStatus, final ApiCallback<ListDestinationEntries200Response> _callback) throws ApiException {
+    public okhttp3.Call listDestinationEntriesAsync(EntryType entryType, Integer limit, String before, String after, String destinationId, String chainIds, String walletAddress, String keyword, BankAccountStatus bankAccountStatus, DestinationBankAccountTag bankAccountTag, final ApiCallback<ListDestinationEntries200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listDestinationEntriesValidateBeforeCall(entryType, limit, before, after, destinationId, chainIds, walletAddress, keyword, bankAccountStatus, _callback);
+        okhttp3.Call localVarCall = listDestinationEntriesValidateBeforeCall(entryType, limit, before, after, destinationId, chainIds, walletAddress, keyword, bankAccountStatus, bankAccountTag, _callback);
         Type localVarReturnType = new TypeToken<ListDestinationEntries200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

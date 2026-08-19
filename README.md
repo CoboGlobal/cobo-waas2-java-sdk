@@ -6,11 +6,10 @@ Cobo Wallet as a Service 2.0
 
 The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo's WaaS API offering. It enables you to access Cobo's full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:
 
-- A unified API for Cobo's [all four wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform)
+- A unified API for Cobo's [all wallet types](https://manuals.cobo.com/en/portal/introduction#an-all-in-one-wallet-platform)
 - Support for 80+ chains and 3000+ tokens
 - A comprehensive selection of webhook events
 - Flexible usage models for MPC Wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction)
-- Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls
 - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more
 
 For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](https://www.cobo.com/developers/v2/guides/overview/introduction).
@@ -51,7 +50,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.41.0</version>
+  <version>1.42.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +66,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.41.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.42.0"
   }
 ```
 
@@ -95,7 +94,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.41.0.jar`
+* `target/cobo-waas2-1.42.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -254,6 +253,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**getOrgInfo**](docs/OrganizationsApi.md#getOrgInfo) | **GET** /organizations/info | Get organization information
 *PaymentApi* | [**batchGetExchangeRates**](docs/PaymentApi.md#batchGetExchangeRates) | **GET** /payments/exchange_rates | Batch get exchange rates
 *PaymentApi* | [**cancelRefundById**](docs/PaymentApi.md#cancelRefundById) | **PUT** /payments/refunds/{refund_id}/cancel | Cancel refund order
+*PaymentApi* | [**createBankWithdrawal**](docs/PaymentApi.md#createBankWithdrawal) | **POST** /payments/bank_withdrawals | Create bank withdrawal
 *PaymentApi* | [**createBatchAllocation**](docs/PaymentApi.md#createBatchAllocation) | **POST** /payments/batch_allocations | Create batch allocation
 *PaymentApi* | [**createBulkSend**](docs/PaymentApi.md#createBulkSend) | **POST** /payments/bulk_sends | Create bulk send
 *PaymentApi* | [**createCounterparty**](docs/PaymentApi.md#createCounterparty) | **POST** /payments/counterparty | Create counterparty
@@ -278,6 +278,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**deleteDestinationById**](docs/PaymentApi.md#deleteDestinationById) | **DELETE** /payments/destination/{destination_id} | Delete destination
 *PaymentApi* | [**deleteDestinationEntry**](docs/PaymentApi.md#deleteDestinationEntry) | **DELETE** /payments/destination_entry/{destination_entry_id} | Delete destination entry
 *PaymentApi* | [**getAvailableAllocationAmount**](docs/PaymentApi.md#getAvailableAllocationAmount) | **GET** /payments/allocation_amount | Get available allocation amount
+*PaymentApi* | [**getBankWithdrawalById**](docs/PaymentApi.md#getBankWithdrawalById) | **GET** /payments/bank_withdrawals/{bank_withdrawal_id} | Get bank withdrawal information
 *PaymentApi* | [**getBatchAllocationById**](docs/PaymentApi.md#getBatchAllocationById) | **GET** /payments/batch_allocations/{batch_allocation_id} | Get batch allocation information
 *PaymentApi* | [**getBulkSendById**](docs/PaymentApi.md#getBulkSendById) | **GET** /payments/bulk_sends/{bulk_send_id} | Get bulk send information
 *PaymentApi* | [**getCounterparty**](docs/PaymentApi.md#getCounterparty) | **GET** /payments/counterparty/{counterparty_id} | Get counterparty information
@@ -286,6 +287,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**getDestinationEntry**](docs/PaymentApi.md#getDestinationEntry) | **GET** /payments/destination_entry/{destination_entry_id} | Get destination entry information
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
 *PaymentApi* | [**getMerchantKyc**](docs/PaymentApi.md#getMerchantKyc) | **GET** /payments/merchants/{merchant_id}/kyc | Get merchant KYC
+*PaymentApi* | [**getPaymentBankAccountBalance**](docs/PaymentApi.md#getPaymentBankAccountBalance) | **GET** /payments/balance/bank_accounts/{bank_account_id} | Get bank account balance
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
 *PaymentApi* | [**getPayoutById**](docs/PaymentApi.md#getPayoutById) | **GET** /payments/payouts/{payout_id} | Get payout information
 *PaymentApi* | [**getPspBalance**](docs/PaymentApi.md#getPspBalance) | **GET** /payments/balance/psp | Get developer balance
@@ -297,6 +299,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**getTopUpAddress**](docs/PaymentApi.md#getTopUpAddress) | **GET** /payments/topup/address | Create/Get top-up address
 *PaymentApi* | [**listAllocationItems**](docs/PaymentApi.md#listAllocationItems) | **GET** /payments/allocation_items | List all allocation items
 *PaymentApi* | [**listBalanceChanges**](docs/PaymentApi.md#listBalanceChanges) | **GET** /payments/balance_changes | List balance changes
+*PaymentApi* | [**listBankWithdrawals**](docs/PaymentApi.md#listBankWithdrawals) | **GET** /payments/bank_withdrawals | List bank withdrawals
 *PaymentApi* | [**listBatchAllocations**](docs/PaymentApi.md#listBatchAllocations) | **GET** /payments/batch_allocations | List all batch allocations
 *PaymentApi* | [**listBulkSendItems**](docs/PaymentApi.md#listBulkSendItems) | **GET** /payments/bulk_sends/{bulk_send_id}/items | List bulk send items
 *PaymentApi* | [**listBulkSends**](docs/PaymentApi.md#listBulkSends) | **GET** /payments/bulk_sends | List bulk sends
@@ -333,6 +336,8 @@ Class | Method | HTTP request | Description
 *PrimeBrokerApi* | [**deleteGuardPubkey**](docs/PrimeBrokerApi.md#deleteGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey/delete | Delete Guard pubkey binding
 *PrimeBrokerApi* | [**queryApprovalStatement**](docs/PrimeBrokerApi.md#queryApprovalStatement) | **GET** /prime_broker/approval_statement/{statement_id} | Query approval statement
 *PrimeBrokerApi* | [**queryGuardPubkey**](docs/PrimeBrokerApi.md#queryGuardPubkey) | **GET** /prime_broker/user/{user_id}/guard_pubkey | Query a Guard pubkey
+*ReconciliationApi* | [**getReconciliationLedger**](docs/ReconciliationApi.md#getReconciliationLedger) | **GET** /recon/ledger | Get reconciliation ledger
+*ReconciliationApi* | [**listReconciliationStatements**](docs/ReconciliationApi.md#listReconciliationStatements) | **GET** /recon/statements | List reconciliation daily statements
 *StakingsApi* | [**createBabylonAirdropRegistration**](docs/StakingsApi.md#createBabylonAirdropRegistration) | **POST** /stakings/protocols/babylon/airdrops/registrations | Register for Babylon airdrop
 *StakingsApi* | [**createBabylonStakingExpansion**](docs/StakingsApi.md#createBabylonStakingExpansion) | **POST** /stakings/protocols/babylon/stakings/expansions | Expand Babylon BTC staking
 *StakingsApi* | [**createBabylonStakingRegistration**](docs/StakingsApi.md#createBabylonStakingRegistration) | **POST** /stakings/protocols/babylon/stakings/registrations | Register for Babylon Phase-2
@@ -391,6 +396,7 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**estimateFee**](docs/TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee
 *TransactionsApi* | [**getTransactionApprovalDetail**](docs/TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval details
 *TransactionsApi* | [**getTransactionById**](docs/TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
+*TransactionsApi* | [**getTransactionReceipt**](docs/TransactionsApi.md#getTransactionReceipt) | **GET** /transactions/chains/{chain_id}/tx_hash/{tx_hash}/receipt | Get transaction receipt
 *TransactionsApi* | [**listApprovalDetails**](docs/TransactionsApi.md#listApprovalDetails) | **GET** /transactions/approval/details | List approval details
 *TransactionsApi* | [**listTransactionApprovalDetails**](docs/TransactionsApi.md#listTransactionApprovalDetails) | **GET** /transactions/approval_details | List transaction approval details
 *TransactionsApi* | [**listTransactionTemplates**](docs/TransactionsApi.md#listTransactionTemplates) | **GET** /transactions/templates | List transaction templates
@@ -422,6 +428,7 @@ Class | Method | HTTP request | Description
 *WalletsApi* | [**getTokenById**](docs/WalletsApi.md#getTokenById) | **GET** /wallets/tokens/{token_id} | Get token information
 *WalletsApi* | [**getTokenListingRequestByRequestId**](docs/WalletsApi.md#getTokenListingRequestByRequestId) | **GET** /wallets/tokens/listing_requests/{request_id} | Get token listing request
 *WalletsApi* | [**getWalletById**](docs/WalletsApi.md#getWalletById) | **GET** /wallets/{wallet_id} | Get wallet information
+*WalletsApi* | [**listAccountBalances**](docs/WalletsApi.md#listAccountBalances) | **GET** /wallets/{wallet_id}/chains/{chain_id}/account/balances | List account balances
 *WalletsApi* | [**listAddressBalancesByToken**](docs/WalletsApi.md#listAddressBalancesByToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances by token
 *WalletsApi* | [**listAddresses**](docs/WalletsApi.md#listAddresses) | **GET** /wallets/{wallet_id}/addresses | List wallet addresses
 *WalletsApi* | [**listEnabledChains**](docs/WalletsApi.md#listEnabledChains) | **GET** /wallets/enabled_chains | List enabled chains
@@ -462,7 +469,6 @@ Class | Method | HTTP request | Description
 *WalletsMpcWalletsApi* | [**updateKeyShareHolderGroupById**](docs/WalletsMpcWalletsApi.md#updateKeyShareHolderGroupById) | **PUT** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups/{key_share_holder_group_id} | Update key share holder group
 *WalletsMpcWalletsApi* | [**updateMpcProjectById**](docs/WalletsMpcWalletsApi.md#updateMpcProjectById) | **PUT** /wallets/mpc/projects/{project_id} | Update project name
 *WalletsMpcWalletsApi* | [**updateMpcVaultById**](docs/WalletsMpcWalletsApi.md#updateMpcVaultById) | **PUT** /wallets/mpc/vaults/{vault_id} | Update vault name
-*WalletsSmartContractWalletsApi* | [**listSafeWalletDelegates**](docs/WalletsSmartContractWalletsApi.md#listSafeWalletDelegates) | **POST** /wallets/{wallet_id}/smart_contracts/delegates | List Delegates
 
 
 ## Documentation for Models
@@ -533,6 +539,7 @@ Class | Method | HTTP request | Description
  - [BabylonStakingRegistration](docs/BabylonStakingRegistration.md)
  - [BabylonValidator](docs/BabylonValidator.md)
  - [Balance](docs/Balance.md)
+ - [BalanceAtBlock](docs/BalanceAtBlock.md)
  - [BalanceUpdateInfo](docs/BalanceUpdateInfo.md)
  - [BalanceUpdateInfoEventData](docs/BalanceUpdateInfoEventData.md)
  - [BankAccount](docs/BankAccount.md)
@@ -561,8 +568,6 @@ Class | Method | HTTP request | Description
  - [CheckAddressValidity200Response](docs/CheckAddressValidity200Response.md)
  - [CheckAddressesValidity200ResponseInner](docs/CheckAddressesValidity200ResponseInner.md)
  - [CheckLoopTransfers200ResponseInner](docs/CheckLoopTransfers200ResponseInner.md)
- - [CoboSafeDelegate](docs/CoboSafeDelegate.md)
- - [CoboSafeDelegateType](docs/CoboSafeDelegateType.md)
  - [CommissionFee](docs/CommissionFee.md)
  - [ComplianceDispositionUpdateEventData](docs/ComplianceDispositionUpdateEventData.md)
  - [ComplianceKyaScreeningsUpdateEventData](docs/ComplianceKyaScreeningsUpdateEventData.md)
@@ -592,6 +597,7 @@ Class | Method | HTTP request | Description
  - [CreateBabylonAirdropRegistrationRequest](docs/CreateBabylonAirdropRegistrationRequest.md)
  - [CreateBabylonStakingRegistration201Response](docs/CreateBabylonStakingRegistration201Response.md)
  - [CreateBabylonStakingRegistrationRequest](docs/CreateBabylonStakingRegistrationRequest.md)
+ - [CreateBankWithdrawalRequest](docs/CreateBankWithdrawalRequest.md)
  - [CreateBatchAllocationRequest](docs/CreateBatchAllocationRequest.md)
  - [CreateBulkSendRequest](docs/CreateBulkSendRequest.md)
  - [CreateBulkSendRequestPayoutParamsInner](docs/CreateBulkSendRequestPayoutParamsInner.md)
@@ -622,11 +628,9 @@ Class | Method | HTTP request | Description
  - [CreateRefundLinkRequest](docs/CreateRefundLinkRequest.md)
  - [CreateRefundRequest](docs/CreateRefundRequest.md)
  - [CreateReportRequest](docs/CreateReportRequest.md)
- - [CreateSafeWalletParams](docs/CreateSafeWalletParams.md)
  - [CreateSatoshiTestChallengeRequest](docs/CreateSatoshiTestChallengeRequest.md)
  - [CreateSettlement](docs/CreateSettlement.md)
  - [CreateSettlementRequestRequest](docs/CreateSettlementRequestRequest.md)
- - [CreateSmartContractWalletParams](docs/CreateSmartContractWalletParams.md)
  - [CreateStakeActivity](docs/CreateStakeActivity.md)
  - [CreateStakeActivity201Response](docs/CreateStakeActivity201Response.md)
  - [CreateStakeActivityExtra](docs/CreateStakeActivityExtra.md)
@@ -668,7 +672,9 @@ Class | Method | HTTP request | Description
  - [Destination](docs/Destination.md)
  - [DestinationBankAccount](docs/DestinationBankAccount.md)
  - [DestinationBankAccountDetail](docs/DestinationBankAccountDetail.md)
+ - [DestinationBankAccountTag](docs/DestinationBankAccountTag.md)
  - [DestinationDetail](docs/DestinationDetail.md)
+ - [DestinationSource](docs/DestinationSource.md)
  - [DestinationType](docs/DestinationType.md)
  - [DestinationWalletAddressDetail](docs/DestinationWalletAddressDetail.md)
  - [DestinationWalletType](docs/DestinationWalletType.md)
@@ -727,6 +733,7 @@ Class | Method | HTTP request | Description
  - [FILPrice](docs/FILPrice.md)
  - [FeeAmount](docs/FeeAmount.md)
  - [FeeGasLimit](docs/FeeGasLimit.md)
+ - [FeeLevel](docs/FeeLevel.md)
  - [FeeRate](docs/FeeRate.md)
  - [FeeReserved](docs/FeeReserved.md)
  - [FeeStationCheckFeeStationUsage](docs/FeeStationCheckFeeStationUsage.md)
@@ -750,6 +757,7 @@ Class | Method | HTTP request | Description
  - [GetDestinationEntry200Response](docs/GetDestinationEntry200Response.md)
  - [GetExchangeRate200Response](docs/GetExchangeRate200Response.md)
  - [GetMaxTransferableValueWithFeeModelRequest](docs/GetMaxTransferableValueWithFeeModelRequest.md)
+ - [GetReconciliationLedger200Response](docs/GetReconciliationLedger200Response.md)
  - [GetRefunds200Response](docs/GetRefunds200Response.md)
  - [GetReports200Response](docs/GetReports200Response.md)
  - [GetSettlementInfoByIds200Response](docs/GetSettlementInfoByIds200Response.md)
@@ -787,6 +795,7 @@ Class | Method | HTTP request | Description
  - [KytScreeningsTransactionType](docs/KytScreeningsTransactionType.md)
  - [Link](docs/Link.md)
  - [LinkDisplayInfo](docs/LinkDisplayInfo.md)
+ - [ListAccountBalances200Response](docs/ListAccountBalances200Response.md)
  - [ListAddressBalancesByToken200Response](docs/ListAddressBalancesByToken200Response.md)
  - [ListAddressBooks200Response](docs/ListAddressBooks200Response.md)
  - [ListAddressVerifications200Response](docs/ListAddressVerifications200Response.md)
@@ -800,6 +809,7 @@ Class | Method | HTTP request | Description
  - [ListBabylonEligibleStakings200Response](docs/ListBabylonEligibleStakings200Response.md)
  - [ListBabylonEligibleStakings200ResponseDataInner](docs/ListBabylonEligibleStakings200ResponseDataInner.md)
  - [ListBabylonStakingRegistrations200Response](docs/ListBabylonStakingRegistrations200Response.md)
+ - [ListBankWithdrawals200Response](docs/ListBankWithdrawals200Response.md)
  - [ListBatchAllocations200Response](docs/ListBatchAllocations200Response.md)
  - [ListBulkSendItems200Response](docs/ListBulkSendItems200Response.md)
  - [ListBulkSends200Response](docs/ListBulkSends200Response.md)
@@ -822,6 +832,7 @@ Class | Method | HTTP request | Description
  - [ListPaymentOrders200Response](docs/ListPaymentOrders200Response.md)
  - [ListPaymentWalletBalances200Response](docs/ListPaymentWalletBalances200Response.md)
  - [ListPayouts200Response](docs/ListPayouts200Response.md)
+ - [ListReconciliationStatements200Response](docs/ListReconciliationStatements200Response.md)
  - [ListSettlementDetails200Response](docs/ListSettlementDetails200Response.md)
  - [ListSettlementRequests200Response](docs/ListSettlementRequests200Response.md)
  - [ListStakingActivities200Response](docs/ListStakingActivities200Response.md)
@@ -853,7 +864,6 @@ Class | Method | HTTP request | Description
  - [LockUtxos201Response](docs/LockUtxos201Response.md)
  - [LockUtxosRequest](docs/LockUtxosRequest.md)
  - [LockUtxosRequestUtxosInner](docs/LockUtxosRequestUtxosInner.md)
- - [MPCDelegate](docs/MPCDelegate.md)
  - [MPCProject](docs/MPCProject.md)
  - [MPCVault](docs/MPCVault.md)
  - [MPCVaultEventData](docs/MPCVaultEventData.md)
@@ -902,6 +912,12 @@ Class | Method | HTTP request | Description
  - [PaymentBalanceChangeResponse](docs/PaymentBalanceChangeResponse.md)
  - [PaymentBalanceChangeSourceType](docs/PaymentBalanceChangeSourceType.md)
  - [PaymentBalanceFlowDirection](docs/PaymentBalanceFlowDirection.md)
+ - [PaymentBankAccountBalance](docs/PaymentBankAccountBalance.md)
+ - [PaymentBankWithdrawal](docs/PaymentBankWithdrawal.md)
+ - [PaymentBankWithdrawalDetail](docs/PaymentBankWithdrawalDetail.md)
+ - [PaymentBankWithdrawalEvent](docs/PaymentBankWithdrawalEvent.md)
+ - [PaymentBankWithdrawalStatus](docs/PaymentBankWithdrawalStatus.md)
+ - [PaymentBankWithdrawalTimelineItem](docs/PaymentBankWithdrawalTimelineItem.md)
  - [PaymentBridgeStatus](docs/PaymentBridgeStatus.md)
  - [PaymentBulkSend](docs/PaymentBulkSend.md)
  - [PaymentBulkSendEvent](docs/PaymentBulkSendEvent.md)
@@ -947,6 +963,9 @@ Class | Method | HTTP request | Description
  - [QueryGuardPubkey200Response](docs/QueryGuardPubkey200Response.md)
  - [QueryGuardPubkey200ResponseAddressesInner](docs/QueryGuardPubkey200ResponseAddressesInner.md)
  - [RawMessageSignDestination](docs/RawMessageSignDestination.md)
+ - [ReconDailyStatement](docs/ReconDailyStatement.md)
+ - [ReconLedgerEntry](docs/ReconLedgerEntry.md)
+ - [ReconStatementStatus](docs/ReconStatementStatus.md)
  - [RefreshAddressBalancesByToken200Response](docs/RefreshAddressBalancesByToken200Response.md)
  - [RefreshAddressBalancesByTokenRequest](docs/RefreshAddressBalancesByTokenRequest.md)
  - [RefreshPermissionTokenRequest](docs/RefreshPermissionTokenRequest.md)
@@ -973,16 +992,6 @@ Class | Method | HTTP request | Description
  - [RootPubkey](docs/RootPubkey.md)
  - [SOLBase](docs/SOLBase.md)
  - [SOLComputeUnit](docs/SOLComputeUnit.md)
- - [SafeContractCallSource](docs/SafeContractCallSource.md)
- - [SafeTransferSource](docs/SafeTransferSource.md)
- - [SafeTxDecodedData](docs/SafeTxDecodedData.md)
- - [SafeTxDecodedDataParameters](docs/SafeTxDecodedDataParameters.md)
- - [SafeTxExtraData](docs/SafeTxExtraData.md)
- - [SafeTxSubTransaction](docs/SafeTxSubTransaction.md)
- - [SafeWallet](docs/SafeWallet.md)
- - [SafeWalletDelegates](docs/SafeWalletDelegates.md)
- - [SafeWalletDelegatesContractCall](docs/SafeWalletDelegatesContractCall.md)
- - [SafeWalletDelegatesTransfer](docs/SafeWalletDelegatesTransfer.md)
  - [SatoshiTestCancelResult](docs/SatoshiTestCancelResult.md)
  - [SatoshiTestChallenge](docs/SatoshiTestChallenge.md)
  - [SatoshiTestChallengeAction](docs/SatoshiTestChallengeAction.md)
@@ -999,10 +1008,6 @@ Class | Method | HTTP request | Description
  - [SignatureChallenge](docs/SignatureChallenge.md)
  - [SignatureDetail](docs/SignatureDetail.md)
  - [SkipCheckType](docs/SkipCheckType.md)
- - [SmartContractInitiator](docs/SmartContractInitiator.md)
- - [SmartContractWalletInfo](docs/SmartContractWalletInfo.md)
- - [SmartContractWalletOperationType](docs/SmartContractWalletOperationType.md)
- - [SmartContractWalletType](docs/SmartContractWalletType.md)
  - [SolContractCallAccount](docs/SolContractCallAccount.md)
  - [SolContractCallAddressLookupTableAccount](docs/SolContractCallAddressLookupTableAccount.md)
  - [SolContractCallDestination](docs/SolContractCallDestination.md)
@@ -1108,6 +1113,8 @@ Class | Method | HTTP request | Description
  - [TokenizationContractCallParamsData](docs/TokenizationContractCallParamsData.md)
  - [TokenizationContractCallRequest](docs/TokenizationContractCallRequest.md)
  - [TokenizationContractCallType](docs/TokenizationContractCallType.md)
+ - [TokenizationERC20FundTokenParams](docs/TokenizationERC20FundTokenParams.md)
+ - [TokenizationERC20FundTokenPermissionParams](docs/TokenizationERC20FundTokenPermissionParams.md)
  - [TokenizationERC20TokenParams](docs/TokenizationERC20TokenParams.md)
  - [TokenizationERC20TokenPermissionParams](docs/TokenizationERC20TokenPermissionParams.md)
  - [TokenizationERC20WrappedTokenParams](docs/TokenizationERC20WrappedTokenParams.md)
@@ -1219,6 +1226,8 @@ Class | Method | HTTP request | Description
  - [TransactionRawTxInfo](docs/TransactionRawTxInfo.md)
  - [TransactionRbf](docs/TransactionRbf.md)
  - [TransactionRbfSource](docs/TransactionRbfSource.md)
+ - [TransactionReceipt](docs/TransactionReceipt.md)
+ - [TransactionReceiptLog](docs/TransactionReceiptLog.md)
  - [TransactionReplacement](docs/TransactionReplacement.md)
  - [TransactionRequestEvmEip1559Fee](docs/TransactionRequestEvmEip1559Fee.md)
  - [TransactionRequestEvmLegacyFee](docs/TransactionRequestEvmLegacyFee.md)
@@ -1235,7 +1244,6 @@ Class | Method | HTTP request | Description
  - [TransactionSelectedUtxo](docs/TransactionSelectedUtxo.md)
  - [TransactionSignatureResult](docs/TransactionSignatureResult.md)
  - [TransactionSigner](docs/TransactionSigner.md)
- - [TransactionSmartContractSafeWalletSource](docs/TransactionSmartContractSafeWalletSource.md)
  - [TransactionSolContractAccount](docs/TransactionSolContractAccount.md)
  - [TransactionSolContractAddressLookupTableAccount](docs/TransactionSolContractAddressLookupTableAccount.md)
  - [TransactionSolContractDestination](docs/TransactionSolContractDestination.md)
@@ -1304,7 +1312,6 @@ Class | Method | HTTP request | Description
  - [UpdateMpcWalletParams](docs/UpdateMpcWalletParams.md)
  - [UpdatePaymentOrderRequest](docs/UpdatePaymentOrderRequest.md)
  - [UpdateRefundByIdRequest](docs/UpdateRefundByIdRequest.md)
- - [UpdateSmartContractWalletParams](docs/UpdateSmartContractWalletParams.md)
  - [UpdateTopUpAddress](docs/UpdateTopUpAddress.md)
  - [UpdateWalletParams](docs/UpdateWalletParams.md)
  - [UpdateWebhookEndpointByIdRequest](docs/UpdateWebhookEndpointByIdRequest.md)

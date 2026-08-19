@@ -110,6 +110,8 @@ public enum WebhookEventType {
   
   PAYMENT_PAYOUT_STATUS_UPDATED("payment.payout.status.updated"),
   
+  PAYMENT_BANK_WITHDRAWAL_STATUS_UPDATED("payment.bank_withdrawal.status.updated"),
+  
   PAYMENT_ADDRESS_UPDATED("payment.address.updated"),
   
   PAYMENT_SUBSCRIPTION_STATUS_UPDATED("payment.subscription.status.updated"),

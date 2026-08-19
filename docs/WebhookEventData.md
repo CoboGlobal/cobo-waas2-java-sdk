@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentBulkSendItem&#x60;: The payment bulk send item event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data. |  |
+|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The top-up address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBankWithdrawal&#x60;: The payment bank withdrawal event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentBulkSendItem&#x60;: The payment bulk send item event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The token suspension event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data. |  |
 |**transactionId** | **String** | The transaction ID. |  |
 |**coboId** | **String** | The Cobo ID, which can be used to track a transaction. |  [optional] |
 |**requestId** | **String** | The request ID of the bulk send batch. |  |
@@ -35,7 +35,8 @@
 |**description** | **String** | A note or comment about the bulk send item. |  [optional] |
 |**isLoop** | **Boolean** | Whether the transaction was executed as a [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfer. - &#x60;true&#x60;: The transaction was executed as a Cobo Loop transfer. - &#x60;false&#x60;: The transaction was not executed as a Cobo Loop transfer.  |  [optional] |
 |**coboCategory** | **List&lt;String&gt;** | The Cobo category of the transaction. |  [optional] |
-|**extra** | **List&lt;String&gt;** | A list of JSON-encoded strings containing structured, business-specific extra information for the transaction. Each item corresponds to a specific data type, indicated by the &#x60;extra_type&#x60; field in the JSON object (for example, \&quot;BabylonBusinessInfo\&quot;, \&quot;BtcAddressInfo\&quot;).  |  [optional] |
+|**extra** | **List&lt;String&gt;** | The transaction extra information. |  [optional] |
+|**transactionProcessType** | **TransactionProcessType** |  |  [optional] |
 |**fuelingInfo** | [**TransactionFuelingInfo**](TransactionFuelingInfo.md) |  |  [optional] |
 |**createdTimestamp** | **Long** | The time when the transaction was created, in Unix timestamp format, measured in milliseconds. |  |
 |**updatedTimestamp** | **Long** | The time when the screening status was updated, in Unix timestamp format, measured in milliseconds. |  |
@@ -76,7 +77,7 @@
 |**receivedTokenAmount** | **String** | The total cryptocurrency amount received for this order. Updates until the expiration time. Precision matches the token standard (e.g., 6 decimals for USDT). |  |
 |**expiredAt** | **Integer** | The expiration time of the pay-in order, represented as a UNIX timestamp in seconds. |  [optional] |
 |**transactions** | [**List&lt;PaymentTransaction&gt;**](PaymentTransaction.md) | An array of payout transactions. |  [optional] |
-|**currency** | **String** | The fiat currency for the off-ramp. |  [optional] |
+|**currency** | **String** | The fiat currency of the bank withdrawal. |  |
 |**orderAmount** | **String** | This field has been deprecated. Please use &#x60;pricing_amount&#x60; instead. |  [optional] |
 |**settlementStatus** | **SettleStatus** |  |  [optional] |
 |**refundId** | **String** | The refund order ID. |  |
@@ -107,7 +108,14 @@
 |**recipientInfo** | [**PaymentPayoutRecipientInfo**](PaymentPayoutRecipientInfo.md) |  |  [optional] |
 |**actualPayoutAmount** | **String** | - For &#x60;Crypto&#x60; payouts: The amount of cryptocurrency sent to the recipient&#39;s address, denominated in the token specified in &#x60;recipient_info.token_id&#x60;. - For &#x60;OffRamp&#x60; payouts: The amount of fiat currency sent to the recipient&#39;s bank account, denominated in the currency specified in &#x60;recipient_info.currency&#x60;. (Note: The actual amount received may be lower due to additional bank transfer fees.)  |  [optional] |
 |**commissionFees** | [**List&lt;CommissionFee&gt;**](CommissionFee.md) | The commission fees. Not returned when no fee has been incurred, the actual charged amounts once incurred, or &#x60;0&#x60; if refunded. |  [optional] |
-|**remark** | **String** | A note or comment about the payout. |  [optional] |
+|**remark** | **String** | The remark for the bank withdrawal. |  [optional] |
+|**bankWithdrawalId** | **String** | The bank withdrawal ID generated by Cobo. |  |
+|**sourceBankAccountId** | **String** | The source bank account ID. The destination bank account must be tagged as &#x60;VA&#x60;.  |  |
+|**targetBankAccountId** | **String** | The target bank account ID that receives the bank withdrawal. |  |
+|**sourceBankAccount** | [**DestinationBankAccountDetail**](DestinationBankAccountDetail.md) |  |  |
+|**targetBankAccount** | [**DestinationBankAccountDetail**](DestinationBankAccountDetail.md) |  |  |
+|**bankTxFee** | **String** | The bank transaction fee charged for the bank withdrawal. |  [optional] |
+|**timeline** | [**List&lt;PaymentBankWithdrawalTimelineItem&gt;**](PaymentBankWithdrawalTimelineItem.md) | The status timeline of the bank withdrawal. |  |
 |**bulkSendId** | **String** | The bulk send ID that this item belongs to. |  |
 |**executionMode** | **PaymentBulkSendExecutionMode** |  |  |
 |**bulkSendItemId** | **String** | The bulk send item ID. |  |
@@ -156,6 +164,7 @@
 | PAYMENTTRANSACTION | &quot;PaymentTransaction&quot; |
 | PAYMENTADDRESSUPDATE | &quot;PaymentAddressUpdate&quot; |
 | PAYMENTPAYOUT | &quot;PaymentPayout&quot; |
+| PAYMENTBANKWITHDRAWAL | &quot;PaymentBankWithdrawal&quot; |
 | PAYMENTBULKSEND | &quot;PaymentBulkSend&quot; |
 | PAYMENTBULKSENDITEM | &quot;PaymentBulkSendItem&quot; |
 | PAYMENTACCOUNTBALANCEUPDATE | &quot;PaymentAccountBalanceUpdate&quot; |

@@ -31,6 +31,7 @@ import com.cobo.waas2.model.MessageSignParams;
 import com.cobo.waas2.model.TransactionApprovalDetail;
 import com.cobo.waas2.model.TransactionDetail;
 import com.cobo.waas2.model.TransactionRbf;
+import com.cobo.waas2.model.TransactionReceipt;
 import com.cobo.waas2.model.TransactionResend;
 import com.cobo.waas2.model.TransferParams;
 import java.util.UUID;
@@ -60,7 +61,7 @@ public class TransactionsApiTest {
     /**
      * Broadcast signed transactions
      *
-     * &lt;Note&gt;This operation is only applicable to the staking scenarios.&lt;/Note&gt; This operation broadcasts a list of signed transactions.   If you set &#x60;auto_broadcast&#x60; to &#x60;false&#x60; when [creating a staking activity](https://www.cobo.com/developers/v2/api-references/stakings/create-stake-activity), the transaction will not be submitted to the blockchain automatically after being signed. In such cases, you can call this operation to broadcast the transaction to the blockchain.  A transaction can only be broadcast if its status is &#x60;Broadcasting&#x60;. 
+     * This operation broadcasts a list of signed transactions to the blockchain.  You can call this operation for transactions that were signed but not broadcast automatically: - Transactions created with &#x60;transaction_process_type&#x60; set to &#x60;SignOnly&#x60; by calling the [Transfer token](https://www.cobo.com/developers/v2/api-references/transactions/transfer-token) or [Call smart contract](https://www.cobo.com/developers/v2/api-references/transactions/call-smart-contract) operation. - Staking transactions created with &#x60;auto_broadcast&#x60; set to &#x60;false&#x60; when [creating a staking activity](https://www.cobo.com/developers/v2/api-references/staking/create-stake-activity).  A transaction can only be broadcast if its status is &#x60;Broadcasting&#x60;.  &lt;Note&gt;Broadcasting a transaction created with &#x60;transaction_process_type&#x60; set to &#x60;SignOnly&#x60; is only applicable to MPC Wallets and Custodial Wallets (Web3 Wallets).&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -74,7 +75,7 @@ public class TransactionsApiTest {
     /**
      * Cancel transaction
      *
-     * This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt;  A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60; (Only when the sub-status is &#x60;Queue&#x60;, &#x60;InsufficientBalance&#x60;, &#x60;InsufficientBalanceFundLocked&#x60;, &#x60;PendingSignerApproval&#x60;, &#x60;PendingSystemProcessing&#x60;, or &#x60;Built&#x60;) 
+     * This operation cancels a specified transaction. Canceling a transaction stops it while it is still pending. For more information, see [Cancel a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#cancel-a-transaction).  &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt;  A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60; (Only when the sub-status is &#x60;Queue&#x60;, &#x60;InsufficientBalance&#x60;, &#x60;InsufficientBalanceFundLocked&#x60;, &#x60;PendingSignerApproval&#x60;, &#x60;PendingSystemProcessing&#x60;, or &#x60;Built&#x60;) 
      *
      * @throws ApiException if the Api call fails
      */
@@ -104,7 +105,7 @@ public class TransactionsApiTest {
     /**
      * Call smart contract
      *
-     * This operation creates a transaction to interact with a smart contract on the blockchain.  You need to provide details such as the source address, destination address, and the calldata. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  For smart contract call examples, you can refer to [Batch transfers using smart contracts](/v2/guides/transactions/batch-transfer) and [Swap tokens on Solana using Jupiter](/v2/guides/transactions/sol-jupiter-swap).  &lt;Note&gt;This operation uses &#x60;request_id&#x60; to prevent duplicate contract call requests. The &#x60;request_id&#x60; must be unique within the same organization. Duplicate requests with the same &#x60;request_id&#x60; will be rejected with an error and will not be executed again.&lt;/Note&gt;  &lt;Info&gt; Supported actions vary by blockchain: - EVM chains — Support deploying contracts and calling contract functions. - Solana — Supports calling contract functions only. - TRON — Supports calling contract functions only. - Stellar — Supports XLM trustline creation only. - Cosmos — Supports initiating Cosmos native message-based transactions, such as transfers and staking operations. &lt;/Info&gt;  &lt;Note&gt;Currently, this operation only applies to transactions from Custodial Wallets (Web3 Wallets), MPC Wallets, or Smart Contract Wallets. Refer to the &#x60;destination&#x60; property for supported contract types.&lt;/Note&gt;  &lt;Info&gt;If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe&#39;s address of the Smart Contract Wallet, with a transfer amount of &lt;code&gt;0&lt;/code&gt;.&lt;/Info&gt; 
+     * This operation creates a transaction to interact with a smart contract on the blockchain.  You need to provide details such as the source address, destination address, and the calldata. You can specify the fee-related properties to limit the transaction fee, or specify the &#x60;fee_level&#x60; property to let Cobo calculate the transaction fee based on the selected fee level. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;Currently, this operation only applies to the transactions from MPC Wallets on the blockchains that have a similar architecture to Ethereum.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -132,7 +133,7 @@ public class TransactionsApiTest {
     /**
      * Transfer token
      *
-     * The operation transfers your assets from a wallet created on Cobo Portal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation uses &#x60;request_id&#x60; to prevent duplicate transfer requests. The &#x60;request_id&#x60; must be unique within the same organization. Duplicate requests with the same &#x60;request_id&#x60; will be rejected with an error and will not be executed again.&lt;/Note&gt;  &lt;Note&gt;If you make transfers from Custodial Wallets (Asset Wallets) and Exchange Wallets, do not set the fee-related properties, as they will not take effects.&lt;/Note&gt;  &lt;Note&gt;You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. To do this, you should use the &lt;code&gt;utxo_outputs&lt;/code&gt; property to specify the destination addresses.&lt;/Note&gt;  &lt;Info&gt;If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe&#39;s address of the Smart Contract Wallet, with a transfer amount of &lt;code&gt;0&lt;/code&gt;.&lt;/Info&gt; 
+     * The operation transfers your assets from a wallet created on Cobo Portal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee, or specify the &#x60;fee_level&#x60; property to let Cobo calculate the transaction fee based on the selected fee level. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation uses &#x60;request_id&#x60; to prevent duplicate transfer requests. The &#x60;request_id&#x60; must be unique within the same organization. Duplicate requests with the same &#x60;request_id&#x60; will be rejected with an error and will not be executed again.&lt;/Note&gt;  &lt;Note&gt;If you make transfers from Custodial Wallets (Asset Wallets) and Exchange Wallets, do not set the fee-related properties, as they will not take effects.&lt;/Note&gt;  &lt;Note&gt;You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. To do this, you should use the &lt;code&gt;utxo_outputs&lt;/code&gt; property to specify the destination addresses.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -146,7 +147,7 @@ public class TransactionsApiTest {
     /**
      * Drop transaction
      *
-     * This operation drops a specified transaction. Dropping a transaction leverages RBF to replace the original transaction with a version that effectively cancels it. For more details about dropping a transaction, refer to [Drop a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#drop-a-transaction).  A transaction can be dropped only if its status is &#x60;Broadcasting&#x60;.  &lt;Note&gt;This operation only applies to transactions from Custodial Wallets (Web3 Wallets), MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  You can use the &#x60;address&#x60; or &#x60;included_utxos&#x60; properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction&#39;s source. If that source&#39;s balance is insufficient, the specified address or UTXOs can be used to cover the fee. 
+     * This operation drops a specified transaction. Dropping a transaction leverages RBF to replace the original transaction with a version that effectively cancels it. For more details about dropping a transaction, refer to [Drop a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#drop-a-transaction).  A transaction can be dropped only if its status is &#x60;Broadcasting&#x60;.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  You can use the &#x60;address&#x60; or &#x60;included_utxos&#x60; properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction&#39;s source. If that source&#39;s balance is insufficient, the specified address or UTXOs can be used to cover the fee. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -197,6 +198,21 @@ public class TransactionsApiTest {
     public void getTransactionByIdTest() throws ApiException {
         UUID transactionId = null;
         TransactionDetail response = api.getTransactionById(transactionId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get transaction receipt
+     *
+     * This operation retrieves the receipt of a specified transaction on a specified EVM-compatible chain, which records the execution result of the transaction, including its status, block information, gas consumption, and the event logs emitted during execution.  You need to specify the chain ID and the transaction hash. The chain ID can be retrieved by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains), and the transaction hash can be retrieved by calling [Get transaction information](https://www.cobo.com/developers/v2/api-references/transactions/get-transaction-information).  The receipt is read from a blockchain node in real time and is returned as it is recorded on the chain. The event logs are returned in their raw form and are not filtered, so you need to decode them with the contract ABI yourself.  &lt;Note&gt;This operation is applicable to EVM-compatible chains only. It currently supports &#x60;ETH&#x60; (Ethereum mainnet) and &#x60;SETH&#x60; (Ethereum Sepolia testnet) only. Requests for any other chain are rejected.&lt;/Note&gt;  &lt;Note&gt;You can only retrieve the receipts of the transactions under your organization.&lt;/Note&gt;  &lt;Note&gt;A receipt is available only after the transaction has been included in a block. If the transaction is still pending or does not exist on the specified chain, no receipt is returned.&lt;/Note&gt;  &lt;Note&gt;This operation is rate-limited to one request per second for each organization. Requests exceeding this limit will be rejected.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTransactionReceiptTest() throws ApiException {
+        String chainId = null;
+        String txHash = null;
+        TransactionReceipt response = api.getTransactionReceipt(chainId, txHash);
         // TODO: test validations
     }
 
@@ -312,7 +328,7 @@ public class TransactionsApiTest {
     /**
      * Speed up transaction
      *
-     * This operation accelerates a specified transaction. Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. For more details about speeding up a transaction, refer to [Speed up a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#speed-up-a-transaction).  You can use the &#x60;address&#x60; or &#x60;included_utxos&#x60; properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction&#39;s source. If that source&#39;s balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction can be sped up only if its status is &#x60;Broadcasting&#x60;.  &lt;Note&gt;This operation only applies to transactions from Custodial Wallets (Web3 Wallets), MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
+     * This operation accelerates a specified transaction. Speeding up a transaction will trigger a Replace-By-Fee (RBF) transaction which is a new version of the original transaction. For more details about speeding up a transaction, refer to [Speed up a transaction](https://www.cobo.com/developers/v2/guides/transactions/manage-transactions#speed-up-a-transaction).  You can use the &#x60;address&#x60; or &#x60;included_utxos&#x60; properties in the request body to specify the address or UTXOs that will cover the transaction fee. Generally, the transaction fee is paid by the original transaction&#39;s source. If that source&#39;s balance is insufficient, the specified address or UTXOs can be used to cover the fee.  A transaction can be sped up only if its status is &#x60;Broadcasting&#x60;.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

@@ -17,6 +17,7 @@ import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
 import com.cobo.waas2.model.TransactionFuelingInfo;
 import com.cobo.waas2.model.TransactionInitiatorType;
+import com.cobo.waas2.model.TransactionProcessType;
 import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
 import com.cobo.waas2.model.TransactionResult;
@@ -179,6 +180,10 @@ public class TransactionDetail {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
   @SerializedName(SERIALIZED_NAME_EXTRA)
   private List<String> extra = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE = "transaction_process_type";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE)
+  private TransactionProcessType transactionProcessType;
 
   public static final String SERIALIZED_NAME_FUELING_INFO = "fueling_info";
   @SerializedName(SERIALIZED_NAME_FUELING_INFO)
@@ -715,7 +720,7 @@ public class TransactionDetail {
   }
 
    /**
-   * The transaction category defined by Cobo. For more details, refer to [Cobo-defined categories](/v2/guides/transactions/manage-transactions#cobo-defined-categories). 
+   * The transaction category defined by Cobo. Possible values include:  - &#x60;AutoSweep&#x60;: An auto-sweep transaction. - &#x60;AutoFueling&#x60;: A transaction where Fee Station pays transaction fees to an address within your wallet. - &#x60;AutoFuelingRefund&#x60;: A refund for an auto-fueling transaction. - &#x60;BillPayment&#x60;: A transaction to pay Cobo bills through Fee Station. - &#x60;BillRefund&#x60;: A refund for a previously made bill payment. - &#x60;CommissionFeeCharge&#x60;: A transaction to charge commission fees via Fee Station. - &#x60;CommissionFeeRefund&#x60;: A refund of previously charged commission fees. 
    * @return coboCategory
   **/
   @javax.annotation.Nullable
@@ -742,7 +747,7 @@ public class TransactionDetail {
   }
 
    /**
-   * A list of JSON-encoded strings containing structured, business-specific extra information for the transaction. Each item corresponds to a specific data type, indicated by the &#x60;extra_type&#x60; field in the JSON object (for example, \&quot;BabylonBusinessInfo\&quot;, \&quot;BtcAddressInfo\&quot;). 
+   * The transaction extra information.
    * @return extra
   **/
   @javax.annotation.Nullable
@@ -752,6 +757,25 @@ public class TransactionDetail {
 
   public void setExtra(List<String> extra) {
     this.extra = extra;
+  }
+
+
+  public TransactionDetail transactionProcessType(TransactionProcessType transactionProcessType) {
+    this.transactionProcessType = transactionProcessType;
+    return this;
+  }
+
+   /**
+   * Get transactionProcessType
+   * @return transactionProcessType
+  **/
+  @javax.annotation.Nullable
+  public TransactionProcessType getTransactionProcessType() {
+    return transactionProcessType;
+  }
+
+  public void setTransactionProcessType(TransactionProcessType transactionProcessType) {
+    this.transactionProcessType = transactionProcessType;
   }
 
 
@@ -921,6 +945,7 @@ public class TransactionDetail {
         Objects.equals(this.isLoop, transactionDetail.isLoop) &&
         Objects.equals(this.coboCategory, transactionDetail.coboCategory) &&
         Objects.equals(this.extra, transactionDetail.extra) &&
+        Objects.equals(this.transactionProcessType, transactionDetail.transactionProcessType) &&
         Objects.equals(this.fuelingInfo, transactionDetail.fuelingInfo) &&
         Objects.equals(this.createdTimestamp, transactionDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, transactionDetail.updatedTimestamp) &&
@@ -930,7 +955,7 @@ public class TransactionDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, coboCategory, extra, fuelingInfo, createdTimestamp, updatedTimestamp, timeline, additionalProperties);
+    return Objects.hash(transactionId, coboId, requestId, walletId, type, status, subStatus, failedReason, chainId, tokenId, assetId, source, destination, result, fee, initiator, initiatorType, confirmedNum, confirmingThreshold, transactionHash, blockInfo, rawTxInfo, replacement, category, description, isLoop, coboCategory, extra, transactionProcessType, fuelingInfo, createdTimestamp, updatedTimestamp, timeline, additionalProperties);
   }
 
   @Override
@@ -965,6 +990,7 @@ public class TransactionDetail {
     sb.append("    isLoop: ").append(toIndentedString(isLoop)).append("\n");
     sb.append("    coboCategory: ").append(toIndentedString(coboCategory)).append("\n");
     sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
+    sb.append("    transactionProcessType: ").append(toIndentedString(transactionProcessType)).append("\n");
     sb.append("    fuelingInfo: ").append(toIndentedString(fuelingInfo)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
@@ -1020,6 +1046,7 @@ public class TransactionDetail {
     openapiFields.add("is_loop");
     openapiFields.add("cobo_category");
     openapiFields.add("extra");
+    openapiFields.add("transaction_process_type");
     openapiFields.add("fueling_info");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
@@ -1137,6 +1164,10 @@ public class TransactionDetail {
       // ensure the optional json data is an array if present
       if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull() && !jsonObj.get("extra").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `extra` to be an array in the JSON string but got `%s`", jsonObj.get("extra").toString()));
+      }
+      // validate the optional field `transaction_process_type`
+      if (jsonObj.get("transaction_process_type") != null && !jsonObj.get("transaction_process_type").isJsonNull()) {
+        TransactionProcessType.validateJsonElement(jsonObj.get("transaction_process_type"));
       }
       // validate the optional field `fueling_info`
       if (jsonObj.get("fueling_info") != null && !jsonObj.get("fueling_info").isJsonNull()) {

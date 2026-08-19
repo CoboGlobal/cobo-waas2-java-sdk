@@ -11,7 +11,5 @@
 
 * `USER_CONTROLLED` (value: `"User-Controlled"`)
 
-* `SAFE_WALLET_` (value: `"Safe{Wallet}"`)
-
 
 

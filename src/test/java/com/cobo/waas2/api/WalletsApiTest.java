@@ -30,6 +30,7 @@ import com.cobo.waas2.model.DeleteWalletById201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExtendedTokenInfo;
 import com.cobo.waas2.model.GetMaxTransferableValueWithFeeModelRequest;
+import com.cobo.waas2.model.ListAccountBalances200Response;
 import com.cobo.waas2.model.ListAddressBalancesByToken200Response;
 import com.cobo.waas2.model.ListAddresses200Response;
 import com.cobo.waas2.model.ListSupportedChains200Response;
@@ -163,7 +164,7 @@ public class WalletsApiTest {
     /**
      * Create wallet
      *
-     * This operation creates a wallet with the provided information.  &lt;Note&gt;This operation is not applicable to Smart Contract Wallets.&lt;/Note&gt; 
+     * This operation creates a wallet with the provided information. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -274,6 +275,22 @@ public class WalletsApiTest {
     public void getWalletByIdTest() throws ApiException {
         UUID walletId = null;
         WalletInfo response = api.getWalletById(walletId);
+        // TODO: test validations
+    }
+
+    /**
+     * List account balances
+     *
+     * This operation retrieves the on-chain token balances of multiple addresses on a specified account-based chain in a single request. All balances in the response are retrieved from the same block state, together with the block number of that block.  You need to specify the wallet ID to scope the balance queries to a specific wallet. The wallet ID can be retrieved by calling [List all wallets](https://www.cobo.com/developers/v2/api-references/wallets/list-all-wallets).  &lt;Note&gt;The returned block number refers to the node&#39;s latest block, which may still be reversible. Whether to wait for a certain number of confirmations before using the result is up to you.&lt;/Note&gt;  &lt;Note&gt;This operation is rate-limited to one request per second for each organization. Requests exceeding this limit will be rejected.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listAccountBalancesTest() throws ApiException {
+        UUID walletId = null;
+        String chainId = null;
+        String queries = null;
+        ListAccountBalances200Response response = api.listAccountBalances(walletId, chainId, queries);
         // TODO: test validations
     }
 
@@ -396,7 +413,7 @@ public class WalletsApiTest {
     /**
      * List token balances by address
      *
-     * The operation retrieves a list of token balances for a specified address within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets, Custodial Wallets (Web3 Wallets), and Smart Contract Wallets only.&lt;/Note&gt; 
+     * The operation retrieves a list of token balances for a specified address within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

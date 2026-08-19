@@ -11,12 +11,10 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.ContractCallSourceType;
 import com.cobo.waas2.model.CustodialWeb3ContractCallSource;
 import com.cobo.waas2.model.MpcContractCallSource;
 import com.cobo.waas2.model.MpcSigningGroup;
-import com.cobo.waas2.model.SafeContractCallSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -72,14 +70,6 @@ public class ContractCallSourceTest {
     @Test
     public void mpcUsedKeyShareHolderGroupTest() {
         // TODO: test mpcUsedKeyShareHolderGroup
-    }
-
-    /**
-     * Test the property 'delegate'
-     */
-    @Test
-    public void delegateTest() {
-        // TODO: test delegate
     }
 
 }
