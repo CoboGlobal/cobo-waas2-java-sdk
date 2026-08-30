@@ -396,7 +396,7 @@
         <junit-platform-runner.version>1.10.0</junit-platform-runner.version>
         <javax.ws.rs-api-version>2.1.1</javax.ws.rs-api-version>
         <eddsa-version>0.3.0</eddsa-version>
-        <bcprov-jdk18on-version>1.78.1</bcprov-jdk18on-version>
+        <bcprov-jdk18on-version>1.84</bcprov-jdk18on-version>
         <jsr311-api-version>1.1.1</jsr311-api-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spotless.version>2.43.0</spotless.version>
