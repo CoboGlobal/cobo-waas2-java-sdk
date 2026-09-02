@@ -12,7 +12,7 @@
 |**startTime** | **Integer** | The start time of the report. Unix timestamp measured in seconds. |  |
 |**endTime** | **Integer** | The end time of the report. Unix timestamp measured in seconds. |  |
 |**createdTimestamp** | **Integer** | The created time of the report. Unix timestamp measured in seconds. |  |
-|**reportUrl** | **String** | The URL of the report. |  [optional] |
+|**reportUrl** | **String** | The url of the payment report. (This field will be deprecated, please use download report operation to get the temporary download URL.) |  [optional] |
 |**reportExportFormat** | **ReportExportFormat** |  |  |
 |**reportStatus** | **ReportStatus** |  |  |
 |**initiator** | **String** | The initiator of this report. Usually the API key used to generate the report. |  |

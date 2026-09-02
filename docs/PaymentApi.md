@@ -30,6 +30,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**deleteCryptoAddress**](PaymentApi.md#deleteCryptoAddress) | **POST** /payments/crypto_addresses/{crypto_address_id}/delete | Delete crypto address |
 | [**deleteDestinationById**](PaymentApi.md#deleteDestinationById) | **DELETE** /payments/destination/{destination_id} | Delete destination |
 | [**deleteDestinationEntry**](PaymentApi.md#deleteDestinationEntry) | **DELETE** /payments/destination_entry/{destination_entry_id} | Delete destination entry |
+| [**downloadReport**](PaymentApi.md#downloadReport) | **POST** /payments/reports/download | Download report |
 | [**getAvailableAllocationAmount**](PaymentApi.md#getAvailableAllocationAmount) | **GET** /payments/allocation_amount | Get available allocation amount |
 | [**getBankWithdrawalById**](PaymentApi.md#getBankWithdrawalById) | **GET** /payments/bank_withdrawals/{bank_withdrawal_id} | Get bank withdrawal information |
 | [**getBatchAllocationById**](PaymentApi.md#getBatchAllocationById) | **GET** /payments/batch_allocations/{batch_allocation_id} | Get batch allocation information |
@@ -83,6 +84,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**updateRefundById**](PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order |
 | [**updateTopUpAddress**](PaymentApi.md#updateTopUpAddress) | **PUT** /payments/topup/address | Update top-up address |
 | [**uploadPaymentFile**](PaymentApi.md#uploadPaymentFile) | **POST** /payments/files | Upload file |
+| [**uploadPaymentFileV2**](PaymentApi.md#uploadPaymentFileV2) | **POST** /payments/files_v2 | Upload file v2 |
 
 
 <a id="batchGetExchangeRates"></a>
@@ -1249,7 +1251,7 @@ public class Example {
 
 Generate reports
 
-This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
+This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. The response does not guarantee a download URL. To retrieve a temporary download URL for a completed report, call download report operation. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -1863,6 +1865,74 @@ public class Example {
 | **400** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **401** | Unauthorized. Please provide valid credentials. |  -  |
 | **403** | Forbidden. You do not have the permission to access the requested resource. |  -  |
+
+<a id="downloadReport"></a>
+# **downloadReport**
+> ReportDownloadResponse downloadReport(downloadReportRequest)
+
+Download report
+
+This operation retrieves a temporary download URL for a completed payment report. Endpoint: &#x60;POST https://api.dev.cobo.com/v2/payments/reports/download&#x60;. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.PaymentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    PaymentApi apiInstance = new PaymentApi();
+    DownloadReportRequest downloadReportRequest = new DownloadReportRequest();
+    try {
+      ReportDownloadResponse result = apiInstance.downloadReport(downloadReportRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PaymentApi#downloadReport");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **downloadReportRequest** | [**DownloadReportRequest**](DownloadReportRequest.md)| The request body to download a payment report. | |
+
+### Return type
+
+[**ReportDownloadResponse**](ReportDownloadResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Payment report download URL retrieved successfully. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
 
 <a id="getAvailableAllocationAmount"></a>
 # **getAvailableAllocationAmount**
@@ -3005,7 +3075,7 @@ public class Example {
     String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
     String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
     ReportType reportType = ReportType.fromValue("Order");
-    ReportStatus reportStatus = ReportStatus.fromValue("Completed");
+    ReportStatus reportStatus = ReportStatus.fromValue("Processing");
     try {
       GetReports200Response result = apiInstance.getReports(limit, before, after, reportType, reportStatus);
       System.out.println(result);
@@ -3028,7 +3098,7 @@ public class Example {
 | **before** | **String**| A cursor indicating the position before the current page. This value is generated by Cobo and returned in the response. If you are paginating forward from the beginning, you do not need to provide it on the first request. When paginating backward (to the previous page), you should pass the before value returned from the last response.  | [optional] |
 | **after** | **String**| A cursor indicating the position after the current page. This value is generated by Cobo and returned in the response. You do not need to provide it on the first request. When paginating forward (to the next page), you should pass the after value returned from the last response.  | [optional] |
 | **reportType** | [**ReportType**](.md)| The type of the report. - &#x60;Order&#x60;: Summary of all pay-in orders. - &#x60;OrderTransaction&#x60;: Summary of all pay-in order transactions. - &#x60;TopUpTransaction&#x60;: Summary of all top-up transactions. - &#x60;PayinWeeklyStatement&#x60;: Weekly report of all pay-ins (including order mode and top-up mode). - &#x60;PayinDailyStatement&#x60;: Daily report of all pay-ins (including order mode and top-up mode). - &#x60;CryptoPayout&#x60;: Summary of all crypto payout transactions. - &#x60;OffRamp&#x60;: Summary of all fiat off-ramp transactions. - &#x60;Refund&#x60;: Summary of all refund transactions. - &#x60;PayoutWeeklyStatement&#x60;: Weekly report of all payouts (including crypto payouts, fiat off-ramps, and refunds). - &#x60;PayoutDailyStatement&#x60;: Daily report of all payouts (including crypto payouts, fiat off-ramps, and refunds). - &#x60;PayinCommissionFee&#x60;: Summary of all commission fees for pay-ins. - &#x60;PayoutCommissionFee&#x60;: Summary of all commission fees for payouts. - &#x60;BalanceChange&#x60;: Summary of balance changes for all accounts. - &#x60;Summary&#x60;: Summary of all pay-ins, payouts, and commission fees.  | [optional] [enum: Order, OrderTransaction, TopUpTransaction, PayinWeeklyStatement, PayinDailyStatement, CryptoPayout, OffRamp, Refund, PayoutWeeklyStatement, PayoutDailyStatement, PayinCommissionFee, PayoutCommissionFee, BalanceChange, Summary, BulkSend] |
-| **reportStatus** | [**ReportStatus**](.md)| The status of the report. - &#x60;Completed&#x60;: The report has been generated successfully. - &#x60;Failed&#x60;: The report could not be generated.  | [optional] [enum: Completed, Failed] |
+| **reportStatus** | [**ReportStatus**](.md)| The status of the report. - &#x60;Completed&#x60;: The report has been generated successfully. - &#x60;Failed&#x60;: The report could not be generated.  | [optional] [enum: Processing, Completed, Failed] |
 
 ### Return type
 
@@ -4508,7 +4578,7 @@ public class Example {
 
 List supported tokens
 
-This operation retrieves all tokens supported by Cobo Payments.  Use this operation to get token details such as token ID, symbol, decimal precision,  contract address, and chain information before creating payment orders.  For more information about Cobo Payments, see [Cobo Payments Overview](https://www.cobo.com/payments/en/guides/overview). 
+This operation retrieves all tokens supported by Cobo Payments.  Use this operation to get token details such as token ID, symbol, decimal precision, contract address, chain information, confirmation threshold, and deposit threshold before creating payment orders.  For more information about Cobo Payments, see [Cobo Payments Overview](https://www.cobo.com/payments/en/guides/overview). 
 
 ### Example
 ```java
@@ -5010,7 +5080,7 @@ public class Example {
 
 Submit merchant KYC
 
-This operation submits KYC information for a specified merchant.  You need to provide the merchant contact information, merchant type, country, industry, and company information.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
+This operation submits KYC information for a specified merchant.  You need to provide the merchant type, country, and industry. Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants).  &lt;Note&gt;If the merchant KYC status is &#x60;Disabled&#x60;, this operation cannot be used to resubmit KYC information.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -5052,7 +5122,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **merchantId** | **String**| The merchant ID. | |
-| **submitMerchantKyc** | [**SubmitMerchantKyc**](SubmitMerchantKyc.md)| The request body to submit merchant KYC information. | [optional] |
+| **submitMerchantKyc** | [**SubmitMerchantKyc**](SubmitMerchantKyc.md)| The request body to submit merchant KYC information.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  | [optional] |
 
 ### Return type
 
@@ -5636,7 +5706,7 @@ public class Example {
 
 Upload file
 
-This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+&lt;Note&gt;This operation has been deprecated. Please use [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2) instead.&lt;/Note&gt;  This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
 
 ### Example
 ```java
@@ -5689,6 +5759,74 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="uploadPaymentFileV2"></a>
+# **uploadPaymentFileV2**
+> PaymentUploadedFile uploadPaymentFileV2(paymentUploadFileV2)
+
+Upload file v2
+
+This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.PaymentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    PaymentApi apiInstance = new PaymentApi();
+    PaymentUploadFileV2 paymentUploadFileV2 = new PaymentUploadFileV2();
+    try {
+      PaymentUploadedFile result = apiInstance.uploadPaymentFileV2(paymentUploadFileV2);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PaymentApi#uploadPaymentFileV2");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **paymentUploadFileV2** | [**PaymentUploadFileV2**](PaymentUploadFileV2.md)| The request body to upload a file. | [optional] |
+
+### Return type
+
+[**PaymentUploadedFile**](PaymentUploadedFile.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

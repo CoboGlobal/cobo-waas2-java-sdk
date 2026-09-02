@@ -9,8 +9,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -56,15 +54,21 @@ public class AuthenticationInterceptor implements Interceptor {
         Request newRequest = addHeader(original, newRequestBuilder);
         Response response = chain.proceed(newRequest);
 
-        // Proxy errors (e.g. nginx) may lack signature headers since the
-        // request never reaches the business server.
-        Set<Integer> proxyErrorCodes = new HashSet<>(Arrays.asList(414, 429, 502, 503));
-        if (proxyErrorCodes.contains(response.code())) {
+        String ts = response.header("BIZ_TIMESTAMP");
+        String respSignature = response.header("BIZ_RESP_SIGNATURE");
+        if (ts == null || respSignature == null) {
+            // Error responses returned by an intermediary (e.g. gateway, CDN
+            // or load balancer) before the request reaches the business
+            // server carry no signature headers, regardless of status code.
+            // Surface the original HTTP error instead of a signature error.
+            // A success response from the business server is always signed,
+            // so a 2xx response without signature headers must not be trusted.
+            if (response.isSuccessful()) {
+                throw new RuntimeException("Missing response signature or timestamp header");
+            }
             return response;
         }
 
-        String ts = response.header("BIZ_TIMESTAMP");
-        String respSignature = response.header("BIZ_RESP_SIGNATURE");
         String responseBody = response.body() == null ? "null" : response.body().string();
         String coboPubKey = getCoboPubkey(original);
         if (debug) {

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The KYC submission status. Possible values include: - &#x60;PendingReview&#x60;: The KYC submission is pending review. - &#x60;Completed&#x60;: The KYC submission has been completed. - &#x60;Failed&#x60;: The KYC submission has failed. 
+ * The KYC submission status. Possible values include: - &#x60;PendingReview&#x60;: The KYC submission is pending review. - &#x60;Completed&#x60;: The KYC submission has been completed. - &#x60;Failed&#x60;: The KYC submission has failed. - &#x60;Disabled&#x60;: The KYC submission is disabled. Merchants in this status cannot resubmit KYC information. 
  */
 @JsonAdapter(MerchantKycStatus.Adapter.class)
 public enum MerchantKycStatus {
@@ -32,7 +32,9 @@ public enum MerchantKycStatus {
   
   COMPLETED("Completed"),
   
-  FAILED("Failed");
+  FAILED("Failed"),
+  
+  DISABLED("Disabled");
 
   private String value;
 

@@ -29,5 +29,9 @@
 
 * `BACK` (value: `"BACK"`)
 
+* `ID_HAND` (value: `"ID_Hand"`)
+
+* `POA` (value: `"POA"`)
+
 
 

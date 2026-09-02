@@ -205,7 +205,7 @@ public class Report {
   }
 
    /**
-   * The URL of the report.
+   * The url of the payment report. (This field will be deprecated, please use download report operation to get the temporary download URL.)
    * @return reportUrl
   **/
   @javax.annotation.Nullable

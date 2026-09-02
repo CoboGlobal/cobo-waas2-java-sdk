@@ -93,6 +93,14 @@ public class SupportedToken {
   @SerializedName(SERIALIZED_NAME_CAN_OFF_RAMP)
   private Boolean canOffRamp;
 
+  public static final String SERIALIZED_NAME_CONFIRMING_THRESHOLD = "confirming_threshold";
+  @SerializedName(SERIALIZED_NAME_CONFIRMING_THRESHOLD)
+  private Integer confirmingThreshold;
+
+  public static final String SERIALIZED_NAME_DEPOSIT_THRESHOLD = "deposit_threshold";
+  @SerializedName(SERIALIZED_NAME_DEPOSIT_THRESHOLD)
+  private String depositThreshold;
+
   public SupportedToken() {
   }
 
@@ -285,6 +293,44 @@ public class SupportedToken {
     this.canOffRamp = canOffRamp;
   }
 
+
+  public SupportedToken confirmingThreshold(Integer confirmingThreshold) {
+    this.confirmingThreshold = confirmingThreshold;
+    return this;
+  }
+
+   /**
+   * The number of blockchain confirmations required for an on-chain transaction on the token&#39;s chain, such as 64 for Ethereum. 
+   * @return confirmingThreshold
+  **/
+  @javax.annotation.Nullable
+  public Integer getConfirmingThreshold() {
+    return confirmingThreshold;
+  }
+
+  public void setConfirmingThreshold(Integer confirmingThreshold) {
+    this.confirmingThreshold = confirmingThreshold;
+  }
+
+
+  public SupportedToken depositThreshold(String depositThreshold) {
+    this.depositThreshold = depositThreshold;
+    return this;
+  }
+
+   /**
+   * The dust amount threshold for the token, deposits with an amount less than or equal to this threshold are treated as dust and excluded from the payment system. 
+   * @return depositThreshold
+  **/
+  @javax.annotation.Nullable
+  public String getDepositThreshold() {
+    return depositThreshold;
+  }
+
+  public void setDepositThreshold(String depositThreshold) {
+    this.depositThreshold = depositThreshold;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -349,7 +395,9 @@ public class SupportedToken {
         Objects.equals(this.chainSymbol, supportedToken.chainSymbol) &&
         Objects.equals(this.chainIconUrl, supportedToken.chainIconUrl) &&
         Objects.equals(this.tokenIconUrl, supportedToken.tokenIconUrl) &&
-        Objects.equals(this.canOffRamp, supportedToken.canOffRamp)&&
+        Objects.equals(this.canOffRamp, supportedToken.canOffRamp) &&
+        Objects.equals(this.confirmingThreshold, supportedToken.confirmingThreshold) &&
+        Objects.equals(this.depositThreshold, supportedToken.depositThreshold)&&
         Objects.equals(this.additionalProperties, supportedToken.additionalProperties);
   }
 
@@ -359,7 +407,7 @@ public class SupportedToken {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokenId, name, symbol, decimal, tokenAddress, chainId, chainSymbol, chainIconUrl, tokenIconUrl, canOffRamp, additionalProperties);
+    return Objects.hash(tokenId, name, symbol, decimal, tokenAddress, chainId, chainSymbol, chainIconUrl, tokenIconUrl, canOffRamp, confirmingThreshold, depositThreshold, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -383,6 +431,8 @@ public class SupportedToken {
     sb.append("    chainIconUrl: ").append(toIndentedString(chainIconUrl)).append("\n");
     sb.append("    tokenIconUrl: ").append(toIndentedString(tokenIconUrl)).append("\n");
     sb.append("    canOffRamp: ").append(toIndentedString(canOffRamp)).append("\n");
+    sb.append("    confirmingThreshold: ").append(toIndentedString(confirmingThreshold)).append("\n");
+    sb.append("    depositThreshold: ").append(toIndentedString(depositThreshold)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -416,6 +466,8 @@ public class SupportedToken {
     openapiFields.add("chain_icon_url");
     openapiFields.add("token_icon_url");
     openapiFields.add("can_off_ramp");
+    openapiFields.add("confirming_threshold");
+    openapiFields.add("deposit_threshold");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -471,6 +523,9 @@ public class SupportedToken {
       }
       if ((jsonObj.get("token_icon_url") != null && !jsonObj.get("token_icon_url").isJsonNull()) && !jsonObj.get("token_icon_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_icon_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_icon_url").toString()));
+      }
+      if ((jsonObj.get("deposit_threshold") != null && !jsonObj.get("deposit_threshold").isJsonNull()) && !jsonObj.get("deposit_threshold").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `deposit_threshold` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deposit_threshold").toString()));
       }
   }
 

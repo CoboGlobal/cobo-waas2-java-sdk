@@ -292,6 +292,22 @@ public class DestinationBankAccountDetailTest {
     }
 
     /**
+     * Test the property 'bankCity'
+     */
+    @Test
+    public void bankCityTest() {
+        // TODO: test bankCity
+    }
+
+    /**
+     * Test the property 'routingValue'
+     */
+    @Test
+    public void routingValueTest() {
+        // TODO: test routingValue
+    }
+
+    /**
      * Test the property 'contractFileId'
      */
     @Test

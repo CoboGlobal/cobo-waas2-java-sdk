@@ -224,6 +224,7 @@ docs/DispositionQueryResponse.md
 docs/DispositionResponse.md
 docs/DispositionStatus.md
 docs/DispositionType.md
+docs/DownloadReportRequest.md
 docs/EigenLayerLstStakeExtra.md
 docs/EigenLayerNativeStakeExtra.md
 docs/EigenlayerValidator.md
@@ -491,6 +492,7 @@ docs/PaymentSettlementEvent.md
 docs/PaymentSourceType.md
 docs/PaymentTransaction.md
 docs/PaymentTransactionEventData.md
+docs/PaymentUploadFileV2.md
 docs/PaymentUploadedFile.md
 docs/PaymentWalletBalance.md
 docs/PayoutChannel.md
@@ -526,6 +528,7 @@ docs/RefundStatus.md
 docs/RefundType.md
 docs/ReplaceType.md
 docs/Report.md
+docs/ReportDownloadResponse.md
 docs/ReportExportFormat.md
 docs/ReportStatus.md
 docs/ReportType.md
@@ -1159,6 +1162,7 @@ src/main/java/com/cobo/waas2/model/DispositionQueryResponse.java
 src/main/java/com/cobo/waas2/model/DispositionResponse.java
 src/main/java/com/cobo/waas2/model/DispositionStatus.java
 src/main/java/com/cobo/waas2/model/DispositionType.java
+src/main/java/com/cobo/waas2/model/DownloadReportRequest.java
 src/main/java/com/cobo/waas2/model/EigenLayerLstStakeExtra.java
 src/main/java/com/cobo/waas2/model/EigenLayerNativeStakeExtra.java
 src/main/java/com/cobo/waas2/model/EigenlayerValidator.java
@@ -1421,6 +1425,7 @@ src/main/java/com/cobo/waas2/model/PaymentSettlementEvent.java
 src/main/java/com/cobo/waas2/model/PaymentSourceType.java
 src/main/java/com/cobo/waas2/model/PaymentTransaction.java
 src/main/java/com/cobo/waas2/model/PaymentTransactionEventData.java
+src/main/java/com/cobo/waas2/model/PaymentUploadFileV2.java
 src/main/java/com/cobo/waas2/model/PaymentUploadedFile.java
 src/main/java/com/cobo/waas2/model/PaymentWalletBalance.java
 src/main/java/com/cobo/waas2/model/PayoutChannel.java
@@ -1454,6 +1459,7 @@ src/main/java/com/cobo/waas2/model/RefundStatus.java
 src/main/java/com/cobo/waas2/model/RefundType.java
 src/main/java/com/cobo/waas2/model/ReplaceType.java
 src/main/java/com/cobo/waas2/model/Report.java
+src/main/java/com/cobo/waas2/model/ReportDownloadResponse.java
 src/main/java/com/cobo/waas2/model/ReportExportFormat.java
 src/main/java/com/cobo/waas2/model/ReportStatus.java
 src/main/java/com/cobo/waas2/model/ReportType.java
@@ -2039,6 +2045,7 @@ src/test/java/com/cobo/waas2/model/DispositionQueryResponseTest.java
 src/test/java/com/cobo/waas2/model/DispositionResponseTest.java
 src/test/java/com/cobo/waas2/model/DispositionStatusTest.java
 src/test/java/com/cobo/waas2/model/DispositionTypeTest.java
+src/test/java/com/cobo/waas2/model/DownloadReportRequestTest.java
 src/test/java/com/cobo/waas2/model/EigenLayerLstStakeExtraTest.java
 src/test/java/com/cobo/waas2/model/EigenLayerNativeStakeExtraTest.java
 src/test/java/com/cobo/waas2/model/EigenlayerValidatorTest.java
@@ -2301,6 +2308,7 @@ src/test/java/com/cobo/waas2/model/PaymentSettlementEventTest.java
 src/test/java/com/cobo/waas2/model/PaymentSourceTypeTest.java
 src/test/java/com/cobo/waas2/model/PaymentTransactionEventDataTest.java
 src/test/java/com/cobo/waas2/model/PaymentTransactionTest.java
+src/test/java/com/cobo/waas2/model/PaymentUploadFileV2Test.java
 src/test/java/com/cobo/waas2/model/PaymentUploadedFileTest.java
 src/test/java/com/cobo/waas2/model/PaymentWalletBalanceTest.java
 src/test/java/com/cobo/waas2/model/PayoutChannelTest.java
@@ -2333,6 +2341,7 @@ src/test/java/com/cobo/waas2/model/RefundStatusTest.java
 src/test/java/com/cobo/waas2/model/RefundTest.java
 src/test/java/com/cobo/waas2/model/RefundTypeTest.java
 src/test/java/com/cobo/waas2/model/ReplaceTypeTest.java
+src/test/java/com/cobo/waas2/model/ReportDownloadResponseTest.java
 src/test/java/com/cobo/waas2/model/ReportExportFormatTest.java
 src/test/java/com/cobo/waas2/model/ReportStatusTest.java
 src/test/java/com/cobo/waas2/model/ReportTest.java

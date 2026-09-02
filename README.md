@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.42.0</version>
+  <version>1.43.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -66,7 +66,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.42.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.43.0"
   }
 ```
 
@@ -94,7 +94,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.42.0.jar`
+* `target/cobo-waas2-1.43.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -277,6 +277,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**deleteCryptoAddress**](docs/PaymentApi.md#deleteCryptoAddress) | **POST** /payments/crypto_addresses/{crypto_address_id}/delete | Delete crypto address
 *PaymentApi* | [**deleteDestinationById**](docs/PaymentApi.md#deleteDestinationById) | **DELETE** /payments/destination/{destination_id} | Delete destination
 *PaymentApi* | [**deleteDestinationEntry**](docs/PaymentApi.md#deleteDestinationEntry) | **DELETE** /payments/destination_entry/{destination_entry_id} | Delete destination entry
+*PaymentApi* | [**downloadReport**](docs/PaymentApi.md#downloadReport) | **POST** /payments/reports/download | Download report
 *PaymentApi* | [**getAvailableAllocationAmount**](docs/PaymentApi.md#getAvailableAllocationAmount) | **GET** /payments/allocation_amount | Get available allocation amount
 *PaymentApi* | [**getBankWithdrawalById**](docs/PaymentApi.md#getBankWithdrawalById) | **GET** /payments/bank_withdrawals/{bank_withdrawal_id} | Get bank withdrawal information
 *PaymentApi* | [**getBatchAllocationById**](docs/PaymentApi.md#getBatchAllocationById) | **GET** /payments/batch_allocations/{batch_allocation_id} | Get batch allocation information
@@ -330,6 +331,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**updateRefundById**](docs/PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order
 *PaymentApi* | [**updateTopUpAddress**](docs/PaymentApi.md#updateTopUpAddress) | **PUT** /payments/topup/address | Update top-up address
 *PaymentApi* | [**uploadPaymentFile**](docs/PaymentApi.md#uploadPaymentFile) | **POST** /payments/files | Upload file
+*PaymentApi* | [**uploadPaymentFileV2**](docs/PaymentApi.md#uploadPaymentFileV2) | **POST** /payments/files_v2 | Upload file v2
 *PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
 *PrimeBrokerApi* | [**createGuardPubkey**](docs/PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | Create Guard pubkey binding
 *PrimeBrokerApi* | [**createPrimeBrokerAddress**](docs/PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | Bind addresses to a broker user
@@ -683,6 +685,7 @@ Class | Method | HTTP request | Description
  - [DispositionResponse](docs/DispositionResponse.md)
  - [DispositionStatus](docs/DispositionStatus.md)
  - [DispositionType](docs/DispositionType.md)
+ - [DownloadReportRequest](docs/DownloadReportRequest.md)
  - [EigenLayerLstStakeExtra](docs/EigenLayerLstStakeExtra.md)
  - [EigenLayerNativeStakeExtra](docs/EigenLayerNativeStakeExtra.md)
  - [EigenlayerValidator](docs/EigenlayerValidator.md)
@@ -945,6 +948,7 @@ Class | Method | HTTP request | Description
  - [PaymentSourceType](docs/PaymentSourceType.md)
  - [PaymentTransaction](docs/PaymentTransaction.md)
  - [PaymentTransactionEventData](docs/PaymentTransactionEventData.md)
+ - [PaymentUploadFileV2](docs/PaymentUploadFileV2.md)
  - [PaymentUploadedFile](docs/PaymentUploadedFile.md)
  - [PaymentWalletBalance](docs/PaymentWalletBalance.md)
  - [PayoutChannel](docs/PayoutChannel.md)
@@ -978,6 +982,7 @@ Class | Method | HTTP request | Description
  - [RefundType](docs/RefundType.md)
  - [ReplaceType](docs/ReplaceType.md)
  - [Report](docs/Report.md)
+ - [ReportDownloadResponse](docs/ReportDownloadResponse.md)
  - [ReportExportFormat](docs/ReportExportFormat.md)
  - [ReportStatus](docs/ReportStatus.md)
  - [ReportType](docs/ReportType.md)
