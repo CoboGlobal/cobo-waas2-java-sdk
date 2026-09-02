@@ -184,6 +184,14 @@ public class DestinationBankAccountDetail {
   @SerializedName(SERIALIZED_NAME_BANK_PROVINCE)
   private String bankProvince;
 
+  public static final String SERIALIZED_NAME_BANK_CITY = "bank_city";
+  @SerializedName(SERIALIZED_NAME_BANK_CITY)
+  private String bankCity;
+
+  public static final String SERIALIZED_NAME_ROUTING_VALUE = "routing_value";
+  @SerializedName(SERIALIZED_NAME_ROUTING_VALUE)
+  private String routingValue;
+
   public static final String SERIALIZED_NAME_CONTRACT_FILE_ID = "contract_file_id";
   @SerializedName(SERIALIZED_NAME_CONTRACT_FILE_ID)
   private UUID contractFileId;
@@ -788,6 +796,44 @@ public class DestinationBankAccountDetail {
   }
 
 
+  public DestinationBankAccountDetail bankCity(String bankCity) {
+    this.bankCity = bankCity;
+    return this;
+  }
+
+   /**
+   * The city of the bank.
+   * @return bankCity
+  **/
+  @javax.annotation.Nullable
+  public String getBankCity() {
+    return bankCity;
+  }
+
+  public void setBankCity(String bankCity) {
+    this.bankCity = bankCity;
+  }
+
+
+  public DestinationBankAccountDetail routingValue(String routingValue) {
+    this.routingValue = routingValue;
+    return this;
+  }
+
+   /**
+   * The routing value of the bank account.
+   * @return routingValue
+  **/
+  @javax.annotation.Nullable
+  public String getRoutingValue() {
+    return routingValue;
+  }
+
+  public void setRoutingValue(String routingValue) {
+    this.routingValue = routingValue;
+  }
+
+
   public DestinationBankAccountDetail contractFileId(UUID contractFileId) {
     this.contractFileId = contractFileId;
     return this;
@@ -930,6 +976,8 @@ public class DestinationBankAccountDetail {
         Objects.equals(this.bankBranchCode, destinationBankAccountDetail.bankBranchCode) &&
         Objects.equals(this.bankCountry, destinationBankAccountDetail.bankCountry) &&
         Objects.equals(this.bankProvince, destinationBankAccountDetail.bankProvince) &&
+        Objects.equals(this.bankCity, destinationBankAccountDetail.bankCity) &&
+        Objects.equals(this.routingValue, destinationBankAccountDetail.routingValue) &&
         Objects.equals(this.contractFileId, destinationBankAccountDetail.contractFileId) &&
         Objects.equals(this.createdTimestamp, destinationBankAccountDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, destinationBankAccountDetail.updatedTimestamp)&&
@@ -942,7 +990,7 @@ public class DestinationBankAccountDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationId, destinationName, destinationType, destinationEmail, destinationCountry, destinationContactAddress, destinationMerchantId, bankAccountId, tag, accountAlias, accountNumber, swiftCode, currency, beneficiaryName, beneficiaryAddress, bankName, bankAddress, ibanCode, furtherCredit, intermediaryBankInfo, bankAccountStatus, country, city, paymentMethod, holderType, beneficiaryProvince, beneficiaryPostCode, bankAccountName, bankBranchCode, bankCountry, bankProvince, contractFileId, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(destinationId, destinationName, destinationType, destinationEmail, destinationCountry, destinationContactAddress, destinationMerchantId, bankAccountId, tag, accountAlias, accountNumber, swiftCode, currency, beneficiaryName, beneficiaryAddress, bankName, bankAddress, ibanCode, furtherCredit, intermediaryBankInfo, bankAccountStatus, country, city, paymentMethod, holderType, beneficiaryProvince, beneficiaryPostCode, bankAccountName, bankBranchCode, bankCountry, bankProvince, bankCity, routingValue, contractFileId, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -987,6 +1035,8 @@ public class DestinationBankAccountDetail {
     sb.append("    bankBranchCode: ").append(toIndentedString(bankBranchCode)).append("\n");
     sb.append("    bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
     sb.append("    bankProvince: ").append(toIndentedString(bankProvince)).append("\n");
+    sb.append("    bankCity: ").append(toIndentedString(bankCity)).append("\n");
+    sb.append("    routingValue: ").append(toIndentedString(routingValue)).append("\n");
     sb.append("    contractFileId: ").append(toIndentedString(contractFileId)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
@@ -1044,6 +1094,8 @@ public class DestinationBankAccountDetail {
     openapiFields.add("bank_branch_code");
     openapiFields.add("bank_country");
     openapiFields.add("bank_province");
+    openapiFields.add("bank_city");
+    openapiFields.add("routing_value");
     openapiFields.add("contract_file_id");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
@@ -1179,6 +1231,12 @@ public class DestinationBankAccountDetail {
       }
       if ((jsonObj.get("bank_province") != null && !jsonObj.get("bank_province").isJsonNull()) && !jsonObj.get("bank_province").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bank_province` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_province").toString()));
+      }
+      if ((jsonObj.get("bank_city") != null && !jsonObj.get("bank_city").isJsonNull()) && !jsonObj.get("bank_city").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bank_city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bank_city").toString()));
+      }
+      if ((jsonObj.get("routing_value") != null && !jsonObj.get("routing_value").isJsonNull()) && !jsonObj.get("routing_value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `routing_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("routing_value").toString()));
       }
       if ((jsonObj.get("contract_file_id") != null && !jsonObj.get("contract_file_id").isJsonNull()) && !jsonObj.get("contract_file_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `contract_file_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contract_file_id").toString()));

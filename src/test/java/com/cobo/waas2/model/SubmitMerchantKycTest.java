@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.MerchantKycCompanyInfo;
 import com.cobo.waas2.model.MerchantKycMerchantType;
+import com.cobo.waas2.model.MerchantKycPersonInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -37,22 +38,6 @@ public class SubmitMerchantKycTest {
     @Test
     public void testSubmitMerchantKyc() {
         // TODO: test SubmitMerchantKyc
-    }
-
-    /**
-     * Test the property 'email'
-     */
-    @Test
-    public void emailTest() {
-        // TODO: test email
-    }
-
-    /**
-     * Test the property 'phone'
-     */
-    @Test
-    public void phoneTest() {
-        // TODO: test phone
     }
 
     /**
@@ -85,6 +70,14 @@ public class SubmitMerchantKycTest {
     @Test
     public void companyInfoTest() {
         // TODO: test companyInfo
+    }
+
+    /**
+     * Test the property 'individualInfo'
+     */
+    @Test
+    public void individualInfoTest() {
+        // TODO: test individualInfo
     }
 
 }

@@ -116,4 +116,20 @@ public class SupportedTokenTest {
         // TODO: test canOffRamp
     }
 
+    /**
+     * Test the property 'confirmingThreshold'
+     */
+    @Test
+    public void confirmingThresholdTest() {
+        // TODO: test confirmingThreshold
+    }
+
+    /**
+     * Test the property 'depositThreshold'
+     */
+    @Test
+    public void depositThresholdTest() {
+        // TODO: test depositThreshold
+    }
+
 }

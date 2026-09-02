@@ -51,6 +51,7 @@ import com.cobo.waas2.model.Destination;
 import com.cobo.waas2.model.DestinationBankAccountTag;
 import com.cobo.waas2.model.DestinationDetail;
 import com.cobo.waas2.model.DestinationType;
+import com.cobo.waas2.model.DownloadReportRequest;
 import com.cobo.waas2.model.EntryType;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExchangeRate;
@@ -100,10 +101,12 @@ import com.cobo.waas2.model.PaymentEstimateFee201Response;
 import com.cobo.waas2.model.PaymentEstimateFeeRequest;
 import com.cobo.waas2.model.PaymentPayout;
 import com.cobo.waas2.model.PaymentPayoutDetail;
+import com.cobo.waas2.model.PaymentUploadFileV2;
 import com.cobo.waas2.model.PaymentUploadedFile;
 import com.cobo.waas2.model.PspBalance;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Report;
+import com.cobo.waas2.model.ReportDownloadResponse;
 import com.cobo.waas2.model.ReportStatus;
 import com.cobo.waas2.model.ReportType;
 import com.cobo.waas2.model.Settlement;
@@ -385,7 +388,7 @@ public class PaymentApiTest {
     /**
      * Generate reports
      *
-     * This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
+     * This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. The response does not guarantee a download URL. To retrieve a temporary download URL for a completed report, call download report operation. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -508,6 +511,20 @@ public class PaymentApiTest {
         String destinationId = null;
         EntryType entryType = null;
         DeleteDestinationEntry200Response response = api.deleteDestinationEntry(destinationEntryId, destinationId, entryType);
+        // TODO: test validations
+    }
+
+    /**
+     * Download report
+     *
+     * This operation retrieves a temporary download URL for a completed payment report. Endpoint: &#x60;POST https://api.dev.cobo.com/v2/payments/reports/download&#x60;. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void downloadReportTest() throws ApiException {
+        DownloadReportRequest downloadReportRequest = null;
+        ReportDownloadResponse response = api.downloadReport(downloadReportRequest);
         // TODO: test validations
     }
 
@@ -1112,7 +1129,7 @@ public class PaymentApiTest {
     /**
      * List supported tokens
      *
-     * This operation retrieves all tokens supported by Cobo Payments.  Use this operation to get token details such as token ID, symbol, decimal precision,  contract address, and chain information before creating payment orders.  For more information about Cobo Payments, see [Cobo Payments Overview](https://www.cobo.com/payments/en/guides/overview). 
+     * This operation retrieves all tokens supported by Cobo Payments.  Use this operation to get token details such as token ID, symbol, decimal precision, contract address, chain information, confirmation threshold, and deposit threshold before creating payment orders.  For more information about Cobo Payments, see [Cobo Payments Overview](https://www.cobo.com/payments/en/guides/overview). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1224,7 +1241,7 @@ public class PaymentApiTest {
     /**
      * Submit merchant KYC
      *
-     * This operation submits KYC information for a specified merchant.  You need to provide the merchant contact information, merchant type, country, industry, and company information.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
+     * This operation submits KYC information for a specified merchant.  You need to provide the merchant type, country, and industry. Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants).  &lt;Note&gt;If the merchant KYC status is &#x60;Disabled&#x60;, this operation cannot be used to resubmit KYC information.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1357,7 +1374,7 @@ public class PaymentApiTest {
     /**
      * Upload file
      *
-     * This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * &lt;Note&gt;This operation has been deprecated. Please use [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2) instead.&lt;/Note&gt;  This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -1365,6 +1382,20 @@ public class PaymentApiTest {
     public void uploadPaymentFileTest() throws ApiException {
         File _file = null;
         PaymentUploadedFile response = api.uploadPaymentFile(_file);
+        // TODO: test validations
+    }
+
+    /**
+     * Upload file v2
+     *
+     * This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void uploadPaymentFileV2Test() throws ApiException {
+        PaymentUploadFileV2 paymentUploadFileV2 = null;
+        PaymentUploadedFile response = api.uploadPaymentFileV2(paymentUploadFileV2);
         // TODO: test validations
     }
 

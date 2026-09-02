@@ -62,6 +62,7 @@ import com.cobo.waas2.model.Destination;
 import com.cobo.waas2.model.DestinationBankAccountTag;
 import com.cobo.waas2.model.DestinationDetail;
 import com.cobo.waas2.model.DestinationType;
+import com.cobo.waas2.model.DownloadReportRequest;
 import com.cobo.waas2.model.EntryType;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExchangeRate;
@@ -111,10 +112,12 @@ import com.cobo.waas2.model.PaymentEstimateFee201Response;
 import com.cobo.waas2.model.PaymentEstimateFeeRequest;
 import com.cobo.waas2.model.PaymentPayout;
 import com.cobo.waas2.model.PaymentPayoutDetail;
+import com.cobo.waas2.model.PaymentUploadFileV2;
 import com.cobo.waas2.model.PaymentUploadedFile;
 import com.cobo.waas2.model.PspBalance;
 import com.cobo.waas2.model.Refund;
 import com.cobo.waas2.model.Report;
+import com.cobo.waas2.model.ReportDownloadResponse;
 import com.cobo.waas2.model.ReportStatus;
 import com.cobo.waas2.model.ReportType;
 import com.cobo.waas2.model.Settlement;
@@ -2160,7 +2163,7 @@ public class PaymentApi {
 
     /**
      * Generate reports
-     * This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
+     * This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. The response does not guarantee a download URL. To retrieve a temporary download URL for a completed report, call download report operation. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
      * @param createReportRequest The request body to create payment reports. (optional)
      * @return Report
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2179,7 +2182,7 @@ public class PaymentApi {
 
     /**
      * Generate reports
-     * This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
+     * This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. The response does not guarantee a download URL. To retrieve a temporary download URL for a completed report, call download report operation. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
      * @param createReportRequest The request body to create payment reports. (optional)
      * @return ApiResponse&lt;Report&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2199,7 +2202,7 @@ public class PaymentApi {
 
     /**
      * Generate reports (asynchronously)
-     * This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
+     * This operation generates reports for a variety of payment activities, including pay-ins, payouts, and commission fees. The response does not guarantee a download URL. To retrieve a temporary download URL for a completed report, call download report operation. &lt;Note&gt;For &#x60;report_types&#x60;, report scope, exported field differences, and report-specific usage notes, see [Reports](/payments/en/guides/reports).&lt;/Note&gt; 
      * @param createReportRequest The request body to create payment reports. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3207,6 +3210,124 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = deleteDestinationEntryValidateBeforeCall(destinationEntryId, destinationId, entryType, _callback);
         Type localVarReturnType = new TypeToken<DeleteDestinationEntry200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for downloadReport
+     * @param downloadReportRequest The request body to download a payment report. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment report download URL retrieved successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call downloadReportCall(DownloadReportRequest downloadReportRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = downloadReportRequest;
+
+        // create path and map variables
+        String localVarPath = "/payments/reports/download";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call downloadReportValidateBeforeCall(DownloadReportRequest downloadReportRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'downloadReportRequest' is set
+        if (downloadReportRequest == null) {
+            throw new ApiException("Missing the required parameter 'downloadReportRequest' when calling downloadReport(Async)");
+        }
+
+        return downloadReportCall(downloadReportRequest, _callback);
+
+    }
+
+    /**
+     * Download report
+     * This operation retrieves a temporary download URL for a completed payment report. Endpoint: &#x60;POST https://api.dev.cobo.com/v2/payments/reports/download&#x60;. 
+     * @param downloadReportRequest The request body to download a payment report. (required)
+     * @return ReportDownloadResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment report download URL retrieved successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ReportDownloadResponse downloadReport(DownloadReportRequest downloadReportRequest) throws ApiException {
+        ApiResponse<ReportDownloadResponse> localVarResp = downloadReportWithHttpInfo(downloadReportRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Download report
+     * This operation retrieves a temporary download URL for a completed payment report. Endpoint: &#x60;POST https://api.dev.cobo.com/v2/payments/reports/download&#x60;. 
+     * @param downloadReportRequest The request body to download a payment report. (required)
+     * @return ApiResponse&lt;ReportDownloadResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment report download URL retrieved successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ReportDownloadResponse> downloadReportWithHttpInfo(DownloadReportRequest downloadReportRequest) throws ApiException {
+        okhttp3.Call localVarCall = downloadReportValidateBeforeCall(downloadReportRequest, null);
+        Type localVarReturnType = new TypeToken<ReportDownloadResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Download report (asynchronously)
+     * This operation retrieves a temporary download URL for a completed payment report. Endpoint: &#x60;POST https://api.dev.cobo.com/v2/payments/reports/download&#x60;. 
+     * @param downloadReportRequest The request body to download a payment report. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Payment report download URL retrieved successfully. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call downloadReportAsync(DownloadReportRequest downloadReportRequest, final ApiCallback<ReportDownloadResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = downloadReportValidateBeforeCall(downloadReportRequest, _callback);
+        Type localVarReturnType = new TypeToken<ReportDownloadResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8280,7 +8401,7 @@ public class PaymentApi {
 
     /**
      * List supported tokens
-     * This operation retrieves all tokens supported by Cobo Payments.  Use this operation to get token details such as token ID, symbol, decimal precision,  contract address, and chain information before creating payment orders.  For more information about Cobo Payments, see [Cobo Payments Overview](https://www.cobo.com/payments/en/guides/overview). 
+     * This operation retrieves all tokens supported by Cobo Payments.  Use this operation to get token details such as token ID, symbol, decimal precision, contract address, chain information, confirmation threshold, and deposit threshold before creating payment orders.  For more information about Cobo Payments, see [Cobo Payments Overview](https://www.cobo.com/payments/en/guides/overview). 
      * @return List&lt;SupportedToken&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8298,7 +8419,7 @@ public class PaymentApi {
 
     /**
      * List supported tokens
-     * This operation retrieves all tokens supported by Cobo Payments.  Use this operation to get token details such as token ID, symbol, decimal precision,  contract address, and chain information before creating payment orders.  For more information about Cobo Payments, see [Cobo Payments Overview](https://www.cobo.com/payments/en/guides/overview). 
+     * This operation retrieves all tokens supported by Cobo Payments.  Use this operation to get token details such as token ID, symbol, decimal precision, contract address, chain information, confirmation threshold, and deposit threshold before creating payment orders.  For more information about Cobo Payments, see [Cobo Payments Overview](https://www.cobo.com/payments/en/guides/overview). 
      * @return ApiResponse&lt;List&lt;SupportedToken&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8317,7 +8438,7 @@ public class PaymentApi {
 
     /**
      * List supported tokens (asynchronously)
-     * This operation retrieves all tokens supported by Cobo Payments.  Use this operation to get token details such as token ID, symbol, decimal precision,  contract address, and chain information before creating payment orders.  For more information about Cobo Payments, see [Cobo Payments Overview](https://www.cobo.com/payments/en/guides/overview). 
+     * This operation retrieves all tokens supported by Cobo Payments.  Use this operation to get token details such as token ID, symbol, decimal precision, contract address, chain information, confirmation threshold, and deposit threshold before creating payment orders.  For more information about Cobo Payments, see [Cobo Payments Overview](https://www.cobo.com/payments/en/guides/overview). 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9157,7 +9278,7 @@ public class PaymentApi {
     /**
      * Build call for submitMerchantKyc
      * @param merchantId The merchant ID. (required)
-     * @param submitMerchantKyc The request body to submit merchant KYC information. (optional)
+     * @param submitMerchantKyc The request body to submit merchant KYC information.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -9215,9 +9336,9 @@ public class PaymentApi {
 
     /**
      * Submit merchant KYC
-     * This operation submits KYC information for a specified merchant.  You need to provide the merchant contact information, merchant type, country, industry, and company information.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
+     * This operation submits KYC information for a specified merchant.  You need to provide the merchant type, country, and industry. Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants).  &lt;Note&gt;If the merchant KYC status is &#x60;Disabled&#x60;, this operation cannot be used to resubmit KYC information.&lt;/Note&gt; 
      * @param merchantId The merchant ID. (required)
-     * @param submitMerchantKyc The request body to submit merchant KYC information. (optional)
+     * @param submitMerchantKyc The request body to submit merchant KYC information.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
      * @return MerchantKycInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -9235,9 +9356,9 @@ public class PaymentApi {
 
     /**
      * Submit merchant KYC
-     * This operation submits KYC information for a specified merchant.  You need to provide the merchant contact information, merchant type, country, industry, and company information.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
+     * This operation submits KYC information for a specified merchant.  You need to provide the merchant type, country, and industry. Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants).  &lt;Note&gt;If the merchant KYC status is &#x60;Disabled&#x60;, this operation cannot be used to resubmit KYC information.&lt;/Note&gt; 
      * @param merchantId The merchant ID. (required)
-     * @param submitMerchantKyc The request body to submit merchant KYC information. (optional)
+     * @param submitMerchantKyc The request body to submit merchant KYC information.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
      * @return ApiResponse&lt;MerchantKycInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -9256,9 +9377,9 @@ public class PaymentApi {
 
     /**
      * Submit merchant KYC (asynchronously)
-     * This operation submits KYC information for a specified merchant.  You need to provide the merchant contact information, merchant type, country, industry, and company information.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
+     * This operation submits KYC information for a specified merchant.  You need to provide the merchant type, country, and industry. Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants).  &lt;Note&gt;If the merchant KYC status is &#x60;Disabled&#x60;, this operation cannot be used to resubmit KYC information.&lt;/Note&gt; 
      * @param merchantId The merchant ID. (required)
-     * @param submitMerchantKyc The request body to submit merchant KYC information. (optional)
+     * @param submitMerchantKyc The request body to submit merchant KYC information.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10254,7 +10375,9 @@ public class PaymentApi {
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call uploadPaymentFileCall(File _file, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -10291,6 +10414,7 @@ public class PaymentApi {
         return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call uploadPaymentFileValidateBeforeCall(File _file, final ApiCallback _callback) throws ApiException {
         // verify the required parameter '_file' is set
@@ -10304,7 +10428,7 @@ public class PaymentApi {
 
     /**
      * Upload file
-     * This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * &lt;Note&gt;This operation has been deprecated. Please use [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2) instead.&lt;/Note&gt;  This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
      * @param _file The file to upload. (required)
      * @return PaymentUploadedFile
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10315,7 +10439,9 @@ public class PaymentApi {
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public PaymentUploadedFile uploadPaymentFile(File _file) throws ApiException {
         ApiResponse<PaymentUploadedFile> localVarResp = uploadPaymentFileWithHttpInfo(_file);
         return localVarResp.getData();
@@ -10323,7 +10449,7 @@ public class PaymentApi {
 
     /**
      * Upload file
-     * This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * &lt;Note&gt;This operation has been deprecated. Please use [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2) instead.&lt;/Note&gt;  This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
      * @param _file The file to upload. (required)
      * @return ApiResponse&lt;PaymentUploadedFile&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10334,7 +10460,9 @@ public class PaymentApi {
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<PaymentUploadedFile> uploadPaymentFileWithHttpInfo(File _file) throws ApiException {
         okhttp3.Call localVarCall = uploadPaymentFileValidateBeforeCall(_file, null);
         Type localVarReturnType = new TypeToken<PaymentUploadedFile>(){}.getType();
@@ -10343,7 +10471,7 @@ public class PaymentApi {
 
     /**
      * Upload file (asynchronously)
-     * This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * &lt;Note&gt;This operation has been deprecated. Please use [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2) instead.&lt;/Note&gt;  This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
      * @param _file The file to upload. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10355,10 +10483,125 @@ public class PaymentApi {
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call uploadPaymentFileAsync(File _file, final ApiCallback<PaymentUploadedFile> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = uploadPaymentFileValidateBeforeCall(_file, _callback);
+        Type localVarReturnType = new TypeToken<PaymentUploadedFile>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for uploadPaymentFileV2
+     * @param paymentUploadFileV2 The request body to upload a file. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call uploadPaymentFileV2Call(PaymentUploadFileV2 paymentUploadFileV2, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = paymentUploadFileV2;
+
+        // create path and map variables
+        String localVarPath = "/payments/files_v2";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call uploadPaymentFileV2ValidateBeforeCall(PaymentUploadFileV2 paymentUploadFileV2, final ApiCallback _callback) throws ApiException {
+        return uploadPaymentFileV2Call(paymentUploadFileV2, _callback);
+
+    }
+
+    /**
+     * Upload file v2
+     * This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * @param paymentUploadFileV2 The request body to upload a file. (optional)
+     * @return PaymentUploadedFile
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public PaymentUploadedFile uploadPaymentFileV2(PaymentUploadFileV2 paymentUploadFileV2) throws ApiException {
+        ApiResponse<PaymentUploadedFile> localVarResp = uploadPaymentFileV2WithHttpInfo(paymentUploadFileV2);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Upload file v2
+     * This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * @param paymentUploadFileV2 The request body to upload a file. (optional)
+     * @return ApiResponse&lt;PaymentUploadedFile&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PaymentUploadedFile> uploadPaymentFileV2WithHttpInfo(PaymentUploadFileV2 paymentUploadFileV2) throws ApiException {
+        okhttp3.Call localVarCall = uploadPaymentFileV2ValidateBeforeCall(paymentUploadFileV2, null);
+        Type localVarReturnType = new TypeToken<PaymentUploadedFile>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Upload file v2 (asynchronously)
+     * This operation uploads a file for payment-related use cases, such as merchant KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Submit merchant KYC](https://www.cobo.com/developers/v2/api-references/payment/submit-merchant-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * @param paymentUploadFileV2 The request body to upload a file. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call uploadPaymentFileV2Async(PaymentUploadFileV2 paymentUploadFileV2, final ApiCallback<PaymentUploadedFile> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = uploadPaymentFileV2ValidateBeforeCall(paymentUploadFileV2, _callback);
         Type localVarReturnType = new TypeToken<PaymentUploadedFile>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

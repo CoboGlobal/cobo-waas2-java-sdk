@@ -12,18 +12,13 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.MerchantKycCompanyInfo;
-import com.cobo.waas2.model.MerchantKycMerchantType;
-import com.cobo.waas2.model.MerchantKycPersonInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,136 +45,36 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * SubmitMerchantKyc
+ * DownloadReportRequest
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class SubmitMerchantKyc {
-  public static final String SERIALIZED_NAME_MERCHANT_TYPE = "merchant_type";
-  @SerializedName(SERIALIZED_NAME_MERCHANT_TYPE)
-  private MerchantKycMerchantType merchantType;
+public class DownloadReportRequest {
+  public static final String SERIALIZED_NAME_REPORT_ID = "report_id";
+  @SerializedName(SERIALIZED_NAME_REPORT_ID)
+  private String reportId;
 
-  public static final String SERIALIZED_NAME_COUNTRY = "country";
-  @SerializedName(SERIALIZED_NAME_COUNTRY)
-  private String country;
-
-  public static final String SERIALIZED_NAME_INDUSTRY = "industry";
-  @SerializedName(SERIALIZED_NAME_INDUSTRY)
-  private List<String> industry = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_COMPANY_INFO = "company_info";
-  @SerializedName(SERIALIZED_NAME_COMPANY_INFO)
-  private MerchantKycCompanyInfo companyInfo;
-
-  public static final String SERIALIZED_NAME_INDIVIDUAL_INFO = "individual_info";
-  @SerializedName(SERIALIZED_NAME_INDIVIDUAL_INFO)
-  private MerchantKycPersonInfo individualInfo;
-
-  public SubmitMerchantKyc() {
+  public DownloadReportRequest() {
   }
 
-  public SubmitMerchantKyc merchantType(MerchantKycMerchantType merchantType) {
-    this.merchantType = merchantType;
+  public DownloadReportRequest reportId(String reportId) {
+    this.reportId = reportId;
     return this;
   }
 
    /**
-   * Get merchantType
-   * @return merchantType
+   * The report ID.
+   * @return reportId
   **/
   @javax.annotation.Nonnull
-  public MerchantKycMerchantType getMerchantType() {
-    return merchantType;
+  public String getReportId() {
+    return reportId;
   }
 
-  public void setMerchantType(MerchantKycMerchantType merchantType) {
-    this.merchantType = merchantType;
-  }
-
-
-  public SubmitMerchantKyc country(String country) {
-    this.country = country;
-    return this;
-  }
-
-   /**
-   * The country/region of the merchant, in ISO 3166-1 alpha-3 format.
-   * @return country
-  **/
-  @javax.annotation.Nonnull
-  public String getCountry() {
-    return country;
-  }
-
-  public void setCountry(String country) {
-    this.country = country;
-  }
-
-
-  public SubmitMerchantKyc industry(List<String> industry) {
-    this.industry = industry;
-    return this;
-  }
-
-  public SubmitMerchantKyc addIndustryItem(String industryItem) {
-    if (this.industry == null) {
-      this.industry = new ArrayList<>();
-    }
-    this.industry.add(industryItem);
-    return this;
-  }
-
-   /**
-   * The industry categories of the merchant.
-   * @return industry
-  **/
-  @javax.annotation.Nonnull
-  public List<String> getIndustry() {
-    return industry;
-  }
-
-  public void setIndustry(List<String> industry) {
-    this.industry = industry;
-  }
-
-
-  public SubmitMerchantKyc companyInfo(MerchantKycCompanyInfo companyInfo) {
-    this.companyInfo = companyInfo;
-    return this;
-  }
-
-   /**
-   * Get companyInfo
-   * @return companyInfo
-  **/
-  @javax.annotation.Nullable
-  public MerchantKycCompanyInfo getCompanyInfo() {
-    return companyInfo;
-  }
-
-  public void setCompanyInfo(MerchantKycCompanyInfo companyInfo) {
-    this.companyInfo = companyInfo;
-  }
-
-
-  public SubmitMerchantKyc individualInfo(MerchantKycPersonInfo individualInfo) {
-    this.individualInfo = individualInfo;
-    return this;
-  }
-
-   /**
-   * Get individualInfo
-   * @return individualInfo
-  **/
-  @javax.annotation.Nullable
-  public MerchantKycPersonInfo getIndividualInfo() {
-    return individualInfo;
-  }
-
-  public void setIndividualInfo(MerchantKycPersonInfo individualInfo) {
-    this.individualInfo = individualInfo;
+  public void setReportId(String reportId) {
+    this.reportId = reportId;
   }
 
   /**
@@ -195,9 +90,9 @@ public class SubmitMerchantKyc {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the SubmitMerchantKyc instance itself
+   * @return the DownloadReportRequest instance itself
    */
-  public SubmitMerchantKyc putAdditionalProperty(String key, Object value) {
+  public DownloadReportRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -236,29 +131,21 @@ public class SubmitMerchantKyc {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SubmitMerchantKyc submitMerchantKyc = (SubmitMerchantKyc) o;
-    return Objects.equals(this.merchantType, submitMerchantKyc.merchantType) &&
-        Objects.equals(this.country, submitMerchantKyc.country) &&
-        Objects.equals(this.industry, submitMerchantKyc.industry) &&
-        Objects.equals(this.companyInfo, submitMerchantKyc.companyInfo) &&
-        Objects.equals(this.individualInfo, submitMerchantKyc.individualInfo)&&
-        Objects.equals(this.additionalProperties, submitMerchantKyc.additionalProperties);
+    DownloadReportRequest downloadReportRequest = (DownloadReportRequest) o;
+    return Objects.equals(this.reportId, downloadReportRequest.reportId)&&
+        Objects.equals(this.additionalProperties, downloadReportRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantType, country, industry, companyInfo, individualInfo, additionalProperties);
+    return Objects.hash(reportId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SubmitMerchantKyc {\n");
-    sb.append("    merchantType: ").append(toIndentedString(merchantType)).append("\n");
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
-    sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
-    sb.append("    companyInfo: ").append(toIndentedString(companyInfo)).append("\n");
-    sb.append("    individualInfo: ").append(toIndentedString(individualInfo)).append("\n");
+    sb.append("class DownloadReportRequest {\n");
+    sb.append("    reportId: ").append(toIndentedString(reportId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -282,57 +169,35 @@ public class SubmitMerchantKyc {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("merchant_type");
-    openapiFields.add("country");
-    openapiFields.add("industry");
-    openapiFields.add("company_info");
-    openapiFields.add("individual_info");
+    openapiFields.add("report_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("merchant_type");
-    openapiRequiredFields.add("country");
-    openapiRequiredFields.add("industry");
+    openapiRequiredFields.add("report_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SubmitMerchantKyc
+  * @throws IOException if the JSON Element is invalid with respect to DownloadReportRequest
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SubmitMerchantKyc.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SubmitMerchantKyc is not found in the empty JSON string", SubmitMerchantKyc.openapiRequiredFields.toString()));
+        if (!DownloadReportRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DownloadReportRequest is not found in the empty JSON string", DownloadReportRequest.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SubmitMerchantKyc.openapiRequiredFields) {
+      for (String requiredField : DownloadReportRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `merchant_type`
-      MerchantKycMerchantType.validateJsonElement(jsonObj.get("merchant_type"));
-      if (!jsonObj.get("country").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("industry") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("industry").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `industry` to be an array in the JSON string but got `%s`", jsonObj.get("industry").toString()));
-      }
-      // validate the optional field `company_info`
-      if (jsonObj.get("company_info") != null && !jsonObj.get("company_info").isJsonNull()) {
-        MerchantKycCompanyInfo.validateJsonElement(jsonObj.get("company_info"));
-      }
-      // validate the optional field `individual_info`
-      if (jsonObj.get("individual_info") != null && !jsonObj.get("individual_info").isJsonNull()) {
-        MerchantKycPersonInfo.validateJsonElement(jsonObj.get("individual_info"));
+      if (!jsonObj.get("report_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `report_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("report_id").toString()));
       }
   }
 
@@ -340,16 +205,16 @@ public class SubmitMerchantKyc {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SubmitMerchantKyc.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SubmitMerchantKyc' and its subtypes
+       if (!DownloadReportRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DownloadReportRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SubmitMerchantKyc> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SubmitMerchantKyc.class));
+       final TypeAdapter<DownloadReportRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DownloadReportRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SubmitMerchantKyc>() {
+       return (TypeAdapter<T>) new TypeAdapter<DownloadReportRequest>() {
            @Override
-           public void write(JsonWriter out, SubmitMerchantKyc value) throws IOException {
+           public void write(JsonWriter out, DownloadReportRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -379,12 +244,12 @@ public class SubmitMerchantKyc {
            }
 
            @Override
-           public SubmitMerchantKyc read(JsonReader in) throws IOException {
+           public DownloadReportRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             SubmitMerchantKyc instance = thisAdapter.fromJsonTree(jsonObj);
+             DownloadReportRequest instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -411,18 +276,18 @@ public class SubmitMerchantKyc {
   }
 
  /**
-  * Create an instance of SubmitMerchantKyc given an JSON string
+  * Create an instance of DownloadReportRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of SubmitMerchantKyc
-  * @throws IOException if the JSON string is invalid with respect to SubmitMerchantKyc
+  * @return An instance of DownloadReportRequest
+  * @throws IOException if the JSON string is invalid with respect to DownloadReportRequest
   */
-  public static SubmitMerchantKyc fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SubmitMerchantKyc.class);
+  public static DownloadReportRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DownloadReportRequest.class);
   }
 
  /**
-  * Convert an instance of SubmitMerchantKyc to an JSON string
+  * Convert an instance of DownloadReportRequest to an JSON string
   *
   * @return JSON string
   */
