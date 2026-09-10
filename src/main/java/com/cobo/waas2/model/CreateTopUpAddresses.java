@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The request body to batch create top-up addresses.
+ * The request body to batch create top-up address.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -121,7 +121,7 @@ public class CreateTopUpAddresses {
   }
 
    /**
-   * A list of unique custom payer IDs required to create top-up addresses. 
+   * A list of unique custom payer IDs required to create top-up addresses. The maximum number of items is 50. 
    * @return customPayerIds
   **/
   @javax.annotation.Nonnull

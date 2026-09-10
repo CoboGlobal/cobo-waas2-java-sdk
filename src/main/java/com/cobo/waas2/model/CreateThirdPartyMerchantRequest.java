@@ -15,6 +15,7 @@ import java.util.Objects;
 import com.cobo.waas2.model.BankProvider;
 import com.cobo.waas2.model.ThirdPartyCompanyInfo;
 import com.cobo.waas2.model.ThirdPartyMerchantType;
+import com.cobo.waas2.model.ThirdPartyPersonInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,6 +58,10 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class CreateThirdPartyMerchantRequest {
+  public static final String SERIALIZED_NAME_THIRD_MERCHANT_ID = "third_merchant_id";
+  @SerializedName(SERIALIZED_NAME_THIRD_MERCHANT_ID)
+  private String thirdMerchantId;
+
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
   private BankProvider provider;
@@ -64,14 +69,6 @@ public class CreateThirdPartyMerchantRequest {
   public static final String SERIALIZED_NAME_COBO_MERCHANT_ID = "cobo_merchant_id";
   @SerializedName(SERIALIZED_NAME_COBO_MERCHANT_ID)
   private String coboMerchantId;
-
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
-
-  public static final String SERIALIZED_NAME_PHONE = "phone";
-  @SerializedName(SERIALIZED_NAME_PHONE)
-  private String phone;
 
   public static final String SERIALIZED_NAME_MERCHANT_TYPE = "merchant_type";
   @SerializedName(SERIALIZED_NAME_MERCHANT_TYPE)
@@ -89,8 +86,31 @@ public class CreateThirdPartyMerchantRequest {
   @SerializedName(SERIALIZED_NAME_COMPANY_INFO)
   private ThirdPartyCompanyInfo companyInfo;
 
+  public static final String SERIALIZED_NAME_INDIVIDUAL_INFO = "individual_info";
+  @SerializedName(SERIALIZED_NAME_INDIVIDUAL_INFO)
+  private ThirdPartyPersonInfo individualInfo;
+
   public CreateThirdPartyMerchantRequest() {
   }
+
+  public CreateThirdPartyMerchantRequest thirdMerchantId(String thirdMerchantId) {
+    this.thirdMerchantId = thirdMerchantId;
+    return this;
+  }
+
+   /**
+   * The third-party merchant ID. If provided, the existing third-party merchant is updated; otherwise, a new third-party merchant is created. 
+   * @return thirdMerchantId
+  **/
+  @javax.annotation.Nullable
+  public String getThirdMerchantId() {
+    return thirdMerchantId;
+  }
+
+  public void setThirdMerchantId(String thirdMerchantId) {
+    this.thirdMerchantId = thirdMerchantId;
+  }
+
 
   public CreateThirdPartyMerchantRequest provider(BankProvider provider) {
     this.provider = provider;
@@ -127,44 +147,6 @@ public class CreateThirdPartyMerchantRequest {
 
   public void setCoboMerchantId(String coboMerchantId) {
     this.coboMerchantId = coboMerchantId;
-  }
-
-
-  public CreateThirdPartyMerchantRequest email(String email) {
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * The merchant email address.
-   * @return email
-  **/
-  @javax.annotation.Nonnull
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public CreateThirdPartyMerchantRequest phone(String phone) {
-    this.phone = phone;
-    return this;
-  }
-
-   /**
-   * The merchant phone number.
-   * @return phone
-  **/
-  @javax.annotation.Nonnull
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
   }
 
 
@@ -239,16 +221,35 @@ public class CreateThirdPartyMerchantRequest {
   }
 
    /**
-   * Get companyInfo
+   * The company information. Required for company merchants.
    * @return companyInfo
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public ThirdPartyCompanyInfo getCompanyInfo() {
     return companyInfo;
   }
 
   public void setCompanyInfo(ThirdPartyCompanyInfo companyInfo) {
     this.companyInfo = companyInfo;
+  }
+
+
+  public CreateThirdPartyMerchantRequest individualInfo(ThirdPartyPersonInfo individualInfo) {
+    this.individualInfo = individualInfo;
+    return this;
+  }
+
+   /**
+   * The individual information. Required for individual merchants.
+   * @return individualInfo
+  **/
+  @javax.annotation.Nullable
+  public ThirdPartyPersonInfo getIndividualInfo() {
+    return individualInfo;
+  }
+
+  public void setIndividualInfo(ThirdPartyPersonInfo individualInfo) {
+    this.individualInfo = individualInfo;
   }
 
   /**
@@ -306,34 +307,34 @@ public class CreateThirdPartyMerchantRequest {
       return false;
     }
     CreateThirdPartyMerchantRequest createThirdPartyMerchantRequest = (CreateThirdPartyMerchantRequest) o;
-    return Objects.equals(this.provider, createThirdPartyMerchantRequest.provider) &&
+    return Objects.equals(this.thirdMerchantId, createThirdPartyMerchantRequest.thirdMerchantId) &&
+        Objects.equals(this.provider, createThirdPartyMerchantRequest.provider) &&
         Objects.equals(this.coboMerchantId, createThirdPartyMerchantRequest.coboMerchantId) &&
-        Objects.equals(this.email, createThirdPartyMerchantRequest.email) &&
-        Objects.equals(this.phone, createThirdPartyMerchantRequest.phone) &&
         Objects.equals(this.merchantType, createThirdPartyMerchantRequest.merchantType) &&
         Objects.equals(this.country, createThirdPartyMerchantRequest.country) &&
         Objects.equals(this.industry, createThirdPartyMerchantRequest.industry) &&
-        Objects.equals(this.companyInfo, createThirdPartyMerchantRequest.companyInfo)&&
+        Objects.equals(this.companyInfo, createThirdPartyMerchantRequest.companyInfo) &&
+        Objects.equals(this.individualInfo, createThirdPartyMerchantRequest.individualInfo)&&
         Objects.equals(this.additionalProperties, createThirdPartyMerchantRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, coboMerchantId, email, phone, merchantType, country, industry, companyInfo, additionalProperties);
+    return Objects.hash(thirdMerchantId, provider, coboMerchantId, merchantType, country, industry, companyInfo, individualInfo, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateThirdPartyMerchantRequest {\n");
+    sb.append("    thirdMerchantId: ").append(toIndentedString(thirdMerchantId)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    coboMerchantId: ").append(toIndentedString(coboMerchantId)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    merchantType: ").append(toIndentedString(merchantType)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
     sb.append("    companyInfo: ").append(toIndentedString(companyInfo)).append("\n");
+    sb.append("    individualInfo: ").append(toIndentedString(individualInfo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -357,25 +358,22 @@ public class CreateThirdPartyMerchantRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("third_merchant_id");
     openapiFields.add("provider");
     openapiFields.add("cobo_merchant_id");
-    openapiFields.add("email");
-    openapiFields.add("phone");
     openapiFields.add("merchant_type");
     openapiFields.add("country");
     openapiFields.add("industry");
     openapiFields.add("company_info");
+    openapiFields.add("individual_info");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("provider");
     openapiRequiredFields.add("cobo_merchant_id");
-    openapiRequiredFields.add("email");
-    openapiRequiredFields.add("phone");
     openapiRequiredFields.add("merchant_type");
     openapiRequiredFields.add("country");
     openapiRequiredFields.add("industry");
-    openapiRequiredFields.add("company_info");
   }
 
  /**
@@ -398,16 +396,13 @@ public class CreateThirdPartyMerchantRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("third_merchant_id") != null && !jsonObj.get("third_merchant_id").isJsonNull()) && !jsonObj.get("third_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `third_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("third_merchant_id").toString()));
+      }
       // validate the required field `provider`
       BankProvider.validateJsonElement(jsonObj.get("provider"));
       if (!jsonObj.get("cobo_merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cobo_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cobo_merchant_id").toString()));
-      }
-      if (!jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if (!jsonObj.get("phone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
       }
       // validate the required field `merchant_type`
       ThirdPartyMerchantType.validateJsonElement(jsonObj.get("merchant_type"));
@@ -420,8 +415,14 @@ public class CreateThirdPartyMerchantRequest {
       } else if (!jsonObj.get("industry").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `industry` to be an array in the JSON string but got `%s`", jsonObj.get("industry").toString()));
       }
-      // validate the required field `company_info`
-      ThirdPartyCompanyInfo.validateJsonElement(jsonObj.get("company_info"));
+      // validate the optional field `company_info`
+      if (jsonObj.get("company_info") != null && !jsonObj.get("company_info").isJsonNull()) {
+        ThirdPartyCompanyInfo.validateJsonElement(jsonObj.get("company_info"));
+      }
+      // validate the optional field `individual_info`
+      if (jsonObj.get("individual_info") != null && !jsonObj.get("individual_info").isJsonNull()) {
+        ThirdPartyPersonInfo.validateJsonElement(jsonObj.get("individual_info"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

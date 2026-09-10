@@ -42,11 +42,27 @@ public class CreateThirdPartyPayeeRequestTest {
     }
 
     /**
+     * Test the property 'thirdPayeeId'
+     */
+    @Test
+    public void thirdPayeeIdTest() {
+        // TODO: test thirdPayeeId
+    }
+
+    /**
      * Test the property 'provider'
      */
     @Test
     public void providerTest() {
         // TODO: test provider
+    }
+
+    /**
+     * Test the property 'coboMerchantId'
+     */
+    @Test
+    public void coboMerchantIdTest() {
+        // TODO: test coboMerchantId
     }
 
     /**

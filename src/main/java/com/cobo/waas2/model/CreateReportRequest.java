@@ -85,7 +85,7 @@ public class CreateReportRequest {
   }
 
    /**
-   * The start time of the report. Unix timestamp measured in seconds.
+   * The start time of the report. Unix timestamp.
    * @return startTime
   **/
   @javax.annotation.Nonnull
@@ -104,7 +104,7 @@ public class CreateReportRequest {
   }
 
    /**
-   * The end time of the report. Unix timestamp measured in seconds.
+   * The end time of the report. Unix timestamp.
    * @return endTime
   **/
   @javax.annotation.Nonnull
@@ -177,7 +177,7 @@ public class CreateReportRequest {
   }
 
    /**
-   * Optional filter to include only items related to specified token IDs in the report.
+   * The token IDs of the report.
    * @return tokenIds
   **/
   @javax.annotation.Nullable

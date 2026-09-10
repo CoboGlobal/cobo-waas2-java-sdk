@@ -10,7 +10,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 <a id="internalCreateBatchPayout"></a>
 # **internalCreateBatchPayout**
-> InternalCreateBatchPayout201Response internalCreateBatchPayout(createBatchPayoutRequest)
+> InternalCreateBatchPayout201Response internalCreateBatchPayout(internalCreateBatchPayoutRequest)
 
 Create batch payout
 
@@ -35,9 +35,9 @@ public class Example {
     // Replace `<YOUR_PRIVATE_KEY>` with your private key
     defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     InternalBatchPayoutsApi apiInstance = new InternalBatchPayoutsApi();
-    CreateBatchPayoutRequest createBatchPayoutRequest = new CreateBatchPayoutRequest();
+    InternalCreateBatchPayoutRequest internalCreateBatchPayoutRequest = new InternalCreateBatchPayoutRequest();
     try {
-      InternalCreateBatchPayout201Response result = apiInstance.internalCreateBatchPayout(createBatchPayoutRequest);
+      InternalCreateBatchPayout201Response result = apiInstance.internalCreateBatchPayout(internalCreateBatchPayoutRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InternalBatchPayoutsApi#internalCreateBatchPayout");
@@ -54,7 +54,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createBatchPayoutRequest** | [**CreateBatchPayoutRequest**](CreateBatchPayoutRequest.md)| The request body to create a batch payout. | [optional] |
+| **internalCreateBatchPayoutRequest** | [**InternalCreateBatchPayoutRequest**](InternalCreateBatchPayoutRequest.md)| The request body to create a batch payout for internal API. | [optional] |
 
 ### Return type
 

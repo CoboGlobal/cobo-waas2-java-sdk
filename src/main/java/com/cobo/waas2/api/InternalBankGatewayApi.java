@@ -44,8 +44,8 @@ import com.cobo.waas2.model.DeleteThirdPartyPayee200Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetBankAccountBalance200ResponseInner;
 import com.cobo.waas2.model.ListBankAwaitingSignaturePayouts200ResponseInner;
+import com.cobo.waas2.model.ListBankPayouts200Response;
 import com.cobo.waas2.model.ListBankReturnedPayouts200Response;
-import com.cobo.waas2.model.ListBankTransactions200Response;
 import com.cobo.waas2.model.ListDeposits200Response;
 import com.cobo.waas2.model.SubmitBankPayoutSignatureRequest;
 import com.cobo.waas2.model.ThirdPartyMerchantInfo;
@@ -427,7 +427,7 @@ public class InternalBankGatewayApi {
     }
     /**
      * Build call for createThirdPartyMerchant
-     * @param createThirdPartyMerchantRequest The request body to create a third-party merchant (optional)
+     * @param createThirdPartyMerchantRequest The request body to create a third-party merchant.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -480,7 +480,7 @@ public class InternalBankGatewayApi {
     /**
      * Create third-party merchant
      * This operation creates a third-party merchant. 
-     * @param createThirdPartyMerchantRequest The request body to create a third-party merchant (optional)
+     * @param createThirdPartyMerchantRequest The request body to create a third-party merchant.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
      * @return CreateThirdPartyMerchant201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -499,7 +499,7 @@ public class InternalBankGatewayApi {
     /**
      * Create third-party merchant
      * This operation creates a third-party merchant. 
-     * @param createThirdPartyMerchantRequest The request body to create a third-party merchant (optional)
+     * @param createThirdPartyMerchantRequest The request body to create a third-party merchant.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
      * @return ApiResponse&lt;CreateThirdPartyMerchant201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -519,7 +519,7 @@ public class InternalBankGatewayApi {
     /**
      * Create third-party merchant (asynchronously)
      * This operation creates a third-party merchant. 
-     * @param createThirdPartyMerchantRequest The request body to create a third-party merchant (optional)
+     * @param createThirdPartyMerchantRequest The request body to create a third-party merchant.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -592,7 +592,7 @@ public class InternalBankGatewayApi {
 
     /**
      * Create third-party payee
-     * This operation creates a third-party payee.  For USD company bank accounts, required fields depend on &#x60;payment_method&#x60;:  **SWIFT** (supported in HK, TW, MY, PH, ID, VN, TH, SG): &#x60;company_name&#x60;, &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;city&#x60;, &#x60;post_code&#x60;, &#x60;province&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;.  **Local HK** (&#x60;payment_method&#x60; &#x3D; &#x60;Local&#x60;, HK only): &#x60;company_name&#x60;, &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;branch_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. 
+     * This operation creates a third-party payee.  For USD company bank accounts, required fields depend on &#x60;payment_method&#x60;:  **SWIFT** (supported in HK, TW, MY, PH, ID, VN, TH, SG): &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;city&#x60;, &#x60;post_code&#x60;, &#x60;province&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. &#x60;beneficiary_name&#x60; is optional.  **Local HK** (&#x60;payment_method&#x60; &#x3D; &#x60;Local&#x60;, HK only): &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;branch_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. &#x60;beneficiary_name&#x60; is optional. 
      * @param createThirdPartyPayeeRequest The request body to create a third-party payee.  For USD company bank accounts in HK, TW, MY, PH, ID, VN, TH, and SG: - When &#x60;payment_method&#x60; is &#x60;Swift&#x60;, &#x60;city&#x60;, &#x60;province&#x60;, and &#x60;post_code&#x60; are required in &#x60;beneficiary_detail&#x60;. - When &#x60;payment_method&#x60; is &#x60;Local&#x60; with USD, only HK is supported.  (optional)
      * @return CreateThirdPartyPayee201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -611,7 +611,7 @@ public class InternalBankGatewayApi {
 
     /**
      * Create third-party payee
-     * This operation creates a third-party payee.  For USD company bank accounts, required fields depend on &#x60;payment_method&#x60;:  **SWIFT** (supported in HK, TW, MY, PH, ID, VN, TH, SG): &#x60;company_name&#x60;, &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;city&#x60;, &#x60;post_code&#x60;, &#x60;province&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;.  **Local HK** (&#x60;payment_method&#x60; &#x3D; &#x60;Local&#x60;, HK only): &#x60;company_name&#x60;, &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;branch_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. 
+     * This operation creates a third-party payee.  For USD company bank accounts, required fields depend on &#x60;payment_method&#x60;:  **SWIFT** (supported in HK, TW, MY, PH, ID, VN, TH, SG): &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;city&#x60;, &#x60;post_code&#x60;, &#x60;province&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. &#x60;beneficiary_name&#x60; is optional.  **Local HK** (&#x60;payment_method&#x60; &#x3D; &#x60;Local&#x60;, HK only): &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;branch_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. &#x60;beneficiary_name&#x60; is optional. 
      * @param createThirdPartyPayeeRequest The request body to create a third-party payee.  For USD company bank accounts in HK, TW, MY, PH, ID, VN, TH, and SG: - When &#x60;payment_method&#x60; is &#x60;Swift&#x60;, &#x60;city&#x60;, &#x60;province&#x60;, and &#x60;post_code&#x60; are required in &#x60;beneficiary_detail&#x60;. - When &#x60;payment_method&#x60; is &#x60;Local&#x60; with USD, only HK is supported.  (optional)
      * @return ApiResponse&lt;CreateThirdPartyPayee201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -631,7 +631,7 @@ public class InternalBankGatewayApi {
 
     /**
      * Create third-party payee (asynchronously)
-     * This operation creates a third-party payee.  For USD company bank accounts, required fields depend on &#x60;payment_method&#x60;:  **SWIFT** (supported in HK, TW, MY, PH, ID, VN, TH, SG): &#x60;company_name&#x60;, &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;city&#x60;, &#x60;post_code&#x60;, &#x60;province&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;.  **Local HK** (&#x60;payment_method&#x60; &#x3D; &#x60;Local&#x60;, HK only): &#x60;company_name&#x60;, &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;branch_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. 
+     * This operation creates a third-party payee.  For USD company bank accounts, required fields depend on &#x60;payment_method&#x60;:  **SWIFT** (supported in HK, TW, MY, PH, ID, VN, TH, SG): &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;city&#x60;, &#x60;post_code&#x60;, &#x60;province&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. &#x60;beneficiary_name&#x60; is optional.  **Local HK** (&#x60;payment_method&#x60; &#x3D; &#x60;Local&#x60;, HK only): &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;branch_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. &#x60;beneficiary_name&#x60; is optional. 
      * @param createThirdPartyPayeeRequest The request body to create a third-party payee.  For USD company bank accounts in HK, TW, MY, PH, ID, VN, TH, and SG: - When &#x60;payment_method&#x60; is &#x60;Swift&#x60;, &#x60;city&#x60;, &#x60;province&#x60;, and &#x60;post_code&#x60; are required in &#x60;beneficiary_detail&#x60;. - When &#x60;payment_method&#x60; is &#x60;Local&#x60; with USD, only HK is supported.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1773,6 +1773,146 @@ public class InternalBankGatewayApi {
         return localVarCall;
     }
     /**
+     * Build call for listBankPayouts
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param requestId The request ID of the payout. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of payouts </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBankPayoutsCall(Integer limit, String before, String after, String requestId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/internal/bank_gateway/payouts";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (requestId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("request_id", requestId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listBankPayoutsValidateBeforeCall(Integer limit, String before, String after, String requestId, final ApiCallback _callback) throws ApiException {
+        return listBankPayoutsCall(limit, before, after, requestId, _callback);
+
+    }
+
+    /**
+     * List payouts
+     * This operation retrieves the list of payouts. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param requestId The request ID of the payout. (optional)
+     * @return ListBankPayouts200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of payouts </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListBankPayouts200Response listBankPayouts(Integer limit, String before, String after, String requestId) throws ApiException {
+        ApiResponse<ListBankPayouts200Response> localVarResp = listBankPayoutsWithHttpInfo(limit, before, after, requestId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List payouts
+     * This operation retrieves the list of payouts. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param requestId The request ID of the payout. (optional)
+     * @return ApiResponse&lt;ListBankPayouts200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of payouts </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListBankPayouts200Response> listBankPayoutsWithHttpInfo(Integer limit, String before, String after, String requestId) throws ApiException {
+        okhttp3.Call localVarCall = listBankPayoutsValidateBeforeCall(limit, before, after, requestId, null);
+        Type localVarReturnType = new TypeToken<ListBankPayouts200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List payouts (asynchronously)
+     * This operation retrieves the list of payouts. 
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param requestId The request ID of the payout. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the list of payouts </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBankPayoutsAsync(Integer limit, String before, String after, String requestId, final ApiCallback<ListBankPayouts200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listBankPayoutsValidateBeforeCall(limit, before, after, requestId, _callback);
+        Type localVarReturnType = new TypeToken<ListBankPayouts200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listBankReturnedPayouts
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2003,7 +2143,7 @@ public class InternalBankGatewayApi {
      * @param endTime The end time. (optional)
      * @param status The status of the payout. (optional)
      * @param transferType The transfer type of the transaction. (optional)
-     * @return ListBankTransactions200Response
+     * @return ListBankPayouts200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2013,8 +2153,8 @@ public class InternalBankGatewayApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListBankTransactions200Response listBankTransactions(BankProvider bankProvider, String accountNo, Integer limit, String before, String after, String currency, String startTime, String endTime, BankPayoutStatus status, BankTransferType transferType) throws ApiException {
-        ApiResponse<ListBankTransactions200Response> localVarResp = listBankTransactionsWithHttpInfo(bankProvider, accountNo, limit, before, after, currency, startTime, endTime, status, transferType);
+    public ListBankPayouts200Response listBankTransactions(BankProvider bankProvider, String accountNo, Integer limit, String before, String after, String currency, String startTime, String endTime, BankPayoutStatus status, BankTransferType transferType) throws ApiException {
+        ApiResponse<ListBankPayouts200Response> localVarResp = listBankTransactionsWithHttpInfo(bankProvider, accountNo, limit, before, after, currency, startTime, endTime, status, transferType);
         return localVarResp.getData();
     }
 
@@ -2031,7 +2171,7 @@ public class InternalBankGatewayApi {
      * @param endTime The end time. (optional)
      * @param status The status of the payout. (optional)
      * @param transferType The transfer type of the transaction. (optional)
-     * @return ApiResponse&lt;ListBankTransactions200Response&gt;
+     * @return ApiResponse&lt;ListBankPayouts200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2041,9 +2181,9 @@ public class InternalBankGatewayApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListBankTransactions200Response> listBankTransactionsWithHttpInfo(BankProvider bankProvider, String accountNo, Integer limit, String before, String after, String currency, String startTime, String endTime, BankPayoutStatus status, BankTransferType transferType) throws ApiException {
+    public ApiResponse<ListBankPayouts200Response> listBankTransactionsWithHttpInfo(BankProvider bankProvider, String accountNo, Integer limit, String before, String after, String currency, String startTime, String endTime, BankPayoutStatus status, BankTransferType transferType) throws ApiException {
         okhttp3.Call localVarCall = listBankTransactionsValidateBeforeCall(bankProvider, accountNo, limit, before, after, currency, startTime, endTime, status, transferType, null);
-        Type localVarReturnType = new TypeToken<ListBankTransactions200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListBankPayouts200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2071,10 +2211,10 @@ public class InternalBankGatewayApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listBankTransactionsAsync(BankProvider bankProvider, String accountNo, Integer limit, String before, String after, String currency, String startTime, String endTime, BankPayoutStatus status, BankTransferType transferType, final ApiCallback<ListBankTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call listBankTransactionsAsync(BankProvider bankProvider, String accountNo, Integer limit, String before, String after, String currency, String startTime, String endTime, BankPayoutStatus status, BankTransferType transferType, final ApiCallback<ListBankPayouts200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listBankTransactionsValidateBeforeCall(bankProvider, accountNo, limit, before, after, currency, startTime, endTime, status, transferType, _callback);
-        Type localVarReturnType = new TypeToken<ListBankTransactions200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListBankPayouts200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

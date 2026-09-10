@@ -1,0 +1,69 @@
+
+
+# PaymentBulkSendUpdateEventData
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. - &#x60;Addresses&#x60;: The addresses event data. - &#x60;WalletInfo&#x60;: The wallet information event data. - &#x60;MPCVault&#x60;: The MPC vault event data. - &#x60;Chains&#x60;: The enabled chain event data. - &#x60;Tokens&#x60;: The enabled token event data. - &#x60;TokenListing&#x60;: The token listing event data.        - &#x60;PaymentOrder&#x60;: The payment order event data. - &#x60;PaymentRefund&#x60;: The payment refund event data. - &#x60;PaymentSettlement&#x60;: The payment settlement event data. - &#x60;PaymentTransaction&#x60;: The payment transaction event data. - &#x60;PaymentAddressUpdate&#x60;: The payment address update event data. - &#x60;PaymentPayout&#x60;: The payment payout event data. - &#x60;PaymentBankWithdrawal&#x60;: The payment bank withdrawal event data. - &#x60;PaymentBulkSend&#x60;: The payment bulk send event data. - &#x60;PaymentBulkSendItem&#x60;: The payment bulk send item event data. - &#x60;PaymentTopUpUpdate&#x60;: The payment top-up update event data. - &#x60;PaymentOrderUpdate&#x60;: The payment order update event data. - &#x60;PaymentRefundUpdate&#x60;: The payment refund update event data. - &#x60;PaymentPayoutUpdate&#x60;: The payment payout update event data. - &#x60;PaymentBulkSendUpdate&#x60;: The payment bulk send update event data. - &#x60;PaymentBulkSendItemUpdate&#x60;: The payment bulk send item update event data. - &#x60;PaymentAccountBalanceUpdate&#x60;: The Payments account balance updated event data, including account information and balance change details. - &#x60;BalanceUpdateInfo&#x60;: The balance update event data. - &#x60;SuspendedToken&#x60;: The suspended token event data. - &#x60;ComplianceDisposition&#x60;: The compliance disposition event data. - &#x60;ComplianceKytScreenings&#x60;: The compliance KYT screenings event data. - &#x60;ComplianceKyaScreenings&#x60;: The compliance KYA screenings event data. - &#x60;Organization&#x60;: The organization event data. - &#x60;FiatTransaction&#x60;: The fiat transaction event data. |  |
+|**bulkSendId** | **String** | The bulk send ID. |  |
+|**requestId** | **String** | The request ID. |  [optional] |
+|**sourceAccount** | **String** | The Payments account from which the funds are debited: the merchant ID for a merchant account, or &#x60;developer&#x60; for the developer account. |  |
+|**executionMode** | **PaymentBulkSendExecutionMode** |  |  |
+|**status** | **PaymentBulkSendStatus** |  |  |
+|**itemCount** | **Integer** | The total number of items in the bulk send. |  |
+|**failedItemCount** | **Integer** | The number of failed items. |  |
+|**notExecutedItemCount** | **Integer** | The number of items not executed. |  |
+|**requestedAmounts** | [**List&lt;PaymentAssetAmount&gt;**](PaymentAssetAmount.md) | The requested amounts aggregated by asset. |  |
+|**completedAmounts** | [**List&lt;PaymentAssetAmount&gt;**](PaymentAssetAmount.md) | The amounts of completed items aggregated by asset. |  |
+|**failedAmounts** | [**List&lt;PaymentAssetAmount&gt;**](PaymentAssetAmount.md) | The amounts of failed and not-executed items aggregated by asset. |  |
+|**description** | **String** | The description for the entire bulk send batch. |  [optional] |
+|**commissionFees** | [**List&lt;PaymentTokenCommissionFee&gt;**](PaymentTokenCommissionFee.md) | The commission fees for the bulk send. |  [optional] |
+|**failedReason** | [**PaymentFailedReason**](PaymentFailedReason.md) |  |  [optional] |
+|**createdTimestamp** | **Long** | The created time of the bulk send, represented as a UNIX timestamp in seconds. |  |
+|**updatedTimestamp** | **Long** | The updated time of the bulk send, represented as a UNIX timestamp in seconds. |  |
+
+
+
+## Enum: DataTypeEnum
+
+| Name | Value |
+|---- | -----|
+| TRANSACTION | &quot;Transaction&quot; |
+| TSSREQUEST | &quot;TSSRequest&quot; |
+| ADDRESSES | &quot;Addresses&quot; |
+| WALLETINFO | &quot;WalletInfo&quot; |
+| MPCVAULT | &quot;MPCVault&quot; |
+| CHAINS | &quot;Chains&quot; |
+| TOKENS | &quot;Tokens&quot; |
+| TOKENLISTING | &quot;TokenListing&quot; |
+| PAYMENTORDER | &quot;PaymentOrder&quot; |
+| PAYMENTREFUND | &quot;PaymentRefund&quot; |
+| PAYMENTSETTLEMENT | &quot;PaymentSettlement&quot; |
+| PAYMENTTRANSACTION | &quot;PaymentTransaction&quot; |
+| PAYMENTADDRESSUPDATE | &quot;PaymentAddressUpdate&quot; |
+| PAYMENTSUBSCRIPTIONUPDATE | &quot;PaymentSubscriptionUpdate&quot; |
+| PAYMENTCHARGEUPDATE | &quot;PaymentChargeUpdate&quot; |
+| PAYMENTPAYOUT | &quot;PaymentPayout&quot; |
+| PAYMENTBANKWITHDRAWAL | &quot;PaymentBankWithdrawal&quot; |
+| PAYMENTBULKSEND | &quot;PaymentBulkSend&quot; |
+| PAYMENTBULKSENDITEM | &quot;PaymentBulkSendItem&quot; |
+| PAYMENTTOPUPUPDATE | &quot;PaymentTopUpUpdate&quot; |
+| PAYMENTORDERUPDATE | &quot;PaymentOrderUpdate&quot; |
+| PAYMENTREFUNDUPDATE | &quot;PaymentRefundUpdate&quot; |
+| PAYMENTPAYOUTUPDATE | &quot;PaymentPayoutUpdate&quot; |
+| PAYMENTBULKSENDUPDATE | &quot;PaymentBulkSendUpdate&quot; |
+| PAYMENTBULKSENDITEMUPDATE | &quot;PaymentBulkSendItemUpdate&quot; |
+| PAYMENTACCOUNTBALANCEUPDATE | &quot;PaymentAccountBalanceUpdate&quot; |
+| BALANCEUPDATEINFO | &quot;BalanceUpdateInfo&quot; |
+| SUSPENDEDTOKEN | &quot;SuspendedToken&quot; |
+| COMPLIANCEDISPOSITION | &quot;ComplianceDisposition&quot; |
+| COMPLIANCEKYTSCREENINGS | &quot;ComplianceKytScreenings&quot; |
+| COMPLIANCEKYASCREENINGS | &quot;ComplianceKyaScreenings&quot; |
+| ORGANIZATION | &quot;Organization&quot; |
+| FIATTRANSACTION | &quot;FiatTransaction&quot; |
+
+
+

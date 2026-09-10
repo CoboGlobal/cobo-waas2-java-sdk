@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The estimated transaction fee based on the FIL fee model.  For more details about the FIL fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models). 
+ * The estimated transaction fee based on the fil fee model.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -102,7 +102,7 @@ public class EstimatedFILFee {
   }
 
    /**
-   * The token used to pay the transaction fee.
+   * The token ID of the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nonnull

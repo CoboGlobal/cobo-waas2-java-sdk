@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The signer information of the swap activity.
+ * The signer data for swap activity.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -112,7 +112,7 @@ public class SwapActivitySigners {
   }
 
    /**
-   * The reason for the signing failure.
+   * Failed reason of signing process.
    * @return failedReason
   **/
   @javax.annotation.Nullable

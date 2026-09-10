@@ -91,5 +91,7 @@
 
 * `TRXRECHARGE` (value: `"TrxRecharge"`)
 
+* `AUTOFUELINGBATCH` (value: `"AutoFuelingBatch"`)
+
 
 

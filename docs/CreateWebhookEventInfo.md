@@ -10,7 +10,7 @@ The webhook event response model.
 |------------ | ------------- | ------------- | -------------|
 |**uuid** | **UUID** | Unique event identifier. |  |
 |**channelId** | **String** | Identifier for the client/organization. Corresponds to organization_id in Cobo Portal. |  |
-|**type** | **WebhookEventType** |  |  |
+|**type** | **String** | The event type. |  |
 |**data** | **String** | JSON serialized object of event data. |  |
 |**walletScopesInfo** | **Map&lt;String, Object&gt;** | Wallet scope information. |  |
 |**transactionHash** | **String** | Blockchain transaction hash. |  [optional] |

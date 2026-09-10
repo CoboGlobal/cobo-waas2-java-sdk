@@ -34,6 +34,8 @@ import com.cobo.waas2.model.MPCVaultEventData;
 import com.cobo.waas2.model.OrganizationEventData;
 import com.cobo.waas2.model.PaymentAccountBalanceUpdateEventData;
 import com.cobo.waas2.model.PaymentAddressUpdateEventData;
+import com.cobo.waas2.model.PaymentAssetAmount;
+import com.cobo.waas2.model.PaymentAssetOrFiatAmount;
 import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
 import com.cobo.waas2.model.PaymentBalanceFlowDirection;
 import com.cobo.waas2.model.PaymentBankWithdrawalEvent;
@@ -41,14 +43,29 @@ import com.cobo.waas2.model.PaymentBankWithdrawalTimelineItem;
 import com.cobo.waas2.model.PaymentBulkSendEvent;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
 import com.cobo.waas2.model.PaymentBulkSendItemEvent;
+import com.cobo.waas2.model.PaymentBulkSendItemUpdateEventData;
 import com.cobo.waas2.model.PaymentBulkSendItemValidationStatus;
+import com.cobo.waas2.model.PaymentBulkSendUpdateEventData;
+import com.cobo.waas2.model.PaymentChargeUpdateEventData;
+import com.cobo.waas2.model.PaymentFailedReason;
 import com.cobo.waas2.model.PaymentOrderEventData;
+import com.cobo.waas2.model.PaymentOrderNoticeType;
+import com.cobo.waas2.model.PaymentOrderUpdateEventData;
 import com.cobo.waas2.model.PaymentPayoutEvent;
 import com.cobo.waas2.model.PaymentPayoutItem;
 import com.cobo.waas2.model.PaymentPayoutRecipientInfo;
+import com.cobo.waas2.model.PaymentPayoutRequestedTarget;
+import com.cobo.waas2.model.PaymentPayoutTransaction;
+import com.cobo.waas2.model.PaymentPayoutUpdateEventData;
 import com.cobo.waas2.model.PaymentRefundEventData;
+import com.cobo.waas2.model.PaymentRefundUpdateEventData;
+import com.cobo.waas2.model.PaymentScreeningMode;
 import com.cobo.waas2.model.PaymentSettlementEvent;
-import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.PaymentSubscriptionActionData;
+import com.cobo.waas2.model.PaymentSubscriptionPeriodType;
+import com.cobo.waas2.model.PaymentSubscriptionUpdateEventData;
+import com.cobo.waas2.model.PaymentTokenCommissionFee;
+import com.cobo.waas2.model.PaymentTopUpUpdateEventData;
 import com.cobo.waas2.model.PaymentTransactionEventData;
 import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.RefundType;
@@ -157,10 +174,18 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             final TypeAdapter<PaymentSettlementEvent> adapterPaymentSettlementEvent = gson.getDelegateAdapter(this, TypeToken.get(PaymentSettlementEvent.class));
             final TypeAdapter<PaymentTransactionEventData> adapterPaymentTransactionEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentTransactionEventData.class));
             final TypeAdapter<PaymentAddressUpdateEventData> adapterPaymentAddressUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentAddressUpdateEventData.class));
+            final TypeAdapter<PaymentChargeUpdateEventData> adapterPaymentChargeUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentChargeUpdateEventData.class));
+            final TypeAdapter<PaymentSubscriptionUpdateEventData> adapterPaymentSubscriptionUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentSubscriptionUpdateEventData.class));
             final TypeAdapter<PaymentPayoutEvent> adapterPaymentPayoutEvent = gson.getDelegateAdapter(this, TypeToken.get(PaymentPayoutEvent.class));
             final TypeAdapter<PaymentBankWithdrawalEvent> adapterPaymentBankWithdrawalEvent = gson.getDelegateAdapter(this, TypeToken.get(PaymentBankWithdrawalEvent.class));
             final TypeAdapter<PaymentBulkSendEvent> adapterPaymentBulkSendEvent = gson.getDelegateAdapter(this, TypeToken.get(PaymentBulkSendEvent.class));
             final TypeAdapter<PaymentBulkSendItemEvent> adapterPaymentBulkSendItemEvent = gson.getDelegateAdapter(this, TypeToken.get(PaymentBulkSendItemEvent.class));
+            final TypeAdapter<PaymentTopUpUpdateEventData> adapterPaymentTopUpUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentTopUpUpdateEventData.class));
+            final TypeAdapter<PaymentOrderUpdateEventData> adapterPaymentOrderUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentOrderUpdateEventData.class));
+            final TypeAdapter<PaymentRefundUpdateEventData> adapterPaymentRefundUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentRefundUpdateEventData.class));
+            final TypeAdapter<PaymentPayoutUpdateEventData> adapterPaymentPayoutUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentPayoutUpdateEventData.class));
+            final TypeAdapter<PaymentBulkSendUpdateEventData> adapterPaymentBulkSendUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentBulkSendUpdateEventData.class));
+            final TypeAdapter<PaymentBulkSendItemUpdateEventData> adapterPaymentBulkSendItemUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentBulkSendItemUpdateEventData.class));
             final TypeAdapter<PaymentAccountBalanceUpdateEventData> adapterPaymentAccountBalanceUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(PaymentAccountBalanceUpdateEventData.class));
             final TypeAdapter<ComplianceDispositionUpdateEventData> adapterComplianceDispositionUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(ComplianceDispositionUpdateEventData.class));
             final TypeAdapter<ComplianceKytScreeningsUpdateEventData> adapterComplianceKytScreeningsUpdateEventData = gson.getDelegateAdapter(this, TypeToken.get(ComplianceKytScreeningsUpdateEventData.class));
@@ -266,6 +291,18 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `PaymentChargeUpdateEventData`
+                    if (value.getActualInstance() instanceof PaymentChargeUpdateEventData) {
+                        JsonElement element = adapterPaymentChargeUpdateEventData.toJsonTree((PaymentChargeUpdateEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `PaymentSubscriptionUpdateEventData`
+                    if (value.getActualInstance() instanceof PaymentSubscriptionUpdateEventData) {
+                        JsonElement element = adapterPaymentSubscriptionUpdateEventData.toJsonTree((PaymentSubscriptionUpdateEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `PaymentPayoutEvent`
                     if (value.getActualInstance() instanceof PaymentPayoutEvent) {
                         JsonElement element = adapterPaymentPayoutEvent.toJsonTree((PaymentPayoutEvent)value.getActualInstance());
@@ -287,6 +324,42 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `PaymentBulkSendItemEvent`
                     if (value.getActualInstance() instanceof PaymentBulkSendItemEvent) {
                         JsonElement element = adapterPaymentBulkSendItemEvent.toJsonTree((PaymentBulkSendItemEvent)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `PaymentTopUpUpdateEventData`
+                    if (value.getActualInstance() instanceof PaymentTopUpUpdateEventData) {
+                        JsonElement element = adapterPaymentTopUpUpdateEventData.toJsonTree((PaymentTopUpUpdateEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `PaymentOrderUpdateEventData`
+                    if (value.getActualInstance() instanceof PaymentOrderUpdateEventData) {
+                        JsonElement element = adapterPaymentOrderUpdateEventData.toJsonTree((PaymentOrderUpdateEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `PaymentRefundUpdateEventData`
+                    if (value.getActualInstance() instanceof PaymentRefundUpdateEventData) {
+                        JsonElement element = adapterPaymentRefundUpdateEventData.toJsonTree((PaymentRefundUpdateEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `PaymentPayoutUpdateEventData`
+                    if (value.getActualInstance() instanceof PaymentPayoutUpdateEventData) {
+                        JsonElement element = adapterPaymentPayoutUpdateEventData.toJsonTree((PaymentPayoutUpdateEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `PaymentBulkSendUpdateEventData`
+                    if (value.getActualInstance() instanceof PaymentBulkSendUpdateEventData) {
+                        JsonElement element = adapterPaymentBulkSendUpdateEventData.toJsonTree((PaymentBulkSendUpdateEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `PaymentBulkSendItemUpdateEventData`
+                    if (value.getActualInstance() instanceof PaymentBulkSendItemUpdateEventData) {
+                        JsonElement element = adapterPaymentBulkSendItemUpdateEventData.toJsonTree((PaymentBulkSendItemUpdateEventData)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -326,7 +399,7 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentOrderEventData, PaymentPayoutEvent, PaymentRefundEventData, PaymentSettlementEvent, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentBulkSendItemUpdateEventData, PaymentBulkSendUpdateEventData, PaymentChargeUpdateEventData, PaymentOrderEventData, PaymentOrderUpdateEventData, PaymentPayoutEvent, PaymentPayoutUpdateEventData, PaymentRefundEventData, PaymentRefundUpdateEventData, PaymentSettlementEvent, PaymentSubscriptionUpdateEventData, PaymentTopUpUpdateEventData, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData");
                 }
 
                 @Override
@@ -399,20 +472,52 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                                 deserialized = adapterPaymentBulkSendItemEvent.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
+                            case "PaymentBulkSendItemUpdate":
+                                deserialized = adapterPaymentBulkSendItemUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "PaymentBulkSendUpdate":
+                                deserialized = adapterPaymentBulkSendUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "PaymentChargeUpdate":
+                                deserialized = adapterPaymentChargeUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
                             case "PaymentOrder":
                                 deserialized = adapterPaymentOrderEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "PaymentOrderUpdate":
+                                deserialized = adapterPaymentOrderUpdateEventData.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
                             case "PaymentPayout":
                                 deserialized = adapterPaymentPayoutEvent.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
+                            case "PaymentPayoutUpdate":
+                                deserialized = adapterPaymentPayoutUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
                             case "PaymentRefund":
                                 deserialized = adapterPaymentRefundEventData.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
+                            case "PaymentRefundUpdate":
+                                deserialized = adapterPaymentRefundUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
                             case "PaymentSettlement":
                                 deserialized = adapterPaymentSettlementEvent.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "PaymentSubscriptionUpdate":
+                                deserialized = adapterPaymentSubscriptionUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "PaymentTopUpUpdate":
+                                deserialized = adapterPaymentTopUpUpdateEventData.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
                             case "PaymentTransaction":
@@ -499,20 +604,52 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                                 deserialized = adapterPaymentBulkSendItemEvent.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
+                            case "PaymentBulkSendItemUpdateEventData":
+                                deserialized = adapterPaymentBulkSendItemUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "PaymentBulkSendUpdateEventData":
+                                deserialized = adapterPaymentBulkSendUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "PaymentChargeUpdateEventData":
+                                deserialized = adapterPaymentChargeUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
                             case "PaymentOrderEventData":
                                 deserialized = adapterPaymentOrderEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "PaymentOrderUpdateEventData":
+                                deserialized = adapterPaymentOrderUpdateEventData.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
                             case "PaymentPayoutEvent":
                                 deserialized = adapterPaymentPayoutEvent.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
+                            case "PaymentPayoutUpdateEventData":
+                                deserialized = adapterPaymentPayoutUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
                             case "PaymentRefundEventData":
                                 deserialized = adapterPaymentRefundEventData.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
+                            case "PaymentRefundUpdateEventData":
+                                deserialized = adapterPaymentRefundUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
                             case "PaymentSettlementEvent":
                                 deserialized = adapterPaymentSettlementEvent.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "PaymentSubscriptionUpdateEventData":
+                                deserialized = adapterPaymentSubscriptionUpdateEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "PaymentTopUpUpdateEventData":
+                                deserialized = adapterPaymentTopUpUpdateEventData.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
                             case "PaymentTransactionEventData":
@@ -544,7 +681,7 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for WebhookEventData. Possible values: Addresses BalanceUpdateInfo Chains ComplianceDisposition ComplianceKyaScreenings ComplianceKytScreenings FiatTransaction MPCVault Organization PaymentAccountBalanceUpdate PaymentAddressUpdate PaymentBankWithdrawal PaymentBulkSend PaymentBulkSendItem PaymentOrder PaymentPayout PaymentRefund PaymentSettlement PaymentTransaction SuspendedToken TSSRequest TokenListing Tokens Transaction WalletInfo AddressesEventData BalanceUpdateInfoEventData ChainsEventData ComplianceDispositionUpdateEventData ComplianceKyaScreeningsUpdateEventData ComplianceKytScreeningsUpdateEventData FiatTransactionEventData MPCVaultEventData OrganizationEventData PaymentAccountBalanceUpdateEventData PaymentAddressUpdateEventData PaymentBankWithdrawalEvent PaymentBulkSendEvent PaymentBulkSendItemEvent PaymentOrderEventData PaymentPayoutEvent PaymentRefundEventData PaymentSettlementEvent PaymentTransactionEventData SuspendedTokenEventData TSSRequestWebhookEventData TokenListingEventData TokensEventData TransactionWebhookEventData WalletInfoEventData", jsonObject.get("data_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for WebhookEventData. Possible values: Addresses BalanceUpdateInfo Chains ComplianceDisposition ComplianceKyaScreenings ComplianceKytScreenings FiatTransaction MPCVault Organization PaymentAccountBalanceUpdate PaymentAddressUpdate PaymentBankWithdrawal PaymentBulkSend PaymentBulkSendItem PaymentBulkSendItemUpdate PaymentBulkSendUpdate PaymentChargeUpdate PaymentOrder PaymentOrderUpdate PaymentPayout PaymentPayoutUpdate PaymentRefund PaymentRefundUpdate PaymentSettlement PaymentSubscriptionUpdate PaymentTopUpUpdate PaymentTransaction SuspendedToken TSSRequest TokenListing Tokens Transaction WalletInfo AddressesEventData BalanceUpdateInfoEventData ChainsEventData ComplianceDispositionUpdateEventData ComplianceKyaScreeningsUpdateEventData ComplianceKytScreeningsUpdateEventData FiatTransactionEventData MPCVaultEventData OrganizationEventData PaymentAccountBalanceUpdateEventData PaymentAddressUpdateEventData PaymentBankWithdrawalEvent PaymentBulkSendEvent PaymentBulkSendItemEvent PaymentBulkSendItemUpdateEventData PaymentBulkSendUpdateEventData PaymentChargeUpdateEventData PaymentOrderEventData PaymentOrderUpdateEventData PaymentPayoutEvent PaymentPayoutUpdateEventData PaymentRefundEventData PaymentRefundUpdateEventData PaymentSettlementEvent PaymentSubscriptionUpdateEventData PaymentTopUpUpdateEventData PaymentTransactionEventData SuspendedTokenEventData TSSRequestWebhookEventData TokenListingEventData TokensEventData TransactionWebhookEventData WalletInfoEventData", jsonObject.get("data_type").getAsString()));
                         }
                     }
 
@@ -732,6 +869,30 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for PaymentAddressUpdateEventData failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'PaymentAddressUpdateEventData'", e);
                     }
+                    // deserialize PaymentChargeUpdateEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentChargeUpdateEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPaymentChargeUpdateEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentChargeUpdateEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for PaymentChargeUpdateEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentChargeUpdateEventData'", e);
+                    }
+                    // deserialize PaymentSubscriptionUpdateEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentSubscriptionUpdateEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPaymentSubscriptionUpdateEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentSubscriptionUpdateEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for PaymentSubscriptionUpdateEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentSubscriptionUpdateEventData'", e);
+                    }
                     // deserialize PaymentPayoutEvent
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -779,6 +940,78 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for PaymentBulkSendItemEvent failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'PaymentBulkSendItemEvent'", e);
+                    }
+                    // deserialize PaymentTopUpUpdateEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentTopUpUpdateEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPaymentTopUpUpdateEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentTopUpUpdateEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for PaymentTopUpUpdateEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentTopUpUpdateEventData'", e);
+                    }
+                    // deserialize PaymentOrderUpdateEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentOrderUpdateEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPaymentOrderUpdateEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentOrderUpdateEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for PaymentOrderUpdateEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentOrderUpdateEventData'", e);
+                    }
+                    // deserialize PaymentRefundUpdateEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentRefundUpdateEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPaymentRefundUpdateEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentRefundUpdateEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for PaymentRefundUpdateEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentRefundUpdateEventData'", e);
+                    }
+                    // deserialize PaymentPayoutUpdateEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentPayoutUpdateEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPaymentPayoutUpdateEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentPayoutUpdateEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for PaymentPayoutUpdateEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentPayoutUpdateEventData'", e);
+                    }
+                    // deserialize PaymentBulkSendUpdateEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentBulkSendUpdateEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPaymentBulkSendUpdateEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentBulkSendUpdateEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for PaymentBulkSendUpdateEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentBulkSendUpdateEventData'", e);
+                    }
+                    // deserialize PaymentBulkSendItemUpdateEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        PaymentBulkSendItemUpdateEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPaymentBulkSendItemUpdateEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PaymentBulkSendItemUpdateEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for PaymentBulkSendItemUpdateEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PaymentBulkSendItemUpdateEventData'", e);
                     }
                     // deserialize PaymentAccountBalanceUpdateEventData
                     try {
@@ -942,7 +1175,27 @@ public class WebhookEventData extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public WebhookEventData(PaymentBulkSendItemUpdateEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WebhookEventData(PaymentBulkSendUpdateEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WebhookEventData(PaymentChargeUpdateEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public WebhookEventData(PaymentOrderEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WebhookEventData(PaymentOrderUpdateEventData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -952,12 +1205,32 @@ public class WebhookEventData extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public WebhookEventData(PaymentPayoutUpdateEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public WebhookEventData(PaymentRefundEventData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
+    public WebhookEventData(PaymentRefundUpdateEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public WebhookEventData(PaymentSettlementEvent o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WebhookEventData(PaymentSubscriptionUpdateEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WebhookEventData(PaymentTopUpUpdateEventData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -1013,10 +1286,18 @@ public class WebhookEventData extends AbstractOpenApiSchema {
         schemas.put("PaymentSettlementEvent", PaymentSettlementEvent.class);
         schemas.put("PaymentTransactionEventData", PaymentTransactionEventData.class);
         schemas.put("PaymentAddressUpdateEventData", PaymentAddressUpdateEventData.class);
+        schemas.put("PaymentChargeUpdateEventData", PaymentChargeUpdateEventData.class);
+        schemas.put("PaymentSubscriptionUpdateEventData", PaymentSubscriptionUpdateEventData.class);
         schemas.put("PaymentPayoutEvent", PaymentPayoutEvent.class);
         schemas.put("PaymentBankWithdrawalEvent", PaymentBankWithdrawalEvent.class);
         schemas.put("PaymentBulkSendEvent", PaymentBulkSendEvent.class);
         schemas.put("PaymentBulkSendItemEvent", PaymentBulkSendItemEvent.class);
+        schemas.put("PaymentTopUpUpdateEventData", PaymentTopUpUpdateEventData.class);
+        schemas.put("PaymentOrderUpdateEventData", PaymentOrderUpdateEventData.class);
+        schemas.put("PaymentRefundUpdateEventData", PaymentRefundUpdateEventData.class);
+        schemas.put("PaymentPayoutUpdateEventData", PaymentPayoutUpdateEventData.class);
+        schemas.put("PaymentBulkSendUpdateEventData", PaymentBulkSendUpdateEventData.class);
+        schemas.put("PaymentBulkSendItemUpdateEventData", PaymentBulkSendItemUpdateEventData.class);
         schemas.put("PaymentAccountBalanceUpdateEventData", PaymentAccountBalanceUpdateEventData.class);
         schemas.put("ComplianceDispositionUpdateEventData", ComplianceDispositionUpdateEventData.class);
         schemas.put("ComplianceKytScreeningsUpdateEventData", ComplianceKytScreeningsUpdateEventData.class);
@@ -1033,7 +1314,7 @@ public class WebhookEventData extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentOrderEventData, PaymentPayoutEvent, PaymentRefundEventData, PaymentSettlementEvent, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData
+     * AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentBulkSendItemUpdateEventData, PaymentBulkSendUpdateEventData, PaymentChargeUpdateEventData, PaymentOrderEventData, PaymentOrderUpdateEventData, PaymentPayoutEvent, PaymentPayoutUpdateEventData, PaymentRefundEventData, PaymentRefundUpdateEventData, PaymentSettlementEvent, PaymentSubscriptionUpdateEventData, PaymentTopUpUpdateEventData, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -1114,6 +1395,16 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof PaymentChargeUpdateEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof PaymentSubscriptionUpdateEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof PaymentPayoutEvent) {
             super.setActualInstance(instance);
             return;
@@ -1130,6 +1421,36 @@ public class WebhookEventData extends AbstractOpenApiSchema {
         }
 
         if (instance instanceof PaymentBulkSendItemEvent) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof PaymentTopUpUpdateEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof PaymentOrderUpdateEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof PaymentRefundUpdateEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof PaymentPayoutUpdateEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof PaymentBulkSendUpdateEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof PaymentBulkSendItemUpdateEventData) {
             super.setActualInstance(instance);
             return;
         }
@@ -1164,14 +1485,14 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentOrderEventData, PaymentPayoutEvent, PaymentRefundEventData, PaymentSettlementEvent, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData");
+        throw new RuntimeException("Invalid instance type. Must be AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentBulkSendItemUpdateEventData, PaymentBulkSendUpdateEventData, PaymentChargeUpdateEventData, PaymentOrderEventData, PaymentOrderUpdateEventData, PaymentPayoutEvent, PaymentPayoutUpdateEventData, PaymentRefundEventData, PaymentRefundUpdateEventData, PaymentSettlementEvent, PaymentSubscriptionUpdateEventData, PaymentTopUpUpdateEventData, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentOrderEventData, PaymentPayoutEvent, PaymentRefundEventData, PaymentSettlementEvent, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData
+     * AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentBulkSendItemUpdateEventData, PaymentBulkSendUpdateEventData, PaymentChargeUpdateEventData, PaymentOrderEventData, PaymentOrderUpdateEventData, PaymentPayoutEvent, PaymentPayoutUpdateEventData, PaymentRefundEventData, PaymentRefundUpdateEventData, PaymentSettlementEvent, PaymentSubscriptionUpdateEventData, PaymentTopUpUpdateEventData, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData
      *
-     * @return The actual instance (AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentOrderEventData, PaymentPayoutEvent, PaymentRefundEventData, PaymentSettlementEvent, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData)
+     * @return The actual instance (AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentBulkSendItemUpdateEventData, PaymentBulkSendUpdateEventData, PaymentChargeUpdateEventData, PaymentOrderEventData, PaymentOrderUpdateEventData, PaymentPayoutEvent, PaymentPayoutUpdateEventData, PaymentRefundEventData, PaymentRefundUpdateEventData, PaymentSettlementEvent, PaymentSubscriptionUpdateEventData, PaymentTopUpUpdateEventData, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -1330,6 +1651,26 @@ public class WebhookEventData extends AbstractOpenApiSchema {
         return (PaymentAddressUpdateEventData)super.getActualInstance();
     }
     /**
+     * Get the actual instance of `PaymentChargeUpdateEventData`. If the actual instance is not `PaymentChargeUpdateEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentChargeUpdateEventData`
+     * @throws ClassCastException if the instance is not `PaymentChargeUpdateEventData`
+     */
+    public PaymentChargeUpdateEventData getPaymentChargeUpdateEventData() throws ClassCastException {
+        return (PaymentChargeUpdateEventData)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `PaymentSubscriptionUpdateEventData`. If the actual instance is not `PaymentSubscriptionUpdateEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentSubscriptionUpdateEventData`
+     * @throws ClassCastException if the instance is not `PaymentSubscriptionUpdateEventData`
+     */
+    public PaymentSubscriptionUpdateEventData getPaymentSubscriptionUpdateEventData() throws ClassCastException {
+        return (PaymentSubscriptionUpdateEventData)super.getActualInstance();
+    }
+    /**
      * Get the actual instance of `PaymentPayoutEvent`. If the actual instance is not `PaymentPayoutEvent`,
      * the ClassCastException will be thrown.
      *
@@ -1368,6 +1709,66 @@ public class WebhookEventData extends AbstractOpenApiSchema {
      */
     public PaymentBulkSendItemEvent getPaymentBulkSendItemEvent() throws ClassCastException {
         return (PaymentBulkSendItemEvent)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `PaymentTopUpUpdateEventData`. If the actual instance is not `PaymentTopUpUpdateEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentTopUpUpdateEventData`
+     * @throws ClassCastException if the instance is not `PaymentTopUpUpdateEventData`
+     */
+    public PaymentTopUpUpdateEventData getPaymentTopUpUpdateEventData() throws ClassCastException {
+        return (PaymentTopUpUpdateEventData)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `PaymentOrderUpdateEventData`. If the actual instance is not `PaymentOrderUpdateEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentOrderUpdateEventData`
+     * @throws ClassCastException if the instance is not `PaymentOrderUpdateEventData`
+     */
+    public PaymentOrderUpdateEventData getPaymentOrderUpdateEventData() throws ClassCastException {
+        return (PaymentOrderUpdateEventData)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `PaymentRefundUpdateEventData`. If the actual instance is not `PaymentRefundUpdateEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentRefundUpdateEventData`
+     * @throws ClassCastException if the instance is not `PaymentRefundUpdateEventData`
+     */
+    public PaymentRefundUpdateEventData getPaymentRefundUpdateEventData() throws ClassCastException {
+        return (PaymentRefundUpdateEventData)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `PaymentPayoutUpdateEventData`. If the actual instance is not `PaymentPayoutUpdateEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentPayoutUpdateEventData`
+     * @throws ClassCastException if the instance is not `PaymentPayoutUpdateEventData`
+     */
+    public PaymentPayoutUpdateEventData getPaymentPayoutUpdateEventData() throws ClassCastException {
+        return (PaymentPayoutUpdateEventData)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `PaymentBulkSendUpdateEventData`. If the actual instance is not `PaymentBulkSendUpdateEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentBulkSendUpdateEventData`
+     * @throws ClassCastException if the instance is not `PaymentBulkSendUpdateEventData`
+     */
+    public PaymentBulkSendUpdateEventData getPaymentBulkSendUpdateEventData() throws ClassCastException {
+        return (PaymentBulkSendUpdateEventData)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `PaymentBulkSendItemUpdateEventData`. If the actual instance is not `PaymentBulkSendItemUpdateEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PaymentBulkSendItemUpdateEventData`
+     * @throws ClassCastException if the instance is not `PaymentBulkSendItemUpdateEventData`
+     */
+    public PaymentBulkSendItemUpdateEventData getPaymentBulkSendItemUpdateEventData() throws ClassCastException {
+        return (PaymentBulkSendItemUpdateEventData)super.getActualInstance();
     }
     /**
      * Get the actual instance of `PaymentAccountBalanceUpdateEventData`. If the actual instance is not `PaymentAccountBalanceUpdateEventData`,
@@ -1560,6 +1961,22 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for PaymentAddressUpdateEventData failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with PaymentChargeUpdateEventData
+        try {
+            PaymentChargeUpdateEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for PaymentChargeUpdateEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with PaymentSubscriptionUpdateEventData
+        try {
+            PaymentSubscriptionUpdateEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for PaymentSubscriptionUpdateEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with PaymentPayoutEvent
         try {
             PaymentPayoutEvent.validateJsonElement(jsonElement);
@@ -1590,6 +2007,54 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             validCount++;
         } catch (Exception e) {
             errorMessages.add(String.format("Deserialization for PaymentBulkSendItemEvent failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with PaymentTopUpUpdateEventData
+        try {
+            PaymentTopUpUpdateEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for PaymentTopUpUpdateEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with PaymentOrderUpdateEventData
+        try {
+            PaymentOrderUpdateEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for PaymentOrderUpdateEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with PaymentRefundUpdateEventData
+        try {
+            PaymentRefundUpdateEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for PaymentRefundUpdateEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with PaymentPayoutUpdateEventData
+        try {
+            PaymentPayoutUpdateEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for PaymentPayoutUpdateEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with PaymentBulkSendUpdateEventData
+        try {
+            PaymentBulkSendUpdateEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for PaymentBulkSendUpdateEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with PaymentBulkSendItemUpdateEventData
+        try {
+            PaymentBulkSendItemUpdateEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for PaymentBulkSendItemUpdateEventData failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with PaymentAccountBalanceUpdateEventData
@@ -1641,7 +2106,7 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for WebhookEventData with oneOf schemas: AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentOrderEventData, PaymentPayoutEvent, PaymentRefundEventData, PaymentSettlementEvent, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for WebhookEventData with oneOf schemas: AddressesEventData, BalanceUpdateInfoEventData, ChainsEventData, ComplianceDispositionUpdateEventData, ComplianceKyaScreeningsUpdateEventData, ComplianceKytScreeningsUpdateEventData, FiatTransactionEventData, MPCVaultEventData, OrganizationEventData, PaymentAccountBalanceUpdateEventData, PaymentAddressUpdateEventData, PaymentBankWithdrawalEvent, PaymentBulkSendEvent, PaymentBulkSendItemEvent, PaymentBulkSendItemUpdateEventData, PaymentBulkSendUpdateEventData, PaymentChargeUpdateEventData, PaymentOrderEventData, PaymentOrderUpdateEventData, PaymentPayoutEvent, PaymentPayoutUpdateEventData, PaymentRefundEventData, PaymentRefundUpdateEventData, PaymentSettlementEvent, PaymentSubscriptionUpdateEventData, PaymentTopUpUpdateEventData, PaymentTransactionEventData, SuspendedTokenEventData, TSSRequestWebhookEventData, TokenListingEventData, TokensEventData, TransactionWebhookEventData, WalletInfoEventData. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

@@ -9,7 +9,7 @@ The webhook event payload.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**channelId** | **String** | Identifier for the client/organization. Corresponds to organization_id in Cobo Portal. |  |
-|**type** | **WebhookEventType** |  |  |
+|**type** | **String** | The event type. |  |
 |**data** | **Map&lt;String, Object&gt;** | The event payload object. |  |
 |**uuid** | **UUID** | Unique event identifier. |  |
 |**walletScopesInfo** | **Map&lt;String, Object&gt;** | Wallet scope information. |  [optional] |

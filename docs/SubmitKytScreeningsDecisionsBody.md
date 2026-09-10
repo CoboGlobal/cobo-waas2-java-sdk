@@ -2,7 +2,7 @@
 
 # SubmitKytScreeningsDecisionsBody
 
-The KYT screening decision submission containing the transaction ID and the screening decision based on an external compliance review.
+The KYT screening decision submission containing transaction ID and compliance determination result.
 
 ## Properties
 

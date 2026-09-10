@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The policy field operator. Possible values include:    - &#x60;&gt;&#x60;: Greater than.   - &#x60;&gt;&#x3D;&#x60;: Greater than or equal.   - &#x60;&lt;&#x60;: Less than.   - &#x60;&lt;&#x3D;&#x60;: Less than or equal.   - &#x60;&#x3D;&#x60;: Equal. 
+ * The app policy action type. Possible values include:    - &#x60;&gt;&#x60;: The operator is bigger.   - &#39;&gt;&#x3D;&#39;: The operator is bigger or equal    - &#39;&lt;&#39;: The operator is smaller.   - &#x60;&lt;&#x3D;&#x60;: The operator is smaller or equal.   - &#x60;&#x3D;&#x60;: The operator is equal. 
  */
 @JsonAdapter(PolicyFieldOperator.Adapter.class)
 public enum PolicyFieldOperator {

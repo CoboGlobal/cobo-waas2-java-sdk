@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The result of a manual KYT review performed by compliance officers.  - &#x60;Approval&#x60;: Transaction is approved after manual review and can proceed - &#x60;Rejection&#x60;: Transaction is rejected due to compliance concerns and should be blocked  This field represents the final decision made by human reviewers for transactions that required manual intervention during the KYT screening process. 
+ * The result of manual KYT screening review performed by compliance officers.  - &#x60;Approval&#x60;: Transaction is approved after manual review and can proceed - &#x60;Rejection&#x60;: Transaction is rejected due to compliance concerns and should be blocked  This field represents the final decision made by human reviewers for transactions that required manual intervention during the KYT screening process. 
  */
 @JsonAdapter(KytScreeningsReviewType.Adapter.class)
 public enum KytScreeningsReviewType {

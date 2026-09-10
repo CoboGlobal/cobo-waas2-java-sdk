@@ -8,7 +8,7 @@ Beneficiary detail for creating a third-party beneficiary.  For USD company bank
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**companyName** | **String** | The company name of the beneficiary. Cannot be a pure number or contain Chinese characters.  |  |
+|**beneficiaryName** | **String** | The name of the beneficiary. This field is optional. Cannot be a pure number or contain Chinese characters.  |  [optional] |
 |**streetAddress** | **String** | The street address of the beneficiary. Cannot be a pure number or contain Chinese characters.  |  |
 |**city** | **String** | The city of the beneficiary. Required when &#x60;payment_method&#x60; is &#x60;Swift&#x60;. Cannot be a pure number or contain Chinese characters.  |  [optional] |
 |**province** | **String** | The province or state of the beneficiary. Required when &#x60;payment_method&#x60; is &#x60;Swift&#x60;. Cannot be a pure number or contain Chinese characters.  |  [optional] |

@@ -9,7 +9,7 @@ The transaction fee rate based on the legacy fee model.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**feeType** | **FeeType** |  |  |
-|**tokenId** | **String** | The token used to pay the transaction fee. |  |
+|**tokenId** | **String** | The token ID of the transaction fee. |  |
 |**slow** | [**EvmLegacyFeeBasePrice**](EvmLegacyFeeBasePrice.md) |  |  [optional] |
 |**recommended** | [**EvmLegacyFeeBasePrice**](EvmLegacyFeeBasePrice.md) |  |  |
 |**fast** | [**EvmLegacyFeeBasePrice**](EvmLegacyFeeBasePrice.md) |  |  [optional] |

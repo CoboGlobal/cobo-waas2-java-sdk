@@ -52,9 +52,9 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class ThirdPartyBeneficiaryDetail {
-  public static final String SERIALIZED_NAME_COMPANY_NAME = "company_name";
-  @SerializedName(SERIALIZED_NAME_COMPANY_NAME)
-  private String companyName;
+  public static final String SERIALIZED_NAME_BENEFICIARY_NAME = "beneficiary_name";
+  @SerializedName(SERIALIZED_NAME_BENEFICIARY_NAME)
+  private String beneficiaryName;
 
   public static final String SERIALIZED_NAME_STREET_ADDRESS = "street_address";
   @SerializedName(SERIALIZED_NAME_STREET_ADDRESS)
@@ -75,22 +75,22 @@ public class ThirdPartyBeneficiaryDetail {
   public ThirdPartyBeneficiaryDetail() {
   }
 
-  public ThirdPartyBeneficiaryDetail companyName(String companyName) {
-    this.companyName = companyName;
+  public ThirdPartyBeneficiaryDetail beneficiaryName(String beneficiaryName) {
+    this.beneficiaryName = beneficiaryName;
     return this;
   }
 
    /**
-   * The company name of the beneficiary. Cannot be a pure number or contain Chinese characters. 
-   * @return companyName
+   * The name of the beneficiary. This field is optional. Cannot be a pure number or contain Chinese characters. 
+   * @return beneficiaryName
   **/
-  @javax.annotation.Nonnull
-  public String getCompanyName() {
-    return companyName;
+  @javax.annotation.Nullable
+  public String getBeneficiaryName() {
+    return beneficiaryName;
   }
 
-  public void setCompanyName(String companyName) {
-    this.companyName = companyName;
+  public void setBeneficiaryName(String beneficiaryName) {
+    this.beneficiaryName = beneficiaryName;
   }
 
 
@@ -224,7 +224,7 @@ public class ThirdPartyBeneficiaryDetail {
       return false;
     }
     ThirdPartyBeneficiaryDetail thirdPartyBeneficiaryDetail = (ThirdPartyBeneficiaryDetail) o;
-    return Objects.equals(this.companyName, thirdPartyBeneficiaryDetail.companyName) &&
+    return Objects.equals(this.beneficiaryName, thirdPartyBeneficiaryDetail.beneficiaryName) &&
         Objects.equals(this.streetAddress, thirdPartyBeneficiaryDetail.streetAddress) &&
         Objects.equals(this.city, thirdPartyBeneficiaryDetail.city) &&
         Objects.equals(this.province, thirdPartyBeneficiaryDetail.province) &&
@@ -234,14 +234,14 @@ public class ThirdPartyBeneficiaryDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyName, streetAddress, city, province, postCode, additionalProperties);
+    return Objects.hash(beneficiaryName, streetAddress, city, province, postCode, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ThirdPartyBeneficiaryDetail {\n");
-    sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
+    sb.append("    beneficiaryName: ").append(toIndentedString(beneficiaryName)).append("\n");
     sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
@@ -269,7 +269,7 @@ public class ThirdPartyBeneficiaryDetail {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("company_name");
+    openapiFields.add("beneficiary_name");
     openapiFields.add("street_address");
     openapiFields.add("city");
     openapiFields.add("province");
@@ -277,7 +277,6 @@ public class ThirdPartyBeneficiaryDetail {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("company_name");
     openapiRequiredFields.add("street_address");
   }
 
@@ -301,8 +300,8 @@ public class ThirdPartyBeneficiaryDetail {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("company_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `company_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("company_name").toString()));
+      if ((jsonObj.get("beneficiary_name") != null && !jsonObj.get("beneficiary_name").isJsonNull()) && !jsonObj.get("beneficiary_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `beneficiary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("beneficiary_name").toString()));
       }
       if (!jsonObj.get("street_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `street_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("street_address").toString()));

@@ -91,6 +91,14 @@ public class EstimateFeeParamsTest {
     }
 
     /**
+     * Test the property 'feeTokenId'
+     */
+    @Test
+    public void feeTokenIdTest() {
+        // TODO: test feeTokenId
+    }
+
+    /**
      * Test the property 'replacedTransactionId'
      */
     @Test

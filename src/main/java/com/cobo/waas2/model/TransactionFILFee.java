@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The transaction fee actually charged by the chain that uses the Filecoin fee model.  For more details about the Filecoin fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
+ * The transaction fee actually charged by the chain that uses the FIL fee model.  In the Fil fee model, the calculation method for the fee is: fee &#x3D; gas_fee_cap * gas_limit, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -155,7 +155,7 @@ public class TransactionFILFee {
   }
 
    /**
-   * The maximum amount of gas your transaction is allowed to consume.
+   * This defines the maximum amount of computational effort that a transaction is allowed to consume. It&#39;s a way to cap the resources that a transaction can use, ensuring it doesn&#39;t consume excessive network resources.
    * @return gasLimit
   **/
   @javax.annotation.Nullable
@@ -212,7 +212,7 @@ public class TransactionFILFee {
   }
 
    /**
-   * The actually charged transaction fee.
+   * The transaction fee.
    * @return feeUsed
   **/
   @javax.annotation.Nullable

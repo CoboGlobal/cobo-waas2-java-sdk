@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The preset properties to limit transaction fee.  For more information about the FIL fee model, see [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  You can specify the gas fee cap, gas premium, and gas limit to control fee behavior and prioritization.  Switch between the tabs to display the properties for different transaction fee models. 
+ * The preset properties to limit transaction fee.  In the Fil fee model, the calculation method for the fee is: fee &#x3D; gas_fee_cap * gas_limit, refer to [Fee models](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees#fee-models).  Switch between the tabs to display the properties for different transaction fee models. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -120,7 +120,7 @@ public class TransactionRequestFILFee {
   }
 
    /**
-   * The maximum amount of gas your transaction is allowed to consume.
+   * This defines the maximum amount of computational effort that a transaction is allowed to consume. It&#39;s a way to cap the resources that a transaction can use, ensuring it doesn&#39;t consume excessive network resources.
    * @return gasLimit
   **/
   @javax.annotation.Nullable
@@ -158,7 +158,7 @@ public class TransactionRequestFILFee {
   }
 
    /**
-   * The token used to pay the transaction fee.
+   * The token ID of the transaction fee.
    * @return tokenId
   **/
   @javax.annotation.Nonnull

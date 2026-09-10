@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * FILPrice
+ * The transaction gas price based on the FIL fee model.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -111,7 +111,7 @@ public class FILPrice {
   }
 
    /**
-   * The maximum amount of gas your transaction is allowed to consume.
+   * This defines the maximum amount of computational effort that a transaction is allowed to consume. It&#39;s a way to cap the resources that a transaction can use, ensuring it doesn&#39;t consume excessive network resources.
    * @return gasLimit
   **/
   @javax.annotation.Nullable

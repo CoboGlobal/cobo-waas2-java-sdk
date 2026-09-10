@@ -17,6 +17,7 @@ import com.cobo.waas2.model.CosmosAdr36MessageSignDestination;
 import com.cobo.waas2.model.EvmEIP191MessageSignDestination;
 import com.cobo.waas2.model.EvmEIP712MessageSignDestination;
 import com.cobo.waas2.model.MessageSignDestinationType;
+import com.cobo.waas2.model.RawMessageSignDestination;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -65,6 +66,14 @@ public class MessageSignDestinationTest {
     @Test
     public void structuredDataTest() {
         // TODO: test structuredData
+    }
+
+    /**
+     * Test the property 'msgHash'
+     */
+    @Test
+    public void msgHashTest() {
+        // TODO: test msgHash
     }
 
     /**

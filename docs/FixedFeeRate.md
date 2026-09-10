@@ -10,7 +10,7 @@ The transaction fee that you need to pay based on the fixed fee model for some b
 |------------ | ------------- | ------------- | -------------|
 |**feeAmount** | **String** | The transaction fee that you need to pay for the transaction. |  [optional] |
 |**feeType** | **FeeType** |  |  |
-|**tokenId** | **String** | The token used to pay the transaction fee. |  |
+|**tokenId** | **String** | The token ID of the transaction fee. |  |
 
 
 

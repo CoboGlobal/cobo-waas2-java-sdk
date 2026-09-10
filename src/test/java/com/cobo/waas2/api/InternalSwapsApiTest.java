@@ -14,6 +14,8 @@ package com.cobo.waas2.api;
 import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.BatchLimitsAndLiquidityRequest;
+import com.cobo.waas2.model.BatchLimitsAndLiquidityResponse;
 import com.cobo.waas2.model.CheckSwapWalletAddress200Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ListSwapReachableTokens200Response;
@@ -40,6 +42,20 @@ public class InternalSwapsApiTest {
         defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     }
     private final InternalSwapsApi api = new InternalSwapsApi();
+
+    /**
+     * Batch Get Swap Limits and Liquidity
+     *
+     * This operation retrieves the trading limits and available liquidity for up to 50 swap trading pairs in a single request. Only the pay/receive token pair varies per item - &#x60;wallet_id&#x60;, &#x60;wallet_type&#x60;, and &#x60;wallet_subtype&#x60; are request-level fields applied to every pair in the batch, not per item. Each result item echoes back the &#x60;pay_token_id&#x60; and &#x60;receive_token_id&#x60; from its request item so callers can match results to the pair they asked about. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void batchGetSwapLimitsAndLiquidityInternallyTest() throws ApiException {
+        BatchLimitsAndLiquidityRequest batchLimitsAndLiquidityRequest = null;
+        BatchLimitsAndLiquidityResponse response = api.batchGetSwapLimitsAndLiquidityInternally(batchLimitsAndLiquidityRequest);
+        // TODO: test validations
+    }
 
     /**
      * Check Swap Address

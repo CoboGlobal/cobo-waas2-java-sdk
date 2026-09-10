@@ -6,6 +6,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 |------------- | ------------- | -------------|
 | [**addCoboPaidToken**](InternalFeeStationApi.md#addCoboPaidToken) | **POST** /internal/fee_station/add_cobo_paid_token | Append Cobo-paid tokens |
 | [**chargeCommissionFee**](InternalFeeStationApi.md#chargeCommissionFee) | **POST** /internal/fee_station/charge_commission_fee | Charge commission fee |
+| [**getCommissionFeeByRequestId**](InternalFeeStationApi.md#getCommissionFeeByRequestId) | **GET** /internal/fee_station/commission_fee | Get commission fee by request ID |
 | [**getFeeStationDetail**](InternalFeeStationApi.md#getFeeStationDetail) | **GET** /internal/fee_station | Get FeeStation Detail |
 | [**getFeeStationSystemConf**](InternalFeeStationApi.md#getFeeStationSystemConf) | **GET** /internal/fee_station/system_conf | Get FeeStation System Config |
 | [**listFeeStationUnifiedTransactions**](InternalFeeStationApi.md#listFeeStationUnifiedTransactions) | **GET** /internal/fee_station/unified_transactions | List fee station unified transactions |
@@ -145,6 +146,74 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="getCommissionFeeByRequestId"></a>
+# **getCommissionFeeByRequestId**
+> CommissionFeeDetail getCommissionFeeByRequestId(requestId)
+
+Get commission fee by request ID
+
+This operation retrieves the commission fee detail by the commission fee request ID used when charging the commission fee. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.InternalFeeStationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    InternalFeeStationApi apiInstance = new InternalFeeStationApi();
+    String requestId = "commission_fee_request_1234567890";
+    try {
+      CommissionFeeDetail result = apiInstance.getCommissionFeeByRequestId(requestId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InternalFeeStationApi#getCommissionFeeByRequestId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestId** | **String**| The commission fee request ID used when charging the commission fee. | |
+
+### Return type
+
+[**CommissionFeeDetail**](CommissionFeeDetail.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The commission fee detail. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 

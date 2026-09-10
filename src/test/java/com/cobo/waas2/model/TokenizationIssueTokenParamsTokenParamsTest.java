@@ -15,6 +15,7 @@ import com.cobo.waas2.model.TokenizationERC20FundTokenParams;
 import com.cobo.waas2.model.TokenizationERC20FundTokenPermissionParams;
 import com.cobo.waas2.model.TokenizationERC20TokenParams;
 import com.cobo.waas2.model.TokenizationERC20WrappedTokenParams;
+import com.cobo.waas2.model.TokenizationSOLTokenExtensions;
 import com.cobo.waas2.model.TokenizationSOLTokenParams;
 import com.cobo.waas2.model.TokenizationSOLWrappedTokenParams;
 import com.cobo.waas2.model.TokenizationTokenStandard;
@@ -96,6 +97,14 @@ public class TokenizationIssueTokenParamsTokenParamsTest {
     @Test
     public void underlyingTokenTest() {
         // TODO: test underlyingToken
+    }
+
+    /**
+     * Test the property 'extensions'
+     */
+    @Test
+    public void extensionsTest() {
+        // TODO: test extensions
     }
 
     /**

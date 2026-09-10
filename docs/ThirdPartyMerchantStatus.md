@@ -13,5 +13,7 @@
 
 * `DEACT` (value: `"Deact"`)
 
+* `DISABLED` (value: `"Disabled"`)
+
 
 

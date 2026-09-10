@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**requestId** | **String** | The request ID that is used to track a batch payout request. The request ID is provided by you and must be unique within your organization.  |  |
 |**description** | **String** | Description of the batch payout. |  |
 |**tokenId** | **String** | The ID of the cryptocurrency used for payout.  |  |
 |**payoutMode** | **BatchPayoutMode** |  |  |

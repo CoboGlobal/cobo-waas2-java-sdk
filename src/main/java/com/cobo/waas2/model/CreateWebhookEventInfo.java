@@ -13,7 +13,6 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.WebhookEventInternalStatus;
-import com.cobo.waas2.model.WebhookEventType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -68,7 +67,7 @@ public class CreateWebhookEventInfo {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private WebhookEventType type;
+  private String type;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
@@ -139,21 +138,21 @@ public class CreateWebhookEventInfo {
   }
 
 
-  public CreateWebhookEventInfo type(WebhookEventType type) {
+  public CreateWebhookEventInfo type(String type) {
     this.type = type;
     return this;
   }
 
    /**
-   * Get type
+   * The event type.
    * @return type
   **/
   @javax.annotation.Nonnull
-  public WebhookEventType getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(WebhookEventType type) {
+  public void setType(String type) {
     this.type = type;
   }
 
@@ -466,8 +465,9 @@ public class CreateWebhookEventInfo {
       if (!jsonObj.get("channel_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `channel_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("channel_id").toString()));
       }
-      // validate the required field `type`
-      WebhookEventType.validateJsonElement(jsonObj.get("type"));
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
       if (!jsonObj.get("data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data").toString()));
       }

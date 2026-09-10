@@ -2,7 +2,7 @@
 
 # SwapActivitySigners
 
-The signer information of the swap activity.
+The signer data for swap activity.
 
 ## Properties
 
@@ -10,7 +10,7 @@ The signer information of the swap activity.
 |------------ | ------------- | ------------- | -------------|
 |**signer** | **String** | The signer name. |  [optional] |
 |**status** | **SwapSingingStatus** |  |  [optional] |
-|**failedReason** | **String** | The reason for the signing failure. |  [optional] |
+|**failedReason** | **String** | Failed reason of signing process. |  [optional] |
 
 
 

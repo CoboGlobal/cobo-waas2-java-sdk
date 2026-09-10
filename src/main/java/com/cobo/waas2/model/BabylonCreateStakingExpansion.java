@@ -107,7 +107,7 @@ public class BabylonCreateStakingExpansion {
   }
 
    /**
-   * The public keys of the finality providers, with each key corresponding to a BSN chain.
+   * The public keys of the finality providers(each key for a BSN chain).
    * @return finalityProviderPublicKeys
   **/
   @javax.annotation.Nonnull

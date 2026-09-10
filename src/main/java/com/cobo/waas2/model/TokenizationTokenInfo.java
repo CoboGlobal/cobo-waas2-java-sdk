@@ -320,7 +320,7 @@ public class TokenizationTokenInfo {
   }
 
    /**
-   * Whether the token is archived. If the token is archived, no operations can be initiated on it.
+   * Whether the token is archived. If archived, no operations can be initiated on this token.
    * @return archived
   **/
   @javax.annotation.Nonnull

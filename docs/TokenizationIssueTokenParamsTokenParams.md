@@ -14,6 +14,7 @@
 |**tokenAccessActivated** | **Boolean** | Whether the allowlist feature is activated for the token. When activated, only addresses in the allowlist can perform token operations. |  [optional] |
 |**permissions** | [**TokenizationERC20FundTokenPermissionParams**](TokenizationERC20FundTokenPermissionParams.md) |  |  [optional] |
 |**underlyingToken** | **String** | The address of the underlying token that this tokenized asset represents. |  |
+|**extensions** | [**TokenizationSOLTokenExtensions**](TokenizationSOLTokenExtensions.md) |  |  [optional] |
 |**assetToken** | **String** | The address of the underlying asset token (e.g., XAUT, USDC). The fund will hold this token as collateral. |  |
 |**initialNav** | **String** | Initial net asset value (NAV) per share (optional). Default: &#39;1.0&#39; (standard for new funds). |  [optional] |
 |**initialAnnualRate** | **String** | Initial annual rate (optional). Can be updated later via NAV updater. Default: &#39;0&#39;. |  [optional] |

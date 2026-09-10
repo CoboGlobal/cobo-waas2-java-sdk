@@ -113,7 +113,7 @@ public class PaymentEstimateFeeRequest {
   }
 
    /**
-   * A list of token IDs and amounts for which fees will be calculated.
+   * Get estimateFees
    * @return estimateFees
   **/
   @javax.annotation.Nonnull
@@ -132,7 +132,7 @@ public class PaymentEstimateFeeRequest {
   }
 
    /**
-   * The token ID that the recipient will receive. Required only when &#x60;fee_type&#x60; is &#x60;CryptoPayoutBridge&#x60;.
+   * only need fee_type is CryptoPayoutBridge
    * @return recipientTokenId
   **/
   @javax.annotation.Nullable

@@ -114,7 +114,7 @@ public class ContractCallParams {
   }
 
    /**
-   * A client-defined unique request identifier (idempotency key) used to prevent duplicate contract call requests. It must be unique within the same organization. Requests with the same request ID will be rejected with an error.
+   * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization.
    * @return requestId
   **/
   @javax.annotation.Nonnull
@@ -190,7 +190,7 @@ public class ContractCallParams {
   }
 
    /**
-   * The description of the contract call transaction. Maximum length is 2048 characters for MPC Wallets and Custodial Wallets (Web3 Wallets), and 1000 characters for Custodial Wallets (Asset Wallets).
+   * The description of the contract call transaction.
    * @return description
   **/
   @javax.annotation.Nullable

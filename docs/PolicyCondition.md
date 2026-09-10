@@ -2,15 +2,15 @@
 
 # PolicyCondition
 
-A condition that defines under what circumstances the policy’s action should be triggered.
+The information of an app workflow policy condition.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**field** | **String** | The field name. |  |
+|**field** | **String** | The app workflow field name. |  |
 |**valueType** | **PolicyFieldValueType** |  |  |
-|**value** | **String** | The field value. |  |
+|**value** | **String** | The app workflow field value. |  |
 |**operator** | **PolicyFieldOperator** |  |  |
 
 

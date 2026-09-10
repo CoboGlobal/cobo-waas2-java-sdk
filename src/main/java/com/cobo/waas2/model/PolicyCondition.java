@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * A condition that defines under what circumstances the policy’s action should be triggered.
+ * The information of an app workflow policy condition.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -79,7 +79,7 @@ public class PolicyCondition {
   }
 
    /**
-   * The field name.
+   * The app workflow field name.
    * @return field
   **/
   @javax.annotation.Nonnull
@@ -117,7 +117,7 @@ public class PolicyCondition {
   }
 
    /**
-   * The field value.
+   * The app workflow field value.
    * @return value
   **/
   @javax.annotation.Nonnull

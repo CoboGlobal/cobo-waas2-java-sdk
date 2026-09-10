@@ -74,7 +74,7 @@ public class PaymentPayoutItem {
   }
 
    /**
-   * The token ID of the payout item.
+   * The token id of the payout item.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -93,7 +93,7 @@ public class PaymentPayoutItem {
   }
 
    /**
-   * The amount of the payout item. 
+   * The payout item token_id amount. 
    * @return amount
   **/
   @javax.annotation.Nonnull

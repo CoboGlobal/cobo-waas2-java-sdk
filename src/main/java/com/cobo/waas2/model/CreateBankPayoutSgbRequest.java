@@ -120,6 +120,10 @@ public class CreateBankPayoutSgbRequest {
   @SerializedName(SERIALIZED_NAME_TRANSACTION_AMOUNT)
   private String transactionAmount;
 
+  public static final String SERIALIZED_NAME_FEE_AMOUNT = "fee_amount";
+  @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
+  private String feeAmount;
+
   public static final String SERIALIZED_NAME_FEE_CURRENCY = "fee_currency";
   @SerializedName(SERIALIZED_NAME_FEE_CURRENCY)
   private String feeCurrency;
@@ -220,6 +224,25 @@ public class CreateBankPayoutSgbRequest {
 
   public void setTransactionAmount(String transactionAmount) {
     this.transactionAmount = transactionAmount;
+  }
+
+
+  public CreateBankPayoutSgbRequest feeAmount(String feeAmount) {
+    this.feeAmount = feeAmount;
+    return this;
+  }
+
+   /**
+   * The amount of the fee.
+   * @return feeAmount
+  **/
+  @javax.annotation.Nullable
+  public String getFeeAmount() {
+    return feeAmount;
+  }
+
+  public void setFeeAmount(String feeAmount) {
+    this.feeAmount = feeAmount;
   }
 
 
@@ -395,6 +418,7 @@ public class CreateBankPayoutSgbRequest {
         Objects.equals(this.bankProvider, createBankPayoutSgbRequest.bankProvider) &&
         Objects.equals(this.transactionCurrency, createBankPayoutSgbRequest.transactionCurrency) &&
         Objects.equals(this.transactionAmount, createBankPayoutSgbRequest.transactionAmount) &&
+        Objects.equals(this.feeAmount, createBankPayoutSgbRequest.feeAmount) &&
         Objects.equals(this.feeCurrency, createBankPayoutSgbRequest.feeCurrency) &&
         Objects.equals(this.remarks, createBankPayoutSgbRequest.remarks) &&
         Objects.equals(this.forceExternal, createBankPayoutSgbRequest.forceExternal) &&
@@ -406,7 +430,7 @@ public class CreateBankPayoutSgbRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, bankProvider, transactionCurrency, transactionAmount, feeCurrency, remarks, forceExternal, cryptoAmount, sender, beneficiary, additionalProperties);
+    return Objects.hash(requestId, bankProvider, transactionCurrency, transactionAmount, feeAmount, feeCurrency, remarks, forceExternal, cryptoAmount, sender, beneficiary, additionalProperties);
   }
 
   @Override
@@ -417,6 +441,7 @@ public class CreateBankPayoutSgbRequest {
     sb.append("    bankProvider: ").append(toIndentedString(bankProvider)).append("\n");
     sb.append("    transactionCurrency: ").append(toIndentedString(transactionCurrency)).append("\n");
     sb.append("    transactionAmount: ").append(toIndentedString(transactionAmount)).append("\n");
+    sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
     sb.append("    feeCurrency: ").append(toIndentedString(feeCurrency)).append("\n");
     sb.append("    remarks: ").append(toIndentedString(remarks)).append("\n");
     sb.append("    forceExternal: ").append(toIndentedString(forceExternal)).append("\n");
@@ -450,6 +475,7 @@ public class CreateBankPayoutSgbRequest {
     openapiFields.add("bank_provider");
     openapiFields.add("transaction_currency");
     openapiFields.add("transaction_amount");
+    openapiFields.add("fee_amount");
     openapiFields.add("fee_currency");
     openapiFields.add("remarks");
     openapiFields.add("force_external");
@@ -500,6 +526,9 @@ public class CreateBankPayoutSgbRequest {
       }
       if (!jsonObj.get("transaction_amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transaction_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transaction_amount").toString()));
+      }
+      if ((jsonObj.get("fee_amount") != null && !jsonObj.get("fee_amount").isJsonNull()) && !jsonObj.get("fee_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
       }
       if ((jsonObj.get("fee_currency") != null && !jsonObj.get("fee_currency").isJsonNull()) && !jsonObj.get("fee_currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fee_currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_currency").toString()));

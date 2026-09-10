@@ -243,7 +243,7 @@ public class Settlement {
   }
 
    /**
-   *  The initiator of this settlement request. Can return either an API key or the Payments App&#39;s ID.  - Format &#x60;api_key_&lt;API_KEY&gt;&#x60;: Indicates the settlement request was initiated via the Payments API using the API key. - Format &#x60;app_&lt;APP_ID&gt;&#x60;: Indicates the settlement request was initiated through the Payments App using the App ID. 
+   * The initiator of this settlement request, usually the user&#39;s API key.
    * @return initiator
   **/
   @javax.annotation.Nullable
@@ -319,7 +319,7 @@ public class Settlement {
   }
 
    /**
-   * The fiat currency for the off-ramp.
+   * The fiat currency for the settlement request.
    * @return currency
   **/
   @javax.annotation.Nullable
@@ -338,7 +338,7 @@ public class Settlement {
   }
 
    /**
-   * The estimated amount of the fiat currency to receive after off-ramping. This amount is subject to change due to bank transfer fees.
+   * The received fiat amount of this settlement request. 
    * @return receivedAmountFiat
   **/
   @javax.annotation.Nullable

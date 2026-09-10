@@ -85,7 +85,7 @@ public class Account {
   }
 
    /**
-   * The ID of the cryptocurrency that this account is configured to handle.
+   * The ID of the cryptocurrency.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -104,7 +104,7 @@ public class Account {
   }
 
    /**
-   * The top-up address corresponding to the account.
+   * The token receiving address of the account.
    * @return address
   **/
   @javax.annotation.Nonnull
@@ -123,7 +123,7 @@ public class Account {
   }
 
    /**
-   * The amount of merchant funds under this account.
+   * The merchant account balance, as a decimal string.
    * @return merchantBalance
   **/
   @javax.annotation.Nonnull
@@ -142,7 +142,7 @@ public class Account {
   }
 
    /**
-   * The amount of developer funds under this account.
+   * The PSP account balance, as a decimal string.
    * @return pspBalance
   **/
   @javax.annotation.Nonnull
@@ -161,7 +161,7 @@ public class Account {
   }
 
    /**
-   * The creation time of the account, in Unix timestamp format, measured in milliseconds.
+   * The time when the account was created, in Unix timestamp format, measured in milliseconds.
    * @return createdTimestamp
   **/
   @javax.annotation.Nullable
@@ -180,7 +180,7 @@ public class Account {
   }
 
    /**
-   * The last update time of the account, in Unix timestamp format, measured in milliseconds.
+   * The time when the account was updated, in Unix timestamp format, measured in milliseconds.
    * @return updatedTimestamp
   **/
   @javax.annotation.Nullable

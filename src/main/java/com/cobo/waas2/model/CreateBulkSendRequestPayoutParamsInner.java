@@ -77,7 +77,7 @@ public class CreateBulkSendRequestPayoutParamsInner {
   }
 
    /**
-   * The token ID of the cryptocurrency to be sent to the recipient.
+   * The token id of the payout item.
    * @return tokenId
   **/
   @javax.annotation.Nonnull
@@ -96,7 +96,7 @@ public class CreateBulkSendRequestPayoutParamsInner {
   }
 
    /**
-   * The receiving address.
+   * The receiving address of the payout item.
    * @return receivingAddress
   **/
   @javax.annotation.Nonnull
@@ -115,7 +115,7 @@ public class CreateBulkSendRequestPayoutParamsInner {
   }
 
    /**
-   * The amount of the cryptocurrency to be sent to the recipient.
+   * The amount of the payout item.
    * @return amount
   **/
   @javax.annotation.Nonnull
@@ -134,7 +134,7 @@ public class CreateBulkSendRequestPayoutParamsInner {
   }
 
    /**
-   * A note or comment about the bulk send item. Maximum length: 255 characters.
+   * The note of the payout item.
    * @return description
   **/
   @javax.annotation.Nullable

@@ -45,9 +45,9 @@ public class AppWorkflowsApiTest {
     private final AppWorkflowsApi api = new AppWorkflowsApi();
 
     /**
-     * Request workflow approval
+     * Request app workflow approval
      *
-     * This operation triggers a specified workflow and generates a new approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * This operation is request approval from app workflow with idempotency checks. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -59,9 +59,9 @@ public class AppWorkflowsApiTest {
     }
 
     /**
-     * Get approval request details
+     * Get app workflow approval request by approval id
      *
-     * This operation retrieves the details of a specific approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * This operation is retrieves approval request from app workflow. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -73,9 +73,9 @@ public class AppWorkflowsApiTest {
     }
 
     /**
-     * List app workflows
+     * list app workflows
      *
-     * This operation retrieves all approval workflows of an Cobo Portal App. &lt;Note&gt;You need to [configure approval workflow](https://www.cobo.com/developers/v2/apps/configure-workflow) in the app Manifest file first.&lt;/Note&gt; &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * This operation is list app workflows of app. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -86,9 +86,9 @@ public class AppWorkflowsApiTest {
     }
 
     /**
-     * List approval requests
+     * List app workflow approval requests by operation_id
      *
-     * This operation retrieves a list of approval requests.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * This operation is retrieves list approval requests from app workflow. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -103,9 +103,9 @@ public class AppWorkflowsApiTest {
     }
 
     /**
-     * Revoke approval request
+     * Revoke an app workflow approval request by request initiator.
      *
-     * This operation revokes a pending approval request.  &lt;Note&gt;To use the approval workflow operations, you must use the Cobo OAuth authentication method ([Org Access Token](https://www.cobo.com/developers/v2/apps/org-access-tokens)).&lt;/Note&gt; 
+     * This operation is revoke approval request from app workflow. 
      *
      * @throws ApiException if the Api call fails
      */

@@ -2,7 +2,7 @@
 
 # FeeStationTransfer
 
-The information about a Fee Station top-up transaction.
+The information about a token transfer.
 
 ## Properties
 

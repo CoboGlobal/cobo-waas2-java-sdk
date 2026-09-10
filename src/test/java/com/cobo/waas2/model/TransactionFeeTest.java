@@ -83,6 +83,14 @@ public class TransactionFeeTest {
     }
 
     /**
+     * Test the property 'estimatedReservedFee'
+     */
+    @Test
+    public void estimatedReservedFeeTest() {
+        // TODO: test estimatedReservedFee
+    }
+
+    /**
      * Test the property 'gasUsed'
      */
     @Test
@@ -136,6 +144,14 @@ public class TransactionFeeTest {
     @Test
     public void feeRateTest() {
         // TODO: test feeRate
+    }
+
+    /**
+     * Test the property 'fallback'
+     */
+    @Test
+    public void fallbackTest() {
+        // TODO: test fallback
     }
 
     /**

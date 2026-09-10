@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The operation type applied to the list of suspended tokens: - Added: The token was added to the suspension list. - Removed: The token was removed from the suspension list. 
+ * The operation type of the suspended tokens,remove from the suspended tokens or add to the suspended tokens.
  */
 @JsonAdapter(SuspendedTokenOperationType.Adapter.class)
 public enum SuspendedTokenOperationType {

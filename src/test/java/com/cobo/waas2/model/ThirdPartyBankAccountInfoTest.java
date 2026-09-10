@@ -99,4 +99,28 @@ public class ThirdPartyBankAccountInfoTest {
         // TODO: test province
     }
 
+    /**
+     * Test the property 'city'
+     */
+    @Test
+    public void cityTest() {
+        // TODO: test city
+    }
+
+    /**
+     * Test the property 'routingValue'
+     */
+    @Test
+    public void routingValueTest() {
+        // TODO: test routingValue
+    }
+
+    /**
+     * Test the property 'iban'
+     */
+    @Test
+    public void ibanTest() {
+        // TODO: test iban
+    }
+
 }

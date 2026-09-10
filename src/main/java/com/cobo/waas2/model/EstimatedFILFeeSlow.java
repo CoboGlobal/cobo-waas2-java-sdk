@@ -115,7 +115,7 @@ public class EstimatedFILFeeSlow {
   }
 
    /**
-   * The maximum amount of gas your transaction is allowed to consume.
+   * This defines the maximum amount of computational effort that a transaction is allowed to consume. It&#39;s a way to cap the resources that a transaction can use, ensuring it doesn&#39;t consume excessive network resources.
    * @return gasLimit
   **/
   @javax.annotation.Nonnull

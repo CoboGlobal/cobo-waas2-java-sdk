@@ -14,6 +14,7 @@
 |**categoryNames** | **List&lt;String&gt;** | The custom category for you to identify your transactions. |  [optional] |
 |**description** | **String** | The description of the transfer. |  [optional] |
 |**fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  |  [optional] |
+|**feeLevel** | **FeeLevel** |  |  [optional] |
 |**transactionProcessType** | **TransactionProcessType** |  |  [optional] |
 |**autoFuel** | **AutoFuelType** |  |  [optional] |
 |**preCheck** | [**PreCheck**](PreCheck.md) |  |  [optional] |

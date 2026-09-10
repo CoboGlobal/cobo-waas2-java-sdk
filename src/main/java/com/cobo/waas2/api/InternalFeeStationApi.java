@@ -28,6 +28,7 @@ import java.io.IOException;
 import com.cobo.waas2.model.AddCoboPaidTokenRequest;
 import com.cobo.waas2.model.ChargeCommissionFee201Response;
 import com.cobo.waas2.model.ChargeCommissionFeeRequest;
+import com.cobo.waas2.model.CommissionFeeDetail;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.FeeStationDetail;
 import com.cobo.waas2.model.FeeStationSystemConf;
@@ -280,6 +281,127 @@ public class InternalFeeStationApi {
 
         okhttp3.Call localVarCall = chargeCommissionFeeValidateBeforeCall(chargeCommissionFeeRequest, _callback);
         Type localVarReturnType = new TypeToken<ChargeCommissionFee201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getCommissionFeeByRequestId
+     * @param requestId The commission fee request ID used when charging the commission fee. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The commission fee detail. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCommissionFeeByRequestIdCall(String requestId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/internal/fee_station/commission_fee";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (requestId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("request_id", requestId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCommissionFeeByRequestIdValidateBeforeCall(String requestId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'requestId' is set
+        if (requestId == null) {
+            throw new ApiException("Missing the required parameter 'requestId' when calling getCommissionFeeByRequestId(Async)");
+        }
+
+        return getCommissionFeeByRequestIdCall(requestId, _callback);
+
+    }
+
+    /**
+     * Get commission fee by request ID
+     * This operation retrieves the commission fee detail by the commission fee request ID used when charging the commission fee. 
+     * @param requestId The commission fee request ID used when charging the commission fee. (required)
+     * @return CommissionFeeDetail
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The commission fee detail. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CommissionFeeDetail getCommissionFeeByRequestId(String requestId) throws ApiException {
+        ApiResponse<CommissionFeeDetail> localVarResp = getCommissionFeeByRequestIdWithHttpInfo(requestId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get commission fee by request ID
+     * This operation retrieves the commission fee detail by the commission fee request ID used when charging the commission fee. 
+     * @param requestId The commission fee request ID used when charging the commission fee. (required)
+     * @return ApiResponse&lt;CommissionFeeDetail&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The commission fee detail. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CommissionFeeDetail> getCommissionFeeByRequestIdWithHttpInfo(String requestId) throws ApiException {
+        okhttp3.Call localVarCall = getCommissionFeeByRequestIdValidateBeforeCall(requestId, null);
+        Type localVarReturnType = new TypeToken<CommissionFeeDetail>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get commission fee by request ID (asynchronously)
+     * This operation retrieves the commission fee detail by the commission fee request ID used when charging the commission fee. 
+     * @param requestId The commission fee request ID used when charging the commission fee. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The commission fee detail. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCommissionFeeByRequestIdAsync(String requestId, final ApiCallback<CommissionFeeDetail> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getCommissionFeeByRequestIdValidateBeforeCall(requestId, _callback);
+        Type localVarReturnType = new TypeToken<CommissionFeeDetail>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

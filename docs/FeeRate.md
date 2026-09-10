@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**feeType** | **FeeType** |  |  |
-|**tokenId** | **String** | The token used to pay the transaction fee. |  |
+|**tokenId** | **String** | The token ID of the transaction fee. |  |
 |**feeAmount** | **String** | The transaction fee that you need to pay for the transaction. |  [optional] |
 |**slow** | [**UtxoFeeBasePrice**](UtxoFeeBasePrice.md) |  |  [optional] |
 |**recommended** | [**UtxoFeeBasePrice**](UtxoFeeBasePrice.md) |  |  |

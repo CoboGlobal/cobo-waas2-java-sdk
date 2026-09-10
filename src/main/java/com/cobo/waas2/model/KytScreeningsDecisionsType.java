@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The KYT screening decision type for a specific transaction based on an external compliance review.  - &#x60;Approval&#x60;: Transaction is approved and can proceed without restrictions - &#x60;ApprovalWithAlert&#x60;: Transaction is approved but flagged for monitoring or additional compliance attention - &#x60;Rejection&#x60;: Transaction is rejected due to identified compliance risks and should be blocked - &#x60;ManualReview&#x60;: Transaction requires manual review by compliance officers before final determination 
+ * The KYT screening decision type from external compliance systems, indicating the final compliance determination for the transaction.  - &#x60;Approval&#x60;: Transaction is approved and can proceed without restrictions - &#x60;ApprovalWithAlert&#x60;: Transaction is approved but flagged for monitoring or additional compliance attention - &#x60;Rejection&#x60;: Transaction is rejected due to identified compliance risks and should be blocked - &#x60;ManualReview&#x60;: Transaction requires manual review by compliance officers before final determination  This field represents the decision output from automated or external KYT screening systems that integrate with Cobo&#39;s compliance infrastructure. 
  */
 @JsonAdapter(KytScreeningsDecisionsType.Adapter.class)
 public enum KytScreeningsDecisionsType {

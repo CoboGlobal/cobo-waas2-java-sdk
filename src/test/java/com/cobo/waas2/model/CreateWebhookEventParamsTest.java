@@ -11,7 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.WebhookEventType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

@@ -44,6 +44,14 @@ public class EstimatedUtxoFeeSlowTest {
     }
 
     /**
+     * Test the property 'fallback'
+     */
+    @Test
+    public void fallbackTest() {
+        // TODO: test fallback
+    }
+
+    /**
      * Test the property 'feeAmount'
      */
     @Test

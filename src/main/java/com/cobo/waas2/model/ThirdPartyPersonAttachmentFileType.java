@@ -50,7 +50,11 @@ public enum ThirdPartyPersonAttachmentFileType {
   
   HK_MAC_MTP("HK/Mac_MTP"),
   
-  BACK("BACK");
+  BACK("BACK"),
+  
+  ID_HAND("ID_Hand"),
+  
+  POA("POA");
 
   private String value;
 

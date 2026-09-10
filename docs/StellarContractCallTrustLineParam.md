@@ -2,7 +2,7 @@
 
 # StellarContractCallTrustLineParam
 
-Parameters related to Stellar trustline operations.
+Parameters related to Stellar trustline operations
 
 ## Properties
 

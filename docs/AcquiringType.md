@@ -9,5 +9,7 @@
 
 * `TOPUP` (value: `"TopUp"`)
 
+* `SUBSCRIPTION` (value: `"Subscription"`)
+
 
 

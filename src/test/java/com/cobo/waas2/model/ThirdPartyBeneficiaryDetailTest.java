@@ -36,11 +36,11 @@ public class ThirdPartyBeneficiaryDetailTest {
     }
 
     /**
-     * Test the property 'companyName'
+     * Test the property 'beneficiaryName'
      */
     @Test
-    public void companyNameTest() {
-        // TODO: test companyName
+    public void beneficiaryNameTest() {
+        // TODO: test beneficiaryName
     }
 
     /**

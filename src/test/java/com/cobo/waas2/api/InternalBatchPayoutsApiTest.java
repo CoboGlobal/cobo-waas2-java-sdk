@@ -15,9 +15,9 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.BatchPayoutDetail;
-import com.cobo.waas2.model.CreateBatchPayoutRequest;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.InternalCreateBatchPayout201Response;
+import com.cobo.waas2.model.InternalCreateBatchPayoutRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -48,8 +48,8 @@ public class InternalBatchPayoutsApiTest {
      */
     @Test
     public void internalCreateBatchPayoutTest() throws ApiException {
-        CreateBatchPayoutRequest createBatchPayoutRequest = null;
-        InternalCreateBatchPayout201Response response = api.internalCreateBatchPayout(createBatchPayoutRequest);
+        InternalCreateBatchPayoutRequest internalCreateBatchPayoutRequest = null;
+        InternalCreateBatchPayout201Response response = api.internalCreateBatchPayout(internalCreateBatchPayoutRequest);
         // TODO: test validations
     }
 

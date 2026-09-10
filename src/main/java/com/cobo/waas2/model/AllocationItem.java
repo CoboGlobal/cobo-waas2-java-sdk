@@ -170,7 +170,7 @@ public class AllocationItem {
   }
 
    /**
-   * The source account from which the allocation will be deducted. - If the source account is a merchant account, provide the merchant&#39;s ID (e.g., \&quot;M1001\&quot;). - If the source account is the developer account, use the string &#x60;\&quot;developer\&quot;&#x60;. 
+   * Get sourceAccount
    * @return sourceAccount
   **/
   @javax.annotation.Nullable
@@ -189,7 +189,7 @@ public class AllocationItem {
   }
 
    /**
-   * The destination account to which the allocation will be credited. - If the destination account is a merchant account, provide the merchant&#39;s ID (e.g., \&quot;M1001\&quot;). - If the destination account is the developer account, use the string &#x60;\&quot;developer\&quot;&#x60;. 
+   * Get destinationAccount
    * @return destinationAccount
   **/
   @javax.annotation.Nullable
@@ -208,7 +208,7 @@ public class AllocationItem {
   }
 
    /**
-   * The description of the allocation item.
+   * Get description
    * @return description
   **/
   @javax.annotation.Nonnull

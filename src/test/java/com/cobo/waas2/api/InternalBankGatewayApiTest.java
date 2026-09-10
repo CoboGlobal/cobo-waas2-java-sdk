@@ -33,8 +33,8 @@ import com.cobo.waas2.model.DeleteThirdPartyPayee200Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetBankAccountBalance200ResponseInner;
 import com.cobo.waas2.model.ListBankAwaitingSignaturePayouts200ResponseInner;
+import com.cobo.waas2.model.ListBankPayouts200Response;
 import com.cobo.waas2.model.ListBankReturnedPayouts200Response;
-import com.cobo.waas2.model.ListBankTransactions200Response;
 import com.cobo.waas2.model.ListDeposits200Response;
 import com.cobo.waas2.model.SubmitBankPayoutSignatureRequest;
 import com.cobo.waas2.model.ThirdPartyMerchantInfo;
@@ -119,7 +119,7 @@ public class InternalBankGatewayApiTest {
     /**
      * Create third-party payee
      *
-     * This operation creates a third-party payee.  For USD company bank accounts, required fields depend on &#x60;payment_method&#x60;:  **SWIFT** (supported in HK, TW, MY, PH, ID, VN, TH, SG): &#x60;company_name&#x60;, &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;city&#x60;, &#x60;post_code&#x60;, &#x60;province&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;.  **Local HK** (&#x60;payment_method&#x60; &#x3D; &#x60;Local&#x60;, HK only): &#x60;company_name&#x60;, &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;branch_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. 
+     * This operation creates a third-party payee.  For USD company bank accounts, required fields depend on &#x60;payment_method&#x60;:  **SWIFT** (supported in HK, TW, MY, PH, ID, VN, TH, SG): &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;city&#x60;, &#x60;post_code&#x60;, &#x60;province&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. &#x60;beneficiary_name&#x60; is optional.  **Local HK** (&#x60;payment_method&#x60; &#x3D; &#x60;Local&#x60;, HK only): &#x60;bank_name&#x60;, &#x60;account_number&#x60;, &#x60;swift_code&#x60;, &#x60;branch_code&#x60;, &#x60;account_name&#x60;, &#x60;street_address&#x60;, &#x60;country&#x60;, and &#x60;contract_document_url&#x60;. &#x60;beneficiary_name&#x60; is optional. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -261,6 +261,23 @@ public class InternalBankGatewayApiTest {
     }
 
     /**
+     * List payouts
+     *
+     * This operation retrieves the list of payouts. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listBankPayoutsTest() throws ApiException {
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        String requestId = null;
+        ListBankPayouts200Response response = api.listBankPayouts(limit, before, after, requestId);
+        // TODO: test validations
+    }
+
+    /**
      * Get returned payouts
      *
      * This operation retrieves the list of payouts that are returned. 
@@ -292,7 +309,7 @@ public class InternalBankGatewayApiTest {
         String endTime = null;
         BankPayoutStatus status = null;
         BankTransferType transferType = null;
-        ListBankTransactions200Response response = api.listBankTransactions(bankProvider, accountNo, limit, before, after, currency, startTime, endTime, status, transferType);
+        ListBankPayouts200Response response = api.listBankTransactions(bankProvider, accountNo, limit, before, after, currency, startTime, endTime, status, transferType);
         // TODO: test validations
     }
 

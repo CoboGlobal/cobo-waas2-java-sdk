@@ -17,6 +17,7 @@ import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.AddCoboPaidTokenRequest;
 import com.cobo.waas2.model.ChargeCommissionFee201Response;
 import com.cobo.waas2.model.ChargeCommissionFeeRequest;
+import com.cobo.waas2.model.CommissionFeeDetail;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.FeeStationDetail;
 import com.cobo.waas2.model.FeeStationSystemConf;
@@ -70,6 +71,20 @@ public class InternalFeeStationApiTest {
     public void chargeCommissionFeeTest() throws ApiException {
         ChargeCommissionFeeRequest chargeCommissionFeeRequest = null;
         ChargeCommissionFee201Response response = api.chargeCommissionFee(chargeCommissionFeeRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Get commission fee by request ID
+     *
+     * This operation retrieves the commission fee detail by the commission fee request ID used when charging the commission fee. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getCommissionFeeByRequestIdTest() throws ApiException {
+        String requestId = null;
+        CommissionFeeDetail response = api.getCommissionFeeByRequestId(requestId);
         // TODO: test validations
     }
 
