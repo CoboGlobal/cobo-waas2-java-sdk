@@ -13,7 +13,7 @@ Details about a user involved in a transaction approval workflow.
 |**pubkey** | **String** | Public key of the user. |  [optional] |
 |**signature** | **String** | Signature produced by the user for this approval. |  [optional] |
 |**statementUuid** | **UUID** | UUID of the statement associated with this approval. |  [optional] |
-|**result** | **ApprovalResult** |  |  [optional] |
+|**result** | **ApprovalTransactionResult** |  |  [optional] |
 |**approvalResultCode** | **Integer** | Integer value representing the result of the approval. |  [optional] |
 |**createdTime** | **Integer** | Timestamp when the approval was created. |  [optional] |
 |**expiredTime** | **Integer** | The timestamp when the approval was expired. |  [optional] |

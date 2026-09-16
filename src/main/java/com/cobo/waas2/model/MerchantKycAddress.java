@@ -81,7 +81,7 @@ public class MerchantKycAddress {
   }
 
    /**
-   * The country.
+   * The country, in ISO 3166-1 alpha-3 format.
    * @return country
   **/
   @javax.annotation.Nonnull

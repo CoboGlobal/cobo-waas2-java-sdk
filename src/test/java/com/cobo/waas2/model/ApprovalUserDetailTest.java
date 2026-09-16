@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ApprovalAction;
-import com.cobo.waas2.model.ApprovalResult;
+import com.cobo.waas2.model.ApprovalTransactionResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
