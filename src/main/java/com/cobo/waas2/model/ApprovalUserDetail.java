@@ -13,7 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.ApprovalAction;
-import com.cobo.waas2.model.ApprovalResult;
+import com.cobo.waas2.model.ApprovalTransactionResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -78,7 +78,7 @@ public class ApprovalUserDetail {
 
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
-  private ApprovalResult result;
+  private ApprovalTransactionResult result;
 
   public static final String SERIALIZED_NAME_APPROVAL_RESULT_CODE = "approval_result_code";
   @SerializedName(SERIALIZED_NAME_APPROVAL_RESULT_CODE)
@@ -230,7 +230,7 @@ public class ApprovalUserDetail {
   }
 
 
-  public ApprovalUserDetail result(ApprovalResult result) {
+  public ApprovalUserDetail result(ApprovalTransactionResult result) {
     this.result = result;
     return this;
   }
@@ -240,11 +240,11 @@ public class ApprovalUserDetail {
    * @return result
   **/
   @javax.annotation.Nullable
-  public ApprovalResult getResult() {
+  public ApprovalTransactionResult getResult() {
     return result;
   }
 
-  public void setResult(ApprovalResult result) {
+  public void setResult(ApprovalTransactionResult result) {
     this.result = result;
   }
 
@@ -688,7 +688,7 @@ public class ApprovalUserDetail {
       }
       // validate the optional field `result`
       if (jsonObj.get("result") != null && !jsonObj.get("result").isJsonNull()) {
-        ApprovalResult.validateJsonElement(jsonObj.get("result"));
+        ApprovalTransactionResult.validateJsonElement(jsonObj.get("result"));
       }
       if ((jsonObj.get("template_version") != null && !jsonObj.get("template_version").isJsonNull()) && !jsonObj.get("template_version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `template_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("template_version").toString()));
