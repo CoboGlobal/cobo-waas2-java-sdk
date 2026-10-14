@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The source type of the balance change. Possible values include: - &#x60;Init&#x60;: Balance change caused by initialization. - &#x60;OrderIn&#x60;: Balance change from an order-in payment. - &#x60;LatePayment&#x60;: Balance change from a late payment. - &#x60;TopUp&#x60;: Balance change from a top-up. - &#x60;UnexceptedIn&#x60;: Balance change from an unexpected incoming payment. - &#x60;RefundOut&#x60;: Balance change from a refund payout. - &#x60;Payout&#x60;: Balance change from a payout. - &#x60;UnexceptedOut&#x60;: Balance change from an unexpected outgoing payment. - &#x60;Allocation&#x60;: Balance change from an allocation. - &#x60;SettlementNetwork&#x60;: Balance change from the settlement network. - &#x60;BulkSend&#x60;: Balance change from a bulk send. 
+ * The source type of the balance change. Possible values include: - &#x60;Init&#x60;: Balance change caused by initialization. - &#x60;OrderIn&#x60;: Balance change from an order-in payment. - &#x60;LatePayment&#x60;: Balance change from a late payment. - &#x60;TopUp&#x60;: Balance change from a top-up. - &#x60;UnexceptedIn&#x60;: Balance change from an unexpected incoming payment. - &#x60;RefundOut&#x60;: Balance change from a refund payout. - &#x60;Payout&#x60;: Balance change from a payout. - &#x60;UnexceptedOut&#x60;: Balance change from an unexpected outgoing payment. - &#x60;Allocation&#x60;: Balance change from an allocation. - &#x60;SettlementNetwork&#x60;: Balance change from the settlement network. - &#x60;BulkSend&#x60;: Balance change from a bulk send. - &#x60;OnrampIn&#x60;: Balance change from an onramp. 
  */
 @JsonAdapter(PaymentBalanceChangeSourceType.Adapter.class)
 public enum PaymentBalanceChangeSourceType {
@@ -48,7 +48,9 @@ public enum PaymentBalanceChangeSourceType {
   
   SETTLEMENTNETWORK("SettlementNetwork"),
   
-  BULKSEND("BulkSend");
+  BULKSEND("BulkSend"),
+  
+  ONRAMPIN("OnrampIn");
 
   private String value;
 

@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ExchangeId;
+import com.cobo.waas2.model.SuiContractCallContractParam;
 import com.cobo.waas2.model.TransactionBIP137Destination;
 import com.cobo.waas2.model.TransactionBIP322Destination;
 import com.cobo.waas2.model.TransactionCosmosAdr36Destination;
@@ -29,8 +30,8 @@ import com.cobo.waas2.model.TransactionRawMessageSignDestination;
 import com.cobo.waas2.model.TransactionSolContractAddressLookupTableAccount;
 import com.cobo.waas2.model.TransactionSolContractDestination;
 import com.cobo.waas2.model.TransactionSolContractInstruction;
-import com.cobo.waas2.model.TransactionStellarContractParam;
 import com.cobo.waas2.model.TransactionStellarDestination;
+import com.cobo.waas2.model.TransactionSuiDestination;
 import com.cobo.waas2.model.TransactionTransferToAddressDestination;
 import com.cobo.waas2.model.TransactionTransferToAddressDestinationAccountOutput;
 import com.cobo.waas2.model.TransactionTransferToAddressDestinationUtxoOutputsInner;

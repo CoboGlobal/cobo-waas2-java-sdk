@@ -4,22 +4,22 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**checkFeeStationUsage**](FeeStationApi.md#checkFeeStationUsage) | **POST** /fee_station/check_fee_station_usage | Check Fee Station usage |
+| [**checkFeeStationUsage**](FeeStationApi.md#checkFeeStationUsage) | **POST** /fee_station/check_fee_station_usage | Check Billing Center usage |
 | [**estimateFeeStationFee**](FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate transaction fee |
-| [**getFeeStationTransactionById**](FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information |
-| [**listFeeStationAddresses**](FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses |
-| [**listFeeStationFiatTransactions**](FeeStationApi.md#listFeeStationFiatTransactions) | **GET** /fee_station/fiat_transactions | List Fee Station fiat transactions |
-| [**listFeeStationTransactions**](FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions |
-| [**listTokenBalancesForFeeStation**](FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances |
+| [**getFeeStationTransactionById**](FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Billing Center transaction information |
+| [**listFeeStationAddresses**](FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Billing Center addresses |
+| [**listFeeStationFiatTransactions**](FeeStationApi.md#listFeeStationFiatTransactions) | **GET** /fee_station/fiat_transactions | List Billing Center fiat transactions |
+| [**listFeeStationTransactions**](FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Billing Center transactions |
+| [**listTokenBalancesForFeeStation**](FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Billing Center token balances |
 
 
 <a id="checkFeeStationUsage"></a>
 # **checkFeeStationUsage**
 > FeeStationCheckFeeStationUsageResponse checkFeeStationUsage(feeStationCheckFeeStationUsage)
 
-Check Fee Station usage
+Check Billing Center usage
 
-This operation evaluates Fee Station usage for the current transaction.   It determines whether Fee station can be used, checks if the Fee Station balance is sufficient, and returns a breakdown of the amounts involved, including any portion that must be covered by the user or sponsored in USD stablecoin. 
+This operation evaluates Billing Center usage for the current transaction.   It determines whether Billing Center can be used, checks if the Billing Center balance is sufficient, and returns a breakdown of the amounts involved, including any portion that must be covered by the user or sponsored in USD stablecoin. 
 
 ### Example
 ```java
@@ -59,7 +59,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **feeStationCheckFeeStationUsage** | [**FeeStationCheckFeeStationUsage**](FeeStationCheckFeeStationUsage.md)| The request body for evaluating Fee Station usage. | [optional] |
+| **feeStationCheckFeeStationUsage** | [**FeeStationCheckFeeStationUsage**](FeeStationCheckFeeStationUsage.md)| The request body for evaluating Billing Center usage. | [optional] |
 
 ### Return type
 
@@ -87,7 +87,7 @@ public class Example {
 
 Estimate transaction fee
 
-&lt;Note&gt;This operation is **deprecated** and retained only for backward compatibility. Use [Check Fee Station usage](https://www.cobo.com/developers/v2/api-references/feestation/check-fee-station-usage) for all new integrations.&lt;/Note&gt;  This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+&lt;Note&gt;This operation is **deprecated** and retained only for backward compatibility. Use [Check Billing Center usage](https://www.cobo.com/developers/v2/api-references/feestation/check-fee-station-usage) for all new integrations.&lt;/Note&gt;  This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
 
 ### Example
 ```java
@@ -127,7 +127,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **feeStationTransfer** | [**FeeStationTransfer**](FeeStationTransfer.md)| The information about a Fee Station top-up transaction. | [optional] |
+| **feeStationTransfer** | [**FeeStationTransfer**](FeeStationTransfer.md)| The information about a Billing Center top-up transaction. | [optional] |
 
 ### Return type
 
@@ -153,9 +153,9 @@ public class Example {
 # **getFeeStationTransactionById**
 > TransactionDetail getFeeStationTransactionById(transactionId)
 
-Get Fee Station transaction information
+Get Billing Center transaction information
 
-This operation retrieves detailed information about a specified Fee Station transaction record, such as the transaction status, source address, destination address, and timestamp. 
+This operation retrieves detailed information about a specified Billing Center transaction record, such as the transaction status, source address, destination address, and timestamp. 
 
 ### Example
 ```java
@@ -221,9 +221,9 @@ public class Example {
 # **listFeeStationAddresses**
 > ListAddresses200Response listFeeStationAddresses(chainIds, addresses, limit, before, after)
 
-List Fee Station addresses
+List Billing Center addresses
 
-This operation retrieves a list of deposit addresses of your Fee Station, including the chain ID, address, and additional information. You can filter the result by chain ID and address. 
+This operation retrieves a list of deposit addresses of your Billing Center, including the chain ID, address, and additional information. You can filter the result by chain ID and address. 
 
 ### Example
 ```java
@@ -297,9 +297,9 @@ public class Example {
 # **listFeeStationFiatTransactions**
 > ListFeeStationFiatTransactions200Response listFeeStationFiatTransactions(transactionIds, transactionType, minCreatedTimestamp, maxCreatedTimestamp, before, after, limit)
 
-List Fee Station fiat transactions
+List Billing Center fiat transactions
 
-This operation retrieves all Fee Station fiat transactions under your organization.  You can filter the results by request IDs, transaction IDs, transaction type, and created timestamp. You can also paginate your query results. 
+This operation retrieves all Billing Center fiat transactions under your organization.  You can filter the results by request IDs, transaction IDs, transaction type, and created timestamp. You can also paginate your query results. 
 
 ### Example
 ```java
@@ -377,9 +377,9 @@ public class Example {
 # **listFeeStationTransactions**
 > ListTransactions200Response listFeeStationTransactions(requestId, coboIds, transactionIds, transactionHashes, types, statuses, chainIds, tokenIds, assetIds, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, direction)
 
-List all Fee Station transactions
+List all Billing Center transactions
 
-This operation retrieves all Fee Station transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamp. You can also paginate and sort your query results. 
+This operation retrieves all Billing Center transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamp. You can also paginate and sort your query results. 
 
 ### Example
 ```java
@@ -437,7 +437,7 @@ public class Example {
 | **coboIds** | **String**| A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. | [optional] |
 | **transactionIds** | **String**| A list of transaction IDs, separated by comma. | [optional] |
 | **transactionHashes** | **String**| A list of transaction hashes, separated by comma. | [optional] |
-| **types** | **String**| A list of transaction types for Fee Station, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  | [optional] |
+| **types** | **String**| A list of transaction types for Billing Center, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.  | [optional] |
 | **statuses** | **String**| A list of transaction statuses, separated by comma. Possible values include:    - &#x60;Submitted&#x60;: The transaction is submitted.   - &#x60;PendingScreening&#x60;: The transaction is pending screening by Risk Control.    - &#x60;PendingAuthorization&#x60;: The transaction is pending approvals.   - &#x60;PendingSignature&#x60;: The transaction is pending signature.    - &#x60;Broadcasting&#x60;: The transaction is being broadcast.   - &#x60;Confirming&#x60;: The transaction is waiting for the required number of confirmations.   - &#x60;Completed&#x60;: The transaction is completed.   - &#x60;Failed&#x60;: The transaction failed.   - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is waiting to be included in the next block of the blockchain.  | [optional] |
 | **chainIds** | **String**| A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains). | [optional] |
 | **tokenIds** | **String**| A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). | [optional] |
@@ -473,9 +473,9 @@ public class Example {
 # **listTokenBalancesForFeeStation**
 > ListTokenBalancesForFeeStation200Response listTokenBalancesForFeeStation(tokenIds, limit, before, after)
 
-List Fee Station token balances
+List Billing Center token balances
 
-The operation retrieves a list of token balances within your Fee Station. 
+The operation retrieves a list of token balances within your Billing Center. 
 
 ### Example
 ```java

@@ -48,9 +48,9 @@ public class FeeStationApiTest {
     private final FeeStationApi api = new FeeStationApi();
 
     /**
-     * Check Fee Station usage
+     * Check Billing Center usage
      *
-     * This operation evaluates Fee Station usage for the current transaction.   It determines whether Fee station can be used, checks if the Fee Station balance is sufficient, and returns a breakdown of the amounts involved, including any portion that must be covered by the user or sponsored in USD stablecoin. 
+     * This operation evaluates Billing Center usage for the current transaction.   It determines whether Billing Center can be used, checks if the Billing Center balance is sufficient, and returns a breakdown of the amounts involved, including any portion that must be covered by the user or sponsored in USD stablecoin. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -64,7 +64,7 @@ public class FeeStationApiTest {
     /**
      * Estimate transaction fee
      *
-     * &lt;Note&gt;This operation is **deprecated** and retained only for backward compatibility. Use [Check Fee Station usage](https://www.cobo.com/developers/v2/api-references/feestation/check-fee-station-usage) for all new integrations.&lt;/Note&gt;  This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
+     * &lt;Note&gt;This operation is **deprecated** and retained only for backward compatibility. Use [Check Billing Center usage](https://www.cobo.com/developers/v2/api-references/feestation/check-fee-station-usage) for all new integrations.&lt;/Note&gt;  This operation estimates the transaction fee of a token transfer based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including destination address, token ID.  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](https://www.cobo.com/developers/v2/guides/transactions/estimate-fees). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -76,9 +76,9 @@ public class FeeStationApiTest {
     }
 
     /**
-     * Get Fee Station transaction information
+     * Get Billing Center transaction information
      *
-     * This operation retrieves detailed information about a specified Fee Station transaction record, such as the transaction status, source address, destination address, and timestamp. 
+     * This operation retrieves detailed information about a specified Billing Center transaction record, such as the transaction status, source address, destination address, and timestamp. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -90,9 +90,9 @@ public class FeeStationApiTest {
     }
 
     /**
-     * List Fee Station addresses
+     * List Billing Center addresses
      *
-     * This operation retrieves a list of deposit addresses of your Fee Station, including the chain ID, address, and additional information. You can filter the result by chain ID and address. 
+     * This operation retrieves a list of deposit addresses of your Billing Center, including the chain ID, address, and additional information. You can filter the result by chain ID and address. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -108,9 +108,9 @@ public class FeeStationApiTest {
     }
 
     /**
-     * List Fee Station fiat transactions
+     * List Billing Center fiat transactions
      *
-     * This operation retrieves all Fee Station fiat transactions under your organization.  You can filter the results by request IDs, transaction IDs, transaction type, and created timestamp. You can also paginate your query results. 
+     * This operation retrieves all Billing Center fiat transactions under your organization.  You can filter the results by request IDs, transaction IDs, transaction type, and created timestamp. You can also paginate your query results. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -128,9 +128,9 @@ public class FeeStationApiTest {
     }
 
     /**
-     * List all Fee Station transactions
+     * List all Billing Center transactions
      *
-     * This operation retrieves all Fee Station transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamp. You can also paginate and sort your query results. 
+     * This operation retrieves all Billing Center transactions under your organization.  You can filter the results by request ID, Cobo ID, transaction ID, transaction hash, type, status, and timestamp. You can also paginate and sort your query results. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -156,9 +156,9 @@ public class FeeStationApiTest {
     }
 
     /**
-     * List Fee Station token balances
+     * List Billing Center token balances
      *
-     * The operation retrieves a list of token balances within your Fee Station. 
+     * The operation retrieves a list of token balances within your Billing Center. 
      *
      * @throws ApiException if the Api call fails
      */

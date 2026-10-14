@@ -15,5 +15,7 @@
 
 * `COSMOS_CONTRACT` (value: `"COSMOS_Contract"`)
 
+* `SUI_CONTRACT` (value: `"SUI_Contract"`)
+
 
 

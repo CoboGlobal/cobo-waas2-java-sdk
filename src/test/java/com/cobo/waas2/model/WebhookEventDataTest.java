@@ -33,6 +33,8 @@ import com.cobo.waas2.model.MPCVaultEventData;
 import com.cobo.waas2.model.OrganizationEventData;
 import com.cobo.waas2.model.PaymentAccountBalanceUpdateEventData;
 import com.cobo.waas2.model.PaymentAddressUpdateEventData;
+import com.cobo.waas2.model.PaymentAssetAmount;
+import com.cobo.waas2.model.PaymentAssetOrFiatAmount;
 import com.cobo.waas2.model.PaymentBalanceChangeSourceType;
 import com.cobo.waas2.model.PaymentBalanceFlowDirection;
 import com.cobo.waas2.model.PaymentBankWithdrawalEvent;
@@ -40,14 +42,25 @@ import com.cobo.waas2.model.PaymentBankWithdrawalTimelineItem;
 import com.cobo.waas2.model.PaymentBulkSendEvent;
 import com.cobo.waas2.model.PaymentBulkSendExecutionMode;
 import com.cobo.waas2.model.PaymentBulkSendItemEvent;
+import com.cobo.waas2.model.PaymentBulkSendItemUpdateEventData;
 import com.cobo.waas2.model.PaymentBulkSendItemValidationStatus;
+import com.cobo.waas2.model.PaymentBulkSendUpdateEventData;
+import com.cobo.waas2.model.PaymentCommissionFeeTotal;
+import com.cobo.waas2.model.PaymentFailedReason;
 import com.cobo.waas2.model.PaymentOrderEventData;
+import com.cobo.waas2.model.PaymentOrderNoticeType;
+import com.cobo.waas2.model.PaymentOrderUpdateEventData;
 import com.cobo.waas2.model.PaymentPayoutEvent;
 import com.cobo.waas2.model.PaymentPayoutItem;
 import com.cobo.waas2.model.PaymentPayoutRecipientInfo;
+import com.cobo.waas2.model.PaymentPayoutRequestedTarget;
+import com.cobo.waas2.model.PaymentPayoutTransaction;
+import com.cobo.waas2.model.PaymentPayoutUpdateEventData;
 import com.cobo.waas2.model.PaymentRefundEventData;
+import com.cobo.waas2.model.PaymentRefundUpdateEventData;
+import com.cobo.waas2.model.PaymentScreeningMode;
 import com.cobo.waas2.model.PaymentSettlementEvent;
-import com.cobo.waas2.model.PaymentTransaction;
+import com.cobo.waas2.model.PaymentTopUpUpdateEventData;
 import com.cobo.waas2.model.PaymentTransactionEventData;
 import com.cobo.waas2.model.PayoutChannel;
 import com.cobo.waas2.model.RefundType;
@@ -1025,6 +1038,134 @@ public class WebhookEventDataTest {
     @Test
     public void validationStatusTest() {
         // TODO: test validationStatus
+    }
+
+    /**
+     * Test the property 'screeningMode'
+     */
+    @Test
+    public void screeningModeTest() {
+        // TODO: test screeningMode
+    }
+
+    /**
+     * Test the property 'topupAddress'
+     */
+    @Test
+    public void topupAddressTest() {
+        // TODO: test topupAddress
+    }
+
+    /**
+     * Test the property 'sourceAddress'
+     */
+    @Test
+    public void sourceAddressTest() {
+        // TODO: test sourceAddress
+    }
+
+    /**
+     * Test the property 'message'
+     */
+    @Test
+    public void messageTest() {
+        // TODO: test message
+    }
+
+    /**
+     * Test the property 'noticeType'
+     */
+    @Test
+    public void noticeTypeTest() {
+        // TODO: test noticeType
+    }
+
+    /**
+     * Test the property 'requestedAmount'
+     */
+    @Test
+    public void requestedAmountTest() {
+        // TODO: test requestedAmount
+    }
+
+    /**
+     * Test the property 'creditedAmount'
+     */
+    @Test
+    public void creditedAmountTest() {
+        // TODO: test creditedAmount
+    }
+
+    /**
+     * Test the property 'outstandingAmount'
+     */
+    @Test
+    public void outstandingAmountTest() {
+        // TODO: test outstandingAmount
+    }
+
+    /**
+     * Test the property 'requestedAmounts'
+     */
+    @Test
+    public void requestedAmountsTest() {
+        // TODO: test requestedAmounts
+    }
+
+    /**
+     * Test the property 'failedAmounts'
+     */
+    @Test
+    public void failedAmountsTest() {
+        // TODO: test failedAmounts
+    }
+
+    /**
+     * Test the property 'requestedTarget'
+     */
+    @Test
+    public void requestedTargetTest() {
+        // TODO: test requestedTarget
+    }
+
+    /**
+     * Test the property 'actualPayoutAmounts'
+     */
+    @Test
+    public void actualPayoutAmountsTest() {
+        // TODO: test actualPayoutAmounts
+    }
+
+    /**
+     * Test the property 'itemCount'
+     */
+    @Test
+    public void itemCountTest() {
+        // TODO: test itemCount
+    }
+
+    /**
+     * Test the property 'failedItemCount'
+     */
+    @Test
+    public void failedItemCountTest() {
+        // TODO: test failedItemCount
+    }
+
+    /**
+     * Test the property 'notExecutedItemCount'
+     */
+    @Test
+    public void notExecutedItemCountTest() {
+        // TODO: test notExecutedItemCount
+    }
+
+    /**
+     * Test the property 'completedAmounts'
+     */
+    @Test
+    public void completedAmountsTest() {
+        // TODO: test completedAmounts
     }
 
     /**

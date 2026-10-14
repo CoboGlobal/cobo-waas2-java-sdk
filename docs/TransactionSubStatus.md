@@ -103,5 +103,7 @@
 
 * `PENDINGCOBOTRAVELRULECHECK` (value: `"PendingCoboTravelRuleCheck"`)
 
+* `ADDITIONALINFORMATIONREQUIRED` (value: `"AdditionalInformationRequired"`)
+
 
 
