@@ -124,7 +124,9 @@ public enum TransactionSubStatus {
   
   REJECTEDBYCOBOKYT("RejectedByCoboKYT"),
   
-  PENDINGCOBOTRAVELRULECHECK("PendingCoboTravelRuleCheck");
+  PENDINGCOBOTRAVELRULECHECK("PendingCoboTravelRuleCheck"),
+  
+  ADDITIONALINFORMATIONREQUIRED("AdditionalInformationRequired");
 
   private String value;
 

@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.44.0</version>
+  <version>1.45.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -66,7 +66,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.44.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.45.0"
   }
 ```
 
@@ -94,7 +94,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.44.0.jar`
+* `target/cobo-waas2-1.45.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -238,13 +238,13 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *DevelopersWebhooksApi* | [**triggerTestWebhookEvent**](docs/DevelopersWebhooksApi.md#triggerTestWebhookEvent) | **POST** /webhooks/events/trigger | Trigger test event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
-*FeeStationApi* | [**checkFeeStationUsage**](docs/FeeStationApi.md#checkFeeStationUsage) | **POST** /fee_station/check_fee_station_usage | Check Fee Station usage
+*FeeStationApi* | [**checkFeeStationUsage**](docs/FeeStationApi.md#checkFeeStationUsage) | **POST** /fee_station/check_fee_station_usage | Check Billing Center usage
 *FeeStationApi* | [**estimateFeeStationFee**](docs/FeeStationApi.md#estimateFeeStationFee) | **POST** /fee_station/transactions/estimate_fee | Estimate transaction fee
-*FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Fee Station transaction information
-*FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Fee Station addresses
-*FeeStationApi* | [**listFeeStationFiatTransactions**](docs/FeeStationApi.md#listFeeStationFiatTransactions) | **GET** /fee_station/fiat_transactions | List Fee Station fiat transactions
-*FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Fee Station transactions
-*FeeStationApi* | [**listTokenBalancesForFeeStation**](docs/FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Fee Station token balances
+*FeeStationApi* | [**getFeeStationTransactionById**](docs/FeeStationApi.md#getFeeStationTransactionById) | **GET** /fee_station/transactions/{transaction_id} | Get Billing Center transaction information
+*FeeStationApi* | [**listFeeStationAddresses**](docs/FeeStationApi.md#listFeeStationAddresses) | **GET** /fee_station/addresses | List Billing Center addresses
+*FeeStationApi* | [**listFeeStationFiatTransactions**](docs/FeeStationApi.md#listFeeStationFiatTransactions) | **GET** /fee_station/fiat_transactions | List Billing Center fiat transactions
+*FeeStationApi* | [**listFeeStationTransactions**](docs/FeeStationApi.md#listFeeStationTransactions) | **GET** /fee_station/transactions | List all Billing Center transactions
+*FeeStationApi* | [**listTokenBalancesForFeeStation**](docs/FeeStationApi.md#listTokenBalancesForFeeStation) | **GET** /fee_station/tokens | List Billing Center token balances
 *GraphQlApi* | [**executeGraphql**](docs/GraphQlApi.md#executeGraphql) | **POST** /graphql | Execute a GraphQL query or mutation
 *OAuthApi* | [**exchangePermissionToken**](docs/OAuthApi.md#exchangePermissionToken) | **POST** /oauth/permission_token/exchange | Get Access Token
 *OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
@@ -911,6 +911,8 @@ Class | Method | HTTP request | Description
  - [PaymentAccountBalanceUpdateEventData](docs/PaymentAccountBalanceUpdateEventData.md)
  - [PaymentAddressUpdateEventData](docs/PaymentAddressUpdateEventData.md)
  - [PaymentAllocationAmount](docs/PaymentAllocationAmount.md)
+ - [PaymentAssetAmount](docs/PaymentAssetAmount.md)
+ - [PaymentAssetOrFiatAmount](docs/PaymentAssetOrFiatAmount.md)
  - [PaymentBalanceChange](docs/PaymentBalanceChange.md)
  - [PaymentBalanceChangeResponse](docs/PaymentBalanceChangeResponse.md)
  - [PaymentBalanceChangeSourceType](docs/PaymentBalanceChangeSourceType.md)
@@ -928,24 +930,41 @@ Class | Method | HTTP request | Description
  - [PaymentBulkSendItem](docs/PaymentBulkSendItem.md)
  - [PaymentBulkSendItemEvent](docs/PaymentBulkSendItemEvent.md)
  - [PaymentBulkSendItemStatus](docs/PaymentBulkSendItemStatus.md)
+ - [PaymentBulkSendItemUpdateEventData](docs/PaymentBulkSendItemUpdateEventData.md)
  - [PaymentBulkSendItemValidationStatus](docs/PaymentBulkSendItemValidationStatus.md)
  - [PaymentBulkSendStatus](docs/PaymentBulkSendStatus.md)
+ - [PaymentBulkSendUpdateEventData](docs/PaymentBulkSendUpdateEventData.md)
+ - [PaymentCommissionFeeTotal](docs/PaymentCommissionFeeTotal.md)
  - [PaymentEstimateFee](docs/PaymentEstimateFee.md)
  - [PaymentEstimateFee201Response](docs/PaymentEstimateFee201Response.md)
  - [PaymentEstimateFeeRequest](docs/PaymentEstimateFeeRequest.md)
  - [PaymentEstimatedFee](docs/PaymentEstimatedFee.md)
+ - [PaymentFailedReason](docs/PaymentFailedReason.md)
  - [PaymentFeeType](docs/PaymentFeeType.md)
+ - [PaymentOrderDeposit](docs/PaymentOrderDeposit.md)
  - [PaymentOrderEventData](docs/PaymentOrderEventData.md)
+ - [PaymentOrderNoticeType](docs/PaymentOrderNoticeType.md)
+ - [PaymentOrderUpdateEventData](docs/PaymentOrderUpdateEventData.md)
+ - [PaymentPayInStatus](docs/PaymentPayInStatus.md)
  - [PaymentPayout](docs/PaymentPayout.md)
+ - [PaymentPayoutAddressTarget](docs/PaymentPayoutAddressTarget.md)
+ - [PaymentPayoutBankAccountTarget](docs/PaymentPayoutBankAccountTarget.md)
  - [PaymentPayoutDetail](docs/PaymentPayoutDetail.md)
  - [PaymentPayoutEvent](docs/PaymentPayoutEvent.md)
  - [PaymentPayoutItem](docs/PaymentPayoutItem.md)
  - [PaymentPayoutParam](docs/PaymentPayoutParam.md)
  - [PaymentPayoutRecipientInfo](docs/PaymentPayoutRecipientInfo.md)
+ - [PaymentPayoutRequestedTarget](docs/PaymentPayoutRequestedTarget.md)
  - [PaymentPayoutStatus](docs/PaymentPayoutStatus.md)
+ - [PaymentPayoutTransaction](docs/PaymentPayoutTransaction.md)
+ - [PaymentPayoutTransactionResult](docs/PaymentPayoutTransactionResult.md)
+ - [PaymentPayoutUpdateEventData](docs/PaymentPayoutUpdateEventData.md)
  - [PaymentRefundEventData](docs/PaymentRefundEventData.md)
+ - [PaymentRefundUpdateEventData](docs/PaymentRefundUpdateEventData.md)
+ - [PaymentScreeningMode](docs/PaymentScreeningMode.md)
  - [PaymentSettlementEvent](docs/PaymentSettlementEvent.md)
  - [PaymentSourceType](docs/PaymentSourceType.md)
+ - [PaymentTopUpUpdateEventData](docs/PaymentTopUpUpdateEventData.md)
  - [PaymentTransaction](docs/PaymentTransaction.md)
  - [PaymentTransactionEventData](docs/PaymentTransactionEventData.md)
  - [PaymentUploadFileV2](docs/PaymentUploadFileV2.md)
@@ -1035,6 +1054,11 @@ Class | Method | HTTP request | Description
  - [SubmitKytScreeningsDecisionsBody](docs/SubmitKytScreeningsDecisionsBody.md)
  - [SubmitKytScreeningsReviewBody](docs/SubmitKytScreeningsReviewBody.md)
  - [SubmitMerchantKyc](docs/SubmitMerchantKyc.md)
+ - [SuiContractCallAddressBalanceOperationType](docs/SuiContractCallAddressBalanceOperationType.md)
+ - [SuiContractCallAddressBalanceParam](docs/SuiContractCallAddressBalanceParam.md)
+ - [SuiContractCallContractParam](docs/SuiContractCallContractParam.md)
+ - [SuiContractCallContractType](docs/SuiContractCallContractType.md)
+ - [SuiContractCallDestination](docs/SuiContractCallDestination.md)
  - [SupportedToken](docs/SupportedToken.md)
  - [SuspendedTokenEventData](docs/SuspendedTokenEventData.md)
  - [SuspendedTokenOperationType](docs/SuspendedTokenOperationType.md)
@@ -1262,6 +1286,7 @@ Class | Method | HTTP request | Description
  - [TransactionStellarTrustLineOperationType](docs/TransactionStellarTrustLineOperationType.md)
  - [TransactionStellarTrustLineParam](docs/TransactionStellarTrustLineParam.md)
  - [TransactionSubStatus](docs/TransactionSubStatus.md)
+ - [TransactionSuiDestination](docs/TransactionSuiDestination.md)
  - [TransactionTimeline](docs/TransactionTimeline.md)
  - [TransactionTokeApproval](docs/TransactionTokeApproval.md)
  - [TransactionTokenAmount](docs/TransactionTokenAmount.md)

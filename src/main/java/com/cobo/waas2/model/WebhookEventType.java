@@ -122,6 +122,18 @@ public enum WebhookEventType {
   
   PAYMENT_BULK_SEND_ITEM_STATUS_UPDATED("payment.bulk_send.item.status.updated"),
   
+  PAYMENT_TOPUP_UPDATED("payment.topup.updated"),
+  
+  PAYMENT_ORDER_UPDATED("payment.order.updated"),
+  
+  PAYMENT_REFUND_UPDATED("payment.refund.updated"),
+  
+  PAYMENT_PAYOUT_UPDATED("payment.payout.updated"),
+  
+  PAYMENT_BULK_SEND_UPDATED("payment.bulk_send.updated"),
+  
+  PAYMENT_BULK_SEND_ITEM_UPDATED("payment.bulk_send.item.updated"),
+  
   PAYMENT_TRANSACTION_EXTERNAL_CREATED("payment.transaction.external.created"),
   
   PAYMENT_TRANSACTION_EXTERNAL_COMPLETED("payment.transaction.external.completed"),

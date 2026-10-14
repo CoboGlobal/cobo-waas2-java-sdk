@@ -40,6 +40,8 @@ public enum TransactionDestinationType {
   
   STELLAR_CONTRACT("STELLAR_Contract"),
   
+  SUI_CONTRACT("SUI_Contract"),
+  
   COSMOS_CONTRACT("COSMOS_Contract"),
   
   TRON_CONTRACT("TRON_Contract"),

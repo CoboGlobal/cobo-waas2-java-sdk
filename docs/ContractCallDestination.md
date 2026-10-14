@@ -13,7 +13,7 @@
 |**calldata** | **String** | The data that is used to invoke a specific function or method within the specified contract at the destination address.  |  |
 |**instructions** | [**List&lt;SolContractCallInstruction&gt;**](SolContractCallInstruction.md) |  |  |
 |**addressLookupTableAccounts** | [**List&lt;SolContractCallAddressLookupTableAccount&gt;**](SolContractCallAddressLookupTableAccount.md) |  |  [optional] |
-|**contractParam** | [**StellarContractCallContractParam**](StellarContractCallContractParam.md) |  |  |
+|**contractParam** | [**SuiContractCallContractParam**](SuiContractCallContractParam.md) |  |  |
 |**cosmosMessages** | [**List&lt;CosmosContractCallMessage&gt;**](CosmosContractCallMessage.md) |  |  |
 
 

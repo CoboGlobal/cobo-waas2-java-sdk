@@ -117,7 +117,7 @@ public class FeeStationCheckFeeStationUsageResponse {
   }
 
    /**
-   * The current token balance available in Fee Station.
+   * The current token balance available in Billing Center.
    * @return balance
   **/
   @javax.annotation.Nonnull
@@ -155,7 +155,7 @@ public class FeeStationCheckFeeStationUsageResponse {
   }
 
    /**
-   * Indicates whether Fee Station is applied for this transfer request.
+   * Indicates whether Billing Center is applied for this transfer request.
    * @return isFeeStationApplicable
   **/
   @javax.annotation.Nonnull
@@ -174,7 +174,7 @@ public class FeeStationCheckFeeStationUsageResponse {
   }
 
    /**
-   * If Fee Station is used, indicates whether its balance is sufficient to cover the required gas fee.
+   * If Billing Center is used, indicates whether its balance is sufficient to cover the required gas fee.
    * @return isBalanceSufficient
   **/
   @javax.annotation.Nonnull
@@ -212,7 +212,7 @@ public class FeeStationCheckFeeStationUsageResponse {
   }
 
    /**
-   * Indicates whether USD stablecoin sponsorship is applied when the Fee Station balance is insufficient.
+   * Indicates whether USD stablecoin sponsorship is applied when the Billing Center balance is insufficient.
    * @return isSponsorApplicable
   **/
   @javax.annotation.Nonnull

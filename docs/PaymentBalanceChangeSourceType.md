@@ -27,5 +27,7 @@
 
 * `BULKSEND` (value: `"BulkSend"`)
 
+* `ONRAMPIN` (value: `"OnrampIn"`)
+
 
 
