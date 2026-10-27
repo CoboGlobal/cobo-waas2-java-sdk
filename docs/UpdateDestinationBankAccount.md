@@ -31,7 +31,7 @@ The bank account details for updating a destination bank account.  For USD compa
 |**bankProvince** | **String** | The province or state of the bank. Cannot be a pure number or contain Chinese characters.  |  [optional] |
 |**bankCity** | **String** | The city of the bank. |  [optional] |
 |**routingValue** | **String** | The routing value of the bank account. |  [optional] |
-|**contractFileId** | **UUID** | The file ID of the contract document (e.g., cooperation agreement) that proves the business relationship between you and the beneficiary, which you can retrieve by calling [Upload file](https://www.cobo.com/developers/v2/api-references/payment/upload-file).  |  [optional] |
+|**contractFileId** | **UUID** | The file ID of the contract document (e.g., cooperation agreement) that proves the business relationship between you and the beneficiary, which you can retrieve by calling [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2).  |  [optional] |
 
 
 

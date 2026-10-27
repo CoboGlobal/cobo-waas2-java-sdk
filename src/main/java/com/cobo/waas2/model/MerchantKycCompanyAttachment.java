@@ -71,7 +71,7 @@ public class MerchantKycCompanyAttachment {
   }
 
    /**
-   * The file ID of the uploaded file, which you can retrieve by calling [Upload file](https://www.cobo.com/developers/v2/api-references/payment/upload-file). 
+   * The file ID of the uploaded file, which you can retrieve by calling [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2). 
    * @return fileId
   **/
   @javax.annotation.Nonnull

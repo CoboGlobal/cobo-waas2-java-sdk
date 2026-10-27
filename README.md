@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.45.0</version>
+  <version>1.46.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -66,7 +66,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.45.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.46.0"
   }
 ```
 
@@ -94,7 +94,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.45.0.jar`
+* `target/cobo-waas2-1.46.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -261,6 +261,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**createCryptoAddress**](docs/PaymentApi.md#createCryptoAddress) | **POST** /payments/crypto_addresses | Create crypto address
 *PaymentApi* | [**createDestination**](docs/PaymentApi.md#createDestination) | **POST** /payments/destination | Create destination
 *PaymentApi* | [**createDestinationEntry**](docs/PaymentApi.md#createDestinationEntry) | **POST** /payments/destination_entry | Create destination entry
+*PaymentApi* | [**createFiatEntryKyc**](docs/PaymentApi.md#createFiatEntryKyc) | **POST** /payments/fiat_entry_kyc | Create fiat entry KYC
 *PaymentApi* | [**createForcedSweepRequest**](docs/PaymentApi.md#createForcedSweepRequest) | **POST** /payments/force_sweep_requests | Create forced sweep
 *PaymentApi* | [**createMerchant**](docs/PaymentApi.md#createMerchant) | **POST** /payments/merchants | Create merchant
 *PaymentApi* | [**createOrderLink**](docs/PaymentApi.md#createOrderLink) | **POST** /payments/links/orders | Create order link
@@ -287,6 +288,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**getDestination**](docs/PaymentApi.md#getDestination) | **GET** /payments/destination/{destination_id} | Get destination information
 *PaymentApi* | [**getDestinationEntry**](docs/PaymentApi.md#getDestinationEntry) | **GET** /payments/destination_entry/{destination_entry_id} | Get destination entry information
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
+*PaymentApi* | [**getFiatEntryKyc**](docs/PaymentApi.md#getFiatEntryKyc) | **GET** /payments/fiat_entry_kyc/{fiat_entry_kyc_id} | Get fiat entry KYC
 *PaymentApi* | [**getMerchantKyc**](docs/PaymentApi.md#getMerchantKyc) | **GET** /payments/merchants/{merchant_id}/kyc | Get merchant KYC
 *PaymentApi* | [**getPaymentBankAccountBalance**](docs/PaymentApi.md#getPaymentBankAccountBalance) | **GET** /payments/balance/bank_accounts/{bank_account_id} | Get bank account balance
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
@@ -309,6 +311,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**listCryptoAddresses**](docs/PaymentApi.md#listCryptoAddresses) | **GET** /payments/crypto_addresses | List crypto addresses
 *PaymentApi* | [**listDestinationEntries**](docs/PaymentApi.md#listDestinationEntries) | **GET** /payments/destination_entry | List destination entries
 *PaymentApi* | [**listDestinations**](docs/PaymentApi.md#listDestinations) | **GET** /payments/destination | List all destinations
+*PaymentApi* | [**listFiatEntryKyc**](docs/PaymentApi.md#listFiatEntryKyc) | **GET** /payments/fiat_entry_kyc | List all fiat entry KYC
 *PaymentApi* | [**listForcedSweepRequests**](docs/PaymentApi.md#listForcedSweepRequests) | **GET** /payments/force_sweep_requests | List forced sweeps
 *PaymentApi* | [**listMerchantBalances**](docs/PaymentApi.md#listMerchantBalances) | **GET** /payments/balance/merchants | List merchant balances
 *PaymentApi* | [**listMerchants**](docs/PaymentApi.md#listMerchants) | **GET** /payments/merchants | List all merchants
@@ -326,6 +329,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**updateCounterparty**](docs/PaymentApi.md#updateCounterparty) | **PUT** /payments/counterparty/{counterparty_id} | Update counterparty
 *PaymentApi* | [**updateDestination**](docs/PaymentApi.md#updateDestination) | **PUT** /payments/destination/{destination_id} | Update destination
 *PaymentApi* | [**updateDestinationEntry**](docs/PaymentApi.md#updateDestinationEntry) | **PUT** /payments/destination_entry/{destination_entry_id} | Update destination entry
+*PaymentApi* | [**updateFiatEntryKyc**](docs/PaymentApi.md#updateFiatEntryKyc) | **PUT** /payments/fiat_entry_kyc/{fiat_entry_kyc_id} | Update fiat entry KYC
 *PaymentApi* | [**updateMerchantById**](docs/PaymentApi.md#updateMerchantById) | **PUT** /payments/merchants/{merchant_id} | Update merchant
 *PaymentApi* | [**updatePaymentOrder**](docs/PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order
 *PaymentApi* | [**updateRefundById**](docs/PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order
@@ -615,6 +619,7 @@ Class | Method | HTTP request | Description
  - [CreateDestinationEntryRequest](docs/CreateDestinationEntryRequest.md)
  - [CreateDestinationRequest](docs/CreateDestinationRequest.md)
  - [CreateExchangeWalletParams](docs/CreateExchangeWalletParams.md)
+ - [CreateFiatEntryKyc](docs/CreateFiatEntryKyc.md)
  - [CreateKeyShareHolder](docs/CreateKeyShareHolder.md)
  - [CreateKeyShareHolderGroupRequest](docs/CreateKeyShareHolderGroupRequest.md)
  - [CreateKyaScreeningsBody](docs/CreateKyaScreeningsBody.md)
@@ -735,6 +740,7 @@ Class | Method | HTTP request | Description
  - [FILBase](docs/FILBase.md)
  - [FILPrice](docs/FILPrice.md)
  - [FeeAmount](docs/FeeAmount.md)
+ - [FeeFallback](docs/FeeFallback.md)
  - [FeeGasLimit](docs/FeeGasLimit.md)
  - [FeeLevel](docs/FeeLevel.md)
  - [FeeRate](docs/FeeRate.md)
@@ -749,6 +755,18 @@ Class | Method | HTTP request | Description
  - [FeeStationTransactionType](docs/FeeStationTransactionType.md)
  - [FeeStationTransfer](docs/FeeStationTransfer.md)
  - [FeeType](docs/FeeType.md)
+ - [FiatEntryKyc](docs/FiatEntryKyc.md)
+ - [FiatEntryKycAddress](docs/FiatEntryKycAddress.md)
+ - [FiatEntryKycCompanyAttachment](docs/FiatEntryKycCompanyAttachment.md)
+ - [FiatEntryKycCompanyAttachmentFileType](docs/FiatEntryKycCompanyAttachmentFileType.md)
+ - [FiatEntryKycCompanyInfo](docs/FiatEntryKycCompanyInfo.md)
+ - [FiatEntryKycCompanyType](docs/FiatEntryKycCompanyType.md)
+ - [FiatEntryKycDetail](docs/FiatEntryKycDetail.md)
+ - [FiatEntryKycMerchantType](docs/FiatEntryKycMerchantType.md)
+ - [FiatEntryKycPersonAttachment](docs/FiatEntryKycPersonAttachment.md)
+ - [FiatEntryKycPersonAttachmentFileType](docs/FiatEntryKycPersonAttachmentFileType.md)
+ - [FiatEntryKycPersonInfo](docs/FiatEntryKycPersonInfo.md)
+ - [FiatEntryKycStatus](docs/FiatEntryKycStatus.md)
  - [FiatTransactionEventData](docs/FiatTransactionEventData.md)
  - [FixedFeeRate](docs/FixedFeeRate.md)
  - [ForcedSweep](docs/ForcedSweep.md)
@@ -823,6 +841,7 @@ Class | Method | HTTP request | Description
  - [ListDestinations200Response](docs/ListDestinations200Response.md)
  - [ListExchanges200ResponseInner](docs/ListExchanges200ResponseInner.md)
  - [ListFeeStationFiatTransactions200Response](docs/ListFeeStationFiatTransactions200Response.md)
+ - [ListFiatEntryKyc200Response](docs/ListFiatEntryKyc200Response.md)
  - [ListForcedSweepRequests200Response](docs/ListForcedSweepRequests200Response.md)
  - [ListKeyShareHolderGroups200Response](docs/ListKeyShareHolderGroups200Response.md)
  - [ListKeyShareHolders200Response](docs/ListKeyShareHolders200Response.md)
@@ -1334,6 +1353,7 @@ Class | Method | HTTP request | Description
  - [UpdateDestinationEntryRequest](docs/UpdateDestinationEntryRequest.md)
  - [UpdateDestinationRequest](docs/UpdateDestinationRequest.md)
  - [UpdateExchangeWalletParams](docs/UpdateExchangeWalletParams.md)
+ - [UpdateFiatEntryKyc](docs/UpdateFiatEntryKyc.md)
  - [UpdateGroupAction](docs/UpdateGroupAction.md)
  - [UpdateKeyShareHolderGroupByIdRequest](docs/UpdateKeyShareHolderGroupByIdRequest.md)
  - [UpdateMerchantByIdRequest](docs/UpdateMerchantByIdRequest.md)

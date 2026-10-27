@@ -123,6 +123,14 @@ public class DestinationDetailTest {
     }
 
     /**
+     * Test the property 'fiatEntryKycId'
+     */
+    @Test
+    public void fiatEntryKycIdTest() {
+        // TODO: test fiatEntryKycId
+    }
+
+    /**
      * Test the property 'createdTimestamp'
      */
     @Test

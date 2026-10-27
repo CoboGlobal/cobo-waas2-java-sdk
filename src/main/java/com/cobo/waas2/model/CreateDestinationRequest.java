@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -76,6 +77,10 @@ public class CreateDestinationRequest {
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
+
+  public static final String SERIALIZED_NAME_FIAT_ENTRY_KYC_ID = "fiat_entry_kyc_id";
+  @SerializedName(SERIALIZED_NAME_FIAT_ENTRY_KYC_ID)
+  private UUID fiatEntryKycId;
 
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
@@ -203,6 +208,25 @@ public class CreateDestinationRequest {
   }
 
 
+  public CreateDestinationRequest fiatEntryKycId(UUID fiatEntryKycId) {
+    this.fiatEntryKycId = fiatEntryKycId;
+    return this;
+  }
+
+   /**
+   * The fiat entry KYC ID linked to the destination, which you can retrieve by calling [List all fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/list-all-fiat-entry-kyc). 
+   * @return fiatEntryKycId
+  **/
+  @javax.annotation.Nullable
+  public UUID getFiatEntryKycId() {
+    return fiatEntryKycId;
+  }
+
+  public void setFiatEntryKycId(UUID fiatEntryKycId) {
+    this.fiatEntryKycId = fiatEntryKycId;
+  }
+
+
   public CreateDestinationRequest country(String country) {
     this.country = country;
     return this;
@@ -319,6 +343,7 @@ public class CreateDestinationRequest {
         Objects.equals(this.walletAddresses, createDestinationRequest.walletAddresses) &&
         Objects.equals(this.bankAccounts, createDestinationRequest.bankAccounts) &&
         Objects.equals(this.merchantId, createDestinationRequest.merchantId) &&
+        Objects.equals(this.fiatEntryKycId, createDestinationRequest.fiatEntryKycId) &&
         Objects.equals(this.country, createDestinationRequest.country) &&
         Objects.equals(this.email, createDestinationRequest.email) &&
         Objects.equals(this.contactAddress, createDestinationRequest.contactAddress)&&
@@ -327,7 +352,7 @@ public class CreateDestinationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationName, destinationType, walletAddresses, bankAccounts, merchantId, country, email, contactAddress, additionalProperties);
+    return Objects.hash(destinationName, destinationType, walletAddresses, bankAccounts, merchantId, fiatEntryKycId, country, email, contactAddress, additionalProperties);
   }
 
   @Override
@@ -339,6 +364,7 @@ public class CreateDestinationRequest {
     sb.append("    walletAddresses: ").append(toIndentedString(walletAddresses)).append("\n");
     sb.append("    bankAccounts: ").append(toIndentedString(bankAccounts)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    fiatEntryKycId: ").append(toIndentedString(fiatEntryKycId)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    contactAddress: ").append(toIndentedString(contactAddress)).append("\n");
@@ -370,6 +396,7 @@ public class CreateDestinationRequest {
     openapiFields.add("wallet_addresses");
     openapiFields.add("bank_accounts");
     openapiFields.add("merchant_id");
+    openapiFields.add("fiat_entry_kyc_id");
     openapiFields.add("country");
     openapiFields.add("email");
     openapiFields.add("contact_address");
@@ -435,6 +462,9 @@ public class CreateDestinationRequest {
       }
       if ((jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()) && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      if ((jsonObj.get("fiat_entry_kyc_id") != null && !jsonObj.get("fiat_entry_kyc_id").isJsonNull()) && !jsonObj.get("fiat_entry_kyc_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fiat_entry_kyc_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiat_entry_kyc_id").toString()));
       }
       if ((jsonObj.get("country") != null && !jsonObj.get("country").isJsonNull()) && !jsonObj.get("country").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));

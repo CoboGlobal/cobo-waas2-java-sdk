@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.cobo.waas2",
     name := "cobo-waas2",
-    version := "1.45.0",
+    version := "1.46.0",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),
@@ -13,7 +13,7 @@ lazy val root = (project in file(".")).
       "com.squareup.okhttp3" % "okhttp" % "4.12.0",
       "com.squareup.okhttp3" % "logging-interceptor" % "4.12.0",
       "com.google.code.gson" % "gson" % "2.9.1",
-      "org.apache.commons" % "commons-lang3" % "3.12.0",
+      "org.apache.commons" % "commons-lang3" % "3.21.0",
       "javax.ws.rs" % "jsr311-api" % "1.1.1",
       "javax.ws.rs" % "javax.ws.rs-api" % "2.1.1",
       "org.openapitools" % "jackson-databind-nullable" % "0.2.6",
