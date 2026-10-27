@@ -152,6 +152,7 @@ docs/CreateDestinationEntry201Response.md
 docs/CreateDestinationEntryRequest.md
 docs/CreateDestinationRequest.md
 docs/CreateExchangeWalletParams.md
+docs/CreateFiatEntryKyc.md
 docs/CreateKeyShareHolder.md
 docs/CreateKeyShareHolderGroupRequest.md
 docs/CreateKyaScreeningsBody.md
@@ -274,6 +275,7 @@ docs/ExtendedTokenInfo.md
 docs/FILBase.md
 docs/FILPrice.md
 docs/FeeAmount.md
+docs/FeeFallback.md
 docs/FeeGasLimit.md
 docs/FeeLevel.md
 docs/FeeRate.md
@@ -289,6 +291,18 @@ docs/FeeStationSponsorTransactionDescription.md
 docs/FeeStationTransactionType.md
 docs/FeeStationTransfer.md
 docs/FeeType.md
+docs/FiatEntryKyc.md
+docs/FiatEntryKycAddress.md
+docs/FiatEntryKycCompanyAttachment.md
+docs/FiatEntryKycCompanyAttachmentFileType.md
+docs/FiatEntryKycCompanyInfo.md
+docs/FiatEntryKycCompanyType.md
+docs/FiatEntryKycDetail.md
+docs/FiatEntryKycMerchantType.md
+docs/FiatEntryKycPersonAttachment.md
+docs/FiatEntryKycPersonAttachmentFileType.md
+docs/FiatEntryKycPersonInfo.md
+docs/FiatEntryKycStatus.md
 docs/FiatTransactionEventData.md
 docs/FixedFeeRate.md
 docs/ForcedSweep.md
@@ -364,6 +378,7 @@ docs/ListDestinationEntries200Response.md
 docs/ListDestinations200Response.md
 docs/ListExchanges200ResponseInner.md
 docs/ListFeeStationFiatTransactions200Response.md
+docs/ListFiatEntryKyc200Response.md
 docs/ListForcedSweepRequests200Response.md
 docs/ListKeyShareHolderGroups200Response.md
 docs/ListKeyShareHolders200Response.md
@@ -885,6 +900,7 @@ docs/UpdateDestinationEntry200Response.md
 docs/UpdateDestinationEntryRequest.md
 docs/UpdateDestinationRequest.md
 docs/UpdateExchangeWalletParams.md
+docs/UpdateFiatEntryKyc.md
 docs/UpdateGroupAction.md
 docs/UpdateKeyShareHolderGroupByIdRequest.md
 docs/UpdateMerchantByIdRequest.md
@@ -1117,6 +1133,7 @@ src/main/java/com/cobo/waas2/model/CreateDestinationEntry201Response.java
 src/main/java/com/cobo/waas2/model/CreateDestinationEntryRequest.java
 src/main/java/com/cobo/waas2/model/CreateDestinationRequest.java
 src/main/java/com/cobo/waas2/model/CreateExchangeWalletParams.java
+src/main/java/com/cobo/waas2/model/CreateFiatEntryKyc.java
 src/main/java/com/cobo/waas2/model/CreateKeyShareHolder.java
 src/main/java/com/cobo/waas2/model/CreateKeyShareHolderGroupRequest.java
 src/main/java/com/cobo/waas2/model/CreateKyaScreeningsBody.java
@@ -1237,6 +1254,7 @@ src/main/java/com/cobo/waas2/model/ExtendedTokenInfo.java
 src/main/java/com/cobo/waas2/model/FILBase.java
 src/main/java/com/cobo/waas2/model/FILPrice.java
 src/main/java/com/cobo/waas2/model/FeeAmount.java
+src/main/java/com/cobo/waas2/model/FeeFallback.java
 src/main/java/com/cobo/waas2/model/FeeGasLimit.java
 src/main/java/com/cobo/waas2/model/FeeLevel.java
 src/main/java/com/cobo/waas2/model/FeeRate.java
@@ -1251,6 +1269,18 @@ src/main/java/com/cobo/waas2/model/FeeStationSponsorTransactionDescription.java
 src/main/java/com/cobo/waas2/model/FeeStationTransactionType.java
 src/main/java/com/cobo/waas2/model/FeeStationTransfer.java
 src/main/java/com/cobo/waas2/model/FeeType.java
+src/main/java/com/cobo/waas2/model/FiatEntryKyc.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycAddress.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycCompanyAttachment.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycCompanyAttachmentFileType.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycCompanyInfo.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycCompanyType.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycDetail.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycMerchantType.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycPersonAttachment.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycPersonAttachmentFileType.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycPersonInfo.java
+src/main/java/com/cobo/waas2/model/FiatEntryKycStatus.java
 src/main/java/com/cobo/waas2/model/FiatTransactionEventData.java
 src/main/java/com/cobo/waas2/model/FixedFeeRate.java
 src/main/java/com/cobo/waas2/model/ForcedSweep.java
@@ -1325,6 +1355,7 @@ src/main/java/com/cobo/waas2/model/ListDestinationEntries200Response.java
 src/main/java/com/cobo/waas2/model/ListDestinations200Response.java
 src/main/java/com/cobo/waas2/model/ListExchanges200ResponseInner.java
 src/main/java/com/cobo/waas2/model/ListFeeStationFiatTransactions200Response.java
+src/main/java/com/cobo/waas2/model/ListFiatEntryKyc200Response.java
 src/main/java/com/cobo/waas2/model/ListForcedSweepRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListKeyShareHolderGroups200Response.java
 src/main/java/com/cobo/waas2/model/ListKeyShareHolders200Response.java
@@ -1836,6 +1867,7 @@ src/main/java/com/cobo/waas2/model/UpdateDestinationEntry200Response.java
 src/main/java/com/cobo/waas2/model/UpdateDestinationEntryRequest.java
 src/main/java/com/cobo/waas2/model/UpdateDestinationRequest.java
 src/main/java/com/cobo/waas2/model/UpdateExchangeWalletParams.java
+src/main/java/com/cobo/waas2/model/UpdateFiatEntryKyc.java
 src/main/java/com/cobo/waas2/model/UpdateGroupAction.java
 src/main/java/com/cobo/waas2/model/UpdateKeyShareHolderGroupByIdRequest.java
 src/main/java/com/cobo/waas2/model/UpdateMerchantByIdRequest.java
@@ -2025,6 +2057,7 @@ src/test/java/com/cobo/waas2/model/CreateDestinationEntry201ResponseTest.java
 src/test/java/com/cobo/waas2/model/CreateDestinationEntryRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateDestinationRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateExchangeWalletParamsTest.java
+src/test/java/com/cobo/waas2/model/CreateFiatEntryKycTest.java
 src/test/java/com/cobo/waas2/model/CreateKeyShareHolderGroupRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateKeyShareHolderTest.java
 src/test/java/com/cobo/waas2/model/CreateKyaScreeningsBodyTest.java
@@ -2145,6 +2178,7 @@ src/test/java/com/cobo/waas2/model/ExtendedTokenInfoTest.java
 src/test/java/com/cobo/waas2/model/FILBaseTest.java
 src/test/java/com/cobo/waas2/model/FILPriceTest.java
 src/test/java/com/cobo/waas2/model/FeeAmountTest.java
+src/test/java/com/cobo/waas2/model/FeeFallbackTest.java
 src/test/java/com/cobo/waas2/model/FeeGasLimitTest.java
 src/test/java/com/cobo/waas2/model/FeeLevelTest.java
 src/test/java/com/cobo/waas2/model/FeeRateTest.java
@@ -2159,6 +2193,18 @@ src/test/java/com/cobo/waas2/model/FeeStationSponsorTransactionDescriptionTest.j
 src/test/java/com/cobo/waas2/model/FeeStationTransactionTypeTest.java
 src/test/java/com/cobo/waas2/model/FeeStationTransferTest.java
 src/test/java/com/cobo/waas2/model/FeeTypeTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycAddressTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycCompanyAttachmentFileTypeTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycCompanyAttachmentTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycCompanyInfoTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycCompanyTypeTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycDetailTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycMerchantTypeTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycPersonAttachmentFileTypeTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycPersonAttachmentTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycPersonInfoTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycStatusTest.java
+src/test/java/com/cobo/waas2/model/FiatEntryKycTest.java
 src/test/java/com/cobo/waas2/model/FiatTransactionEventDataTest.java
 src/test/java/com/cobo/waas2/model/FixedFeeRateTest.java
 src/test/java/com/cobo/waas2/model/ForcedSweepRequestTest.java
@@ -2233,6 +2279,7 @@ src/test/java/com/cobo/waas2/model/ListDestinationEntries200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListDestinations200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListExchanges200ResponseInnerTest.java
 src/test/java/com/cobo/waas2/model/ListFeeStationFiatTransactions200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListFiatEntryKyc200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListForcedSweepRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListKeyShareHolderGroups200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListKeyShareHolders200ResponseTest.java
@@ -2744,6 +2791,7 @@ src/test/java/com/cobo/waas2/model/UpdateDestinationEntry200ResponseTest.java
 src/test/java/com/cobo/waas2/model/UpdateDestinationEntryRequestTest.java
 src/test/java/com/cobo/waas2/model/UpdateDestinationRequestTest.java
 src/test/java/com/cobo/waas2/model/UpdateExchangeWalletParamsTest.java
+src/test/java/com/cobo/waas2/model/UpdateFiatEntryKycTest.java
 src/test/java/com/cobo/waas2/model/UpdateGroupActionTest.java
 src/test/java/com/cobo/waas2/model/UpdateKeyShareHolderGroupByIdRequestTest.java
 src/test/java/com/cobo/waas2/model/UpdateMerchantByIdRequestTest.java

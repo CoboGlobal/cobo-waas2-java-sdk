@@ -87,6 +87,10 @@ public class Destination {
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
+  public static final String SERIALIZED_NAME_FIAT_ENTRY_KYC_ID = "fiat_entry_kyc_id";
+  @SerializedName(SERIALIZED_NAME_FIAT_ENTRY_KYC_ID)
+  private UUID fiatEntryKycId;
+
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
   private Integer createdTimestamp;
@@ -250,6 +254,25 @@ public class Destination {
   }
 
 
+  public Destination fiatEntryKycId(UUID fiatEntryKycId) {
+    this.fiatEntryKycId = fiatEntryKycId;
+    return this;
+  }
+
+   /**
+   * The fiat entry KYC ID linked to the destination.
+   * @return fiatEntryKycId
+  **/
+  @javax.annotation.Nullable
+  public UUID getFiatEntryKycId() {
+    return fiatEntryKycId;
+  }
+
+  public void setFiatEntryKycId(UUID fiatEntryKycId) {
+    this.fiatEntryKycId = fiatEntryKycId;
+  }
+
+
   public Destination createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -350,6 +373,7 @@ public class Destination {
         Objects.equals(this.email, destination.email) &&
         Objects.equals(this.contactAddress, destination.contactAddress) &&
         Objects.equals(this.merchantId, destination.merchantId) &&
+        Objects.equals(this.fiatEntryKycId, destination.fiatEntryKycId) &&
         Objects.equals(this.createdTimestamp, destination.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, destination.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, destination.additionalProperties);
@@ -357,7 +381,7 @@ public class Destination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationId, destinationType, destinationName, source, country, email, contactAddress, merchantId, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(destinationId, destinationType, destinationName, source, country, email, contactAddress, merchantId, fiatEntryKycId, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -372,6 +396,7 @@ public class Destination {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    contactAddress: ").append(toIndentedString(contactAddress)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    fiatEntryKycId: ").append(toIndentedString(fiatEntryKycId)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -405,6 +430,7 @@ public class Destination {
     openapiFields.add("email");
     openapiFields.add("contact_address");
     openapiFields.add("merchant_id");
+    openapiFields.add("fiat_entry_kyc_id");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -459,6 +485,9 @@ public class Destination {
       }
       if ((jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()) && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      if ((jsonObj.get("fiat_entry_kyc_id") != null && !jsonObj.get("fiat_entry_kyc_id").isJsonNull()) && !jsonObj.get("fiat_entry_kyc_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fiat_entry_kyc_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiat_entry_kyc_id").toString()));
       }
   }
 

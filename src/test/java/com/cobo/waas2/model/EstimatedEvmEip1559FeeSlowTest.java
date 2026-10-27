@@ -67,4 +67,20 @@ public class EstimatedEvmEip1559FeeSlowTest {
         // TODO: test reservedFee
     }
 
+    /**
+     * Test the property 'fallback'
+     */
+    @Test
+    public void fallbackTest() {
+        // TODO: test fallback
+    }
+
+    /**
+     * Test the property 'fallbackReason'
+     */
+    @Test
+    public void fallbackReasonTest() {
+        // TODO: test fallbackReason
+    }
+
 }

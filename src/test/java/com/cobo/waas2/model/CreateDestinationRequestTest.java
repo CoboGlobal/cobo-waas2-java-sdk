@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -78,6 +79,14 @@ public class CreateDestinationRequestTest {
     @Test
     public void merchantIdTest() {
         // TODO: test merchantId
+    }
+
+    /**
+     * Test the property 'fiatEntryKycId'
+     */
+    @Test
+    public void fiatEntryKycIdTest() {
+        // TODO: test fiatEntryKycId
     }
 
     /**

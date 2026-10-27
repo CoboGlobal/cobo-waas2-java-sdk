@@ -99,6 +99,10 @@ public class DestinationDetail {
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
+  public static final String SERIALIZED_NAME_FIAT_ENTRY_KYC_ID = "fiat_entry_kyc_id";
+  @SerializedName(SERIALIZED_NAME_FIAT_ENTRY_KYC_ID)
+  private UUID fiatEntryKycId;
+
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
   private Integer createdTimestamp;
@@ -316,6 +320,25 @@ public class DestinationDetail {
   }
 
 
+  public DestinationDetail fiatEntryKycId(UUID fiatEntryKycId) {
+    this.fiatEntryKycId = fiatEntryKycId;
+    return this;
+  }
+
+   /**
+   * The fiat entry KYC ID linked to the destination.
+   * @return fiatEntryKycId
+  **/
+  @javax.annotation.Nullable
+  public UUID getFiatEntryKycId() {
+    return fiatEntryKycId;
+  }
+
+  public void setFiatEntryKycId(UUID fiatEntryKycId) {
+    this.fiatEntryKycId = fiatEntryKycId;
+  }
+
+
   public DestinationDetail createdTimestamp(Integer createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -418,6 +441,7 @@ public class DestinationDetail {
         Objects.equals(this.walletAddresses, destinationDetail.walletAddresses) &&
         Objects.equals(this.bankAccounts, destinationDetail.bankAccounts) &&
         Objects.equals(this.merchantId, destinationDetail.merchantId) &&
+        Objects.equals(this.fiatEntryKycId, destinationDetail.fiatEntryKycId) &&
         Objects.equals(this.createdTimestamp, destinationDetail.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, destinationDetail.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, destinationDetail.additionalProperties);
@@ -425,7 +449,7 @@ public class DestinationDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationId, destinationType, destinationName, source, country, email, contactAddress, walletAddresses, bankAccounts, merchantId, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(destinationId, destinationType, destinationName, source, country, email, contactAddress, walletAddresses, bankAccounts, merchantId, fiatEntryKycId, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -442,6 +466,7 @@ public class DestinationDetail {
     sb.append("    walletAddresses: ").append(toIndentedString(walletAddresses)).append("\n");
     sb.append("    bankAccounts: ").append(toIndentedString(bankAccounts)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    fiatEntryKycId: ").append(toIndentedString(fiatEntryKycId)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -477,6 +502,7 @@ public class DestinationDetail {
     openapiFields.add("wallet_addresses");
     openapiFields.add("bank_accounts");
     openapiFields.add("merchant_id");
+    openapiFields.add("fiat_entry_kyc_id");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -560,6 +586,9 @@ public class DestinationDetail {
       }
       if ((jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonNull()) && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      if ((jsonObj.get("fiat_entry_kyc_id") != null && !jsonObj.get("fiat_entry_kyc_id").isJsonNull()) && !jsonObj.get("fiat_entry_kyc_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fiat_entry_kyc_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiat_entry_kyc_id").toString()));
       }
   }
 
