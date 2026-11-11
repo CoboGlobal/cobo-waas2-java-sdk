@@ -83,22 +83,6 @@ public class FiatEntryKycDetailTest {
     }
 
     /**
-     * Test the property 'email'
-     */
-    @Test
-    public void emailTest() {
-        // TODO: test email
-    }
-
-    /**
-     * Test the property 'phone'
-     */
-    @Test
-    public void phoneTest() {
-        // TODO: test phone
-    }
-
-    /**
      * Test the property 'companyInfo'
      */
     @Test

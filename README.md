@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.46.0</version>
+  <version>1.47.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -66,7 +66,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.46.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.47.0"
   }
 ```
 
@@ -94,7 +94,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.46.0.jar`
+* `target/cobo-waas2-1.47.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -289,7 +289,6 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**getDestinationEntry**](docs/PaymentApi.md#getDestinationEntry) | **GET** /payments/destination_entry/{destination_entry_id} | Get destination entry information
 *PaymentApi* | [**getExchangeRate**](docs/PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate
 *PaymentApi* | [**getFiatEntryKyc**](docs/PaymentApi.md#getFiatEntryKyc) | **GET** /payments/fiat_entry_kyc/{fiat_entry_kyc_id} | Get fiat entry KYC
-*PaymentApi* | [**getMerchantKyc**](docs/PaymentApi.md#getMerchantKyc) | **GET** /payments/merchants/{merchant_id}/kyc | Get merchant KYC
 *PaymentApi* | [**getPaymentBankAccountBalance**](docs/PaymentApi.md#getPaymentBankAccountBalance) | **GET** /payments/balance/bank_accounts/{bank_account_id} | Get bank account balance
 *PaymentApi* | [**getPaymentOrderDetailById**](docs/PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information
 *PaymentApi* | [**getPayoutById**](docs/PaymentApi.md#getPayoutById) | **GET** /payments/payouts/{payout_id} | Get payout information
@@ -324,7 +323,7 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**listSettlementRequests**](docs/PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests
 *PaymentApi* | [**listTopUpPayers**](docs/PaymentApi.md#listTopUpPayers) | **GET** /payments/topup/payers | List payers
 *PaymentApi* | [**paymentEstimateFee**](docs/PaymentApi.md#paymentEstimateFee) | **POST** /payments/estimate_fee | Estimate fees
-*PaymentApi* | [**submitMerchantKyc**](docs/PaymentApi.md#submitMerchantKyc) | **POST** /payments/merchants/{merchant_id}/kyc | Submit merchant KYC
+*PaymentApi* | [**retryPaymentCallbacks**](docs/PaymentApi.md#retryPaymentCallbacks) | **POST** /payments/callbacks/retry | Retry payment callbacks
 *PaymentApi* | [**triggerTestPaymentsWebhookEvent**](docs/PaymentApi.md#triggerTestPaymentsWebhookEvent) | **POST** /payments/webhooks/trigger | Trigger test webhook event
 *PaymentApi* | [**updateCounterparty**](docs/PaymentApi.md#updateCounterparty) | **PUT** /payments/counterparty/{counterparty_id} | Update counterparty
 *PaymentApi* | [**updateDestination**](docs/PaymentApi.md#updateDestination) | **PUT** /payments/destination/{destination_id} | Update destination
@@ -334,7 +333,6 @@ Class | Method | HTTP request | Description
 *PaymentApi* | [**updatePaymentOrder**](docs/PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order
 *PaymentApi* | [**updateRefundById**](docs/PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order
 *PaymentApi* | [**updateTopUpAddress**](docs/PaymentApi.md#updateTopUpAddress) | **PUT** /payments/topup/address | Update top-up address
-*PaymentApi* | [**uploadPaymentFile**](docs/PaymentApi.md#uploadPaymentFile) | **POST** /payments/files | Upload file
 *PaymentApi* | [**uploadPaymentFileV2**](docs/PaymentApi.md#uploadPaymentFileV2) | **POST** /payments/files_v2 | Upload file v2
 *PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
 *PrimeBrokerApi* | [**createGuardPubkey**](docs/PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | Create Guard pubkey binding
@@ -895,18 +893,6 @@ Class | Method | HTTP request | Description
  - [MaxTransferableValue](docs/MaxTransferableValue.md)
  - [Merchant](docs/Merchant.md)
  - [MerchantBalance](docs/MerchantBalance.md)
- - [MerchantKycAddress](docs/MerchantKycAddress.md)
- - [MerchantKycCompanyAttachment](docs/MerchantKycCompanyAttachment.md)
- - [MerchantKycCompanyAttachmentFileType](docs/MerchantKycCompanyAttachmentFileType.md)
- - [MerchantKycCompanyInfo](docs/MerchantKycCompanyInfo.md)
- - [MerchantKycCompanyType](docs/MerchantKycCompanyType.md)
- - [MerchantKycInfo](docs/MerchantKycInfo.md)
- - [MerchantKycMerchantType](docs/MerchantKycMerchantType.md)
- - [MerchantKycPersonAttachment](docs/MerchantKycPersonAttachment.md)
- - [MerchantKycPersonAttachmentFileType](docs/MerchantKycPersonAttachmentFileType.md)
- - [MerchantKycPersonInfo](docs/MerchantKycPersonInfo.md)
- - [MerchantKycStatus](docs/MerchantKycStatus.md)
- - [MerchantKycSubmission](docs/MerchantKycSubmission.md)
  - [MessageSignDestination](docs/MessageSignDestination.md)
  - [MessageSignDestinationType](docs/MessageSignDestinationType.md)
  - [MessageSignParams](docs/MessageSignParams.md)
@@ -953,6 +939,7 @@ Class | Method | HTTP request | Description
  - [PaymentBulkSendItemValidationStatus](docs/PaymentBulkSendItemValidationStatus.md)
  - [PaymentBulkSendStatus](docs/PaymentBulkSendStatus.md)
  - [PaymentBulkSendUpdateEventData](docs/PaymentBulkSendUpdateEventData.md)
+ - [PaymentCallbackBusinessType](docs/PaymentCallbackBusinessType.md)
  - [PaymentCommissionFeeTotal](docs/PaymentCommissionFeeTotal.md)
  - [PaymentEstimateFee](docs/PaymentEstimateFee.md)
  - [PaymentEstimateFee201Response](docs/PaymentEstimateFee201Response.md)
@@ -1026,6 +1013,8 @@ Class | Method | HTTP request | Description
  - [ReportType](docs/ReportType.md)
  - [RequestApproval](docs/RequestApproval.md)
  - [RetryCallbackMessage201Response](docs/RetryCallbackMessage201Response.md)
+ - [RetryPaymentCallbacks201Response](docs/RetryPaymentCallbacks201Response.md)
+ - [RetryPaymentCallbacksRequest](docs/RetryPaymentCallbacksRequest.md)
  - [RetryWebhookEventById201Response](docs/RetryWebhookEventById201Response.md)
  - [ReviewStatusType](docs/ReviewStatusType.md)
  - [RevokeApprovalRequest201Response](docs/RevokeApprovalRequest201Response.md)
@@ -1072,7 +1061,6 @@ Class | Method | HTTP request | Description
  - [SubmitKytResponse](docs/SubmitKytResponse.md)
  - [SubmitKytScreeningsDecisionsBody](docs/SubmitKytScreeningsDecisionsBody.md)
  - [SubmitKytScreeningsReviewBody](docs/SubmitKytScreeningsReviewBody.md)
- - [SubmitMerchantKyc](docs/SubmitMerchantKyc.md)
  - [SuiContractCallAddressBalanceOperationType](docs/SuiContractCallAddressBalanceOperationType.md)
  - [SuiContractCallAddressBalanceParam](docs/SuiContractCallAddressBalanceParam.md)
  - [SuiContractCallContractParam](docs/SuiContractCallContractParam.md)

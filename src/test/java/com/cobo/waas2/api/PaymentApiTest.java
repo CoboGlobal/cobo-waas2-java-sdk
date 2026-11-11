@@ -58,7 +58,6 @@ import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExchangeRate;
 import com.cobo.waas2.model.FiatEntryKyc;
 import com.cobo.waas2.model.FiatEntryKycDetail;
-import java.io.File;
 import com.cobo.waas2.model.ForcedSweep;
 import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetCounterpartyEntry200Response;
@@ -89,8 +88,6 @@ import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
-import com.cobo.waas2.model.MerchantKycInfo;
-import com.cobo.waas2.model.MerchantKycSubmission;
 import com.cobo.waas2.model.Order;
 import com.cobo.waas2.model.PaymentAllocationAmount;
 import com.cobo.waas2.model.PaymentBalanceChangeResponse;
@@ -113,8 +110,9 @@ import com.cobo.waas2.model.Report;
 import com.cobo.waas2.model.ReportDownloadResponse;
 import com.cobo.waas2.model.ReportStatus;
 import com.cobo.waas2.model.ReportType;
+import com.cobo.waas2.model.RetryPaymentCallbacks201Response;
+import com.cobo.waas2.model.RetryPaymentCallbacksRequest;
 import com.cobo.waas2.model.Settlement;
-import com.cobo.waas2.model.SubmitMerchantKyc;
 import com.cobo.waas2.model.SupportedToken;
 import com.cobo.waas2.model.TopUpAddress;
 import com.cobo.waas2.model.TriggerTestPaymentWebhookEventResponse;
@@ -689,20 +687,6 @@ public class PaymentApiTest {
     public void getFiatEntryKycTest() throws ApiException {
         UUID fiatEntryKycId = null;
         FiatEntryKycDetail response = api.getFiatEntryKyc(fiatEntryKycId);
-        // TODO: test validations
-    }
-
-    /**
-     * Get merchant KYC
-     *
-     * &lt;Note&gt;This operation has been deprecated. Please use [Get fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/get-fiat-entry-kyc) instead.&lt;/Note&gt;  This operation retrieves the KYC submission for a specified merchant.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getMerchantKycTest() throws ApiException {
-        String merchantId = null;
-        MerchantKycSubmission response = api.getMerchantKyc(merchantId);
         // TODO: test validations
     }
 
@@ -1290,17 +1274,16 @@ public class PaymentApiTest {
     }
 
     /**
-     * Submit merchant KYC
+     * Retry payment callbacks
      *
-     * &lt;Note&gt;This operation has been deprecated. Please use [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) to create KYC information and [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc) to update KYC information instead.&lt;/Note&gt;  This operation submits KYC information for a specified merchant.  You need to provide the merchant type, country, and industry. Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants).  &lt;Note&gt;If the merchant KYC status is &#x60;Disabled&#x60;, this operation cannot be used to resubmit KYC information.&lt;/Note&gt; 
+     * This operation retries eligible callback messages associated with a refund order, payout, or bulk send.  Specify the business record using &#x60;business_type&#x60; and &#x60;business_id&#x60;. The record must belong to your organization and be in &#x60;PendingDoubleCheck&#x60; status. This operation requires the &#x60;callback.resend&#x60; permission.  For a business record with multiple callback endpoints, this operation attempts to resend each message that is still awaiting a valid response and has remaining attempts. Messages that have received &#x60;ok&#x60; or &#x60;deny&#x60;, or have exhausted their attempts, are skipped. All endpoints must return &#x60;ok&#x60; before the business record can continue processing; any &#x60;deny&#x60; terminates the business request.  Each message allows up to 30 delivery attempts in total, including the initial attempt and both automatic and manual retries. This operation does not reset the attempt count or resend exhausted messages.  A successful response means the retry request was processed. It does not guarantee that any message was resent or approved, or that the business record has continued processing. 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void submitMerchantKycTest() throws ApiException {
-        String merchantId = null;
-        SubmitMerchantKyc submitMerchantKyc = null;
-        MerchantKycInfo response = api.submitMerchantKyc(merchantId, submitMerchantKyc);
+    public void retryPaymentCallbacksTest() throws ApiException {
+        RetryPaymentCallbacksRequest retryPaymentCallbacksRequest = null;
+        RetryPaymentCallbacks201Response response = api.retryPaymentCallbacks(retryPaymentCallbacksRequest);
         // TODO: test validations
     }
 
@@ -1438,23 +1421,9 @@ public class PaymentApiTest {
     }
 
     /**
-     * Upload file
-     *
-     * &lt;Note&gt;This operation has been deprecated. Please use [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2) instead.&lt;/Note&gt;  This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void uploadPaymentFileTest() throws ApiException {
-        File _file = null;
-        PaymentUploadedFile response = api.uploadPaymentFile(_file);
-        // TODO: test validations
-    }
-
-    /**
      * Upload file v2
      *
-     * This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). 
      *
      * @throws ApiException if the Api call fails
      */
