@@ -56,10 +56,6 @@ public class PaymentUploadedFile {
   @SerializedName(SERIALIZED_NAME_FILE_ID)
   private String fileId;
 
-  public static final String SERIALIZED_NAME_EXPIRED_TIMESTAMP = "expired_timestamp";
-  @SerializedName(SERIALIZED_NAME_EXPIRED_TIMESTAMP)
-  private Long expiredTimestamp;
-
   public PaymentUploadedFile() {
   }
 
@@ -79,25 +75,6 @@ public class PaymentUploadedFile {
 
   public void setFileId(String fileId) {
     this.fileId = fileId;
-  }
-
-
-  public PaymentUploadedFile expiredTimestamp(Long expiredTimestamp) {
-    this.expiredTimestamp = expiredTimestamp;
-    return this;
-  }
-
-   /**
-   * The time when the uploaded file link expires, in Unix timestamp format, measured in milliseconds.
-   * @return expiredTimestamp
-  **/
-  @javax.annotation.Nonnull
-  public Long getExpiredTimestamp() {
-    return expiredTimestamp;
-  }
-
-  public void setExpiredTimestamp(Long expiredTimestamp) {
-    this.expiredTimestamp = expiredTimestamp;
   }
 
   /**
@@ -155,14 +132,13 @@ public class PaymentUploadedFile {
       return false;
     }
     PaymentUploadedFile paymentUploadedFile = (PaymentUploadedFile) o;
-    return Objects.equals(this.fileId, paymentUploadedFile.fileId) &&
-        Objects.equals(this.expiredTimestamp, paymentUploadedFile.expiredTimestamp)&&
+    return Objects.equals(this.fileId, paymentUploadedFile.fileId)&&
         Objects.equals(this.additionalProperties, paymentUploadedFile.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileId, expiredTimestamp, additionalProperties);
+    return Objects.hash(fileId, additionalProperties);
   }
 
   @Override
@@ -170,7 +146,6 @@ public class PaymentUploadedFile {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentUploadedFile {\n");
     sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
-    sb.append("    expiredTimestamp: ").append(toIndentedString(expiredTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -195,12 +170,10 @@ public class PaymentUploadedFile {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("file_id");
-    openapiFields.add("expired_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("file_id");
-    openapiRequiredFields.add("expired_timestamp");
   }
 
  /**

@@ -42,7 +42,6 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**getDestinationEntry**](PaymentApi.md#getDestinationEntry) | **GET** /payments/destination_entry/{destination_entry_id} | Get destination entry information |
 | [**getExchangeRate**](PaymentApi.md#getExchangeRate) | **GET** /payments/exchange_rates/{token_id}/{currency} | Get exchange rate |
 | [**getFiatEntryKyc**](PaymentApi.md#getFiatEntryKyc) | **GET** /payments/fiat_entry_kyc/{fiat_entry_kyc_id} | Get fiat entry KYC |
-| [**getMerchantKyc**](PaymentApi.md#getMerchantKyc) | **GET** /payments/merchants/{merchant_id}/kyc | Get merchant KYC |
 | [**getPaymentBankAccountBalance**](PaymentApi.md#getPaymentBankAccountBalance) | **GET** /payments/balance/bank_accounts/{bank_account_id} | Get bank account balance |
 | [**getPaymentOrderDetailById**](PaymentApi.md#getPaymentOrderDetailById) | **GET** /payments/orders/{order_id} | Get pay-in order information |
 | [**getPayoutById**](PaymentApi.md#getPayoutById) | **GET** /payments/payouts/{payout_id} | Get payout information |
@@ -77,7 +76,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**listSettlementRequests**](PaymentApi.md#listSettlementRequests) | **GET** /payments/settlement_requests | List all settlement requests |
 | [**listTopUpPayers**](PaymentApi.md#listTopUpPayers) | **GET** /payments/topup/payers | List payers |
 | [**paymentEstimateFee**](PaymentApi.md#paymentEstimateFee) | **POST** /payments/estimate_fee | Estimate fees |
-| [**submitMerchantKyc**](PaymentApi.md#submitMerchantKyc) | **POST** /payments/merchants/{merchant_id}/kyc | Submit merchant KYC |
+| [**retryPaymentCallbacks**](PaymentApi.md#retryPaymentCallbacks) | **POST** /payments/callbacks/retry | Retry payment callbacks |
 | [**triggerTestPaymentsWebhookEvent**](PaymentApi.md#triggerTestPaymentsWebhookEvent) | **POST** /payments/webhooks/trigger | Trigger test webhook event |
 | [**updateCounterparty**](PaymentApi.md#updateCounterparty) | **PUT** /payments/counterparty/{counterparty_id} | Update counterparty |
 | [**updateDestination**](PaymentApi.md#updateDestination) | **PUT** /payments/destination/{destination_id} | Update destination |
@@ -87,7 +86,6 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**updatePaymentOrder**](PaymentApi.md#updatePaymentOrder) | **PUT** /payments/orders/{order_id} | Update pay-in order |
 | [**updateRefundById**](PaymentApi.md#updateRefundById) | **PUT** /payments/refunds/{refund_id} | Update refund order |
 | [**updateTopUpAddress**](PaymentApi.md#updateTopUpAddress) | **PUT** /payments/topup/address | Update top-up address |
-| [**uploadPaymentFile**](PaymentApi.md#uploadPaymentFile) | **POST** /payments/files | Upload file |
 | [**uploadPaymentFileV2**](PaymentApi.md#uploadPaymentFileV2) | **POST** /payments/files_v2 | Upload file v2 |
 
 
@@ -2698,74 +2696,6 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
-<a id="getMerchantKyc"></a>
-# **getMerchantKyc**
-> MerchantKycSubmission getMerchantKyc(merchantId)
-
-Get merchant KYC
-
-&lt;Note&gt;This operation has been deprecated. Please use [Get fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/get-fiat-entry-kyc) instead.&lt;/Note&gt;  This operation retrieves the KYC submission for a specified merchant.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
-
-### Example
-```java
-// Import classes:
-import com.cobo.waas2.ApiClient;
-import com.cobo.waas2.ApiException;
-import com.cobo.waas2.Configuration;
-import com.cobo.waas2.model.*;
-import com.cobo.waas2.Env;
-import com.cobo.waas2.api.PaymentApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
-    defaultClient.setEnv(Env.DEV);
-
-    // Replace `<YOUR_PRIVATE_KEY>` with your private key
-    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
-    PaymentApi apiInstance = new PaymentApi();
-    String merchantId = "M1001";
-    try {
-      MerchantKycSubmission result = apiInstance.getMerchantKyc(merchantId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PaymentApi#getMerchantKyc");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The merchant ID. | |
-
-### Return type
-
-[**MerchantKycSubmission**](MerchantKycSubmission.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | The request was successful. |  -  |
-| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
-| **5XX** | Internal server error. |  -  |
-
 <a id="getPaymentBankAccountBalance"></a>
 # **getPaymentBankAccountBalance**
 > PaymentBankAccountBalance getPaymentBankAccountBalance(bankAccountId)
@@ -5290,13 +5220,13 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
-<a id="submitMerchantKyc"></a>
-# **submitMerchantKyc**
-> MerchantKycInfo submitMerchantKyc(merchantId, submitMerchantKyc)
+<a id="retryPaymentCallbacks"></a>
+# **retryPaymentCallbacks**
+> RetryPaymentCallbacks201Response retryPaymentCallbacks(retryPaymentCallbacksRequest)
 
-Submit merchant KYC
+Retry payment callbacks
 
-&lt;Note&gt;This operation has been deprecated. Please use [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) to create KYC information and [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc) to update KYC information instead.&lt;/Note&gt;  This operation submits KYC information for a specified merchant.  You need to provide the merchant type, country, and industry. Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants).  &lt;Note&gt;If the merchant KYC status is &#x60;Disabled&#x60;, this operation cannot be used to resubmit KYC information.&lt;/Note&gt; 
+This operation retries eligible callback messages associated with a refund order, payout, or bulk send.  Specify the business record using &#x60;business_type&#x60; and &#x60;business_id&#x60;. The record must belong to your organization and be in &#x60;PendingDoubleCheck&#x60; status. This operation requires the &#x60;callback.resend&#x60; permission.  For a business record with multiple callback endpoints, this operation attempts to resend each message that is still awaiting a valid response and has remaining attempts. Messages that have received &#x60;ok&#x60; or &#x60;deny&#x60;, or have exhausted their attempts, are skipped. All endpoints must return &#x60;ok&#x60; before the business record can continue processing; any &#x60;deny&#x60; terminates the business request.  Each message allows up to 30 delivery attempts in total, including the initial attempt and both automatic and manual retries. This operation does not reset the attempt count or resend exhausted messages.  A successful response means the retry request was processed. It does not guarantee that any message was resent or approved, or that the business record has continued processing. 
 
 ### Example
 ```java
@@ -5317,13 +5247,12 @@ public class Example {
     // Replace `<YOUR_PRIVATE_KEY>` with your private key
     defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     PaymentApi apiInstance = new PaymentApi();
-    String merchantId = "M1001";
-    SubmitMerchantKyc submitMerchantKyc = new SubmitMerchantKyc();
+    RetryPaymentCallbacksRequest retryPaymentCallbacksRequest = new RetryPaymentCallbacksRequest();
     try {
-      MerchantKycInfo result = apiInstance.submitMerchantKyc(merchantId, submitMerchantKyc);
+      RetryPaymentCallbacks201Response result = apiInstance.retryPaymentCallbacks(retryPaymentCallbacksRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PaymentApi#submitMerchantKyc");
+      System.err.println("Exception when calling PaymentApi#retryPaymentCallbacks");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -5337,12 +5266,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The merchant ID. | |
-| **submitMerchantKyc** | [**SubmitMerchantKyc**](SubmitMerchantKyc.md)| The request body to submit merchant KYC information.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  | [optional] |
+| **retryPaymentCallbacksRequest** | [**RetryPaymentCallbacksRequest**](RetryPaymentCallbacksRequest.md)| The request body to retry callback messages for a payment business record. | |
 
 ### Return type
 
-[**MerchantKycInfo**](MerchantKycInfo.md)
+[**RetryPaymentCallbacks201Response**](RetryPaymentCallbacks201Response.md)
 
 ### Authorization
 
@@ -5356,7 +5284,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | The request was successful. |  -  |
+| **201** | The callback retry request was processed. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -5986,81 +5914,13 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
-<a id="uploadPaymentFile"></a>
-# **uploadPaymentFile**
-> PaymentUploadedFile uploadPaymentFile(_file)
-
-Upload file
-
-&lt;Note&gt;This operation has been deprecated. Please use [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2) instead.&lt;/Note&gt;  This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
-
-### Example
-```java
-// Import classes:
-import com.cobo.waas2.ApiClient;
-import com.cobo.waas2.ApiException;
-import com.cobo.waas2.Configuration;
-import com.cobo.waas2.model.*;
-import com.cobo.waas2.Env;
-import com.cobo.waas2.api.PaymentApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
-    defaultClient.setEnv(Env.DEV);
-
-    // Replace `<YOUR_PRIVATE_KEY>` with your private key
-    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
-    PaymentApi apiInstance = new PaymentApi();
-    File _file = new File("/path/to/file");
-    try {
-      PaymentUploadedFile result = apiInstance.uploadPaymentFile(_file);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PaymentApi#uploadPaymentFile");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **_file** | **File**| The file to upload. | |
-
-### Return type
-
-[**PaymentUploadedFile**](PaymentUploadedFile.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | The request was successful. |  -  |
-| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
-| **5XX** | Internal server error. |  -  |
-
 <a id="uploadPaymentFileV2"></a>
 # **uploadPaymentFileV2**
 > PaymentUploadedFile uploadPaymentFileV2(paymentUploadFileV2)
 
 Upload file v2
 
-This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). 
 
 ### Example
 ```java

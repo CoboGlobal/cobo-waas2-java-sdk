@@ -69,7 +69,6 @@ import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExchangeRate;
 import com.cobo.waas2.model.FiatEntryKyc;
 import com.cobo.waas2.model.FiatEntryKycDetail;
-import java.io.File;
 import com.cobo.waas2.model.ForcedSweep;
 import com.cobo.waas2.model.ForcedSweepRequest;
 import com.cobo.waas2.model.GetCounterpartyEntry200Response;
@@ -100,8 +99,6 @@ import com.cobo.waas2.model.ListSettlementDetails200Response;
 import com.cobo.waas2.model.ListSettlementRequests200Response;
 import com.cobo.waas2.model.ListTopUpPayers200Response;
 import com.cobo.waas2.model.Merchant;
-import com.cobo.waas2.model.MerchantKycInfo;
-import com.cobo.waas2.model.MerchantKycSubmission;
 import com.cobo.waas2.model.Order;
 import com.cobo.waas2.model.PaymentAllocationAmount;
 import com.cobo.waas2.model.PaymentBalanceChangeResponse;
@@ -124,8 +121,9 @@ import com.cobo.waas2.model.Report;
 import com.cobo.waas2.model.ReportDownloadResponse;
 import com.cobo.waas2.model.ReportStatus;
 import com.cobo.waas2.model.ReportType;
+import com.cobo.waas2.model.RetryPaymentCallbacks201Response;
+import com.cobo.waas2.model.RetryPaymentCallbacksRequest;
 import com.cobo.waas2.model.Settlement;
-import com.cobo.waas2.model.SubmitMerchantKyc;
 import com.cobo.waas2.model.SupportedToken;
 import com.cobo.waas2.model.TopUpAddress;
 import com.cobo.waas2.model.TriggerTestPaymentWebhookEventResponse;
@@ -4694,133 +4692,6 @@ public class PaymentApi {
 
         okhttp3.Call localVarCall = getFiatEntryKycValidateBeforeCall(fiatEntryKycId, _callback);
         Type localVarReturnType = new TypeToken<FiatEntryKycDetail>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getMerchantKyc
-     * @param merchantId The merchant ID. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getMerchantKycCall(String merchantId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/payments/merchants/{merchant_id}/kyc"
-            .replace("{" + "merchant_id" + "}", localVarApiClient.escapeString(merchantId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMerchantKycValidateBeforeCall(String merchantId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'merchantId' is set
-        if (merchantId == null) {
-            throw new ApiException("Missing the required parameter 'merchantId' when calling getMerchantKyc(Async)");
-        }
-
-        return getMerchantKycCall(merchantId, _callback);
-
-    }
-
-    /**
-     * Get merchant KYC
-     * &lt;Note&gt;This operation has been deprecated. Please use [Get fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/get-fiat-entry-kyc) instead.&lt;/Note&gt;  This operation retrieves the KYC submission for a specified merchant.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
-     * @param merchantId The merchant ID. (required)
-     * @return MerchantKycSubmission
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public MerchantKycSubmission getMerchantKyc(String merchantId) throws ApiException {
-        ApiResponse<MerchantKycSubmission> localVarResp = getMerchantKycWithHttpInfo(merchantId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get merchant KYC
-     * &lt;Note&gt;This operation has been deprecated. Please use [Get fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/get-fiat-entry-kyc) instead.&lt;/Note&gt;  This operation retrieves the KYC submission for a specified merchant.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
-     * @param merchantId The merchant ID. (required)
-     * @return ApiResponse&lt;MerchantKycSubmission&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<MerchantKycSubmission> getMerchantKycWithHttpInfo(String merchantId) throws ApiException {
-        okhttp3.Call localVarCall = getMerchantKycValidateBeforeCall(merchantId, null);
-        Type localVarReturnType = new TypeToken<MerchantKycSubmission>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get merchant KYC (asynchronously)
-     * &lt;Note&gt;This operation has been deprecated. Please use [Get fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/get-fiat-entry-kyc) instead.&lt;/Note&gt;  This operation retrieves the KYC submission for a specified merchant.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants). 
-     * @param merchantId The merchant ID. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getMerchantKycAsync(String merchantId, final ApiCallback<MerchantKycSubmission> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getMerchantKycValidateBeforeCall(merchantId, _callback);
-        Type localVarReturnType = new TypeToken<MerchantKycSubmission>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9669,28 +9540,24 @@ public class PaymentApi {
         return localVarCall;
     }
     /**
-     * Build call for submitMerchantKyc
-     * @param merchantId The merchant ID. (required)
-     * @param submitMerchantKyc The request body to submit merchant KYC information.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
+     * Build call for retryPaymentCallbacks
+     * @param retryPaymentCallbacksRequest The request body to retry callback messages for a payment business record. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The callback retry request was processed. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call submitMerchantKycCall(String merchantId, SubmitMerchantKyc submitMerchantKyc, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = submitMerchantKyc;
+    public okhttp3.Call retryPaymentCallbacksCall(RetryPaymentCallbacksRequest retryPaymentCallbacksRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = retryPaymentCallbacksRequest;
 
         // create path and map variables
-        String localVarPath = "/payments/merchants/{merchant_id}/kyc"
-            .replace("{" + "merchant_id" + "}", localVarApiClient.escapeString(merchantId.toString()));
+        String localVarPath = "/payments/callbacks/retry";
 
         List<Pair> localVarQueryParams = new ArrayList<>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<>();
@@ -9718,85 +9585,75 @@ public class PaymentApi {
         return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
-    @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call submitMerchantKycValidateBeforeCall(String merchantId, SubmitMerchantKyc submitMerchantKyc, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'merchantId' is set
-        if (merchantId == null) {
-            throw new ApiException("Missing the required parameter 'merchantId' when calling submitMerchantKyc(Async)");
+    private okhttp3.Call retryPaymentCallbacksValidateBeforeCall(RetryPaymentCallbacksRequest retryPaymentCallbacksRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'retryPaymentCallbacksRequest' is set
+        if (retryPaymentCallbacksRequest == null) {
+            throw new ApiException("Missing the required parameter 'retryPaymentCallbacksRequest' when calling retryPaymentCallbacks(Async)");
         }
 
-        return submitMerchantKycCall(merchantId, submitMerchantKyc, _callback);
+        return retryPaymentCallbacksCall(retryPaymentCallbacksRequest, _callback);
 
     }
 
     /**
-     * Submit merchant KYC
-     * &lt;Note&gt;This operation has been deprecated. Please use [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) to create KYC information and [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc) to update KYC information instead.&lt;/Note&gt;  This operation submits KYC information for a specified merchant.  You need to provide the merchant type, country, and industry. Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants).  &lt;Note&gt;If the merchant KYC status is &#x60;Disabled&#x60;, this operation cannot be used to resubmit KYC information.&lt;/Note&gt; 
-     * @param merchantId The merchant ID. (required)
-     * @param submitMerchantKyc The request body to submit merchant KYC information.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
-     * @return MerchantKycInfo
+     * Retry payment callbacks
+     * This operation retries eligible callback messages associated with a refund order, payout, or bulk send.  Specify the business record using &#x60;business_type&#x60; and &#x60;business_id&#x60;. The record must belong to your organization and be in &#x60;PendingDoubleCheck&#x60; status. This operation requires the &#x60;callback.resend&#x60; permission.  For a business record with multiple callback endpoints, this operation attempts to resend each message that is still awaiting a valid response and has remaining attempts. Messages that have received &#x60;ok&#x60; or &#x60;deny&#x60;, or have exhausted their attempts, are skipped. All endpoints must return &#x60;ok&#x60; before the business record can continue processing; any &#x60;deny&#x60; terminates the business request.  Each message allows up to 30 delivery attempts in total, including the initial attempt and both automatic and manual retries. This operation does not reset the attempt count or resend exhausted messages.  A successful response means the retry request was processed. It does not guarantee that any message was resent or approved, or that the business record has continued processing. 
+     * @param retryPaymentCallbacksRequest The request body to retry callback messages for a payment business record. (required)
+     * @return RetryPaymentCallbacks201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The callback retry request was processed. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public MerchantKycInfo submitMerchantKyc(String merchantId, SubmitMerchantKyc submitMerchantKyc) throws ApiException {
-        ApiResponse<MerchantKycInfo> localVarResp = submitMerchantKycWithHttpInfo(merchantId, submitMerchantKyc);
+    public RetryPaymentCallbacks201Response retryPaymentCallbacks(RetryPaymentCallbacksRequest retryPaymentCallbacksRequest) throws ApiException {
+        ApiResponse<RetryPaymentCallbacks201Response> localVarResp = retryPaymentCallbacksWithHttpInfo(retryPaymentCallbacksRequest);
         return localVarResp.getData();
     }
 
     /**
-     * Submit merchant KYC
-     * &lt;Note&gt;This operation has been deprecated. Please use [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) to create KYC information and [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc) to update KYC information instead.&lt;/Note&gt;  This operation submits KYC information for a specified merchant.  You need to provide the merchant type, country, and industry. Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants).  &lt;Note&gt;If the merchant KYC status is &#x60;Disabled&#x60;, this operation cannot be used to resubmit KYC information.&lt;/Note&gt; 
-     * @param merchantId The merchant ID. (required)
-     * @param submitMerchantKyc The request body to submit merchant KYC information.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
-     * @return ApiResponse&lt;MerchantKycInfo&gt;
+     * Retry payment callbacks
+     * This operation retries eligible callback messages associated with a refund order, payout, or bulk send.  Specify the business record using &#x60;business_type&#x60; and &#x60;business_id&#x60;. The record must belong to your organization and be in &#x60;PendingDoubleCheck&#x60; status. This operation requires the &#x60;callback.resend&#x60; permission.  For a business record with multiple callback endpoints, this operation attempts to resend each message that is still awaiting a valid response and has remaining attempts. Messages that have received &#x60;ok&#x60; or &#x60;deny&#x60;, or have exhausted their attempts, are skipped. All endpoints must return &#x60;ok&#x60; before the business record can continue processing; any &#x60;deny&#x60; terminates the business request.  Each message allows up to 30 delivery attempts in total, including the initial attempt and both automatic and manual retries. This operation does not reset the attempt count or resend exhausted messages.  A successful response means the retry request was processed. It does not guarantee that any message was resent or approved, or that the business record has continued processing. 
+     * @param retryPaymentCallbacksRequest The request body to retry callback messages for a payment business record. (required)
+     * @return ApiResponse&lt;RetryPaymentCallbacks201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The callback retry request was processed. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public ApiResponse<MerchantKycInfo> submitMerchantKycWithHttpInfo(String merchantId, SubmitMerchantKyc submitMerchantKyc) throws ApiException {
-        okhttp3.Call localVarCall = submitMerchantKycValidateBeforeCall(merchantId, submitMerchantKyc, null);
-        Type localVarReturnType = new TypeToken<MerchantKycInfo>(){}.getType();
+    public ApiResponse<RetryPaymentCallbacks201Response> retryPaymentCallbacksWithHttpInfo(RetryPaymentCallbacksRequest retryPaymentCallbacksRequest) throws ApiException {
+        okhttp3.Call localVarCall = retryPaymentCallbacksValidateBeforeCall(retryPaymentCallbacksRequest, null);
+        Type localVarReturnType = new TypeToken<RetryPaymentCallbacks201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Submit merchant KYC (asynchronously)
-     * &lt;Note&gt;This operation has been deprecated. Please use [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) to create KYC information and [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc) to update KYC information instead.&lt;/Note&gt;  This operation submits KYC information for a specified merchant.  You need to provide the merchant type, country, and industry. Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  The merchant ID can be retrieved by calling [List all merchants](https://www.cobo.com/developers/v2/api-references/payment/list-all-merchants).  &lt;Note&gt;If the merchant KYC status is &#x60;Disabled&#x60;, this operation cannot be used to resubmit KYC information.&lt;/Note&gt; 
-     * @param merchantId The merchant ID. (required)
-     * @param submitMerchantKyc The request body to submit merchant KYC information.  Provide either &#x60;company_info&#x60; or &#x60;individual_info&#x60;: - &#x60;company_info&#x60;: Required for company merchants. - &#x60;individual_info&#x60;: Required for individual merchants.  (optional)
+     * Retry payment callbacks (asynchronously)
+     * This operation retries eligible callback messages associated with a refund order, payout, or bulk send.  Specify the business record using &#x60;business_type&#x60; and &#x60;business_id&#x60;. The record must belong to your organization and be in &#x60;PendingDoubleCheck&#x60; status. This operation requires the &#x60;callback.resend&#x60; permission.  For a business record with multiple callback endpoints, this operation attempts to resend each message that is still awaiting a valid response and has remaining attempts. Messages that have received &#x60;ok&#x60; or &#x60;deny&#x60;, or have exhausted their attempts, are skipped. All endpoints must return &#x60;ok&#x60; before the business record can continue processing; any &#x60;deny&#x60; terminates the business request.  Each message allows up to 30 delivery attempts in total, including the initial attempt and both automatic and manual retries. This operation does not reset the attempt count or resend exhausted messages.  A successful response means the retry request was processed. It does not guarantee that any message was resent or approved, or that the business record has continued processing. 
+     * @param retryPaymentCallbacksRequest The request body to retry callback messages for a payment business record. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The callback retry request was processed. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call submitMerchantKycAsync(String merchantId, SubmitMerchantKyc submitMerchantKyc, final ApiCallback<MerchantKycInfo> _callback) throws ApiException {
+    public okhttp3.Call retryPaymentCallbacksAsync(RetryPaymentCallbacksRequest retryPaymentCallbacksRequest, final ApiCallback<RetryPaymentCallbacks201Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = submitMerchantKycValidateBeforeCall(merchantId, submitMerchantKyc, _callback);
-        Type localVarReturnType = new TypeToken<MerchantKycInfo>(){}.getType();
+        okhttp3.Call localVarCall = retryPaymentCallbacksValidateBeforeCall(retryPaymentCallbacksRequest, _callback);
+        Type localVarReturnType = new TypeToken<RetryPaymentCallbacks201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -10888,137 +10745,6 @@ public class PaymentApi {
         return localVarCall;
     }
     /**
-     * Build call for uploadPaymentFile
-     * @param _file The file to upload. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call uploadPaymentFileCall(File _file, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/payments/files";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        if (_file != null) {
-            localVarFormParams.put("file", _file);
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadPaymentFileValidateBeforeCall(File _file, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter '_file' is set
-        if (_file == null) {
-            throw new ApiException("Missing the required parameter '_file' when calling uploadPaymentFile(Async)");
-        }
-
-        return uploadPaymentFileCall(_file, _callback);
-
-    }
-
-    /**
-     * Upload file
-     * &lt;Note&gt;This operation has been deprecated. Please use [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2) instead.&lt;/Note&gt;  This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
-     * @param _file The file to upload. (required)
-     * @return PaymentUploadedFile
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public PaymentUploadedFile uploadPaymentFile(File _file) throws ApiException {
-        ApiResponse<PaymentUploadedFile> localVarResp = uploadPaymentFileWithHttpInfo(_file);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Upload file
-     * &lt;Note&gt;This operation has been deprecated. Please use [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2) instead.&lt;/Note&gt;  This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
-     * @param _file The file to upload. (required)
-     * @return ApiResponse&lt;PaymentUploadedFile&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<PaymentUploadedFile> uploadPaymentFileWithHttpInfo(File _file) throws ApiException {
-        okhttp3.Call localVarCall = uploadPaymentFileValidateBeforeCall(_file, null);
-        Type localVarReturnType = new TypeToken<PaymentUploadedFile>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Upload file (asynchronously)
-     * &lt;Note&gt;This operation has been deprecated. Please use [Upload file v2](https://www.cobo.com/developers/v2/api-references/payment/upload-file-v2) instead.&lt;/Note&gt;  This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to specify the file to upload. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
-     * @param _file The file to upload. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call uploadPaymentFileAsync(File _file, final ApiCallback<PaymentUploadedFile> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = uploadPaymentFileValidateBeforeCall(_file, _callback);
-        Type localVarReturnType = new TypeToken<PaymentUploadedFile>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for uploadPaymentFileV2
      * @param paymentUploadFileV2 The request body to upload a file. (optional)
      * @param _callback Callback for upload/download progress
@@ -11072,7 +10798,7 @@ public class PaymentApi {
 
     /**
      * Upload file v2
-     * This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). 
      * @param paymentUploadFileV2 The request body to upload a file. (optional)
      * @return PaymentUploadedFile
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11091,7 +10817,7 @@ public class PaymentApi {
 
     /**
      * Upload file v2
-     * This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). 
      * @param paymentUploadFileV2 The request body to upload a file. (optional)
      * @return ApiResponse&lt;PaymentUploadedFile&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11111,7 +10837,7 @@ public class PaymentApi {
 
     /**
      * Upload file v2 (asynchronously)
-     * This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). The returned file link expires at the time specified by &#x60;expired_timestamp&#x60;. 
+     * This operation uploads a file for payment-related use cases, such as fiat entry KYC attachments.  You need to encode the file content in Base64 and include it in the JSON request body together with the original file name. After a successful upload, use the returned AWS file link in &#x60;file_id&#x60; when calling [Create fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/create-fiat-entry-kyc) or [Update fiat entry KYC](https://www.cobo.com/developers/v2/api-references/payment/update-fiat-entry-kyc). 
      * @param paymentUploadFileV2 The request body to upload a file. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

@@ -79,14 +79,6 @@ public class FiatEntryKycDetail {
   @SerializedName(SERIALIZED_NAME_INDUSTRY)
   private List<String> industry = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
-
-  public static final String SERIALIZED_NAME_PHONE = "phone";
-  @SerializedName(SERIALIZED_NAME_PHONE)
-  private String phone;
-
   public static final String SERIALIZED_NAME_COMPANY_INFO = "company_info";
   @SerializedName(SERIALIZED_NAME_COMPANY_INFO)
   private FiatEntryKycCompanyInfo companyInfo;
@@ -206,44 +198,6 @@ public class FiatEntryKycDetail {
 
   public void setIndustry(List<String> industry) {
     this.industry = industry;
-  }
-
-
-  public FiatEntryKycDetail email(String email) {
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * The email address.
-   * @return email
-  **/
-  @javax.annotation.Nullable
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public FiatEntryKycDetail phone(String phone) {
-    this.phone = phone;
-    return this;
-  }
-
-   /**
-   * The phone number.
-   * @return phone
-  **/
-  @javax.annotation.Nullable
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
   }
 
 
@@ -382,8 +336,6 @@ public class FiatEntryKycDetail {
         Objects.equals(this.merchantType, fiatEntryKycDetail.merchantType) &&
         Objects.equals(this.country, fiatEntryKycDetail.country) &&
         Objects.equals(this.industry, fiatEntryKycDetail.industry) &&
-        Objects.equals(this.email, fiatEntryKycDetail.email) &&
-        Objects.equals(this.phone, fiatEntryKycDetail.phone) &&
         Objects.equals(this.companyInfo, fiatEntryKycDetail.companyInfo) &&
         Objects.equals(this.individualInfo, fiatEntryKycDetail.individualInfo) &&
         Objects.equals(this.createdTimestamp, fiatEntryKycDetail.createdTimestamp) &&
@@ -393,7 +345,7 @@ public class FiatEntryKycDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fiatEntryKycId, status, merchantType, country, industry, email, phone, companyInfo, individualInfo, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(fiatEntryKycId, status, merchantType, country, industry, companyInfo, individualInfo, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -405,8 +357,6 @@ public class FiatEntryKycDetail {
     sb.append("    merchantType: ").append(toIndentedString(merchantType)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    companyInfo: ").append(toIndentedString(companyInfo)).append("\n");
     sb.append("    individualInfo: ").append(toIndentedString(individualInfo)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
@@ -439,8 +389,6 @@ public class FiatEntryKycDetail {
     openapiFields.add("merchant_type");
     openapiFields.add("country");
     openapiFields.add("industry");
-    openapiFields.add("email");
-    openapiFields.add("phone");
     openapiFields.add("company_info");
     openapiFields.add("individual_info");
     openapiFields.add("created_timestamp");
@@ -491,12 +439,6 @@ public class FiatEntryKycDetail {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("industry").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `industry` to be an array in the JSON string but got `%s`", jsonObj.get("industry").toString()));
-      }
-      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if ((jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull()) && !jsonObj.get("phone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
       }
       // validate the optional field `company_info`
       if (jsonObj.get("company_info") != null && !jsonObj.get("company_info").isJsonNull()) {
